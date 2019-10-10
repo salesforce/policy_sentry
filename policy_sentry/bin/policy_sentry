@@ -1,0 +1,24 @@
+#! /usr/bin/env python
+"""
+    policy_sentry is a tool for generating AWS IAM policies based on yaml files.
+"""
+
+import click
+from policy_sentry import command
+# import command
+
+
+@click.group()
+def policy_sentry():
+    """
+    policy_sentry is a tool for generating AWS IAM policies based on yaml files.
+    """
+
+
+policy_sentry.add_command(command.analyze_iam_policy.analyze_iam_policy)
+policy_sentry.add_command(command.initialize.initialize)
+policy_sentry.add_command(command.write_policy.write_policy)
+policy_sentry.add_command(command.write_policy_dir.write_policy_dir)
+
+if __name__ == '__main__':
+    policy_sentry()

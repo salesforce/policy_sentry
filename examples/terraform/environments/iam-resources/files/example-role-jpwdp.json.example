@@ -1,0 +1,108 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3ReadBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:getaccelerateconfiguration",
+                "s3:getanalyticsconfiguration",
+                "s3:getbucketacl",
+                "s3:getbucketcors",
+                "s3:getbucketlocation",
+                "s3:getbucketlogging",
+                "s3:getbucketnotification",
+                "s3:getbucketpolicy",
+                "s3:getbucketpolicystatus",
+                "s3:getbucketpublicaccessblock",
+                "s3:getbucketrequestpayment",
+                "s3:getbuckettagging",
+                "s3:getbucketversioning",
+                "s3:getbucketwebsite",
+                "s3:getencryptionconfiguration",
+                "s3:getinventoryconfiguration",
+                "s3:getlifecycleconfiguration",
+                "s3:getmetricsconfiguration",
+                "s3:getreplicationconfiguration",
+                "s3:listbucketbytags",
+                "s3:listbucketmultipartuploads",
+                "s3:listbucketversions"
+            ],
+            "Resource": [
+                "arn:aws:s3:::kinnaird-sfdc-policy_sentry-demo-jpwdp"
+            ]
+        },
+        {
+            "Sid": "SsmReadParameter",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:getparameter",
+                "ssm:getparameterhistory",
+                "ssm:getparameters",
+                "ssm:getparametersbypath",
+                "ssm:listtagsforresource"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-west-1:012345678910:parameter/policy_sentry/test-jpwdp"
+            ]
+        },
+        {
+            "Sid": "Ec2WriteVpc",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:acceptvpcpeeringconnection",
+                "ec2:applysecuritygroupstoclientvpntargetnetwork",
+                "ec2:attachclassiclinkvpc",
+                "ec2:createtransitgatewayvpcattachment",
+                "ec2:createvpcpeeringconnection",
+                "ec2:detachclassiclinkvpc",
+                "ec2:disablevpcclassiclink",
+                "ec2:enablevpcclassiclink"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-west-1:012345678910:vpc/vpc-0066a88d425956d10"
+            ]
+        },
+        {
+            "Sid": "S3WriteObject",
+            "Effect": "Allow",
+            "Action": [
+                "s3:abortmultipartupload",
+                "s3:deleteobject",
+                "s3:deleteobjectversion",
+                "s3:getobjectlegalhold",
+                "s3:getobjectretention",
+                "s3:putobject",
+                "s3:putobjectlegalhold",
+                "s3:putobjectretention",
+                "s3:replicatedelete",
+                "s3:replicateobject",
+                "s3:restoreobject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::kinnaird-sfdc-policy_sentry-demo-jpwdp/my-path"
+            ]
+        },
+        {
+            "Sid": "S3ListBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:listbucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::kinnaird-sfdc-policy_sentry-demo-jpwdp"
+            ]
+        },
+        {
+            "Sid": "Ec2TaggingVpc",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:createtags",
+                "ec2:deletetags"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-west-1:012345678910:vpc/vpc-0066a88d425956d10"
+            ]
+        }
+    ]
+}
