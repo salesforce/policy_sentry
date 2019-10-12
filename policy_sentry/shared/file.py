@@ -1,6 +1,9 @@
 import yaml
 import os.path
 import json
+from os import listdir
+from os.path import isfile, join
+
 
 def read_this_file(filename):
     lines = []
@@ -58,3 +61,36 @@ def write_json_file(filename, json_contents):
         #     print(exc)
     # return filename
 
+
+def read_json_policy_file(json_file):
+    """
+    read the json policy file and return a list of actions
+    """
+
+    # FIXME use a try/expect here to validate the json file. I would create a generic json
+    with open(json_file) as json_file:
+        # validation function/parser as there is a lot of json floating around in this tool. [MJ]
+        data = json.load(json_file)
+        actions_list = []
+        # Multiple statements are in the 'Statement' list
+        for statement in data['Statement']:
+            if 'Action' not in statement:
+                continue
+            elif isinstance(statement['Action'], list):
+                actions_list.extend(statement['Action'])
+            elif isinstance(statement['Action'], str):
+                actions_list.append(statement['Action'])
+            else:
+                print("Unknown error: The 'Action' is neither a list nor a string")
+                exit()
+    try:
+        actions_list = [x.lower() for x in actions_list]
+    except AttributeError:
+        print(actions_list)
+        print("AttributeError: 'list' object has no attribute 'lower'")
+    return actions_list
+
+
+def list_files_in_directory(directory):
+    only_files = [f for f in listdir(directory) if isfile(join(directory, f))]
+    return only_files
