@@ -1,5 +1,16 @@
 # Changelog
 
+## 2019-10-12
+### Added
+* New services added for coverage:
+  - iq
+  - iq-permission
+  - deepracer
+  - dbqms
+  - forecast
+  - lakeformation
+  - rds-data
+
 ## 2019-10-06
 ### Added
 * Added `analyze` functionality to analyze a policy according to access levels, not just a list of actions.
