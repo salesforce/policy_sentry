@@ -1,5 +1,20 @@
 # Changelog
 
+## 2019-10-12
+### Added
+* Updated to 0.4.1
+* New services added for coverage:
+  - iq
+  - iq-permission
+  - deepracer
+  - dbqms
+  - forecast
+  - lakeformation
+  - rds-data
+  
+### Changed
+* `utils/get_links.py` script had an issue with paths
+
 ## 2019-10-06
 ### Added
 * Added `analyze` functionality to analyze a policy according to access levels, not just a list of actions.
