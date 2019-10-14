@@ -94,3 +94,10 @@ def read_json_policy_file(json_file):
 def list_files_in_directory(directory):
     only_files = [f for f in listdir(directory) if isfile(join(directory, f))]
     return only_files
+
+
+def create_directory_if_it_doesnt_exist(directory):
+    if os.path.exists(directory):
+        pass
+    else:
+        os.mkdir(directory)

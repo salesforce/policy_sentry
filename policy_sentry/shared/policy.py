@@ -353,11 +353,21 @@ class PolicyGroup:
         else:
             return self.policies[policy_name]['policy_document']
 
-    def set_remote_policy_metadata(self, iam_session):
+    def set_remote_policy_metadata(self, iam_session, customer_managed=True, attached_only=True):
+        """
+        Grabs IAM policies and adds them to the object
+        :param iam_session: IAM boto session
+        :param customer_managed: True for 'Local' (customer managed policies), False for 'AWS' (managed policies)
+        :param only_attached: True/False
+        """
+        if customer_managed:
+            scope = 'Local'
+        else:
+            scope = 'AWS'
         # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.list_policies
         response = iam_session.list_policies(
-            Scope='Local',
-            OnlyAttached=True,
+            Scope=scope,
+            OnlyAttached=attached_only,
             PathPrefix='/',  # slash (/) lists all policies
             PolicyUsageFilter='PermissionsPolicy',
             MaxItems=123
