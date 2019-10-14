@@ -8,7 +8,10 @@ from policy_sentry.command.write_policy import write_policy_with_actions, write_
 from policy_sentry.shared.file import read_yaml_file, write_json_file, check_valid_file_path
 
 
-@click.command()
+@click.command(
+    short_help='Samee as write-policy, but this time with an input directory of YML/YAML files, '
+               'and an output directory for all the JSON files.'
+)
 @click.option(
     '--input-dir',
     type=str,

@@ -188,7 +188,9 @@ ALL_AWS_SERVICES = [
     "workspaces",
     "xray"
 ]
-@click.command()
+@click.command(
+    short_help='Create a local database to store AWS IAM information.'
+)
 def initialize():
     """
     Create a local database to store AWS IAM information, which can be used to generate IAM policies and analyze them for least privilege.

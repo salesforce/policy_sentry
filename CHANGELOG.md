@@ -1,4 +1,8 @@
 # Changelog
+## 2019-10-14
+### Changed
+* `short_help` for Click commands to improve help messages
+* `create_template` command added to make policy file writing easier.
 
 ## 2019-10-12
 ### Added
