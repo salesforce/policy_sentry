@@ -24,6 +24,7 @@ setuptools.setup(
         'bs4',
         'html5lib',
         'lxml',
+        'jinja2',
         'schema'
     ],
     classifiers=[
