@@ -2,10 +2,6 @@ from policy_sentry.shared.login import login
 from policy_sentry.shared.policy import PolicyGroup
 from policy_sentry.shared.file import write_json_file, list_files_in_directory, create_directory_if_it_doesnt_exist
 from pathlib import Path
-from os import listdir
-from os.path import isfile, join
-import os
-from pprint import pprint
 
 home = str(Path.home())
 config_directory = '/.policy_sentry/'
@@ -33,14 +29,9 @@ def download_remote_policies(profile=None, customer_managed=True, attached_only=
     create_directory_if_it_doesnt_exist(customer_managed_policy_file_directory)
     create_directory_if_it_doesnt_exist(aws_managed_policy_file_directory)
 
-    # Create the PolicyGroup Object
     policy_group = PolicyGroup()
-    # Grab the remote policy metadata
     policy_group.set_remote_policy_metadata(iam_session, customer_managed, attached_only)
-    # Get the list of policy names and put it in a list
     policy_names = policy_group.get_policy_names()
-
-    # Grab all the custom policy documents and set it
     policy_group.set_remote_policy_documents(iam_session)
 
     # Determine whether we should store it in the customer-managed or aws-managed directory
@@ -62,17 +53,3 @@ def download_remote_policies(profile=None, customer_managed=True, attached_only=
     only_files = list_files_in_directory(filename_directory)
     for filename in only_files:
         print(filename)
-
-
-def download_managed_policies_in_use(profile=None):
-    if profile:
-        profile = profile
-    else:
-        profile = "default"
-
-    # Inline user policies:
-    # https://docs.aws.amazon.com/cli/latest/reference/iam/list-user-policies.html
-
-    # Inline role policies:
-
-
