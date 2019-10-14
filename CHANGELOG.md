@@ -2,6 +2,7 @@
 
 ## 2019-10-12
 ### Added
+* Updated to 0.4.1
 * New services added for coverage:
   - iq
   - iq-permission
@@ -10,6 +11,9 @@
   - forecast
   - lakeformation
   - rds-data
+  
+### Changed
+* `utils/get_links.py` script had an issue with paths
 
 ## 2019-10-06
 ### Added

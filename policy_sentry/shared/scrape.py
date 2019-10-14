@@ -29,6 +29,7 @@ irregular_service_names = {  # TODO set this as a constant in a header file
     'ecs': 'elasticcontainerservice',
     'eks': 'elasticcontainerserviceforkubernetes',
     'efs': 'elasticfilesystem',
+    'elastic-inference': 'elasticinference',
     'es': 'elasticsearchservice',
     'events': 'cloudwatchevents',
     'firehose': 'kinesisfirehose',
@@ -52,7 +53,6 @@ irregular_service_names = {  # TODO set this as a constant in a header file
     'mediatailor': 'elementalmediatailor',
     'mgh': 'migrationhub',
     'mobiletargeting': 'pinpoint',
-    'qldb': 'qldb',
     'pi': 'performanceinsights',
     'pricing': 'pricelist',
     'ram': 'resourceaccessmanager',
@@ -75,7 +75,6 @@ irregular_service_names = {  # TODO set this as a constant in a header file
     'wellarchitected': 'well-architectedtool',
     'xray': 'x-ray'
 }
-
 irregular_service_links = {  # TODO set this as a constant in a header file
     'a4b': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_alexaforbusiness.html'

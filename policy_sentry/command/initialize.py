@@ -55,7 +55,7 @@ ALL_AWS_SERVICES = [
     "dax",
     "dbqms",
     "deeplens",
-    "deepracer"
+    "deepracer",
     "devicefarm",
     "directconnect",
     "discovery",
@@ -133,6 +133,7 @@ ALL_AWS_SERVICES = [
     "pi",
     "polly",
     "pricing",
+    "qldb",
     "quicksight",
     "ram",
     "rds",
@@ -187,9 +188,6 @@ ALL_AWS_SERVICES = [
     "workspaces",
     "xray"
 ]
-
-
-
 @click.command()
 def initialize():
     """
