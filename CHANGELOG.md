@@ -1,4 +1,23 @@
 # Changelog
+## 2019-10-14
+### Changed
+* `short_help` for Click commands to improve help messages
+* `create_template` command added to make policy file writing easier.
+
+## 2019-10-12
+### Added
+* Updated to 0.4.1
+* New services added for coverage:
+  - iq
+  - iq-permission
+  - deepracer
+  - dbqms
+  - forecast
+  - lakeformation
+  - rds-data
+  
+### Changed
+* `utils/get_links.py` script had an issue with paths
 
 ## 2019-10-06
 ### Added

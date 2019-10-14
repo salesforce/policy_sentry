@@ -66,21 +66,21 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
     return policy
 
 
-@click.command()
+@click.command(
+    short_help='Write least-privilege IAM policies using a list of actions or access levels specific to resource ARNs.'
+)
 @click.option(
     '--input-file',
     type=str,
     required=True,
     help='Path of the YAML File used for generating policies'
 )
-
 @click.option(
     '--crud',
     is_flag=True,
     required=False,
     help='Use the CRUD functionality. Defaults to false'
 )
-
 @click.option(
     '--minimize',
     required=False,

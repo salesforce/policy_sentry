@@ -53,7 +53,9 @@ ALL_AWS_SERVICES = [
     "datapipeline",
     "datasync",
     "dax",
+    "dbqms",
     "deeplens",
+    "deepracer",
     "devicefarm",
     "directconnect",
     "discovery",
@@ -77,6 +79,7 @@ ALL_AWS_SERVICES = [
     "events",
     "execute-api",
     "firehose",
+    "forecast",
     "fms",
     "freertos",
     "fsx",
@@ -91,6 +94,8 @@ ALL_AWS_SERVICES = [
     "iam",
     "importexport",
     "inspector",
+    "iq",
+    "iq-permission",
     "iot",
     "iot1click",
     "iotanalytics",
@@ -101,6 +106,7 @@ ALL_AWS_SERVICES = [
     "kinesisanalytics",
     "kinesisvideo",
     "kms",
+    "lakeformation",
     "lambda",
     "lex",
     "license-manager",
@@ -127,9 +133,11 @@ ALL_AWS_SERVICES = [
     "pi",
     "polly",
     "pricing",
+    "qldb",
     "quicksight",
     "ram",
     "rds",
+    "rds-data",
     "redshift",
     "rekognition",
     "resource-groups",
@@ -180,10 +188,9 @@ ALL_AWS_SERVICES = [
     "workspaces",
     "xray"
 ]
-
-
-
-@click.command()
+@click.command(
+    short_help='Create a local database to store AWS IAM information.'
+)
 def initialize():
     """
     Create a local database to store AWS IAM information, which can be used to generate IAM policies and analyze them for least privilege.

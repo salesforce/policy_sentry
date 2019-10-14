@@ -56,7 +56,9 @@ ALL_AWS_SERVICES = [
     "datapipeline",
     "datasync",
     "dax",
+    "dbqms",
     "deeplens",
+    "deepracer",
     "devicefarm",
     "directconnect",
     "discovery",
@@ -80,6 +82,7 @@ ALL_AWS_SERVICES = [
     "events",
     "execute-api",
     "firehose",
+    "forecast",
     "fms",
     "freertos",
     "fsx",
@@ -94,6 +97,8 @@ ALL_AWS_SERVICES = [
     "iam",
     "importexport",
     "inspector",
+    "iq",
+    "iq-permission",
     "iot",
     "iot1click",
     "iotanalytics",
@@ -104,6 +109,7 @@ ALL_AWS_SERVICES = [
     "kinesisanalytics",
     "kinesisvideo",
     "kms",
+    "lakeformation",
     "lambda",
     "lex",
     "license-manager",
@@ -130,9 +136,11 @@ ALL_AWS_SERVICES = [
     "pi",
     "polly",
     "pricing",
+    "qldb",
     "quicksight",
     "ram",
     "rds",
+    "rds-data",
     "redshift",
     "rekognition",
     "resource-groups",
@@ -183,7 +191,8 @@ ALL_AWS_SERVICES = [
     "workspaces",
     "xray"
 ]
-irregular_service_names = {
+
+irregular_service_names = {  # TODO set this as a constant in a header file
     'a4b': 'alexaforbusiness',
     'appstream': 'appstream2.0',
     'acm': 'certificatemanager',
@@ -205,6 +214,7 @@ irregular_service_names = {
     'ecs': 'elasticcontainerservice',
     'eks': 'elasticcontainerserviceforkubernetes',
     'efs': 'elasticfilesystem',
+    'elastic-inference': 'elasticinference',
     'es': 'elasticsearchservice',
     'events': 'cloudwatchevents',
     'firehose': 'kinesisfirehose',
@@ -250,8 +260,7 @@ irregular_service_names = {
     'wellarchitected': 'well-architectedtool',
     'xray': 'x-ray'
 }
-
-irregular_service_links = {
+irregular_service_links = {  # TODO set this as a constant in a header file
     'a4b': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_alexaforbusiness.html'
     ],
@@ -281,6 +290,9 @@ irregular_service_links = {
     'datasync': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_datasync.html'
     ],
+    'dbqms': [
+        'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_databasequerymetadataservice.html'
+    ],
     'discovery': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_applicationdiscovery.html'
     ],
@@ -294,12 +306,18 @@ irregular_service_links = {
     'iam': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_identityandaccessmanagement.html'
     ],
+    'iq-permissions': [
+        'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiqpermissions.html',
+    ],
     'neptune-db': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonneptune.html'
     ],
+    'rds-data': [
+        'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonrdsdataapi.html'
+    ],
     'servicequotas': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_servicequotas.html'
-    ]
+    ],
 }
 
 
@@ -347,7 +365,7 @@ def main():
     # Write a YAML file that will contain the links and their mappings to various services.
     # This should have the 'https://docs.aws.amazon.com/IAM/latest/UserGuide/' portion removed
     # that will be used by policy_sentry to read those files and build the tables
-    with open('./shared/links.yml', 'w+') as outfile:
+    with open('./policy_sentry/shared/links.yml', 'w+') as outfile:
         yaml.dump(valid_links_shortened, outfile, default_flow_style=False)
     outfile.close()
 
