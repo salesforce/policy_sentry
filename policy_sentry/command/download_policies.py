@@ -15,13 +15,13 @@ from policy_sentry.shared.download import download_remote_policies
     '--aws-managed',
     is_flag=True,
     default=False,
-    help='Custom.'
+    help='Use flag if you want to download AWS Managed policies too.'
 )
 @click.option(
     '--include-unattached',
     is_flag=True,
     default=False,
-    help='Download only policies that are attached'
+    help='Download only policies that are attached.'
 )
 def download_policies(profile, aws_managed, include_unattached):
     """Download remote IAM policies to a directory for use in the analyze-iam-policies command."""
