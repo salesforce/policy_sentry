@@ -26,7 +26,7 @@ Such a process is not ideal for security or for Infrastructure as Code developer
 pip install --user policy_sentry
 ```
 
-* Command cheat sheet
+* Policy Writing cheat sheet
 
 ```bash
 # Initialize the policy_sentry config folder and create the IAM database tables.
@@ -46,12 +46,31 @@ policy_sentry create-template --name myRole --output-file tmp.yml --template-typ
 
 # Write policy based on a list of actions
 policy_sentry write-policy --file examples/actions.yml
+```
 
-# Analyze an IAM policy to identify actions with specific access levels
-policy_sentry analyze-iam-policy --show permissions-management --file examples/analyze/wildcards.json
+* Policy Analysis Cheat Sheet
 
-# Analyze an IAM policy to identify higher-risk IAM calls
+```bash
+# Initialize the policy_sentry config folder and create the IAM database tables.
+policy_sentry initialize
+
+# Analyze a policy FILE to determine actions with "Permissions Management" access levels
+policy_sentry analyze-iam-policy --from-access-level permissions-management --file examples/analyze/wildcards.json
+
+# Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
+policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+
+# Download customer-managed IAM policies, including those that are not attached
+policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+
+# Analyze a DIRECTORY of policy files
+policy_sentry analyze-iam-policy --show ~/.policy_sentry/123456789012/customer-managed
+
+# Analyze a policy FILE to identify higher-risk IAM calls
 policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json
+
+# Analyze a policy against a custom file containing a list of IAM actions
+policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json --from-audit-file ~/.policy_sentry/audit/privilege-escalation.txt
 ```
 
 ## Commands
@@ -66,6 +85,8 @@ policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json
   - Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation][14].
 
 * `write-policy-dir`: This can be helpful in the Terraform use case. For more information, see the wiki.
+
+* `download-policies`: Download IAM policies from your AWS account for analysis.
 
 * `analyze-iam-policy`: Analyze an IAM policy read from a JSON file, expands the wildcards (like `s3:List*` if necessary.
   - Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the [documentation][12].

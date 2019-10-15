@@ -1,6 +1,9 @@
 import yaml
 import os.path
 import json
+from os import listdir
+from os.path import isfile, join
+
 
 def read_this_file(filename):
     lines = []
@@ -58,3 +61,67 @@ def write_json_file(filename, json_contents):
         #     print(exc)
     # return filename
 
+
+def get_actions_from_json_policy_file(json_file):
+    """
+    read the json policy file and return a list of actions
+    """
+
+    # FIXME use a try/expect here to validate the json file. I would create a generic json
+    with open(json_file) as json_file:
+        # validation function/parser as there is a lot of json floating around in this tool. [MJ]
+        data = json.load(json_file)
+        actions_list = []
+        # Multiple statements are in the 'Statement' list
+        for i in range(len(data['Statement'])):
+            try:
+                if isinstance(data['Statement'], dict):
+                    try:
+
+                        if isinstance(data['Statement']['Action'], str):
+                            actions_list.append(data['Statement']['Action'])
+                        elif isinstance(data['Statement']['Action'], list):
+                            actions_list.extend(data['Statement']['Action'])
+                        else:
+                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            continue
+                    except KeyError as e:
+                        print(e)
+                        exit()
+                elif isinstance(data['Statement'], list):
+                    try:
+                        if isinstance(data['Statement'][i]['Action'], str):
+                            actions_list.append(data['Statement'][i]['Action'])
+                        elif isinstance(data['Statement'][i]['Action'], list):
+                            actions_list.extend(data['Statement'][i]['Action'])
+                        else:
+                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            exit()
+                    except KeyError as e:
+                        print(e)
+                        exit()
+                else:
+                    print("Unknown error: The 'Action' is neither a list nor a string")
+                    exit()
+            except TypeError as e:
+                print(e)
+                exit()
+    try:
+        actions_list = [x.lower() for x in actions_list]
+    except AttributeError:
+        print(actions_list)
+        print("AttributeError: 'list' object has no attribute 'lower'")
+    actions_list.sort()
+    return actions_list
+
+
+def list_files_in_directory(directory):
+    only_files = [f for f in listdir(directory) if isfile(join(directory, f))]
+    return only_files
+
+
+def create_directory_if_it_doesnt_exist(directory):
+    if os.path.exists(directory):
+        pass
+    else:
+        os.mkdir(directory)

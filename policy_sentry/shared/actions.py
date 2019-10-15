@@ -58,6 +58,19 @@ def get_actions_by_access_level(db_session, actions_list, access_level):
         else:
             # Just take the first result
             new_actions_list.append(action)
+        # Permissions management should also include IAM Write actions, not just IAM Permissions Management
+        if access_level == "permissions-management" and service == "iam":
+            query_iam_write_access_level = db_session.query(ActionTable).filter(
+                and_(ActionTable.service.like(service),
+                     ActionTable.name.like(str.lower(action_name)),
+                     ActionTable.access_level.like("Write")
+                     ))
+            first_result = query_actions_access_level.first()
+            if first_result is None:
+                pass
+            else:
+                # Just take the first result
+                new_actions_list.append(action)
     return new_actions_list
 
 

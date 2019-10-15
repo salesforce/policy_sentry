@@ -9,7 +9,7 @@ from policy_sentry.shared.file import read_yaml_file, write_json_file, check_val
 
 
 @click.command(
-    short_help='Samee as write-policy, but this time with an input directory of YML/YAML files, '
+    short_help='Same as write-policy, but this time with an input directory of YML/YAML files, '
                'and an output directory for all the JSON files.'
 )
 @click.option(

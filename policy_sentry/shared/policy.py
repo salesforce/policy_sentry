@@ -1,6 +1,7 @@
 import copy
 import sys
 import re
+import json
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable
 from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
@@ -322,3 +323,72 @@ def capitalize_first_character(some_string):
     :return:
     """
     return ' '.join(''.join([w[0].upper(), w[1:].lower()]) for w in some_string.split())
+
+
+class PolicyGroup:
+
+    def __init__(self):
+        self.policies = {}
+        # each dict has:
+        # policy_name, policy_id, policy_arn, default_version_id, and policy_document
+
+    def add(self, policy_name, policy_id, policy_arn, default_version_id):
+        temp_dict = {
+            'policy_id': policy_id,
+            'policy_arn': policy_arn,
+            'default_version_id': default_version_id
+        }
+        self.policies[policy_name] = temp_dict
+
+    def get_policy_names(self):
+        temp_list_of_policy_names = []
+        for policy in self.policies:
+            temp_list_of_policy_names.append(policy)
+        return temp_list_of_policy_names
+
+    def get_policy_document(self, policy_name, formatted_as_string=None):
+        if formatted_as_string:
+            policy = self.policies[policy_name]['policy_document']
+            return json.dumps(policy, indent=4, default=str)
+        else:
+            return self.policies[policy_name]['policy_document']
+
+    def set_remote_policy_metadata(self, iam_session, customer_managed=True, attached_only=True):
+        """
+        Grabs IAM policies and adds them to the object
+        :param iam_session: IAM boto session
+        :param customer_managed: True for 'Local' (customer managed policies), False for 'AWS' (managed policies)
+        :param only_attached: True/False
+        """
+        if customer_managed:
+            scope = 'Local'
+        else:
+            scope = 'AWS'
+        # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.list_policies
+        response = iam_session.list_policies(
+            Scope=scope,
+            OnlyAttached=attached_only,
+            PathPrefix='/',  # slash (/) lists all policies
+            PolicyUsageFilter='PermissionsPolicy',
+            MaxItems=123
+        )
+        for policy in response['Policies']:
+            policy_name = policy['PolicyName']
+            policy_id = policy['PolicyId']
+            policy_arn = policy['Arn']
+            default_version_id = policy['DefaultVersionId']
+            self.add(policy_name, policy_id, policy_arn, default_version_id)
+
+    def set_policy_document(self, policy_name, document):
+        # document is a dict containing version and statement. Statement contains typical IAM policy statements.
+        # for policy in self.policies:
+        # TODO: Handle an error where the policy name does not exist
+        self.policies[policy_name]['policy_document'] = document
+
+    def set_remote_policy_documents(self, iam_session):
+        for policy in self.policies:
+            response = iam_session.get_policy_version(
+                PolicyArn=self.policies[policy]['policy_arn'],
+                VersionId=self.policies[policy]['default_version_id']
+            )
+            self.set_policy_document(policy, response['PolicyVersion']['Document'])
