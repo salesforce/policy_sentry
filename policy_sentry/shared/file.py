@@ -62,7 +62,7 @@ def write_json_file(filename, json_contents):
     # return filename
 
 
-def read_json_policy_file(json_file):
+def get_actions_from_json_policy_file(json_file):
     """
     read the json policy file and return a list of actions
     """
@@ -73,21 +73,45 @@ def read_json_policy_file(json_file):
         data = json.load(json_file)
         actions_list = []
         # Multiple statements are in the 'Statement' list
-        for statement in data['Statement']:
-            if 'Action' not in statement:
-                continue
-            elif isinstance(statement['Action'], list):
-                actions_list.extend(statement['Action'])
-            elif isinstance(statement['Action'], str):
-                actions_list.append(statement['Action'])
-            else:
-                print("Unknown error: The 'Action' is neither a list nor a string")
+        for i in range(len(data['Statement'])):
+            try:
+                if isinstance(data['Statement'], dict):
+                    try:
+
+                        if isinstance(data['Statement']['Action'], str):
+                            actions_list.append(data['Statement']['Action'])
+                        elif isinstance(data['Statement']['Action'], list):
+                            actions_list.extend(data['Statement']['Action'])
+                        else:
+                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            continue
+                    except KeyError as e:
+                        print(e)
+                        exit()
+                elif isinstance(data['Statement'], list):
+                    try:
+                        if isinstance(data['Statement'][i]['Action'], str):
+                            actions_list.append(data['Statement'][i]['Action'])
+                        elif isinstance(data['Statement'][i]['Action'], list):
+                            actions_list.extend(data['Statement'][i]['Action'])
+                        else:
+                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            exit()
+                    except KeyError as e:
+                        print(e)
+                        exit()
+                else:
+                    print("Unknown error: The 'Action' is neither a list nor a string")
+                    exit()
+            except TypeError as e:
+                print(e)
                 exit()
     try:
         actions_list = [x.lower() for x in actions_list]
     except AttributeError:
         print(actions_list)
         print("AttributeError: 'list' object has no attribute 'lower'")
+    actions_list.sort()
     return actions_list
 
 

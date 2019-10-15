@@ -20,7 +20,7 @@ import os.path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import get_actions_by_access_level
 from policy_sentry.shared.analyze import determine_actions_to_expand, determine_risky_actions, analyze
-from policy_sentry.shared.file import read_json_policy_file, list_files_in_directory
+from policy_sentry.shared.file import get_actions_from_json_policy_file, list_files_in_directory
 
 
 HOME = str(Path.home())

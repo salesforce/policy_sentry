@@ -1,8 +1,14 @@
 # Changelog
+## 2019-10-15
+### Added
+* Unit tests for the policy template generation
+* `download-policies` command added
+  - Downloads policies to `~/.policy_sentry/account-id/aws-managed` or `~/.policy_sentry/account-id/customer-managed`.
+
 ## 2019-10-14
 ### Changed
 * `short_help` for Click commands to improve help messages
-* `create_template` command added to make policy file writing easier.
+* `create-template` command added to make policy file writing easier.
 
 ## 2019-10-12
 ### Added

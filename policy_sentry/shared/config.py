@@ -2,12 +2,13 @@
 # Default location is $HOME/.policy_sentry
 from pathlib import Path
 import os
-from policy_sentry.shared.file import read_this_file
+from policy_sentry.shared.file import read_this_file, create_directory_if_it_doesnt_exist, list_files_in_directory
+import shutil
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
 DATABASE_FILE_NAME = 'aws.sqlite3'
-AUDIT_DIRECTORY_FOLDER = '/audit'
+AUDIT_DIRECTORY_FOLDER = 'audit/'
 
 
 def create_policy_sentry_config_directory():
@@ -32,22 +33,18 @@ def create_policy_sentry_config_directory():
 
 def create_audit_directory():
     """
-    Creates directory for analyze_iam_policy audit files and places a single audit file there.
+    Creates directory for analyze_iam_policy audit files and places audit files there.
     """
     audit_directory_path = HOME + CONFIG_DIRECTORY + AUDIT_DIRECTORY_FOLDER
-    if os.path.exists(audit_directory_path):
-        pass
-    else:
-        os.mkdir(audit_directory_path)
+    create_directory_if_it_doesnt_exist(audit_directory_path)
+    destination = audit_directory_path
 
-    permissions_audit_file = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/permissions-access-level.txt'
-    lines = read_this_file(permissions_audit_file)
-    audit_file_name = '/permissions-access-level.txt'
-    new_audit_file = audit_directory_path + audit_file_name
-    with open(new_audit_file, 'w+') as fileobj:
-        for line in lines:
-            fileobj.write(line)
-            fileobj.write('\n')
-            fileobj.flush()
-    fileobj.close()
+    existing_audit_files_directory = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/'
+    source = existing_audit_files_directory
+    file_list = list_files_in_directory(existing_audit_files_directory)
+
+    for file in file_list:
+        if file.endswith(".txt"):
+            shutil.copy(source + '/' + file, destination)
+            print("copying " + file + " to " + destination)
 

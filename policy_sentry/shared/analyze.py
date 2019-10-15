@@ -4,7 +4,7 @@ from policyuniverse import all_permissions
 import fnmatch
 import json
 import pprint
-from policy_sentry.shared.file import read_json_policy_file
+from policy_sentry.shared.file import get_actions_from_json_policy_file
 from policy_sentry.shared.actions import get_actions_by_access_level
 
 
@@ -80,7 +80,7 @@ def determine_actions_to_expand(action_list):
 
 def analyze(policy_file, db_session, from_access_level, from_audit_file):
 
-    requested_actions = read_json_policy_file(policy_file)
+    requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
 
     if from_access_level:
