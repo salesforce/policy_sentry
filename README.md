@@ -18,6 +18,164 @@ Writing security-conscious IAM Policies by hand can be very tedious and ineffici
  
 Such a process is not ideal for security or for Infrastructure as Code developers. We need to make it easier to write IAM Policies securely and abstract the complexity of writing least-privilege IAM policies. That's why I made this tool.
 
+### Authoring Secure IAM Policies
+
+`policy_sentry`'s flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
+
+* "I need Read/Write/List access to `arn:aws:s3:::example-org-sbx-vmimport`"
+* "I need Permissions Management access to `arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
+* "I need Tagging access to `arn:aws:ssm:us-east-1:123456789012:parameter/test`"
+
+...and our automation should create policies that correspond to those access levels. 
+
+How do we accomplish this? Well, policy_sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
+
+<table class="tg">
+  <tr>
+    <th class="tg-fymr">Actions</th>
+    <th class="tg-fymr">Access Level</th>
+    <th class="tg-fymr">Resource Types</th>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ssm:GetParameter</td>
+    <td class="tg-0pky">Read</td>
+    <td class="tg-0pky">parameter</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ssm:DescribeParameters</td>
+    <td class="tg-0pky">List</td>
+    <td class="tg-0pky">parameter</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ssm:PutParameter</td>
+    <td class="tg-0pky">Write</td>
+    <td class="tg-0pky">parameter</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">secretsmanager:PutResourcePolicy</td>
+    <td class="tg-0pky">Permissions management</td>
+    <td class="tg-0pky">secret</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">secretsmanager:TagResource</td>
+    <td class="tg-0pky">Tagging</td>
+    <td class="tg-0pky">secret</td>
+  </tr>
+</table>
+
+Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs: 
+
+```bash
+policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
+```
+
+It will generate a file like this:
+
+```yaml
+roles_with_crud_levels:
+- name: myRole
+  description: '' # Insert description
+  arn: '' # Insert the ARN of the role that will use this
+  read:
+    - '' # Insert ARNs for Read access
+  write:
+    - '' # Insert ARNs...
+  list:
+    - '' # Insert ARNs...
+  tag:
+    - '' # Insert ARNs...
+  permissions-management:
+    - '' # Insert ARNs...
+```
+
+Then just fill it out:
+
+```yaml
+roles_with_crud_levels:
+- name: myRole
+  description: 'Justification for privileges'
+  arn: 'arn:aws:iam::123456789102:role/myRole'
+  read:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+  write:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+  list:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+  tag:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+  permissions-management:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+```
+
+Then run this command:
+
+```bash
+policy_sentry write-policy --crud --input-file crud.yml
+```
+
+It will generate these results:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SsmReadParameter",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:getparameter",
+                "ssm:getparameterhistory",
+                "ssm:getparameters",
+                "ssm:getparametersbypath",
+                "ssm:listtagsforresource"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
+            ]
+        },
+        {
+            "Sid": "SsmWriteParameter",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:deleteparameter",
+                "ssm:deleteparameters",
+                "ssm:putparameter",
+                "ssm:labelparameterversion"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
+            ]
+        },
+        {
+            "Sid": "SecretsmanagerPermissionsmanagementSecret",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:deleteresourcepolicy",
+                "secretsmanager:putresourcepolicy"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+            ]
+        },
+        {
+            "Sid": "SecretsmanagerTaggingSecret",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:tagresource",
+                "secretsmanager:untagresource"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+            ]
+        }
+    ]
+}
+```
+
+Notice how the policy above recognizes the ARNs that the user supplies, along with the requested access level. For instance, the SID “SecretsmanagerTaggingSecret” contains Tagging actions that are assigned to the secret resource type only.
+
+This rapidly speeds up the time to develop IAM policies, and ensures that all policies created limit access to exactly what your role needs access to. This way, developers only have to determine the resources that they need to access, and we abstract the complexity of IAM policies away from their development processes.
+
 ## Quickstart
 
 * `policy_sentry` is available via pip. To install, run:
