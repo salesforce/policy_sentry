@@ -2,7 +2,9 @@ import click
 from policy_sentry.shared.download import download_remote_policies
 
 
-@click.command()
+@click.command(
+    short_help='Download remote IAM policies to a directory for use in the analyze-iam-policies command.'
+)
 @click.option(
     '--profile',
     type=str,
