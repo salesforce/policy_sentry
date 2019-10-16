@@ -76,27 +76,34 @@ class ArnActionGroup:
             for category in cfg:
                 if category == 'roles_with_crud_levels':
                     for principal in cfg[category]:
-                        if principal['read'] is not None:
-                            self.add(
-                                db_session, principal['read'], "Read")
+                        if 'read' in principal.keys():
+                            if principal['read'] is not None:
+                                self.add(
+                                    db_session, principal['read'], "Read")
 
-                        if principal['write'] is not None:
-                            self.add(
-                                db_session, principal['write'], "Write")
+                        if 'write' in principal.keys():
+                            if principal['write'] is not None:
+                                self.add(
+                                    db_session, principal['write'], "Write")
 
-                        if principal['list'] is not None:
-                            self.add(
-                                db_session, principal['list'], "List")
-
-                        if principal['permissions-management'] is not None:
-                            self.add(
-                                db_session, principal['permissions-management'], "Permissions management")
-
-                        if principal['tag'] is not None:
-                            self.add(
-                                db_session, principal['tag'], "Tagging")
-        except KeyError as e:
-            print("Yaml file is missing this block: " + e.args[0])
+                        if 'list' in principal.keys():
+                            if principal['list'] is not None:
+                                self.add(
+                                    db_session, principal['list'], "List")
+                        if 'permissions-management' in principal.keys():
+                            if principal['permissions-management'] is not None:
+                                self.add(
+                                    db_session, principal['permissions-management'], "Permissions management")
+                        if 'tag' in principal.keys():
+                            if principal['tag'] is not None:
+                                self.add(
+                                    db_session, principal['tag'], "Tagging")
+        # except KeyError as e:
+        #     print("Yaml file is missing this block: " + e.args[0])
+        #     sys.exit()
+        except IndexError:
+            print("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''."
+                  "Please evaluate your YML file and try again.")
             sys.exit()
 
         self.update_actions_for_raw_arn_format(db_session)

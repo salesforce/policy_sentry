@@ -65,6 +65,8 @@ valid_cfg_for_actions = {
 
 
 class YamlValidationOverallTestCase(unittest.TestCase):
+
+
     # def test_multiple_roles_in_file(self):
     #     """
     #     test_multiple_roles_in_file: write-policy when the YAML file includes multiple role blocks in the file (should only be 1)
@@ -255,34 +257,70 @@ class YamlValidationOverallTestCase(unittest.TestCase):
 
 class YamlValidationCrudTestCase(unittest.TestCase):
 
-    def test_missing_access_levels(self):
+    def test_allow_missing_access_level_categories_in_cfg(self):
         """
-        test_missing_access_levels: write-policy --crud command when YAML File is missing access levels
+        test_allow_missing_access_level_categories_in_cfg: write-policy --crud when the YAML file is missing access level categories
+        It should write a policy regardless.
         :return:
         """
-        cfg_with_missing_access_levels = {
+
+        crud_file_input = {
             "roles_with_crud_levels": [
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
                     "arn": "arn:aws:iam::559410426617:role/RiskyEC2",
+                    "read": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+                    ],
+                    "write": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+
+                    ],
                     "list": [
-                        "arn:aws:s3:::example-org-flow-logs",
-                        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+                    ],
+                }
+            ]
+        }
+        self.maxDiff = None
+
+        result = write_policy_with_access_levels(crud_file_input, db_session)
+        print(json.dumps(result, indent=4))
+
+    def test_empty_strings_in_access_level_categories(self):
+        """
+        test_allow_empty_access_level_categories_in_cfg: If the content of a list is an empty string, it should sysexit
+        :return:
+        """
+        crud_file_input = {
+            "roles_with_crud_levels": [
+                {
+                    "name": "RoleNameWithCRUD",
+                    "description": "Why I need these privs",
+                    "arn": "arn:aws:iam::559410426617:role/RiskyEC2",
+                    "read": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+                    ],
+                    "write": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+
+                    ],
+                    "list": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
                     "tag": [
-                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                        ""
                     ],
                     "permissions-management": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
+                        ""
                     ]
                 }
             ]
         }
-
         with self.assertRaises(SystemExit):
-            arn_action_group = ArnActionGroup()
-            arn_dict = arn_action_group.process_resource_specific_acls(cfg_with_missing_access_levels, db_session)
+            result = write_policy_with_access_levels(crud_file_input, db_session)
+            print(json.dumps(result, indent=4))
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):
