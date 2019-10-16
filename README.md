@@ -123,11 +123,11 @@ It will generate these results:
             "Sid": "SsmReadParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:getparameter",
-                "ssm:getparameterhistory",
-                "ssm:getparameters",
-                "ssm:getparametersbypath",
-                "ssm:listtagsforresource"
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:ListTagsForResource"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -137,10 +137,10 @@ It will generate these results:
             "Sid": "SsmWriteParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:deleteparameter",
-                "ssm:deleteparameters",
-                "ssm:putparameter",
-                "ssm:labelparameterversion"
+                "ssm:DeleteParameter",
+                "ssm:DeleteParameters",
+                "ssm:PutParameter",
+                "ssm:LabelParameterVersion"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -150,8 +150,8 @@ It will generate these results:
             "Sid": "SecretsmanagerPermissionsmanagementSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:deleteresourcepolicy",
-                "secretsmanager:putresourcepolicy"
+                "secretsmanager:DeleteResourcePolicy",
+                "secretsmanager:PutResourcePolicy"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -161,8 +161,8 @@ It will generate these results:
             "Sid": "SecretsmanagerTaggingSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:tagresource",
-                "secretsmanager:untagresource"
+                "secretsmanager:TagResource",
+                "secretsmanager:UntagResource"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
