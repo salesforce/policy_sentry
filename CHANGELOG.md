@@ -1,4 +1,9 @@
 # Changelog
+## 2019-10-16
+### Added
+* Added test cases for YML files that have missing access level blocks - for example, if someone wants to generate a policy that doesn't include "Tagging" or "Permissions Management"
+### Changed
+* Test cases to allow missing access level blocks 
 ## 2019-10-15
 ### Added
 * Unit tests for the policy template generation
