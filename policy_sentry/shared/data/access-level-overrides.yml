@@ -1,91 +1,226 @@
-# format:
-# service:
-# - actionname: "read"
-# - actionname: "write"
-# - actionname: "list"
-# - actionname: "permissions management"
-# - actionname: "Tagging"
+# Many AWS IAM Actions from the Actions, Resources, and Condition Keys page are incorrect.
+# There is a systemic problem among some service teams where they will list some "Write" actions as "Tagging"
 
-ssm:
-  Write:
-    - putparameter
+acm-pca:
+    # AWS documentation lists this as Tagging
+    Write:
+        - createcertificateauthority
+appsync:
+    # AWS documentation lists this as Tagging
+    Write:
+        - creategraphqlapi
+athena:
+    # AWS documentation lists this as Tagging
+    Write:
+        - createworkgroup
+cloudfront:
+    # AWS documentation lists this as Tagging
+    Write:
+        - createdistributionwithtags
+        - createstreamingdistributionwithtags
+codepipeline:
+    # AWS documentation lists these as "Tagging"
+    Write:
+        - createcustomactiontype
+        - createpipeline
+connect:
+    # AWS documentation has these as "Read"
+    Permissions management:
+        - getfederationtoken # Allows federation into an instance when using SAML-based authentication for identity management.
+        - getfederationtokens # Grants permissions to federate in to an Amazon Connect instance (Log in as administrator functionality in the AWS console).
+devicefarm:
+    # AWS documentation lists this as "Tagging"
+    Write:
+        - createproject
+ds:
+    # These were all previously "Tagging"
+    Permissions management:
+        - createdirectory
+        - createconditionalforwarder
+        - createidentitypooldirectory
+        - createmicrosoftad
+        - createtrust
 ec2:
-  Permissions management:
-    - resetsnapshotattribute
-    - createnetworkinterfacepermission
-    - deletenetworkinterfacepermission
-    - modifyvpcendpointservicepermissions
+    Permissions management:
+        - resetsnapshotattribute
+        - createnetworkinterfacepermission
+        - deletenetworkinterfacepermission
+        - modifyvpcendpointservicepermissions
+
+elasticfilesystem:
+    # AWS documentation lists this as "Tagging"
+    Write:
+        - createfilesystem
+
+elasticmapreduce:
+    # AWS documentation lists this as "Tagging"
+    Write:
+        - createeditor
+events:
+    # AWS documentation lists this as "Tagging"
+    Write:
+        - putrule
+fsx:
+    Write:
+        - createbackup
+        - createfilesystem
+# We treat IAM, RAM, and DS as Permissions Management
 iam:
-  Permissions management:
-    - addclientidtoopenidconnectprovider
-    - addroletoinstanceprofile
-    - addusertogroup
-    - changepassword
-    - createaccesskey
-    - createaccountalias
-    - creategroup
-    - createinstanceprofile
-    - createloginprofile
-    - createopenidconnectprovider
-    - createrole
-    - createsamlprovider
-    - createservicelinkedrole
-    - createservicespecificcredential
-    - createuser
-    - createvirtualmfadevice
-    - deactivatemfadevice
-    - deleteaccesskey
-    - deleteaccountalias
-    - deletegroup
-    - deleteinstanceprofile
-    - deleteloginprofile
-    - deleteopenidconnectprovider
-    - deleterole
-    - deletesamlprovider
-    - deletesshpublickey
-    - deleteservercertificate
-    - deleteservicelinkedrole
-    - deleteservicespecificcredential
-    - deletesigningcertificate
-    - deleteuser
-    - deletevirtualmfadevice
-    - enablemfadevice
-    - passrole
-    - removeclientidfromopenidconnectprovider
-    - removerolefrominstanceprofile
-    - removeuserfromgroup
-    - resetservicespecificcredential
-    - resyncmfadevice
-    - setsecuritytokenservicepreferences
-    - updateaccesskey
-    - updateaccountpasswordpolicy
-    - updategroup
-    - updateloginprofile
-    - updateopenidconnectproviderthumbprint
-    - updaterole
-    - updateroledescription
-    - updatesamlprovider
-    - updatesshpublickey
-    - updateservercertificate
-    - updateservicespecificcredential
-    - updatesigningcertificate
-    - updateuser
-    - uploadsshpublickey
-    - uploadservercertificate
-    - uploadsigningcertificate
-secretsmanager:
-  Write:
-    - createsecret
+    Permissions management:
+        - addclientidtoopenidconnectprovider
+        - addroletoinstanceprofile
+        - addusertogroup
+        - changepassword
+        - createaccesskey
+        - createaccountalias
+        - creategroup
+        - createinstanceprofile
+        - createloginprofile
+        - createopenidconnectprovider
+        - createrole
+        - createsamlprovider
+        - createservicelinkedrole
+        - createservicespecificcredential
+        - createuser
+        - createvirtualmfadevice
+        - deactivatemfadevice
+        - deleteaccesskey
+        - deleteaccountalias
+        - deletegroup
+        - deleteinstanceprofile
+        - deleteloginprofile
+        - deleteopenidconnectprovider
+        - deleterole
+        - deletesamlprovider
+        - deletesshpublickey
+        - deleteservercertificate
+        - deleteservicelinkedrole
+        - deleteservicespecificcredential
+        - deletesigningcertificate
+        - deleteuser
+        - deletevirtualmfadevice
+        - enablemfadevice
+        - passrole
+        - removeclientidfromopenidconnectprovider
+        - removerolefrominstanceprofile
+        - removeuserfromgroup
+        - resetservicespecificcredential
+        - resyncmfadevice
+        - setsecuritytokenservicepreferences
+        - updateaccesskey
+        - updateaccountpasswordpolicy
+        - updategroup
+        - updateloginprofile
+        - updateopenidconnectproviderthumbprint
+        - updaterole
+        - updateroledescription
+        - updatesamlprovider
+        - updatesshpublickey
+        - updateservercertificate
+        - updateservicespecificcredential
+        - updatesigningcertificate
+        - updateuser
+        - uploadsshpublickey
+        - uploadservercertificate
+        - uploadsigningcertificate
+iot:
+    # AWS documentation lists these as "Tagging"
+    Write:
+        - createbillinggroup
+        - createdynamicthinggroup
+        - createscheduledaudit
+        - createthinggroup
+        - createthingtype
+license-manager:
+    # AWS documentation lists this as "Tagging"
+    Write:
+        - createlicenseconfiguration
+lightsail:
+    Permissions management:
+        - getinstanceaccessdetails # Returns temporary keys you can use to authenticate and connect to an instance.
+        - getrelationaldatabasemasteruserpassword # Returns the master user password of a relational database.
+    Write:
+        - createcloudformationstack # Creates a new Amazon EC2 instance from an exported Amazon Lightsail snapshot.
+medialive:
+    # AWS Documentation lists these as "Tagging"
+    Write:
+        - createchannel
+        - createinput
+        - createinputsecuritygroup
+mobiletargeting:
+    # AWS Documentation lists these as "Tagging"
+    Write:
+        - puteventstream # Create or update an event stream for an app.
+        - putevents # Create or update events for an app.
 ram:
-  Permissions management:
-    - acceptresourceshareinvitation
-    - associateresourceshare
-    - createresourceshare
-    - deleteresourceshare
-    - disassociateresourceshare
-    - enablesharingwithawsorganization
-    - rejectresourceshareinvitation
-    - updateresourceshare
-  Tagging:
-    - tagresource
-    - untagresource
+    # AWS documentation lists these as "Write"
+    Permissions management:
+        - acceptresourceshareinvitation
+        - associateresourceshare
+        - createresourceshare
+        - deleteresourceshare
+        - disassociateresourceshare
+        - enablesharingwithawsorganization
+        - rejectresourceshareinvitation
+        - updateresourceshare
+    Tagging:
+        - tagresource
+        - untagresource
+rds:
+    # these were all previously "Tagging"
+    Write:
+        - createdbclusterparametergroup
+        - createdbclustersnapshot
+        - createdbinstance
+        - createdbinstancereadreplica
+        - createdbparametergroup
+        - createdbsecuritygroup
+        - createdbsnapshot
+        - createdbsubnetgroup
+        - createeventsubscription
+        - createoptiongroup
+redshift:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - getclustercredentials
+secretsmanager:
+    # AWS documentation lists these as "Tagging"
+    Write:
+        - createsecret
+ssm:
+    # AWS documentation lists these as "Tagging"
+    Write:
+        - putparameter
+        - putconfigurepackageresult
+        - createdocument
+        - createmaintenancewindow
+        - createpatchbaseline
+waf:
+    # AWS documentation lists these as "Read"
+    Permissions management:
+        - getchangetoken
+waf-regional:
+    # AWS documentation lists these as "Read"
+    Permissions management:
+        - getchangetoken
+xray:
+    Read:
+        - getencryptionconfig
+
+# Borrowed some of these from: https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/tests/test_action_categories.py
+# Note: Some of those are incorrect, especially those from line 78, where it assumes that actions prefixed with "Get" should not be at the "Write" access level. However, these actions should be considered at the write level, since some of them generate access tokens.
+
+
+#### Related to credentials leakage
+# ecr:GetAuthorizationToken
+# ec2:GetPasswordData
+# waf-regional:GetChangeToken
+# waf:GetChangeToken
+# lightsail:getinstanceaccessdetails
+# redshift:getclustercredentials
+# states:getactivitytask
+# cognito-identity:getid
+# glue:getmapping
+# lightsail:getrelationaldatabasemasteruserpassword
+# connect:getfederationtokens
+# Not including this; even though it could lead to credentials leakage, it isn't necessarily managing other's permissions?

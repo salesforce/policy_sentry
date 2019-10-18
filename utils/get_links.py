@@ -216,7 +216,7 @@ irregular_service_names = {  # TODO set this as a constant in a header file
     'efs': 'elasticfilesystem',
     'elastic-inference': 'elasticinference',
     'es': 'elasticsearchservice',
-    'events': 'cloudwatchevents',
+    'events': 'eventbridge',
     'firehose': 'kinesisfirehose',
     'fms': 'firewallmanager',
     # 'globalaccelerator': 'globalaccelerator',
@@ -318,6 +318,9 @@ irregular_service_links = {  # TODO set this as a constant in a header file
     'servicequotas': [
         'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_servicequotas.html'
     ],
+    'signer': [
+        'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscodesigningforamazonfreertos.html'
+    ]
 }
 
 
