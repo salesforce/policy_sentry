@@ -203,7 +203,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
                                                                           access_level_overrides_cfg)
                         if override_result:
                             access_level = override_result
-                            print(f"Override: Access level for {service}:{action_name} is {access_level}")
+                            print(f"Override: Setting access level for {service}:{action_name} to {access_level}")
                         else:
                             access_level = table['data'][i][2]
                     else:
