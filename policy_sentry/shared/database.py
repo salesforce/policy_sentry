@@ -8,8 +8,9 @@ import json
 import copy
 import re
 import os
-from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, get_region_from_arn, \
-    get_account_from_arn, does_arn_match
+from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, \
+    get_region_from_arn, get_account_from_arn, does_arn_match
+from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
 
@@ -85,20 +86,22 @@ class ConditionTable(Base):
         )
 
 
-def create_database(db_session, services):
+def create_database(db_session, services, access_level_overrides_file):
     """
     Calls the functions to build the ARN tables.
     :param db_session: the SQLAlchemy database session.
     :param services: List of all services to build the tables for. Defaults to all AWS Services
+    :param access_level_overrides_file: A file we can use to override the Access levels per action
     :return: the SQLAlchemy database session.
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     print("Reading the html docs from this directory: " + directory)
+    print(f"Using access level overrides file {access_level_overrides_file}")
     for service in services:
         print("Building tables for " + service)
         build_arn_table(db_session, service)
         db_session.commit()
-        build_action_table(db_session, service)
+        build_action_table(db_session, service, access_level_overrides_file)
         db_session.commit()
         build_condition_table(db_session, service)
         db_session.commit()
@@ -124,7 +127,7 @@ def connect_db(db_file):
     return db_session
 
 
-def build_action_table(db_session, service):
+def build_action_table(db_session, service, access_level_overrides_file):
     """
     Builds the action table in the SQLite database.
     See the first Table on any service-specific page in the Actions, Resources, and Condition Keys documentation.
@@ -135,6 +138,7 @@ def build_action_table(db_session, service):
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
+    access_level_overrides_cfg = get_action_access_level_overrides_from_yml(service, access_level_overrides_file)
     for df_list in html_list:
         for df in df_list:
             table = json.loads(df.to_json(orient='split'))
@@ -172,8 +176,8 @@ def build_action_table(db_session, service):
                         resource_type_name = table['data'][i][3]
                         resource_type_name_append_wildcard = 'False'
                         first_result = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.ilike(service),
-                                                                              ArnTable.resource_type_name.like(
-                                                                                  table['data'][i][3])).first()
+                                                                                 ArnTable.resource_type_name.like(
+                                                                                     table['data'][i][3])).first()
                         try:
                             if '*' in first_result.raw_arn:
                                 resource_arn_format = first_result.raw_arn[:-1]
@@ -190,7 +194,21 @@ def build_action_table(db_session, service):
                     else:
                         action_name = table['data'][i][0]
 
-                    # Condition keys
+                    # Access Level #####
+                    # access_level_overrides_cfg will only be true if the service in question is present
+                    # in the overrides YML file
+                    if access_level_overrides_cfg:
+                        override_result = determine_access_level_override(service, str.lower(action_name),
+                                                                          table['data'][i][2],
+                                                                          access_level_overrides_cfg)
+                        if override_result:
+                            access_level = override_result
+                            print(f"Override: Access level for {service}:{action_name} is {access_level}")
+                        else:
+                            access_level = table['data'][i][2]
+                    else:
+                        access_level = table['data'][i][2]
+                    # Condition keys #####
                     if table['data'][i][4] is None:
                         # In order to avoid errors with NULL Database entries, set to 'None'
                         condition_keys = 'None'
@@ -202,7 +220,7 @@ def build_action_table(db_session, service):
                     else:
                         condition_keys = table['data'][i][4]
 
-                    # Dependent actions
+                    ##### Dependent actions #####
                     if table['data'][i][5] is None:
                         dependent_actions = None
                     elif '  ' in table['data'][i][5]:
@@ -216,7 +234,8 @@ def build_action_table(db_session, service):
                         service=service,
                         name=str.lower(action_name),
                         description=table['data'][i][1],
-                        access_level=table['data'][i][2],
+                        access_level=access_level,
+                        # access_level=table['data'][i][2],
                         resource_type_name=resource_type_name,
                         resource_type_name_append_wildcard=resource_type_name_append_wildcard,
                         resource_arn_format=str(resource_arn_format),

@@ -1,0 +1,91 @@
+# format:
+# service:
+# - actionname: "read"
+# - actionname: "write"
+# - actionname: "list"
+# - actionname: "permissions management"
+# - actionname: "Tagging"
+
+ssm:
+  Write:
+    - putparameter
+ec2:
+  Permissions management:
+    - resetsnapshotattribute
+    - createnetworkinterfacepermission
+    - deletenetworkinterfacepermission
+    - modifyvpcendpointservicepermissions
+iam:
+  Permissions management:
+    - addclientidtoopenidconnectprovider
+    - addroletoinstanceprofile
+    - addusertogroup
+    - changepassword
+    - createaccesskey
+    - createaccountalias
+    - creategroup
+    - createinstanceprofile
+    - createloginprofile
+    - createopenidconnectprovider
+    - createrole
+    - createsamlprovider
+    - createservicelinkedrole
+    - createservicespecificcredential
+    - createuser
+    - createvirtualmfadevice
+    - deactivatemfadevice
+    - deleteaccesskey
+    - deleteaccountalias
+    - deletegroup
+    - deleteinstanceprofile
+    - deleteloginprofile
+    - deleteopenidconnectprovider
+    - deleterole
+    - deletesamlprovider
+    - deletesshpublickey
+    - deleteservercertificate
+    - deleteservicelinkedrole
+    - deleteservicespecificcredential
+    - deletesigningcertificate
+    - deleteuser
+    - deletevirtualmfadevice
+    - enablemfadevice
+    - passrole
+    - removeclientidfromopenidconnectprovider
+    - removerolefrominstanceprofile
+    - removeuserfromgroup
+    - resetservicespecificcredential
+    - resyncmfadevice
+    - setsecuritytokenservicepreferences
+    - updateaccesskey
+    - updateaccountpasswordpolicy
+    - updategroup
+    - updateloginprofile
+    - updateopenidconnectproviderthumbprint
+    - updaterole
+    - updateroledescription
+    - updatesamlprovider
+    - updatesshpublickey
+    - updateservercertificate
+    - updateservicespecificcredential
+    - updatesigningcertificate
+    - updateuser
+    - uploadsshpublickey
+    - uploadservercertificate
+    - uploadsigningcertificate
+secretsmanager:
+  Write:
+    - createsecret
+ram:
+  Permissions management:
+    - acceptresourceshareinvitation
+    - associateresourceshare
+    - createresourceshare
+    - deleteresourceshare
+    - disassociateresourceshare
+    - enablesharingwithawsorganization
+    - rejectresourceshareinvitation
+    - updateresourceshare
+  Tagging:
+    - tagresource
+    - untagresource
