@@ -1,4 +1,12 @@
 # Changelog
+## 2019-10-18
+### Added
+* We can now override Access levels so we aren't entirely dependent upon accurate AWS documentation for proper ACLs. Fixes #8.
+* Test cases for the new Access level override functions
+* You can now supply a custom YML file as part of the initialize command to test out your own overrides (so you don't have to depend on updates to this repository if you don't want to)
+* Created `policy_sentry/shared/data/access-level-overrides.yml` for a preloaded set, based on the current known issues with AWS IAM access levels.
+* Cut a new release because this is a big improvement (and because I moved around a function or two)
+
 ## 2019-10-16
 ### Added
 * Added test cases for YML files that have missing access level blocks - for example, if someone wants to generate a policy that doesn't include "Tagging" or "Permissions Management"

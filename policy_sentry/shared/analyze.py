@@ -4,8 +4,7 @@ from policyuniverse import all_permissions
 import fnmatch
 import json
 import pprint
-from policy_sentry.shared.file import get_actions_from_json_policy_file
-from policy_sentry.shared.actions import get_actions_by_access_level
+from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file
 
 
 def read_risky_iam_permissions_text_file(audit_file):
