@@ -3,7 +3,7 @@
 import os
 import click
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
-    create_audit_directory, create_default_overrides_file
+    create_audit_directory, create_default_overrides_file, create_policy_analysis_directory
 from pathlib import Path
 from policy_sentry.shared.database import connect_db, create_database
 
@@ -209,6 +209,8 @@ def initialize(access_level_overrides_file):
 
     # Create the config directory
     database_path = create_policy_sentry_config_directory()
+    # Create the directory to download IAM policies to
+    create_policy_analysis_directory()
     # Create audit directory to host list of permissions for analyze_iam_policy
     create_audit_directory()
     # Create overrides file, which allows us to override the Access Levels provided by AWS documentation
