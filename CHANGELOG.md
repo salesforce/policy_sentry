@@ -1,4 +1,10 @@
 # Changelog
+## 2019-10-19
+### Added
+* `analyze-iam-policy` Code to create policy-analysis directory, was missing with last release... added it
+### Changed
+* Removed leftover code before access-level overrides was a feature
+
 ## 2019-10-18, part 2
 ### Added
 * access-level overrides now includes a TON of overrides Fixes #18.

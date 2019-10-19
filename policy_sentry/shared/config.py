@@ -51,6 +51,16 @@ def create_audit_directory():
             print("copying " + file + " to " + destination)
 
 
+def create_policy_analysis_directory():
+    """
+    Creates directory for analyze_iam_policy policies.
+    """
+    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'policy-analysis'
+    if os.path.exists(policy_analysis_directory_path):
+        pass
+    else:
+        os.mkdir(policy_analysis_directory_path)
+
 def create_default_overrides_file():
     """
     Copies over the overrides file in the config directory
