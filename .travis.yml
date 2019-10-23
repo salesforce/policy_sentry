@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"      # current default Python on Travis CI
+  - "3.7"
+install:
+  - pip install pipenv
+  - pipenv install
+#   - pip install -r requirements.txt
+# command to run tests
+script:
+  - nosetests -v
