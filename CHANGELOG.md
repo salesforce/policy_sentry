@@ -1,4 +1,14 @@
 # Changelog
+## 2019-10-24
+### Added
+* Added boto3 and botocore to setup.py
+* Cutting a new release to provide a quick fix for those issues
+* This fixes #28
+### Changed
+* Updated Pipfile.lock
+* Fixed an issue with the list_policies command
+* Fixed the help text for the `download-policies --include-unattached` flag
+
 ## 2019-10-19
 ### Added
 * `analyze-iam-policy` Code to create policy-analysis directory, was missing with last release... added it

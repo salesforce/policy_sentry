@@ -376,7 +376,7 @@ class PolicyGroup:
             Scope=scope,
             OnlyAttached=attached_only,
             PathPrefix='/',  # slash (/) lists all policies
-            PolicyUsageFilter='PermissionsPolicy',
+            # PolicyUsageFilter='PermissionsPolicy',
             MaxItems=123
         )
         for policy in response['Policies']:
