@@ -23,6 +23,7 @@ def login_sts_test(sts_session):
             )
             exit(-1)
 
+
 def login_iam_test(iam_session):
     try:
         iam_session.get_user(UserName="test")

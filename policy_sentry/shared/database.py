@@ -32,9 +32,7 @@ class ActionTable(Base):
 
     def __repr__(self):
         return "<Action(service='%s', name='%s', description='%s', access_level='%s', resource_type_name='%s', resource_type_name_append_wildcard='%s', resource_arn_format='%s', condition_keys='%s', dependent_actions='%s')>" % (
-            self.service, self.name, self.description, self.access_level, self.resource_type_name,
-            self.resource_type_name_append_wildcard, self.resource_arn_format, self.condition_keys,
-            self.dependent_actions)
+            self.service, self.name, self.description, self.access_level, self.resource_type_name, self.resource_type_name_append_wildcard, self.resource_arn_format, self.condition_keys, self.dependent_actions)
 
 
 class ArnTable(Base):
@@ -52,22 +50,14 @@ class ArnTable(Base):
 
     def __repr__(self):
         return "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s')>" % (
-            self.resource_type_name,
-            self.raw_arn,
-            self.arn,
-            self.partition,
-            self.service,
-            self.region,
-            self.account,
-            self.resource,
-            self.resource_path
-        )
+            self.resource_type_name, self.raw_arn, self.arn, self.partition, self.service, self.region, self.account, self.resource, self.resource_path)
 
 
 class ConditionTable(Base):
     __tablename__ = "conditiontable"
     id = Column(Integer, primary_key=True)
-    # the service that this applies to. aws:RequestTag can apply to many services
+    # the service that this applies to. aws:RequestTag can apply to many
+    # services
     service = Column(String(50))
     condition_key_name = Column(String(50))  # name of the condition key
     # i.e., aws for aws:RequestTag; ec2 for ec2:Region
@@ -78,12 +68,7 @@ class ConditionTable(Base):
 
     def __repr__(self):
         return "<ConditionTable(service='%s', condition_key_name='%s', condition_key_service='%s', description='%s', condition_value_type='%s')>" % (
-            self.service,
-            self.condition_key_name,
-            self.condition_key_service,
-            self.description,
-            self.condition_value_type
-        )
+            self.service, self.condition_key_name, self.condition_key_service, self.description, self.condition_value_type)
 
 
 def create_database(db_session, services, access_level_overrides_file):
@@ -117,7 +102,8 @@ def connect_db(db_file):
     # Valid SQLite URL forms are:
     #  sqlite:///:memory: (or, sqlite://)
     #  sqlite:///relative/path/to/file.db
-    #  sqlite:////absolute/path/to/file.db # Using this one. db_file is prefixed with another / so it works out to 4
+    # sqlite:////absolute/path/to/file.db # Using this one. db_file is
+    # prefixed with another / so it works out to 4
     engine = create_engine(str('sqlite:///' + db_file), echo=False)
     connection = engine.connect()
     Base.metadata.create_all(engine)
@@ -138,7 +124,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
-    access_level_overrides_cfg = get_action_access_level_overrides_from_yml(service, access_level_overrides_file)
+    access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
+        service, access_level_overrides_file)
     for df_list in html_list:
         for df in df_list:
             table = json.loads(df.to_json(orient='split'))
@@ -155,29 +142,35 @@ def build_action_table(db_session, service, access_level_overrides_file):
                         resource_arn_format = '*'
                     # Check if resource type name has wildcard suffix - i.e., parameter* instead of parameter
                     # If it does, set the append_wildcard flag to true,
-                    # and set the resource name to that but without the wildcard to make searching easier
+                    # and set the resource name to that but without the
+                    # wildcard to make searching easier
                     elif '*' in table['data'][i][3]:
                         temp_resource_type_name = table['data'][i][3]
                         resource_type_name = temp_resource_type_name[:-1]
                         if resource_type_name is None:
                             resource_type_name = 'None'
                         resource_type_name_append_wildcard = 'True'
-                        query_resource_arn_format = db_session.query(ArnTable.raw_arn).filter(
-                            and_(ArnTable.service.ilike(service),
-                                 ArnTable.resource_type_name.like(resource_type_name)))
+                        query_resource_arn_format = db_session.query(
+                            ArnTable.raw_arn).filter(
+                            and_(
+                                ArnTable.service.ilike(service),
+                                ArnTable.resource_type_name.like(resource_type_name)))
                         first_result = query_resource_arn_format.first()
                         try:
                             resource_arn_format = first_result.raw_arn
                         # For EC2 RunInstances, ResourceTypes have some duplicates.
-                        # The Resource Types (*required) column has duplicates and the Access Level has `nan`
+                        # The Resource Types (*required) column has duplicates
+                        # and the Access Level has `nan`
                         except AttributeError:
                             continue
                     else:
                         resource_type_name = table['data'][i][3]
                         resource_type_name_append_wildcard = 'False'
-                        first_result = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.ilike(service),
-                                                                                 ArnTable.resource_type_name.like(
-                                                                                     table['data'][i][3])).first()
+                        first_result = db_session.query(
+                            ArnTable.raw_arn).filter(
+                            ArnTable.service.ilike(service),
+                            ArnTable.resource_type_name.like(
+                                table['data'][i][3])).first()
                         try:
                             if '*' in first_result.raw_arn:
                                 resource_arn_format = first_result.raw_arn[:-1]
@@ -187,7 +180,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                             continue
                     # For lambda:InvokeFunction, the cell is 'lambda:InvokeFunction [permission only]'.
                     # To avoid this, let's test for a space in the name.
-                    # If there is a space, remove the space and all text after it.
+                    # If there is a space, remove the space and all text after
+                    # it.
                     if ' ' in table['data'][i][0]:
                         text_with_space = table['data'][i][0]
                         action_name, sep, tail = text_with_space.partition(' ')
@@ -198,22 +192,24 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     # access_level_overrides_cfg will only be true if the service in question is present
                     # in the overrides YML file
                     if access_level_overrides_cfg:
-                        override_result = determine_access_level_override(service, str.lower(action_name),
-                                                                          table['data'][i][2],
-                                                                          access_level_overrides_cfg)
+                        override_result = determine_access_level_override(
+                            service, str.lower(action_name), table['data'][i][2], access_level_overrides_cfg)
                         if override_result:
                             access_level = override_result
-                            print(f"Override: Setting access level for {service}:{action_name} to {access_level}")
+                            print(
+                                f"Override: Setting access level for {service}:{action_name} to {access_level}")
                         else:
                             access_level = table['data'][i][2]
                     else:
                         access_level = table['data'][i][2]
                     # Condition keys #####
                     if table['data'][i][4] is None:
-                        # In order to avoid errors with NULL Database entries, set to 'None'
+                        # In order to avoid errors with NULL Database entries,
+                        # set to 'None'
                         condition_keys = 'None'
                     # If there are multiple condition keys, make them comma separated
-                    # Otherwise, if we ingest them as-is, it will show up as two spaces
+                    # Otherwise, if we ingest them as-is, it will show up as
+                    # two spaces
                     elif '  ' in table['data'][i][4]:
                         condition_keys = get_comma_separated_condition_keys(
                             table['data'][i][4])
@@ -224,7 +220,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     if table['data'][i][5] is None:
                         dependent_actions = None
                     elif '  ' in table['data'][i][5]:
-                        # Let's just use the same method that we use for separating condition keys
+                        # Let's just use the same method that we use for
+                        # separating condition keys
                         dependent_actions = get_comma_separated_condition_keys(
                             table['data'][i][5])
                     else:
@@ -293,7 +290,8 @@ def build_condition_table(db_session, service):
                 temp = table['data'][1::]
                 for i in range(len(table['data'])):
                     # Description: sometimes it is empty, like the conditions table for S3.
-                    # In order to avoid errors with NULL Database entries, set to 'None'
+                    # In order to avoid errors with NULL Database entries, set
+                    # to 'None'
                     if table['data'][i][1] is None:
                         temp_description = 'None'
                     else:
