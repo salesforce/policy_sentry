@@ -23,10 +23,12 @@ class ArnActionGroup:
         """
         for arn_from_user in arn_list_from_user:
             service = get_service_from_arn(arn_from_user)
-            for row in db_session.query(ActionTable).filter(ActionTable.service.like(service)):
+            for row in db_session.query(ActionTable).filter(
+                    ActionTable.service.like(service)):
                 if does_arn_match(arn_from_user, row.resource_arn_format):
                     if row.access_level == access_level:
-                        # If it's not a key in the dictionary, add it as a key and then add the item in the list
+                        # If it's not a key in the dictionary, add it as a key
+                        # and then add the item in the list
                         raw_arn_format = row.resource_arn_format
                         temp_arn_dict = {
                             'arn': arn_from_user,
@@ -42,7 +44,13 @@ class ArnActionGroup:
                             continue
                         self.arns.append(copy.deepcopy(temp_arn_dict))
 
-    def add_complete_entry(self, arn_from_user, service, access_level, raw_arn_format, actions_list):
+    def add_complete_entry(
+            self,
+            arn_from_user,
+            service,
+            access_level,
+            raw_arn_format,
+            actions_list):
         """
         Add a single entry with all the necessary fields filled out.
         :param arn_from_user:
@@ -93,7 +101,9 @@ class ArnActionGroup:
                         if 'permissions-management' in principal.keys():
                             if principal['permissions-management'] is not None:
                                 self.add(
-                                    db_session, principal['permissions-management'], "Permissions management")
+                                    db_session,
+                                    principal['permissions-management'],
+                                    "Permissions management")
                         if 'tag' in principal.keys():
                             if principal['tag'] is not None:
                                 self.add(
@@ -102,8 +112,9 @@ class ArnActionGroup:
         #     print("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()
         except IndexError:
-            print("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''."
-                  "Please evaluate your YML file and try again.")
+            print(
+                "IndexError: list index out of range. This is likely due to an ARN in your list equaling ''."
+                "Please evaluate your YML file and try again.")
             sys.exit()
 
         self.update_actions_for_raw_arn_format(db_session)
@@ -123,7 +134,9 @@ class ArnActionGroup:
             action_name = get_action_name_from_action(action)
             service_name = get_service_from_action(action)
             for row in db_session.query(ActionTable).filter(
-                and_(ActionTable.service.like(service_name), ActionTable.name.like(action_name))):
+                and_(
+                    ActionTable.service.like(service_name),
+                    ActionTable.name.like(action_name))):
                 if row.resource_arn_format not in arns_matching_supplied_actions:
                     arns_matching_supplied_actions.append(
                         [row.resource_arn_format, row.access_level, str(row.service + ':' + row.name)])
@@ -132,21 +145,25 @@ class ArnActionGroup:
         for i in range(len(arns_matching_supplied_actions)):
             if '*' not in arns_matching_supplied_actions[i][0]:
                 self.add(db_session, [arns_matching_supplied_actions[i][0]],
-                                     arns_matching_supplied_actions[i][1])
+                         arns_matching_supplied_actions[i][1])
             else:
-                actions_with_wildcard.append(arns_matching_supplied_actions[i][2])
+                actions_with_wildcard.append(
+                    arns_matching_supplied_actions[i][2])
 
         self.update_actions_for_raw_arn_format(db_session)
-        # Remove actions from the collection that have the same CRUD level but were not requested by the user
+        # Remove actions from the collection that have the same CRUD level but
+        # were not requested by the user
         self.remove_actions_not_matching_list(supplied_actions)
         # If the action exists in the wildcard list,
-        # let's remove it from the collection so we don't have actions across both
+        # let's remove it from the collection so we don't have actions across
+        # both
         actions_with_wildcard_placeholder = []
         for action in range(len(actions_with_wildcard)):
             if self.does_action_exist(actions_with_wildcard[action]):
                 pass
             else:
-                actions_with_wildcard_placeholder.append(actions_with_wildcard[action])
+                actions_with_wildcard_placeholder.append(
+                    actions_with_wildcard[action])
 
         actions_with_wildcard.clear()
         actions_with_wildcard.extend(actions_with_wildcard_placeholder)
@@ -155,8 +172,10 @@ class ArnActionGroup:
 
         # If the wildcard list is not empty
         if len(actions_with_wildcard) > 0:
-            self.add_complete_entry('*', 'Mult', 'Mult', '*', actions_with_wildcard)
-        arn_dict = self.get_policy_elements(db_session)  # NOTE avoid final and other qualifiers IMHO
+            self.add_complete_entry(
+                '*', 'Mult', 'Mult', '*', actions_with_wildcard)
+        # NOTE avoid final and other qualifiers IMHO
+        arn_dict = self.get_policy_elements(db_session)
         return arn_dict
 
     def get_arns(self):
@@ -176,7 +195,8 @@ class ArnActionGroup:
         actions_under_wildcard_resources_to_nuke = []
         for i in range(len(self.arns)):
             if self.arns[i]['arn_format'] == '*':
-                actions_under_wildcard_resources.extend(self.arns[i]['actions'])
+                actions_under_wildcard_resources.extend(
+                    self.arns[i]['actions'])
         # Now that we have the list of actions that are under the * ARN,
         # let's see if that action exists under other SIDs
         if len(actions_under_wildcard_resources) > 0:
@@ -184,16 +204,17 @@ class ArnActionGroup:
                 if '*' not in self.arns[i]['arn_format']:
                     for j in actions_under_wildcard_resources:
                         if actions_under_wildcard_resources[j] in self.arns[i]['actions']:
-                            actions_under_wildcard_resources_to_nuke.append(actions_under_wildcard_resources[j])
+                            actions_under_wildcard_resources_to_nuke.append(
+                                actions_under_wildcard_resources[j])
         if len(actions_under_wildcard_resources_to_nuke) > 0:
             for i in range(len(self.arns)):
                 if '*' in self.arns[i]['arn_format']:
                     for j in actions_under_wildcard_resources_to_nuke:
                         try:
-                            self.arns[i]['actions'].remove(str(actions_under_wildcard_resources_to_nuke[j]))
-                        except:
+                            self.arns[i]['actions'].remove(
+                                str(actions_under_wildcard_resources_to_nuke[j]))
+                        except BaseException:
                             print("Removal not successful")
-
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
@@ -202,8 +223,10 @@ class ArnActionGroup:
         """
         for i in range(len(self.arns)):
             for row in db_session.query(ActionTable).filter(
-                    and_(ActionTable.access_level.like(self.arns[i]['access_level']),
-                         ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
+                and_(
+                    ActionTable.access_level.like(
+                        self.arns[i]['access_level']), ActionTable.resource_arn_format.like(
+                    self.arns[i]['arn_format']))):
                 if self.arns[i]['access_level'] == row.access_level and self.arns[i][
                         'arn_format'] == row.resource_arn_format:
                     self.arns[i]['actions'].append(
@@ -221,17 +244,22 @@ class ArnActionGroup:
                 # don't copy it to the placeholder
                 if self.arns[i]['actions'][action] not in actions_list:
                     pass
-                # If it is in the list of selected actions, append it to the placeholder
+                # If it is in the list of selected actions, append it to the
+                # placeholder
                 else:
-                    placeholder_actions_list.append(self.arns[i]['actions'][action])
-            # Clear the list and then extend it to include the updated actions only
+                    placeholder_actions_list.append(
+                        self.arns[i]['actions'][action])
+            # Clear the list and then extend it to include the updated actions
+            # only
             self.arns[i]['actions'].clear()
             self.arns[i]['actions'].extend(placeholder_actions_list.copy())
 
         self.remove_sids_with_empty_action_lists()
 
     def remove_sids_with_empty_action_lists(self):
-        # Now that we've removed a bunch of actions, if there are SID groups without any actions, remove them so we don't get SIDs with empty action lists
+        # Now that we've removed a bunch of actions, if there are SID groups
+        # without any actions, remove them so we don't get SIDs with empty
+        # action lists
         indexes_to_delete = []
         for i in range(len(self.arns)):
             if len(self.arns[i]['actions']) > 0:
@@ -239,7 +267,8 @@ class ArnActionGroup:
             # If the size is zero, add it to the indexes_to_delete list.
             else:
                 indexes_to_delete.append(i)
-        # Loop through indexes_to_delete in reverse order (so we delete index 10 before index 8, for example)
+        # Loop through indexes_to_delete in reverse order (so we delete index
+        # 10 before index 8, for example)
         if len(indexes_to_delete) > 0:
             for i in reversed(range(len(indexes_to_delete))):
                 del self.arns[indexes_to_delete[i]]
@@ -249,14 +278,17 @@ class ArnActionGroup:
                 #         print("actions_list is" + str(actions_list))
 
     def combine_policy_elements(self):
-        # Using numbers in the 'altered' list to identify indexes that have been altered
+        # Using numbers in the 'altered' list to identify indexes that have
+        # been altered
         altered = []
         for i in range(len(self.arns)):
             for j in range(len(self.arns)):
                 if i == j:
                     continue
-                # If the ARN also has other occurrences, get the value of those occurrences and copy it over
-                if self.arns[i]['arn_format'] == self.arns[j]['arn_format'] and len(self.arns[i]['actions']) > 0 and i not in altered:
+                # If the ARN also has other occurrences, get the value of those
+                # occurrences and copy it over
+                if self.arns[i]['arn_format'] == self.arns[j]['arn_format'] and len(
+                        self.arns[i]['actions']) > 0 and i not in altered:
                     self.arns[i]['actions'].extend(self.arns[j]['actions'])
                     self.arns[j]['actions'].clear()
                     altered.append(i)
@@ -277,8 +309,10 @@ class ArnActionGroup:
         arn_dict = {}
         for i in range(len(self.arns)):
             # Create SID Namespace
-            query_resource_arn_format = db_session.query(ArnTable.resource_type_name).filter(
-                ArnTable.raw_arn.like(self.arns[i]['arn_format']))
+            query_resource_arn_format = db_session.query(
+                ArnTable.resource_type_name).filter(
+                ArnTable.raw_arn.like(
+                    self.arns[i]['arn_format']))
             resource_arn_format = query_resource_arn_format.first()
             temp_name = create_policy_sid_namespace(
                 self.arns[i]['service'],
@@ -314,9 +348,11 @@ def create_policy_sid_namespace(service, access_level, resource_type_name):
     :param resource_type_name: "parameter"
     :return: SsmReadParameter
     """
-    # Sanitize the resource_type_name; otherwise we hit some list conversion errors
+    # Sanitize the resource_type_name; otherwise we hit some list conversion
+    # errors
     resource_type_name = re.sub('[^A-Za-z0-9]+', '', resource_type_name)
-    # Also remove the space from the Access level, if applicable. This only applies for "Permissions management"
+    # Also remove the space from the Access level, if applicable. This only
+    # applies for "Permissions management"
     access_level = re.sub('[^A-Za-z0-9]+', '', access_level)
     sid_namespace = capitalize_first_character(service) + capitalize_first_character(
         access_level) + capitalize_first_character(resource_type_name)
@@ -329,7 +365,8 @@ def capitalize_first_character(some_string):
     :param some_string:
     :return:
     """
-    return ' '.join(''.join([w[0].upper(), w[1:].lower()]) for w in some_string.split())
+    return ' '.join(''.join([w[0].upper(), w[1:].lower()])
+                    for w in some_string.split())
 
 
 class PolicyGroup:
@@ -337,7 +374,8 @@ class PolicyGroup:
     def __init__(self):
         self.policies = {}
         # each dict has:
-        # policy_name, policy_id, policy_arn, default_version_id, and policy_document
+        # policy_name, policy_id, policy_arn, default_version_id, and
+        # policy_document
 
     def add(self, policy_name, policy_id, policy_arn, default_version_id):
         temp_dict = {
@@ -360,7 +398,11 @@ class PolicyGroup:
         else:
             return self.policies[policy_name]['policy_document']
 
-    def set_remote_policy_metadata(self, iam_session, customer_managed=True, attached_only=True):
+    def set_remote_policy_metadata(
+            self,
+            iam_session,
+            customer_managed=True,
+            attached_only=True):
         """
         Grabs IAM policies and adds them to the object
         :param iam_session: IAM boto session
@@ -398,4 +440,5 @@ class PolicyGroup:
                 PolicyArn=self.policies[policy]['policy_arn'],
                 VersionId=self.policies[policy]['default_version_id']
             )
-            self.set_policy_document(policy, response['PolicyVersion']['Document'])
+            self.set_policy_document(
+                policy, response['PolicyVersion']['Document'])

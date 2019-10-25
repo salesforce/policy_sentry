@@ -21,11 +21,12 @@ def security_scan(c):
     c.run('bandit -r policy_sentry/')
     c.run('safety check')
 
-# TODO Implement this effectively
+# TODO Some kind of non-zero check to make sure that this passes.
 @task
 def run_linter(c):
-    print('run linter')
-    print('run formatter')
+    c.run('pylint policy_sentry/')
+    c.run('autopep8 -r --in-place policy_sentry/')
+
 
 # TODO If the database is not found we should build it, otherwise just run the tests.
 # TODO Some kind of non-zero check to make sure that this passes.
@@ -37,6 +38,7 @@ def run_tests(c):
 @task
 def run_full_test_suite(c):
     print('run all tests in collection')
+
 
 # Add all testing tasks to the test collection
 test.add_task(create_db, 'initialize')

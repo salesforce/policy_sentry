@@ -15,7 +15,10 @@ from policy_sentry.shared.file import read_yaml_file
 policy_language_version = "2012-10-17"
 
 
-def print_policy(arn_dict_with_actions_and_resources, db_session, minimize=None):
+def print_policy(
+        arn_dict_with_actions_and_resources,
+        db_session,
+        minimize=None):
     """
     Builds the policy dictionary given the output of write_policy_with_access_levels or write_policy_with_actions.
     """
@@ -25,7 +28,8 @@ def print_policy(arn_dict_with_actions_and_resources, db_session, minimize=None)
     for sid in arn_dict_with_actions_and_resources:
         actions = arn_dict_with_actions_and_resources[sid]['actions']
         if minimize is not None and isinstance(minimize, int):
-            actions = minimize_statement_actions(actions, all_actions, minchars=minimize)
+            actions = minimize_statement_actions(
+                actions, all_actions, minchars=minimize)
         statement.append({
             "Sid": arn_dict_with_actions_and_resources[sid]['name'],
             "Effect": "Allow",
@@ -61,7 +65,8 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
         supplied_actions.extend(role[3].copy())
     supplied_actions = get_dependent_actions(db_session, supplied_actions)
     arn_action_group = ArnActionGroup()
-    arn_dict = arn_action_group.process_list_of_actions(supplied_actions, db_session)
+    arn_dict = arn_action_group.process_list_of_actions(
+        supplied_actions, db_session)
     policy = print_policy(arn_dict, db_session, minimize_statement)
     return policy
 
