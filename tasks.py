@@ -15,11 +15,11 @@ ns.add_collection(test)
 def create_db(c):
     sentry.initialize('')
 
-# TODO Implement this effectively
+# TODO Some kind of non-zero check to make sure that this passes.
 @task
 def security_scan(c):
-    print('run bandit')
-    print('run safety')
+    c.run('bandit -r policy_sentry/')
+    c.run('safety check')
 
 # TODO Implement this effectively
 @task
@@ -27,10 +27,11 @@ def run_linter(c):
     print('run linter')
     print('run formatter')
 
-# TODO Implement this effectively
+# TODO If the database is not found we should build it, otherwise just run the tests.
+# TODO Some kind of non-zero check to make sure that this passes.
 @task
 def run_tests(c):
-    print('run unit tests')
+    c.run('nosetests -v')
 
 # TODO Implement this effectively
 @task
