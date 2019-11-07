@@ -35,7 +35,6 @@ database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 #  so we can have different options for filtering based on which table the user selects
 def query(table, service, name):
     """Allow users to query the action tables, arn tables, and condition keys tables from command line."""
-    print()
     db_session = connect_db(database_file_path)
     if table == 'condition':
         if name is None:
@@ -45,5 +44,5 @@ def query(table, service, name):
         else:
             output = query_condition_table_by_name(db_session, service, name)
             print(json.dumps(output, indent=4))
-    else:
-        print("Did not select condition as the table. Please try again.")
+
+

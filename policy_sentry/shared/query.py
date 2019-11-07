@@ -9,11 +9,11 @@ from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
 # Per service
 def query_condition_table(db_session, service):
     """Get a list of available conditions per AWS service"""
-    results = set()
+    results = []
     rows = db_session.query(ConditionTable.condition_key_name, ConditionTable.condition_value_type,
                             ConditionTable.description).filter(ConditionTable.service.like(service))
     for row in rows:
-        results.add(str(row.condition_key_name))
+        results.append(str(row.condition_key_name))
     return results
 
 
