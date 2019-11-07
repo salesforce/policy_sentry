@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
-    query_arn_table_by_name, query_action_table
+    query_arn_table_by_name, query_action_table, query_action_table_by_name
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -68,3 +68,28 @@ class QueryTestCase(unittest.TestCase):
                         'ram:untagresource', 'ram:updateresourceshare']
         output = query_action_table(db_session, "ram")
         self.assertListEqual(desired_output, output)
+
+    def test_query_action_table_by_name(self):
+        """test_query_action_table_by_name: Tests function that gets details on a specific IAM Action."""
+        desired_output = {
+            "ram": [
+                {
+                    "action": "ram:createresourceshare",
+                    "description": "Create resource share with provided resource(s) and/or principal(s)",
+                    "access_level": "Permissions management",
+                    "resource_arn_format": "arn:aws:ram:${Region}:${Account}:resource-share/${ResourcePath}",
+                    "condition_keys": "ram:RequestedResourceType,ram:ResourceArn,ram:AllowsExternalPrincipals",
+                    "dependent_actions": None
+                },
+                {
+                    "action": "ram:createresourceshare",
+                    "description": "Create resource share with provided resource(s) and/or principal(s)",
+                    "access_level": "Permissions management",
+                    "resource_arn_format": "*",
+                    "condition_keys": "aws:RequestTag/${TagKey},aws:TagKeys",
+                    "dependent_actions": None
+                }
+            ]
+        }
+        output = query_action_table_by_name(db_session, 'ram', 'createresourceshare')
+        self.assertDictEqual(desired_output, output)

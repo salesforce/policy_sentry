@@ -2,7 +2,7 @@ import click
 import pprint
 import json
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, query_arn_table, \
-    query_arn_table_by_name, query_action_table
+    query_arn_table_by_name, query_action_table, query_action_table_by_name
 from policy_sentry.shared.database import connect_db
 from pathlib import Path
 
@@ -58,5 +58,8 @@ def query(table, service, name):
             action_list = query_action_table(db_session, service)
             for item in action_list:
                 print(item)
+        else:
+            output = query_action_table_by_name(db_session, service, name)
+            print(json.dumps(output, indent=4))
     else:
         print("Table name not valid.")
