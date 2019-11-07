@@ -2,6 +2,7 @@
 ## 2019-11-07
 ### Added
 * Query capabilities for conditions table.
+* Query capabilities for ARN table.
 ## 2019-10-24
 ### Added
 * Added boto3 and botocore to setup.py

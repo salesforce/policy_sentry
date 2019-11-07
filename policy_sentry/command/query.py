@@ -1,7 +1,7 @@
 import click
 import pprint
 import json
-from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name
+from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, query_arn_table, query_arn_table_by_name
 from policy_sentry.shared.database import connect_db
 from pathlib import Path
 
@@ -44,5 +44,12 @@ def query(table, service, name):
         else:
             output = query_condition_table_by_name(db_session, service, name)
             print(json.dumps(output, indent=4))
-
+    elif table == 'arn':
+        if name is None:
+            raw_arns = query_arn_table(db_session, service)
+            for item in raw_arns:
+                print(item)
+        else:
+            output = query_arn_table_by_name(db_session, service, name)
+            print(json.dumps(output, indent=4))
 

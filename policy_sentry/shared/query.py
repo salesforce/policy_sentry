@@ -29,3 +29,26 @@ def query_condition_table_by_name(db_session, service, condition_key_name):
         'condition_value_type': result.condition_value_type
     }
     return output
+
+
+def query_arn_table(db_session, service):
+    """Get a list of available ARNs per AWS service"""
+    results = []
+    rows = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.like(service))
+    for row in rows:
+        results.append(str(row.raw_arn))
+    return results
+
+
+def query_arn_table_by_name(db_session, service, name):
+    """Get details about a resource ARN type name in JSON format."""
+    rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(
+        ArnTable.resource_type_name.like(name), ArnTable.service.like(service))
+    result = rows.first()
+    output = {
+        'resource_type_name': result.resource_type_name,
+        'raw_arn': result.raw_arn
+        # TODO: After #33 is fixed, add the items from the condition keys column here.
+    }
+    return output
+
