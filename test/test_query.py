@@ -2,7 +2,8 @@ import unittest
 from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
-    query_arn_table_by_name, query_action_table, query_action_table_by_name
+    query_arn_table_by_name, query_action_table, query_action_table_by_name, query_action_table_by_access_level, \
+    query_action_table_by_arn_type_and_access_level
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -93,3 +94,23 @@ class QueryTestCase(unittest.TestCase):
         }
         output = query_action_table_by_name(db_session, 'ram', 'createresourceshare')
         self.assertDictEqual(desired_output, output)
+
+    def test_query_action_table_by_access_level(self):
+        """test_query_action_table_by_access_level: Tests function that gets a list of actions in a service under different access levels."""
+        # desired_output = ""
+        desired_output = ['ram:acceptresourceshareinvitation', 'ram:associateresourceshare', 'ram:createresourceshare',
+                        'ram:deleteresourceshare', 'ram:disassociateresourceshare',
+                        'ram:enablesharingwithawsorganization', 'ram:rejectresourceshareinvitation',
+                        'ram:updateresourceshare']
+        output = query_action_table_by_access_level(db_session, "ram", "Permissions management")
+        print(output)
+        self.assertListEqual(desired_output, output)
+
+    def test_query_action_table_by_arn_type_and_access_level(self):
+        """test_query_action_table_by_arn_type_and_access_level: Tests a function that gets a list of actions in a service under different access levels, specific to an ARN format."""
+        desired_output = ""
+        desired_output = ['ram:associateresourceshare', 'ram:createresourceshare', 'ram:deleteresourceshare', 'ram:disassociateresourceshare', 'ram:updateresourceshare']
+        output = query_action_table_by_arn_type_and_access_level(db_session, "ram", "resource-share",
+                                                                 "Permissions management")
+        print(output)
+        self.assertListEqual(desired_output, output)

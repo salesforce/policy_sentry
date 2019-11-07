@@ -86,6 +86,17 @@ def get_action_name_from_action(action):
     return str.lower(action_name)
 
 
+def get_full_action_name(service, action_name):
+    """
+    Gets the proper formatting for an action - the service, plus colon, plus action name.
+    :param service: service name, like s3
+    :param action_name: action name, like createbucket
+    :return: the resulting string
+    """
+    action = service + ':' + action_name
+    return action
+
+
 def get_dependent_actions(db_session, actions_list):
     """
     Given a list of IAM Actions, query the database to determine if the action has dependent actions in the

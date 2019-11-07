@@ -1,5 +1,6 @@
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
+from policy_sentry.shared.actions import get_actions_by_access_level, get_full_action_name
 
 
 # Per service
@@ -33,6 +34,7 @@ def query_arn_table(db_session, service):
     rows = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.like(service))
     for row in rows:
         results.append(str(row.raw_arn))
+    # TODO: Instead of JUST the raw ARN, return a pairing of the resource type name and the raw ARN itself.
     return results
 
 
@@ -63,11 +65,7 @@ def query_action_table(db_session, service):
 def query_action_table_by_name(db_session, service, name):
     """Get details about an IAM Action in JSON format."""
     rows = db_session.query(ActionTable).filter(and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
-    # TODO: Before submitting #29, Throw an error if it doesn't match. This is likely because the user is likely to
-    #  provide `service:action_name` as the name at first, and we want to direct them to just use the action name.
 
-    # TODO: Before submitting #29, Handle cases where the actions match multiple times - for example,
-    #  there are multiple entries for ram:TagResource due to the two different ARN formats.
     action_table_results = {}
     results = []
 
@@ -92,3 +90,37 @@ def query_action_table_by_name(db_session, service, name):
 
     action_table_results[service] = results
     return action_table_results
+
+
+def query_action_table_by_access_level(db_session, service, access_level):
+    """Get a list of actions in a service under different access levels."""
+    actions_list = []
+    rows = db_session.query(ActionTable).filter(and_(
+        ActionTable.service.like(service),
+        ActionTable.access_level.ilike(access_level)
+    ))
+    # Create a list of actions under each service. Use this list to pass in to the get_actions_by_access_level function
+    # which will give you the list of actions you want.
+    for row in rows:
+        action = get_full_action_name(row.service, row.name)
+        if action not in actions_list:
+            actions_list.append(action)
+
+    # actions_list_with_requested_access_level_only = get_actions_by_access_level(db_session, actions_list, access_level)
+    return actions_list
+
+
+def query_action_table_by_arn_type_and_access_level(db_session, service, resource_type_name, access_level):
+    """Get a list of actions in a service under different access levels, specific to an ARN format."""
+    # Thought: Should I use a function to filter for the access level beforehand?
+    actions_list = []
+    rows = db_session.query(ActionTable).filter(and_(
+        ActionTable.service.ilike(service),
+        ActionTable.resource_type_name.ilike(resource_type_name),
+        ActionTable.access_level.ilike(access_level)
+    ))
+    for row in rows:
+        action = get_full_action_name(row.service, row.name)
+        if action not in actions_list:
+            actions_list.append(action)
+    return actions_list
