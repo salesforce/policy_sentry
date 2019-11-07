@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
-    query_arn_table_by_name
+    query_arn_table_by_name, query_action_table
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -13,7 +13,7 @@ db_session = connect_db(database_file_path)
 
 class QueryTestCase(unittest.TestCase):
     def test_query_condition_table(self):
-        """Tests function that grabs a list of condition keys per service."""
+        """test_query_condition_table: Tests function that grabs a list of condition keys per service."""
         desired_output = [
             'cloud9:EnvironmentId',
             'cloud9:EnvironmentName',
@@ -26,7 +26,7 @@ class QueryTestCase(unittest.TestCase):
         self.assertEquals(desired_output, output)
 
     def test_query_condition_table_by_name(self):
-        """Tests function that grabs details about a specific condition key"""
+        """test_query_condition_table_by_name: Tests function that grabs details about a specific condition key"""
         desired_output = {
             "name": "cloud9:Permissions",
             "description": "Filters access by the type of AWS Cloud9 permissions",
@@ -36,7 +36,7 @@ class QueryTestCase(unittest.TestCase):
         self.assertEquals(desired_output, output)
 
     def test_query_arn_table(self):
-        """Tests function that grabs a list of raw ARNs per service"""
+        """test_query_arn_table: Tests function that grabs a list of raw ARNs per service"""
         desired_output = [
             'arn:aws:ssm:${Region}:${Account}:document/${DocumentName}',
             'arn:aws:ssm:${Region}:${Account}:maintenancewindow/${ResourceId}',
@@ -50,7 +50,7 @@ class QueryTestCase(unittest.TestCase):
         self.assertListEqual(desired_output, output)
 
     def test_query_arn_table_by_name(self):
-        """Tests function that grabs details about a specific ARN name"""
+        """test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name"""
         desired_output = {
             "resource_type_name": "environment",
             "raw_arn": "arn:aws:cloud9:${Region}:${Account}:environment:${ResourceId}"
@@ -58,4 +58,13 @@ class QueryTestCase(unittest.TestCase):
         output = query_arn_table_by_name(db_session, "cloud9", "environment")
         self.assertEquals(desired_output, output)
 
-
+    def test_query_action_table(self):
+        """test_query_action_table: Tests function that gets a list of actions per AWS service."""
+        desired_output = ['ram:acceptresourceshareinvitation', 'ram:associateresourceshare', 'ram:createresourceshare',
+                        'ram:deleteresourceshare', 'ram:disassociateresourceshare',
+                        'ram:enablesharingwithawsorganization', 'ram:getresourcepolicies',
+                        'ram:getresourceshareassociations', 'ram:getresourceshareinvitations', 'ram:getresourceshares',
+                        'ram:listpendinginvitationresources', 'ram:rejectresourceshareinvitation', 'ram:tagresource',
+                        'ram:untagresource', 'ram:updateresourceshare']
+        output = query_action_table(db_session, "ram")
+        self.assertListEqual(desired_output, output)

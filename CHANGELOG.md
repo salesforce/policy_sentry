@@ -3,6 +3,10 @@
 ### Added
 * Query capabilities for conditions table.
 * Query capabilities for ARN table.
+* Query capabilities for action table. Needs enhancement.
+### Changed
+* Fixed naming of a few unit tests to improve output in nosetests.
+
 ## 2019-10-24
 ### Added
 * Added boto3 and botocore to setup.py

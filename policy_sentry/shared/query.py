@@ -1,10 +1,6 @@
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
 
-# https://stackoverflow.com/questions/34538457/alternative-to-stored-procedures-in-sqlite3
-# https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html#retrieving-column-names
-# def query_action_table(service):
-
 
 # Per service
 def query_condition_table(db_session, service):
@@ -52,3 +48,13 @@ def query_arn_table_by_name(db_session, service, name):
     }
     return output
 
+
+def query_action_table(db_session, service):
+    """Get a list of available actions per AWS service"""
+    results = []
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(ActionTable.service.like(service))
+    for row in rows:
+        action = row.service + ':' + row.name
+        if action not in results:
+            results.append(action)
+    return results
