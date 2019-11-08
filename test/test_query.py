@@ -96,7 +96,8 @@ class QueryTestCase(unittest.TestCase):
         self.assertDictEqual(desired_output, output)
 
     def test_query_action_table_by_access_level(self):
-        """test_query_action_table_by_access_level: Tests function that gets a list of actions in a service under different access levels."""
+        """test_query_action_table_by_access_level: Tests function that gets a list of actions in a
+        service under different access levels."""
         # desired_output = ""
         desired_output = ['ram:acceptresourceshareinvitation', 'ram:associateresourceshare', 'ram:createresourceshare',
                         'ram:deleteresourceshare', 'ram:disassociateresourceshare',
@@ -107,9 +108,11 @@ class QueryTestCase(unittest.TestCase):
         self.assertListEqual(desired_output, output)
 
     def test_query_action_table_by_arn_type_and_access_level(self):
-        """test_query_action_table_by_arn_type_and_access_level: Tests a function that gets a list of actions in a service under different access levels, specific to an ARN format."""
+        """test_query_action_table_by_arn_type_and_access_level: Tests a function that gets a list of
+        actions in a service under different access levels, specific to an ARN format."""
         desired_output = ""
-        desired_output = ['ram:associateresourceshare', 'ram:createresourceshare', 'ram:deleteresourceshare', 'ram:disassociateresourceshare', 'ram:updateresourceshare']
+        desired_output = ['ram:associateresourceshare', 'ram:createresourceshare', 'ram:deleteresourceshare',
+                          'ram:disassociateresourceshare', 'ram:updateresourceshare']
         output = query_action_table_by_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
         print(output)
