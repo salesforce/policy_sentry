@@ -38,24 +38,12 @@ def get_actions_by_access_level(db_session, actions_list, access_level):
         service, action_name = action.split(':')
         action = str.lower(action)
         first_result = None  # Just to appease nosetests
-        if access_level == "read":
-            level = "Read"
-        elif access_level == "write":
-            level = "Write"
-        elif access_level == "list":
-            level = "List"
-        elif access_level == "tagging":
-            level = "Tagging"
-        elif access_level == "permissions-management":
-            level = "Permissions management"
-        else:
-            print("Error: Please specify the correct access level.")
-            sys.exit(0)
-        query_actions_access_level = db_session.query(ActionTable).filter(
-            and_(ActionTable.service.like(service),
-                 ActionTable.name.like(str.lower(action_name)),
-                ActionTable.access_level.like(level)
-                 ))
+        level = transform_access_level_text(access_level)
+        query_actions_access_level = db_session.query(ActionTable).filter(and_(
+            ActionTable.service.like(service),
+            ActionTable.name.like(str.lower(action_name)),
+            ActionTable.access_level.like(level)
+        ))
 
         first_result = query_actions_access_level.first()
         if first_result is None:
@@ -64,6 +52,25 @@ def get_actions_by_access_level(db_session, actions_list, access_level):
             # Just take the first result
             new_actions_list.append(action)
     return new_actions_list
+
+
+def transform_access_level_text(access_level):
+    """This takes the Click choices for access levels, like permissions-management, and
+    returns the text format matching that access level, but in the format that SQLite database expects"""
+    if access_level == "read":
+        level = "Read"
+    elif access_level == "write":
+        level = "Write"
+    elif access_level == "list":
+        level = "List"
+    elif access_level == "tagging":
+        level = "Tagging"
+    elif access_level == "permissions-management":
+        level = "Permissions management"
+    else:
+        print("Error: Please specify the correct access level.")
+        sys.exit(0)
+    return level
 
 
 def get_service_from_action(action):

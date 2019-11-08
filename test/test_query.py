@@ -73,26 +73,34 @@ class QueryTestCase(unittest.TestCase):
     def test_query_action_table_by_name(self):
         """test_query_action_table_by_name: Tests function that gets details on a specific IAM Action."""
         desired_output = {
-            "ram": [
+            'ram': [
                 {
-                    "action": "ram:createresourceshare",
-                    "description": "Create resource share with provided resource(s) and/or principal(s)",
-                    "access_level": "Permissions management",
-                    "resource_arn_format": "arn:aws:ram:${Region}:${Account}:resource-share/${ResourcePath}",
-                    "condition_keys": "ram:RequestedResourceType,ram:ResourceArn,ram:AllowsExternalPrincipals",
-                    "dependent_actions": None
+                    'action': 'ram:createresourceshare',
+                    'description': 'Create resource share with provided resource(s) and/or principal(s)',
+                    'access_level': 'Permissions management',
+                    'resource_arn_format': 'arn:aws:ram:${Region}:${Account}:resource-share/${ResourcePath}',
+                    'condition_keys': [
+                        'ram:RequestedResourceType',
+                        'ram:ResourceArn',
+                        'ram:AllowsExternalPrincipals'
+                    ],
+                    'dependent_actions': None
                 },
                 {
-                    "action": "ram:createresourceshare",
-                    "description": "Create resource share with provided resource(s) and/or principal(s)",
-                    "access_level": "Permissions management",
-                    "resource_arn_format": "*",
-                    "condition_keys": "aws:RequestTag/${TagKey},aws:TagKeys",
-                    "dependent_actions": None
+                    'action': 'ram:createresourceshare',
+                    'description': 'Create resource share with provided resource(s) and/or principal(s)',
+                    'access_level': 'Permissions management',
+                    'resource_arn_format': '*',
+                    'condition_keys': [
+                        'aws:RequestTag/${TagKey}',
+                        'aws:TagKeys'
+                    ],
+                    'dependent_actions': None
                 }
             ]
         }
         output = query_action_table_by_name(db_session, 'ram', 'createresourceshare')
+        self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
     def test_query_action_table_by_access_level(self):
@@ -104,6 +112,7 @@ class QueryTestCase(unittest.TestCase):
                         'ram:updateresourceshare']
         output = query_action_table_by_access_level(db_session, "ram", "Permissions management")
         print(output)
+        self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
     def test_query_action_table_by_arn_type_and_access_level(self):
@@ -114,4 +123,5 @@ class QueryTestCase(unittest.TestCase):
         output = query_action_table_by_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
         print(output)
+        self.maxDiff = None
         self.assertListEqual(desired_output, output)

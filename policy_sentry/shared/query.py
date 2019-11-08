@@ -71,8 +71,14 @@ def query_action_table_by_name(db_session, service, name):
 
     for row in rows:
         action = row.service + ':' + row.name
-        # if row.condition_keys: # TODO: Split the condition keys based on commas.
-        # if row.dependent_actions: # TODO: Split the dependent actions based on commas.
+        if row.condition_keys:
+            condition_keys = row.condition_keys.split(",")
+        else:
+            condition_keys = None
+        if row.dependent_actions:
+            dependent_actions = row.dependent_actions.split(",")
+        else:
+            dependent_actions = None
         # if row.dependent_actions is None:
         #     # We have to do this otherwise the output will officially be "dependent_actions": null
         #     dependent_actions = None
@@ -83,8 +89,8 @@ def query_action_table_by_name(db_session, service, name):
             "description": row.description,
             "access_level": row.access_level,
             "resource_arn_format": row.resource_arn_format,
-            "condition_keys": row.condition_keys,
-            "dependent_actions": row.dependent_actions
+            "condition_keys": condition_keys,
+            "dependent_actions": dependent_actions
         }
         results.append(temp_dict)
 
@@ -105,14 +111,11 @@ def query_action_table_by_access_level(db_session, service, access_level):
         action = get_full_action_name(row.service, row.name)
         if action not in actions_list:
             actions_list.append(action)
-
-    # actions_list_with_requested_access_level_only = get_actions_by_access_level(db_session, actions_list, access_level)
     return actions_list
 
 
 def query_action_table_by_arn_type_and_access_level(db_session, service, resource_type_name, access_level):
     """Get a list of actions in a service under different access levels, specific to an ARN format."""
-    # Thought: Should I use a function to filter for the access level beforehand?
     actions_list = []
     rows = db_session.query(ActionTable).filter(and_(
         ActionTable.service.ilike(service),
