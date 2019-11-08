@@ -98,6 +98,18 @@ def query_action_table_by_name(db_session, service, name):
     return action_table_results
 
 
+def query_action_table_for_actions_supporting_wildcards_only(db_session, service):
+    actions_list = []
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
+        ActionTable.service.ilike(service),
+        ActionTable.resource_arn_format.like("*"),
+        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
+    ))
+    for row in rows:
+        actions_list.append(get_full_action_name(row.service, row.name))
+    return actions_list
+
+
 def query_action_table_by_access_level(db_session, service, access_level):
     """Get a list of actions in a service under different access levels."""
     actions_list = []

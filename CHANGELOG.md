@@ -1,4 +1,7 @@
 # Changelog
+## 2019-11-08
+### Added
+* Query capability to assist users in identifying actions to supply in future #16 feature
 ## 2019-11-07
 ### Added
 * Query capabilities to address #29. This currently includes capabilities for:

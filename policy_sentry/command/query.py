@@ -4,7 +4,7 @@ import json
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, query_arn_table, \
     query_arn_table_by_name, query_action_table, query_action_table_by_name, \
     query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
-    query_action_table_for_all_condition_key_matches
+    query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import transform_access_level_text
 from pathlib import Path
@@ -13,6 +13,7 @@ HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
 DATABASE_FILE_NAME = 'aws.sqlite3'
 database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
+
 
 @click.command(
     short_help="Allow users to query the action, arn, and condition tables from command line."
@@ -49,9 +50,16 @@ database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
     help='If action table is chosen, you can supply a condition key to show a list of all IAM actions that'
          ' support the condition key.'
 )
+@click.option(
+    '--wildcard-only',
+    is_flag=True,
+    required=False,
+    help='If action table is chosen, show the IAM actions that only support '
+         'wildcard resources - i.e., cannot support ARNs in the resource block.'
+)
 # TODO: Ask Matty about how to handle Click context
 #  so we can have different options for filtering based on which table the user selects
-def query(table, service, name, access_level, condition):
+def query(table, service, name, access_level, condition, wildcard_only):
     """Allow users to query the action tables, arn tables, and condition keys tables from command line."""
     db_session = connect_db(database_file_path)
     if table == 'condition':
@@ -71,7 +79,7 @@ def query(table, service, name, access_level, condition):
             output = query_arn_table_by_name(db_session, service, name)
             print(json.dumps(output, indent=4))
     elif table == 'action':
-        if name is None and access_level is None and condition is None:
+        if name is None and access_level is None and condition is None and wildcard_only is None:
             action_list = query_action_table(db_session, service)
             print(f"ALL {service} actions:")
             for item in action_list:
@@ -84,7 +92,11 @@ def query(table, service, name, access_level, condition):
             print("Actions:")
             print(json.dumps(output, indent=4))
         elif condition:
+            print(f"IAM actions under {service} service that support wildcard resource values only:")
             output = query_action_table_for_all_condition_key_matches(db_session, service, condition)
+            print(json.dumps(output, indent=4))
+        elif wildcard_only:
+            output = query_action_table_for_actions_supporting_wildcards_only(db_session, service)
             print(json.dumps(output, indent=4))
         elif name and access_level is None:
             output = query_action_table_by_name(db_session, service, name)

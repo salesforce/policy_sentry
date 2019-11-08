@@ -3,7 +3,8 @@ from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
     query_arn_table_by_name, query_action_table, query_action_table_by_name, query_action_table_by_access_level, \
-    query_action_table_by_arn_type_and_access_level, query_action_table_for_all_condition_key_matches
+    query_action_table_by_arn_type_and_access_level, query_action_table_for_all_condition_key_matches, \
+    query_action_table_for_actions_supporting_wildcards_only
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -147,3 +148,16 @@ class QueryTestCase(unittest.TestCase):
         self.maxDiff = None
         print(output)
         self.assertListEqual(desired_list, output)
+
+    def test_query_action_table_for_actions_supporting_wildcards_only(self):
+        """test_query_action_table_for_actions_supporting_wildcards_only: Tests function that shows all
+        actions that support * resources only."""
+        desired_output = [
+            "secretsmanager:createsecret",
+            "secretsmanager:getrandompassword",
+            "secretsmanager:listsecrets"
+        ]
+        output = query_action_table_for_actions_supporting_wildcards_only(db_session, "secretsmanager")
+        self.maxDiff = None
+        print(output)
+        self.assertListEqual(desired_output, output)
