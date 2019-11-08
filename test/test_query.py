@@ -3,7 +3,7 @@ from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
     query_arn_table_by_name, query_action_table, query_action_table_by_name, query_action_table_by_access_level, \
-    query_action_table_by_arn_type_and_access_level
+    query_action_table_by_arn_type_and_access_level, query_action_table_for_all_condition_key_matches
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -54,7 +54,8 @@ class QueryTestCase(unittest.TestCase):
         """test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name"""
         desired_output = {
             "resource_type_name": "environment",
-            "raw_arn": "arn:aws:cloud9:${Region}:${Account}:environment:${ResourceId}"
+            "raw_arn": "arn:aws:cloud9:${Region}:${Account}:environment:${ResourceId}",
+            "condition_keys": None
         }
         output = query_arn_table_by_name(db_session, "cloud9", "environment")
         self.assertEquals(desired_output, output)
@@ -125,3 +126,24 @@ class QueryTestCase(unittest.TestCase):
         print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    def test_query_action_table_for_service_specific_condition_key_matches(self):
+        """test_query_action_table_for_all_condition_key_matches: Tests a function that gathers all instances in
+        the action tables where the condition key exists."""
+        desired_output = ['ses:sendbulktemplatedemail', 'ses:sendcustomverificationemail', 'ses:sendemail',
+                          'ses:sendrawemail', 'ses:sendtemplatedemail']
+        output = query_action_table_for_all_condition_key_matches(db_session, "ses", "ses:FeedbackAddress")
+        print(output)
+        self.maxDiff = None
+        self.assertListEqual(desired_output, output)
+
+    def test_query_action_table_for_all_condition_key_matches(self):
+        """test_query_action_table_for_all_condition_key_matches: Tests a function that creates a list of all IAM
+        actions that support the supplied condition key."""
+        # condition_key = "aws:RequestTag"
+        desired_list = ['appstream:associatefleet', 'appstream:batchassociateuserstack', 'appstream:batchdisassociateuserstack', 'appstream:copyimage', 'appstream:createimagebuilderstreamingurl', 'appstream:createstreamingurl', 'appstream:deletefleet', 'appstream:deleteimage', 'appstream:deleteimagebuilder', 'appstream:deleteimagepermissions', 'appstream:deletestack', 'appstream:disassociatefleet', 'appstream:startfleet', 'appstream:startimagebuilder', 'appstream:stopfleet', 'appstream:stopimagebuilder', 'appstream:tagresource', 'appstream:updatefleet', 'appstream:updateimagepermissions', 'appstream:updatestack', 'appsync:deletegraphqlapi', 'appsync:getgraphqlapi', 'appsync:listtagsforresource', 'appsync:tagresource', 'appsync:updategraphqlapi', 'codecommit:tagresource', 'cognito-identity:createidentitypool', 'cognito-identity:listtagsforresource', 'cognito-identity:tagresource', 'cognito-identity:untagresource', 'cognito-idp:createuserpool', 'cognito-idp:listtagsforresource', 'cognito-idp:tagresource', 'cognito-idp:untagresource', 'cognito-idp:updateuserpool', 'dms:describereplicationinstancetasklogs', 'mobiletargeting:createapp', 'mobiletargeting:createcampaign', 'mobiletargeting:createsegment', 'mobiletargeting:deletecampaign', 'mobiletargeting:deletesegment', 'mobiletargeting:getapp', 'mobiletargeting:getapps', 'mobiletargeting:getcampaign', 'mobiletargeting:getcampaignversion', 'mobiletargeting:getcampaignversions', 'mobiletargeting:getcampaigns', 'mobiletargeting:getsegment', 'mobiletargeting:getsegmentversion', 'mobiletargeting:getsegmentversions', 'mobiletargeting:getsegments', 'mobiletargeting:listtagsforresource', 'mobiletargeting:tagresource', 'mobiletargeting:untagresource', 'mobiletargeting:updatecampaign', 'mobiletargeting:updatesegment']
+        stuff = "aws:ResourceTag/${TagKey}"
+        output = query_action_table_for_all_condition_key_matches(db_session, service=None, condition_key=stuff)
+        self.maxDiff = None
+        print(output)
+        self.assertListEqual(desired_list, output)

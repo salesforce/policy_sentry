@@ -3,7 +3,8 @@ import pprint
 import json
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, query_arn_table, \
     query_arn_table_by_name, query_action_table, query_action_table_by_name, \
-    query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level
+    query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
+    query_action_table_for_all_condition_key_matches
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import transform_access_level_text
 from pathlib import Path
@@ -41,9 +42,16 @@ database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
     help='If action table is chosen, you can use this to filter according to CRUD levels. '
          'Acceptable values are read, write, list, tagging, permissions-management'
 )
+@click.option(
+    '--condition',
+    type=str,
+    required=False,
+    help='If action table is chosen, you can supply a condition key to show a list of all IAM actions that'
+         ' support the condition key.'
+)
 # TODO: Ask Matty about how to handle Click context
 #  so we can have different options for filtering based on which table the user selects
-def query(table, service, name, access_level):
+def query(table, service, name, access_level, condition):
     """Allow users to query the action tables, arn tables, and condition keys tables from command line."""
     db_session = connect_db(database_file_path)
     if table == 'condition':
@@ -63,7 +71,7 @@ def query(table, service, name, access_level):
             output = query_arn_table_by_name(db_session, service, name)
             print(json.dumps(output, indent=4))
     elif table == 'action':
-        if name is None and access_level is None:
+        if name is None and access_level is None and condition is None:
             action_list = query_action_table(db_session, service)
             print(f"ALL {service} actions:")
             for item in action_list:
@@ -75,9 +83,11 @@ def query(table, service, name, access_level):
             print(f"Access level: \"{level}\"")
             print("Actions:")
             print(json.dumps(output, indent=4))
+        elif condition:
+            output = query_action_table_for_all_condition_key_matches(db_session, service, condition)
+            print(json.dumps(output, indent=4))
         elif name and access_level is None:
             output = query_action_table_by_name(db_session, service, name)
-            # print(f"Details on the IAM action \"{service}:{name}\":")
             print(json.dumps(output, indent=4))
         else:
             print("Unknown error - no proper choices for action table query.")

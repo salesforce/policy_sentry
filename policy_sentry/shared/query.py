@@ -40,12 +40,17 @@ def query_arn_table(db_session, service):
 
 def query_arn_table_by_name(db_session, service, name):
     """Get details about a resource ARN type name in JSON format."""
-    rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(
+    rows = db_session.query(ArnTable).filter(
         ArnTable.resource_type_name.like(name), ArnTable.service.like(service))
     result = rows.first()
+    if result.condition_keys:
+        condition_keys = result.condition_keys.split(",")
+    else:
+        condition_keys = None
     output = {
         'resource_type_name': result.resource_type_name,
-        'raw_arn': result.raw_arn
+        'raw_arn': result.raw_arn,
+        'condition_keys': condition_keys
         # TODO: After #33 is fixed, add the items from the condition keys column here.
     }
     return output
@@ -79,11 +84,6 @@ def query_action_table_by_name(db_session, service, name):
             dependent_actions = row.dependent_actions.split(",")
         else:
             dependent_actions = None
-        # if row.dependent_actions is None:
-        #     # We have to do this otherwise the output will officially be "dependent_actions": null
-        #     dependent_actions = None
-        # else:
-        #     dependent_actions = row.dependent_actions
         temp_dict = {
             "action": action,
             "description": row.description,
@@ -127,3 +127,25 @@ def query_action_table_by_arn_type_and_access_level(db_session, service, resourc
         if action not in actions_list:
             actions_list.append(action)
     return actions_list
+
+
+def query_action_table_for_all_condition_key_matches(db_session, service, condition_key):
+    results = []
+    looking_for = '%{0}%'.format(condition_key)
+    if service:
+        rows = db_session.query(ActionTable).filter(and_(
+            ActionTable.service.ilike(service),
+            ActionTable.condition_keys.ilike(looking_for)
+        ))
+        for row in rows:
+            action = get_full_action_name(row.service, row.name)
+            results.append(action)
+    else:
+        rows = db_session.query(ActionTable).filter(and_(
+            ActionTable.condition_keys.ilike(looking_for)
+        ))
+        for row in rows:
+            action = get_full_action_name(row.service, row.name)
+            results.append(action)
+
+    return results

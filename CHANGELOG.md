@@ -9,6 +9,11 @@
     - Need to provide more granular queries for querying the access table before finalizing PR. Especially the one based on access levels, and available condition keys per action or ARN.
   - ARN Table: (1) list of all raw ARNs in a service, (2) details about a specific ARN type
   - Conditions Table: (1) list of all condition keys available to a service, (2) details about a specific condition key
+  - Specialized
+    - Query the actions table for actions within a service that support specific Condition keys
+    - Query the actions table for the same as above, but regardless of service
+* To finalize the query capabilities, just need to run it by Matty, make adjustments with Click Contexts, and squash commits.
+
 * Unit tests to accompany the query capabilities
 
 ### Changed
