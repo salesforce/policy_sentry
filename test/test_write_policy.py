@@ -1,4 +1,5 @@
 import unittest
+import json
 from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.policy import ArnActionGroup
@@ -84,3 +85,61 @@ class WritePolicyActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         policy = print_policy(arn_dict, db_session)
         self.assertDictEqual(policy, desired_output)
+
+
+class WritePolicyPreventWildcardEscalation(unittest.TestCase):
+    def test_wildcard_when_not_necessary(self):
+        cfg = {
+            'roles_with_crud_levels': [
+                {
+                    'name': 'RoleNameWithCRUD',
+                    'description': 'Why I need these privs',
+                    'arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                    'permissions-management': [
+                        'arn:aws:s3:::example-org-s3-access-logs'
+                    ],
+                    'wildcard': [
+                        'secretsmanager:deletesecret',
+                        'secretsmanager:getsecretvalue',
+                        'ram:enablesharingwithawsorganization',
+                        'ram:getresourcepolicies'
+                    ]
+                }
+            ]
+        }
+        arn_action_group = ArnActionGroup()
+
+        arn_dict = arn_action_group.process_resource_specific_acls(cfg, db_session)
+        output = print_policy(arn_dict, db_session, None)
+        print(json.dumps(output, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ram:enablesharingwithawsorganization",
+                        "ram:getresourcepolicies"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:deletebucketpolicy",
+                        "s3:putbucketacl",
+                        "s3:putbucketpolicy",
+                        "s3:putbucketpublicaccessblock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        self.maxDiff = None
+        # self.assertDictEqual(output, desired_output)

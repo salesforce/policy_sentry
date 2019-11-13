@@ -5,7 +5,7 @@ from policy_sentry.shared.query import query_condition_table_by_name, query_cond
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
     query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
     query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
-    query_arn_table_for_arn_types
+    query_arn_table_for_arn_types, remove_actions_that_are_not_wildcard_arn_only
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -177,3 +177,24 @@ class QueryTestCase(unittest.TestCase):
         self.maxDiff = None
         print(output)
         self.assertListEqual(desired_output, output)
+
+    def test_remove_actions_that_are_not_wildcard_arn_only(self):
+        """test_remove_actions_that_are_not_wildcard_arn_only: Tests function that removes actions from a list that
+        are not wildcard ARNs only"""
+        provided_actions_list = [
+            # 3 wildcard only actions
+            "secretsmanager:createsecret",
+            "secretsmanager:getrandompassword",
+            "secretsmanager:listsecrets",
+            # This one is wildcard OR "secret"
+            "secretsmanager:putsecretvalue"
+        ]
+        desired_output = [
+            # 3 wildcard only actions
+            "secretsmanager:createsecret",
+            "secretsmanager:getrandompassword",
+            "secretsmanager:listsecrets",
+        ]
+        output = remove_actions_that_are_not_wildcard_arn_only(db_session, provided_actions_list)
+        self.assertListEqual(desired_output, output)
+

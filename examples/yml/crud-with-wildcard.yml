@@ -1,0 +1,19 @@
+roles_with_crud_levels:
+- name: 'RoleNameWithCRUD'
+  description: 'Why I need these privs'
+  arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
+#  read:
+#    - arn:aws:s3:::example-org-sbx-vmimport/stuff
+#  write:
+#    - arn:aws:kms:us-east-1:123456789012:key/123456
+#  list:
+#    - arn:aws:s3:::example-org-flow-logs
+#    - arn:aws:s3:::example-org-sbx-vmimport/stuff
+#  tag:
+#    - arn:aws:ssm:us-east-1:123456789012:parameter/test
+  permissions-management:
+    - arn:aws:s3:::example-org-s3-access-logs
+  wildcard:
+    - ram:enablesharingwithawsorganization
+    - ram:getresourcepolicies
+    - secretsmanager:putsecretvalue # attempting bypass
