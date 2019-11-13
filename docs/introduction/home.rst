@@ -176,7 +176,7 @@ Usage
 
 
 *
-  ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://github.com/salesforce/policy_sentry/wiki/Initializing-policy_sentry>`_.
+  ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
 
 *
   ``create-template``\ : Creates the YML file templates for use in the ``write-policy`` command types.
@@ -185,8 +185,8 @@ Usage
   ``write-policy``\ : Leverage a YAML file to write policies for you
 
 
-  * Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the `documentation on CRUD mode <https://github.com/salesforce/policy_sentry/wiki/Writing-IAM-Policies-with-Resource-ARNs-and-Access-Levels>`_
-  * Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the `documentation on Action Mode <https://github.com/salesforce/policy_sentry/wiki/Writing-IAM-Policies-with-a-List-of-Actions>`_.
+  * Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the `documentation on CRUD mode <https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#crud-mode-arns-and-access-levels>`__
+  * Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the `documentation on Action Mode <https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#actions-mode-lists-of-iam-actions>`__.
 
 *
   ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
@@ -195,10 +195,10 @@ Usage
   ``download-policies``\ : Download IAM policies from your AWS account for analysis.
 
 *
-  `analyze-iam-policy`: Analyze an IAM policy read from a JSON file, expands the wildcards (like `s3:List*` if necessary.
+  ``analyze-iam-policy``: Analyze an IAM policy read from a JSON file, expands the wildcards (like ``s3:List*`` if necessary.
 
 
-  * Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the `documentation on Initialization <https://github.com/salesforce/policy_sentry/wiki/Initializing-policy_sentry>`_.
+  * Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the `documentation on Initialization <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
   * Option 2: Audits them to see if any of the actions in the policy meet a certain access level, such as "Permissions management."
 
 

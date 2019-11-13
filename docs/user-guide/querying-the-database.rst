@@ -30,6 +30,8 @@ Commands
     policy_sentry query --table arn --service ssm
     # Get the raw ARN format for the `cloud9` ARN with the short name `environment`
     policy_sentry query --table arn --service cloud9 --name environment
+    # Get key/value pairs of all RAW ARN formats plus their short names
+    policy_sentry query --table arn --service cloud9 --list-arn-types
 
 * Query the **Condition Keys**\  table:
 

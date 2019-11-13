@@ -16,10 +16,12 @@ Policy Sentry's policy writing templates are expressed in YAML and include the f
 
 Policy Sentry can also be used to:
 
-* Perform auditing of IAM Policies based on access levels
-* Query the policy database to reduce manual search time
-* Download live policies from an AWS account auditing purposes
-* Generate IAM Policies based on Terraform output
+* `Audit IAM Policies <https://policy-sentry.readthedocs.io/en/latest/user-guide/analyze-policy.html>`__ based on access levels
+* `Query the IAM database <https://policy-sentry.readthedocs.io/en/latest/user-guide/querying-the-database.html>`__ to reduce manual search time
+* `Download live policies <https://policy-sentry.readthedocs.io/en/latest/user-guide/downloading-policies.html>`__ from an AWS account auditing purposes
+* `Generate IAM Policies based on Terraform output <https://policy-sentry.readthedocs.io/en/latest/terraform/terraform-demo.html>`__
+* `Write least-privilege IAM Policies <https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html>`__ based on a list of IAM actions (or CRUD levels)
+
 
 Navigate below to get started with Policy Sentry!
 

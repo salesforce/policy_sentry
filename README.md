@@ -4,7 +4,7 @@ IAM Least Privilege Policy Generator, auditor, and analysis database.
 
 ## Wiki
 
-For walkthroughs and full documentation, please visit the [wiki](https://github.com/salesforce/policy_sentry/wiki).
+For walkthroughs and full documentation, please visit the [project on ReadTheDocs](https://policy-sentry.readthedocs.io/en/latest/index.html).
 
 ## Overview
 
@@ -231,6 +231,51 @@ policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json
 policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json --from-audit-file ~/.policy_sentry/audit/privilege-escalation.txt
 ```
 
+* IAM Database Query Cheat Sheet
+
+```bash
+
+###############
+# Actions Table
+###############
+
+# Get a list of all IAM Actions available to the RAM service
+policy_sentry query --table action --service ram
+
+# Get details about the `ram:TagResource` IAM Action
+policy_sentry query --table action --service ram --name tagresource
+
+# Get a list of all IAM actions under the RAM service that have the Permissions management access level.
+policy_sentry query --table action --service ram --access-level permissions-management
+
+# Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
+policy_sentry query --table action --service ses --condition ses:FeedbackAddress
+
+###########
+# ARN Table
+###########
+
+# Get a list of all RAW ARN formats available through the SSM service.
+policy_sentry query --table arn --service ssm
+
+# Get the raw ARN format for the `cloud9` ARN with the short name `environment`
+policy_sentry query --table arn --service cloud9 --name environment
+
+# Get key/value pairs of all RAW ARN formats plus their short names
+policy_sentry query --table arn --service cloud9 --list-arn-types
+
+######################
+# Condition Keys Table
+######################
+
+# Get a list of all condition keys available to the Cloud9 service
+policy_sentry query --table condition --service cloud9
+
+# Get details on the condition key titled `cloud9:Permissions`
+policy_sentry query --table condition --service cloud9 --name cloud9:Permissions
+```
+
+
 ## Commands
 
 ### Usage
@@ -242,13 +287,19 @@ policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json --from-a
   - Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the [documentation][13]
   - Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation][14].
 
-* `write-policy-dir`: This can be helpful in the Terraform use case. For more information, see the wiki.
+* `write-policy-dir`: This can be helpful in the Terraform use case. For more information, see the [documentation][15].
 
 * `download-policies`: Download IAM policies from your AWS account for analysis.
 
 * `analyze-iam-policy`: Analyze an IAM policy read from a JSON file, expands the wildcards (like `s3:List*` if necessary.
   - Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the [documentation][12].
   - Option 2: Audits them to see if any of the actions in the policy meet a certain access level, such as "Permissions management."
+  
+* `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
+  - Option 1: Query the Actions Table (`--table action`)
+  - Option 2: Query the ARNs Table (`--table arn`)
+  - Option 3: Query the Conditions Table (`--table condition`)
+  
 
 ### Updating the AWS HTML files
 
@@ -277,6 +328,7 @@ Run the following:
 [9]: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
 [10]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/permissions-reference-cwe.html
 [11]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys
-[12]: https://github.com/salesforce/policy_sentry/wiki/Initializing-policy_sentry
-[13]: https://github.com/salesforce/policy_sentry/wiki/Writing-IAM-Policies-with-Resource-ARNs-and-Access-Levels
-[14]: https://github.com/salesforce/policy_sentry/wiki/Writing-IAM-Policies-with-a-List-of-Actions
+[12]: https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html
+[13]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#crud-mode-arns-and-access-levels
+[14]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#actions-mode-lists-of-iam-actions
+[15]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#folder-mode-write-multiple-policies-from-crud-mode-files

@@ -4,6 +4,10 @@
 * Added `--list-arn-types` under the query command.
   - This allows the user to query available ARN types and RAW ARN pairs
   - Added test case for the new query command
+* Various documentation issues
+  - Fixed links to the Wiki and such, since we moved to ReadTheDocs.
+  - Fix command cheat sheets
+  
 ## 2019-11-08
 ### Added
 * Query capability to assist users in identifying actions to supply in future #16 feature
