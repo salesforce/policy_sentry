@@ -39,12 +39,11 @@ def get_actions_by_access_level(db_session, actions_list, access_level):
         action = str.lower(action)
         first_result = None  # Just to appease nosetests
         level = transform_access_level_text(access_level)
-        query_actions_access_level = db_session.query(ActionTable).filter(and_(
-            ActionTable.service.like(service),
-            ActionTable.name.like(str.lower(action_name)),
-            ActionTable.access_level.like(level)
-        ))
-
+        query_actions_access_level = db_session.query(ActionTable).filter(
+            and_(ActionTable.service.like(service),
+                 ActionTable.name.like(str.lower(action_name)),
+                 ActionTable.access_level.like(level)
+                 ))
         first_result = query_actions_access_level.first()
         if first_result is None:
             pass
@@ -118,12 +117,17 @@ def get_dependent_actions(db_session, actions_list):
         service, action_name = action.split(':')
         action = str.lower(action)
         first_result = None  # Just to appease nosetests
-        for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service), ActionTable.name.like(str.lower(action_name)))):
+        for row in db_session.query(ActionTable).filter(
+            and_(
+                ActionTable.service.like(service),
+                ActionTable.name.like(
+                str.lower(action_name)))):
             # Just take the first result
             if 1 == 1:
                 first_result = row.dependent_actions
 
-        # We store the blank result as the literal string 'None' instead of Null.
+        # We store the blank result as the literal string 'None' instead of
+        # Null.
         if first_result is None:
             new_actions_list.append(action)
         elif first_result is not None:
@@ -137,7 +141,8 @@ def get_dependent_actions(db_session, actions_list):
                 new_actions_list.append(action)
                 # Add the dependent actions. Transform tuple to list
                 new_actions_list.extend(split_result)
-            # If there is no comma, there is just one dependent action in the database
+            # If there is no comma, there is just one dependent action in the
+            # database
             else:
                 # Add the action used for the current iteration of the loop
                 new_actions_list.append(action)
@@ -154,9 +159,11 @@ def get_actions_from_json_policy_file(json_file):
     read the json policy file and return a list of actions
     """
 
-    # FIXME use a try/expect here to validate the json file. I would create a generic json
+    # FIXME use a try/expect here to validate the json file. I would create a
+    # generic json
     with open(json_file) as json_file:
-        # validation function/parser as there is a lot of json floating around in this tool. [MJ]
+        # validation function/parser as there is a lot of json floating around
+        # in this tool. [MJ]
         data = json.load(json_file)
         actions_list = []
         # Multiple statements are in the 'Statement' list
@@ -170,7 +177,8 @@ def get_actions_from_json_policy_file(json_file):
                         elif isinstance(data['Statement']['Action'], list):
                             actions_list.extend(data['Statement']['Action'])
                         else:
-                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            print(
+                                "Unknown error: The 'Action' is neither a list nor a string")
                             continue
                     except KeyError as e:
                         print(e)
@@ -182,7 +190,8 @@ def get_actions_from_json_policy_file(json_file):
                         elif isinstance(data['Statement'][i]['Action'], list):
                             actions_list.extend(data['Statement'][i]['Action'])
                         else:
-                            print("Unknown error: The 'Action' is neither a list nor a string")
+                            print(
+                                "Unknown error: The 'Action' is neither a list nor a string")
                             exit()
                     except KeyError as e:
                         print(e)
@@ -200,4 +209,3 @@ def get_actions_from_json_policy_file(json_file):
         print("AttributeError: 'list' object has no attribute 'lower'")
     actions_list.sort()
     return actions_list
-

@@ -48,7 +48,8 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
             if fnmatch.fnmatchcase(expanded_action.lower(), action.lower())
         ]
 
-        # if we get a wildcard for a tech we've never heard of, just return the wildcard
+        # if we get a wildcard for a tech we've never heard of, just return the
+        # wildcard
         if not expanded:
             print(
                 "ERROR: The action {} references a wildcard for an unknown resource.".format(action))
@@ -72,7 +73,8 @@ def determine_actions_to_expand(action_list):
             new_action_list.extend(expanded_action)
         else:
             # If there is no wildcard, copy that action name over to the new_action_list
-            # TODO do we check for dupes here to make sure we are staying DRY? [MJ] create issue for this
+            # TODO do we check for dupes here to make sure we are staying DRY?
+            # [MJ] create issue for this
             new_action_list.append(action_list[action])
     return new_action_list
 
@@ -83,7 +85,8 @@ def analyze(policy_file, db_session, from_access_level, from_audit_file):
     expanded_actions = determine_actions_to_expand(requested_actions)
 
     if from_access_level:
-        levels = get_actions_by_access_level(db_session, expanded_actions, from_access_level)
+        levels = get_actions_by_access_level(
+            db_session, expanded_actions, from_access_level)
         if not levels:
             pass
         else:

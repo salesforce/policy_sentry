@@ -137,7 +137,8 @@ irregular_service_links = {  # TODO set this as a constant in a header file
 
 
 def get_docs_by_prefix(prefix):
-    # The links on the Actions, Resources, and Condition Keys page take two different formats, both of which are shown below
+    # The links on the Actions, Resources, and Condition Keys page take two
+    # different formats, both of which are shown below
     amazon_link_form = 'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazon{0}.html'
     aws_link_form = 'https://docs.aws.amazon.com/IAM/latest/UserGuide/list_aws{0}.html'
 

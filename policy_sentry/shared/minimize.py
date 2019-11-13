@@ -4,11 +4,11 @@ from policyuniverse.expander_minimizer import _get_prefixes_for_action
 Functions for Minimizing statements, heavily borrowed from policyuniverse.
 https://github.com/Netflix-Skunkworks/policyuniverse/
 
-IAM Policies have character limits, which apply to individual policies, and there are also limits on the total 
-aggregate policy sizes. As such, it is not possible to use exhaustive list of explicit IAM actions. 
-To have granular control of specific IAM policies, we must use wildcards on IAM Actions, only in a programmatic manner. 
+IAM Policies have character limits, which apply to individual policies, and there are also limits on the total
+aggregate policy sizes. As such, it is not possible to use exhaustive list of explicit IAM actions.
+To have granular control of specific IAM policies, we must use wildcards on IAM Actions, only in a programmatic manner.
 
-This is typically performed by humans by reducing policies to s3:Get*, ec2:Describe*, and other approaches of the sort. 
+This is typically performed by humans by reducing policies to s3:Get*, ec2:Describe*, and other approaches of the sort.
 
 Netflix's PolicyUniverse has address
 
@@ -19,7 +19,7 @@ Q: How many policies can I attach to an IAM role?
   - User policy size cannot exceed 2,048 characters.
   - Role policy size cannot exceed 10,240 characters.
   - Group policy size cannot exceed 5,120 characters.
-* For managed policies: You can add up to 10 managed policies to a user, role, or group. 
+* For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
 
 """
@@ -83,7 +83,6 @@ def minimize_statement_actions(desired_actions, all_actions, minchars=None):
                 prefixes[-1]))
             minimized_actions.add(prefixes[-1])
     # sort the actions
-    minimized_actions_list = list(minimized_actions)
-    minimized_actions_list.sort()
+    minimized_actions_list = sorted(minimized_actions)
 
     return minimized_actions_list
