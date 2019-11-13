@@ -70,13 +70,8 @@ See ``make help`` for available options and the `Sphinx Documentation
 <http://sphinx-doc.org/contents.html>`_ for more information.
 
 
-Coding Standards
-----------------
 
-* Use `Python Black <https://black.readthedocs.io/en/stable/>`__ to adhere to pep8 automagically.
-
-
-Developing Against HEAD
+Developing Locally
 -----------------------
 
 
@@ -89,18 +84,49 @@ Pipenv
    pipenv shell         # start the environment
    pipenv install       # install both development and production dependencies
 
+Invoke
+~~~~~~
+
+To run and develop Policy Sentry without having to install from PyPi, you can use Invoke.
+
+.. code-block:: bash
+
+    # List available tasks
+    invoke -l
+
+    # that will show the following options:
+    test.all
+    test.initialize
+    test.lint
+    test.security
+    test.unit
+
+    # To run them, specify `invoke` plus the options:
+    invoke test.initialize  # this initializes the database
+    invoke test.lint        # this runs autopep8 to auto format the code
+    invoke test.security    # this runs bandit for security scanning
+    invoke test.unit        # This runs unit tests
+
+
 
 Running the Test Suite
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-I use `Nose <https://nose.readthedocs.io/en/latest/>`_ for unit testing. All tests are placed in the ``tests`` folder.
+We use `Nose <https://nose.readthedocs.io/en/latest/>`_ for unit testing. All tests are placed in the ``tests`` folder.
 
 
 * Just run the following:
 
 .. code-block:: bash
 
-   nosetests -v
+    nosetests -v
+
+
+* Alternatively, you can use `invoke`, as mentioned above:
+
+.. code-block:: bash
+
+    invoke test.unit
 
 Output:
 

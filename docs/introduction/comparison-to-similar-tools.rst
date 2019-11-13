@@ -7,7 +7,7 @@ Policy Revocation Tools
 -------------------------------------
 Repokid
 -------------------------------------
-RepoKid is a popular tool that was developed by Netflix, and is one of the more mature and battle-tested AWS IAM open source projects. It leverages AWS Access Advisor, which informs you how many AWS services your IAM Principal has access to, and how many of those services it has used in the last X amount of days or months. If you haven’t used a service within the last 30 days, it “repos” your policy, and strips it of the privileges it doesn’t use. It has some advanced features to allow for whitelisting roles and overall is a great tool. 
+RepoKid is a popular tool that was developed by Netflix, and is one of the more mature and battle-tested AWS IAM open source projects. It leverages AWS Access Advisor, which informs you how many AWS services your IAM Principal has access to, and how many of those services it has used in the last X amount of days or months. If you haven’t used a service within the last 30 days, it “repos” your policy, and strips it of the privileges it doesn't use. It has some advanced features to allow for whitelisting roles and overall is a great tool.
 
 One shortcoming is that AWS IAM Access Advisor only  provides details at the service level (ex: S3-wide, or EC2-wide) and not down to the IAM Action level, so the revised policy is not very granular. However, RepoKid plays a unique role in the IAM ecosystem right now in that there are not any open source tools that provide similar functionality. **For that reason, it is best to view RepoKid and Policy Sentry as complimentary.**
 
@@ -31,9 +31,9 @@ AWS Console - Visual Policy Editor
 
 * `AWS IAM Visual Policy Editor in the AWS Console <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start>`_
 
-This policy generator is great in general and you should use it if you're getting used to writing IAM policies. 
+This policy generator is great in general and you should use it if you're getting used to writing IAM policies.
 
-It's very similar to ``policy_sentry`` - you are able to bulk select according to access levels. 
+It's very similar to ``policy_sentry`` - you are able to bulk select according to access levels.
 
 However, there are a number of downsides:
 
@@ -102,8 +102,8 @@ Trailscraper
 Trailscraper does automated policy generation from CloudTrail logs, but there are some major limitations:
 
 
-#. The generated policies have Resources set to `*``, not to a specific resource ARN 
-#. It downloads all of the CloudTrail logs. This takes a while. 
+#. The generated policies have Resources set to `*``, not to a specific resource ARN
+#. It downloads all of the CloudTrail logs. This takes a while.
 
    * Cloudtracker (https://github.com/duo-labs/cloudtracker) uses Amazon Athena, which is more efficient. In the future, I'd like to see a combined approach between all three of these tools to generate IAM policies based on Cloudtrail logs. 3. It is accurate to the point where there is a 1-to-1 mapping with the IAM actions vs CloudTrail logs. As I mentioned in other comments, since not every IAM Action is logged in CloudTrail and not every CloudTrail action matches IAM Actions, the results are not always accurate.
 
@@ -126,4 +126,4 @@ It's essentially a method for managing their policies as code - but it doesn't m
 Terraform
 -------------------------------------
 
-The rationale described above also generally applies to Terraform, in that it still requires you to write the actual policy templates from scratch, and then you can re-use those policy templates. However, we still need to make those policies secure by default.
+The rationale described above also generally applies to Terraform, in that it still requires you to write the actual policy templates from scratch, and then you can re-use those policy templates. However, you still need to make those policies secure by default.
