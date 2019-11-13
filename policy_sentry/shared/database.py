@@ -47,11 +47,21 @@ class ArnTable(Base):
     account = Column(String(50))
     resource = Column(String(50))
     resource_path = Column(String(50))
+    condition_keys = Column(String(50))
 
     def __repr__(self):
-        return "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s')>" % (
-            self.resource_type_name, self.raw_arn, self.arn, self.partition, self.service, self.region, self.account, self.resource, self.resource_path)
-
+        return "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s', condition_keys='%s')>" % (
+            self.resource_type_name,
+            self.raw_arn,
+            self.arn,
+            self.partition,
+            self.service,
+            self.region,
+            self.account,
+            self.resource,
+            self.resource_path,
+            self.condition_keys
+        )
 
 class ConditionTable(Base):
     __tablename__ = "conditiontable"
@@ -204,9 +214,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
                         access_level = table['data'][i][2]
                     # Condition keys #####
                     if table['data'][i][4] is None:
-                        # In order to avoid errors with NULL Database entries,
-                        # set to 'None'
-                        condition_keys = 'None'
+                        condition_keys = None
                     # If there are multiple condition keys, make them comma separated
                     # Otherwise, if we ingest them as-is, it will show up as
                     # two spaces
@@ -257,11 +265,22 @@ def build_arn_table(db_session, service):
             if 'Resource Types' in table_data and 'ARN' in table_data:
                 temp = table['data'][1::]
                 for i in range(len(table['data'])):
+                    # Handle resource ARN path
                     if get_resource_path_from_arn(table['data'][i][1]):
                         resource_path = get_resource_path_from_arn(
                             table['data'][i][1])
                     else:
                         resource_path = ''
+                    # Handle condition keys
+                    if table['data'][i][2] is None:
+                        condition_keys = None
+                    # If there are multiple condition keys, make them comma separated
+                    # Otherwise, if we ingest them as-is, it will show up as two spaces
+                    elif '  ' in table['data'][i][2]:
+                        condition_keys = get_comma_separated_condition_keys(
+                            table['data'][i][2])
+                    else:
+                        condition_keys = table['data'][i][2]
                     db_session.add(ArnTable(
                         resource_type_name=table['data'][i][0],
                         raw_arn=str(table['data'][i][1]).replace(
@@ -273,7 +292,8 @@ def build_arn_table(db_session, service):
                         region=get_region_from_arn(table['data'][i][1]),
                         account=get_account_from_arn(table['data'][i][1]),
                         resource=get_resource_from_arn(table['data'][i][1]),
-                        resource_path=resource_path
+                        resource_path=resource_path,
+                        condition_keys=condition_keys
                         # resource_path=get_resource_path_from_arn(table['data'][i][1])
                     ))
                     db_session.commit()

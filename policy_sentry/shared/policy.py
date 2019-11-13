@@ -112,9 +112,8 @@ class ArnActionGroup:
         #     print("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()
         except IndexError:
-            print(
-                "IndexError: list index out of range. This is likely due to an ARN in your list equaling ''."
-                "Please evaluate your YML file and try again.")
+            print("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''. "
+                  "Please evaluate your YML file and try again.")
             sys.exit()
 
         self.update_actions_for_raw_arn_format(db_session)
