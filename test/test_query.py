@@ -1,10 +1,11 @@
 import unittest
 from pathlib import Path
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, query_arn_table, \
-    query_arn_table_by_name, query_action_table, query_action_table_by_name, query_action_table_by_access_level, \
-    query_action_table_by_arn_type_and_access_level, query_action_table_for_all_condition_key_matches, \
-    query_action_table_for_actions_supporting_wildcards_only
+from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, \
+    query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
+    query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
+    query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
+    query_arn_table_for_arn_types
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -37,8 +38,8 @@ class QueryTestCase(unittest.TestCase):
         output = query_condition_table_by_name(db_session, "cloud9", "cloud9:Permissions")
         self.assertEquals(desired_output, output)
 
-    def test_query_arn_table(self):
-        """test_query_arn_table: Tests function that grabs a list of raw ARNs per service"""
+    def test_query_arn_table_for_raw_arns(self):
+        """test_query_arn_table_for_raw_arns: Tests function that grabs a list of raw ARNs per service"""
         desired_output = [
             'arn:aws:ssm:${Region}:${Account}:document/${DocumentName}',
             'arn:aws:ssm:${Region}:${Account}:maintenancewindow/${ResourceId}',
@@ -48,8 +49,23 @@ class QueryTestCase(unittest.TestCase):
             'arn:aws:ssm:${Region}:${Account}:session/${ResourceId}',
             'arn:aws:ssm:${Region}:${Account}:opsitem/${ResourceId}'
         ]
-        output = query_arn_table(db_session, "ssm")
+        output = query_arn_table_for_raw_arns(db_session, "ssm")
         self.assertListEqual(desired_output, output)
+
+    def test_query_arn_table_for_arn_types(self):
+        """test_query_arn_table_for_arn_types: Tests function that grabs arn_type and raw_arn pairs"""
+        desired_output = {
+            'document': 'arn:aws:ssm:${Region}:${Account}:document/${DocumentName}',
+            'maintenancewindow': 'arn:aws:ssm:${Region}:${Account}:maintenancewindow/${ResourceId}',
+            'managed-instance': 'arn:aws:ssm:${Region}:${Account}:managed-instance/${ManagedInstanceName}',
+            'parameter': 'arn:aws:ssm:${Region}:${Account}:parameter/${FullyQualifiedParameterName}',
+            'patchbaseline': 'arn:aws:ssm:${Region}:${Account}:patchbaseline/${ResourceId}',
+            'session': 'arn:aws:ssm:${Region}:${Account}:session/${ResourceId}',
+            'opsitem': 'arn:aws:ssm:${Region}:${Account}:opsitem/${ResourceId}'
+        }
+        output = query_arn_table_for_arn_types(db_session, "ssm")
+        print(output)
+        self.assertDictEqual(desired_output, output)
 
     def test_query_arn_table_by_name(self):
         """test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name"""

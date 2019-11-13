@@ -28,13 +28,21 @@ def query_condition_table_by_name(db_session, service, condition_key_name):
     return output
 
 
-def query_arn_table(db_session, service):
-    """Get a list of available ARNs per AWS service"""
+def query_arn_table_for_raw_arns(db_session, service):
+    """Get a list of available raw ARNs per AWS service"""
     results = []
     rows = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.like(service))
     for row in rows:
         results.append(str(row.raw_arn))
-    # TODO: Instead of JUST the raw ARN, return a pairing of the resource type name and the raw ARN itself.
+    return results
+
+
+def query_arn_table_for_arn_types(db_session, service):
+    """Get a list of available ARN short names per AWS service"""
+    results = {}
+    rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(ArnTable.service.like(service))
+    for row in rows:
+        results[row.resource_type_name] = row.raw_arn
     return results
 
 
