@@ -43,7 +43,8 @@ database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 @click.option(
     '--from-access-level',
     required=False,
-    type=click.Choice(['read', 'write', 'list', 'tagging', 'permissions-management'], case_sensitive=False),
+    type=click.Choice(['read', 'write', 'list', 'tagging',
+                       'permissions-management'], case_sensitive=False),
     help='Show CRUD levels. Acceptable values are read, write, list, tagging, permissions-management'
 )
 @click.option(
@@ -63,7 +64,8 @@ def analyze_iam_policy(from_audit_file, policy, from_access_level):
         else:
             print("Evaluating policy file: " + policy)
     else:
-        print("File/directory does not exist: " + policy + "\nPlease provide a valid path.")
+        print("File/directory does not exist: " +
+              policy + "\nPlease provide a valid path.")
         exit()
 
     if os.path.isdir(policy):

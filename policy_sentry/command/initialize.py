@@ -192,6 +192,8 @@ ALL_AWS_SERVICES = [
     "workspaces",
     "xray"
 ]
+
+
 @click.command(
     short_help='Create a local database to store AWS IAM information.'
 )
@@ -213,7 +215,8 @@ def initialize(access_level_overrides_file):
     create_policy_analysis_directory()
     # Create audit directory to host list of permissions for analyze_iam_policy
     create_audit_directory()
-    # Create overrides file, which allows us to override the Access Levels provided by AWS documentation
+    # Create overrides file, which allows us to override the Access Levels
+    # provided by AWS documentation
     create_default_overrides_file()
     # Connect to the database at that path with sqlalchemy
     db_session = connect_db(database_path)

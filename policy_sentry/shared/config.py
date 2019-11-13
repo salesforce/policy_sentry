@@ -25,11 +25,11 @@ def create_policy_sentry_config_directory():
     # If the database file already exists
     if os.path.exists(database_path):
         os.remove(database_path)
-    elif os.path.exists(HOME+CONFIG_DIRECTORY):
+    elif os.path.exists(HOME + CONFIG_DIRECTORY):
         pass
     # If the config directory does not exist
     else:
-        os.mkdir(HOME+CONFIG_DIRECTORY)
+        os.mkdir(HOME + CONFIG_DIRECTORY)
     return database_path
 
 
@@ -41,7 +41,8 @@ def create_audit_directory():
     create_directory_if_it_doesnt_exist(audit_directory_path)
     destination = audit_directory_path
 
-    existing_audit_files_directory = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/'
+    existing_audit_files_directory = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/audit/'
     source = existing_audit_files_directory
     file_list = list_files_in_directory(existing_audit_files_directory)
 
@@ -61,25 +62,30 @@ def create_policy_analysis_directory():
     else:
         os.mkdir(policy_analysis_directory_path)
 
+
 def create_default_overrides_file():
     """
     Copies over the overrides file in the config directory
     """
     existing_overrides_file_name = 'access-level-overrides.yml'
     target_overrides_file_path = HOME + CONFIG_DIRECTORY + existing_overrides_file_name
-    existing_overrides_file_path = os.path.abspath(os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
+    existing_overrides_file_path = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
     shutil.copy(existing_overrides_file_path, target_overrides_file_path)
-    print(f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
+    print(
+        f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
 
 
-def get_action_access_level_overrides_from_yml(service, access_level_overrides_file_path=None):
+def get_action_access_level_overrides_from_yml(
+        service, access_level_overrides_file_path=None):
     """
     Read the YML overrides file, which is formatted like: ['ec2']['permissions-management'][action_name].
     Since the AWS Documentation is sometimes outdated, we can use this YML file to
     override whatever they provide in their documentation.
     """
     if not access_level_overrides_file_path:
-        access_level_overrides_file_path = os.path.abspath(os.path.dirname(__file__)) + '/data/access-level-overrides.yml'
+        access_level_overrides_file_path = os.path.abspath(
+            os.path.dirname(__file__)) + '/data/access-level-overrides.yml'
     cfg = read_yaml_file(access_level_overrides_file_path)
     if service in cfg:
         return cfg[service]
@@ -87,7 +93,11 @@ def get_action_access_level_overrides_from_yml(service, access_level_overrides_f
         return False
 
 
-def determine_access_level_override(service, action_name, provided_access_level, service_override_config):
+def determine_access_level_override(
+        service,
+        action_name,
+        provided_access_level,
+        service_override_config):
     """
     override_config
     :param service: service, like iam
@@ -99,26 +109,36 @@ def determine_access_level_override(service, action_name, provided_access_level,
     # overrides = get_action_overrides_from_yml(service)
     # To reduce memory, this should be used in the table building,
     # and then run the rest of this for if else statement eval later.
-    # Using str.lower to make sure we don't get failing cases if there are minor capitalization differences
+    # Using str.lower to make sure we don't get failing cases if there are
+    # minor capitalization differences
     if str.lower(provided_access_level) == str.lower("Read"):
-        override_decision = override_access_level(service_override_config, action_name, "Read")
+        override_decision = override_access_level(
+            service_override_config, action_name, "Read")
     elif str.lower(provided_access_level) == str.lower("Write"):
-        override_decision = override_access_level(service_override_config, action_name, "Write")
+        override_decision = override_access_level(
+            service_override_config, action_name, "Write")
     elif str.lower(provided_access_level) == str.lower("List"):
-        override_decision = override_access_level(service_override_config, action_name, "List")
+        override_decision = override_access_level(
+            service_override_config, action_name, "List")
     elif str.lower(provided_access_level) == str.lower("Permissions management"):
-        override_decision = override_access_level(service_override_config, action_name, "Permissions management")
+        override_decision = override_access_level(
+            service_override_config, action_name, "Permissions management")
     elif str.lower(provided_access_level) == str.lower("Tagging"):
-        override_decision = override_access_level(service_override_config, action_name, "Tagging")
+        override_decision = override_access_level(
+            service_override_config, action_name, "Tagging")
     else:
-        print(f"Unknown error - determine_override_status() can't determine the access level of"
-              f" {service}:{action_name} during the scraping process. The provided access level "
-              f"was {provided_access_level}. Exiting...")
+        print(
+            f"Unknown error - determine_override_status() can't determine the access level of"
+            f" {service}:{action_name} during the scraping process. The provided access level "
+            f"was {provided_access_level}. Exiting...")
         sys.exit()
     return override_decision
 
 
-def override_access_level(service_override_config, action_name, provided_access_level):
+def override_access_level(
+        service_override_config,
+        action_name,
+        provided_access_level):
     """
     Given the service-specific override config, determine whether or not the
     override config tells us to override the access level in the documentation.
@@ -132,7 +152,8 @@ def override_access_level(service_override_config, action_name, provided_access_
         keys = list(service_override_config.keys())
         actions_list = service_override_config[keys[i]]
         # If it exists in the list, then set the real_access_level to the key (key is read, write, list, etc.)
-        # Once we meet this condition, break the loop so we can return the value
+        # Once we meet this condition, break the loop so we can return the
+        # value
         if str.lower(action_name) in actions_list:
             real_access_level.append(keys[i])
             break

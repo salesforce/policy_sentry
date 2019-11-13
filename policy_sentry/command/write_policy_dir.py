@@ -10,8 +10,7 @@ from policy_sentry.shared.file import read_yaml_file, write_json_file, check_val
 
 @click.command(
     short_help='Same as write-policy, but this time with an input directory of YML/YAML files, '
-               'and an output directory for all the JSON files.'
-)
+    'and an output directory for all the JSON files.')
 @click.option(
     '--input-dir',
     type=str,
@@ -49,14 +48,16 @@ def write_policy_dir(input_dir, output_dir, crud, minimize):
     output_dir = os.path.abspath(output_dir)
 
     if not crud:
-        print("Warning: If you are using ARNs from Terraform to generate your policies, "
-              "try using the CRUD functionality instead of the default actions-based policy writing functionality.")
+        print(
+            "Warning: If you are using ARNs from Terraform to generate your policies, "
+            "try using the CRUD functionality instead of the default actions-based policy writing functionality.")
 
     if not minimize:
-        print("Warning: --minimize option is not set. If the policy is too large, "
-              "it can hit the AWS IAM Policy character limit. "
-              "We'll execute as-is, but try using `--minimize 0` functionality "
-              "for production to optimize policy size.\n")
+        print(
+            "Warning: --minimize option is not set. If the policy is too large, "
+            "it can hit the AWS IAM Policy character limit. "
+            "We'll execute as-is, but try using `--minimize 0` functionality "
+            "for production to optimize policy size.\n")
     # Construct the path
     # Get the list of files
     # Write a list of the names
@@ -72,11 +73,14 @@ def write_policy_dir(input_dir, output_dir, crud, minimize):
         print("Directory is empty or does not have files with *.yml extension. "
               "Please check the folder contents and/or extension spelling.")
 
-    print("Writing the policy JSON files from " + input_dir + " to " + output_dir + "...\n")
+    print("Writing the policy JSON files from " +
+          input_dir + " to " + output_dir + "...\n")
     for yaml_file in input_files:
-        # Get the name of the file, and strip the extension. This is what the policy name will be
+        # Get the name of the file, and strip the extension. This is what the
+        # policy name will be
         base_name = os.path.basename(yaml_file)
-        base_name_no_extension = os.path.splitext(os.path.basename(yaml_file))[0]
+        base_name_no_extension = os.path.splitext(
+            os.path.basename(yaml_file))[0]
         cfg = read_yaml_file(yaml_file)
         # User supplies file containing resource-specific access levels
         if crud:
@@ -88,8 +92,11 @@ def write_policy_dir(input_dir, output_dir, crud, minimize):
 
         target_file = str(output_dir + '/' + base_name_no_extension + '.json')
         if os.path.exists(target_file):
-            print("Target file for " + base_name_no_extension +
-                  '.json' + " exists in the target directory. Removing it and writing a new file.\n")
+            print(
+                "Target file for " +
+                base_name_no_extension +
+                '.json' +
+                " exists in the target directory. Removing it and writing a new file.\n")
             os.remove(target_file)
         write_json_file(target_file, policy)
 

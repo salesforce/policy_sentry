@@ -10,7 +10,8 @@ def read_this_file(filename):
 
     with open(filename, 'r') as fileobj:
         for row in fileobj:
-            # FIXME check for bad or unknown characters, we know this should be in a standard format,
+            # FIXME check for bad or unknown characters, we know this should be
+            # in a standard format,
             lines.append(row.rstrip('\n'))
             # we should enforce it
     return lines
@@ -44,7 +45,8 @@ def check_valid_file_path(file):
         # print("Evaluating: " + file)
         return True
     else:
-        print("File does not exist or is formatted incorrectly: " + file + "\nPlease provide a valid path.")
+        print("File does not exist or is formatted incorrectly: " +
+              file + "\nPlease provide a valid path.")
         return False
 
 
