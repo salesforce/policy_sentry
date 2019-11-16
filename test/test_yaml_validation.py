@@ -188,7 +188,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
 
     def test_actions_missing_name(self):
         """
-        test_actions_missing_name: write-policy when the YAML file is missing a name?
+        test_actions_missing_name: write-policy when the YAML file is missing a name
         :return:
         """
         cfg_with_missing_name = {

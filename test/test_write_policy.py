@@ -89,6 +89,7 @@ class WritePolicyActionsTestCase(unittest.TestCase):
 
 class WritePolicyPreventWildcardEscalation(unittest.TestCase):
     def test_wildcard_when_not_necessary(self):
+        """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
         cfg = {
             'roles_with_crud_levels': [
                 {
@@ -99,10 +100,16 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                         'arn:aws:s3:::example-org-s3-access-logs'
                     ],
                     'wildcard': [
-                        'secretsmanager:deletesecret',
-                        'secretsmanager:getsecretvalue',
+                        # The first three are legitimately wildcard only.
+                        # Verify with `policy_sentry query --table action --service secretsmanager --wildcard-only`
                         'ram:enablesharingwithawsorganization',
-                        'ram:getresourcepolicies'
+                        'ram:getresourcepolicies',
+                        'secretsmanager:createsecret',
+                        # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                        # bypassing this mechanism, while allowing them to explicitly
+                        # request specific privs that require wildcard mode. This next value -
+                        # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                        'secretsmanager:putsecretvalue'
                     ]
                 }
             ]
@@ -120,7 +127,8 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "ram:enablesharingwithawsorganization",
-                        "ram:getresourcepolicies"
+                        "ram:getresourcepolicies",
+                        "secretsmanager:createsecret"
                     ],
                     "Resource": [
                         "*"
@@ -142,4 +150,5 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
             ]
         }
         self.maxDiff = None
-        # self.assertDictEqual(output, desired_output)
+        self.assertDictEqual(output, desired_output)
+

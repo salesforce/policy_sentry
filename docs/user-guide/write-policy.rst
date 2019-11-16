@@ -38,18 +38,22 @@ Instructions
 
     roles_with_crud_levels:
     - name: myRole
-      description: '' # Insert description
-      arn: '' # Insert the ARN of the role that will use this
+      description: ''
+      arn: ''
+      # Insert ARNs below
       read:
-        - '' # Insert ARNs for Read access
+        - ''
       write:
-        - '' # Insert ARNs...
+        - ''
       list:
-        - '' # Insert ARNs...
+        - ''
       tag:
-        - '' # Insert ARNs...
+        - ''
       permissions-management:
-        - '' # Insert ARNs...
+        - ''
+      # Provide a list of IAM actions that cannot be restricted to ARNs
+      wildcard:
+        - ''
 
 * Then just fill it out:
 

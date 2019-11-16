@@ -1,4 +1,10 @@
 # Changelog
+## 2019-11-15
+### Changed
+* Template format has less clutter
+* Policies in CRUD mode can now support IAM Actions that cannot be restricted to ARNs. This Fixes #16.
+* Adjusted the docs to reflect this.
+
 ## 2019-11-13
 ### Changed
 * Added `--list-arn-types` under the query command.

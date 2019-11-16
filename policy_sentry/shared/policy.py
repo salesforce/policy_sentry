@@ -86,13 +86,12 @@ class ArnActionGroup:
                     for principal in cfg[category]:
                         if 'wildcard' in principal.keys():
                             if principal['wildcard'] is not None:
-                                self.process_list_of_actions(principal['wildcard'], db_session)
                                 provided_wildcard_actions = principal['wildcard']
                                 if isinstance(provided_wildcard_actions, list):
-                                    verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(db_session, provided_wildcard_actions)
-                                    # FIXME: Verify that it only has actions that are wildcard only; if not, remove it
-                                    self.add_complete_entry('*', 'Mult', 'Mult', '*', verified_wildcard_actions)
-
+                                    verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                                        db_session, provided_wildcard_actions)
+                                    if len(verified_wildcard_actions) > 0:
+                                        self.process_list_of_actions(verified_wildcard_actions, db_session)
                         if 'read' in principal.keys():
                             if principal['read'] is not None:
                                 self.add(
