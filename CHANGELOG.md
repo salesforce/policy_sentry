@@ -1,4 +1,9 @@
 # Changelog
+## 2019-11-21
+### Changed
+* `query` command is cleaner. Used click subgroups instead of if-else hell.
+* Adjusted the docs to reflect this.
+
 ## 2019-11-15
 ### Changed
 * Template format has less clutter

@@ -1,4 +1,4 @@
-# policy_sentry
+# Policy Sentry
 
 IAM Least Privilege Policy Generator, auditor, and analysis database.
 
@@ -20,7 +20,7 @@ Such a process is not ideal for security or for Infrastructure as Code developer
 
 ### Authoring Secure IAM Policies
 
-`policy_sentry`'s flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
+Policy Sentry's flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
 
 * "I need Read/Write/List access to `arn:aws:s3:::example-org-sbx-vmimport`"
 * "I need Permissions Management access to `arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
@@ -28,7 +28,7 @@ Such a process is not ideal for security or for Infrastructure as Code developer
 
 ...and our automation should create policies that correspond to those access levels. 
 
-How do we accomplish this? Well, policy_sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
+How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
 
 <table class="tg">
   <tr>
@@ -240,39 +240,38 @@ policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json --from-a
 ###############
 
 # Get a list of all IAM Actions available to the RAM service
-policy_sentry query --table action --service ram
+policy_sentry query action-table --service ram
 
 # Get details about the `ram:TagResource` IAM Action
-policy_sentry query --table action --service ram --name tagresource
+policy_sentry query action-table --service ram --name tagresource
 
 # Get a list of all IAM actions under the RAM service that have the Permissions management access level.
-policy_sentry query --table action --service ram --access-level permissions-management
+policy_sentry query action-table --service ram --access-level permissions-management
 
 # Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
-policy_sentry query --table action --service ses --condition ses:FeedbackAddress
+policy_sentry query action-table --service ses --condition ses:FeedbackAddress
 
 ###########
 # ARN Table
 ###########
 
 # Get a list of all RAW ARN formats available through the SSM service.
-policy_sentry query --table arn --service ssm
+policy_sentry query arn-table --service ssm
 
 # Get the raw ARN format for the `cloud9` ARN with the short name `environment`
-policy_sentry query --table arn --service cloud9 --name environment
+policy_sentry query arn-table --service cloud9 --name environment
 
 # Get key/value pairs of all RAW ARN formats plus their short names
-policy_sentry query --table arn --service cloud9 --list-arn-types
+policy_sentry query arn-table --service cloud9 --list-arn-types
 
 ######################
 # Condition Keys Table
 ######################
 
 # Get a list of all condition keys available to the Cloud9 service
-policy_sentry query --table condition --service cloud9
-
+policy_sentry query condition-table --service cloud9
 # Get details on the condition key titled `cloud9:Permissions`
-policy_sentry query --table condition --service cloud9 --name cloud9:Permissions
+policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
 
@@ -296,9 +295,9 @@ policy_sentry query --table condition --service cloud9 --name cloud9:Permissions
   - Option 2: Audits them to see if any of the actions in the policy meet a certain access level, such as "Permissions management."
   
 * `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
-  - Option 1: Query the Actions Table (`--table action`)
-  - Option 2: Query the ARNs Table (`--table arn`)
-  - Option 3: Query the Conditions Table (`--table condition`)
+  - Option 1: Query the Actions Table (`action-table`)
+  - Option 2: Query the ARNs Table (`arn-table`)
+  - Option 3: Query the Conditions Table (`condition-table`)
   
 
 ### Updating the AWS HTML files
