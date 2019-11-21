@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
 import click
 import json
-import os
 from pathlib import Path
 from policy_sentry.shared.actions import get_all_actions, get_dependent_actions
 from policy_sentry.shared.database import connect_db

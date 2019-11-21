@@ -1,8 +1,42 @@
 # Changelog
+## 2019-11-21 Part 2
+### Changed
+* **Fixed issue where initialize was not working due to db_session being declared outside of a function. This only applied to the last release.**
+* Analyze command: Added credentials-exposure.txt audit file
+* Fixed some stuff in the documentation that had old errors.
+* Version bump
+* HTML Documentation update approach (Fixes GH-23)
+    * `get_links.py` and other util scripts are now updated. We no longer have to maintain the big list of service-to-html-names.
+    * Missing services are now fixed by this HTML documentation update approach:
+      - applicationinsights
+      - appmesh
+      - appmesh-preview
+      - backup-storage
+      - chatbot
+      - codestar-notifications
+      - dataexchange
+      - ec2-instance-connect
+      - iotthingsgraph
+      - mediapackage-vod
+      - managedblockchain
+      - personalize
+      - rdsiamauthentiation
+      - savingsplans
+      - pinpointemailservice
+      - workmailmessageflow
+      - Marketplace links:
+          - Marketplace catalog
+          - Marketplace Entitlement Service
+          - Marketplace Image Building Service
+          - Marketplace Procurement systems integration
+          - Private Marketplace
+
 ## 2019-11-21
 ### Changed
 * `query` command is cleaner. Used click subgroups instead of if-else hell.
 * Adjusted the docs to reflect this.
+### Removed
+* ROADMAP.md because this is in the documentation instead.
 
 ## 2019-11-15
 ### Changed

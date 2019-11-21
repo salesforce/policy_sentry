@@ -7,8 +7,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="home" href="list_awssupport.html#top" />
       <link rel="up" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html" title="Actions, Resources, and            Condition Keys for AWS Services" />
-      <link rel="prev" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsumerian.html" title="Actions, Resources, and Condition Keys for      Amazon Sumerian" />
-      <link rel="next" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssystemsmanager.html" title="Actions, Resources, and Condition Keys for      AWS Systems Manager" />
+      <link rel="prev" href="list_amazonsumerian.html" title="Actions, Resources, and Condition Keys for      Amazon Sumerian" />
+      <link rel="next" href="list_awssystemsmanager.html" title="Actions, Resources, and Condition Keys for      AWS Systems Manager" />
       <meta name="description" content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS Support." />
       <meta name="keywords" content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" />
       <meta name="deployment_region" content="IAD" />
@@ -19,7 +19,7 @@
       <meta name="marketingLocale" content="en_US" />
       <link rel="icon" type="image/ico" href="https://docs.aws.amazon.com/images/favicon.ico" />
       <link rel="shortcut icon" type="image/ico" href="https://docs.aws.amazon.com/images/favicon.ico" />
-      <link rel="canonical" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssupport.html" />
+      <link rel="canonical" href="list_awssupport.html" />
       <link rel="stylesheet" type="text/css" href="https://docs.aws.amazon.com/font/css/font-awesome.min.css" />
       <link id="code-style" rel="stylesheet" type="text/css" href="https://docs.aws.amazon.com/css/code/light.css" />
       <link rel="stylesheet" type="text/css" href="https://docs.aws.amazon.com/css/awsdocs.css?v=20181221" /><script type="text/javascript" src="https://docs.aws.amazon.com/js/jquery.min.js"></script><script type="text/javascript" src="https://docs.aws.amazon.com/js/awsdocs.min.js?v=20181221"></script><link rel="stylesheet" type="text/css" href="https://docs.aws.amazon.com/assets/marketing/css/marketing-target.css" /><script type="text/javascript" src="https://docs.aws.amazon.com/assets/marketing/js/marketing-target.js" defer="defer"></script></head>
@@ -36,7 +36,6 @@
             <div class="aws-nav-popover-trigger" data-dropdown="aws-nav-dropdown-lang"><select id="languageSelection" onchange="SelectLanguage()">
                   <option value="/de_de/IAM/latest/UserGuide/list_awssupport.html">Deutsch</option>
                   <option value="/en_us/IAM/latest/UserGuide/list_awssupport.html" selected="selected">English</option>
-                  <option value="/en_pv/IAM/latest/UserGuide/list_awssupport.html">English (beta)</option>
                   <option value="/es_es/IAM/latest/UserGuide/list_awssupport.html">Español</option>
                   <option value="/fr_fr/IAM/latest/UserGuide/list_awssupport.html">Français</option>
                   <option value="/it_it/IAM/latest/UserGuide/list_awssupport.html">Italiano</option>
@@ -93,9 +92,6 @@
                      <div id="language-notice">
                         <div class="language-notice-text"></div>
                      </div>
-                     <div id="divRegionDisclaimer">The AWS Documentation website is getting a new look!<br />Try it now and let us know what you think. <a href="https://docs.aws.amazon.com/en_pv/IAM/latest/UserGuide/list_awssupport.html" target="_blank">Switch to the new look &gt;&gt;</a><br /><br />You can return to the original look by selecting English in the language selector
-                        above.
-                     </div>
                      <div></div>
                      <h1 class="topictitle" id="list_awssupport">Actions, Resources, and Condition Keys for      AWS Support</h1>
                      <p>AWS Support (service prefix: <code class="code">support</code>) provides the following    service-specific resources, actions, and condition context
@@ -140,19 +136,536 @@
                      
                      <h2 id="awssupport-actions-as-permissions">Actions Defined by        AWS Support</h2>
                      
-                     <p>AWS Support has no API operations that can be used in the <code class="code">Actions</code>      element of an IAM policy statement. To allow access to AWS Support, specify
-                        <code class="code">“Action”: “support:*”</code> in your policy.
+                     <p>You can specify the following actions in the <code class="code">Action</code> element of an IAM      policy statement. Use policies to grant permissions to perform
+                        an operation in AWS. When you      use an action in a policy, you usually allow or
+                        deny access to the API operation or CLI      command with the same name. However,
+                        in some cases, a single action controls access to more      than one operation. Alternatively,
+                        some operations require several different actions.
+                     </p>
+                     
+                     <p>The <b>Resource</b> column indicates whether each action supports      resource-level permissions. If
+                        there is no value for this column, you must specify all      resources ("*") in the
+                        <code class="code">Resource</code> element of your policy statement. If the column      includes a resource type, then
+                        you can specify an ARN of that type in a statement with that      action. Required
+                        resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                        permission ARN in a statement using this action, then it must be of this type.   
+                        Some actions support multiple resource types. If the resource type is optional (not
+                        indicated      as required), then you can choose to use one but not the other.
+                     </p>
+                     
+                     
+                     <p>For details about the columns in the following table, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html#actions_table">The Actions Table</a>.
                      </p>
                      
                      <div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>Support does not let you allow or deny access to individual actions; therefore your
-                           policy must use the "Action": "support:*" to use the AWS Support Center or to use
-                           the Support API. In addition, when you use the Support API to call Trusted Advisor-related
-                           actions (such as DescribeTrustedAdvisorChecks), none of the "trustedadvisor:*" actions
-                           restrict your access. The "trustedadvisor:*" actions apply only to TrustedAdvisor
-                           in the Console.
+                        <p>AWS Support provides the ability to access, modify and resolve cases, as well as use
+                           Trusted Advisor actions. When you use Support API to call Trusted Advisor-related
+                           actions, none of the "trustedadvisor:*" actions restrict your access. The "trustedadvisor:*"
+                           actions apply only to Trusted Advisor in the AWS Console.
                         </p>
+                     </div>
+                     
+                     <div class="table">
+                        <p class="title"><b></b></p>
+                        <div class="table-contents">
+                           <table id="w442aac27c14c27d768c11c11">
+                              
+                              <tr>
+                                 
+                                 <th>Actions</th>
+                                 
+                                 <th>Description</th>
+                                 
+                                 <th>Access Level</th>
+                                 
+                                 <th>Resource Types (*required)</th>
+                                 
+                                 <th>Condition Keys</th>
+                                 
+                                 <th>Dependent Actions</th>
+                                 
+                              </tr>
+                              
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-AddAttachmentsToSet"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html">
+                                       AddAttachmentsToSet
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Adds one or more attachments to an AWS Support case.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-AddCommunicationToCase"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html">
+                                       AddCommunicationToCase
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Adds a customer communication to an AWS Support case.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-CreateCase"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html">
+                                       CreateCase
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Creates a new AWS Support case.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeAttachment"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeAttachment.html">
+                                       DescribeAttachment
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the description for an attachment.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeCaseAttributes"></a>
+                                    DescribeCaseAttributes
+                                    
+                                 </td>
+                                 
+                                 <td>This is an internally managed function which allows secondary services to read AWS
+                                    Support case attributes.
+                                 </td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeCases"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html">
+                                       DescribeCases
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns a list of AWS Support cases that matches the given inputs.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeCommunications"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html">
+                                       DescribeCommunications
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the communications and attachments for one or more AWS Support cases.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeIssueTypes"></a>
+                                    DescribeIssueTypes
+                                    
+                                 </td>
+                                 
+                                 <td>Returns issue types for AWS Support cases.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeServices"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html">
+                                       DescribeServices
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the current list of AWS services and categories that applies to each service.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeSeverityLevels"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html">
+                                       DescribeSeverityLevels
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the list of severity levels that can be assigned to an AWS Support case.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeSupportLevel"></a>
+                                    DescribeSupportLevel
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the support level for an AWS Account identifier.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeTrustedAdvisorCheckRefreshStatuses"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html">
+                                       DescribeTrustedAdvisorCheckRefreshStatuses
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the status of a Trusted Advisor refresh check based on a list of check identifiers.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeTrustedAdvisorCheckResult"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html">
+                                       DescribeTrustedAdvisorCheckResult
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the results of the Trusted Advisor check that has the specified check identifier.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeTrustedAdvisorCheckSummaries"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html">
+                                       DescribeTrustedAdvisorCheckSummaries
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns the summaries of the results of the Trusted Advisor checks that have the specified
+                                    check identifiers.
+                                 </td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-DescribeTrustedAdvisorChecks"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html">
+                                       DescribeTrustedAdvisorChecks
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Returns a list of all available Trusted Advisor checks, including name, identifier,
+                                    category and description.
+                                 </td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-InitiateCallForCase"></a>
+                                    InitiateCallForCase
+                                    
+                                 </td>
+                                 
+                                 <td>This is an internally managed function to initiate a call on AWS Support Center.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-InitiateChatForCase"></a>
+                                    InitiateChatForCase
+                                    
+                                 </td>
+                                 
+                                 <td>This is an internally managed function to initiate a chat on AWS Support Center.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-PutCaseAttributes"></a>
+                                    PutCaseAttributes
+                                    
+                                 </td>
+                                 
+                                 <td>This is an internally managed function which allows secondary services to attach attributes
+                                    to AWS Support cases.
+                                 </td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-RateCaseCommunication"></a>
+                                    RateCaseCommunication
+                                    
+                                 </td>
+                                 
+                                 <td>Rate an AWS Support case communication.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-RefreshTrustedAdvisorCheck"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html">
+                                       RefreshTrustedAdvisorCheck
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Requests a refresh of the Trusted Advisor check that has the specified check identifier.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-ResolveCase"></a>
+                                    <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html">
+                                       ResolveCase
+                                       </a>
+                                    
+                                 </td>
+                                 
+                                 <td>Resolves an AWS Support case.</td>
+                                 
+                                 <td>Write</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                              <tr>
+                                 
+                                 <td>
+                                    <a id="awssupport-SearchForCases"></a>
+                                    SearchForCases
+                                    
+                                 </td>
+                                 
+                                 <td>Returns a list of AWS Support cases that matches the given inputs.</td>
+                                 
+                                 <td>Read</td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                                 <td></td>
+                                 
+                              </tr>
+                              
+                           </table>
+                        </div>
                      </div>
                      
                      
@@ -191,7 +704,7 @@
                   </noscript>
                   <div id="main-col-footer">
                      <div id="doc-conventions"><a target="_top" href="https://docs.aws.amazon.com/general/latest/gr/docconventions.html">Document Conventions</a></div>
-                     <div id="next"><a class="awstoc" accesskey="p" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsumerian.html">« Previous </a><a class="awstoc" accesskey="n" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssystemsmanager.html">Next »</a></div>
+                     <div id="next"><a class="awstoc" accesskey="p" href="list_amazonsumerian.html">« Previous </a><a class="awstoc" accesskey="n" href="list_awssystemsmanager.html">Next »</a></div>
                      <div id="copyright-main-footer">© 2019, Amazon Web Services, Inc. or its affiliates. All rights
                         reserved.
                      </div>

@@ -1,8 +1,6 @@
-import json
 from policy_sentry.shared.file import read_this_file
 from policyuniverse import all_permissions
 import fnmatch
-import json
 import pprint
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file
 

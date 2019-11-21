@@ -9,9 +9,6 @@ database_file_name = 'aws.sqlite3'
 database_path = home + config_directory + database_file_name
 db_session = connect_db(database_path)
 
-# To get the print statements in output, run this:
-# nosetests -v tests/test_arn_action_group.py --nocapture
-
 
 class ArnActionGroupTestCase(unittest.TestCase):
     def test_add_s3_permissions_management_arn(self):
@@ -53,7 +50,6 @@ class ArnActionGroupTestCase(unittest.TestCase):
         arn_action_group.update_actions_for_raw_arn_format(db_session)
         print(arn_action_group.get_arns())
         self.assertEqual(arn_action_group.get_arns(), desired_output)
-
 
     def test_get_policy_elements(self):
         arn_action_group = ArnActionGroup()

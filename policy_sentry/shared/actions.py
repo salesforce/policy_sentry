@@ -24,6 +24,23 @@ def get_all_actions(db_session):
     return all_actions
 
 
+def get_all_services_from_action_table(db_session):
+    """
+    Gets all the services from the actions table
+    :param db_session: The SQLAlchemy database session
+    :return: service_prefixes: A list of all AWS service prefixes present in the table.
+    """
+    service_prefixes = []
+    rows = db_session.query(ActionTable.service).distinct(ActionTable.service)
+    for row in rows:
+        if row.service not in service_prefixes:
+            service_prefixes.append(row.service)
+    # Remove duplicates
+    service_prefixes = list(dict.fromkeys(service_prefixes))  # remove duplicates
+    service_prefixes.sort()
+    return service_prefixes
+
+
 def get_actions_by_access_level(db_session, actions_list, access_level):
     """
     Given a list of actions, return a list of actions that match an access level
