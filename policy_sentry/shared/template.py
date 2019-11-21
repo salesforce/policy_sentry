@@ -6,27 +6,31 @@ from jinja2 import Template
 actions_template = '''# Generate my policy when I know the Actions
 roles_with_actions:
 - name: {{ name }}
-  description: '' # Insert a description/justification here for readability
-  arn: '' # Insert an ARN here for readability
+  description: ''
+  arn: ''
   actions:
-  - ''  # Fill in your IAM actions here
+  - ''
 '''
 
 crud_template = '''# Generate my policy when I know the access levels and ARNs
 roles_with_crud_levels:
 - name: {{ name }}
-  description: '' # Insert a description/justification here for readability
-  arn: '' # Insert an ARN here for readability
+  description: ''
+  arn: ''
+  # Insert ARNs below
   read:
-    - '' # Insert ARNs or comment out
+    - ''
   write:
-    - '' # Insert ARNs or comment out
+    - ''
   list:
-    - '' # Insert ARNs or comment out
+    - ''
   tag:
-    - '' # Insert ARNs or comment out
+    - ''
   permissions-management:
-    - '' # Insert ARNs or comment out
+    - ''
+  # Provide a list of IAM actions that cannot be restricted to ARNs
+  wildcard:
+    - ''
 '''
 
 

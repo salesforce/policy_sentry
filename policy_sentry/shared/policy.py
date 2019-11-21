@@ -6,7 +6,7 @@ from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable
 from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
 from policy_sentry.shared.actions import get_action_name_from_action, get_service_from_action
-
+from policy_sentry.shared.query import remove_actions_that_are_not_wildcard_arn_only
 
 class ArnActionGroup:
     def __init__(self):
@@ -17,7 +17,7 @@ class ArnActionGroup:
         This just adds the ARN, Service, and Access Level. ARN Format and Actions are not filled out.
         Example data can be found in the class ArnActionGroupTestCase in the testing folder.
 
-        :param session: SQLAlchemy database session
+        :param db_session: SQLAlchemy database session
         :param arn_list_from_user: Just a list of resource ARNs.
         :param access_level: "Read", "List", "Tagging", "Write", or "Permissions management"
         """
@@ -84,16 +84,22 @@ class ArnActionGroup:
             for category in cfg:
                 if category == 'roles_with_crud_levels':
                     for principal in cfg[category]:
+                        if 'wildcard' in principal.keys():
+                            if principal['wildcard'] is not None:
+                                provided_wildcard_actions = principal['wildcard']
+                                if isinstance(provided_wildcard_actions, list):
+                                    verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                                        db_session, provided_wildcard_actions)
+                                    if len(verified_wildcard_actions) > 0:
+                                        self.process_list_of_actions(verified_wildcard_actions, db_session)
                         if 'read' in principal.keys():
                             if principal['read'] is not None:
                                 self.add(
                                     db_session, principal['read'], "Read")
-
                         if 'write' in principal.keys():
                             if principal['write'] is not None:
                                 self.add(
                                     db_session, principal['write'], "Write")
-
                         if 'list' in principal.keys():
                             if principal['list'] is not None:
                                 self.add(
@@ -108,6 +114,7 @@ class ArnActionGroup:
                             if principal['tag'] is not None:
                                 self.add(
                                     db_session, principal['tag'], "Tagging")
+
         # except KeyError as e:
         #     print("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()

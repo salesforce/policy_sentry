@@ -1,7 +1,7 @@
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
 from policy_sentry.shared.actions import get_actions_by_access_level, get_full_action_name
-
+from policy_sentry.shared.actions import get_service_from_action, get_action_name_from_action
 
 # Per service
 def query_condition_table(db_session, service):
@@ -169,3 +169,24 @@ def query_action_table_for_all_condition_key_matches(db_session, service, condit
             results.append(action)
 
     return results
+
+
+def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
+    # remove duplicates, if there are any
+    actions_list_unique = list(dict.fromkeys(actions_list))
+    actions_list_placeholder = []
+    for action in actions_list_unique:
+        service = get_service_from_action(action)
+        action_name = get_action_name_from_action(action)
+
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
+            ActionTable.service.ilike(service),
+            ActionTable.name.ilike(action_name),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
+        ))
+        for row in rows:
+            if row.service == service and row.name == action_name:
+                actions_list_placeholder.append(get_full_action_name(service, action_name))
+    return actions_list_placeholder
