@@ -5,7 +5,7 @@
 * Analyze command: Added credentials-exposure.txt audit file
 * Fixed some stuff in the documentation that had old errors.
 * Version bump
-* HTML Documentation update approach (Fixes GH-25)
+* HTML Documentation update approach (Fixes GH-23)
     * `get_links.py` and other util scripts are now updated. We no longer have to maintain the big list of service-to-html-names.
     * Missing services are now fixed by this HTML documentation update approach:
       - applicationinsights
