@@ -101,7 +101,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     ],
                     'wildcard': [
                         # The first three are legitimately wildcard only.
-                        # Verify with `policy_sentry query --table action --service secretsmanager --wildcard-only`
+                        # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
                         'ram:enablesharingwithawsorganization',
                         'ram:getresourcepolicies',
                         'secretsmanager:createsecret',
