@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
     analyze_iam_policy will audit the policy for any security concerns
 
@@ -28,7 +26,7 @@ CONFIG_DIRECTORY = '/.policy_sentry/'
 DATABASE_FILE_NAME = 'aws.sqlite3'
 AUDIT_DIRECTORY_FOLDER = '/audit'
 audit_directory_path = HOME + CONFIG_DIRECTORY + AUDIT_DIRECTORY_FOLDER
-audit_file_name = '/permissions-access-level.txt'
+audit_file_name = '/privilege-escalation.txt'
 audit_file_path = audit_directory_path + audit_file_name
 database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 
@@ -38,7 +36,7 @@ database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
     '--from-audit-file',
     type=str,
     default=audit_file_path,
-    help='The file containing AWS actions to audit. Default path is $HOME/.policy_sentry/audit/permissions-access-level.txt.'
+    help='The file containing AWS actions to audit. Default path is $HOME/.policy_sentry/audit/privilege-escalation.txt.'
 )
 @click.option(
     '--from-access-level',

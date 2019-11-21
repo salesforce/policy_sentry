@@ -13,7 +13,6 @@ HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
 DATABASE_FILE_NAME = 'aws.sqlite3'
 database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
-db_session = connect_db(database_file_path)
 
 @click.group()
 def query():
@@ -58,6 +57,7 @@ def query():
          'wildcard resources - i.e., cannot support ARNs in the resource block.'
 )
 def action_table(name, service, access_level, condition, wildcard_only):
+    db_session = connect_db(database_file_path)
     # Get a list of all IAM actions under the service that have the specified access level.
     if name is None and access_level:
         print(f"All IAM actions under the {service} service that have the access level {access_level}:")
@@ -108,6 +108,7 @@ def action_table(name, service, access_level, condition, wildcard_only):
     help='Show the short names of ARN Types. If empty, this will show RAW ARNs only.'
 )
 def arn_table(name, service, list_arn_types):
+    db_session = connect_db(database_file_path)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
         raw_arns = query_arn_table_for_raw_arns(db_session, service)
@@ -140,6 +141,7 @@ def arn_table(name, service, list_arn_types):
     help="Filter according to AWS service."
 )
 def condition_table(name, service):
+    db_session = connect_db(database_file_path)
     # Get a list of all condition keys available to the service
     if name is None:
         condition_results = query_condition_table(db_session, service)

@@ -2,11 +2,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
-import requests
-import pandas
 import json
-import copy
-import re
 import os
 from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, \
     get_region_from_arn, get_account_from_arn, does_arn_match

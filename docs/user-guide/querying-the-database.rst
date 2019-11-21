@@ -15,10 +15,13 @@ Commands
 
     # Get a list of all IAM Actions available to the RAM service
     policy_sentry query action-table --service ram
+
     # Get details about the `ram:TagResource` IAM Action
     policy_sentry query action-table --service ram --name tagresource
+
     # Get a list of all IAM actions under the RAM service that have the Permissions management access level.
     policy_sentry query action-table --service ram --access-level permissions-management
+
     # Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
     policy_sentry query action-table --service ses --condition ses:FeedbackAddress
 
@@ -28,8 +31,10 @@ Commands
 
     # Get a list of all RAW ARN formats available through the SSM service.
     policy_sentry query arn-table --service ssm
+
     # Get the raw ARN format for the `cloud9` ARN with the short name `environment`
     policy_sentry query arn-table --service cloud9 --name environment
+
     # Get key/value pairs of all RAW ARN formats plus their short names
     policy_sentry query arn-table --service cloud9 --list-arn-types
 
@@ -39,6 +44,7 @@ Commands
 
     # Get a list of all condition keys available to the Cloud9 service
     policy_sentry query condition-table --service cloud9
+
     # Get details on the condition key titled `cloud9:Permissions`
     policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 

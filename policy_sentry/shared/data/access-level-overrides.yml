@@ -1,10 +1,18 @@
 # Many AWS IAM Actions from the Actions, Resources, and Condition Keys page are incorrect.
 # There is a systemic problem among some service teams where they will list some "Write" actions as "Tagging"
-
+autoscaling:
+    # AWS documentation lists this as Tagging
+    Write:
+        - createautoscalinggroup
 acm-pca:
     # AWS documentation lists this as Tagging
     Write:
         - createcertificateauthority
+appmesh:
+    # AWS documentation lists this as "Write"
+    Tagging:
+        - tagresource
+        - untagresource
 appsync:
     # AWS documentation lists this as Tagging
     Write:
@@ -140,7 +148,7 @@ lightsail:
         - getinstanceaccessdetails # Returns temporary keys you can use to authenticate and connect to an instance.
         - getrelationaldatabasemasteruserpassword # Returns the master user password of a relational database.
     Write:
-        - createcloudformationstack # Creates a new Amazon EC2 instance from an exported Amazon Lightsail snapshot.
+        - createcloudformationstack
 medialive:
     # AWS Documentation lists these as "Tagging"
     Write:
@@ -150,8 +158,8 @@ medialive:
 mobiletargeting:
     # AWS Documentation lists these as "Tagging"
     Write:
-        - puteventstream # Create or update an event stream for an app.
-        - putevents # Create or update events for an app.
+        - puteventstream
+        - putevents
 ram:
     # AWS documentation lists these as "Write"
     Permissions management:
@@ -265,21 +273,3 @@ waf-regional:
 xray:
     Read:
         - getencryptionconfig
-
-# Borrowed some of these from: https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/tests/test_action_categories.py
-# Note: Some of those are incorrect, especially those from line 78, where it assumes that actions prefixed with "Get" should not be at the "Write" access level. However, these actions should be considered at the write level, since some of them generate access tokens.
-
-
-#### Related to credentials leakage
-# ecr:GetAuthorizationToken
-# ec2:GetPasswordData
-# waf-regional:GetChangeToken
-# waf:GetChangeToken
-# lightsail:getinstanceaccessdetails
-# redshift:getclustercredentials
-# states:getactivitytask
-# cognito-identity:getid
-# glue:getmapping
-# lightsail:getrelationaldatabasemasteruserpassword
-# connect:getfederationtokens
-# Not including this; even though it could lead to credentials leakage, it isn't necessarily managing other's permissions?

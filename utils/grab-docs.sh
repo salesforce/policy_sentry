@@ -6,5 +6,5 @@
 # and our automation won't break if the AWS website is down, or if they drastically change their documentation.
 # After running this script, make sure to run ./policy_sentry.py create_all_tables
 
-python3 ./utils/get_links.py
 bash ./utils/download-docs.sh
+python3 ./utils/get_links.py

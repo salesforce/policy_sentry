@@ -47,7 +47,7 @@ Policy Writing Commands
    policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
 
    # Write policy based on resource-specific access levels
-   policy_sentry write-policy --crud --file examples/crud.yml
+   policy_sentry write-policy --crud --input-file examples/yml/crud.yml
 
    # Write policy_sentry YML files based on resource-specific access levels on a directory basis
    policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
@@ -56,7 +56,7 @@ Policy Writing Commands
    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
 
    # Write policy based on a list of actions
-   policy_sentry write-policy --file examples/actions.yml
+   policy_sentry write-policy --input-file examples/yml/actions.yml
 
 
 Policy Analysis Commands
@@ -67,7 +67,7 @@ Policy Analysis Commands
    policy_sentry initialize
 
    # Analyze a policy FILE to determine actions with "Permissions Management" access levels
-   policy_sentry analyze-iam-policy --from-access-level permissions-management --file examples/analyze/wildcards.json
+   policy_sentry analyze-iam-policy --from-access-level permissions-management --policy examples/analyze/wildcards.json
 
    # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
    policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
@@ -79,10 +79,10 @@ Policy Analysis Commands
    policy_sentry analyze-iam-policy --show ~/.policy_sentry/123456789012/customer-managed
 
    # Analyze a policy FILE to identify higher-risk IAM calls
-   policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json
+   policy_sentry analyze-iam-policy --policy examples/analyze/wildcards.json
 
    # Analyze a policy against a custom file containing a list of IAM actions
-   policy_sentry analyze-iam-policy --file examples/analyze/wildcards.json --from-audit-file ~/.policy_sentry/audit/privilege-escalation.txt
+   policy_sentry analyze-iam-policy --policy examples/analyze/wildcards.json --from-audit-file ~/.policy_sentry/audit/privilege-escalation.txt
 
 
 IAM Database Query Commands
