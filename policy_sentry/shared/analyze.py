@@ -1,8 +1,17 @@
 from policy_sentry.shared.file import read_this_file
-from policyuniverse import all_permissions
+# from policyuniverse import all_permissions
 import fnmatch
 import pprint
-from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file
+from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
+    get_all_actions
+from policy_sentry.shared.database import connect_db
+from pathlib import Path
+from policy_sentry.shared.file import list_files_in_directory
+
+HOME = str(Path.home())
+CONFIG_DIRECTORY = '/.policy_sentry/'
+DATABASE_FILE_NAME = 'aws.sqlite3'
+database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -33,6 +42,10 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
     expand the action wildcards into a full action
     """
 
+    db_session = connect_db(database_file_path)
+
+    all_actions = get_all_actions(db_session)
+
     if isinstance(action, list):
         expanded_actions = []
         for item in action:
@@ -42,7 +55,8 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
     if "*" in action:
         expanded = [
             expanded_action.lower()
-            for expanded_action in all_permissions
+            # for expanded_action in all_permissions
+            for expanded_action in all_actions
             if fnmatch.fnmatchcase(expanded_action.lower(), action.lower())
         ]
 
@@ -97,3 +111,11 @@ def analyze(policy_file, db_session, from_access_level, from_audit_file):
         print("These are the expanded actions")
         print(expanded_actions)
         determine_risky_actions(expanded_actions, from_audit_file)
+
+
+def analyze_policy_directory(policy, db_session, from_access_level, from_audit_file):
+    file_list = list_files_in_directory(policy)
+    print("Access level: " + from_access_level)
+    for file in file_list:
+        this_file = policy + '/' + file
+        analyze(this_file, db_session, from_access_level, from_audit_file)

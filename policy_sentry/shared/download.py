@@ -2,6 +2,7 @@ from policy_sentry.shared.login import login
 from policy_sentry.shared.policy import PolicyGroup
 from policy_sentry.shared.file import write_json_file, list_files_in_directory, create_directory_if_it_doesnt_exist
 from pathlib import Path
+import sys
 
 home = str(Path.home())
 config_directory = '/.policy_sentry/'
@@ -59,3 +60,18 @@ def download_remote_policies(
     only_files = list_files_in_directory(filename_directory)
     for filename in only_files:
         print(filename)
+    return filename_directory
+
+
+def download_policies_recursively(credentials_file, profiles):
+    download_directories = []
+
+    for profile in profiles:
+        try:
+            print(f"Downloading policies under profile {profile}")
+            download_dir = download_remote_policies(profile, True, True)
+            download_directories.append(download_dir)
+        except TypeError as t_e:
+            print(t_e)
+            sys.exit()
+    return download_directories

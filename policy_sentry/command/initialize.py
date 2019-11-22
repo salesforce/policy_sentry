@@ -2,7 +2,8 @@
 
 import click
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
-    create_audit_directory, create_default_overrides_file, create_policy_analysis_directory
+    create_audit_directory, create_default_overrides_file, create_policy_analysis_directory, \
+    create_default_report_config_file
 from pathlib import Path
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.file import get_list_of_service_prefixes_from_links_file
@@ -35,6 +36,8 @@ def initialize(access_level_overrides_file):
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
     create_default_overrides_file()
+    # Create the default reporting configuration file. This is used by analyze_iam_policy
+    create_default_report_config_file()
     # Connect to the database at that path with sqlalchemy
     db_session = connect_db(database_path)
     all_aws_services = get_list_of_service_prefixes_from_links_file()

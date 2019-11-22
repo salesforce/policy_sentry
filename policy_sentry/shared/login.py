@@ -2,6 +2,7 @@ import os
 import json
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
+import configparser
 
 
 def login_sts_test(sts_session):
@@ -68,6 +69,18 @@ def login(profile_name, service='iam'):
     else:
         this_session = session.client("iam")
     return this_session
-    # return session
-# client = boto3.client("sts", aws_access_key_id=access_key, aws_secret_access_key=secret_key)
-# account_id = client.get_caller_identity()["Account"]
+
+
+def get_list_of_aws_profiles(credentials_file):
+    config = configparser.RawConfigParser()
+    config.read(credentials_file)
+    sections = config.sections()
+    legitimate_sections = []
+    for section in sections:
+        broamski_suffix = "-long-term" # https://github.com/broamski/aws-mfa#credentials-file-setup
+        if section.endswith(broamski_suffix):
+            # skip it if it's not a real profile we want to evaluate
+            continue
+        else:
+            legitimate_sections.append(section)
+    return legitimate_sections

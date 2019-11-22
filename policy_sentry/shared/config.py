@@ -76,6 +76,19 @@ def create_default_overrides_file():
         f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
 
 
+def create_default_report_config_file():
+    """
+    Copies over the default report config file to the config directory
+    """
+    existing_report_config_file = 'report-config.yml'
+    target_report_config_file_path = HOME + CONFIG_DIRECTORY + existing_report_config_file
+    existing_overrides_file_path = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/' + existing_report_config_file
+    shutil.copy(existing_overrides_file_path, target_report_config_file_path)
+    print(
+        f"Copying overrides file {existing_report_config_file} to {target_report_config_file_path}")
+
+
 def get_action_access_level_overrides_from_yml(
         service, access_level_overrides_file_path=None):
     """

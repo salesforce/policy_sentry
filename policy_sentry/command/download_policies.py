@@ -38,4 +38,4 @@ def download_policies(profile, aws_managed, include_unattached):
         customer_managed = False
     else:
         customer_managed = True
-    download_remote_policies(profile, customer_managed, attached_only)
+    download_directory = download_remote_policies(profile, customer_managed, attached_only)

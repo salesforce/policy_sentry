@@ -28,7 +28,8 @@ setuptools.setup(
         'schema',
         "boto3",
         "botocore",
-        "requests"
+        "requests",
+        "cvss",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

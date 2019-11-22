@@ -13,11 +13,13 @@
 
 import click
 import pprint
+import sys
 from pathlib import Path
 import os.path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file
-from policy_sentry.shared.analyze import determine_actions_to_expand, determine_risky_actions, analyze
+from policy_sentry.shared.analyze import determine_actions_to_expand, determine_risky_actions, analyze, \
+    analyze_policy_directory
 from policy_sentry.shared.file import list_files_in_directory
 
 
@@ -59,18 +61,11 @@ def analyze_iam_policy(from_audit_file, policy, from_access_level):
     if os.path.exists(policy):
         if os.path.isdir(policy):
             print("Evaluating policy files in " + policy)
+            analyze_policy_directory(policy, db_session, from_access_level, from_audit_file)
         else:
             print("Evaluating policy file: " + policy)
+            analyze(policy, db_session, from_access_level, from_audit_file)
     else:
         print("File/directory does not exist: " +
               policy + "\nPlease provide a valid path.")
-        exit()
-
-    if os.path.isdir(policy):
-        file_list = list_files_in_directory(policy)
-        print("Access level: " + from_access_level)
-        for file in file_list:
-            this_file = policy + '/' + file
-            analyze(this_file, db_session, from_access_level, from_audit_file)
-    elif os.path.isfile(policy):
-        analyze(policy, db_session, from_access_level, from_audit_file)
+        sys.exit()
