@@ -8,13 +8,9 @@ from policy_sentry.shared.database import connect_db
 from pathlib import Path
 from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.report import Findings
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import copy
 import re
-
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -49,7 +45,7 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
     expand the action wildcards into a full action
     """
 
-    db_session = connect_db(database_file_path)
+    db_session = connect_db(DATABASE_FILE_PATH)
 
     all_actions = get_all_actions(db_session)
 

@@ -8,6 +8,7 @@ from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
 from policy_sentry.shared.actions import get_action_name_from_action, get_service_from_action
 from policy_sentry.shared.query import remove_actions_that_are_not_wildcard_arn_only
 
+
 class ArnActionGroup:
     def __init__(self):
         self.arns = []

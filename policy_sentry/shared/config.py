@@ -6,11 +6,7 @@ from policy_sentry.shared.file import read_this_file, create_directory_if_it_doe
     list_files_in_directory, read_yaml_file
 import shutil
 import sys
-
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-AUDIT_DIRECTORY_FOLDER = 'audit/'
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER
 
 
 def create_policy_sentry_config_directory():

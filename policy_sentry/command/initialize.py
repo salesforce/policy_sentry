@@ -7,9 +7,7 @@ from policy_sentry.shared.config import create_policy_sentry_config_directory, \
 from pathlib import Path
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.file import get_list_of_service_prefixes_from_links_file
-
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
 
 
 @click.command(

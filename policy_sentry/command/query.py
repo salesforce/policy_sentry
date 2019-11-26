@@ -8,11 +8,8 @@ from policy_sentry.shared.query import query_condition_table, query_condition_ta
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import transform_access_level_text
 from pathlib import Path
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 
 @click.group()
 def query():
@@ -141,7 +138,7 @@ def arn_table(name, service, list_arn_types):
     help="Filter according to AWS service."
 )
 def condition_table(name, service):
-    db_session = connect_db(database_file_path)
+    db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:
         condition_results = query_condition_table(db_session, service)

@@ -1,13 +1,8 @@
 from policy_sentry.shared.login import login
 from policy_sentry.shared.policy import PolicyGroup
 from policy_sentry.shared.file import write_json_file, list_files_in_directory, create_directory_if_it_doesnt_exist
-from pathlib import Path
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
 import sys
-
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-# database_file_name = 'aws.sqlite3'
-# database_path = home + config_directory + database_file_name
 
 
 def download_remote_policies(
@@ -25,7 +20,7 @@ def download_remote_policies(
     account_id = sts_session.get_caller_identity()["Account"]
 
     # Directory names
-    policy_file_directory = home + config_directory + \
+    policy_file_directory = HOME + CONFIG_DIRECTORY + \
         'policy-analysis' + '/' + account_id
     customer_managed_policy_file_directory = policy_file_directory + '/' + 'customer-managed'
     aws_managed_policy_file_directory = policy_file_directory + '/' + 'aws-managed'

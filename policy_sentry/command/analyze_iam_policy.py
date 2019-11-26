@@ -21,23 +21,14 @@ from policy_sentry.shared.actions import get_actions_by_access_level, get_action
 from policy_sentry.shared.analyze import determine_actions_to_expand, determine_risky_actions, analyze, \
     analyze_policy_directory
 from policy_sentry.shared.file import list_files_in_directory
-
-
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-AUDIT_DIRECTORY_FOLDER = '/audit'
-audit_directory_path = HOME + CONFIG_DIRECTORY + AUDIT_DIRECTORY_FOLDER
-audit_file_name = '/privilege-escalation.txt'
-audit_file_path = audit_directory_path + audit_file_name
-database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
+from policy_sentry.shared.constants import DEFAULT_AUDIT_FILE_PATH, DATABASE_FILE_PATH
 
 
 @click.command()
 @click.option(
     '--from-audit-file',
     type=str,
-    default=audit_file_path,
+    default=DEFAULT_AUDIT_FILE_PATH,
     help='The file containing AWS actions to audit. Default path is $HOME/.policy_sentry/audit/privilege-escalation.txt.'
 )
 @click.option(
@@ -56,7 +47,7 @@ def analyze_iam_policy(from_audit_file, policy, from_access_level):
     """
     Analyze IAM Actions given a JSON policy file
     """
-    db_session = connect_db(database_file_path)
+    db_session = connect_db(DATABASE_FILE_PATH)
 
     if os.path.exists(policy):
         if os.path.isdir(policy):
