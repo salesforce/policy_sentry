@@ -5,7 +5,9 @@ from cvss import CVSS3
 from policy_sentry.shared.file import read_yaml_file
 from jinja2 import Template
 import copy
+import json
 import csv
+from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
 
 # CVSS VECTORS
 CUSTOM_VECTORS = {
@@ -111,7 +113,7 @@ def load_report_config_file(filename):
     return report_config_file
 
 
-def create_report_template(occurrences):
+def create_markdown_report_template(occurrences):
     tm = Template(REPORT_TEMPLATE)
     # occurrences = {
     #         "policyName1": {
@@ -136,8 +138,9 @@ def create_report_template(occurrences):
     return msg
 
 
-def create_csv_report(occurrences, filename):
-    with open(filename, 'w') as csvfile:
+def create_csv_report(occurrences, filename, subdirectory="/"):
+    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.csv'
+    with open(report_path, 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',',
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(
@@ -175,53 +178,20 @@ def create_csv_report(occurrences, filename):
                 network_exposure_length,
                 credentials_exposure_length
             ]
-            # row = [
-            #     occurrences[key]['account_id'],
-            #     key,
-            #     len(occurrences[key]['resource_exposure']),
-            #     len(occurrences[key]['privilege_escalation']),
-            #     len(occurrences[key]['network_exposure']),
-            #     len(occurrences[key]['credentials_exposure'])
-            # ]
+
             filewriter.writerow(row)
-            # filewriter.writerow(list(occurrences[key]['account_id'], key, len(occurrences[key]['resource_exposure']),
-            #                     len(occurrences[key]['privilege_escalation']), len(occurrences[key]['network_exposure']),
-            #                     len(occurrences[key]['credentials_exposure'])))
 
 
-class Findings:
-    occurrences = {}
+def create_json_report(occurrences, filename, subdirectory="/"):
+    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.json'
+    with open(report_path, 'w') as json_file:
+        json_file.write(json.dumps(occurrences, indent=4))
+    json_file.close()
 
-    def __init__(self):
-        self.occurrences = {}
 
-    def add(self, finding_type, policy_finding):
-        for key, value in policy_finding.items():
-            if key in self.occurrences:
-                self.occurrences[key].update(value)
-            else:
-                self.occurrences[key] = value
-                # self.occurrences[key]['account_id'] = value['account_id']
-
-        return self.occurrences
-
-    def get_findings_by_account(self, account_id):
-        return self.occurrences[account_id]
-
-    def get_findings_by_policy_name(self, account_id, policy_name):
-        return self.occurrences[account_id][policy_name]
-
-    def get_findings_by_finding_type(self, account_id, policy_name, finding_type):
-        if finding_type == "network_exposure":
-            return self.occurrences[account_id][policy_name]['network_exposure']
-        if finding_type == "privilege_escalation":
-            return self.occurrences[account_id][policy_name]['privilege_escalation']
-        if finding_type == "resource_exposure":
-            return self.occurrences[account_id][policy_name]['resource_exposure']
-        if finding_type == "data_access":
-            return self.occurrences[account_id][policy_name]['data_access']
-        if finding_type == "credentials_exposure":
-            return self.occurrences[account_id][policy_name]['credentials_exposure']
-
-    def get_findings(self):
-        return self.occurrences
+def create_markdown_report(report_contents, filename, subdirectory="/"):
+    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.md'
+    with open(report_path, 'w') as file:
+        file.write(report_contents)
+    file.close()
+    print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown report.md -t html > report.html")

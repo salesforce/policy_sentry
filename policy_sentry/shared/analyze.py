@@ -7,7 +7,7 @@ from policy_sentry.shared.actions import get_actions_by_access_level, get_action
 from policy_sentry.shared.database import connect_db
 from pathlib import Path
 from policy_sentry.shared.file import list_files_in_directory
-from policy_sentry.shared.report import Findings
+from policy_sentry.shared.finding import Findings
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import copy
 import re
@@ -123,12 +123,12 @@ def analyze_by_access_level(policy_file, db_session, access_level):
     return actions_by_level
 
 
-def analyze_by_data_access(policy_file, db_session, arn_list):
-    """
-    Some ARN types give access to either (1) configuration data, (2) actual data, or both.
-    Given a list of raw ARNs, this method will return
-    a big list of actions that grant data access.
-    """
+# def analyze_by_data_access(policy_file, db_session, arn_list):
+#     """
+#     Some ARN types give access to either (1) configuration data, (2) actual data, or both.
+#     Given a list of raw ARNs, this method will return
+#     a big list of actions that grant data access.
+#     """
 
 
 def analyze_policy_directory(policy_directory, account_id, db_session, from_audit_file, finding_type, excluded_role_patterns):

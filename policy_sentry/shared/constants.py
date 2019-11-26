@@ -1,8 +1,10 @@
 from pathlib import Path
 
-# General
+# General Folders
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
+ANALYSIS_DIRECTORY_NAME = 'policy-analysis'
+ANALYSIS_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + ANALYSIS_DIRECTORY_NAME
 
 # Database
 DATABASE_FILE_NAME = 'aws.sqlite3'

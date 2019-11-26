@@ -9,8 +9,11 @@ import markdown
 from policy_sentry.shared.login import get_list_of_aws_profiles
 from policy_sentry.shared.analyze import analyze_policy_directory
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.report import Findings, create_report_template, load_report_config_file, create_csv_report
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DEFAULT_CREDENTIALS_FILE, DATABASE_FILE_PATH, AUDIT_DIRECTORY_PATH
+from policy_sentry.shared.report import create_markdown_report_template, load_report_config_file, create_csv_report, \
+    create_json_report, create_markdown_report
+from policy_sentry.shared.finding import Findings
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DEFAULT_CREDENTIALS_FILE, DATABASE_FILE_PATH, \
+    AUDIT_DIRECTORY_PATH, ANALYSIS_DIRECTORY_PATH
 
 # Audit filenames
 credentials_exposure_filename = AUDIT_DIRECTORY_PATH + '/credentials-exposure.txt'
@@ -106,18 +109,11 @@ def generate_report(credentials_file, download, output, report_config, include_u
 
     occurrences = findings.get_findings()
     # Write JSON report
-    with open('report.json', 'w') as json_file:
-        json_file.write(json.dumps(occurrences, indent=4))
-    json_file.close()
+    create_json_report(occurrences, 'overall')
 
     # Write Markdown formatted report, which can also be used for exporting to HTML with pandoc
-    report = create_report_template(occurrences)
-    markdown_report_file = "report.md"
-    with open(markdown_report_file, 'w') as file:
-        file.write(report)
-    file.close()
+    report_contents = create_markdown_report_template(occurrences)
+    create_markdown_report(report_contents, 'overall')  # saved to `/.policy_sentry/policy-analysis/overall.md
 
-    # Write CSV report
-    create_csv_report(occurrences, 'report.csv')
-
-    print("Now run this command:\n\npandoc -f markdown report.md -t html > tmp/report.html")
+    # Write CSV report for overall results
+    create_csv_report(occurrences, 'overall')  # saved to `/.policy_sentry/policy-analysis/overall.csv
