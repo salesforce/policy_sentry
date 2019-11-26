@@ -17,15 +17,15 @@ CUSTOM_VECTORS = {
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
-## Summary
+# Summary
 
 Here's what we did
 
-## Approach
+# Approach
 
 Here's how it works
 
-### Risk Categories
+## Risk Categories
 
 * Privilege Escalation: Definition
 * Resource Exposure: Definition
@@ -33,27 +33,63 @@ Here's how it works
 * Data access: Definition
 * Credentials Exposure: Definition
 
-### Risk Scoring Approach
+## Risk Scoring Approach
 
 [CVSS 3.1](https://www.first.org/cvss/calculator/3.1)
 
-## Results
+# Results
 
-### Account ID: {{ account_id }}
-
-#### Policies
+> Account ID: {{ account_id }}
 
 {% for item in policy_list %}
 * [{{ item }}](./{{ item }}.json)
 {%- endfor %}
 
+
 | Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Data Access                   | Credentials Exposure                   |
 |-------------------|------------------------------------|----------------------------------------|------------------------------------------|-------------------------------|----------------------------------------|
 
 {%- for key, value in occurrences.items() %}
-    | {{ key }} | {{ occurrences[key]['resource_exposure'] }} | {{ occurrences[key]['privilege_escalation'] }} | {{ occurrences[key]['network_exposure'] }} | {{ occurrences[key]['data_access'] }} | {{ occurrences[key]['credentials_exposure'] }} |
+    | {{ key }} | {{ occurrences[key]['resource_exposure']|length }} | {{ occurrences[key]['privilege_escalation']|length }} | {{ occurrences[key]['network_exposure']|length }} | {{ occurrences[key]['data_access']|length }} | {{ occurrences[key]['credentials_exposure']|length }} |
+{%- endfor %}
+
+
+{%- for key, value in occurrences.items() %}
+### Policy: {{ key }}
+{% if 'resource_exposure' in occurrences[key] %}
+#### Resource Exposure
+{%- for action in occurrences[key]['resource_exposure'] %}
+- {{ action }}
+{%- endfor %}
+{% endif %}
+{% if 'privilege_escalation' in occurrences[key] %}
+#### Privilege Escalation
+{%- for action in occurrences[key]['privilege_escalation'] %}
+- {{ action }}
+{%- endfor %}
+{% endif %}
+{% if 'network_exposure' in occurrences[key] %}
+#### Network Exposure
+{%- for action in occurrences[key]['network_exposure'] %}
+- {{ action }}
+{%- endfor %}
+{% endif %}
+{% if 'data_access' in occurrences[key] %}
+#### Data Access
+{%- for action in occurrences[key]['data_access'] %}
+- {{ action }}
+{%- endfor %}
+{% endif %}
+{% if 'credentials_exposure' in occurrences[key] %}
+#### Credentials Exposure
+{%- for action in occurrences[key]['credentials_exposure'] %}
+- {{ action }}
+{%- endfor %}
+{% endif %}
 {%- endfor %}
 '''
+
+# Just stashing this table
 
 
 def get_risk_category_score(risk_category):
