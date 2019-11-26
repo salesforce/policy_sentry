@@ -46,14 +46,25 @@ Here's how it works
 {%- endfor %}
 
 
-| Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Data Access                   | Credentials Exposure                   |
-|-------------------|------------------------------------|----------------------------------------|------------------------------------------|-------------------------------|----------------------------------------|
+| Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Credentials Exposure                   |
+|-------------------|------------------------------------|----------------------------------------|------------------------------------------|----------------------------------------|
 
 {%- for key, value in occurrences.items() %}
-    | {{ key }} | {{ occurrences[key]['resource_exposure']|length }} | {{ occurrences[key]['privilege_escalation']|length }} | {{ occurrences[key]['network_exposure']|length }} | {{ occurrences[key]['data_access']|length }} | {{ occurrences[key]['credentials_exposure']|length }} |
+    | {{ key }} | {{ occurrences[key]['resource_exposure']|length }} | {{ occurrences[key]['privilege_escalation']|length }} | {{ occurrences[key]['network_exposure']|length }} | {{ occurrences[key]['credentials_exposure']|length }} |
 {%- endfor %}
 
 
+{%- for key, value in occurrences.items() %}
+### Policy: {{ key }}
+| Resource Exposure                                                                         | Privilege Escalation                                                                         | Network Exposure                                                                         | Credentials Exposure                                                                         |
+|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| {%- for action in occurrences[key]['resource_exposure'] %}- {{ action }}<br>{%- endfor %} | {%- for action in occurrences[key]['privilege_escalation'] %}- {{ action }}<br>{%- endfor %} | {%- for action in occurrences[key]['network_exposure'] %}- {{ action }}<br>{%- endfor %} | {%- for action in occurrences[key]['credentials_exposure'] %}- {{ action }}<br>{%- endfor %} |
+{%- endfor %}
+'''
+
+# Just stashing this old report format, basically a long word document style
+
+"""
 {%- for key, value in occurrences.items() %}
 ### Policy: {{ key }}
 {% if 'resource_exposure' in occurrences[key] %}
@@ -87,9 +98,7 @@ Here's how it works
 {%- endfor %}
 {% endif %}
 {%- endfor %}
-'''
-
-# Just stashing this table
+"""
 
 
 def get_risk_category_score(risk_category):

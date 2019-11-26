@@ -30,6 +30,7 @@ setuptools.setup(
         "botocore",
         "requests",
         "cvss",
+        "markdown"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

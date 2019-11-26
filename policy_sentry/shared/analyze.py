@@ -9,6 +9,7 @@ from pathlib import Path
 from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.report import Findings
 import copy
+import re
 
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
@@ -134,7 +135,7 @@ def analyze_by_data_access(policy_file, db_session, arn_list):
     """
 
 
-def analyze_policy_directory(policy_directory, db_session, from_audit_file, finding_type):
+def analyze_policy_directory(policy_directory, db_session, from_audit_file, finding_type, excluded_role_patterns):
     """
     Audits a directory of policy JSON files.
 
@@ -170,11 +171,17 @@ def analyze_policy_directory(policy_directory, db_session, from_audit_file, find
         expanded_actions.clear()
         this_file = policy_directory + '/' + policy_file
         policy_name = policy_file.rsplit(".", 1)[0]
+        # If the policy name matches excluded role patterns, skip it
+        reg_list = map(re.compile, excluded_role_patterns)
+        if any(regex.match(policy_name) for regex in reg_list):
+            continue
         # actions_to_triage = analyze(this_file, db_session, None, from_audit_file)
         requested_actions = get_actions_from_json_policy_file(this_file)
         expanded_actions = determine_actions_to_expand(requested_actions)
         actions_list = determine_risky_actions(expanded_actions, from_audit_file)
+
         actions_list.sort()  # sort in alphabetical order
+        actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
         # try:
         if actions_list:
             finding[finding_type] = copy.deepcopy(actions_list)
