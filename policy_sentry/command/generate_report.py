@@ -68,7 +68,7 @@ def generate_report(credentials_file, download, output, report_config, include_u
     # if download:
     # download_directories = download_policies_recursively(credentials_file, profiles)
 
-    base_account_directories = glob(HOME + CONFIG_DIRECTORY + 'policy-analysis/' + '*/')
+    base_account_directories = glob(HOME + CONFIG_DIRECTORY + 'analysis/' + '*/')
     account_policy_directories = []
 
     for i in range(len(base_account_directories)):
@@ -113,7 +113,7 @@ def generate_report(credentials_file, download, output, report_config, include_u
 
     # Write Markdown formatted report, which can also be used for exporting to HTML with pandoc
     report_contents = create_markdown_report_template(occurrences)
-    create_markdown_report(report_contents, 'overall')  # saved to `/.policy_sentry/policy-analysis/overall.md
+    create_markdown_report(report_contents, 'overall')  # saved to `/.policy_sentry/analysis/overall.md
 
     # Write CSV report for overall results
-    create_csv_report(occurrences, 'overall')  # saved to `/.policy_sentry/policy-analysis/overall.csv
+    create_csv_report(occurrences, 'overall')  # saved to `/.policy_sentry/analysis/overall.csv

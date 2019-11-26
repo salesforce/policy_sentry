@@ -52,7 +52,7 @@ def create_policy_analysis_directory():
     """
     Creates directory for analyze_iam_policy policies.
     """
-    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'policy-analysis'
+    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'analysis'
     if os.path.exists(policy_analysis_directory_path):
         pass
     else:

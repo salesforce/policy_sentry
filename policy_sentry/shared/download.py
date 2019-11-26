@@ -21,7 +21,7 @@ def download_remote_policies(
 
     # Directory names
     policy_file_directory = HOME + CONFIG_DIRECTORY + \
-        'policy-analysis' + '/' + account_id
+        'analysis' + '/' + account_id
     customer_managed_policy_file_directory = policy_file_directory + '/' + 'customer-managed'
     aws_managed_policy_file_directory = policy_file_directory + '/' + 'aws-managed'
 

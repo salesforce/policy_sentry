@@ -3,7 +3,7 @@ from pathlib import Path
 # General Folders
 HOME = str(Path.home())
 CONFIG_DIRECTORY = '/.policy_sentry/'
-ANALYSIS_DIRECTORY_NAME = 'policy-analysis'
+ANALYSIS_DIRECTORY_NAME = 'analysis'
 ANALYSIS_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + ANALYSIS_DIRECTORY_NAME
 
 # Database
