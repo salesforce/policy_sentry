@@ -3,12 +3,13 @@ import sys
 from glob import glob
 import json
 import click
+import os
 from policy_sentry.shared.download import download_remote_policies, download_policies_recursively
 import markdown
 from policy_sentry.shared.login import get_list_of_aws_profiles
 from policy_sentry.shared.analyze import analyze_policy_directory
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.report import Findings, create_report_template, load_report_config_file
+from policy_sentry.shared.report import Findings, create_report_template, load_report_config_file, create_csv_report
 
 HOME = str(Path.home())
 DEFAULT_CREDENTIALS_FILE = HOME + '/.aws/credentials'
@@ -71,11 +72,11 @@ def generate_report(credentials_file, download, output, report_config, include_u
     # if download:
     # download_directories = download_policies_recursively(credentials_file, profiles)
 
-    tmp_account_directories = glob(HOME + CONFIG_DIRECTORY + 'policy-analysis/' + '*/')
-    account_directories = []
+    base_account_directories = glob(HOME + CONFIG_DIRECTORY + 'policy-analysis/' + '*/')
+    account_policy_directories = []
 
-    for i in range(len(tmp_account_directories)):
-        account_directories.append(tmp_account_directories[i] + 'customer-managed/')
+    for i in range(len(base_account_directories)):
+        account_policy_directories.append(base_account_directories[i] + 'customer-managed/')
     # print(account_directories)
     db_session = connect_db(database_file_path)
 
@@ -88,33 +89,34 @@ def generate_report(credentials_file, download, output, report_config, include_u
 
     # print("Auditing for Privilege Escalation")
     # TODO: Get the account ID from the download directory
-    for directory in account_directories:
+    # for directory in account_policy_directories:
+    for directory in base_account_directories:
 
         # print("Auditing for data access by ARNs")
         # # TODO: The data access by ARNs
-
-        resource_exposure_findings = analyze_policy_directory(directory, db_session, resource_exposure_filename, 'resource_exposure', excluded_role_patterns)
+        account_id = os.path.split(os.path.dirname(directory))[-1]
+        resource_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id, db_session, resource_exposure_filename, 'resource_exposure', excluded_role_patterns)
         resource_exposure_occurrences = findings.add('resource_exposure', resource_exposure_findings)
         # print("Resource Exposure::::")
         # print(json.dumps(resource_exposure_findings, indent=4))
         # print(json.dumps(resource_exposure_occurrences, indent=4))
 
         # Privilege Escalation
-        privilege_escalation_findings = analyze_policy_directory(directory, db_session, privilege_escalation_filename, 'privilege_escalation', excluded_role_patterns)
+        privilege_escalation_findings = analyze_policy_directory(directory + 'customer-managed/', account_id, db_session, privilege_escalation_filename, 'privilege_escalation', excluded_role_patterns)
         privilege_escalation_occurrences = findings.add('privilege_escalation', privilege_escalation_findings)
         # print("Privilege Escalation::::")
         # print(json.dumps(privilege_escalation_findings, indent=4))
         # print(json.dumps(privilege_escalation_occurrences, indent=4))
 
         # Network Exposure
-        network_exposure_findings = analyze_policy_directory(directory, db_session, network_exposure_filename, 'network_exposure', excluded_role_patterns)
+        network_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id, db_session, network_exposure_filename, 'network_exposure', excluded_role_patterns)
         network_exposure_occurrences = findings.add('network_exposure', network_exposure_findings)
         # print("Network Exposure::::")
         # print(json.dumps(network_exposure_findings, indent=4))
         # print(json.dumps(network_exposure_occurrences, indent=4))
 
         # Credentials exposure
-        credentials_exposure_findings = analyze_policy_directory(directory, db_session, credentials_exposure_filename, 'credentials_exposure', excluded_role_patterns)
+        credentials_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id, db_session, credentials_exposure_filename, 'credentials_exposure', excluded_role_patterns)
         credentials_exposure_occurrences = findings.add('credentials_exposure', credentials_exposure_findings)
         # print("Credentials Exposure::::")
         # print(json.dumps(credentials_exposure_findings, indent=4))
@@ -126,8 +128,8 @@ def generate_report(credentials_file, download, output, report_config, include_u
         json_file.write(json.dumps(occurrences, indent=4))
     json_file.close()
 
-    report = create_report_template('fauxacctid', occurrences)
-    print(report)
+    report = create_report_template(occurrences)
+    # print(report)
     markdown_report_file = "report.md"
     # html_report_file = markdown.markdown(report)
 
@@ -136,4 +138,7 @@ def generate_report(credentials_file, download, output, report_config, include_u
         # file.write(html_report_file)
         file.write(report)
     file.close()
+
+    create_csv_report(occurrences, 'report.csv')
+
     print("Now run this command:\n\npandoc -f markdown report.md -t html > tmp/report.html")

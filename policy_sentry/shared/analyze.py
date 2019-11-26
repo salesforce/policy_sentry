@@ -135,7 +135,7 @@ def analyze_by_data_access(policy_file, db_session, arn_list):
     """
 
 
-def analyze_policy_directory(policy_directory, db_session, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_directory(policy_directory, account_id, db_session, from_audit_file, finding_type, excluded_role_patterns):
     """
     Audits a directory of policy JSON files.
 
@@ -185,11 +185,13 @@ def analyze_policy_directory(policy_directory, db_session, from_audit_file, find
         # try:
         if actions_list:
             finding[finding_type] = copy.deepcopy(actions_list)
-            # WORKING
-            # policy_findings[policy_name] = copy.deepcopy(actions_list)
+            finding['account_id'] = account_id
             policy_findings[policy_name] = copy.deepcopy(finding)
+            # Store the account ID
         else:
+            finding['account_id'] = account_id
             pass
+        # print(finding['account_id'])
         # except KeyError as k_e:
         #     print(k_e)
         #     continue

@@ -5,6 +5,7 @@ from cvss import CVSS3
 from policy_sentry.shared.file import read_yaml_file
 from jinja2 import Template
 import copy
+import csv
 
 # CVSS VECTORS
 CUSTOM_VECTORS = {
@@ -39,18 +40,12 @@ Here's how it works
 
 # Results
 
-> Account ID: {{ account_id }}
 
-{% for item in policy_list %}
-* [{{ item }}](./{{ item }}.json)
-{%- endfor %}
-
-
-| Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Credentials Exposure                   |
-|-------------------|------------------------------------|----------------------------------------|------------------------------------------|----------------------------------------|
+| Account ID        | Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Credentials Exposure                   |
+|-------------------|-------------------|------------------------------------|----------------------------------------|------------------------------------------|----------------------------------------|
 
 {%- for key, value in occurrences.items() %}
-    | {{ key }} | {{ occurrences[key]['resource_exposure']|length }} | {{ occurrences[key]['privilege_escalation']|length }} | {{ occurrences[key]['network_exposure']|length }} | {{ occurrences[key]['credentials_exposure']|length }} |
+    | {{ occurrences[key]['account_id'] }} | {{ key }} | {{ occurrences[key]['resource_exposure']|length }} | {{ occurrences[key]['privilege_escalation']|length }} | {{ occurrences[key]['network_exposure']|length }} | {{ occurrences[key]['credentials_exposure']|length }} |
 {%- endfor %}
 
 
@@ -116,9 +111,8 @@ def load_report_config_file(filename):
     return report_config_file
 
 
-def create_report_template(account_id, occurrences):
+def create_report_template(occurrences):
     tm = Template(REPORT_TEMPLATE)
-    policy_list = []
     # occurrences = {
     #         "policyName1": {
     #             "resource_exposure": [
@@ -137,11 +131,62 @@ def create_report_template(account_id, occurrences):
     #         }
     # }
     msg = tm.render(
-        account_id=account_id,
-        policy_list=policy_list,
         occurrences=occurrences
     )
     return msg
+
+
+def create_csv_report(occurrences, filename):
+    with open(filename, 'w') as csvfile:
+        filewriter = csv.writer(csvfile, delimiter=',',
+                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        filewriter.writerow(
+            [
+                "Account ID",
+                "Policy Name",
+                "Resource Exposure",
+                "Privilege Escalation",
+                "Network Exposure",
+                "Credentials Exposure",
+             ]
+        )
+        for key, value in occurrences.items():
+            if 'resource_exposure' in occurrences[key]:
+                resource_exposure_length = len(occurrences[key]['resource_exposure'])
+            else:
+                resource_exposure_length = 0
+            if 'privilege_escalation' in occurrences[key]:
+                privilege_escalation_length = len(occurrences[key]['privilege_escalation'])
+            else:
+                privilege_escalation_length = 0
+            if 'network_exposure' in occurrences[key]:
+                network_exposure_length = len(occurrences[key]['network_exposure'])
+            else:
+                network_exposure_length = 0
+            if 'credentials_exposure' in occurrences[key]:
+                credentials_exposure_length = len(occurrences[key]['credentials_exposure'])
+            else:
+                credentials_exposure_length = 0
+            row = [
+                occurrences[key]['account_id'],
+                key,
+                resource_exposure_length,
+                privilege_escalation_length,
+                network_exposure_length,
+                credentials_exposure_length
+            ]
+            # row = [
+            #     occurrences[key]['account_id'],
+            #     key,
+            #     len(occurrences[key]['resource_exposure']),
+            #     len(occurrences[key]['privilege_escalation']),
+            #     len(occurrences[key]['network_exposure']),
+            #     len(occurrences[key]['credentials_exposure'])
+            # ]
+            filewriter.writerow(row)
+            # filewriter.writerow(list(occurrences[key]['account_id'], key, len(occurrences[key]['resource_exposure']),
+            #                     len(occurrences[key]['privilege_escalation']), len(occurrences[key]['network_exposure']),
+            #                     len(occurrences[key]['credentials_exposure'])))
 
 
 class Findings:
@@ -156,6 +201,7 @@ class Findings:
                 self.occurrences[key].update(value)
             else:
                 self.occurrences[key] = value
+                # self.occurrences[key]['account_id'] = value['account_id']
 
         return self.occurrences
 
