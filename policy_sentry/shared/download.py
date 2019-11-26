@@ -55,11 +55,11 @@ def download_remote_policies(
         filename = filename_directory + '/' + policy_name + '.json'
         write_json_file(filename, document)
     print("If you want to analyze the policies, specify the policy file in the analyze-iam-policy command\n")
-    print("The list of policies downloaded are:")
-    print("")
+    # print("The list of policies downloaded are:")
+    # print("")
     only_files = list_files_in_directory(filename_directory)
-    for filename in only_files:
-        print(filename)
+    # for filename in only_files:
+    #     print(filename)
     return filename_directory
 
 

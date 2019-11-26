@@ -61,7 +61,7 @@ def analyze_iam_policy(from_audit_file, policy, from_access_level):
     if os.path.exists(policy):
         if os.path.isdir(policy):
             print("Evaluating policy files in " + policy)
-            analyze_policy_directory(policy, db_session, from_access_level, from_audit_file)
+            analyze_policy_directory(policy, db_session, from_audit_file)
         else:
             print("Evaluating policy file: " + policy)
             analyze(policy, db_session, from_access_level, from_audit_file)

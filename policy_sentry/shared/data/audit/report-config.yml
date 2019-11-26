@@ -2,6 +2,16 @@ report-config:
 #    excluded-role-pattern:
 #        - "RolePrefix*"
 #        - "RolePrefix2*"
+    risk-categories:
+        data-access: yes
+        resource-exposure: yes
+        privilege-escalation: yes
+        credentials-exposure: yes
+        network-exposure: yes
+    false-positives:
+        account_id:
+            role_name:
+                - "service:actionName"
     risk-score-weighting:
         network-exposure:
              # 9.9 (Critical)
@@ -9,7 +19,7 @@ report-config:
         privilege-escalation:
              # 9.9 (Critical)
             default: "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H"
-        permissions-management:
+        resource-exposure:
              # 9.9 (Critical)
             default: "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H"
         data-access:
@@ -18,6 +28,3 @@ report-config:
         credentials-exposure:
              # 7.4 (High)
             default: "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L"
-        resource-exposure:
-             # 6.3 (Medium)
-            default: "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L"

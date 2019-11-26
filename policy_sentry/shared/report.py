@@ -4,17 +4,18 @@ Generate markdown-formatted reports
 from cvss import CVSS3
 from policy_sentry.shared.file import read_yaml_file
 from jinja2 import Template
+import copy
 
 # CVSS VECTORS
 CUSTOM_VECTORS = {
     "network-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
     "privilege-escalation": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
-    "permissions-management": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
+    "resource-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
     "data-access": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
     "credentials-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L",
 }
 
-REPORT_TEMPLATE='''# Policy Sentry Audit report
+REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
 ## Summary
 
@@ -28,7 +29,7 @@ Here's how it works
 
 * Privilege Escalation: Definition
 * Resource Exposure: Definition
-* Permissions Management: Definition
+* Network Exposure: Definition
 * Data access: Definition
 * Credentials Exposure: Definition
 
@@ -46,11 +47,11 @@ Here's how it works
 * [{{ item }}](./{{ item }}.json)
 {%- endfor %}
 
-| Account ID       | Policy Name       | Network Exposure                   | Privilege Escalation                   | Permissions Management                   | Data Access                   | Credentials Exposure                   |
-|------------------|-------------------|------------------------------------|----------------------------------------|------------------------------------------|-------------------------------|----------------------------------------|
+| Policy Name       | Resource Exposure                   | Privilege Escalation                   | Network Exposure                   | Data Access                   | Credentials Exposure                   |
+|-------------------|------------------------------------|----------------------------------------|------------------------------------------|-------------------------------|----------------------------------------|
 
-{%- for dict_item in occurrences %}
-    | {{ dict_item['account_id'] }} | {{ dict_item['policy_name'] }} | {{ dict_item['network_exposure_occurrences'] }} | {{ dict_item['privilege_escalation_occurrences'] }} | {{ dict_item['permissions_management_occurrences'] }} | {{ dict_item['data_access_occurrences'] }} | {{ dict_item['credentials_exposure_occurrences'] }} |
+{%- for key, value in occurrences.items() %}
+    | {{ key }} | {{ occurrences[key]['resource_exposure'] }} | {{ occurrences[key]['privilege_escalation'] }} | {{ occurrences[key]['network_exposure'] }} | {{ occurrences[key]['data_access'] }} | {{ occurrences[key]['credentials_exposure'] }} |
 {%- endfor %}
 '''
 
@@ -73,39 +74,63 @@ def load_report_config_file(filename):
 def create_report_template(account_id, occurrences):
     tm = Template(REPORT_TEMPLATE)
     policy_list = []
-    # occurrences = [
-    #     {
-    #         "account_id": account_id,
-    #         "policy_name": "MyPolicy",
-    #         "network_exposure_occurrences": "10",
-    #         "privilege_escalation_occurrences": 20,
-    #         "permissions_management_occurrences": 3,
-    #         "data_access_occurrences": "4",
-    #         "credentials_exposure_occurrences": "5",
-    #     },
-    #     {
-    #         "account_id": account_id,
-    #         "policy_name": "Policy2",
-    #         "network_exposure_occurrences": "10",
-    #         "privilege_escalation_occurrences": 20,
-    #         "permissions_management_occurrences": 3,
-    #         "data_access_occurrences": "4",
-    #         "credentials_exposure_occurrences": "5",
-    #     },
-    #     {
-    #         "account_id": account_id,
-    #         "policy_name": "Policy3",
-    #         "network_exposure_occurrences": "10",
-    #         "privilege_escalation_occurrences": 20,
-    #         "permissions_management_occurrences": 3,
-    #         "data_access_occurrences": "4",
-    #         "credentials_exposure_occurrences": "5",
-    #     }
-    # ]
-
+    # occurrences = {
+    #         "policyName1": {
+    #             "resource_exposure": [
+    #                 "sqs:addpermission",
+    #                 "sqs:removepermission"
+    #             ],
+    #             "credentials_exposure": [
+    #                 "rds-db:connect"
+    #             ]
+    #         },
+    #         "policyName2": {
+    #             "resource_exposure": [
+    #                 "sqs:addpermission",
+    #                 "sqs:removepermission"
+    #             ]
+    #         }
+    # }
     msg = tm.render(
         account_id=account_id,
         policy_list=policy_list,
         occurrences=occurrences
     )
     return msg
+
+
+class Findings:
+    occurrences = {}
+
+    def __init__(self):
+        self.occurrences = {}
+
+    def add(self, finding_type, policy_finding):
+        for key, value in policy_finding.items():
+            if key in self.occurrences:
+                self.occurrences[key].update(value)
+            else:
+                self.occurrences[key] = value
+
+        return self.occurrences
+
+    def get_findings_by_account(self, account_id):
+        return self.occurrences[account_id]
+
+    def get_findings_by_policy_name(self, account_id, policy_name):
+        return self.occurrences[account_id][policy_name]
+
+    def get_findings_by_finding_type(self, account_id, policy_name, finding_type):
+        if finding_type == "network_exposure":
+            return self.occurrences[account_id][policy_name]['network_exposure']
+        if finding_type == "privilege_escalation":
+            return self.occurrences[account_id][policy_name]['privilege_escalation']
+        if finding_type == "resource_exposure":
+            return self.occurrences[account_id][policy_name]['resource_exposure']
+        if finding_type == "data_access":
+            return self.occurrences[account_id][policy_name]['data_access']
+        if finding_type == "credentials_exposure":
+            return self.occurrences[account_id][policy_name]['credentials_exposure']
+
+    def get_findings(self):
+        return self.occurrences

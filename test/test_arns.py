@@ -11,6 +11,8 @@ db_session = connect_db(database_path)
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
+# They removed some of the cases. The old version that gave this comprehensive list of resource ARN formats is here:
+# https://web.archive.org/web/20190903192015/https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
 # Case 1: arn:partition:service:region:account-id:resource
 # Case 2: arn:partition:service:region:account-id:resourcetype/resource
 # Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier

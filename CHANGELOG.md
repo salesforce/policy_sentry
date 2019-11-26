@@ -1,4 +1,7 @@
 # Changelog
+## 2019-11-24
+### Changed
+* Fixed analyze function's accuracy - normalizes incoming lists of actions so it accepts lists of actions regardless of lower/upper/camel case.
 ## 2019-11-22
 ### Added
 * Initial set of improvements for uplift of the analyze-iam-policy feature.
