@@ -10,22 +10,15 @@ from policy_sentry.shared.login import get_list_of_aws_profiles
 from policy_sentry.shared.analyze import analyze_policy_directory
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.report import Findings, create_report_template, load_report_config_file, create_csv_report
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DEFAULT_CREDENTIALS_FILE, DATABASE_FILE_PATH, AUDIT_DIRECTORY_PATH
 
-HOME = str(Path.home())
-DEFAULT_CREDENTIALS_FILE = HOME + '/.aws/credentials'
-AUDIT_DIRECTORY_FOLDER = 'audit'
-CONFIG_DIRECTORY = '/.policy_sentry/'
-audit_directory_path = HOME + CONFIG_DIRECTORY + AUDIT_DIRECTORY_FOLDER
-DATABASE_FILE_NAME = 'aws.sqlite3'
-database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 # Audit filenames
-credentials_exposure_filename = audit_directory_path + '/credentials-exposure.txt'
-data_access_filename = audit_directory_path + '/data-access-arn-list.txt'
-privilege_escalation_filename = audit_directory_path + '/privilege-escalation.txt'
-# Permissions management is already in there.
-network_exposure_filename = audit_directory_path + '/network-exposure.txt'
-data_access_arn_list_filename = audit_directory_path + '/data-access-arn-list.txt'
-resource_exposure_filename = audit_directory_path + '/resource-exposure.txt'
+credentials_exposure_filename = AUDIT_DIRECTORY_PATH + '/credentials-exposure.txt'
+data_access_filename = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
+privilege_escalation_filename = AUDIT_DIRECTORY_PATH + '/privilege-escalation.txt'
+network_exposure_filename = AUDIT_DIRECTORY_PATH + '/network-exposure.txt'
+resource_exposure_filename = AUDIT_DIRECTORY_PATH + '/resource-exposure.txt'
+# data_access_arn_list_filename = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
 
 @click.command(
     short_help='Download customer-managed policies from all accounts in credentials file and generate a report.'
@@ -77,7 +70,7 @@ def generate_report(credentials_file, download, output, report_config, include_u
 
     for i in range(len(base_account_directories)):
         account_policy_directories.append(base_account_directories[i] + 'customer-managed/')
-    db_session = connect_db(database_file_path)
+    db_session = connect_db(DATABASE_FILE_PATH)
 
     # Get report config
     report_config = load_report_config_file(HOME + CONFIG_DIRECTORY + 'report-config.yml')
