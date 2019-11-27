@@ -9,14 +9,6 @@ import json
 import csv
 from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
 
-# CVSS VECTORS
-CUSTOM_VECTORS = {
-    "network-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
-    "privilege-escalation": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
-    "resource-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:H",
-    "data-access": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
-    "credentials-exposure": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L",
-}
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
@@ -90,16 +82,6 @@ This report contains the details of all IAM policies flagged during the IAM anal
 {% endif %}
 {%- endfor %}
 """
-
-
-def get_risk_category_score(risk_category):
-    c = CVSS3(CUSTOM_VECTORS[risk_category])
-    return c.scores()
-
-
-def get_risk_category_severity(risk_category):
-    c = CVSS3(CUSTOM_VECTORS[risk_category])
-    return c.severities()
 
 
 def load_report_config_file(filename):
