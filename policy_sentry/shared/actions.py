@@ -199,38 +199,47 @@ def get_actions_from_json_policy_file(json_file):
                 try:
                     # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
                     if isinstance(data['Statement'], dict):
-                        try:
-                            # Action = "s3:GetObject"
-                            if isinstance(data['Statement']['Action'], str):
-                                actions_list.append(data['Statement']['Action'])
-                            # Action = ["s3:GetObject", "s3:ListBuckets"]
-                            elif isinstance(data['Statement']['Action'], list):
-                                actions_list.extend(data['Statement']['Action'])
-                            elif 'Action' not in data['Statement']:
-                                print('Action is not a key in the statement')
-                            else:
-                                print(
-                                    "Unknown error: The 'Action' is neither a list nor a string")
-                                pass
-                        except KeyError as e:
-                            print(f"KeyError line 206: get_actions_from_json_policy_file {e}")
-                            exit()
-                    # Otherwise it will be a list of Sids
-                    elif isinstance(data['Statement'], list):
-                        try:
-                            if 'Action' in data['Statement'][i]:
-                                if isinstance(data['Statement'][i]['Action'], str):
-                                    actions_list.append(data['Statement'][i]['Action'])
-                                elif isinstance(data['Statement'][i]['Action'], list):
-                                    actions_list.extend(data['Statement'][i]['Action'])
-                                elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
-                                    print('Skipping due to NotAction')
+                        # We only want to evaluate policies that have Effect = "Allow"
+                        if data['Statement']['Effect'] is 'Deny':
+                            continue
+                        else:
+                            try:
+                                # Action = "s3:GetObject"
+                                if isinstance(data['Statement']['Action'], str):
+                                    actions_list.append(data['Statement']['Action'])
+                                # Action = ["s3:GetObject", "s3:ListBuckets"]
+                                elif isinstance(data['Statement']['Action'], list):
+                                    actions_list.extend(data['Statement']['Action'])
+                                elif 'Action' not in data['Statement']:
+                                    print('Action is not a key in the statement')
                                 else:
                                     print(
                                         "Unknown error: The 'Action' is neither a list nor a string")
-                                    exit()
-                            else:
+                                    pass
+                            except KeyError as e:
+                                print(f"KeyError line 206: get_actions_from_json_policy_file {e}")
+                                exit()
+
+                    # Otherwise it will be a list of Sids
+                    elif isinstance(data['Statement'], list):
+                        # We only want to evaluate policies that have Effect = "Allow"
+                        try:
+                            if data['Statement'][i]['Effect'] == 'Deny':
                                 continue
+                            else:
+                                if 'Action' in data['Statement'][i]:
+                                    if isinstance(data['Statement'][i]['Action'], str):
+                                        actions_list.append(data['Statement'][i]['Action'])
+                                    elif isinstance(data['Statement'][i]['Action'], list):
+                                        actions_list.extend(data['Statement'][i]['Action'])
+                                    elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
+                                        print('Skipping due to NotAction')
+                                    else:
+                                        print(
+                                            "Unknown error: The 'Action' is neither a list nor a string")
+                                        exit()
+                                else:
+                                    continue
                         except KeyError as e:
                             print(f"KeyError line 220: get_actions_from_json_policy_file {e}")
                             exit()
