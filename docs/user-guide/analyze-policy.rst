@@ -147,35 +147,35 @@ Audit all downloaded policies and generate a report
 
 .. code-block:: json
 
-{
-    "some-risky-policy": {
-        "account_id": "0123456789012",
-        "resource_exposure": [
-            "iam:createaccesskey",
-            "iam:deleteaccesskey"
-        ],
-        "privilege_escalation": [
-            "iam:createaccesskey"
-        ]
-    },
-    "another-risky-policy": {
-        "account_id": "9876543210123",
-        "resource_exposure": [
-            "iam:updateassumerolepolicy",
-            "iam:updaterole"
-        ],
-        "privilege_escalation": [
-            "iam:updateassumerolepolicy"
-        ],
-        "credentials_exposure": [
-            "ecr:getauthorizationtoken"
-        ],
-        "network_exposure": [
-            "ec2:authorizesecuritygroupingress",
-            "ec2:authorizesecuritygroupegress"
-        ]
-    },
-}
+    {
+        "some-risky-policy": {
+            "account_id": "0123456789012",
+            "resource_exposure": [
+                "iam:createaccesskey",
+                "iam:deleteaccesskey"
+            ],
+            "privilege_escalation": [
+                "iam:createaccesskey"
+            ]
+        },
+        "another-risky-policy": {
+            "account_id": "9876543210123",
+            "resource_exposure": [
+                "iam:updateassumerolepolicy",
+                "iam:updaterole"
+            ],
+            "privilege_escalation": [
+                "iam:updateassumerolepolicy"
+            ],
+            "credentials_exposure": [
+                "ecr:getauthorizationtoken"
+            ],
+            "network_exposure": [
+                "ec2:authorizesecuritygroupingress",
+                "ec2:authorizesecuritygroupegress"
+            ]
+        },
+    }
 
 
 Audit a single IAM policy and generate a report
@@ -192,11 +192,15 @@ Audit a single IAM policy and generate a report
 
 * This will create a CSV file that looks like this:
 
++--------------+-------------------+-------------------+----------------------+------------------+----------------------+
 | Account ID   | Policy Name       | Resource Exposure | Privilege Escalation | Network Exposure | Credentials Exposure |
-|--------------|-------------------|-------------------|----------------------|------------------|----------------------|
++--------------+-------------------+-------------------+----------------------+------------------+----------------------+
 | 000000000000 | explicit\-actions | 9                 | 0                    | 0                | 1                    |
++--------------+-------------------+-------------------+----------------------+------------------+----------------------+
+
 
 * ... and a JSON data file that looks like this:
+
 
 .. code-block:: json
 
