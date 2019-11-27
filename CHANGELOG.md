@@ -6,6 +6,12 @@
 * Update the command cheat sheet and the ReadTheDocs stuff for this
 * Added test cases for new parts of analyze command
 * Created constants.py to reduce unnecessary code
+
+* To finish this analysis uplift, still need to do the following:
+  - Need to run the analysis recursively on those directories, and store the results properly
+  - Allow for one-off execution of Analyze report, not just from that directory. This will allow for Case #2 in the "Motivation" description.
+  - Need to write instructions for using Gossamer to build the credentials file
+
 ## 2019-11-24
 ### Changed
 * Fixed analyze function's accuracy - normalizes incoming lists of actions so it accepts lists of actions regardless of lower/upper/camel case.
@@ -15,15 +21,6 @@
   - Created generate-report command (will eventually move this over to the regular analyze command, just keeping it separate for now)
   - Added scaffolding for generating report templates in Markdown and then to HTML using Jinja2 templates
   - Added functionality to download policies recursively
-* To finish this analysis uplift, still need to do the following:
-  - Need to run the analysis recursively on those directories, and store the results properly
-  - Need to adjust the entire way that the analyze policy function works to get meaningful results.
-  - Need to figure out how to store the report data in JSON format locally, which can then be used to generate the report.
-  - Need to write instructions for using Gossamer to build the credentials file
-  - Need to put together a list of the actions for other categories
-  - Write unit tests for all of these things.
-  - After this is done, let's cut a new release to 6.0
-
 ## 2019-11-21 Part 2
 ### Changed
 * **Fixed issue where initialize was not working due to db_session being declared outside of a function. This only applied to the last release.**
