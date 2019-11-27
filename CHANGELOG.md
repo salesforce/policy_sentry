@@ -1,4 +1,7 @@
 # Changelog
+## 2019-11-27
+* Refined the Network exposure actions to Create actions only - i.e., those that could cause exposure only (it does not include delete actions, only create). Typically only API calls that have public IPs as an option
+
 ## 2019-11-26
 * Moved generate-report back to the analyze command.
 * Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`

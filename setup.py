@@ -29,7 +29,6 @@ setuptools.setup(
         "boto3",
         "botocore",
         "requests",
-        "cvss",
         "markdown"
     ],
     classifiers=[
