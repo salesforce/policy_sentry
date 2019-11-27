@@ -188,7 +188,6 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
         reg_list = map(re.compile, excluded_role_patterns)
         if any(regex.match(policy_name) for regex in reg_list):
             continue
-        # actions_to_triage = analyze(this_file, db_session, None, from_audit_file)
         requested_actions = get_actions_from_json_policy_file(this_file)
         expanded_actions = determine_actions_to_expand(requested_actions)
         actions_list = determine_risky_actions(

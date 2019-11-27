@@ -112,7 +112,6 @@ def connect_db(db_file):
     # sqlite:////absolute/path/to/file.db # Using this one. db_file is
     # prefixed with another / so it works out to 4
     engine = create_engine(str('sqlite:///' + db_file), echo=False)
-    connection = engine.connect()
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     Session.configure(bind=engine)
@@ -139,7 +138,6 @@ def build_action_table(db_session, service, access_level_overrides_file):
             table_data = df
             # Actions table
             if 'Actions' in table_data and 'Access Level' in table_data:
-                temp = table['data'][1::]
                 for i in range(len(table['data'])):
                     # If the table is set to none
                     # If the cell is blank, that indicates it needs wildcard
@@ -191,7 +189,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     # it.
                     if ' ' in table['data'][i][0]:
                         text_with_space = table['data'][i][0]
-                        action_name, sep, tail = text_with_space.partition(' ')
+                        action_name, sep, tail = text_with_space.partition(' ')  # pylint: disable=unused-variable
                     else:
                         action_name = table['data'][i][0]
 
@@ -260,7 +258,6 @@ def build_arn_table(db_session, service):
             table = json.loads(df.to_json(orient='split'))
             table_data = df
             if 'Resource Types' in table_data and 'ARN' in table_data:
-                temp = table['data'][1::]
                 for i in range(len(table['data'])):
                     # Handle resource ARN path
                     if get_resource_path_from_arn(table['data'][i][1]):
@@ -304,7 +301,6 @@ def build_condition_table(db_session, service):
             table = json.loads(df.to_json(orient='split'))
             table_data = df
             if 'Condition Keys' in table_data and 'Description' in table_data and 'Type' in table_data:
-                temp = table['data'][1::]
                 for i in range(len(table['data'])):
                     # Description: sometimes it is empty, like the conditions table for S3.
                     # In order to avoid errors with NULL Database entries, set

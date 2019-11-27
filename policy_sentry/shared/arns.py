@@ -98,10 +98,6 @@ def does_arn_match(arn_to_test, arn_in_database):
             score += 1
         if arn_has_slash(arn_in_database) and arn_has_slash(arn_to_test):
             # Example: SSM `parameter/`
-            arn_in_db_resource = get_resource_from_arn(
-                arn_in_database)  # robot
-            arn_to_test_resource = get_resource_from_arn(
-                arn_to_test)  # robot-application
             if get_resource_from_arn(
                     arn_in_database) != get_resource_from_arn(arn_to_test):
 

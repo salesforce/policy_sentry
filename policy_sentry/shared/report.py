@@ -130,7 +130,7 @@ def create_csv_report(occurrences, filename, report_dir=False):
                 "Credentials Exposure",
             ]
         )
-        for key, value in occurrences.items():
+        for key, value in occurrences.items():  # pylint: disable=unused-variable
             if 'resource_exposure' in occurrences[key]:
                 resource_exposure_length = len(
                     occurrences[key]['resource_exposure'])

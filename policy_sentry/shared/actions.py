@@ -91,7 +91,7 @@ def get_service_from_action(action):
     :param action: ec2:DescribeInstance
     :return: ec2
     """
-    service, action_name = action.split(':')
+    service, action_name = action.split(':')  # pylint: disable=unused-variable
     return str.lower(service)
 
 
@@ -101,7 +101,7 @@ def get_action_name_from_action(action):
     :param action: ec2:DescribeInstance
     :return: describeinstance
     """
-    service, action_name = action.split(':')
+    service, action_name = action.split(':')  # pylint: disable=unused-variable
     return str.lower(action_name)
 
 

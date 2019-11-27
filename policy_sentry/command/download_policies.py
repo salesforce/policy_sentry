@@ -49,8 +49,6 @@ def download_policies(recursive, profile, aws_managed, include_unattached):
     if recursive:
         profiles = get_list_of_aws_profiles(DEFAULT_CREDENTIALS_FILE)
         # if download:
-        download_directories = download_policies_recursively(
-            DEFAULT_CREDENTIALS_FILE, profiles)
+        download_policies_recursively(profiles)
     else:
-        download_directory = download_remote_policies(
-            profile, customer_managed, attached_only)
+        download_remote_policies(profile, customer_managed, attached_only)

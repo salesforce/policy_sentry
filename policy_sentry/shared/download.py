@@ -50,15 +50,10 @@ def download_remote_policies(
         filename = filename_directory + '/' + policy_name + '.json'
         write_json_file(filename, document)
     print("If you want to analyze the policies, just run:\n\npolicy_sentry analyze downloaded-policies")
-    # print("The list of policies downloaded are:")
-    # print("")
-    only_files = list_files_in_directory(filename_directory)
-    # for filename in only_files:
-    #     print(filename)
     return filename_directory
 
 
-def download_policies_recursively(credentials_file, profiles):
+def download_policies_recursively(profiles):
     download_directories = []
 
     for profile in profiles:

@@ -116,8 +116,13 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
     # Save it to `/.policy_sentry/analysis/report_name.csv
     csv_report_path = create_csv_report(occurrences, report_name)
 
-    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}\n\nThe JSON Report contains the raw data. "
-          f"The CSV report shows a report summary.")
+    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}")
+    if include_markdown_report:
+        print(f"{markdown_report_path}")
+    print("The JSON Report contains the raw data.\nThe CSV report shows a report summary.")
+    if include_markdown_report:
+        print("The Markdown report shows the same data as the JSON and CSV report, "
+              "and can be converted to HTML using pandoc.")
 
 
 @analyze.command(
@@ -206,5 +211,10 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     # Save it to `/.policy_sentry/analysis/report_name.csv
     csv_report_path = create_csv_report(occurrences, 'report', report_dir)
 
-    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}\n\nThe JSON Report contains the raw data. "
-          f"The CSV report shows a report summary.")
+    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}")
+    if include_markdown_report:
+        print(f"{markdown_report_path}")
+    print("The JSON Report contains the raw data.\nThe CSV report shows a report summary.")
+    if include_markdown_report:
+        print("The Markdown report shows the same data as the JSON and CSV report, "
+              "and can be converted to HTML using pandoc.")
