@@ -1,11 +1,11 @@
+import os
+import json
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
-import json
-import os
 from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, \
-    get_region_from_arn, get_account_from_arn, does_arn_match
+    get_region_from_arn, get_account_from_arn
 from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
@@ -47,7 +47,7 @@ class ArnTable(Base):
 
     def __repr__(self):
         return "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s', condition_keys='%s')>" % (
-            self.resource_type_name, self.raw_arn, self.arn, self.partition, self.service, self.region, self.account, self.resource, self.resource_path, self.condition_keys )
+            self.resource_type_name, self.raw_arn, self.arn, self.partition, self.service, self.region, self.account, self.resource, self.resource_path, self.condition_keys)
 
 
 class ConditionTable(Base):
@@ -173,10 +173,11 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     # To avoid this, let's test for a space in the name.
                     # If there is a space, remove the space and all text after
                     # it.
+                    # pylint: disable=unused-variable
                     if ' ' in table['data'][i][0]:
                         text_with_space = table['data'][i][0]
                         action_name, sep, tail = text_with_space.partition(
-                            ' ')  # pylint: disable=unused-variable
+                            ' ')
                     else:
                         action_name = table['data'][i][0]
 

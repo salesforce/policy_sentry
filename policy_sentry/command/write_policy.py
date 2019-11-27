@@ -1,5 +1,5 @@
-import click
 import json
+import click
 from policy_sentry.shared.actions import get_all_actions, get_dependent_actions
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.minimize import minimize_statement_actions

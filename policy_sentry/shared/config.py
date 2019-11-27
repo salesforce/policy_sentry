@@ -1,8 +1,8 @@
 import os
-from policy_sentry.shared.file import read_this_file, create_directory_if_it_doesnt_exist, \
-    list_files_in_directory, read_yaml_file
-import shutil
 import sys
+import shutil
+from policy_sentry.shared.file import create_directory_if_it_doesnt_exist, \
+    list_files_in_directory, read_yaml_file
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, \
     AUDIT_DIRECTORY_PATH
 
@@ -160,6 +160,7 @@ def override_access_level(
         # If it exists in the list, then set the real_access_level to the key (key is read, write, list, etc.)
         # Once we meet this condition, break the loop so we can return the
         # value
+        # pylint: disable=no-else-break
         if str.lower(action_name) in actions_list:
             real_access_level.append(keys[i])
             break

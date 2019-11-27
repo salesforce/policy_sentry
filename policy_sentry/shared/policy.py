@@ -45,6 +45,7 @@ class ArnActionGroup:
                             continue
                         self.arns.append(copy.deepcopy(temp_arn_dict))
 
+    # pylint: disable=too-many-arguments
     def add_complete_entry(
             self,
             arn_from_user,
@@ -74,6 +75,7 @@ class ArnActionGroup:
         # else:
         self.arns.append(copy.deepcopy(temp_arn_dict))
 
+    # pylint: disable=too-many-nested-blocks, too-many-branches
     def process_resource_specific_acls(self, cfg, db_session):
         """
         Processes the YAML file for the resources per access level, and adds it to the object.
@@ -219,7 +221,7 @@ class ArnActionGroup:
                         try:
                             self.arns[i]['actions'].remove(
                                 str(actions_under_wildcard_resources_to_nuke[j]))
-                        except BaseException:
+                        except BaseException:  # pylint: disable=broad-except
                             print("Removal not successful")
 
     def update_actions_for_raw_arn_format(self, db_session):

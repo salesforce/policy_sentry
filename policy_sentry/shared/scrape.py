@@ -1,7 +1,7 @@
-import yaml
 import os
-from policy_sentry.shared.file import get_list_of_service_prefixes_from_links_file
+import yaml
 import pandas
+from policy_sentry.shared.file import get_list_of_service_prefixes_from_links_file
 
 ALL_AWS_SERVICES = get_list_of_service_prefixes_from_links_file()
 
@@ -27,6 +27,6 @@ def get_html(directory, requested_service):
             if 'No tables found' in str(v_e):
                 pass
             else:
-                raise e
+                raise v_e
 
     return html_list

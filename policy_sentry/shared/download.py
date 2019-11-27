@@ -1,8 +1,8 @@
+import sys
 from policy_sentry.shared.login import login
 from policy_sentry.shared.policy import PolicyGroup
-from policy_sentry.shared.file import write_json_file, list_files_in_directory, create_directory_if_it_doesnt_exist
+from policy_sentry.shared.file import write_json_file, create_directory_if_it_doesnt_exist
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
-import sys
 
 
 def download_remote_policies(profile=None, customer_managed=True, attached_only=True):

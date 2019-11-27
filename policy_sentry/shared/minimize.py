@@ -21,7 +21,6 @@ Q: How many policies can I attach to an IAM role?
   - Group policy size cannot exceed 5,120 characters.
 * For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
-
 """
 
 
@@ -71,6 +70,7 @@ def minimize_statement_actions(desired_actions, all_actions, minchars=None):
                 continue
             # If the action name is not empty
             if prefix not in denied_prefixes:
+                # pylint: disable=literal-comparison
                 if permission is not '':
                     if prefix not in desired_actions:
                         prefix = "{}*".format(prefix)

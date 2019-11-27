@@ -145,7 +145,7 @@ def get_dependent_actions(db_session, actions_list):
         for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service),
                                                              ActionTable.name.like(str.lower(action_name)))):
             # Just take the first result
-            if 1 == 1:
+            if 1 == 1:  # pylint: disable=comparison-with-itself
                 first_result = row.dependent_actions
 
         # We store the blank result as the literal string 'None' instead of
@@ -176,7 +176,8 @@ def get_dependent_actions(db_session, actions_list):
     return new_actions_list
 
 
-def get_actions_from_json_policy_file(json_file):
+# pylint: disable=too-many-branches,too-many-statements
+def get_actions_from_json_policy_file(file):
     """
     read the json policy file and return a list of actions
     """
@@ -184,17 +185,19 @@ def get_actions_from_json_policy_file(json_file):
     # FIXME use a try/expect here to validate the json file. I would create a
     # generic json
     try:
-        with open(json_file) as json_file:
+        with open(file) as json_file:
             # validation function/parser as there is a lot of json floating around
             # in this tool. [MJ]
             data = json.load(json_file)
             actions_list = []
             # Multiple statements are in the 'Statement' list
+            # pylint: disable=too-many-nested-blocks
             for i in range(len(data['Statement'])):
                 try:
                     # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
                     if isinstance(data['Statement'], dict):
                         # We only want to evaluate policies that have Effect = "Allow"
+                        # pylint: disable=no-else-continue, literal-comparison
                         if data['Statement']['Effect'] is 'Deny':
                             continue
                         else:
@@ -212,7 +215,6 @@ def get_actions_from_json_policy_file(json_file):
                                 else:
                                     print(
                                         "Unknown error: The 'Action' is neither a list nor a string")
-                                    pass
                             except KeyError as k_e:
                                 print(
                                     f"KeyError line 206: get_actions_from_json_policy_file {k_e}")
@@ -253,7 +255,7 @@ def get_actions_from_json_policy_file(json_file):
                         f"TypeError line 226: get_actions_from_json_policy_file {t_e}")
                     exit()
 
-    except:
+    except:  # pylint: disable=bare-except
         print("General Error at get_actions_from_json_policy_file.")
     try:
         actions_list = [x.lower() for x in actions_list]

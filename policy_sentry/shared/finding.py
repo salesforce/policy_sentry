@@ -5,7 +5,7 @@ class Findings:
     def __init__(self):
         self.occurrences = {}
 
-    def add(self, finding_type, policy_finding):
+    def add(self, policy_finding):
         for key, value in policy_finding.items():
             if key in self.occurrences:
                 self.occurrences[key].update(value)

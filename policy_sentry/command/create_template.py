@@ -1,5 +1,5 @@
-import click
 from pathlib import Path
+import click
 from policy_sentry.shared.template import create_actions_template, create_crud_template
 
 

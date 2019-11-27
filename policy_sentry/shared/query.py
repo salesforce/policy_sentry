@@ -1,6 +1,6 @@
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
-from policy_sentry.shared.actions import get_actions_by_access_level, get_full_action_name
+from policy_sentry.shared.actions import get_full_action_name
 from policy_sentry.shared.actions import get_service_from_action, get_action_name_from_action
 
 

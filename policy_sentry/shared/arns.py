@@ -65,6 +65,7 @@ def get_resource_path_from_arn(arn):
     return result['resource_path']
 
 
+# pylint: disable=simplifiable-if-statement
 def arn_has_slash(arn):
     if arn.count('/') > 0:
         return True
@@ -72,6 +73,7 @@ def arn_has_slash(arn):
         return False
 
 
+# pylint: disable=simplifiable-if-statement
 def arn_has_colons(arn):
     if arn.count(':') > 0:
         return True

@@ -8,15 +8,14 @@
     * Generate a report to illustrate the risk levels of IAM policies across various accounts.
     * The risk levels are Credentials Exposure, Privilege Escalation, Network Exposure, and Resource Exposure.
 """
+import os
 from glob import glob
 import click
-import os
 from policy_sentry.shared.analyze import analyze_policy_directory, analyze_policy_file
-from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.report import load_report_config_file, create_csv_report, create_json_report, \
     create_markdown_report, create_markdown_report_template
 from policy_sentry.shared.finding import Findings
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_PATH, \
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, \
     AUDIT_DIRECTORY_PATH
 
 # Audit filenames
@@ -80,25 +79,25 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
         resource_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
                                                               RESOURCE_EXPOSURE_FILENAME, 'resource_exposure',
                                                               excluded_role_patterns)
-        findings.add('resource_exposure', resource_exposure_findings)
+        findings.add(resource_exposure_findings)
 
         # Privilege Escalation
         privilege_escalation_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
                                                                  PRIVILEGE_ESCALATION_FILENAME, 'privilege_escalation',
                                                                  excluded_role_patterns)
-        findings.add('privilege_escalation', privilege_escalation_findings)
+        findings.add(privilege_escalation_findings)
 
         # Network Exposure
         network_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
                                                              NETWORK_EXPOSURE_FILENAME, 'network_exposure',
                                                              excluded_role_patterns)
-        findings.add('network_exposure', network_exposure_findings)
+        findings.add(network_exposure_findings)
 
         # Credentials exposure
         credentials_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
                                                                  CREDENTIALS_EXPOSURE_FILENAME, 'credentials_exposure',
                                                                  excluded_role_patterns)
-        findings.add('credentials_exposure', credentials_exposure_findings)
+        findings.add(credentials_exposure_findings)
 
     occurrences = findings.get_findings()
 
@@ -178,22 +177,22 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     # Resource Exposure
     resource_exposure_findings = analyze_policy_file(policy, account_id, RESOURCE_EXPOSURE_FILENAME,
                                                      'resource_exposure', excluded_role_patterns)
-    findings.add('resource_exposure', resource_exposure_findings)
+    findings.add(resource_exposure_findings)
 
     # Privilege Escalation
     privilege_escalation_findings = analyze_policy_file(policy, account_id, PRIVILEGE_ESCALATION_FILENAME,
                                                         'privilege_escalation', excluded_role_patterns)
-    findings.add('privilege_escalation', privilege_escalation_findings)
+    findings.add(privilege_escalation_findings)
 
     # Network Exposure
     network_exposure_findings = analyze_policy_file(policy, account_id, NETWORK_EXPOSURE_FILENAME, 'network_exposure',
                                                     excluded_role_patterns)
-    findings.add('network_exposure', network_exposure_findings)
+    findings.add(network_exposure_findings)
 
     # Credentials exposure
     credentials_exposure_findings = analyze_policy_file(policy, account_id, CREDENTIALS_EXPOSURE_FILENAME,
                                                         'credentials_exposure', excluded_role_patterns)
-    findings.add('credentials_exposure', credentials_exposure_findings)
+    findings.add(credentials_exposure_findings)
 
     occurrences = findings.get_findings()
     report_dir = report_path

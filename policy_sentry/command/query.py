@@ -1,5 +1,4 @@
 import json
-
 import click
 
 from policy_sentry.shared.actions import transform_access_level_text
@@ -7,9 +6,8 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, \
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
-    query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
-    query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
-    query_arn_table_for_arn_types
+    query_action_table_by_access_level, query_action_table_for_all_condition_key_matches, \
+    query_action_table_for_actions_supporting_wildcards_only, query_arn_table_for_arn_types
 
 
 @click.group()
