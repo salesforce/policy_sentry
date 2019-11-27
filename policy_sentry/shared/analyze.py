@@ -100,14 +100,16 @@ def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, 
 
     policy_name = policy_file.rsplit(".", 1)[0]  # after the extension
     policy_name_split = str.split(policy_name, '/')
-    policy_name = policy_name_split[-1:][0]  # if there are multiple folders deep pick `file` from `path/to/file`
+    # if there are multiple folders deep pick `file` from `path/to/file`
+    policy_name = policy_name_split[-1:][0]
 
     # If the policy name matches excluded role patterns, skip it
     reg_list = map(re.compile, excluded_role_patterns)
     if any(regex.match(policy_name) for regex in reg_list):
         return False
     else:
-        actions_list = determine_risky_actions(expanded_actions, from_audit_file)
+        actions_list = determine_risky_actions(
+            expanded_actions, from_audit_file)
         actions_list.sort()  # sort in alphabetical order
         actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
         if actions_list:
@@ -125,7 +127,8 @@ def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, 
 def analyze_by_access_level(policy_file, db_session, access_level):
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
-    actions_by_level = get_actions_by_access_level(db_session, expanded_actions, access_level)
+    actions_by_level = get_actions_by_access_level(
+        db_session, expanded_actions, access_level)
     # if not actions_by_level:
     #     pass
     # else:
@@ -188,7 +191,8 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
         # actions_to_triage = analyze(this_file, db_session, None, from_audit_file)
         requested_actions = get_actions_from_json_policy_file(this_file)
         expanded_actions = determine_actions_to_expand(requested_actions)
-        actions_list = determine_risky_actions(expanded_actions, from_audit_file)
+        actions_list = determine_risky_actions(
+            expanded_actions, from_audit_file)
 
         actions_list.sort()  # sort in alphabetical order
         actions_list = list(dict.fromkeys(actions_list))  # remove duplicates

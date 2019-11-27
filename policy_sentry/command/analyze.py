@@ -38,7 +38,7 @@ def analyze():
 )
 @click.option(
     '--report-config',
-    default=HOME + CONFIG_DIRECTORY + 'report-config.yml',
+    default=AUDIT_DIRECTORY_PATH + 'report-config.yml',
     type=click.Path(exists=True),
     help='Custom report configuration file. Contains policy name exclusions and custom risk score weighting. '
          'Defaults to ~/.policy_sentry/report-config.yml'
@@ -64,11 +64,13 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
 
     findings = Findings()
 
-    base_account_directories = glob(HOME + CONFIG_DIRECTORY + 'analysis/' + '*/')
+    base_account_directories = glob(
+        HOME + CONFIG_DIRECTORY + 'analysis/' + '*/')
     account_policy_directories = []
 
     for i in range(len(base_account_directories)):
-        account_policy_directories.append(base_account_directories[i] + 'customer-managed/')
+        account_policy_directories.append(
+            base_account_directories[i] + 'customer-managed/')
 
     print("Analyzing... ")
     for directory in base_account_directories:
@@ -103,12 +105,12 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
     # Write JSON report - save to `~/.policy_sentry/analysis/report_name.json`
     json_report_path = create_json_report(occurrences, report_name)
 
-
     # Write Markdown formatted report, which can also be used for exporting to HTML with pandoc
     # Save it to `/.policy_sentry/analysis/report_name.md
     if include_markdown_report:
         report_contents = create_markdown_report_template(occurrences)
-        markdown_report_path = create_markdown_report(report_contents, report_name)
+        markdown_report_path = create_markdown_report(
+            report_contents, report_name)
 
     # Write CSV report for overall results
     # Save it to `/.policy_sentry/analysis/report_name.csv
@@ -129,7 +131,7 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
 )
 @click.option(
     '--report-config',
-    default=HOME + CONFIG_DIRECTORY + 'report-config.yml',
+    default=AUDIT_DIRECTORY_PATH + 'report-config.yml',
     type=click.Path(exists=True),
     help='Custom report configuration file. Contains policy name exclusions and custom risk score weighting. '
          'Defaults to ~/.policy_sentry/report-config.yml'
@@ -197,7 +199,8 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     # Save it to `/.policy_sentry/analysis/report_name.md
     if include_markdown_report:
         report_contents = create_markdown_report_template(occurrences)
-        markdown_report_path = create_markdown_report(report_contents, 'report', report_dir)
+        markdown_report_path = create_markdown_report(
+            report_contents, 'report', report_dir)
 
     # Write CSV report for overall results
     # Save it to `/.policy_sentry/analysis/report_name.csv

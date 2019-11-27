@@ -82,13 +82,13 @@ Policy Download and Analysis Commands
 
     # 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
     # 2. Recursively download all IAM policies from accounts in your credentials file
-    policy_sentry download --recursive
+    policy_sentry download-policies --recursive
 
     # Audit all IAM policies downloaded locally and generate CSV and JSON reports.
-    policy_sentry analyze
+    policy_sentry analyze downloaded-policies
 
     # Audit all IAM policies and also include a Markdown formatted report, then convert it to HTML
-    policy_sentry analyze --include-markdown report
+    policy_sentry analyze --include-markdown-report
     pandoc -f markdown ~/.policy_sentry/analysis/overall.md -t html > overall.html
 
     # Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml

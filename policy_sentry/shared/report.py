@@ -128,23 +128,27 @@ def create_csv_report(occurrences, filename, report_dir=False):
                 "Privilege Escalation",
                 "Network Exposure",
                 "Credentials Exposure",
-             ]
+            ]
         )
         for key, value in occurrences.items():
             if 'resource_exposure' in occurrences[key]:
-                resource_exposure_length = len(occurrences[key]['resource_exposure'])
+                resource_exposure_length = len(
+                    occurrences[key]['resource_exposure'])
             else:
                 resource_exposure_length = 0
             if 'privilege_escalation' in occurrences[key]:
-                privilege_escalation_length = len(occurrences[key]['privilege_escalation'])
+                privilege_escalation_length = len(
+                    occurrences[key]['privilege_escalation'])
             else:
                 privilege_escalation_length = 0
             if 'network_exposure' in occurrences[key]:
-                network_exposure_length = len(occurrences[key]['network_exposure'])
+                network_exposure_length = len(
+                    occurrences[key]['network_exposure'])
             else:
                 network_exposure_length = 0
             if 'credentials_exposure' in occurrences[key]:
-                credentials_exposure_length = len(occurrences[key]['credentials_exposure'])
+                credentials_exposure_length = len(
+                    occurrences[key]['credentials_exposure'])
             else:
                 credentials_exposure_length = 0
             row = [

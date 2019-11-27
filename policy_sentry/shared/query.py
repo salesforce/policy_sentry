@@ -32,7 +32,8 @@ def query_condition_table_by_name(db_session, service, condition_key_name):
 def query_arn_table_for_raw_arns(db_session, service):
     """Get a list of available raw ARNs per AWS service"""
     results = []
-    rows = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.like(service))
+    rows = db_session.query(ArnTable.raw_arn).filter(
+        ArnTable.service.like(service))
     for row in rows:
         results.append(str(row.raw_arn))
     return results
@@ -41,7 +42,8 @@ def query_arn_table_for_raw_arns(db_session, service):
 def query_arn_table_for_arn_types(db_session, service):
     """Get a list of available ARN short names per AWS service"""
     results = {}
-    rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(ArnTable.service.like(service))
+    rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(
+        ArnTable.service.like(service))
     for row in rows:
         results[row.resource_type_name] = row.raw_arn
     return results
@@ -68,7 +70,8 @@ def query_arn_table_by_name(db_session, service, name):
 def query_action_table(db_session, service):
     """Get a list of available actions per AWS service"""
     results = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(ActionTable.service.like(service))
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+        ActionTable.service.like(service))
     for row in rows:
         action = row.service + ':' + row.name
         if action not in results:
@@ -78,7 +81,8 @@ def query_action_table(db_session, service):
 
 def query_action_table_by_name(db_session, service, name):
     """Get details about an IAM Action in JSON format."""
-    rows = db_session.query(ActionTable).filter(and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
+    rows = db_session.query(ActionTable).filter(
+        and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
 
     action_table_results = {}
     results = []
@@ -112,7 +116,8 @@ def query_action_table_for_actions_supporting_wildcards_only(db_session, service
     rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
         ActionTable.service.ilike(service),
         ActionTable.resource_arn_format.like("*"),
-        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
+        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(
+            ActionTable.resource_arn_format.notlike('*')))
     ))
     for row in rows:
         actions_list.append(get_full_action_name(row.service, row.name))
@@ -189,5 +194,6 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
         ))
         for row in rows:
             if row.service == service and row.name == action_name:
-                actions_list_placeholder.append(get_full_action_name(service, action_name))
+                actions_list_placeholder.append(
+                    get_full_action_name(service, action_name))
     return actions_list_placeholder

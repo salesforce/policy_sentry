@@ -92,7 +92,8 @@ class ArnActionGroup:
                                     verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
                                         db_session, provided_wildcard_actions)
                                     if len(verified_wildcard_actions) > 0:
-                                        self.process_list_of_actions(verified_wildcard_actions, db_session)
+                                        self.process_list_of_actions(
+                                            verified_wildcard_actions, db_session)
                         if 'read' in principal.keys():
                             if principal['read'] is not None:
                                 self.add(

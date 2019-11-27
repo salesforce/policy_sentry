@@ -31,7 +31,8 @@ def get_all_services_from_action_table(db_session):
         if row.service not in service_prefixes:
             service_prefixes.append(row.service)
     # Remove duplicates
-    service_prefixes = list(dict.fromkeys(service_prefixes))  # remove duplicates
+    service_prefixes = list(dict.fromkeys(
+        service_prefixes))  # remove duplicates
     service_prefixes.sort()
     return service_prefixes
 
@@ -201,10 +202,12 @@ def get_actions_from_json_policy_file(json_file):
                             try:
                                 # Action = "s3:GetObject"
                                 if isinstance(data['Statement']['Action'], str):
-                                    actions_list.append(data['Statement']['Action'])
+                                    actions_list.append(
+                                        data['Statement']['Action'])
                                 # Action = ["s3:GetObject", "s3:ListBuckets"]
                                 elif isinstance(data['Statement']['Action'], list):
-                                    actions_list.extend(data['Statement']['Action'])
+                                    actions_list.extend(
+                                        data['Statement']['Action'])
                                 elif 'Action' not in data['Statement']:
                                     print('Action is not a key in the statement')
                                 else:
@@ -212,7 +215,8 @@ def get_actions_from_json_policy_file(json_file):
                                         "Unknown error: The 'Action' is neither a list nor a string")
                                     pass
                             except KeyError as e:
-                                print(f"KeyError line 206: get_actions_from_json_policy_file {e}")
+                                print(
+                                    f"KeyError line 206: get_actions_from_json_policy_file {e}")
                                 exit()
 
                     # Otherwise it will be a list of Sids
@@ -224,9 +228,11 @@ def get_actions_from_json_policy_file(json_file):
                             else:
                                 if 'Action' in data['Statement'][i]:
                                     if isinstance(data['Statement'][i]['Action'], str):
-                                        actions_list.append(data['Statement'][i]['Action'])
+                                        actions_list.append(
+                                            data['Statement'][i]['Action'])
                                     elif isinstance(data['Statement'][i]['Action'], list):
-                                        actions_list.extend(data['Statement'][i]['Action'])
+                                        actions_list.extend(
+                                            data['Statement'][i]['Action'])
                                     elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
                                         print('Skipping due to NotAction')
                                     else:
@@ -236,13 +242,16 @@ def get_actions_from_json_policy_file(json_file):
                                 else:
                                     continue
                         except KeyError as e:
-                            print(f"KeyError line 220: get_actions_from_json_policy_file {e}")
+                            print(
+                                f"KeyError line 220: get_actions_from_json_policy_file {e}")
                             exit()
                     else:
-                        print("Unknown error: The 'Action' is neither a list nor a string")
+                        print(
+                            "Unknown error: The 'Action' is neither a list nor a string")
                         # exit()
                 except TypeError as e:
-                    print(f"TypeError line 226: get_actions_from_json_policy_file {e}")
+                    print(
+                        f"TypeError line 226: get_actions_from_json_policy_file {e}")
                     exit()
 
     except:

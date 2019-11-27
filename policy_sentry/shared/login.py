@@ -77,7 +77,8 @@ def get_list_of_aws_profiles(credentials_file):
     sections = config.sections()
     legitimate_sections = []
     for section in sections:
-        broamski_suffix = "-long-term" # https://github.com/broamski/aws-mfa#credentials-file-setup
+        # https://github.com/broamski/aws-mfa#credentials-file-setup
+        broamski_suffix = "-long-term"
         if section.endswith(broamski_suffix):
             # skip it if it's not a real profile we want to evaluate
             continue

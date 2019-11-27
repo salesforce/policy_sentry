@@ -3,7 +3,7 @@ from policy_sentry.shared.file import read_this_file, create_directory_if_it_doe
     list_files_in_directory, read_yaml_file
 import shutil
 import sys
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, AUDIT_DIRECTORY_PATH
 
 
 def create_policy_sentry_config_directory():
@@ -74,9 +74,9 @@ def create_default_report_config_file():
     Copies over the default report config file to the config directory
     """
     existing_report_config_file = 'report-config.yml'
-    target_report_config_file_path = HOME + CONFIG_DIRECTORY + existing_report_config_file
+    target_report_config_file_path = AUDIT_DIRECTORY_PATH + existing_report_config_file
     existing_overrides_file_path = os.path.abspath(
-        os.path.dirname(__file__)) + '/data/' + existing_report_config_file
+        os.path.dirname(__file__)) + '/data/' + 'audit/' + existing_report_config_file
     shutil.copy(existing_overrides_file_path, target_report_config_file_path)
     print(
         f"Copying overrides file {existing_report_config_file} to {target_report_config_file_path}")
