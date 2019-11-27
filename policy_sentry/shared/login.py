@@ -1,15 +1,16 @@
-import os
+import configparser
 import json
+import os
+
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
-import configparser
 
 
 def login_sts_test(sts_session):
     try:
         sts_session.get_caller_identity()
-    except ClientError as e:
-        if "InvalidClientTokenId" in str(e):
+    except ClientError as c_e:
+        if "InvalidClientTokenId" in str(c_e):
             print(
                 "ERROR: sts.get_caller_identity failed with InvalidClientTokenId. Likely cause is no AWS credentials are set.",
                 flush=True,
@@ -28,8 +29,8 @@ def login_sts_test(sts_session):
 def login_iam_test(iam_session):
     try:
         iam_session.get_user(UserName="test")
-    except ClientError as e:
-        if "InvalidClientTokenId" in str(e):
+    except ClientError as c_e:
+        if "InvalidClientTokenId" in str(c_e):
             print(
                 "ERROR: AWS doesn't allow you to make IAM calls from a session without MFA, and the collect command gathers IAM data.  Please use MFA or don't use a session. With aws-vault, specify `--no-session` on your `exec`.",
                 flush=True,

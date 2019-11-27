@@ -1,12 +1,13 @@
 """
 Generate markdown-formatted reports
 """
-from policy_sentry.shared.file import read_yaml_file
-from jinja2 import Template
-import json
 import csv
-from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
+import json
 
+from jinja2 import Template
+
+from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
+from policy_sentry.shared.file import read_yaml_file
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
@@ -88,7 +89,7 @@ def load_report_config_file(filename):
 
 
 def create_markdown_report_template(occurrences):
-    tm = Template(REPORT_TEMPLATE)
+    template = Template(REPORT_TEMPLATE)
     # occurrences = {
     #         "policyName1": {
     #             "resource_exposure": [
@@ -106,7 +107,7 @@ def create_markdown_report_template(occurrences):
     #             ]
     #         }
     # }
-    msg = tm.render(
+    msg = template.render(
         occurrences=occurrences
     )
     return msg
@@ -183,5 +184,6 @@ def create_markdown_report(report_contents, filename, report_dir=False):
     with open(report_filepath, 'w') as file:
         file.write(report_contents)
     file.close()
-    print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown overall.md -t html > overall.html")
+    print("If you wish to convert this to html, use Pandoc like this:\n\n"
+          "pandoc -f markdown overall.md -t html > overall.html")
     return report_filepath

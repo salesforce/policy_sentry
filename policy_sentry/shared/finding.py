@@ -33,4 +33,4 @@ class Findings:
     #     if finding_type == "data_access":
     #         return self.occurrences[account_id][policy_name]['data_access']
     #     if finding_type == "credentials_exposure":
-    #         return self.occurrences[account_id][policy_name]['credentials_exposure']
+    # return self.occurrences[account_id][policy_name]['credentials_exposure']

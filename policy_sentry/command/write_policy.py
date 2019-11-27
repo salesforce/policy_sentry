@@ -6,10 +6,7 @@ from policy_sentry.shared.minimize import minimize_statement_actions
 from policy_sentry.shared.policy import ArnActionGroup
 from policy_sentry.shared.roles import Roles
 from policy_sentry.shared.file import read_yaml_file
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
-# https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html
-policy_language_version = "2012-10-17"
+from policy_sentry.shared.constants import DATABASE_FILE_PATH, POLICY_LANGUAGE_VERSION
 
 
 def print_policy(
@@ -35,7 +32,7 @@ def print_policy(
         })
 
     policy = {
-        "Version": policy_language_version,
+        "Version": POLICY_LANGUAGE_VERSION,
         "Statement": statement
     }
     return policy
@@ -71,6 +68,7 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
 @click.command(
     short_help='Write least-privilege IAM policies using a list of actions or access levels specific to resource ARNs.'
 )
+# pylint: disable=duplicate-code
 @click.option(
     '--input-file',
     type=str,

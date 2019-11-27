@@ -141,10 +141,8 @@ class ArnActionGroup:
         for action in supplied_actions:
             action_name = get_action_name_from_action(action)
             service_name = get_service_from_action(action)
-            for row in db_session.query(ActionTable).filter(
-                and_(
-                    ActionTable.service.like(service_name),
-                    ActionTable.name.like(action_name))):
+            for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service_name),
+                                                                 ActionTable.name.like(action_name))):
                 if row.resource_arn_format not in arns_matching_supplied_actions:
                     arns_matching_supplied_actions.append(
                         [row.resource_arn_format, row.access_level, str(row.service + ':' + row.name)])
@@ -230,11 +228,9 @@ class ArnActionGroup:
         :param session: SQLAlchemy database session
         """
         for i in range(len(self.arns)):
-            for row in db_session.query(ActionTable).filter(
-                and_(
-                    ActionTable.access_level.like(
-                        self.arns[i]['access_level']), ActionTable.resource_arn_format.like(
-                    self.arns[i]['arn_format']))):
+            for row in db_session.query(ActionTable).filter(and_( # pylint: disable=bad-continuation
+                    ActionTable.access_level.like(self.arns[i]['access_level']),
+                    ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
                 if self.arns[i]['access_level'] == row.access_level and self.arns[i][
                         'arn_format'] == row.resource_arn_format:
                     self.arns[i]['actions'].append(
@@ -318,9 +314,7 @@ class ArnActionGroup:
         for i in range(len(self.arns)):
             # Create SID Namespace
             query_resource_arn_format = db_session.query(
-                ArnTable.resource_type_name).filter(
-                ArnTable.raw_arn.like(
-                    self.arns[i]['arn_format']))
+                ArnTable.resource_type_name).filter(ArnTable.raw_arn.like(self.arns[i]['arn_format']))
             resource_arn_format = query_resource_arn_format.first()
             temp_name = create_policy_sid_namespace(
                 self.arns[i]['service'],
@@ -413,6 +407,7 @@ class PolicyGroup:
             attached_only=True):
         """
         Grabs IAM policies and adds them to the object
+        :param attached_only: Attached policies only
         :param iam_session: IAM boto session
         :param customer_managed: True for 'Local' (customer managed policies), False for 'AWS' (managed policies)
         :param only_attached: True/False

@@ -89,8 +89,7 @@ def does_arn_match(arn_to_test, arn_in_database):
     if arn_in_database == '*':
         score += 10  # Exit in this scenario
     else:
-        if get_service_from_arn(
-                arn_in_database) != get_service_from_arn(arn_to_test):
+        if get_service_from_arn(arn_in_database) != get_service_from_arn(arn_to_test):
             score += 1
         if arn_has_colons(arn_in_database) != arn_has_colons(arn_to_test):
             score += 1
@@ -98,12 +97,10 @@ def does_arn_match(arn_to_test, arn_in_database):
             score += 1
         if arn_has_slash(arn_in_database) and arn_has_slash(arn_to_test):
             # Example: SSM `parameter/`
-            if get_resource_from_arn(
-                    arn_in_database) != get_resource_from_arn(arn_to_test):
+            if get_resource_from_arn(arn_in_database) != get_resource_from_arn(arn_to_test):
 
                 # Some exclusions, like ObjectId for S3 buckets
-                if get_resource_path_from_arn(
-                        arn_in_database) in exclusion_list:
+                if get_resource_path_from_arn(arn_in_database) in exclusion_list:
                     pass
                 else:
                     score += 1

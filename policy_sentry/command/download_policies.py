@@ -51,4 +51,5 @@ def download_policies(recursive, profile, aws_managed, include_unattached):
         # if download:
         download_policies_recursively(profiles)
     else:
-        download_remote_policies(profile, customer_managed, attached_only)
+        download_remote_policies(
+            profile, customer_managed, attached_only)

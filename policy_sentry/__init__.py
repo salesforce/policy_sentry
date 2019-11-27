@@ -1,1 +1,1 @@
-name = "policy_sentry"
+name = "policy_sentry"  # pylint: disable=invalid-name

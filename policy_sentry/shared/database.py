@@ -10,7 +10,7 @@ from policy_sentry.shared.config import get_action_access_level_overrides_from_y
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
 
-Base = declarative_base()
+Base = declarative_base()  # pylint: disable=invalid-name
 
 
 class ActionTable(Base):
@@ -47,17 +47,7 @@ class ArnTable(Base):
 
     def __repr__(self):
         return "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s', condition_keys='%s')>" % (
-            self.resource_type_name,
-            self.raw_arn,
-            self.arn,
-            self.partition,
-            self.service,
-            self.region,
-            self.account,
-            self.resource,
-            self.resource_path,
-            self.condition_keys
-        )
+            self.resource_type_name, self.raw_arn, self.arn, self.partition, self.service, self.region, self.account, self.resource, self.resource_path, self.condition_keys )
 
 
 class ConditionTable(Base):
@@ -113,7 +103,7 @@ def connect_db(db_file):
     # prefixed with another / so it works out to 4
     engine = create_engine(str('sqlite:///' + db_file), echo=False)
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)  # pylint: disable=invalid-name
     Session.configure(bind=engine)
     db_session = Session()
     return db_session
@@ -133,7 +123,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
     access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
         service, access_level_overrides_file)
     for df_list in html_list:
-        for df in df_list:
+        for df in df_list:  # pylint: disable=invalid-name
             table = json.loads(df.to_json(orient='split'))
             table_data = df
             # Actions table
@@ -156,10 +146,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                             resource_type_name = 'None'
                         resource_type_name_append_wildcard = 'True'
                         query_resource_arn_format = db_session.query(
-                            ArnTable.raw_arn).filter(
-                            and_(
-                                ArnTable.service.ilike(service),
-                                ArnTable.resource_type_name.like(resource_type_name)))
+                            ArnTable.raw_arn).filter(and_(ArnTable.service.ilike(service),
+                                                          ArnTable.resource_type_name.like(resource_type_name)))
                         first_result = query_resource_arn_format.first()
                         try:
                             resource_arn_format = first_result.raw_arn
@@ -172,10 +160,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                         resource_type_name = table['data'][i][3]
                         resource_type_name_append_wildcard = 'False'
                         first_result = db_session.query(
-                            ArnTable.raw_arn).filter(
-                            ArnTable.service.ilike(service),
-                            ArnTable.resource_type_name.like(
-                                table['data'][i][3])).first()
+                            ArnTable.raw_arn).filter(ArnTable.service.ilike(service),
+                                                     ArnTable.resource_type_name.like(table['data'][i][3])).first()
                         try:
                             if '*' in first_result.raw_arn:
                                 resource_arn_format = first_result.raw_arn[:-1]
@@ -189,7 +175,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     # it.
                     if ' ' in table['data'][i][0]:
                         text_with_space = table['data'][i][0]
-                        action_name, sep, tail = text_with_space.partition(' ')  # pylint: disable=unused-variable
+                        action_name, sep, tail = text_with_space.partition(
+                            ' ')  # pylint: disable=unused-variable
                     else:
                         action_name = table['data'][i][0]
 
@@ -235,7 +222,6 @@ def build_action_table(db_session, service, access_level_overrides_file):
                         name=str.lower(action_name),
                         description=table['data'][i][1],
                         access_level=access_level,
-                        # access_level=table['data'][i][2],
                         resource_type_name=resource_type_name,
                         resource_type_name_append_wildcard=resource_type_name_append_wildcard,
                         resource_arn_format=str(resource_arn_format),
@@ -254,7 +240,7 @@ def build_arn_table(db_session, service):
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
     for df_list in html_list:
-        for df in df_list:
+        for df in df_list:  # pylint: disable=invalid-name
             table = json.loads(df.to_json(orient='split'))
             table_data = df
             if 'Resource Types' in table_data and 'ARN' in table_data:
@@ -269,7 +255,8 @@ def build_arn_table(db_session, service):
                     if table['data'][i][2] is None:
                         condition_keys = None
                     # If there are multiple condition keys, make them comma separated
-                    # Otherwise, if we ingest them as-is, it will show up as two spaces
+                    # Otherwise, if we ingest them as-is, it will show up as
+                    # two spaces
                     elif '  ' in table['data'][i][2]:
                         condition_keys = get_comma_separated_condition_keys(
                             table['data'][i][2])
@@ -297,7 +284,7 @@ def build_condition_table(db_session, service):
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
     for df_list in html_list:
-        for df in df_list:
+        for df in df_list:  # pylint: disable=invalid-name
             table = json.loads(df.to_json(orient='split'))
             table_data = df
             if 'Condition Keys' in table_data and 'Description' in table_data and 'Type' in table_data:

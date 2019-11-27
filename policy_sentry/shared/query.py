@@ -62,7 +62,6 @@ def query_arn_table_by_name(db_session, service, name):
         'resource_type_name': result.resource_type_name,
         'raw_arn': result.raw_arn,
         'condition_keys': condition_keys
-        # TODO: After #33 is fixed, add the items from the condition keys column here.
     }
     return output
 

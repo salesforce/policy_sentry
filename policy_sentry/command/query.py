@@ -1,13 +1,15 @@
-import click
 import json
+
+import click
+
+from policy_sentry.shared.actions import transform_access_level_text
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
+from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, \
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
     query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
     query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
     query_arn_table_for_arn_types
-from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.actions import transform_access_level_text
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 
 @click.group()
@@ -44,25 +46,25 @@ def query():
     type=str,
     required=False,
     help='If action table is chosen, you can supply a condition key to show a list of all IAM actions that'
-         ' support the condition key.'
-)
+         ' support the condition key.')
 @click.option(
     '--wildcard-only',
     is_flag=True,
     required=False,
     help='If action table is chosen, show the IAM actions that only support '
-         'wildcard resources - i.e., cannot support ARNs in the resource block.'
-)
+         'wildcard resources - i.e., cannot support ARNs in the resource block.')
 def action_table(name, service, access_level, condition, wildcard_only):
     db_session = connect_db(DATABASE_FILE_PATH)
-    # Get a list of all IAM actions under the service that have the specified access level.
+    # Get a list of all IAM actions under the service that have the specified
+    # access level.
     if name is None and access_level:
         print(
             f"All IAM actions under the {service} service that have the access level {access_level}:")
         level = transform_access_level_text(access_level)
         output = query_action_table_by_access_level(db_session, service, level)
         print(json.dumps(output, indent=4))
-    # Get a list of all IAM actions under the service that support the specified condition key.
+    # Get a list of all IAM actions under the service that support the
+    # specified condition key.
     elif condition:
         print(
             f"IAM actions under {service} service that support the {condition} condition only:")
@@ -91,8 +93,7 @@ def action_table(name, service, access_level, condition, wildcard_only):
 
 @query.command(
     short_help='Query the ARN table to show RAW ARNs, like `aws:s3:::bucket/object`. '
-               'Use --list-arn-types ARN types, like `object`.'
-)
+               'Use --list-arn-types ARN types, like `object`.')
 @click.option(
     '--service',
     type=str,
@@ -122,7 +123,8 @@ def arn_table(name, service, list_arn_types):
     elif name is None and list_arn_types:
         output = query_arn_table_for_arn_types(db_session, service)
         print(json.dumps(output, indent=4))
-    # Get the raw ARN format for the `cloud9` service with the short name `environment`
+    # Get the raw ARN format for the `cloud9` service with the short name
+    # `environment`
     else:
         output = query_arn_table_by_name(db_session, service, name)
         print(json.dumps(output, indent=4))
@@ -136,8 +138,7 @@ def arn_table(name, service, list_arn_types):
     type=str,
     required=False,
     help='Get details on a specific condition key. Leave this blank to get a list of all condition keys '
-         'available to the service.'
-)
+         'available to the service.')
 @click.option(
     '--service',
     type=str,

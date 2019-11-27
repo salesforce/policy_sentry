@@ -28,15 +28,16 @@ class Roles:
             for category in cfg:
                 if category == 'roles_with_actions':
                     for principal in cfg[category]:
-                        self.add_role([
-                            principal['name'],
-                            principal['description'],
-                            principal['arn'],
-                            principal['actions'],
-                        ]
+                        self.add_role(
+                            [
+                                principal['name'],
+                                principal['description'],
+                                principal['arn'],
+                                principal['actions'],
+                            ]
                         )
-        except KeyError as ke:
-            print("Yaml file is missing this block: " + ke.args[0])
+        except KeyError as k_e:
+            print("Yaml file is missing this block: " + k_e.args[0])
             sys.exit()
         # except TypeError:
         #     print("Yaml file is not formatted properly. Please see the documentation for the proper format.")

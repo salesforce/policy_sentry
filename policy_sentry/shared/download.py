@@ -5,10 +5,7 @@ from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
 import sys
 
 
-def download_remote_policies(
-        profile=None,
-        customer_managed=True,
-        attached_only=True):
+def download_remote_policies(profile=None, customer_managed=True, attached_only=True):
     # Credentials profile selection
     if profile:
         profile = profile

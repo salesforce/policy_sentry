@@ -1,8 +1,9 @@
-import yaml
-import os.path
 import json
+import os.path
 from os import listdir
 from os.path import isfile, join
+
+import yaml
 
 
 def read_this_file(filename):

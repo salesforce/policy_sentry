@@ -1,7 +1,9 @@
-from sqlalchemy import and_
-from policy_sentry.shared.database import ActionTable
-import sys
 import json
+import sys
+
+from sqlalchemy import and_
+
+from policy_sentry.shared.database import ActionTable
 
 
 def get_all_actions(db_session):
@@ -140,11 +142,8 @@ def get_dependent_actions(db_session, actions_list):
         service, action_name = action.split(':')
         action = str.lower(action)
         first_result = None  # Just to appease nosetests
-        for row in db_session.query(ActionTable).filter(
-            and_(
-                ActionTable.service.like(service),
-                ActionTable.name.like(
-                str.lower(action_name)))):
+        for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service),
+                                                             ActionTable.name.like(str.lower(action_name)))):
             # Just take the first result
             if 1 == 1:
                 first_result = row.dependent_actions
@@ -214,9 +213,9 @@ def get_actions_from_json_policy_file(json_file):
                                     print(
                                         "Unknown error: The 'Action' is neither a list nor a string")
                                     pass
-                            except KeyError as e:
+                            except KeyError as k_e:
                                 print(
-                                    f"KeyError line 206: get_actions_from_json_policy_file {e}")
+                                    f"KeyError line 206: get_actions_from_json_policy_file {k_e}")
                                 exit()
 
                     # Otherwise it will be a list of Sids
@@ -241,25 +240,25 @@ def get_actions_from_json_policy_file(json_file):
                                         exit()
                                 else:
                                     continue
-                        except KeyError as e:
+                        except KeyError as k_e:
                             print(
-                                f"KeyError line 220: get_actions_from_json_policy_file {e}")
+                                f"KeyError line 220: get_actions_from_json_policy_file {k_e}")
                             exit()
                     else:
                         print(
                             "Unknown error: The 'Action' is neither a list nor a string")
                         # exit()
-                except TypeError as e:
+                except TypeError as t_e:
                     print(
-                        f"TypeError line 226: get_actions_from_json_policy_file {e}")
+                        f"TypeError line 226: get_actions_from_json_policy_file {t_e}")
                     exit()
 
     except:
         print("General Error at get_actions_from_json_policy_file.")
     try:
         actions_list = [x.lower() for x in actions_list]
-    except AttributeError:
+    except AttributeError as a_e:
         print(actions_list)
-        print("AttributeError: 'list' object has no attribute 'lower'")
+        print(f"AttributeError: {a_e}")
     actions_list.sort()
     return actions_list
