@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable
-from policy_sentry.shared.file import read_yaml_file
 import sys
 import json
-import os
-import copy
-from pathlib import Path
 
 
 def get_all_actions(db_session):

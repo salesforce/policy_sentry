@@ -1,10 +1,8 @@
 """
 Generate markdown-formatted reports
 """
-from cvss import CVSS3
 from policy_sentry.shared.file import read_yaml_file
 from jinja2 import Template
-import copy
 import json
 import csv
 from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH

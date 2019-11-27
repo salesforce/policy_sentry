@@ -1,13 +1,9 @@
 from policy_sentry.shared.file import read_this_file
-# from policyuniverse import all_permissions
 import fnmatch
-import pprint
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
     get_all_actions, get_lowercase_action_list
 from policy_sentry.shared.database import connect_db
-from pathlib import Path
 from policy_sentry.shared.file import list_files_in_directory
-from policy_sentry.shared.finding import Findings
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import copy
 import re

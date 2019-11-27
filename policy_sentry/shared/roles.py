@@ -1,6 +1,4 @@
 import sys
-import json
-from schema import Schema, And, SchemaError
 
 
 class Roles:

@@ -1,14 +1,10 @@
 import unittest
-from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.minimize import minimize_statement_actions
 from policy_sentry.shared.actions import get_all_actions
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-database_file_name = 'aws.sqlite3'
-database_path = home + config_directory + database_file_name
-db_session = connect_db(database_path)
+db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class MinimizeWildcardActionsTestCase(unittest.TestCase):

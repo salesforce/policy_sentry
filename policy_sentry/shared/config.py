@@ -1,6 +1,3 @@
-# Manages the policy_sentry config directory and files
-# Default location is $HOME/.policy_sentry
-from pathlib import Path
 import os
 from policy_sentry.shared.file import read_this_file, create_directory_if_it_doesnt_exist, \
     list_files_in_directory, read_yaml_file

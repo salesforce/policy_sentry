@@ -1,17 +1,13 @@
 import unittest
-from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, \
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
     query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
     query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
     query_arn_table_for_arn_types, remove_actions_that_are_not_wildcard_arn_only
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
-db_session = connect_db(database_file_path)
+db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class QueryTestCase(unittest.TestCase):

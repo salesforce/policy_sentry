@@ -1,15 +1,11 @@
 import unittest
 import json
-from pathlib import Path
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_access_levels, write_policy_with_actions
 from policy_sentry.shared.policy import ArnActionGroup
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-database_file_name = 'aws.sqlite3'
-database_path = home + config_directory + database_file_name
-db_session = connect_db(database_path)
+db_session = connect_db(DATABASE_FILE_PATH)
 
 
 valid_cfg_for_crud = {
@@ -17,7 +13,7 @@ valid_cfg_for_crud = {
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::559410426617:role/RiskyEC2",
+            "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "read": [
                 "arn:aws:s3:::example-org-sbx-vmimport",
                 "arn:aws:s3:::example-kinnaird",
@@ -269,7 +265,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::559410426617:role/RiskyEC2",
+                    "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
                     "read": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
@@ -298,7 +294,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::559410426617:role/RiskyEC2",
+                    "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
                     "read": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],

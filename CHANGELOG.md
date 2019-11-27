@@ -4,7 +4,8 @@
 * Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`
 * Cutting a new release when this is done due to the major changes involved.
 * Update the command cheat sheet and the ReadTheDocs stuff for this
-
+* Added test cases for new parts of analyze command
+* Created constants.py to reduce unnecessary code
 ## 2019-11-24
 ### Changed
 * Fixed analyze function's accuracy - normalizes incoming lists of actions so it accepts lists of actions regardless of lower/upper/camel case.

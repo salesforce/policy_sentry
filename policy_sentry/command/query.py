@@ -7,7 +7,6 @@ from policy_sentry.shared.query import query_condition_table, query_condition_ta
     query_arn_table_for_arn_types
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.actions import transform_access_level_text
-from pathlib import Path
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 

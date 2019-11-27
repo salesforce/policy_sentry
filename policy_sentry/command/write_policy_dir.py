@@ -1,4 +1,3 @@
-from pathlib import Path
 import click
 import sys
 import os.path
