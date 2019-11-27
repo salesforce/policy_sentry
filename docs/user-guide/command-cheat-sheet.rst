@@ -24,10 +24,15 @@ Commands
   ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
 
 *
-  ``analyze-iam-policy``: Analyze an IAM policy read from a JSON file, expands the wildcards (like ``s3:List*`` if necessary.
+  ``analyze``: Analyze IAM policies downloaded locally, expands the wildcards (like ``s3:List*``) if necessary, and generates a report based on policies that are flagged for these risk categories:
 
-  * Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the `documentation <./analyze-policy.html#audit-for-custom-list-of-actions>`__.
-  * Option 2: Audits them to see if any of the actions in the policy meet a certain access level, such as "Permissions management." See the `documentation <./analyze-policy.html#audit-a-policy-file-for-permissions-with-specific-access-levels>`__.
+  #. **Privilege Escalation**: This is based off of `Rhino Security Labs research <https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation>`_
+
+  #. **Resource Exposure**: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
+
+  #. **Network Exposure**: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
+
+  #. **Credentials Exposure**: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, ``ecr:GetAuthorizationToken`` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
 * ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
 
@@ -40,49 +45,54 @@ Policy Writing Commands
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
-   # Initialize the policy_sentry config folder and create the IAM database tables.
-   policy_sentry initialize
+    # Initialize the policy_sentry config folder and create the IAM database tables.
+    policy_sentry initialize
 
-   # Create a template file for use in the write-policy command (crud mode)
-   policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
+    # Create a template file for use in the write-policy command (crud mode)
+    policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
 
-   # Write policy based on resource-specific access levels
-   policy_sentry write-policy --crud --input-file examples/yml/crud.yml
+    # Write policy based on resource-specific access levels
+    policy_sentry write-policy --crud --input-file examples/yml/crud.yml
 
-   # Write policy_sentry YML files based on resource-specific access levels on a directory basis
-   policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
+    # Write policy_sentry YML files based on resource-specific access levels on a directory basis
+    policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
 
-   # Create a template file for use in the write-policy command (actions mode)
-   policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+    # Create a template file for use in the write-policy command (actions mode)
+    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
 
-   # Write policy based on a list of actions
-   policy_sentry write-policy --input-file examples/yml/actions.yml
+    # Write policy based on a list of actions
+    policy_sentry write-policy --input-file examples/yml/actions.yml
 
 
-Policy Analysis Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Policy Download and Analysis Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
-   # Initialize the policy_sentry config folder and create the IAM database tables.
-   policy_sentry initialize
+    # Initialize the policy_sentry config folder and create the IAM database tables.
+    policy_sentry initialize
 
-   # Analyze a policy FILE to determine actions with "Permissions Management" access levels
-   policy_sentry analyze-iam-policy --from-access-level permissions-management --policy examples/analyze/wildcards.json
+    # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
+    policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
 
-   # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
-   policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+    # Download customer-managed IAM policies, including those that are not attached
+    policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/*.json
 
-   # Download customer-managed IAM policies, including those that are not attached
-   policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+    # Analyze a single IAM policy FILE
+    policy_sentry analyze policy-file --policy examples/explicit-actions.json
 
-   # Analyze a DIRECTORY of policy files
-   policy_sentry analyze-iam-policy --show ~/.policy_sentry/123456789012/customer-managed
+    # 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
+    # 2. Recursively download all IAM policies from accounts in your credentials file
+    policy_sentry download-policies --recursive
 
-   # Analyze a policy FILE to identify higher-risk IAM calls
-   policy_sentry analyze-iam-policy --policy examples/analyze/wildcards.json
+    # Audit all IAM policies downloaded locally and generate CSV and JSON reports.
+    policy_sentry analyze downloaded-policies
 
-   # Analyze a policy against a custom file containing a list of IAM actions
-   policy_sentry analyze-iam-policy --policy examples/analyze/wildcards.json --from-audit-file ~/.policy_sentry/audit/privilege-escalation.txt
+    # Audit all IAM policies and also include a Markdown formatted report, then convert it to HTML
+    policy_sentry analyze --include-markdown-report
+    pandoc -f markdown ~/.policy_sentry/analysis/overall.md -t html > overall.html
+
+    # Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml
+    policy_sentry analyze --report-config custom-config.yml
 
 
 IAM Database Query Commands

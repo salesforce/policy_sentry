@@ -59,6 +59,7 @@ class ArnTable(Base):
             self.condition_keys
         )
 
+
 class ConditionTable(Base):
     __tablename__ = "conditiontable"
     id = Column(Integer, primary_key=True)

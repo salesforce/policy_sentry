@@ -1,0 +1,12 @@
+report-config:
+    excluded-role-patterns:
+        - "Administrator*"
+    risk-categories:
+        resource-exposure: yes
+        privilege-escalation: yes
+        credentials-exposure: yes
+        network-exposure: yes
+    false-positives:
+        account_id:
+            role_name:
+                - "service:actionName"

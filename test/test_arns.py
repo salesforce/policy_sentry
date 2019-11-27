@@ -1,16 +1,14 @@
 import unittest
-from pathlib import Path
 from policy_sentry.shared.arns import does_arn_match
 from policy_sentry.shared.database import connect_db
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-database_file_name = 'aws.sqlite3'
-database_path = home + config_directory + database_file_name
-db_session = connect_db(database_path)
+db_session = connect_db(DATABASE_FILE_PATH)
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
+# They removed some of the cases. The old version that gave this comprehensive list of resource ARN formats is here:
+# https://web.archive.org/web/20190903192015/https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
 # Case 1: arn:partition:service:region:account-id:resource
 # Case 2: arn:partition:service:region:account-id:resourcetype/resource
 # Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier

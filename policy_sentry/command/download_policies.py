@@ -1,9 +1,17 @@
 import click
-from policy_sentry.shared.download import download_remote_policies
+from policy_sentry.shared.download import download_remote_policies, download_policies_recursively
+from policy_sentry.shared.login import get_list_of_aws_profiles
+from policy_sentry.shared.constants import DEFAULT_CREDENTIALS_FILE
 
 
 @click.command(
-    short_help='Download remote IAM policies to a directory for use in the analyze-iam-policies command.'
+    short_help='Download remote IAM policies to a directory for use in the analyze command.'
+)
+@click.option(
+    '--recursive',
+    default=False,
+    is_flag=True,
+    help='Use this flag to download *all* IAM policies from accounts listed in your AWS credentials file.'
 )
 @click.option(
     '--profile',
@@ -23,8 +31,8 @@ from policy_sentry.shared.download import download_remote_policies
     default=False,
     help='Download both attached and unattached policies.'
 )
-def download_policies(profile, aws_managed, include_unattached):
-    """Download remote IAM policies to a directory for use in the analyze-iam-policies command."""
+def download_policies(recursive, profile, aws_managed, include_unattached):
+    """Download remote IAM policies to a directory for use in the analyze command."""
     # Consolidated these because we want the default to be attached policies only, with a boolean flag.
     # Only use the --include-unattached flag if you want to download those too.
     # Otherwise they would have to use a really long command every time.
@@ -38,4 +46,11 @@ def download_policies(profile, aws_managed, include_unattached):
         customer_managed = False
     else:
         customer_managed = True
-    download_remote_policies(profile, customer_managed, attached_only)
+    if recursive:
+        profiles = get_list_of_aws_profiles(DEFAULT_CREDENTIALS_FILE)
+        # if download:
+        download_directories = download_policies_recursively(
+            DEFAULT_CREDENTIALS_FILE, profiles)
+    else:
+        download_directory = download_remote_policies(
+            profile, customer_managed, attached_only)

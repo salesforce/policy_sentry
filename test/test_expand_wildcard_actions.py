@@ -1,4 +1,4 @@
-from policy_sentry.command.analyze_iam_policy import determine_actions_to_expand
+from policy_sentry.shared.analyze import determine_actions_to_expand
 import unittest
 
 
@@ -27,13 +27,16 @@ class ExpandWildcardActionsTestCase(unittest.TestCase):
             'ecr:getrepositorypolicy',
             'ecr:initiatelayerupload',
             'ecr:setrepositorypolicy',
+            'ecr:startimagescan',
             'ecr:putlifecyclepolicy',
             'ecr:deletelifecyclepolicy',
             'ecr:describeimages',
+            'ecr:describeimagescanfindings',
             'ecr:createrepository',
             'ecr:describerepositories',
             'ecr:batchgetimage',
             'ecr:putimage',
+            'ecr:putimagescanningconfiguration',
             'ecr:putimagetagmutability',
             'ecr:getlifecyclepolicypreview',
             'ecr:listtagsforresource',

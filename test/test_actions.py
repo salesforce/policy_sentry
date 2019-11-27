@@ -1,13 +1,9 @@
 import unittest
-from pathlib import Path
 from policy_sentry.shared.actions import get_dependent_actions, get_actions_by_access_level
 from policy_sentry.shared.database import connect_db
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-database_file_name = 'aws.sqlite3'
-database_path = home + config_directory + database_file_name
-db_session = connect_db(database_path)
+db_session = connect_db(DATABASE_FILE_PATH)
 
 dependent_actions_single = ["ec2:associateiaminstanceprofile"]
 dependent_actions_double = ["shield:associatedrtlogbucket"]

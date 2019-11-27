@@ -1,12 +1,8 @@
 from policy_sentry.shared.login import login
 from policy_sentry.shared.policy import PolicyGroup
 from policy_sentry.shared.file import write_json_file, list_files_in_directory, create_directory_if_it_doesnt_exist
-from pathlib import Path
-
-home = str(Path.home())
-config_directory = '/.policy_sentry/'
-# database_file_name = 'aws.sqlite3'
-# database_path = home + config_directory + database_file_name
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
+import sys
 
 
 def download_remote_policies(
@@ -24,8 +20,8 @@ def download_remote_policies(
     account_id = sts_session.get_caller_identity()["Account"]
 
     # Directory names
-    policy_file_directory = home + config_directory + \
-        'policy-analysis' + '/' + account_id
+    policy_file_directory = HOME + CONFIG_DIRECTORY + \
+        'analysis' + '/' + account_id
     customer_managed_policy_file_directory = policy_file_directory + '/' + 'customer-managed'
     aws_managed_policy_file_directory = policy_file_directory + '/' + 'aws-managed'
 
@@ -53,9 +49,24 @@ def download_remote_policies(
         document = policy_group.get_policy_document(policy_name)
         filename = filename_directory + '/' + policy_name + '.json'
         write_json_file(filename, document)
-    print("If you want to analyze the policies, specify the policy file in the analyze-iam-policy command\n")
-    print("The list of policies downloaded are:")
-    print("")
+    print("If you want to analyze the policies, just run:\n\npolicy_sentry analyze downloaded-policies")
+    # print("The list of policies downloaded are:")
+    # print("")
     only_files = list_files_in_directory(filename_directory)
-    for filename in only_files:
-        print(filename)
+    # for filename in only_files:
+    #     print(filename)
+    return filename_directory
+
+
+def download_policies_recursively(credentials_file, profiles):
+    download_directories = []
+
+    for profile in profiles:
+        try:
+            print(f"Downloading policies under profile {profile}")
+            download_dir = download_remote_policies(profile, True, True)
+            download_directories.append(download_dir)
+        except TypeError as t_e:
+            print(t_e)
+            sys.exit()
+    return download_directories

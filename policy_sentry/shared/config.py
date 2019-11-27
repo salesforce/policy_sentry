@@ -1,16 +1,9 @@
-# Manages the policy_sentry config directory and files
-# Default location is $HOME/.policy_sentry
-from pathlib import Path
 import os
 from policy_sentry.shared.file import read_this_file, create_directory_if_it_doesnt_exist, \
     list_files_in_directory, read_yaml_file
 import shutil
 import sys
-
-HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
-DATABASE_FILE_NAME = 'aws.sqlite3'
-AUDIT_DIRECTORY_FOLDER = 'audit/'
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, AUDIT_DIRECTORY_PATH
 
 
 def create_policy_sentry_config_directory():
@@ -56,7 +49,7 @@ def create_policy_analysis_directory():
     """
     Creates directory for analyze_iam_policy policies.
     """
-    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'policy-analysis'
+    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'analysis'
     if os.path.exists(policy_analysis_directory_path):
         pass
     else:
@@ -74,6 +67,19 @@ def create_default_overrides_file():
     shutil.copy(existing_overrides_file_path, target_overrides_file_path)
     print(
         f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
+
+
+def create_default_report_config_file():
+    """
+    Copies over the default report config file to the config directory
+    """
+    existing_report_config_file = 'report-config.yml'
+    target_report_config_file_path = AUDIT_DIRECTORY_PATH + existing_report_config_file
+    existing_overrides_file_path = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/' + 'audit/' + existing_report_config_file
+    shutil.copy(existing_overrides_file_path, target_report_config_file_path)
+    print(
+        f"Copying overrides file {existing_report_config_file} to {target_report_config_file_path}")
 
 
 def get_action_access_level_overrides_from_yml(

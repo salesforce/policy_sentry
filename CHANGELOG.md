@@ -1,4 +1,25 @@
 # Changelog
+## 2019-11-27
+* Refined the Network exposure actions to Create actions only - i.e., those that could cause exposure only (it does not include delete actions, only create). Typically only API calls that have public IPs as an option
+
+## 2019-11-26
+* Moved generate-report back to the analyze command.
+* Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`
+* Cutting a new release when this is done due to the major changes involved.
+* Update the command cheat sheet and the ReadTheDocs stuff for this
+* Added test cases for new parts of analyze command
+* Created constants.py to reduce unnecessary code
+* Analyze command now allows for single policy files as well as recursively looking throughout the directory,
+
+## 2019-11-24
+### Changed
+* Fixed analyze function's accuracy - normalizes incoming lists of actions so it accepts lists of actions regardless of lower/upper/camel case.
+## 2019-11-22
+### Added
+* Initial set of improvements for uplift of the analyze-iam-policy feature.
+  - Created generate-report command (will eventually move this over to the regular analyze command, just keeping it separate for now)
+  - Added scaffolding for generating report templates in Markdown and then to HTML using Jinja2 templates
+  - Added functionality to download policies recursively
 ## 2019-11-21 Part 2
 ### Changed
 * **Fixed issue where initialize was not working due to db_session being declared outside of a function. This only applied to the last release.**

@@ -1,4 +1,3 @@
-from pathlib import Path
 import click
 import sys
 import os.path
@@ -6,6 +5,7 @@ import glob
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_actions, write_policy_with_access_levels
 from policy_sentry.shared.file import read_yaml_file, write_json_file, check_valid_file_path
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 
 @click.command(
@@ -39,11 +39,7 @@ def write_policy_dir(input_dir, output_dir, crud, minimize):
     """
     write_policy, but this time with an input directory of YML/YAML files, and an output directory for all the JSON files
     """
-    home = str(Path.home())
-    config_directory = '/.policy_sentry/'
-    database_file_name = 'aws.sqlite3'
-    database_path = home + config_directory + database_file_name
-    db_session = connect_db(database_path)
+    db_session = connect_db(DATABASE_FILE_PATH)
     input_dir = os.path.abspath(input_dir)
     output_dir = os.path.abspath(output_dir)
 

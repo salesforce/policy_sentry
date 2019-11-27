@@ -1,13 +1,12 @@
 import click
 import json
-from pathlib import Path
 from policy_sentry.shared.actions import get_all_actions, get_dependent_actions
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.minimize import minimize_statement_actions
 from policy_sentry.shared.policy import ArnActionGroup
 from policy_sentry.shared.roles import Roles
 from policy_sentry.shared.file import read_yaml_file
-
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 # https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html
 policy_language_version = "2012-10-17"
@@ -95,11 +94,8 @@ def write_policy(input_file, crud, minimize):
     Write a least-privilege IAM Policy by supplying either a list of actions or access levels specific to resource ARNs!
     """
     # TODO: JSON Validation function
-    home = str(Path.home())
-    config_directory = '/.policy_sentry/'
-    database_file_name = 'aws.sqlite3'
-    database_path = home + config_directory + database_file_name
-    db_session = connect_db(database_path)
+
+    db_session = connect_db(DATABASE_FILE_PATH)
 
     cfg = read_yaml_file(input_file)
 

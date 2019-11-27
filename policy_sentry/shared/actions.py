@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable
-from policy_sentry.shared.file import read_yaml_file
 import sys
 import json
-import os
-import copy
-from pathlib import Path
 
 
 def get_all_actions(db_session):
@@ -36,7 +31,8 @@ def get_all_services_from_action_table(db_session):
         if row.service not in service_prefixes:
             service_prefixes.append(row.service)
     # Remove duplicates
-    service_prefixes = list(dict.fromkeys(service_prefixes))  # remove duplicates
+    service_prefixes = list(dict.fromkeys(
+        service_prefixes))  # remove duplicates
     service_prefixes.sort()
     return service_prefixes
 
@@ -109,6 +105,16 @@ def get_action_name_from_action(action):
     return str.lower(action_name)
 
 
+def get_lowercase_action_list(action_list):
+    """
+    Given a list of actions, return the list but in lowercase format
+    """
+    new_action_list = []
+    for action in action_list:
+        new_action_list.append(str.lower(action))
+    return new_action_list
+
+
 def get_full_action_name(service, action_name):
     """
     Gets the proper formatting for an action - the service, plus colon, plus action name.
@@ -178,47 +184,78 @@ def get_actions_from_json_policy_file(json_file):
 
     # FIXME use a try/expect here to validate the json file. I would create a
     # generic json
-    with open(json_file) as json_file:
-        # validation function/parser as there is a lot of json floating around
-        # in this tool. [MJ]
-        data = json.load(json_file)
-        actions_list = []
-        # Multiple statements are in the 'Statement' list
-        for i in range(len(data['Statement'])):
-            try:
-                if isinstance(data['Statement'], dict):
-                    try:
-
-                        if isinstance(data['Statement']['Action'], str):
-                            actions_list.append(data['Statement']['Action'])
-                        elif isinstance(data['Statement']['Action'], list):
-                            actions_list.extend(data['Statement']['Action'])
-                        else:
-                            print(
-                                "Unknown error: The 'Action' is neither a list nor a string")
+    try:
+        with open(json_file) as json_file:
+            # validation function/parser as there is a lot of json floating around
+            # in this tool. [MJ]
+            data = json.load(json_file)
+            actions_list = []
+            # Multiple statements are in the 'Statement' list
+            for i in range(len(data['Statement'])):
+                try:
+                    # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
+                    if isinstance(data['Statement'], dict):
+                        # We only want to evaluate policies that have Effect = "Allow"
+                        if data['Statement']['Effect'] is 'Deny':
                             continue
-                    except KeyError as e:
-                        print(e)
-                        exit()
-                elif isinstance(data['Statement'], list):
-                    try:
-                        if isinstance(data['Statement'][i]['Action'], str):
-                            actions_list.append(data['Statement'][i]['Action'])
-                        elif isinstance(data['Statement'][i]['Action'], list):
-                            actions_list.extend(data['Statement'][i]['Action'])
                         else:
+                            try:
+                                # Action = "s3:GetObject"
+                                if isinstance(data['Statement']['Action'], str):
+                                    actions_list.append(
+                                        data['Statement']['Action'])
+                                # Action = ["s3:GetObject", "s3:ListBuckets"]
+                                elif isinstance(data['Statement']['Action'], list):
+                                    actions_list.extend(
+                                        data['Statement']['Action'])
+                                elif 'Action' not in data['Statement']:
+                                    print('Action is not a key in the statement')
+                                else:
+                                    print(
+                                        "Unknown error: The 'Action' is neither a list nor a string")
+                                    pass
+                            except KeyError as e:
+                                print(
+                                    f"KeyError line 206: get_actions_from_json_policy_file {e}")
+                                exit()
+
+                    # Otherwise it will be a list of Sids
+                    elif isinstance(data['Statement'], list):
+                        # We only want to evaluate policies that have Effect = "Allow"
+                        try:
+                            if data['Statement'][i]['Effect'] == 'Deny':
+                                continue
+                            else:
+                                if 'Action' in data['Statement'][i]:
+                                    if isinstance(data['Statement'][i]['Action'], str):
+                                        actions_list.append(
+                                            data['Statement'][i]['Action'])
+                                    elif isinstance(data['Statement'][i]['Action'], list):
+                                        actions_list.extend(
+                                            data['Statement'][i]['Action'])
+                                    elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
+                                        print('Skipping due to NotAction')
+                                    else:
+                                        print(
+                                            "Unknown error: The 'Action' is neither a list nor a string")
+                                        exit()
+                                else:
+                                    continue
+                        except KeyError as e:
                             print(
-                                "Unknown error: The 'Action' is neither a list nor a string")
+                                f"KeyError line 220: get_actions_from_json_policy_file {e}")
                             exit()
-                    except KeyError as e:
-                        print(e)
-                        exit()
-                else:
-                    print("Unknown error: The 'Action' is neither a list nor a string")
+                    else:
+                        print(
+                            "Unknown error: The 'Action' is neither a list nor a string")
+                        # exit()
+                except TypeError as e:
+                    print(
+                        f"TypeError line 226: get_actions_from_json_policy_file {e}")
                     exit()
-            except TypeError as e:
-                print(e)
-                exit()
+
+    except:
+        print("General Error at get_actions_from_json_policy_file.")
     try:
         actions_list = [x.lower() for x in actions_list]
     except AttributeError:
