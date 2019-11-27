@@ -1,4 +1,4 @@
-from policy_sentry.command.analyze_iam_policy import determine_actions_to_expand
+from policy_sentry.shared.analyze import determine_actions_to_expand
 import unittest
 
 

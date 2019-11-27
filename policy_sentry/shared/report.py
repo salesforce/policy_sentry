@@ -22,23 +22,17 @@ REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
 # Summary
 
-Here's what we did
-
-# Approach
-
-Here's how it works
+This report contains the details of all IAM policies flagged during the IAM analysis. All of these details can also be viewed in the JSON data file.
 
 ## Risk Categories
 
-* Privilege Escalation: Definition
-* Resource Exposure: Definition
-* Network Exposure: Definition
-* Data access: Definition
-* Credentials Exposure: Definition
+  - Privilege Escalation: This is based off of [Rhino Security Labs research](https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation).
 
-## Risk Scoring Approach
+  - Resource Exposure: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
 
-[CVSS 3.1](https://www.first.org/cvss/calculator/3.1)
+  - Network Exposure: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
+
+  - Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
 # Results
 
@@ -180,6 +174,7 @@ def create_csv_report(occurrences, filename, subdirectory="/"):
             ]
 
             filewriter.writerow(row)
+    return report_path
 
 
 def create_json_report(occurrences, filename, subdirectory="/"):
@@ -187,6 +182,7 @@ def create_json_report(occurrences, filename, subdirectory="/"):
     with open(report_path, 'w') as json_file:
         json_file.write(json.dumps(occurrences, indent=4))
     json_file.close()
+    return report_path
 
 
 def create_markdown_report(report_contents, filename, subdirectory="/"):
@@ -194,4 +190,5 @@ def create_markdown_report(report_contents, filename, subdirectory="/"):
     with open(report_path, 'w') as file:
         file.write(report_contents)
     file.close()
-    print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown report.md -t html > report.html")
+    print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown overall.md -t html > overall.html")
+    return report_path

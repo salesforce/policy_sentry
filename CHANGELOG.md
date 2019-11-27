@@ -1,13 +1,18 @@
 # Changelog
+## 2019-11-26
+* Moved generate-report back to the analyze command.
+* Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`
+* Cutting a new release when this is done due to the major changes involved.
+* Update the command cheat sheet and the ReadTheDocs stuff for this
+
 ## 2019-11-24
 ### Changed
 * Fixed analyze function's accuracy - normalizes incoming lists of actions so it accepts lists of actions regardless of lower/upper/camel case.
 ## 2019-11-22
 ### Added
 * Initial set of improvements for uplift of the analyze-iam-policy feature.
-  - Created generate-report command (will eventually move this over to the regular analyze commmand, just keeping it separate for now)
+  - Created generate-report command (will eventually move this over to the regular analyze command, just keeping it separate for now)
   - Added scaffolding for generating report templates in Markdown and then to HTML using Jinja2 templates
-  - Worked through the initial proposed structure on my end for approaching IAM policy scoring with a CVSS inspiration. Figured out the proposed risk scoring
   - Added functionality to download policies recursively
 * To finish this analysis uplift, still need to do the following:
   - Need to run the analysis recursively on those directories, and store the results properly

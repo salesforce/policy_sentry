@@ -12,7 +12,7 @@ from policy_sentry.shared.constants import DEFAULT_CREDENTIALS_FILE
     '--recursive',
     default=False,
     is_flag=True,
-    help='Path to the AWS Credentials file. Defaults to ~/.aws/credentials.'
+    help='Use this flag to download *all* IAM policies from accounts listed in your AWS credentials file.'
 )
 @click.option(
     '--profile',
