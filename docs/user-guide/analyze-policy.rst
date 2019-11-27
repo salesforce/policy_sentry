@@ -43,9 +43,11 @@ Options
       policy-file          Analyze a *single* policy file and generate a report
 
 
+
 **downloaded-policies subcommand**:
 
 .. code-block:: text
+
     Usage: policy_sentry analyze downloaded-policies [OPTIONS]
 
       Analyze all locally downloaded IAM policy files and generate a report.
@@ -60,6 +62,7 @@ Options
                                  report. Due to potentially very large report
                                  sizes, this is set to False by default.
       --help                     Show this message and exit.
+
 
 
 **policy-file subcommand**:
