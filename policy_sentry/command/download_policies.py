@@ -6,7 +6,7 @@ from policy_sentry.shared.constants import DEFAULT_CREDENTIALS_FILE
 
 
 @click.command(
-    short_help='Download remote IAM policies to a directory for use in the analyze-iam-policies command.'
+    short_help='Download remote IAM policies to a directory for use in the analyze command.'
 )
 @click.option(
     '--recursive',
@@ -33,7 +33,7 @@ from policy_sentry.shared.constants import DEFAULT_CREDENTIALS_FILE
     help='Download both attached and unattached policies.'
 )
 def download_policies(recursive, profile, aws_managed, include_unattached):
-    """Download remote IAM policies to a directory for use in the analyze-iam-policies command."""
+    """Download remote IAM policies to a directory for use in the analyze command."""
     # Consolidated these because we want the default to be attached policies only, with a boolean flag.
     # Only use the --include-unattached flag if you want to download those too.
     # Otherwise they would have to use a really long command every time.
