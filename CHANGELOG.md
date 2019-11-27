@@ -6,11 +6,7 @@
 * Update the command cheat sheet and the ReadTheDocs stuff for this
 * Added test cases for new parts of analyze command
 * Created constants.py to reduce unnecessary code
-
-* To finish this analysis uplift, still need to do the following:
-  - Need to run the analysis recursively on those directories, and store the results properly
-  - Allow for one-off execution of Analyze report, not just from that directory. This will allow for Case #2 in the "Motivation" description.
-  - Need to write instructions for using Gossamer to build the credentials file
+* Analyze command now allows for single policy files as well as recursively looking throughout the directory,
 
 ## 2019-11-24
 ### Changed

@@ -90,18 +90,36 @@ def determine_actions_to_expand(action_list):
     return new_action_list
 
 
-def analyze(policy_file, db_session, from_access_level, from_audit_file):
+def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
 
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
 
-    if from_access_level:
-        actions_list = analyze_by_access_level(policy_file, db_session, from_access_level)
+    finding = {}
+    policy_findings = {}
+
+    policy_name = policy_file.rsplit(".", 1)[0]  # after the extension
+    policy_name_split = str.split(policy_name, '/')
+    policy_name = policy_name_split[-1:][0]  # if there are multiple folders deep pick `file` from `path/to/file`
+
+    # If the policy name matches excluded role patterns, skip it
+    reg_list = map(re.compile, excluded_role_patterns)
+    if any(regex.match(policy_name) for regex in reg_list):
+        return False
     else:
-        # print("These are the expanded actions")
-        # print(expanded_actions)
         actions_list = determine_risky_actions(expanded_actions, from_audit_file)
-    return actions_list
+        actions_list.sort()  # sort in alphabetical order
+        actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
+        if actions_list:
+            finding[finding_type] = copy.deepcopy(actions_list)
+            # Store the account ID
+            finding['account_id'] = account_id
+            policy_findings[policy_name] = copy.deepcopy(finding)
+        else:
+            # Just store the account ID
+            finding['account_id'] = account_id
+            pass
+        return policy_findings
 
 
 def analyze_by_access_level(policy_file, db_session, access_level):
@@ -127,7 +145,7 @@ def analyze_by_access_level(policy_file, db_session, access_level):
 #     """
 
 
-def analyze_policy_directory(policy_directory, account_id, db_session, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_directory(policy_directory, account_id, from_audit_file, finding_type, excluded_role_patterns):
     """
     Audits a directory of policy JSON files.
 

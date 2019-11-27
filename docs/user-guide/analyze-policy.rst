@@ -30,16 +30,56 @@ Options
 
 .. code-block:: text
 
-    Usage: policy_sentry analyze [OPTIONS]
+    Usage: policy_sentry analyze [OPTIONS] COMMAND [ARGS]...
 
-      Download remote IAM policies to a directory for use in the analyze-iam-
-      policies command.
+      Analyze locally stored IAM policies and generate a report.
+
+    Options:
+      --help  Show this message and exit.
+
+    Commands:
+      downloaded-policies  Analyze *all* locally downloaded IAM policy files and
+                           generate a report.
+      policy-file          Analyze a *single* policy file and generate a report
+
+
+**downloaded-policies subcommand**:
+
+.. code-block:: text
+    Usage: policy_sentry analyze downloaded-policies [OPTIONS]
+
+      Analyze all locally downloaded IAM policy files and generate a report.
 
     Options:
       --report-config PATH       Custom report configuration file. Contains policy
                                  name exclusions and custom risk score weighting.
                                  Defaults to ~/.policy_sentry/report-config.yml
       --report-name TEXT         Name of the report. Defaults to "overall".
+      --include-markdown-report  Use this flag to enable a Markdown report, which
+                                 can be used with pandoc to generate an HTML
+                                 report. Due to potentially very large report
+                                 sizes, this is set to False by default.
+      --help                     Show this message and exit.
+
+
+**policy-file subcommand**:
+
+.. code-block:: text
+
+    Usage: policy_sentry analyze policy-file [OPTIONS]
+
+      Analyze a *single* policy file and generate a report
+
+    Options:
+      --policy PATH              The policy file to analyze.  [required]
+      --report-config PATH       Custom report configuration file. Contains policy
+                                 name exclusions and custom risk score weighting.
+                                 Defaults to ~/.policy_sentry/report-config.yml
+      --report-path PATH         *Path* to the directory of the final report.
+                                 Defaults to current directory.
+      --account-id TEXT          Account ID for the policy. If you want the report
+                                 to include the account ID, provide it here.
+                                 Defaults to a placeholder value.
       --include-markdown-report  Use this flag to enable a Markdown report, which
                                  can be used with pandoc to generate an HTML
                                  report. Due to potentially very large report
@@ -82,11 +122,10 @@ Audit all downloaded policies and generate a report
     policy_sentry download --recursive
 
     # Audit all JSON policies under the path ~/.policy_sentry/analysis/account_id/customer-managed
-    policy_sentry analyze
+    policy_sentry analyze --downloaded-policies
 
     # Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml
-    policy_sentry analyze --report-config custom-config.yml
-
+    policy_sentry analyze --downloaded-policies --report-config custom-config.yml
 
 * Output:
 
@@ -137,6 +176,50 @@ Audit all downloaded policies and generate a report
         ]
     },
 }
+
+
+Audit a single IAM policy and generate a report
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+* Command:
+
+.. code-block:: bash
+
+    # Analyze a single IAM policy
+    policy_sentry analyze policy-file --policy examples/explicit-actions.json
+
+
+* This will create a CSV file that looks like this:
+
+| Account ID   | Policy Name       | Resource Exposure | Privilege Escalation | Network Exposure | Credentials Exposure |
+|--------------|-------------------|-------------------|----------------------|------------------|----------------------|
+| 000000000000 | explicit\-actions | 9                 | 0                    | 0                | 1                    |
+
+* ... and a JSON data file that looks like this:
+
+.. code-block:: json
+
+    {
+        "explicit-actions": {
+            "resource_exposure": [
+                "ecr:setrepositorypolicy",
+                "s3:deletebucketpolicy",
+                "s3:objectowneroverridetobucketowner",
+                "s3:putaccountpublicaccessblock",
+                "s3:putbucketacl",
+                "s3:putbucketpolicy",
+                "s3:putbucketpublicaccessblock",
+                "s3:putobjectacl",
+                "s3:putobjectversionacl"
+            ],
+            "account_id": "000000000000",
+            "credentials_exposure": [
+                "ecr:getauthorizationtoken"
+            ]
+        }
+    }
+
 
 Custom Config file
 ~~~~~~~~~~~~~~~~~~~~

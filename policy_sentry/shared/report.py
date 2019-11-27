@@ -112,9 +112,12 @@ def create_markdown_report_template(occurrences):
     return msg
 
 
-def create_csv_report(occurrences, filename, subdirectory="/"):
-    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.csv'
-    with open(report_path, 'w') as csvfile:
+def create_csv_report(occurrences, filename, report_dir=False):
+    if report_dir:
+        report_filepath = report_dir + '/' + filename + '.csv'
+    else:
+        report_filepath = ANALYSIS_DIRECTORY_PATH + '/' + filename + '.csv'
+    with open(report_filepath, 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',',
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(
@@ -154,21 +157,27 @@ def create_csv_report(occurrences, filename, subdirectory="/"):
             ]
 
             filewriter.writerow(row)
-    return report_path
+    return report_filepath
 
 
-def create_json_report(occurrences, filename, subdirectory="/"):
-    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.json'
-    with open(report_path, 'w') as json_file:
+def create_json_report(occurrences, filename, report_dir=False):
+    if report_dir:
+        report_filepath = report_dir + '/' + filename + '.json'
+    else:
+        report_filepath = ANALYSIS_DIRECTORY_PATH + '/' + filename + '.json'
+    with open(report_filepath, 'w') as json_file:
         json_file.write(json.dumps(occurrences, indent=4))
     json_file.close()
-    return report_path
+    return report_filepath
 
 
-def create_markdown_report(report_contents, filename, subdirectory="/"):
-    report_path = ANALYSIS_DIRECTORY_PATH + subdirectory + filename + '.md'
-    with open(report_path, 'w') as file:
+def create_markdown_report(report_contents, filename, report_dir=False):
+    if report_dir:
+        report_filepath = report_dir + '/' + filename + '.md'
+    else:
+        report_filepath = ANALYSIS_DIRECTORY_PATH + '/' + filename + '.md'
+    with open(report_filepath, 'w') as file:
         file.write(report_contents)
     file.close()
     print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown overall.md -t html > overall.html")
-    return report_path
+    return report_filepath

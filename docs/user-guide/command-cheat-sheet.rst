@@ -75,11 +75,13 @@ Policy Download and Analysis Commands
     policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
 
     # Download customer-managed IAM policies, including those that are not attached
-    policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+    policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/*.json
+
+    # Analyze a single IAM policy FILE
+    policy_sentry analyze policy-file --policy examples/explicit-actions.json
 
     # 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
     # 2. Recursively download all IAM policies from accounts in your credentials file
-    # Note: alternatively, you can just place them there yourself.
     policy_sentry download --recursive
 
     # Audit all IAM policies downloaded locally and generate CSV and JSON reports.

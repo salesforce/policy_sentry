@@ -212,8 +212,8 @@ policy_sentry write-policy --input-file examples/yml/actions.yml
 # Initialize the policy_sentry config folder and create the IAM database tables.
 policy_sentry initialize
 
-# Analyze a policy FILE to determine actions with "Permissions Management" access levels
-policy_sentry analyze-iam-policy --from-access-level permissions-management --policy examples/analyze/wildcards.json
+# Analyze a single IAM policy FILE
+policy_sentry analyze policy-file --policy examples/explicit-actions.json
 
 # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
 policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
@@ -223,7 +223,6 @@ policy_sentry download-policies --include-unattached # this will download to ~/.
 
 # 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
 # 2. Recursively download all IAM policies from accounts in your credentials file
-# Note: alternatively, you can just place them there yourself.
 policy_sentry download --recursive
 
 # Audit all IAM policies downloaded locally and generate CSV and JSON reports.
