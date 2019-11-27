@@ -187,9 +187,18 @@ class ArnActionGroup:
         return arn_dict
 
     def get_arns(self):
+        """
+        Getter function for the ARNs object
+        :return: ARNs object
+        """
         return self.arns
 
     def does_action_exist(self, action):
+        """
+        Get boolean response for whether or not an action exists under any of the ARNs.
+        :param action: full action name, like s3:GetObject
+        :return: True or False
+        """
         exists = 0
         for i in range(len(self.arns)):
             if action in self.arns[i]['actions']:
@@ -199,6 +208,11 @@ class ArnActionGroup:
         return exists > 0
 
     def remove_actions_duplicated_in_wildcard_resources(self):
+        """
+        Removes actions from the object that are in a resource-specific ARN, as well as the `*` resource.
+        For example, if ssm:GetParameter is restricted to a specific parameter path, as well as `*`, then we want to
+        remove the `*` option to force least privilege.
+        """
         actions_under_wildcard_resources = []
         actions_under_wildcard_resources_to_nuke = []
         for i in range(len(self.arns)):
@@ -263,9 +277,10 @@ class ArnActionGroup:
         self.remove_sids_with_empty_action_lists()
 
     def remove_sids_with_empty_action_lists(self):
-        # Now that we've removed a bunch of actions, if there are SID groups
-        # without any actions, remove them so we don't get SIDs with empty
-        # action lists
+        """
+        Now that we've removed a bunch of actions, if there are SID groups without any actions,
+            remove them so we don't get SIDs with empty action lists
+        """
         indexes_to_delete = []
         for i in range(len(self.arns)):
             if len(self.arns[i]['actions']) > 0:
@@ -284,6 +299,10 @@ class ArnActionGroup:
                 #         print("actions_list is" + str(actions_list))
 
     def combine_policy_elements(self):
+        """
+        Consolidate the policy elements by looking at where ARNs are used
+        :return:
+        """
         # Using numbers in the 'altered' list to identify indexes that have
         # been altered
         altered = []
@@ -301,7 +320,6 @@ class ArnActionGroup:
 
         self.remove_sids_with_empty_action_lists()
         self.remove_actions_duplicated_in_wildcard_resources()
-        # self.remove_sids_with_empty_action_lists()
 
     def get_policy_elements(self, db_session):
         """
@@ -374,7 +392,9 @@ def capitalize_first_character(some_string):
 
 
 class PolicyGroup:
-
+    """
+    This is used for downloading IAM policies remotely. It requires chaining two boto3 calls back to back.
+    """
     def __init__(self):
         self.policies = {}
         # each dict has:
@@ -382,6 +402,7 @@ class PolicyGroup:
         # policy_document
 
     def add(self, policy_name, policy_id, policy_arn, default_version_id):
+        """Add a new policy, along with policy metadata"""
         temp_dict = {
             'policy_id': policy_id,
             'policy_arn': policy_arn,
@@ -390,12 +411,14 @@ class PolicyGroup:
         self.policies[policy_name] = temp_dict
 
     def get_policy_names(self):
+        """Get a list of the policy names currently stored."""
         temp_list_of_policy_names = []
         for policy in self.policies:
             temp_list_of_policy_names.append(policy)
         return temp_list_of_policy_names
 
     def get_policy_document(self, policy_name, formatted_as_string=None):
+        """Given a policy name, return the policy's document, either as a string or a dict"""
         if formatted_as_string:
             policy = self.policies[policy_name]['policy_document']
             return json.dumps(policy, indent=4, default=str)
@@ -408,7 +431,7 @@ class PolicyGroup:
             customer_managed=True,
             attached_only=True):
         """
-        Grabs IAM policies and adds them to the object
+        Downloads IAM policies and adds them to the object
         :param attached_only: Attached policies only
         :param iam_session: IAM boto session
         :param customer_managed: True for 'Local' (customer managed policies), False for 'AWS' (managed policies)

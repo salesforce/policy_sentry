@@ -3,6 +3,7 @@
 
 
 def get_service_from_condition_key(condition_key):
+    """Given a condition key, return the service prefix"""
     elements = condition_key.split(':', 2)
     return elements[0]
 

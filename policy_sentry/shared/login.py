@@ -6,6 +6,7 @@ from botocore.exceptions import ClientError, NoCredentialsError
 
 
 def login_sts_test(sts_session):
+    """Test the login procedure with boto3 STS session."""
     try:
         sts_session.get_caller_identity()
     except ClientError as c_e:
@@ -27,6 +28,7 @@ def login_sts_test(sts_session):
 
 
 def login_iam_test(iam_session):
+    """Test the login procedure with boto3 IAM session."""
     try:
         iam_session.get_user(UserName="test")
     except ClientError as c_e:
@@ -51,6 +53,7 @@ def login_iam_test(iam_session):
 
 
 def login(profile_name, service='iam'):
+    """Log in to AWS and return a boto3 session."""
     default_region = os.environ.get("AWS_REGION", "us-east-1")
     session_data = {"region_name": default_region}
     if profile_name:
@@ -75,6 +78,7 @@ def login(profile_name, service='iam'):
 
 
 def get_list_of_aws_profiles(credentials_file):
+    """Get a list of profiles from the AWS Credentials file"""
     config = configparser.RawConfigParser()
     config.read(credentials_file)
     sections = config.sections()

@@ -14,16 +14,19 @@ class Roles:
     roles = None
 
     def __init__(self):
+        """Create the data holder for action_lists"""
         self.roles = []
 
     def add_role(self, role):
+        """Chain write-policy action mode files together"""
         self.roles.append(role)
 
     def get_roles(self):
+        """Get the full data structure of action_list holder."""
         return self.roles
 
     def process_actions_config(self, cfg):
-
+        """Given the YAML file used for the list of actions config, process it."""
         try:
             for category in cfg:
                 if category == 'roles_with_actions':

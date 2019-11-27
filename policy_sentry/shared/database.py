@@ -116,7 +116,6 @@ def build_action_table(db_session, service, access_level_overrides_file):
     That information is scraped, parsed, and stored in the SQLite database using this function.
     :param db_session: Database session object
     :param service: AWS Service to query. This can be called in a loop or for a single service (see connect_db function above).
-    :return:
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
@@ -238,6 +237,11 @@ def build_action_table(db_session, service, access_level_overrides_file):
 
 
 def build_arn_table(db_session, service):
+    """
+    Builds the ARN Table - the table of resource types - in the SQLite database.
+    :param db_session: SQLAlchemy database session.
+    :param service: The AWS service prefix
+    """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
     for df_list in html_list:
@@ -282,6 +286,11 @@ def build_arn_table(db_session, service):
 
 
 def build_condition_table(db_session, service):
+    """
+    Build the Conditions table - the list of conditions available to each service.
+    :param db_session: SQLAlchemy database session
+    :param service: AWS Service Prefix
+    """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
     for df_list in html_list:

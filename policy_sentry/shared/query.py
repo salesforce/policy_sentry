@@ -111,6 +111,7 @@ def query_action_table_by_name(db_session, service, name):
 
 
 def query_action_table_for_actions_supporting_wildcards_only(db_session, service):
+    """Get a list of actions that do not support restricting the action to resource ARNs."""
     actions_list = []
     rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
         ActionTable.service.ilike(service),
@@ -155,6 +156,7 @@ def query_action_table_by_arn_type_and_access_level(db_session, service, resourc
 
 
 def query_action_table_for_all_condition_key_matches(db_session, service, condition_key):
+    """Get a list of all condition keys that are available to a service prefix."""
     results = []
     looking_for = '%{0}%'.format(condition_key)
     if service:
@@ -177,6 +179,7 @@ def query_action_table_for_all_condition_key_matches(db_session, service, condit
 
 
 def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
+    """Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot."""
     # remove duplicates, if there are any
     actions_list_unique = list(dict.fromkeys(actions_list))
     actions_list_placeholder = []

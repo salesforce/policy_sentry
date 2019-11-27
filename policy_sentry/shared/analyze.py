@@ -91,7 +91,11 @@ def determine_actions_to_expand(action_list):
 
 
 def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
-
+    """
+    Given a policy file, determine risky actions based on a separate file containing a list of actions.
+    If it matches a policy exclusion pattern from the report-config.yml file, that policy file will be skipped.
+    """
+    # FIXME: Rename "role_exclusion_pattern" to "policy_exclusion_pattern"
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
 
@@ -124,6 +128,10 @@ def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, 
 
 
 def analyze_by_access_level(policy_file, db_session, access_level):
+    """
+    Determine if a policy has any actions with a given access level. This is particularly useful when determining who
+    has 'Permissions management' level access
+    """
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
     actions_by_level = get_actions_by_access_level(
