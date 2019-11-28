@@ -1,11 +1,16 @@
-import yaml
-import os.path
+"""
+Functions that relate to manipulating files, loading files, and managing filepaths.
+"""
 import json
+import os.path
 from os import listdir
 from os.path import isfile, join
 
+import yaml
+
 
 def read_this_file(filename):
+    """Read a file at a path and return the lines from each file"""
     lines = []
 
     with open(filename, 'r') as fileobj:
@@ -65,11 +70,13 @@ def write_json_file(filename, json_contents):
 
 
 def list_files_in_directory(directory):
+    """Equivalent of ls command, and return the list of files"""
     only_files = [f for f in listdir(directory) if isfile(join(directory, f))]
     return only_files
 
 
 def create_directory_if_it_doesnt_exist(directory):
+    """Equivalent of mkdir -p"""
     if os.path.exists(directory):
         pass
     else:

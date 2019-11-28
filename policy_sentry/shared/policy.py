@@ -1,7 +1,10 @@
+"""
+PolicyGroup
+ArnActionGroup
+"""
 import copy
 import sys
 import re
-import json
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable
 from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
@@ -10,6 +13,23 @@ from policy_sentry.shared.query import remove_actions_that_are_not_wildcard_arn_
 
 
 class ArnActionGroup:
+    """
+    This class is critical to the creation of least privilege policies.
+    It uses the SIDs as namespaces. The namespaces follow this format:
+        {Servicename}{Accesslevel}{Resourcetypename}
+    So, a resulting statement might look like this:
+
+        {
+            "Sid": "S3ListBucket",  # {Servicename}{Accesslevel}{Resourcetypename}
+            "Effect": "Allow",      # Always generates policies with effect allow
+            "Action": [
+                "s3:listbucket"     # Actions ONLY include actions that are under the "List" access level
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-org-flow-logs"    # The ARN format is of the "Bucket" Resourcetypename.
+            ]
+        },
+    """
     def __init__(self):
         self.arns = []
 
@@ -45,6 +65,7 @@ class ArnActionGroup:
                             continue
                         self.arns.append(copy.deepcopy(temp_arn_dict))
 
+    # pylint: disable=too-many-arguments
     def add_complete_entry(
             self,
             arn_from_user,
@@ -74,6 +95,7 @@ class ArnActionGroup:
         # else:
         self.arns.append(copy.deepcopy(temp_arn_dict))
 
+    # pylint: disable=too-many-nested-blocks, too-many-branches
     def process_resource_specific_acls(self, cfg, db_session):
         """
         Processes the YAML file for the resources per access level, and adds it to the object.
@@ -131,24 +153,24 @@ class ArnActionGroup:
 
     def process_list_of_actions(self, supplied_actions, db_session):
         """
-        Full processing of the list of actions
+        Takes a list of actions, queries the database for corresponding arns, adds them to the object
         :param supplied_actions: A list of supplied actions
         :param db_session: SQLAlchemy database session object
         :return: arn_dict: This is the compiled and updated dictionary after all necessary processing.
             This plugs into create_policy
         """
         arns_matching_supplied_actions = []
+        # query the database for corresponding ARNs and add them to arns_matching_supplied_actions
         for action in supplied_actions:
             action_name = get_action_name_from_action(action)
             service_name = get_service_from_action(action)
-            for row in db_session.query(ActionTable).filter(
-                and_(
-                    ActionTable.service.like(service_name),
-                    ActionTable.name.like(action_name))):
+            for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service_name),
+                                                                 ActionTable.name.like(action_name))):
                 if row.resource_arn_format not in arns_matching_supplied_actions:
                     arns_matching_supplied_actions.append(
                         [row.resource_arn_format, row.access_level, str(row.service + ':' + row.name)])
-
+        # Identify the actions that require wildcard ONLY - i.e., they do not permit use of resource ARNs
+        # If that's the case, add it to the wildcard namespace. Otherwise, don't add it.
         actions_with_wildcard = []
         for i in range(len(arns_matching_supplied_actions)):
             if '*' not in arns_matching_supplied_actions[i][0]:
@@ -187,9 +209,18 @@ class ArnActionGroup:
         return arn_dict
 
     def get_arns(self):
+        """
+        Getter function for the ARNs object
+        :return: ARNs object
+        """
         return self.arns
 
     def does_action_exist(self, action):
+        """
+        Get boolean response for whether or not an action exists under any of the ARNs.
+        :param action: full action name, like s3:GetObject
+        :return: True or False
+        """
         exists = 0
         for i in range(len(self.arns)):
             if action in self.arns[i]['actions']:
@@ -199,6 +230,11 @@ class ArnActionGroup:
         return exists > 0
 
     def remove_actions_duplicated_in_wildcard_resources(self):
+        """
+        Removes actions from the object that are in a resource-specific ARN, as well as the `*` resource.
+        For example, if ssm:GetParameter is restricted to a specific parameter path, as well as `*`, then we want to
+        remove the `*` option to force least privilege.
+        """
         actions_under_wildcard_resources = []
         actions_under_wildcard_resources_to_nuke = []
         for i in range(len(self.arns)):
@@ -221,20 +257,19 @@ class ArnActionGroup:
                         try:
                             self.arns[i]['actions'].remove(
                                 str(actions_under_wildcard_resources_to_nuke[j]))
-                        except BaseException:
+                        except BaseException:  # pylint: disable=broad-except
                             print("Removal not successful")
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
-        Simply fills in the actions list
-        :param session: SQLAlchemy database session
+        Considers the attribute values under each value in self.arns, and
+        fills in the actions lists accordingly.
+        :param db_session: SQLAlchemy database session
         """
         for i in range(len(self.arns)):
-            for row in db_session.query(ActionTable).filter(
-                and_(
-                    ActionTable.access_level.like(
-                        self.arns[i]['access_level']), ActionTable.resource_arn_format.like(
-                    self.arns[i]['arn_format']))):
+            for row in db_session.query(ActionTable).filter(and_( # pylint: disable=bad-continuation
+                    ActionTable.access_level.like(self.arns[i]['access_level']),
+                    ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
                 if self.arns[i]['access_level'] == row.access_level and self.arns[i][
                         'arn_format'] == row.resource_arn_format:
                     self.arns[i]['actions'].append(
@@ -265,9 +300,10 @@ class ArnActionGroup:
         self.remove_sids_with_empty_action_lists()
 
     def remove_sids_with_empty_action_lists(self):
-        # Now that we've removed a bunch of actions, if there are SID groups
-        # without any actions, remove them so we don't get SIDs with empty
-        # action lists
+        """
+        Now that we've removed a bunch of actions, if there are SID groups without any actions,
+            remove them so we don't get SIDs with empty action lists
+        """
         indexes_to_delete = []
         for i in range(len(self.arns)):
             if len(self.arns[i]['actions']) > 0:
@@ -286,6 +322,10 @@ class ArnActionGroup:
                 #         print("actions_list is" + str(actions_list))
 
     def combine_policy_elements(self):
+        """
+        Consolidate the policy elements by looking at where ARNs are used
+        :return:
+        """
         # Using numbers in the 'altered' list to identify indexes that have
         # been altered
         altered = []
@@ -303,7 +343,6 @@ class ArnActionGroup:
 
         self.remove_sids_with_empty_action_lists()
         self.remove_actions_duplicated_in_wildcard_resources()
-        # self.remove_sids_with_empty_action_lists()
 
     def get_policy_elements(self, db_session):
         """
@@ -318,9 +357,7 @@ class ArnActionGroup:
         for i in range(len(self.arns)):
             # Create SID Namespace
             query_resource_arn_format = db_session.query(
-                ArnTable.resource_type_name).filter(
-                ArnTable.raw_arn.like(
-                    self.arns[i]['arn_format']))
+                ArnTable.resource_type_name).filter(ArnTable.raw_arn.like(self.arns[i]['arn_format']))
             resource_arn_format = query_resource_arn_format.first()
             temp_name = create_policy_sid_namespace(
                 self.arns[i]['service'],
@@ -375,78 +412,3 @@ def capitalize_first_character(some_string):
     """
     return ' '.join(''.join([w[0].upper(), w[1:].lower()])
                     for w in some_string.split())
-
-
-class PolicyGroup:
-
-    def __init__(self):
-        self.policies = {}
-        # each dict has:
-        # policy_name, policy_id, policy_arn, default_version_id, and
-        # policy_document
-
-    def add(self, policy_name, policy_id, policy_arn, default_version_id):
-        temp_dict = {
-            'policy_id': policy_id,
-            'policy_arn': policy_arn,
-            'default_version_id': default_version_id
-        }
-        self.policies[policy_name] = temp_dict
-
-    def get_policy_names(self):
-        temp_list_of_policy_names = []
-        for policy in self.policies:
-            temp_list_of_policy_names.append(policy)
-        return temp_list_of_policy_names
-
-    def get_policy_document(self, policy_name, formatted_as_string=None):
-        if formatted_as_string:
-            policy = self.policies[policy_name]['policy_document']
-            return json.dumps(policy, indent=4, default=str)
-        else:
-            return self.policies[policy_name]['policy_document']
-
-    def set_remote_policy_metadata(
-            self,
-            iam_session,
-            customer_managed=True,
-            attached_only=True):
-        """
-        Grabs IAM policies and adds them to the object
-        :param iam_session: IAM boto session
-        :param customer_managed: True for 'Local' (customer managed policies), False for 'AWS' (managed policies)
-        :param only_attached: True/False
-        """
-        if customer_managed:
-            scope = 'Local'
-        else:
-            scope = 'AWS'
-        # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.list_policies
-        response = iam_session.list_policies(
-            Scope=scope,
-            OnlyAttached=attached_only,
-            PathPrefix='/',  # slash (/) lists all policies
-            # PolicyUsageFilter='PermissionsPolicy',
-            MaxItems=123
-        )
-        for policy in response['Policies']:
-            policy_name = policy['PolicyName']
-            policy_id = policy['PolicyId']
-            policy_arn = policy['Arn']
-            default_version_id = policy['DefaultVersionId']
-            self.add(policy_name, policy_id, policy_arn, default_version_id)
-
-    def set_policy_document(self, policy_name, document):
-        # document is a dict containing version and statement. Statement contains typical IAM policy statements.
-        # for policy in self.policies:
-        # TODO: Handle an error where the policy name does not exist
-        self.policies[policy_name]['policy_document'] = document
-
-    def set_remote_policy_documents(self, iam_session):
-        for policy in self.policies:
-            response = iam_session.get_policy_version(
-                PolicyArn=self.policies[policy]['policy_arn'],
-                VersionId=self.policies[policy]['default_version_id']
-            )
-            self.set_policy_document(
-                policy, response['PolicyVersion']['Document'])

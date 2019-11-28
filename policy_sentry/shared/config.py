@@ -1,9 +1,13 @@
+"""
+Functions to support creating the proper resources in the Policy Sentry Config directory - ~/.policy_sentry.
+"""
 import os
-from policy_sentry.shared.file import read_this_file, create_directory_if_it_doesnt_exist, \
-    list_files_in_directory, read_yaml_file
-import shutil
 import sys
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, AUDIT_DIRECTORY_PATH
+import shutil
+from policy_sentry.shared.file import create_directory_if_it_doesnt_exist, \
+    list_files_in_directory, read_yaml_file
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, \
+    AUDIT_DIRECTORY_PATH
 
 
 def create_policy_sentry_config_directory():
@@ -34,8 +38,7 @@ def create_audit_directory():
     create_directory_if_it_doesnt_exist(audit_directory_path)
     destination = audit_directory_path
 
-    existing_audit_files_directory = os.path.abspath(
-        os.path.dirname(__file__)) + '/data/audit/'
+    existing_audit_files_directory = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/'
     source = existing_audit_files_directory
     file_list = list_files_in_directory(existing_audit_files_directory)
 
@@ -62,8 +65,7 @@ def create_default_overrides_file():
     """
     existing_overrides_file_name = 'access-level-overrides.yml'
     target_overrides_file_path = HOME + CONFIG_DIRECTORY + existing_overrides_file_name
-    existing_overrides_file_path = os.path.abspath(
-        os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
+    existing_overrides_file_path = os.path.abspath(os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
     shutil.copy(existing_overrides_file_path, target_overrides_file_path)
     print(
         f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
@@ -75,8 +77,8 @@ def create_default_report_config_file():
     """
     existing_report_config_file = 'report-config.yml'
     target_report_config_file_path = AUDIT_DIRECTORY_PATH + existing_report_config_file
-    existing_overrides_file_path = os.path.abspath(
-        os.path.dirname(__file__)) + '/data/' + 'audit/' + existing_report_config_file
+    existing_overrides_file_path = os.path.abspath(os.path.dirname(
+        __file__)) + '/data/' + 'audit/' + existing_report_config_file
     shutil.copy(existing_overrides_file_path, target_report_config_file_path)
     print(
         f"Copying overrides file {existing_report_config_file} to {target_report_config_file_path}")
@@ -85,7 +87,8 @@ def create_default_report_config_file():
 def get_action_access_level_overrides_from_yml(
         service, access_level_overrides_file_path=None):
     """
-    Read the YML overrides file, which is formatted like: ['ec2']['permissions-management'][action_name].
+    Read the YML overrides file, which is formatted like:
+    ['ec2']['permissions-management'][action_name].
     Since the AWS Documentation is sometimes outdated, we can use this YML file to
     override whatever they provide in their documentation.
     """
@@ -160,6 +163,7 @@ def override_access_level(
         # If it exists in the list, then set the real_access_level to the key (key is read, write, list, etc.)
         # Once we meet this condition, break the loop so we can return the
         # value
+        # pylint: disable=no-else-break
         if str.lower(action_name) in actions_list:
             real_access_level.append(keys[i])
             break

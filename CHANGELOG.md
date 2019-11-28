@@ -1,15 +1,25 @@
 # Changelog
+## 2019-11-27, part 2
+### Changed
+* pylint
+  - `.pylintrc` generated, added items to the exclusion list.
+  - Fixes for pylint
+
 ## 2019-11-27
+### Changed
 * Refined the Network exposure actions to Create actions only - i.e., those that could cause exposure only (it does not include delete actions, only create). Typically only API calls that have public IPs as an option
 
 ## 2019-11-26
-* Moved generate-report back to the analyze command.
-* Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`
-* Cutting a new release when this is done due to the major changes involved.
-* Update the command cheat sheet and the ReadTheDocs stuff for this
+### Added
 * Added test cases for new parts of analyze command
 * Created constants.py to reduce unnecessary code
 * Analyze command now allows for single policy files as well as recursively looking throughout the directory,
+* Cutting a new release when this is done due to the major changes involved.
+### Changed
+* Moved generate-report back to the analyze command.
+* Move analysis folder from `~/.policy_sentry/policy-analysis` to `~/.policy_sentry/analysis`
+* Update the command cheat sheet and the ReadTheDocs stuff for this
+
 
 ## 2019-11-24
 ### Changed

@@ -164,7 +164,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
 
     # def test_missing_category_as_dict(self):
     #     """
-    #     Test case: write-policy when the YAML file does not contain roles_with_crud_levels or roles_with_actions, and the input is as a dict instead of a list
+    #     Test case: write-policy when the YAML file does not contain roles_with_crud_levels or
+    #     roles_with_actions, and the input is as a dict instead of a list
     #     :return:
     #     """
     #     cfg_with_missing_category = {
@@ -255,7 +256,8 @@ class YamlValidationCrudTestCase(unittest.TestCase):
 
     def test_allow_missing_access_level_categories_in_cfg(self):
         """
-        test_allow_missing_access_level_categories_in_cfg: write-policy --crud when the YAML file is missing access level categories
+        test_allow_missing_access_level_categories_in_cfg: write-policy --crud when the YAML file
+        is missing access level categories
         It should write a policy regardless.
         :return:
         """

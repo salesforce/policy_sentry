@@ -1,7 +1,10 @@
-import click
+"""
+Given a directory of Policy Sentry YML template files, write least-privilege IAM Policies in CRUD mode or Actions mode.
+"""
 import sys
 import os.path
 import glob
+import click
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_actions, write_policy_with_access_levels
 from policy_sentry.shared.file import read_yaml_file, write_json_file, check_valid_file_path

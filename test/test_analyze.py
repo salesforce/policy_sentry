@@ -53,18 +53,18 @@ class FindingsTestCase(unittest.TestCase):
                 ]
             }
         }
-        findings.add('resource_exposure', resource_exposure_finding)
-        findings.add('privilege_escalation', privilege_escalation_finding)
+        findings.add(resource_exposure_finding)
+        findings.add(privilege_escalation_finding)
         occurrences = findings.get_findings()
         self.assertDictEqual(occurrences, desired_result)
 
     def test_get_findings_by_policy_name(self):
         findings = Findings()
         # Policy name: some-risky-policy
-        findings.add('privilege_escalation', privilege_escalation_finding)
+        findings.add(privilege_escalation_finding)
         print(privilege_escalation_finding)
         # Policy name: yolo-policy
-        findings.add('privilege_escalation', privilege_escalation_yolo_policy)
+        findings.add(privilege_escalation_yolo_policy)
         print(privilege_escalation_yolo_policy)
         findings_for_second_policy_name = findings.get_findings_by_policy_name('yolo-policy')
         print(findings_for_second_policy_name)

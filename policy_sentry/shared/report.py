@@ -1,12 +1,13 @@
 """
-Generate markdown-formatted reports
+Generate reports formatted in markdown, report summaries in CSV, and raw data in JSON.
 """
-from policy_sentry.shared.file import read_yaml_file
-from jinja2 import Template
-import json
 import csv
-from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
+import json
 
+from jinja2 import Template
+
+from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
+from policy_sentry.shared.file import read_yaml_file
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
@@ -83,12 +84,14 @@ This report contains the details of all IAM policies flagged during the IAM anal
 
 
 def load_report_config_file(filename):
+    """Read the Report config file and return the rendered dict"""
     report_config_file = read_yaml_file(filename)
     return report_config_file
 
 
 def create_markdown_report_template(occurrences):
-    tm = Template(REPORT_TEMPLATE)
+    """Given a dict generated from the finding object, render the markdown template and return the markdown"""
+    template = Template(REPORT_TEMPLATE)
     # occurrences = {
     #         "policyName1": {
     #             "resource_exposure": [
@@ -106,13 +109,14 @@ def create_markdown_report_template(occurrences):
     #             ]
     #         }
     # }
-    msg = tm.render(
+    msg = template.render(
         occurrences=occurrences
     )
     return msg
 
 
 def create_csv_report(occurrences, filename, report_dir=False):
+    """Write a CSV file containing the report summary."""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.csv'
     else:
@@ -130,7 +134,7 @@ def create_csv_report(occurrences, filename, report_dir=False):
                 "Credentials Exposure",
             ]
         )
-        for key, value in occurrences.items():
+        for key, value in occurrences.items():  # pylint: disable=unused-variable
             if 'resource_exposure' in occurrences[key]:
                 resource_exposure_length = len(
                     occurrences[key]['resource_exposure'])
@@ -165,6 +169,7 @@ def create_csv_report(occurrences, filename, report_dir=False):
 
 
 def create_json_report(occurrences, filename, report_dir=False):
+    """Create a JSON file containing the raw data that can be queried for further analysis."""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.json'
     else:
@@ -176,6 +181,7 @@ def create_json_report(occurrences, filename, report_dir=False):
 
 
 def create_markdown_report(report_contents, filename, report_dir=False):
+    """Create a markdown report that contains the same data as the JSON raw data and the CSV file"""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.md'
     else:
@@ -183,5 +189,6 @@ def create_markdown_report(report_contents, filename, report_dir=False):
     with open(report_filepath, 'w') as file:
         file.write(report_contents)
     file.close()
-    print("If you wish to convert this to html, use Pandoc like this:\n\npandoc -f markdown overall.md -t html > overall.html")
+    print("If you wish to convert this to html, use Pandoc like this:\n\n"
+          "pandoc -f markdown overall.md -t html > overall.html")
     return report_filepath

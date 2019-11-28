@@ -1,3 +1,8 @@
+"""
+Download IAM policies from live IAM accounts.
+Specify a profile from the AWS Credentials file for a single download.
+Alternatively, do a bulk download for all authenticated profiles within the aws credentials file.
+"""
 import click
 from policy_sentry.shared.download import download_remote_policies, download_policies_recursively
 from policy_sentry.shared.login import get_list_of_aws_profiles
@@ -49,8 +54,7 @@ def download_policies(recursive, profile, aws_managed, include_unattached):
     if recursive:
         profiles = get_list_of_aws_profiles(DEFAULT_CREDENTIALS_FILE)
         # if download:
-        download_directories = download_policies_recursively(
-            DEFAULT_CREDENTIALS_FILE, profiles)
+        download_policies_recursively(profiles)
     else:
-        download_directory = download_remote_policies(
+        download_remote_policies(
             profile, customer_managed, attached_only)

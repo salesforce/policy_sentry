@@ -8,24 +8,23 @@
     * Generate a report to illustrate the risk levels of IAM policies across various accounts.
     * The risk levels are Credentials Exposure, Privilege Escalation, Network Exposure, and Resource Exposure.
 """
+import os
 from glob import glob
 import click
-import os
 from policy_sentry.shared.analyze import analyze_policy_directory, analyze_policy_file
-from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.report import load_report_config_file, create_csv_report, create_json_report, \
     create_markdown_report, create_markdown_report_template
 from policy_sentry.shared.finding import Findings
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_PATH, \
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, \
     AUDIT_DIRECTORY_PATH
 
 # Audit filenames
-credentials_exposure_filename = AUDIT_DIRECTORY_PATH + '/credentials-exposure.txt'
-data_access_filename = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
-privilege_escalation_filename = AUDIT_DIRECTORY_PATH + '/privilege-escalation.txt'
-network_exposure_filename = AUDIT_DIRECTORY_PATH + '/network-exposure.txt'
-resource_exposure_filename = AUDIT_DIRECTORY_PATH + '/resource-exposure.txt'
-# data_access_arn_list_filename = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
+CREDENTIALS_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/credentials-exposure.txt'
+DATA_ACCESS_FILENAME = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
+PRIVILEGE_ESCALATION_FILENAME = AUDIT_DIRECTORY_PATH + '/privilege-escalation.txt'
+NETWORK_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/network-exposure.txt'
+RESOURCE_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/resource-exposure.txt'
+# DATA_ACCESS_ARN_LIST_FILENAME = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
 
 
 @click.group()
@@ -78,27 +77,27 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
         account_id = os.path.split(os.path.dirname(directory))[-1]
         # Resource Exposure
         resource_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
-                                                              resource_exposure_filename, 'resource_exposure',
+                                                              RESOURCE_EXPOSURE_FILENAME, 'resource_exposure',
                                                               excluded_role_patterns)
-        findings.add('resource_exposure', resource_exposure_findings)
+        findings.add(resource_exposure_findings)
 
         # Privilege Escalation
         privilege_escalation_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
-                                                                 privilege_escalation_filename, 'privilege_escalation',
+                                                                 PRIVILEGE_ESCALATION_FILENAME, 'privilege_escalation',
                                                                  excluded_role_patterns)
-        findings.add('privilege_escalation', privilege_escalation_findings)
+        findings.add(privilege_escalation_findings)
 
         # Network Exposure
         network_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
-                                                             network_exposure_filename, 'network_exposure',
+                                                             NETWORK_EXPOSURE_FILENAME, 'network_exposure',
                                                              excluded_role_patterns)
-        findings.add('network_exposure', network_exposure_findings)
+        findings.add(network_exposure_findings)
 
         # Credentials exposure
         credentials_exposure_findings = analyze_policy_directory(directory + 'customer-managed/', account_id,
-                                                                 credentials_exposure_filename, 'credentials_exposure',
+                                                                 CREDENTIALS_EXPOSURE_FILENAME, 'credentials_exposure',
                                                                  excluded_role_patterns)
-        findings.add('credentials_exposure', credentials_exposure_findings)
+        findings.add(credentials_exposure_findings)
 
     occurrences = findings.get_findings()
 
@@ -116,8 +115,13 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
     # Save it to `/.policy_sentry/analysis/report_name.csv
     csv_report_path = create_csv_report(occurrences, report_name)
 
-    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}\n\nThe JSON Report contains the raw data. "
-          f"The CSV report shows a report summary.")
+    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}")
+    if include_markdown_report:
+        print(f"{markdown_report_path}")
+    print("The JSON Report contains the raw data.\nThe CSV report shows a report summary.")
+    if include_markdown_report:
+        print("The Markdown report shows the same data as the JSON and CSV report, "
+              "and can be converted to HTML using pandoc.")
 
 
 @analyze.command(
@@ -165,30 +169,28 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     excluded_role_patterns = report_config['report-config']['excluded-role-patterns']
     findings = Findings()
 
-    # click.echo(click.format_filename(policy))
-
     print("Analyzing... ")
     print(f"{policy}")
 
     # Resource Exposure
-    resource_exposure_findings = analyze_policy_file(policy, account_id, resource_exposure_filename,
+    resource_exposure_findings = analyze_policy_file(policy, account_id, RESOURCE_EXPOSURE_FILENAME,
                                                      'resource_exposure', excluded_role_patterns)
-    findings.add('resource_exposure', resource_exposure_findings)
+    findings.add(resource_exposure_findings)
 
     # Privilege Escalation
-    privilege_escalation_findings = analyze_policy_file(policy, account_id, privilege_escalation_filename,
+    privilege_escalation_findings = analyze_policy_file(policy, account_id, PRIVILEGE_ESCALATION_FILENAME,
                                                         'privilege_escalation', excluded_role_patterns)
-    findings.add('privilege_escalation', privilege_escalation_findings)
+    findings.add(privilege_escalation_findings)
 
     # Network Exposure
-    network_exposure_findings = analyze_policy_file(policy, account_id, network_exposure_filename, 'network_exposure',
+    network_exposure_findings = analyze_policy_file(policy, account_id, NETWORK_EXPOSURE_FILENAME, 'network_exposure',
                                                     excluded_role_patterns)
-    findings.add('network_exposure', network_exposure_findings)
+    findings.add(network_exposure_findings)
 
     # Credentials exposure
-    credentials_exposure_findings = analyze_policy_file(policy, account_id, credentials_exposure_filename,
+    credentials_exposure_findings = analyze_policy_file(policy, account_id, CREDENTIALS_EXPOSURE_FILENAME,
                                                         'credentials_exposure', excluded_role_patterns)
-    findings.add('credentials_exposure', credentials_exposure_findings)
+    findings.add(credentials_exposure_findings)
 
     occurrences = findings.get_findings()
     report_dir = report_path
@@ -206,5 +208,10 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     # Save it to `/.policy_sentry/analysis/report_name.csv
     csv_report_path = create_csv_report(occurrences, 'report', report_dir)
 
-    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}\n\nThe JSON Report contains the raw data. "
-          f"The CSV report shows a report summary.")
+    print(f"\nReports saved to: \n-{json_report_path}\n-{csv_report_path}")
+    if include_markdown_report:
+        print(f"{markdown_report_path}")
+    print("The JSON Report contains the raw data.\nThe CSV report shows a report summary.")
+    if include_markdown_report:
+        print("The Markdown report shows the same data as the JSON and CSV report, "
+              "and can be converted to HTML using pandoc.")

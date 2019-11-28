@@ -1,12 +1,15 @@
-from policy_sentry.shared.file import read_this_file
+"""
+Functions to support the analyze capability in this tool
+"""
 import fnmatch
+import copy
+import re
+from policy_sentry.shared.file import read_this_file
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
     get_all_actions, get_lowercase_action_list
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-import copy
-import re
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -91,7 +94,11 @@ def determine_actions_to_expand(action_list):
 
 
 def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
-
+    """
+    Given a policy file, determine risky actions based on a separate file containing a list of actions.
+    If it matches a policy exclusion pattern from the report-config.yml file, that policy file will be skipped.
+    """
+    # FIXME: Rename "role_exclusion_pattern" to "policy_exclusion_pattern"
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
 
@@ -120,11 +127,14 @@ def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, 
         else:
             # Just store the account ID
             finding['account_id'] = account_id
-            pass
         return policy_findings
 
 
 def analyze_by_access_level(policy_file, db_session, access_level):
+    """
+    Determine if a policy has any actions with a given access level. This is particularly useful when determining who
+    has 'Permissions management' level access
+    """
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(requested_actions)
     actions_by_level = get_actions_by_access_level(
@@ -188,7 +198,6 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
         reg_list = map(re.compile, excluded_role_patterns)
         if any(regex.match(policy_name) for regex in reg_list):
             continue
-        # actions_to_triage = analyze(this_file, db_session, None, from_audit_file)
         requested_actions = get_actions_from_json_policy_file(this_file)
         expanded_actions = determine_actions_to_expand(requested_actions)
         actions_list = determine_risky_actions(
@@ -204,7 +213,6 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
             # Store the account ID
         else:
             finding['account_id'] = account_id
-            pass
         # print(finding['account_id'])
         # except KeyError as k_e:
         #     print(k_e)

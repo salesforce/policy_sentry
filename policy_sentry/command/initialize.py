@@ -1,3 +1,7 @@
+"""
+Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
+Create the SQLite database and fill it with the tables scraped from the AWS Docs
+"""
 import click
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
     create_audit_directory, create_default_overrides_file, create_policy_analysis_directory, \
@@ -19,7 +23,8 @@ from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
 )
 def initialize(access_level_overrides_file):
     """
-    Create a local database to store AWS IAM information, which can be used to generate IAM policies and analyze them for least privilege.
+    Create a local database to store AWS IAM information, which can be used to generate IAM policies and analyze them
+    for least privilege.
     """
 
     # Create the config directory
@@ -31,7 +36,8 @@ def initialize(access_level_overrides_file):
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
     create_default_overrides_file()
-    # Create the default reporting configuration file. This is used by analyze_iam_policy
+    # Create the default reporting configuration file. This is used by
+    # analyze_iam_policy
     create_default_report_config_file()
     # Connect to the database at that path with sqlalchemy
     db_session = connect_db(database_path)

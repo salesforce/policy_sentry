@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from policy_sentry.command import analyze
 from policy_sentry.command import initialize
 from policy_sentry.command import write_policy
