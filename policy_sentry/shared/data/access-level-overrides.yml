@@ -31,6 +31,7 @@ codepipeline:
     Write:
         - createcustomactiontype
         - createpipeline
+        - putwebhook
 connect:
     # AWS documentation has these as "Read"
     Permissions management:
@@ -41,6 +42,8 @@ devicefarm:
     Write:
         - createproject
 ds:
+    Write:
+        - connectdirectory
     # These were all previously "Tagging"
     Permissions management:
         - createdirectory
@@ -48,6 +51,7 @@ ds:
         - createidentitypooldirectory
         - createmicrosoftad
         - createtrust
+        - sharedirectory
 ec2:
     Permissions management:
         - resetsnapshotattribute
@@ -61,9 +65,10 @@ elasticfilesystem:
         - createfilesystem
 
 elasticmapreduce:
-    # AWS documentation lists this as "Tagging"
+    # AWS documentation lists these as "Tagging"
     Write:
         - createeditor
+        - runjobflow
 events:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -72,6 +77,7 @@ fsx:
     Write:
         - createbackup
         - createfilesystem
+        - createfilesystemfrombackup
 # We treat IAM, RAM, and DS as Permissions Management
 iam:
     Permissions management:
@@ -137,8 +143,15 @@ iot:
         - createbillinggroup
         - createdynamicthinggroup
         - createscheduledaudit
+        - createsecurityprofile
         - createthinggroup
         - createthingtype
+        - deletethinggroup
+        - deletethingtype
+iotthingsgraph:
+    # AWS documentation lists these as "Tagging"
+    Write:
+        - createsysteminstance
 license-manager:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -155,6 +168,7 @@ medialive:
         - createchannel
         - createinput
         - createinputsecuritygroup
+        - purchaseoffering
 mobiletargeting:
     # AWS Documentation lists these as "Tagging"
     Write:
@@ -177,6 +191,7 @@ ram:
 rds:
     # these were all previously "Tagging"
     Write:
+        - createdbcluster
         - createdbclusterparametergroup
         - createdbclustersnapshot
         - createdbinstance
@@ -191,6 +206,9 @@ redshift:
     # AWS documentation lists this as "Write"
     Permissions management:
         - getclustercredentials
+resource-groups:
+    Write:
+        - creategroup
 secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -203,6 +221,9 @@ ssm:
         - createdocument
         - createmaintenancewindow
         - createpatchbaseline
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - modifydocumentpermission
 sso:
     # These were listed as "Write", but should be "Permissions management due to the nature of this service
     Permissions management:
@@ -262,6 +283,10 @@ sso-directory:
         - updatepassword
         - updateuser
         - verifyemail
+states:
+    Write:
+        - createstatemachine
+        - createactivity
 waf:
     # AWS documentation lists these as "Read"
     Permissions management:
