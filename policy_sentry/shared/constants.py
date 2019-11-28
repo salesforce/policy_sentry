@@ -1,3 +1,6 @@
+"""
+Just a common storage space for storing some constants.
+"""
 from pathlib import Path
 
 # General Folders

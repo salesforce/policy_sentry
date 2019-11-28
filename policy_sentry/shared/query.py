@@ -1,3 +1,7 @@
+"""
+Functions that execute specific queries against the SQLite database, for the actions, arns, or condition keys tables.
+This supports the policy_sentry query functionality
+"""
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable, ConditionTable
 from policy_sentry.shared.actions import get_full_action_name

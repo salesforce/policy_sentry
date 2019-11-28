@@ -1,5 +1,5 @@
-"""
-Templates for the YML files that policy_sentry expects
+"""Templates for the policy_sentry YML files.
+These can be used for generating policies
 """
 from jinja2 import Template
 
@@ -35,12 +35,14 @@ roles_with_crud_levels:
 
 
 def create_crud_template(name):
+    """Generate the CRUD YML Template with Jinja2"""
     template = Template(CRUD_TEMPLATE)
     msg = template.render(name=name)
     return msg
 
 
 def create_actions_template(name):
+    """Generate the Actions YML template with Jinja2"""
     template = Template(ACTIONS_TEMPLATE)
     msg = template.render(name=name)
     return msg

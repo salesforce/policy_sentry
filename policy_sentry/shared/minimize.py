@@ -1,5 +1,3 @@
-from policyuniverse.expander_minimizer import _get_prefixes_for_action
-
 """
 Functions for Minimizing statements, heavily borrowed from policyuniverse.
 https://github.com/Netflix-Skunkworks/policyuniverse/
@@ -22,6 +20,7 @@ Q: How many policies can I attach to an IAM role?
 * For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
 """
+from policyuniverse.expander_minimizer import _get_prefixes_for_action
 
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:

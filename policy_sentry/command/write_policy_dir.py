@@ -1,3 +1,6 @@
+"""
+Given a directory of Policy Sentry YML template files, write least-privilege IAM Policies in CRUD mode or Actions mode.
+"""
 import sys
 import os.path
 import glob

@@ -1,3 +1,6 @@
+"""
+Functions to use for parsing ARNs, matching ARN types, and getting the right fragment/component from an ARN string,
+"""
 def parse_arn(arn):
     """
     Given an ARN, split up the ARN into the ARN namespacing schema dictated by the AWS docs.

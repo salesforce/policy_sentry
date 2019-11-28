@@ -1,3 +1,7 @@
+"""
+Roles is a data holder for sublists. It supports the write-policy actions mode.
+In the future, this data structure should probably go away, or it should at least be renamed.
+"""
 import sys
 
 

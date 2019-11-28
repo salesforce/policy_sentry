@@ -1,3 +1,6 @@
+"""
+Functions to support creating the proper resources in the Policy Sentry Config directory - ~/.policy_sentry.
+"""
 import os
 import sys
 import shutil

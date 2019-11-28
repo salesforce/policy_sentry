@@ -1,3 +1,6 @@
+"""
+Allow users to use specific pre-compiled queries against the action, arn, and condition tables from command line.
+"""
 import json
 import click
 
@@ -52,6 +55,7 @@ def query():
     help='If action table is chosen, show the IAM actions that only support '
          'wildcard resources - i.e., cannot support ARNs in the resource block.')
 def action_table(name, service, access_level, condition, wildcard_only):
+    """Query the Action Table from the Policy Sentry database"""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all IAM actions under the service that have the specified
     # access level.
@@ -111,6 +115,7 @@ def action_table(name, service, access_level, condition, wildcard_only):
     help='Show the short names of ARN Types. If empty, this will show RAW ARNs only.'
 )
 def arn_table(name, service, list_arn_types):
+    """Query the ARN Table from the Policy Sentry database"""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
@@ -144,6 +149,7 @@ def arn_table(name, service, list_arn_types):
     help="Filter according to AWS service."
 )
 def condition_table(name, service):
+    """Query the condition keys table from the Policy Sentry database"""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:

@@ -1,3 +1,7 @@
+"""
+Classes for the Actions, ARNs, and Conditions Tables structure
+Functions for building the database - by parsing through the AWS Docs and storing it in the database
+"""
 import os
 import json
 from sqlalchemy.ext.declarative import declarative_base
@@ -14,6 +18,7 @@ Base = declarative_base()  # pylint: disable=invalid-name
 
 
 class ActionTable(Base):
+    """SQLAlchemy Declarative configuration for the IAM Actions table"""
     __tablename__ = "actiontable"
     id = Column(Integer, primary_key=True)
     service = Column(String(50))
@@ -32,6 +37,7 @@ class ActionTable(Base):
 
 
 class ArnTable(Base):
+    """SQLAlchemy Declarative configuration for the Resource Types table"""
     __tablename__ = "arntable"
     id = Column(Integer, primary_key=True)
     resource_type_name = Column(String(50))
@@ -51,6 +57,7 @@ class ArnTable(Base):
 
 
 class ConditionTable(Base):
+    """SQLAlchemy Declarative configuration for the Condition Keys table"""
     __tablename__ = "conditiontable"
     id = Column(Integer, primary_key=True)
     # the service that this applies to. aws:RequestTag can apply to many

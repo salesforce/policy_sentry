@@ -169,8 +169,6 @@ def policy_file(policy, report_config, report_path, account_id, include_markdown
     excluded_role_patterns = report_config['report-config']['excluded-role-patterns']
     findings = Findings()
 
-    # click.echo(click.format_filename(policy))
-
     print("Analyzing... ")
     print(f"{policy}")
 

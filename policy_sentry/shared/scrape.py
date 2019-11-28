@@ -1,3 +1,6 @@
+"""
+At policy_sentry initialize time, this function is used to scrape the AWS HTML docs to build the sqlite database.
+"""
 import os
 import yaml
 import pandas
@@ -7,6 +10,7 @@ ALL_AWS_SERVICES = get_list_of_service_prefixes_from_links_file()
 
 
 def get_html(directory, requested_service):
+    """Get the tables from each HTML file from the AWS docs.."""
     links = []
     links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/links.yml'
     with open(links_yml_file, 'r') as yaml_file:

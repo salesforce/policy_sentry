@@ -1,3 +1,7 @@
+"""
+Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
+Create the SQLite database and fill it with the tables scraped from the AWS Docs
+"""
 import click
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
     create_audit_directory, create_default_overrides_file, create_policy_analysis_directory, \

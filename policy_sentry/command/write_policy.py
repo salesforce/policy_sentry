@@ -1,3 +1,6 @@
+"""
+Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD mode or Actions mode.
+"""
 import json
 import click
 from policy_sentry.shared.actions import get_all_actions, get_dependent_actions
@@ -14,7 +17,7 @@ def print_policy(
         db_session,
         minimize=None):
     """
-    Builds the policy dictionary given the output of write_policy_with_access_levels or write_policy_with_actions.
+    Prints the least privilege policy
     """
     statement = []
     all_actions = get_all_actions(db_session)
@@ -85,11 +88,13 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
     '--minimize',
     required=False,
     type=int,
-    help='Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 4'
+    help='Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. '
+         'Set this to the character length you want - for example, 4'
 )
 def write_policy(input_file, crud, minimize):
     """
-    Write a least-privilege IAM Policy by supplying either a list of actions or access levels specific to resource ARNs!
+    Write a least-privilege IAM Policy by supplying either a list of actions or
+    access levels specific to resource ARNs!
     """
     # TODO: JSON Validation function
 

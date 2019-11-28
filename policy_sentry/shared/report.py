@@ -1,5 +1,5 @@
 """
-Generate markdown-formatted reports
+Generate reports formatted in markdown, report summaries in CSV, and raw data in JSON.
 """
 import csv
 import json
@@ -84,11 +84,13 @@ This report contains the details of all IAM policies flagged during the IAM anal
 
 
 def load_report_config_file(filename):
+    """Read the Report config file and return the rendered dict"""
     report_config_file = read_yaml_file(filename)
     return report_config_file
 
 
 def create_markdown_report_template(occurrences):
+    """Given a dict generated from the finding object, render the markdown template and return the markdown"""
     template = Template(REPORT_TEMPLATE)
     # occurrences = {
     #         "policyName1": {
@@ -114,6 +116,7 @@ def create_markdown_report_template(occurrences):
 
 
 def create_csv_report(occurrences, filename, report_dir=False):
+    """Write a CSV file containing the report summary."""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.csv'
     else:
@@ -166,6 +169,7 @@ def create_csv_report(occurrences, filename, report_dir=False):
 
 
 def create_json_report(occurrences, filename, report_dir=False):
+    """Create a JSON file containing the raw data that can be queried for further analysis."""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.json'
     else:
@@ -177,6 +181,7 @@ def create_json_report(occurrences, filename, report_dir=False):
 
 
 def create_markdown_report(report_contents, filename, report_dir=False):
+    """Create a markdown report that contains the same data as the JSON raw data and the CSV file"""
     if report_dir:
         report_filepath = report_dir + '/' + filename + '.md'
     else:

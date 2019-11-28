@@ -1,3 +1,7 @@
+"""
+Create YML Template files for the write-policy command.
+Users don't have to remember exactly how to phrase the yaml files, so this command creates it for them.
+"""
 from pathlib import Path
 import click
 from policy_sentry.shared.template import create_actions_template, create_crud_template

@@ -1,3 +1,6 @@
+"""
+Functions to support the analyze capability in this tool
+"""
 import fnmatch
 import copy
 import re

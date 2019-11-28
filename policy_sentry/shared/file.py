@@ -1,3 +1,6 @@
+"""
+Functions that relate to manipulating files, loading files, and managing filepaths.
+"""
 import json
 import os.path
 from os import listdir
@@ -7,6 +10,7 @@ import yaml
 
 
 def read_this_file(filename):
+    """Read a file at a path and return the lines from each file"""
     lines = []
 
     with open(filename, 'r') as fileobj:

@@ -1,3 +1,8 @@
+"""
+Functions to support:
+* querying the actions table in the database based on different criteria.
+* Transforming lists of actions in various ways required for writing policies
+"""
 import json
 import sys
 

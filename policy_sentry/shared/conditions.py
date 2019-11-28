@@ -1,5 +1,7 @@
-# Just some text transformation functions related to our
-# conditions-related workarounds
+"""
+Just some text transformation functions related to our
+conditions-related workarounds
+"""
 
 
 def get_service_from_condition_key(condition_key):

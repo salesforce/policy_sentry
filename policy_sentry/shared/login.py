@@ -1,3 +1,6 @@
+"""
+Functins for logging into AWS and returning Boto3 sessions.
+"""
 import configparser
 import os
 
