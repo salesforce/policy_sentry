@@ -153,13 +153,14 @@ class ArnActionGroup:
 
     def process_list_of_actions(self, supplied_actions, db_session):
         """
-        Full processing of the list of actions
+        Takes a list of actions, queries the database for corresponding arns, adds them to the object
         :param supplied_actions: A list of supplied actions
         :param db_session: SQLAlchemy database session object
         :return: arn_dict: This is the compiled and updated dictionary after all necessary processing.
             This plugs into create_policy
         """
         arns_matching_supplied_actions = []
+        # query the database for corresponding ARNs and add them to arns_matching_supplied_actions
         for action in supplied_actions:
             action_name = get_action_name_from_action(action)
             service_name = get_service_from_action(action)
@@ -168,7 +169,8 @@ class ArnActionGroup:
                 if row.resource_arn_format not in arns_matching_supplied_actions:
                     arns_matching_supplied_actions.append(
                         [row.resource_arn_format, row.access_level, str(row.service + ':' + row.name)])
-
+        # Identify the actions that require wildcard ONLY - i.e., they do not permit use of resource ARNs
+        # If that's the case, add it to the wildcard namespace. Otherwise, don't add it.
         actions_with_wildcard = []
         for i in range(len(arns_matching_supplied_actions)):
             if '*' not in arns_matching_supplied_actions[i][0]:
@@ -260,8 +262,9 @@ class ArnActionGroup:
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
-        Simply fills in the actions list
-        :param session: SQLAlchemy database session
+        Considers the attribute values under each value in self.arns, and
+        fills in the actions lists accordingly.
+        :param db_session: SQLAlchemy database session
         """
         for i in range(len(self.arns)):
             for row in db_session.query(ActionTable).filter(and_( # pylint: disable=bad-continuation
