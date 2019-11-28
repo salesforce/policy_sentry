@@ -23,4 +23,5 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         all_actions = get_all_actions(db_session)
         minchars = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)
-        self.assertListEqual(sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)), sorted(desired_result))
+        self.assertListEqual(sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)),
+                             sorted(desired_result))
