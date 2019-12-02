@@ -212,6 +212,9 @@ policy_sentry write-policy --input-file examples/yml/actions.yml
 # Initialize the policy_sentry config folder and create the IAM database tables.
 policy_sentry initialize
 
+# Initialize the database, but instead of using the AWS HTML files in the Python package, download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
+policy_sentry initialize --fetch
+
 # Analyze a single IAM policy FILE
 policy_sentry analyze policy-file --policy examples/explicit-actions.json
 
@@ -320,9 +323,7 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 Run the following:
 
 ```bash
-./utils/grab-docs.sh
-# Or:
-./utils/download-docs.sh
+python3 ./utils/download_docs.py
 ```
 
 ## References

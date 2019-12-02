@@ -13,6 +13,7 @@ from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_ar
 from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
+from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
 
 Base = declarative_base()  # pylint: disable=invalid-name
 
@@ -83,7 +84,8 @@ def create_database(db_session, services, access_level_overrides_file):
     :param access_level_overrides_file: A file we can use to override the Access levels per action
     :return: the SQLAlchemy database session.
     """
-    directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
+    directory = HTML_DIRECTORY_PATH + '/'
+    # directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     print("Reading the html docs from this directory: " + directory)
     print(f"Using access level overrides file {access_level_overrides_file}")
     for service in services:

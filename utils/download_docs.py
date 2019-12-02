@@ -9,7 +9,6 @@ import sys
 import os
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
-
 # from policy_sentry.shared import awsdocs
 from shared.awsdocs import update_html_docs_directory, create_service_links_mapping_file
 

@@ -80,21 +80,5 @@ def create_directory_if_it_doesnt_exist(directory):
     if os.path.exists(directory):
         pass
     else:
-        os.mkdir(directory)
+        os.makedirs(directory)
 
-
-def get_list_of_service_prefixes_from_links_file():
-    """
-    Gets a list of service prefixes from the links file. Used for unit tests.
-    :return:
-    """
-    links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/links.yml'
-    service_prefixes = []
-    with open(links_yml_file, 'r') as yaml_file:
-        try:
-            cfg = yaml.safe_load(yaml_file)
-        except yaml.YAMLError as exc:
-            print(exc)
-    for service_name in cfg:
-        service_prefixes.append(service_name)
-    return service_prefixes

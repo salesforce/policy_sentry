@@ -4,9 +4,8 @@ At policy_sentry initialize time, this function is used to scrape the AWS HTML d
 import os
 import yaml
 import pandas
-from policy_sentry.shared.file import get_list_of_service_prefixes_from_links_file
-
-ALL_AWS_SERVICES = get_list_of_service_prefixes_from_links_file()
+# from policy_sentry.shared.awsdocs import get_list_of_service_prefixes_from_links_file
+# ALL_AWS_SERVICES = get_list_of_service_prefixes_from_links_file()
 
 
 def get_html(directory, requested_service):

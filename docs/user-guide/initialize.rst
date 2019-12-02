@@ -18,8 +18,11 @@ Usage
 
 .. code-block:: bash
 
-   # Initialize the database, using the existing Access Level Overrides file
-   policy_sentry initialize
+    # Initialize the database, using the existing Access Level Overrides file
+    policy_sentry initialize
 
-   # Initialize the database with a custom Access Level Overrides file
-   policy_sentry initialize --access-level-overrides-file my-override.yml
+    # Initialize the database, but instead of using the AWS HTML files in the Python package (which might be outdated, even if it is a week old), download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
+    policy_sentry initialize --fetch
+
+    # Initialize the database with a custom Access Level Overrides file
+    policy_sentry initialize --access-level-overrides-file my-override.yml

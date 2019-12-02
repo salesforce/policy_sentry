@@ -1,4 +1,8 @@
 # Changelog
+## 2019-12-01, part 2
+### Added
+* `--fetch` argument to `policy_sentry initialize` command.
+
 ## 2019-12-01
 ### Added
 * Ran download-docs again to get the CloudWatch synthetics API added.
