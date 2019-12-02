@@ -7,8 +7,8 @@ import shutil
 from distutils.dir_util import copy_tree
 from policy_sentry.shared.file import create_directory_if_it_doesnt_exist, \
     list_files_in_directory, read_yaml_file
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_NAME, AUDIT_DIRECTORY_FOLDER, \
-    AUDIT_DIRECTORY_PATH, DATABASE_FILE_PATH, HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, AUDIT_DIRECTORY_PATH, DATABASE_FILE_PATH, \
+    HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
 
 
 def create_policy_sentry_config_directory():

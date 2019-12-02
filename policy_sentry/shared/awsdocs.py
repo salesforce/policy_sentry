@@ -11,9 +11,9 @@ or update the HTML files on their own.
 
 from os import listdir, remove
 from os.path import isfile, join, exists
-from subprocess import run
-from bs4 import BeautifulSoup
+from subprocess import run, CalledProcessError
 import re
+from bs4 import BeautifulSoup
 import yaml
 
 
@@ -24,10 +24,17 @@ def update_html_docs_directory(html_docs_destination):
     :return:
     """
     wget_command = "wget -r --no-parent -nv --convert-links --accept 'list_*.html' --reject 'feedbackno.html','feedbackyes.html' --no-clobber https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html --no-host-directories --cut-dirs=3 --directory-prefix=" + html_docs_destination
-
-    run(wget_command, shell=True)
-    print("Note: Despite what the wget command output says here, the actual number of files downloaded is only the "
-          "number of HTML files matching `list_aws*.html` or `list_amazon*.html`")
+    try:
+        run(wget_command, shell=True, check=True)
+    except CalledProcessError as cp_e:
+        # This really isn't an issue. The subprocess.run function will throw an error whenever there
+        # is a non-zero error. In this case, wget will issue exit status #8 - "Server issued an error response."
+        # This could be because of HTTP 404 errors on pages linked from that AWS documentation that we don't care about
+        # and won't download. In any case, we don't want it to break our whole script.
+        print(f"CalledProcessError: Please ignore this error, especially if it says 'exit status 8', which "
+              f"is a false positive. {cp_e}")
+    print("\nNote: Despite what the wget command output says here, the actual number of files downloaded is only the "
+          "number of HTML files matching `list_aws*.html` or `list_amazon*.html`\n")
 
     # Remove a random straggler file
     if exists(html_docs_destination + '/robots.txt.tmp'):
@@ -36,6 +43,7 @@ def update_html_docs_directory(html_docs_destination):
 
 # Borrowed and altered from Parliament:
 # https://github.com/duo-labs/parliament/commit/2979e131ff3af9c79137817eaa57a05ae5007706#diff-1669fdcc34b13c17017fb2aae433801d
+# pylint: disable=invalid-name
 def create_service_links_mapping_file(html_docs_destination, links_yml_file):
     """Parses the AWS HTML docs to create a YML file that understands the mapping between services and HTML files."""
     prefix_list = []

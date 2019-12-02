@@ -81,4 +81,3 @@ def create_directory_if_it_doesnt_exist(directory):
         pass
     else:
         os.makedirs(directory)
-

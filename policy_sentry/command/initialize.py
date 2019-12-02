@@ -28,8 +28,8 @@ from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTOR
     required=False,
     default=False,
     help='Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs '
-         'in the Git repository are behind the live docs and you need to use the latest version of the docs right now.'
-         'Note that this requires Linux/MacOS, since you must have access to the wget command.'
+         'in the Git repository are behind the live docs and you need to use the latest version of the docs right '
+         'now. Note that this requires Linux/MacOS, since you must have access to the wget command.'
 )
 def initialize(access_level_overrides_file, fetch):
     """

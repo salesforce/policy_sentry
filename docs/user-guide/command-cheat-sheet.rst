@@ -71,6 +71,9 @@ Policy Download and Analysis Commands
     # Initialize the policy_sentry config folder and create the IAM database tables.
     policy_sentry initialize
 
+    # Initialize the database, but instead of using the AWS HTML files in the Python package, download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
+    policy_sentry initialize --fetch
+
     # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
     policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
 
