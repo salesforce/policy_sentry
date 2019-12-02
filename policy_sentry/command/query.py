@@ -15,7 +15,7 @@ from policy_sentry.shared.query import query_condition_table, query_condition_ta
 
 @click.group()
 def query():
-    """Allow users to query the action, arn, and condition tables from command line"""
+    """Allow users to query the IAM tables from command line"""
 
 
 @query.command(

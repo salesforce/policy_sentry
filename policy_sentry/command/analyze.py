@@ -29,7 +29,7 @@ RESOURCE_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/resource-exposure.txt'
 
 @click.group()
 def analyze():
-    """Analyze locally stored IAM policies and generate a report."""
+    """Analyze IAM policies and generate a report."""
 
 
 @analyze.command(
