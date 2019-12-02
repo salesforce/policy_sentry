@@ -2,6 +2,7 @@
 ## 2019-12-01, part 2
 ### Added
 * `--fetch` argument to `policy_sentry initialize` command.
+* Cutting this as a new release - 0.6.1. This release makes it so people don't have to rely on our HTML docs being up to date.
 
 ## 2019-12-01
 ### Added
