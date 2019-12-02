@@ -1,4 +1,12 @@
 # Changelog
+## 2019-12-01
+### Added
+* Ran download-docs again to get the CloudWatch synthetics API added.
+
+### Changed
+* Made updates to the access-level-overrides.yml file
+* download-docs utilities - used long form flags for wget command
+
 ## 2019-11-27, part 2
 ### Changed
 * pylint
