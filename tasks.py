@@ -31,8 +31,16 @@ def run_linter(c):
 # TODO If the database is not found we should build it, otherwise just run the tests.
 # TODO Some kind of non-zero check to make sure that this passes.
 @task
-def run_tests(c):
+def run_unit_tests(c):
     c.run('nosetests -v', warn=True)
+
+
+# TODO If the database is not found we should build it, otherwise just run the tests.
+# TODO Some kind of non-zero check to make sure that this passes.
+@task
+def run_integration_tests(c):
+    c.run('echo tests', warn=True)
+
 
 # TODO Implement this effectively
 @task
@@ -44,5 +52,6 @@ def run_full_test_suite(c):
 test.add_task(create_db, 'initialize')
 test.add_task(security_scan, 'security')
 test.add_task(run_linter, 'lint')
-test.add_task(run_tests, 'unit')
+test.add_task(run_unit_tests, 'unit')
 test.add_task(run_full_test_suite, 'all')
+test.add_task(run_integration_tests, 'integration')

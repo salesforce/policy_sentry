@@ -38,7 +38,8 @@ def create_audit_directory():
     create_directory_if_it_doesnt_exist(audit_directory_path)
     destination = audit_directory_path
 
-    existing_audit_files_directory = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/'
+    existing_audit_files_directory = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/audit/'
     source = existing_audit_files_directory
     file_list = list_files_in_directory(existing_audit_files_directory)
 
@@ -65,7 +66,8 @@ def create_default_overrides_file():
     """
     existing_overrides_file_name = 'access-level-overrides.yml'
     target_overrides_file_path = HOME + CONFIG_DIRECTORY + existing_overrides_file_name
-    existing_overrides_file_path = os.path.abspath(os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
+    existing_overrides_file_path = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
     shutil.copy(existing_overrides_file_path, target_overrides_file_path)
     print(
         f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
