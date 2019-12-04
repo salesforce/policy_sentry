@@ -73,6 +73,7 @@ class PolicyGroup:
     """
     This is used for downloading IAM policies remotely. It requires chaining two boto3 calls back to back.
     """
+
     def __init__(self):
         self.policies = {}
         # each dict has:
