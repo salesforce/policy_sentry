@@ -1,5 +1,5 @@
 # Changelog
-## 2019-12-01, part 2
+## 2019-12-01
 ### Added
 * `--fetch` argument to `policy_sentry initialize` command.
 * Cutting this as a new release - 0.6.1. This release makes it so people don't have to rely on our HTML docs being up to date.
@@ -96,14 +96,14 @@
 * Various documentation issues
   - Fixed links to the Wiki and such, since we moved to ReadTheDocs.
   - Fix command cheat sheets
-  
+
 ## 2019-11-08
 ### Added
 * Query capability to assist users in identifying actions to supply in future #16 feature
 ## 2019-11-07
 ### Added
 * Query capabilities to address #29. This currently includes capabilities for:
-  - Action Table: 
+  - Action Table:
     - (1) list of all actions in a service
     - (2) details on specific action
     - (3) details on actions matching a service and access levels
@@ -119,7 +119,7 @@
 
 ### Changed
 * Fixed naming of a few unit tests to improve output in nosetests.
-* Fixed Condition Keys in actions table; it was previously set to the string 'None' instead of a null value. 
+* Fixed Condition Keys in actions table; it was previously set to the string 'None' instead of a null value.
 * Fixed #33 by adding lines 214-222 to database.py
 
 ## 2019-10-24
@@ -159,7 +159,7 @@
 ### Added
 * Added test cases for YML files that have missing access level blocks - for example, if someone wants to generate a policy that doesn't include "Tagging" or "Permissions Management"
 ### Changed
-* Test cases to allow missing access level blocks 
+* Test cases to allow missing access level blocks
 
 ## 2019-10-15
 ### Added
@@ -183,7 +183,7 @@
   - forecast
   - lakeformation
   - rds-data
-  
+
 ### Changed
 * `utils/get_links.py` script had an issue with paths
 
@@ -192,10 +192,10 @@
 * Added `analyze` functionality to analyze a policy according to access levels, not just a list of actions.
 
 ### Changed
-* Updated the HTML documentation to get the latest updates. 
+* Updated the HTML documentation to get the latest updates.
 * Fixed old references to `scripts` directory; now it is the `utils` directory
 * Fixed the path of the policy_sentry/shared/data/docs directory in the download-docs.sh script, since its previous reference was the root directory, which was accurate before we moved to pypi compatibility.
- 
+
 ## 2019-10-02
 ### Changed
 * Sanitizing directory before moving to GitHub
@@ -216,7 +216,7 @@
 * html files still live in the main policy_sentry pypi package. The user can quickly generate the SQLite database using the initialize function (formerly create_all_tables)
 * Lots of other cleanup.
 
-### Added 
+### Added
 * pypi modifications, such as the MANIFEST.in file
 * Database file now resides in `$HOME/.policy_sentry/aws.sqlite3`
 * Default audit file now resides in `$HOME/.policy_sentry/audit/permissions-access-level.txt`
@@ -229,7 +229,7 @@
 ### Changed
 * Moved Minimization functions over to their own file
 * Instead of ArnActionCollection, now using ArnActionGroup name
-* Moved functionality from the write_policy file to the relevant files in the shared folder. 
+* Moved functionality from the write_policy file to the relevant files in the shared folder.
 * Fixed risky-iam.txt file name
 
 ## 2019-09-08
