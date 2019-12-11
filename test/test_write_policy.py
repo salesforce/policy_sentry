@@ -58,7 +58,7 @@ class WritePolicyActionsTestCase(unittest.TestCase):
                             "kms:creategrant"
                         ],
                         "Resource": [
-                            "arn:aws:kms:${Region}:${Account}:key/${KeyId}"
+                            "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
                         ]
                     },
                     {
