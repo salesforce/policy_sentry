@@ -1,6 +1,7 @@
 #! /bin/env python3
 
 from invoke import task, Collection
+from policy_sentry.command import initialize
 
 # Create the necessary collections (namespaces)
 ns = Collection()
@@ -28,7 +29,8 @@ def clean_config_directory(c):
 
 @task
 def create_db(c):
-    c.run('python3 policy_sentry/bin/policy_sentry initialize')
+    initialize.initialize('')
+    # c.run('python3 policy_sentry/bin/policy_sentry initialize')
 
 
 @task
