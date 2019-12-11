@@ -37,9 +37,9 @@ class QueryTestCase(unittest.TestCase):
     def test_query_arn_table_for_raw_arns(self):
         """test_query_arn_table_for_raw_arns: Tests function that grabs a list of raw ARNs per service"""
         desired_output = [
-            "arn:aws:s3:::${BucketName}",
-            "arn:aws:s3:::${BucketName}/${ObjectName}",
-            "arn:aws:s3:${Region}:${Account}:job/${JobId}"
+            "arn:${Partition}:s3:::${BucketName}",
+            "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
+            "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
         ]
         output = query_arn_table_for_raw_arns(db_session, "s3")
         self.assertListEqual(desired_output, output)
@@ -47,9 +47,9 @@ class QueryTestCase(unittest.TestCase):
     def test_query_arn_table_for_arn_types(self):
         """test_query_arn_table_for_arn_types: Tests function that grabs arn_type and raw_arn pairs"""
         desired_output = {
-            "bucket": "arn:aws:s3:::${BucketName}",
-            "object": "arn:aws:s3:::${BucketName}/${ObjectName}",
-            "job": "arn:aws:s3:${Region}:${Account}:job/${JobId}"
+            "bucket": "arn:${Partition}:s3:::${BucketName}",
+            "object": "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
+            "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
         }
         output = query_arn_table_for_arn_types(db_session, "s3")
         print(output)
@@ -60,7 +60,7 @@ class QueryTestCase(unittest.TestCase):
         """test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name"""
         desired_output = {
             "resource_type_name": "environment",
-            "raw_arn": "arn:aws:cloud9:${Region}:${Account}:environment:${ResourceId}",
+            "raw_arn": "arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}",
             "condition_keys": None
         }
         output = query_arn_table_by_name(db_session, "cloud9", "environment")
@@ -85,7 +85,7 @@ class QueryTestCase(unittest.TestCase):
                     'action': 'ram:createresourceshare',
                     'description': 'Create resource share with provided resource(s) and/or principal(s)',
                     'access_level': 'Permissions management',
-                    'resource_arn_format': 'arn:aws:ram:${Region}:${Account}:resource-share/${ResourcePath}',
+                    'resource_arn_format': 'arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}',
                     'condition_keys': [
                         'ram:RequestedResourceType',
                         'ram:ResourceArn',

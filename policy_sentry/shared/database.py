@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
 from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, \
-    get_region_from_arn, get_account_from_arn
+    get_region_from_arn, get_account_from_arn, get_partition_from_arn
 from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
@@ -276,11 +276,11 @@ def build_arn_table(db_session, service):
                         condition_keys = table['data'][i][2]
                     db_session.add(ArnTable(
                         resource_type_name=table['data'][i][0],
-                        raw_arn=str(table['data'][i][1]).replace(
-                            "${Partition}", "aws"),
-                        # raw_arn=get_string_arn(table['data'][i][1]),
+                        # raw_arn=str(table['data'][i][1]).replace(
+                        #     "${Partition}", "aws"),
+                        raw_arn=str(table['data'][i][1]),
                         arn='arn',
-                        partition='aws',
+                        partition=get_partition_from_arn(table['data'][i][1]),
                         service=get_service_from_arn(table['data'][i][1]),
                         region=get_region_from_arn(table['data'][i][1]),
                         account=get_account_from_arn(table['data'][i][1]),

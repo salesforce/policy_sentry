@@ -16,7 +16,7 @@ class ArnActionGroupTestCase(unittest.TestCase):
                 'arn': 'arn:aws:s3:::example-org-s3-access-logs',
                 'service': 's3',
                 'access_level': 'Permissions management',
-                'arn_format': 'arn:aws:s3:::${BucketName}',
+                'arn_format': 'arn:${Partition}:s3:::${BucketName}',
                 'actions': []
             }
         ]
@@ -33,7 +33,7 @@ class ArnActionGroupTestCase(unittest.TestCase):
                 'arn': 'arn:aws:s3:::example-org-s3-access-logs',
                 'service': 's3',
                 'access_level': 'Permissions management',
-                'arn_format': 'arn:aws:s3:::${BucketName}',
+                'arn_format': 'arn:${Partition}:s3:::${BucketName}',
                 'actions': [
                     "s3:deletebucketpolicy",
                     "s3:putbucketacl",
