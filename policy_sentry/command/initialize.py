@@ -62,11 +62,14 @@ def initialize(access_level_overrides_file, fetch):
         # `wget` the html docs to the local directory
         update_html_docs_directory(HTML_DIRECTORY_PATH)
         # Update the links.yml file
-        create_service_links_mapping_file(HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL)
+        prefix_list = create_service_links_mapping_file(
+            HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL)
+        print(f"Services: {prefix_list.sort()}")
 
     # Connect to the database at that path with SQLAlchemy
     db_session = connect_db(database_path)
-    all_aws_services = get_list_of_service_prefixes_from_links_file(LINKS_YML_FILE_LOCAL)
+    all_aws_services = get_list_of_service_prefixes_from_links_file(
+        LINKS_YML_FILE_LOCAL)
 
     # Fill in the database with data on the AWS services
     create_database(db_session, all_aws_services, access_level_overrides_file)

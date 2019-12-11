@@ -12,6 +12,8 @@ ANALYSIS_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + ANALYSIS_DIRECTORY_NAME
 # HTML Docs
 HTML_DATA_DIRECTORY_SUBFOLDER = '/data/docs/'
 HTML_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + HTML_DATA_DIRECTORY_SUBFOLDER
+BASE_DOCUMENTATION_URL = \
+    "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html"
 
 # The path for the service prefixes <=> links YML file
 LINKS_YML_FILE_LOCAL = HOME + CONFIG_DIRECTORY + 'links.yml'

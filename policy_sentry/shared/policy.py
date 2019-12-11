@@ -30,6 +30,7 @@ class ArnActionGroup:
             ]
         },
     """
+
     def __init__(self):
         self.arns = []
 
@@ -267,8 +268,9 @@ class ArnActionGroup:
         :param db_session: SQLAlchemy database session
         """
         for i in range(len(self.arns)):
-            for row in db_session.query(ActionTable).filter(and_( # pylint: disable=bad-continuation
-                    ActionTable.access_level.like(self.arns[i]['access_level']),
+            for row in db_session.query(ActionTable).filter(and_(  # pylint: disable=bad-continuation
+                    ActionTable.access_level.like(
+                        self.arns[i]['access_level']),
                     ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
                 if self.arns[i]['access_level'] == row.access_level and self.arns[i][
                         'arn_format'] == row.resource_arn_format:

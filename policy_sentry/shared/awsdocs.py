@@ -9,12 +9,23 @@ that it has not been altered in any way. The user can reproduce our steps with t
 or update the HTML files on their own.
 """
 
-from os import listdir, remove
-from os.path import isfile, join, exists
-from subprocess import run, CalledProcessError
+from os import listdir
+from os.path import isfile, join
 import re
 from bs4 import BeautifulSoup
 import yaml
+import requests
+from policy_sentry.shared.constants import BASE_DOCUMENTATION_URL
+
+
+def get_links_from_base_actions_resources_conditions_page():
+    """Gets the links from the actions, resources, and conditions keys page, and returns their filenames."""
+    html = requests.get(BASE_DOCUMENTATION_URL)
+    soup = BeautifulSoup(html.content, "html.parser")
+    html_filenames = []
+    for i in soup.find('div', {'class': 'highlights'}).findAll('a'):
+        html_filenames.append(i['href'])
+    return html_filenames
 
 
 def update_html_docs_directory(html_docs_destination):
@@ -23,22 +34,32 @@ def update_html_docs_directory(html_docs_destination):
     (i.e., this repository, or (2) the config directory
     :return:
     """
-    wget_command = "wget -r --no-parent -nv --convert-links --accept 'list_*.html' --reject 'feedbackno.html','feedbackyes.html' --no-clobber https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html --no-host-directories --cut-dirs=3 --directory-prefix=" + html_docs_destination
-    try:
-        run(wget_command, shell=True, check=True)
-    except CalledProcessError as cp_e:
-        # This really isn't an issue. The subprocess.run function will throw an error whenever there
-        # is a non-zero error. In this case, wget will issue exit status #8 - "Server issued an error response."
-        # This could be because of HTTP 404 errors on pages linked from that AWS documentation that we don't care about
-        # and won't download. In any case, we don't want it to break our whole script.
-        print(f"CalledProcessError: Please ignore this error, especially if it says 'exit status 8', which "
-              f"is a false positive. {cp_e}")
-    print("\nNote: Despite what the wget command output says here, the actual number of files downloaded is only the "
-          "number of HTML files matching `list_aws*.html` or `list_amazon*.html`\n")
+    link_url_prefix = "https://docs.aws.amazon.com/IAM/latest/UserGuide/"
+    html_filenames = get_links_from_base_actions_resources_conditions_page()
+    for page in html_filenames:
+        response = requests.get(link_url_prefix + page, allow_redirects=False)
+        # Replace the CSS stuff. Basically this:
+        '''
+        <link href='href="https://docs.aws.amazon.com/images/favicon.ico"' rel="icon" type="image/ico"/>
+        <link href='href="https://docs.aws.amazon.com/images/favicon.ico"' rel="shortcut icon" type="image/ico"/>
+        <link href='href="https://docs.aws.amazon.com/font/css/font-awesome.min.css"' rel="stylesheet" type="text/css"/>
+        <link href='href="https://docs.aws.amazon.com/css/code/light.css"' id="code-style" rel="stylesheet" type="text/css"/>
+        <link href='href="https://docs.aws.amazon.com/css/awsdocs.css?v=20181221"' rel="stylesheet" type="text/css"/>
+        <link href='href="https://docs.aws.amazon.com/assets/marketing/css/marketing-target.css"' rel="stylesheet" type="text/css"/>
+        list_amazonkendra.html downloaded
+        '''
+        soup = BeautifulSoup(response.content, 'html.parser')
+        for link in soup.find_all('link'):
+            if link.get('href').startswith('/'):
+                temp = link.attrs['href']
+                link.attrs['href'] = link.attrs['href'].replace(
+                    temp, f"https://docs.aws.amazon.com{temp}")
 
-    # Remove a random straggler file
-    if exists(html_docs_destination + '/robots.txt.tmp'):
-        remove(html_docs_destination + '/robots.txt.tmp')
+        with open(html_docs_destination + page, 'w') as file:
+            # file.write(str(soup.html))
+            file.write(str(soup.prettify()))
+            file.close()
+        print(f"{page} downloaded")
 
 
 # Borrowed and altered from Parliament:
@@ -70,6 +91,7 @@ def create_service_links_mapping_file(html_docs_destination, links_yml_file):
                     prefix = str(c)
                     prefix = prefix.split('<code class="code">')[1]
                     prefix = prefix.split("</code>")[0]
+                    prefix = chomp(prefix)
                     prefix_list.append(prefix)
                     if prefix not in links_shortened:
                         links_shortened[prefix] = [filename]
@@ -84,6 +106,7 @@ def create_service_links_mapping_file(html_docs_destination, links_yml_file):
         yaml.dump(links_dict, outfile, default_flow_style=False)
     outfile.close()
     print(f"Created the service-to-links YML mapping file")
+    return prefix_list
 
 
 def get_list_of_service_prefixes_from_links_file(links_yml_file):

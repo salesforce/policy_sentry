@@ -1,4 +1,8 @@
 # Changelog
+## 2019-12-10
+### Changed
+* `--fetch` argument now passes security check. Using requests and beautifulsoup instead of wget and subprocess.
+
 ## 2019-12-01
 ### Added
 * `--fetch` argument to `policy_sentry initialize` command.

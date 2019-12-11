@@ -41,10 +41,12 @@ def create_html_docs_directory():
     """
     create_directory_if_it_doesnt_exist(HTML_DIRECTORY_PATH)
     # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
-    existing_html_docs_folder = os.path.abspath(os.path.dirname(__file__)) + HTML_DATA_DIRECTORY_SUBFOLDER
+    existing_html_docs_folder = os.path.abspath(
+        os.path.dirname(__file__)) + HTML_DATA_DIRECTORY_SUBFOLDER
     copy_tree(existing_html_docs_folder, HTML_DIRECTORY_PATH)
     # Copy the links.yml file from here to the config directory
-    existing_links_file = os.path.abspath(os.path.dirname(__file__)) + '/' + 'links.yml'
+    existing_links_file = os.path.abspath(
+        os.path.dirname(__file__)) + '/' + 'links.yml'
     target_links_file = HOME + CONFIG_DIRECTORY + 'links.yml'
     shutil.copy(existing_links_file, target_links_file)
 
@@ -60,7 +62,8 @@ def create_audit_directory():
     create_directory_if_it_doesnt_exist(AUDIT_DIRECTORY_PATH)
     destination = AUDIT_DIRECTORY_PATH
 
-    existing_audit_files_directory = os.path.abspath(os.path.dirname(__file__)) + '/data/audit/'
+    existing_audit_files_directory = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/audit/'
     source = existing_audit_files_directory
     file_list = list_files_in_directory(existing_audit_files_directory)
 
@@ -93,7 +96,8 @@ def create_default_overrides_file():
     """
     existing_overrides_file_name = 'access-level-overrides.yml'
     target_overrides_file_path = HOME + CONFIG_DIRECTORY + existing_overrides_file_name
-    existing_overrides_file_path = os.path.abspath(os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
+    existing_overrides_file_path = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
     shutil.copy(existing_overrides_file_path, target_overrides_file_path)
     print(
         f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
