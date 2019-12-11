@@ -1,7 +1,7 @@
 #! /bin/env python3
 
 from invoke import task, Collection
-from policy_sentry.command import initialize
+
 # Create the necessary collections (namespaces)
 ns = Collection()
 test = Collection('test')
