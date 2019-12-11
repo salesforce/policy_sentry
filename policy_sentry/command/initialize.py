@@ -64,7 +64,7 @@ def initialize(access_level_overrides_file, fetch):
         # Update the links.yml file
         prefix_list = create_service_links_mapping_file(
             HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL)
-        print(f"Services: {prefix_list.sort()}")
+        print(f"Services: {prefix_list}")
 
     # Connect to the database at that path with SQLAlchemy
     db_session = connect_db(database_path)

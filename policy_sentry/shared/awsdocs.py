@@ -105,6 +105,7 @@ def create_service_links_mapping_file(html_docs_destination, links_yml_file):
     with open(links_yml_file, 'w+') as outfile:
         yaml.dump(links_dict, outfile, default_flow_style=False)
     outfile.close()
+    prefix_list.sort()
     print(f"Created the service-to-links YML mapping file")
     return prefix_list
 
