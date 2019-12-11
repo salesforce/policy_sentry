@@ -1,4 +1,4 @@
-#! /bin/env python3
+#!/usr/bin/env python
 
 from invoke import task, Collection
 from policy_sentry.command import initialize
@@ -30,36 +30,36 @@ def clean_config_directory(c):
 @task
 def create_db(c):
     initialize.initialize('')
-    # c.run('python3 policy_sentry/bin/policy_sentry initialize')
+    # c.run('python3 ./policy_sentry/bin/policy_sentry initialize')
 
 
 @task
 def write_policy(c):
-    c.run('python3 policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml')
-    c.run('python3 policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml')
-    c.run('python3 policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml')
+    c.run('python3 ./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml')
+    c.run('python3 ./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml')
+    c.run('python3 ./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml')
 
 
 @task
 def analyze_policy(c):
-    c.run('python3 policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json')
+    c.run('python3 ./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json')
 
 
 @task
 def query(c):
     c.run('echo "Querying the action table"')
-    c.run('python3 policy_sentry/bin/policy_sentry query action-table --service ram')
-    c.run('python3 policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource')
-    c.run('python3 policy_sentry/bin/policy_sentry query action-table '
+    c.run('python3 ./policy_sentry/bin/policy_sentry query action-table --service ram')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query action-table '
           '--service ram --access-level permissions-management')
-    c.run('python3 policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress')
     c.run('echo "Querying the ARN table"')
-    c.run('python3 policy_sentry/bin/policy_sentry query arn-table --service ssm')
-    c.run('python3 policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment')
-    c.run('python3 policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query arn-table --service ssm')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types')
     c.run('echo "Querying the condition keys table"')
-    c.run('python3 policy_sentry/bin/policy_sentry query condition-table --service cloud9')
-    c.run('python3 policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query condition-table --service cloud9')
+    c.run('python3 ./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions')
 
 # TEST
 @task
