@@ -3,6 +3,7 @@ Create the Policy Sentry config folder (~/.policy_sentry/) and the contents with
 Create the SQLite database and fill it with the tables scraped from the AWS Docs
 """
 import click
+from policy_sentry.shared.actions import get_all_services_from_action_table
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
     create_audit_directory, create_default_overrides_file, create_policy_analysis_directory, \
     create_default_report_config_file, create_html_docs_directory
@@ -29,7 +30,7 @@ from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTOR
     default=False,
     help='Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs '
          'in the Git repository are behind the live docs and you need to use the latest version of the docs right '
-         'now. Note that this requires Linux/MacOS, since you must have access to the wget command.'
+         'now.'
 )
 def initialize(access_level_overrides_file, fetch):
     """
@@ -70,7 +71,11 @@ def initialize(access_level_overrides_file, fetch):
     db_session = connect_db(database_path)
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_LOCAL)
+    print(f"Services to build for: ${LINKS_YML_FILE_LOCAL}")
 
     # Fill in the database with data on the AWS services
     create_database(db_session, all_aws_services, access_level_overrides_file)
     print("Created tables for all services!")
+    all_aws_services = get_all_services_from_action_table(db_session)
+    total_count_of_services = str(len(all_aws_services))
+    print(f"{total_count_of_services} AWS services in the database: {all_aws_services}")

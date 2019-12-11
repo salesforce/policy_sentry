@@ -11,7 +11,7 @@ Options
 ^^^^^^^
 
 * ``--access-level-overrides-file`` (Optional): Path to your own custom access level overrides file, used to override the Access Levels per action provided by AWS docs. The default one is `here <https://github.com/salesforce/policy_sentry/blob/master/policy_sentry/shared/data/access-level-overrides.yml>`__.
-* ``--fetch`` (Optional):  Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs in the Git repository are behind the live docs and you need to use the latest version of the docs right now. Note that this requires Linux/MacOS, since you must have access to the wget command.
+* ``--fetch`` (Optional):  Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs in the Git repository are behind the live docs and you need to use the latest version of the docs right now.
 
 Usage
 ^^^^^

@@ -125,6 +125,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
     That information is scraped, parsed, and stored in the SQLite database using this function.
     :param db_session: Database session object
     :param service: AWS Service to query. This can be called in a loop or for a single service (see connect_db function above).
+    :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
