@@ -71,6 +71,10 @@ elasticmapreduce:
     Write:
         - createeditor
         - runjobflow
+es:
+    Permissions management:
+        - createelasticsearchdomain
+        - updateelasticsearchdomainconfig
 events:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -82,6 +86,11 @@ glacier:
         - abortvaultlock
         - completevaultlock
         - initiatevaultlock
+glue:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresourcepolicy
+        - deleteresourcepolicy
 fsx:
     Write:
         - createbackup
@@ -92,7 +101,6 @@ iam:
     # While this is correct and they **should not** change it to Write, this overrides file
     # filters out IAM actions that do not deal with resource based policies specifically.
     Write:
-#    Permissions management:
         - attachuserpolicy
         - createpolicy
         - createpolicyversion
@@ -113,6 +121,11 @@ iam:
         - putuserpermissionsboundary
         - putuserpolicy
         - setdefaultpolicyversion
+imagebuilder:
+    # AWS documentation lists this as "Permissions management"
+    Read:
+        - getimagepolicy
+        - getimagerecipepolicy
 # kms: We will keep kms grants here, as that is kind of a special case, where it could cause things to be exposed to the public, as it is an alternative to a resource policy.
 iot:
     # AWS documentation lists these as "Tagging"
@@ -125,14 +138,20 @@ iot:
         - createthingtype
         - deletethinggroup
         - deletethingtype
+iotsitewise:
+    # AWS documentation lists this as "Permissions management"
+    Read:
+        - describeaccesspolicy
 iotthingsgraph:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsysteminstance
 license-manager:
-    # AWS documentation lists this as "Tagging"
     Write:
+        # AWS documentation lists this as "Tagging"
         - createlicenseconfiguration
+        # AWS documentation lists this as "Permissions management"
+        - updateservicesettings
 lightsail:
     Write:
         - createcloudformationstack
@@ -141,6 +160,9 @@ logs:
     Permissions management:
         - putresourcepolicy
         - deleteresourcepolicy
+kms:
+    Permissions management:
+        - createkey
 medialive:
     # AWS Documentation lists these as "Tagging"
     Write:
@@ -158,8 +180,8 @@ ram:
         - tagresource
         - untagresource
 rds:
-    # these were all previously "Tagging"
     Write:
+        # these were all previously "Tagging"
         - createdbcluster
         - createdbclusterparametergroup
         - createdbclustersnapshot
@@ -171,6 +193,13 @@ rds:
         - createdbsubnetgroup
         - createeventsubscription
         - createoptiongroup
+        # This one was listed as "Permissions management"
+        - authorizedbsecuritygroupingress
+rds-db:
+    # This one was listed as "Permissions management". While this is conceptually correct,
+    # and AWS **should not** change it, this overrides file is here specifically to call out resource-based policies
+    Write:
+    - connect
 resource-groups:
     Write:
         - creategroup
@@ -178,6 +207,19 @@ secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsecret
+ses:
+    Permissions management:
+        - putidentitypolicy
+        - deleteidentitypolicy
+sns:
+    Permissions management:
+        - settopicattributes
+        - createtopic
+sqs:
+    Permissions management:
+        - createqueue
+        - setqueueattributes
+        - addpermission
 ssm:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -189,12 +231,25 @@ ssm:
     # AWS documentation lists this as "Write"
     Permissions management:
         - modifydocumentpermission
-
 states:
     Write:
         - createstatemachine
         - createactivity
-
 xray:
     Read:
         - getencryptionconfig
+waf:
+    # AWS documentation lists this one as "Permissions management"
+    Write:
+        - createwebacl
+        - deletewebacl
+        - updatewebacl
+waf-regional:
+    # AWS documentation lists this one as "Permissions management"
+    Write:
+        - createwebacl
+        - deletewebacl
+        - updatewebacl
+worklink:
+    Permissions management:
+        - updatedevicepolicyconfiguration

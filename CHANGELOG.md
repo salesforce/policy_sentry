@@ -1,7 +1,8 @@
 # Changelog
 ## 2019-12-17
 ### Added
-* overrides-resource-policies.yml to specifically identify API calls that modify resource based policies. Need to finish this.
+* `overrides-resource-policies.yml` to specifically identify API calls that modify resource based policies.
+* `resource-policies.txt` to answer Scott Piper's question about API calls that can modify resource policies.
 ### Changed
 * The `--fetch` argument was not working because AWS changed their documentation. This incorporates the new documentation instead and changed the logic for the scraping process.
 * The initialization command now copies both overrides yml files, not just one

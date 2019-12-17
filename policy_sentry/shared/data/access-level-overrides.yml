@@ -68,7 +68,10 @@ ec2:
         - createnetworkinterfacepermission
         - deletenetworkinterfacepermission
         - modifyvpcendpointservicepermissions
-
+es:
+    Permissions management:
+        - createelasticsearchdomain
+        - updateelasticsearchdomainconfig
 elasticfilesystem:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -88,6 +91,11 @@ fsx:
         - createbackup
         - createfilesystem
         - createfilesystemfrombackup
+glue:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresourcepolicy
+        - deleteresourcepolicy
 # We treat IAM, RAM, and DS as Permissions Management
 iam:
     Permissions management:
@@ -147,6 +155,11 @@ iam:
         - uploadsshpublickey
         - uploadservercertificate
         - uploadsigningcertificate
+imagebuilder:
+    # AWS documentation lists this as "Permissions management"
+    Read:
+        - getimagepolicy
+        - getimagerecipepolicy
 iot:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -162,6 +175,13 @@ iotthingsgraph:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsysteminstance
+iotsitewise:
+    # AWS documentation lists this as "Permissions management"
+    Read:
+        - describeaccesspolicy
+kms:
+    Permissions management:
+        - createkey
 license-manager:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -221,6 +241,11 @@ redshift:
     # AWS documentation lists this as "Write"
     Permissions management:
         - getclustercredentials
+    # AWS documentation lists this as "Permissions management"
+    Write:
+        - rotateencryptionkey
+        - authorizeclustersecuritygroupingress
+        - revokeclustersecuritygroupingress
 resource-groups:
     Write:
         - creategroup
@@ -228,6 +253,15 @@ secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsecret
+sns:
+    Permissions management:
+        - settopicattributes
+        - createtopic
+sqs:
+    Permissions management:
+        - createqueue
+        - setqueueattributes
+        - addpermission
 ssm:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -303,13 +337,26 @@ states:
         - createstatemachine
         - createactivity
 waf:
+    # AWS documentation lists this one as "Permissions management"
+    Write:
+        - createwebacl
+        - deletewebacl
+        - updatewebacl
     # AWS documentation lists these as "Read"
     Permissions management:
         - getchangetoken
 waf-regional:
+    # AWS documentation lists this one as "Permissions management"
+    Write:
+        - createwebacl
+        - deletewebacl
+        - updatewebacl
     # AWS documentation lists these as "Read"
     Permissions management:
         - getchangetoken
 xray:
     Read:
         - getencryptionconfig
+worklink:
+    Permissions management:
+        - updatedevicepolicyconfiguration
