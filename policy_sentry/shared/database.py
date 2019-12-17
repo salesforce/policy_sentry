@@ -14,6 +14,7 @@ from policy_sentry.shared.config import get_action_access_level_overrides_from_y
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
 from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
+from policy_sentry.shared.awsdocs import chomp
 
 Base = declarative_base()  # pylint: disable=invalid-name
 
@@ -260,10 +261,11 @@ def build_arn_table(db_session, service):
             table_data = df
             if 'Resource Types' in table_data and 'ARN' in table_data:
                 for i in range(len(table['data'])):
+                    # Replace the random spaces in the ARN
+                    temp_raw_arn = table['data'][i][1].replace(' ', '')
                     # Handle resource ARN path
-                    if get_resource_path_from_arn(table['data'][i][1]):
-                        resource_path = get_resource_path_from_arn(
-                            table['data'][i][1])
+                    if get_resource_path_from_arn(temp_raw_arn):
+                        resource_path = get_resource_path_from_arn(temp_raw_arn)
                     else:
                         resource_path = ''
                     # Handle condition keys
@@ -279,18 +281,15 @@ def build_arn_table(db_session, service):
                         condition_keys = table['data'][i][2]
                     db_session.add(ArnTable(
                         resource_type_name=table['data'][i][0],
-                        # raw_arn=str(table['data'][i][1]).replace(
-                        #     "${Partition}", "aws"),
-                        raw_arn=str(table['data'][i][1]),
+                        raw_arn=str(temp_raw_arn),
                         arn='arn',
-                        partition=get_partition_from_arn(table['data'][i][1]),
-                        service=get_service_from_arn(table['data'][i][1]),
-                        region=get_region_from_arn(table['data'][i][1]),
-                        account=get_account_from_arn(table['data'][i][1]),
-                        resource=get_resource_from_arn(table['data'][i][1]),
+                        partition=get_partition_from_arn(temp_raw_arn),
+                        service=get_service_from_arn(temp_raw_arn),
+                        region=get_region_from_arn(temp_raw_arn),
+                        account=get_account_from_arn(temp_raw_arn),
+                        resource=get_resource_from_arn(temp_raw_arn),
                         resource_path=resource_path,
                         condition_keys=condition_keys
-                        # resource_path=get_resource_path_from_arn(table['data'][i][1])
                     ))
                     db_session.commit()
 

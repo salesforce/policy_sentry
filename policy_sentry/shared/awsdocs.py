@@ -35,7 +35,13 @@ def update_html_docs_directory(html_docs_destination):
     :return:
     """
     link_url_prefix = "https://docs.aws.amazon.com/IAM/latest/UserGuide/"
-    html_filenames = get_links_from_base_actions_resources_conditions_page()
+    initial_html_filenames_list = get_links_from_base_actions_resources_conditions_page()
+    # Remove the relative path so we can download it
+    html_filenames = [sub.replace('./', '') for sub in initial_html_filenames_list]
+    # Replace '.html' with '.partial.html' because that's where the current docs live
+    html_filenames = [sub.replace('.html', '.partial.html') for sub in html_filenames]
+
+
     for page in html_filenames:
         response = requests.get(link_url_prefix + page, allow_redirects=False)
         # Replace the CSS stuff. Basically this:

@@ -13,13 +13,13 @@ For walkthroughs and full documentation, please visit the [project on ReadTheDoc
 ## Overview
 
 Writing security-conscious IAM Policies by hand can be very tedious and inefficient. Many Infrastructure as Code developers have experienced something like this:
- 
- * Determined to make your best effort to give users and roles the least amount of privilege you need to perform your duties, you spend way too much time combing through the AWS IAM Documentation on [Actions, Resources, and Condition Keys for AWS Services][1]. 
+
+ * Determined to make your best effort to give users and roles the least amount of privilege you need to perform your duties, you spend way too much time combing through the AWS IAM Documentation on [Actions, Resources, and Condition Keys for AWS Services][1].
  * Your team lead encourages you to build security into your IAM Policies for product quality, but eventually you get frustrated due to project deadlines.
- * You don't have an embedded security person on your team who can write those IAM policies for you, and there's no automated tool that will automagically sense the AWS API calls that you perform and then write them for you in a least-privilege manner. 
+ * You don't have an embedded security person on your team who can write those IAM policies for you, and there's no automated tool that will automagically sense the AWS API calls that you perform and then write them for you in a least-privilege manner.
  * After fantasizing about that level of automation, you realize that writing least privilege IAM Policies, seemingly out of charity, will jeopardize your ability to finish your code in time to meet project deadlines.
  * You use Managed Policies (because hey, why not) or you eyeball the names of the API calls and use wildcards instead so you can move on with your life.
- 
+
 Such a process is not ideal for security or for Infrastructure as Code developers. We need to make it easier to write IAM Policies securely and abstract the complexity of writing least-privilege IAM policies. That's why I made this tool.
 
 ### Authoring Secure IAM Policies
@@ -30,7 +30,7 @@ Policy Sentry's flagship feature is that it can create IAM policies based on res
 * "I need Permissions Management access to `arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
 * "I need Tagging access to `arn:aws:ssm:us-east-1:123456789012:parameter/test`"
 
-...and our automation should create policies that correspond to those access levels. 
+...and our automation should create policies that correspond to those access levels.
 
 How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
 
@@ -67,7 +67,7 @@ How do we accomplish this? Well, Policy Sentry leverages the AWS documentation o
   </tr>
 </table>
 
-Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs: 
+Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
 policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
@@ -315,18 +315,19 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 
   - Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
-  
+
 * `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
   - Option 1: Query the Actions Table (`action-table`)
   - Option 2: Query the ARNs Table (`arn-table`)
   - Option 3: Query the Conditions Table (`condition-table`)
-  
+
 
 ### Updating the AWS HTML files
 
 Run the following:
 
 ```bash
+pipenv shell
 python3 ./utils/download_docs.py
 ```
 

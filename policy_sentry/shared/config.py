@@ -95,12 +95,21 @@ def create_default_overrides_file():
     cp $MODULE_DIR/policy_sentry/shared/data/access-level-overrides.yml ~/policy_sentry/access-level-overrides.yml
     """
     existing_overrides_file_name = 'access-level-overrides.yml'
-    target_overrides_file_path = HOME + CONFIG_DIRECTORY + existing_overrides_file_name
-    existing_overrides_file_path = os.path.abspath(
-        os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
-    shutil.copy(existing_overrides_file_path, target_overrides_file_path)
-    print(
-        f"Copying overrides file {existing_overrides_file_name} to {target_overrides_file_path}")
+    existing_overrides_file_directory = os.path.abspath(
+        os.path.dirname(__file__)) + '/data/'
+    file_list = list_files_in_directory(existing_overrides_file_directory)
+
+    source = existing_overrides_file_directory
+    destination = HOME + CONFIG_DIRECTORY + '/'
+    for file in file_list:
+        if file.endswith(".yml"):
+            shutil.copy(source + '/' + file, destination)
+            print("copying overrides file " + file + " to " + destination)
+    # existing_overrides_file_path = os.path.abspath(
+    #     os.path.dirname(__file__)) + '/data/' + existing_overrides_file_name
+    # shutil.copy(existing_overrides_file_path, target_overrides_file_path)
+    # print(
+    #     f"Copying overrides file {existing_overrides_file_name} to {destination}")
 
 
 def create_default_report_config_file():

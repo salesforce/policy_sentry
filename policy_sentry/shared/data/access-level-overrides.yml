@@ -21,11 +21,21 @@ athena:
     # AWS documentation lists this as Tagging
     Write:
         - createworkgroup
+backup:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - deletebackupvaultaccesspolicy
+        - putbackupvaultaccesspolicy
 cloudfront:
     # AWS documentation lists this as Tagging
     Write:
         - createdistributionwithtags
         - createstreamingdistributionwithtags
+codebuild:
+    # AWS documentation lists this as "Write"
+    Write:
+        - deleteresourcepolicy
+        - putresourcepolicy
 codepipeline:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -162,6 +172,11 @@ lightsail:
         - getrelationaldatabasemasteruserpassword # Returns the master user password of a relational database.
     Write:
         - createcloudformationstack
+logs:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresourcepolicy
+        - deleteresourcepolicy
 medialive:
     # AWS Documentation lists these as "Tagging"
     Write:
