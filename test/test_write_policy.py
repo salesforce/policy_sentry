@@ -111,7 +111,7 @@ class WritePolicyActionsTestCase(unittest.TestCase):
                 "Version": "2012-10-17",
                 "Statement": [
                     {
-                        "Sid": "KmsPermissionsmanagementKey",
+                        "Sid": "KmsPermissionsmanagementKmskey",
                         "Effect": "Allow",
                         "Action": [
                             "kms:creategrant"

@@ -37,6 +37,7 @@ class QueryTestCase(unittest.TestCase):
     def test_query_arn_table_for_raw_arns(self):
         """test_query_arn_table_for_raw_arns: Tests function that grabs a list of raw ARNs per service"""
         desired_output = [
+            "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "arn:${Partition}:s3:::${BucketName}",
             "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
             "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
@@ -47,9 +48,10 @@ class QueryTestCase(unittest.TestCase):
     def test_query_arn_table_for_arn_types(self):
         """test_query_arn_table_for_arn_types: Tests function that grabs arn_type and raw_arn pairs"""
         desired_output = {
+            "accesspoint": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "bucket": "arn:${Partition}:s3:::${BucketName}",
             "object": "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
-            "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
+            "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         }
         output = query_arn_table_for_arn_types(db_session, "s3")
         print(output)
