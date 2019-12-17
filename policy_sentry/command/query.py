@@ -65,7 +65,8 @@ def action_table(name, service, access_level, condition, wildcard_only):
             print(f"{access_level} actions across ALL services:\n")
             results = []
             for serv in all_services:
-                output = query_action_table_by_access_level(db_session, serv, level)
+                output = query_action_table_by_access_level(
+                    db_session, serv, level)
                 results.extend(output)
             for result in results:
                 print(result)
