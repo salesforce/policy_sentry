@@ -1,6 +1,7 @@
 # Changelog
 ## 2019-12-17
 ### Added
+* Version bump to 0.6.2
 * `overrides-resource-policies.yml` to specifically identify API calls that modify resource based policies.
 * `resource-policies.txt` to answer Scott Piper's question about API calls that can modify resource policies.
 ### Changed
