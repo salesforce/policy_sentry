@@ -69,7 +69,7 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
 
 
 @click.command(
-    short_help='Write least-privilege IAM policies using a list of actions or access levels specific to resource ARNs.'
+    short_help='Write least-privilege IAM policies, restricting all actions to resource ARNs.'
 )
 # pylint: disable=duplicate-code
 @click.option(

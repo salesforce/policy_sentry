@@ -12,8 +12,8 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 
 @click.command(
-    short_help='Same as write-policy, but this time with an input directory of YML/YAML files, '
-    'and an output directory for all the JSON files.')
+    short_help='Same as write-policy, but with an input directory of YML files, '
+    'and an output directory for the JSON files.')
 @click.option(
     '--input-dir',
     type=str,
