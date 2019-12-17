@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-
+import sys
+import os
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
 from invoke import task, Collection
 from policy_sentry.command import initialize
 
@@ -82,10 +85,10 @@ def run_unit_tests(c):
     c.run('nosetests -v', warn=True)
 
 
-@task(create_db, analyze_policy, write_policy, query)
-def run_integration_tests(c):
-    # TODO If the database is not found we should build it, otherwise just run the tests.
-    c.run('echo "Running Integration tests"')
+# @task(create_db, analyze_policy, write_policy, query)
+# def run_integration_tests(c):
+#     # TODO If the database is not found we should build it, otherwise just run the tests.
+#     c.run('echo "Running Integration tests"')
 
 
 # @task(pre=[run_integration_tests, run_unit_tests])
@@ -124,7 +127,7 @@ integration.add_task(create_db, 'initialize')
 integration.add_task(analyze_policy, 'analyze-policy')
 integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
-integration.add_task(run_integration_tests, 'all')
+# integration.add_task(run_integration_tests, 'all')
 
 unit.add_task(run_unit_tests, 'nose')
 
