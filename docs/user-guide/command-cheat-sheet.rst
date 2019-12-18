@@ -41,6 +41,21 @@ Commands
   * Option 3: Query the Conditions Table (``--table condition``)
 
 
+Initialization
+~~~~~~~~~~~~~~~
+.. code-block:: bash
+
+    # Initialize the policy_sentry config folder and create the IAM database tables.
+    policy_sentry initialize
+
+    # Fetch the most recent version of the AWS documentation so you can experiment with new services.
+    policy_sentry initialize --fetch
+
+    # Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
+    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
+    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
+
+
 Policy Writing Commands
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
@@ -64,15 +79,57 @@ Policy Writing Commands
     policy_sentry write-policy --input-file examples/yml/actions.yml
 
 
+IAM Database Query Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Query the **Action**\  table:
+
+.. code-block:: bash
+
+    # Get a list of all IAM actions across ALL services that have "Permissions management" access
+    policy_sentry query action-table --service all --access-level permissions-management
+
+    # Get a list of all IAM Actions available to the RAM service
+    policy_sentry query action-table --service ram
+
+    # Get details about the `ram:TagResource` IAM Action
+    policy_sentry query action-table --service ram --name tagresource
+
+    # Get a list of all IAM actions under the RAM service that have the Permissions management access level.
+    policy_sentry query action-table --service ram --access-level permissions-management
+
+    # Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
+    policy_sentry query action-table --service ses --condition ses:FeedbackAddress
+
+* Query the **ARN**\  table:
+
+.. code-block:: bash
+
+    # Get a list of all RAW ARN formats available through the SSM service.
+    policy_sentry query arn-table --service ssm
+
+    # Get the raw ARN format for the `cloud9` ARN with the short name `environment`
+    policy_sentry query arn-table --service cloud9 --name environment
+
+    # Get key/value pairs of all RAW ARN formats plus their short names
+    policy_sentry query arn-table --service cloud9 --list-arn-types
+
+* Query the **Condition Keys**\  table:
+
+.. code-block:: bash
+
+    # Get a list of all condition keys available to the Cloud9 service
+    policy_sentry query condition-table --service cloud9
+    # Get details on the condition key titled `cloud9:Permissions`
+    policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
+
+
 Policy Download and Analysis Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
     # Initialize the policy_sentry config folder and create the IAM database tables.
     policy_sentry initialize
-
-    # Initialize the database, but instead of using the AWS HTML files in the Python package, download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
-    policy_sentry initialize --fetch
 
     # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
     policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
@@ -96,41 +153,3 @@ Policy Download and Analysis Commands
 
     # Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml
     policy_sentry analyze --report-config custom-config.yml
-
-
-IAM Database Query Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-* Query the **Action**\  table:
-
-.. code-block:: bash
-
-    # Get a list of all IAM Actions available to the RAM service
-    policy_sentry query action-table --service ram
-    # Get details about the `ram:TagResource` IAM Action
-    policy_sentry query action-table --service ram --name tagresource
-    # Get a list of all IAM actions under the RAM service that have the Permissions management access level.
-    policy_sentry query action-table --service ram --access-level permissions-management
-    # Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
-    policy_sentry query action-table --service ses --condition ses:FeedbackAddress
-
-* Query the **ARN**\  table:
-
-.. code-block:: bash
-
-    # Get a list of all RAW ARN formats available through the SSM service.
-    policy_sentry query arn-table --service ssm
-    # Get the raw ARN format for the `cloud9` ARN with the short name `environment`
-    policy_sentry query arn-table --service cloud9 --name environment
-    # Get key/value pairs of all RAW ARN formats plus their short names
-    policy_sentry query arn-table --service cloud9 --list-arn-types
-
-* Query the **Condition Keys**\  table:
-
-.. code-block:: bash
-
-    # Get a list of all condition keys available to the Cloud9 service
-    policy_sentry query condition-table --service cloud9
-    # Get details on the condition key titled `cloud9:Permissions`
-    policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
