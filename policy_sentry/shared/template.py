@@ -17,7 +17,8 @@ roles_with_crud_levels:
 - name: {{ name }}
   description: ''
   arn: ''
-  # Insert ARNs below
+  # Insert ARNs under each access level below
+  # If you do not need to use certain access levels, delete them.
   read:
     - ''
   write:
@@ -28,7 +29,8 @@ roles_with_crud_levels:
     - ''
   permissions-management:
     - ''
-  # Provide a list of IAM actions that cannot be restricted to ARNs
+  # If the policy needs to use IAM actions that cannot be restricted to ARNs,
+  # like ssm:DescribeParameters, specify those actions here.
   wildcard:
     - ''
 '''

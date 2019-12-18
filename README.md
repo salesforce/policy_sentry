@@ -13,13 +13,13 @@ For walkthroughs and full documentation, please visit the [project on ReadTheDoc
 ## Overview
 
 Writing security-conscious IAM Policies by hand can be very tedious and inefficient. Many Infrastructure as Code developers have experienced something like this:
- 
- * Determined to make your best effort to give users and roles the least amount of privilege you need to perform your duties, you spend way too much time combing through the AWS IAM Documentation on [Actions, Resources, and Condition Keys for AWS Services][1]. 
+
+ * Determined to make your best effort to give users and roles the least amount of privilege you need to perform your duties, you spend way too much time combing through the AWS IAM Documentation on [Actions, Resources, and Condition Keys for AWS Services][1].
  * Your team lead encourages you to build security into your IAM Policies for product quality, but eventually you get frustrated due to project deadlines.
- * You don't have an embedded security person on your team who can write those IAM policies for you, and there's no automated tool that will automagically sense the AWS API calls that you perform and then write them for you in a least-privilege manner. 
+ * You don't have an embedded security person on your team who can write those IAM policies for you, and there's no automated tool that will automagically sense the AWS API calls that you perform and then write them for you in a least-privilege manner.
  * After fantasizing about that level of automation, you realize that writing least privilege IAM Policies, seemingly out of charity, will jeopardize your ability to finish your code in time to meet project deadlines.
  * You use Managed Policies (because hey, why not) or you eyeball the names of the API calls and use wildcards instead so you can move on with your life.
- 
+
 Such a process is not ideal for security or for Infrastructure as Code developers. We need to make it easier to write IAM Policies securely and abstract the complexity of writing least-privilege IAM policies. That's why I made this tool.
 
 ### Authoring Secure IAM Policies
@@ -30,7 +30,7 @@ Policy Sentry's flagship feature is that it can create IAM policies based on res
 * "I need Permissions Management access to `arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`"
 * "I need Tagging access to `arn:aws:ssm:us-east-1:123456789012:parameter/test`"
 
-...and our automation should create policies that correspond to those access levels. 
+...and our automation should create policies that correspond to those access levels.
 
 How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
 
@@ -67,7 +67,7 @@ How do we accomplish this? Well, Policy Sentry leverages the AWS documentation o
   </tr>
 </table>
 
-Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs: 
+Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
 policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
@@ -78,18 +78,24 @@ It will generate a file like this:
 ```yaml
 roles_with_crud_levels:
 - name: myRole
-  description: '' # Insert description
-  arn: '' # Insert the ARN of the role that will use this
+  description: ''
+  arn: ''
+  # Insert ARNs under each access level below
+  # If you do not need to use certain access levels, delete them.
   read:
-    - '' # Insert ARNs for Read access
+    - ''
   write:
-    - '' # Insert ARNs...
+    - ''
   list:
-    - '' # Insert ARNs...
+    - ''
   tag:
-    - '' # Insert ARNs...
+    - ''
   permissions-management:
-    - '' # Insert ARNs...
+    - ''
+  # If the policy needs to use IAM actions that cannot be restricted to ARNs,
+  # like ssm:DescribeParameters, specify those actions here.
+  wildcard:
+    - ''
 ```
 
 Then just fill it out:
@@ -188,6 +194,20 @@ This rapidly speeds up the time to develop IAM policies, and ensures that all po
 pip install --user policy_sentry
 ```
 
+* Initialization
+
+```bash
+# Initialize the policy_sentry config folder and create the IAM database tables.
+policy_sentry initialize
+
+# Fetch the most recent version of the AWS documentation so you can experiment with new services.
+policy_sentry initialize --fetch
+
+# Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
+policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
+policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
+```
+
 * Policy Writing cheat sheet
 
 ```bash
@@ -208,6 +228,52 @@ policy_sentry create-template --name myRole --output-file tmp.yml --template-typ
 
 # Write policy based on a list of actions
 policy_sentry write-policy --input-file examples/yml/actions.yml
+```
+
+* IAM Database Query Cheat Sheet
+
+```bash
+
+###############
+# Actions Table
+###############
+# Get a list of all IAM actions across ALL services that have "Permissions management" access
+policy_sentry query action-table --service all --access-level permissions-management
+
+# Get a list of all IAM Actions available to the RAM service
+policy_sentry query action-table --service ram
+
+# Get details about the `ram:TagResource` IAM Action
+policy_sentry query action-table --service ram --name tagresource
+
+# Get a list of all IAM actions under the RAM service that have the Permissions management access level.
+policy_sentry query action-table --service ram --access-level permissions-management
+
+# Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
+policy_sentry query action-table --service ses --condition ses:FeedbackAddress
+
+###########
+# ARN Table
+###########
+
+# Get a list of all RAW ARN formats available through the SSM service.
+policy_sentry query arn-table --service ssm
+
+# Get the raw ARN format for the `cloud9` ARN with the short name `environment`
+policy_sentry query arn-table --service cloud9 --name environment
+
+# Get key/value pairs of all RAW ARN formats plus their short names
+policy_sentry query arn-table --service cloud9 --list-arn-types
+
+######################
+# Condition Keys Table
+######################
+
+# Get a list of all condition keys available to the Cloud9 service
+policy_sentry query condition-table --service cloud9
+
+# Get details on the condition key titled `cloud9:Permissions`
+policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
 * Policy Analysis Cheat Sheet
@@ -243,49 +309,6 @@ policy_sentry analyze downloaded-policies --report-config custom-config.yml
 policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json
 ```
 
-* IAM Database Query Cheat Sheet
-
-```bash
-
-###############
-# Actions Table
-###############
-
-# Get a list of all IAM Actions available to the RAM service
-policy_sentry query action-table --service ram
-
-# Get details about the `ram:TagResource` IAM Action
-policy_sentry query action-table --service ram --name tagresource
-
-# Get a list of all IAM actions under the RAM service that have the Permissions management access level.
-policy_sentry query action-table --service ram --access-level permissions-management
-
-# Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
-policy_sentry query action-table --service ses --condition ses:FeedbackAddress
-
-###########
-# ARN Table
-###########
-
-# Get a list of all RAW ARN formats available through the SSM service.
-policy_sentry query arn-table --service ssm
-
-# Get the raw ARN format for the `cloud9` ARN with the short name `environment`
-policy_sentry query arn-table --service cloud9 --name environment
-
-# Get key/value pairs of all RAW ARN formats plus their short names
-policy_sentry query arn-table --service cloud9 --list-arn-types
-
-######################
-# Condition Keys Table
-######################
-
-# Get a list of all condition keys available to the Cloud9 service
-policy_sentry query condition-table --service cloud9
-# Get details on the condition key titled `cloud9:Permissions`
-policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
-```
-
 
 ## Commands
 
@@ -312,21 +335,18 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 
   - Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
-  
 * `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
   - Option 1: Query the Actions Table (`action-table`)
   - Option 2: Query the ARNs Table (`arn-table`)
   - Option 3: Query the Conditions Table (`condition-table`)
-  
+
 
 ### Updating the AWS HTML files
 
-Run the following:
+This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`:
 
 ```bash
-./utils/grab-docs.sh
-# Or:
-./utils/download-docs.sh
+./utils/download_docs.py
 ```
 
 ## References
