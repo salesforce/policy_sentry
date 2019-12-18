@@ -4,6 +4,7 @@ import os
 from invoke import task, Collection
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
+from policy_sentry.command import initialize
 
 # Create the necessary collections (namespaces)
 ns = Collection()
@@ -25,13 +26,13 @@ ns.add_collection(build)
 def build_package(c):
     """Build the policy_sentry package from the current directory contents for use with PyPi"""
     c.run('python -m pip install --upgrade setuptools wheel')
-    c.run('python setup.py sdist bdist_wheel')
+    c.run('python setup.py -q sdist bdist_wheel')
 
 
 @task(pre=[build_package])
 def install_package(c):
     """Install the policy_sentry package built from the current directory contents (not PyPi)"""
-    c.run('pip3 install dist/policy_sentry-*.tar.gz')
+    c.run('pip3 install -q dist/policy_sentry-*.tar.gz')
 
 
 @task
@@ -65,27 +66,30 @@ def clean_config_directory(c):
 @task
 def create_db(c):
     """Integration testing: Initialize the policy_sentry database"""
-    c.run('./policy_sentry/bin/policy_sentry initialize', pty=True)
+    initialize.initialize('')
+    # c.run('./policy_sentry/bin/policy_sentry initialize', pty=True)
 
 
-# @task(pre=[install_package])
-@task
+@task(pre=[install_package])
+# @task
 def write_policy(c):
-    """Integration testing: Tests the `write-policy` function"""
+    """
+    Integration testing: Tests the `write-policy` function.
+    """
     c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
     c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
     c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
 
 
-# @task(pre=[install_package])
-@task
+@task(pre=[install_package])
+# @task
 def analyze_policy(c):
     """Integration testing: Tests the `analyze` functionality"""
     c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
 
 
-# @task(pre=[install_package])
-@task
+@task(pre=[install_package])
+# @task
 def query(c):
     """Integration testing: Tests the `query` functionality (querying the IAM database)"""
     c.run('echo "Querying the action table"', pty=True)
