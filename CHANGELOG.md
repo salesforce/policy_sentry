@@ -2,14 +2,31 @@
 ## 2019-12-18
 ## Added
 * Added basic integration testing with PyInvoke. Fixes #58. Generally overhauled the invoke tasks file.
-
 ## Changed
 * Fixed the cheat sheet documentation in Readme and ReadtheDocs. Fixed "Contributing" docs, and `initialize --fetch`
 * Modified the comments in the Policy Sentry YML Template (`--create-template`) so it makes more sense on its own.
 
+## 2019-12-17
+### Added
+* Version bump to 0.6.2
+* `overrides-resource-policies.yml` to specifically identify API calls that modify resource based policies.
+* `resource-policies.txt` to answer Scott Piper's question about API calls that can modify resource policies.
+### Changed
+* The `--fetch` argument was not working because AWS changed their documentation. This incorporates the new documentation instead and changed the logic for the scraping process.
+* The initialization command now copies both overrides yml files, not just one
+
 ## 2019-12-11
 ### Added
 * Improved invoke and travis for integration testing
+
+## 2019-12-10
+### Changed
+* `--fetch` argument now passes security check. Using requests and beautifulsoup instead of wget and subprocess.
+
+## 2019-12-01
+### Added
+* `--fetch` argument to `policy_sentry initialize` command.
+* Cutting this as a new release - 0.6.1. This release makes it so people don't have to rely on our HTML docs being up to date.
 
 ## 2019-12-01
 ### Added

@@ -13,6 +13,7 @@ from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_ar
 from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
 from policy_sentry.shared.scrape import get_html
 from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
+from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
 
 Base = declarative_base()  # pylint: disable=invalid-name
 
@@ -83,7 +84,8 @@ def create_database(db_session, services, access_level_overrides_file):
     :param access_level_overrides_file: A file we can use to override the Access levels per action
     :return: the SQLAlchemy database session.
     """
-    directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
+    directory = HTML_DIRECTORY_PATH + '/'
+    # directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     print("Reading the html docs from this directory: " + directory)
     print(f"Using access level overrides file {access_level_overrides_file}")
     for service in services:
@@ -123,6 +125,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
     That information is scraped, parsed, and stored in the SQLite database using this function.
     :param db_session: Database session object
     :param service: AWS Service to query. This can be called in a loop or for a single service (see connect_db function above).
+    :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
     """
     directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     html_list = get_html(directory, service)
@@ -257,10 +260,12 @@ def build_arn_table(db_session, service):
             table_data = df
             if 'Resource Types' in table_data and 'ARN' in table_data:
                 for i in range(len(table['data'])):
+                    # Replace the random spaces in the ARN
+                    temp_raw_arn = table['data'][i][1].replace(' ', '')
                     # Handle resource ARN path
-                    if get_resource_path_from_arn(table['data'][i][1]):
+                    if get_resource_path_from_arn(temp_raw_arn):
                         resource_path = get_resource_path_from_arn(
-                            table['data'][i][1])
+                            temp_raw_arn)
                     else:
                         resource_path = ''
                     # Handle condition keys
@@ -276,18 +281,15 @@ def build_arn_table(db_session, service):
                         condition_keys = table['data'][i][2]
                     db_session.add(ArnTable(
                         resource_type_name=table['data'][i][0],
-                        # raw_arn=str(table['data'][i][1]).replace(
-                        #     "${Partition}", "aws"),
-                        raw_arn=str(table['data'][i][1]),
+                        raw_arn=str(temp_raw_arn),
                         arn='arn',
-                        partition=get_partition_from_arn(table['data'][i][1]),
-                        service=get_service_from_arn(table['data'][i][1]),
-                        region=get_region_from_arn(table['data'][i][1]),
-                        account=get_account_from_arn(table['data'][i][1]),
-                        resource=get_resource_from_arn(table['data'][i][1]),
+                        partition=get_partition_from_arn(temp_raw_arn),
+                        service=get_service_from_arn(temp_raw_arn),
+                        region=get_region_from_arn(temp_raw_arn),
+                        account=get_account_from_arn(temp_raw_arn),
+                        resource=get_resource_from_arn(temp_raw_arn),
                         resource_path=resource_path,
                         condition_keys=condition_keys
-                        # resource_path=get_resource_path_from_arn(table['data'][i][1])
                     ))
                     db_session.commit()
 

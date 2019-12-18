@@ -276,11 +276,15 @@ policy_sentry query condition-table --service cloud9
 policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
+
 * Policy Analysis Cheat Sheet
 
 ```bash
 # Initialize the policy_sentry config folder and create the IAM database tables.
 policy_sentry initialize
+
+# Initialize the database, but instead of using the AWS HTML files in the Python package, download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
+policy_sentry initialize --fetch
 
 # Analyze a single IAM policy FILE
 policy_sentry analyze policy-file --policy examples/explicit-actions.json
@@ -346,7 +350,8 @@ policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.jso
 This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`:
 
 ```bash
-./utils/download_docs.py
+pipenv shell
+python3 ./utils/download_docs.py
 ```
 
 ## References

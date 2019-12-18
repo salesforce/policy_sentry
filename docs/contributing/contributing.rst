@@ -215,7 +215,18 @@ Updating the AWS HTML files
 This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`
 
 .. code-block:: bash
+   python3 ./utils/download_docs.py
 
-   ./utils/download_docs.py
+This downloads the Actions, Resources, and Condition Keys pages per-service to the ``policy_sentry/shared/data/docs`` folder. It also add a file titled ``policy_sentry/shared/links.yml`` as well.
+
+When a user runs ``policy_sentry initialize``, these files are copied over to the config folder (``~/.policy_sentry/``).
+
+This design choice was made for a few reasons:
+
+1. **Don't break because of AWS**: The automation must **not** break if the AWS website is down, or if AWS drastically changes the documentation.
+2. **Replicability**: Two ``git clones`` that build the SQLite database should always have the same results
+3. **Easy to review**: The repository itself should contain easy-to-understand and easy-to-view documentation, which the user can replicate, to verify with the human eye that no malicious changes have been made.
+    - This means no JSON files with complicated structures, or Binary files (the latter of which does not permit ``git diff``s) in the repository.
+    - This helps to mitigate the concern that open source software could be modified to alter IAM permissions at other organizations.
 
 

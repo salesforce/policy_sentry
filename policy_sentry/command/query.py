@@ -4,7 +4,7 @@ Allow users to use specific pre-compiled queries against the action, arn, and co
 import json
 import click
 
-from policy_sentry.shared.actions import transform_access_level_text
+from policy_sentry.shared.actions import transform_access_level_text, get_all_services_from_action_table
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, \
@@ -15,7 +15,7 @@ from policy_sentry.shared.query import query_condition_table, query_condition_ta
 
 @click.group()
 def query():
-    """Allow users to query the action, arn, and condition tables from command line"""
+    """Allow users to query the IAM tables from command line"""
 
 
 @query.command(
@@ -57,9 +57,25 @@ def query():
 def action_table(name, service, access_level, condition, wildcard_only):
     """Query the Action Table from the Policy Sentry database"""
     db_session = connect_db(DATABASE_FILE_PATH)
-    # Get a list of all IAM actions under the service that have the specified
-    # access level.
-    if name is None and access_level:
+    # Actions on all services
+    if service == "all":
+        all_services = get_all_services_from_action_table(db_session)
+        if access_level:
+            level = transform_access_level_text(access_level)
+            print(f"{access_level} actions across ALL services:\n")
+            results = []
+            for serv in all_services:
+                output = query_action_table_by_access_level(
+                    db_session, serv, level)
+                results.extend(output)
+            for result in results:
+                print(result)
+        # Get a list of all services in the database
+        else:
+            print("All services in the database:\n")
+            for item in all_services:
+                print(item)
+    elif name is None and access_level:
         print(
             f"All IAM actions under the {service} service that have the access level {access_level}:")
         level = transform_access_level_text(access_level)
