@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="policy_sentry",
     include_package_data=True,
-    version="0.6.2",
+    version="0.6.3",
     author="Kinnaird McQuade",
     author_email="kinnairdm@gmail.com",
     description="Generate locked-down AWS IAM Policies",
@@ -25,7 +25,6 @@ setuptools.setup(
         'html5lib',
         'lxml',
         'jinja2',
-        'schema',
         "boto3",
         "botocore",
         "requests",

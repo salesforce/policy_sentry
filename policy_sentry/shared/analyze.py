@@ -6,7 +6,7 @@ import copy
 import re
 from policy_sentry.shared.file import read_this_file
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
-    get_all_actions, get_lowercase_action_list
+    get_all_actions, get_lowercase_action_list, get_actions_from_policy
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
@@ -130,12 +130,12 @@ def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, 
         return policy_findings
 
 
-def analyze_by_access_level(policy_file, db_session, access_level):
+def analyze_by_access_level(policy_json, db_session, access_level):
     """
     Determine if a policy has any actions with a given access level. This is particularly useful when determining who
     has 'Permissions management' level access
     """
-    requested_actions = get_actions_from_json_policy_file(policy_file)
+    requested_actions = get_actions_from_policy(policy_json)
     expanded_actions = determine_actions_to_expand(requested_actions)
     actions_by_level = get_actions_by_access_level(
         db_session, expanded_actions, access_level)
