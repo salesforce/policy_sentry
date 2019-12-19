@@ -55,21 +55,25 @@ def get_actions_by_access_level(db_session, actions_list, access_level):
 
     new_actions_list = []
     for action in actions_list:
-        service, action_name = action.split(':')
-        action = str.lower(action)
-        first_result = None  # Just to appease nosetests
-        level = transform_access_level_text(access_level)
-        query_actions_access_level = db_session.query(ActionTable).filter(
-            and_(ActionTable.service.like(service),
-                 ActionTable.name.like(str.lower(action_name)),
-                 ActionTable.access_level.like(level)
-                 ))
-        first_result = query_actions_access_level.first()
-        if first_result is None:
-            pass
-        else:
-            # Just take the first result
-            new_actions_list.append(action)
+        try:
+            service, action_name = action.split(':')
+            action = str.lower(action)
+            first_result = None  # Just to appease nosetests
+            level = transform_access_level_text(access_level)
+            query_actions_access_level = db_session.query(ActionTable).filter(
+                and_(ActionTable.service.like(service),
+                     ActionTable.name.like(str.lower(action_name)),
+                     ActionTable.access_level.like(level)
+                     ))
+            first_result = query_actions_access_level.first()
+            if first_result is None:
+                pass
+            else:
+                # Just take the first result
+                new_actions_list.append(action)
+        except ValueError as v_e:
+            print(f"ValueError: {v_e} for the action {action}")
+            continue
     return new_actions_list
 
 
@@ -182,90 +186,97 @@ def get_dependent_actions(db_session, actions_list):
 
 
 # pylint: disable=too-many-branches,too-many-statements
-def get_actions_from_json_policy_file(file):
-    """
-    read the json policy file and return a list of actions
-    """
-
-    # FIXME use a try/expect here to validate the json file. I would create a
-    # generic json
-    try:
-        with open(file) as json_file:
-            # validation function/parser as there is a lot of json floating around
-            # in this tool. [MJ]
-            data = json.load(json_file)
-            actions_list = []
-            # Multiple statements are in the 'Statement' list
-            # pylint: disable=too-many-nested-blocks
-            for i in range(len(data['Statement'])):
-                try:
-                    # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
-                    if isinstance(data['Statement'], dict):
-                        # We only want to evaluate policies that have Effect = "Allow"
-                        # pylint: disable=no-else-continue, literal-comparison
-                        if data['Statement']['Effect'] is 'Deny':
-                            continue
+def get_actions_from_policy(data):
+    """Given a policy, create a list of the actions"""
+    actions_list = []
+    # Multiple statements are in the 'Statement' list
+    # pylint: disable=too-many-nested-blocks
+    for i in range(len(data['Statement'])):
+        try:
+            # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
+            if isinstance(data['Statement'], dict):
+                # We only want to evaluate policies that have Effect = "Allow"
+                # pylint: disable=no-else-continue, literal-comparison
+                if data['Statement']['Effect'] is 'Deny':
+                    continue
+                else:
+                    try:
+                        # Action = "s3:GetObject"
+                        if isinstance(data['Statement']['Action'], str):
+                            actions_list.append(
+                                data['Statement']['Action'])
+                        # Action = ["s3:GetObject", "s3:ListBuckets"]
+                        elif isinstance(data['Statement']['Action'], list):
+                            actions_list.extend(
+                                data['Statement']['Action'])
+                        elif 'Action' not in data['Statement']:
+                            print('Action is not a key in the statement')
                         else:
-                            try:
-                                # Action = "s3:GetObject"
-                                if isinstance(data['Statement']['Action'], str):
-                                    actions_list.append(
-                                        data['Statement']['Action'])
-                                # Action = ["s3:GetObject", "s3:ListBuckets"]
-                                elif isinstance(data['Statement']['Action'], list):
-                                    actions_list.extend(
-                                        data['Statement']['Action'])
-                                elif 'Action' not in data['Statement']:
-                                    print('Action is not a key in the statement')
-                                else:
-                                    print(
-                                        "Unknown error: The 'Action' is neither a list nor a string")
-                            except KeyError as k_e:
-                                print(
-                                    f"KeyError line 206: get_actions_from_json_policy_file {k_e}")
-                                exit()
-
-                    # Otherwise it will be a list of Sids
-                    elif isinstance(data['Statement'], list):
-                        # We only want to evaluate policies that have Effect = "Allow"
-                        try:
-                            if data['Statement'][i]['Effect'] == 'Deny':
-                                continue
-                            else:
-                                if 'Action' in data['Statement'][i]:
-                                    if isinstance(data['Statement'][i]['Action'], str):
-                                        actions_list.append(
-                                            data['Statement'][i]['Action'])
-                                    elif isinstance(data['Statement'][i]['Action'], list):
-                                        actions_list.extend(
-                                            data['Statement'][i]['Action'])
-                                    elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
-                                        print('Skipping due to NotAction')
-                                    else:
-                                        print(
-                                            "Unknown error: The 'Action' is neither a list nor a string")
-                                        exit()
-                                else:
-                                    continue
-                        except KeyError as k_e:
                             print(
-                                f"KeyError line 220: get_actions_from_json_policy_file {k_e}")
-                            exit()
-                    else:
+                                "Unknown error: The 'Action' is neither a list nor a string")
+                    except KeyError as k_e:
                         print(
-                            "Unknown error: The 'Action' is neither a list nor a string")
-                        # exit()
-                except TypeError as t_e:
-                    print(
-                        f"TypeError line 226: get_actions_from_json_policy_file {t_e}")
-                    exit()
+                            f"KeyError at get_actions_from_policy {k_e}")
+                        exit()
 
-    except:  # pylint: disable=bare-except
-        print("General Error at get_actions_from_json_policy_file.")
+            # Otherwise it will be a list of Sids
+            elif isinstance(data['Statement'], list):
+                # We only want to evaluate policies that have Effect = "Allow"
+                try:
+                    if data['Statement'][i]['Effect'] == 'Deny':
+                        continue
+                    else:
+                        if 'Action' in data['Statement'][i]:
+                            if isinstance(data['Statement'][i]['Action'], str):
+                                actions_list.append(
+                                    data['Statement'][i]['Action'])
+                            elif isinstance(data['Statement'][i]['Action'], list):
+                                actions_list.extend(
+                                    data['Statement'][i]['Action'])
+                            elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
+                                print('Skipping due to NotAction')
+                            else:
+                                print(
+                                    "Unknown error: The 'Action' is neither a list nor a string")
+                                exit()
+                        else:
+                            continue
+                except KeyError as k_e:
+                    print(
+                        f"KeyError at get_actions_from_policy {k_e}")
+                    exit()
+            else:
+                print(
+                    "Unknown error: The 'Action' is neither a list nor a string")
+                # exit()
+        except TypeError as t_e:
+            print(
+                f"TypeError at get_actions_from_policy {t_e}")
+            exit()
     try:
         actions_list = [x.lower() for x in actions_list]
     except AttributeError as a_e:
         print(actions_list)
         print(f"AttributeError: {a_e}")
     actions_list.sort()
+    return actions_list
+
+
+# pylint: disable=too-many-branches,too-many-statements
+def get_actions_from_json_policy_file(file):
+    """
+    read the json policy file and return a list of actions
+    """
+
+    # FIXME use a try/expect here to validate the json file. I would create a generic json
+    try:
+        with open(file) as json_file:
+            # validation function/parser as there is a lot of json floating around
+            # in this tool. [MJ]
+            data = json.load(json_file)
+            actions_list = get_actions_from_policy(data)
+
+    except:  # pylint: disable=bare-except
+        print("General Error at get_actions_from_json_policy_file.")
+        actions_list = []
     return actions_list
