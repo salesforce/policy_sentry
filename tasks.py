@@ -56,6 +56,7 @@ def upload_to_pypi_prod_server(c):
     c.run('python -m twine upload dist/*')
     c.run('python -m pip install policy_sentry')
 
+
 # INTEGRATION TESTS
 @task
 def clean_config_directory(c):
@@ -67,11 +68,15 @@ def clean_config_directory(c):
 def create_db(c):
     """Integration testing: Initialize the policy_sentry database"""
     initialize.initialize('')
-    # c.run('./policy_sentry/bin/policy_sentry initialize', pty=True)
+
+
+@task
+def version_check(c):
+    """Print the version"""
+    c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
 
 
 @task(pre=[install_package])
-# @task
 def write_policy(c):
     """
     Integration testing: Tests the `write-policy` function.
@@ -82,14 +87,12 @@ def write_policy(c):
 
 
 @task(pre=[install_package])
-# @task
 def analyze_policy(c):
     """Integration testing: Tests the `analyze` functionality"""
     c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
 
 
 @task(pre=[install_package])
-# @task
 def query(c):
     """Integration testing: Tests the `query` functionality (querying the IAM database)"""
     c.run('echo "Querying the action table"', pty=True)
@@ -106,12 +109,14 @@ def query(c):
     c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9', pty=True)
     c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
 
+
 # TEST - SECURITY
 @task
 def security_scan(c):
     """Runs `bandit` and `safety check`"""
     c.run('bandit -r policy_sentry/')
     c.run('safety check', warn=True)
+
 
 # TEST - LINT
 @task
@@ -132,6 +137,7 @@ def run_unit_tests(c):
 
 # Add all testing tasks to the test collection
 integration.add_task(clean_config_directory, 'clean')
+integration.add_task(version_check, 'version')
 integration.add_task(create_db, 'initialize')
 integration.add_task(analyze_policy, 'analyze-policy')
 integration.add_task(write_policy, 'write-policy')

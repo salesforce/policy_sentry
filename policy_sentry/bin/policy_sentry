@@ -2,12 +2,13 @@
 """
     policy_sentry is a tool for generating least-privilege IAM Policies.
 """
-
+__version__ = '0.6.3'
 import click
 from policy_sentry import command
 
 
 @click.group()
+@click.version_option(version=__version__)
 def policy_sentry():
     """
     policy_sentry is a tool for generating AWS IAM policies based on yaml files.

@@ -2,6 +2,7 @@
 ## 2019-12-24
 ## Added
 * `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
+* `--version` flag. Fixes #48
 
 ## 2019-12-19
 ## Changed
