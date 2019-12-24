@@ -50,7 +50,6 @@ def download_remote_policies(profile=None, customer_managed=True, attached_only=
         document = policy_group.get_policy_document(policy_name)
         filename = filename_directory + '/' + policy_name + '.json'
         write_json_file(filename, document)
-    print("If you want to analyze the policies, just run:\n\npolicy_sentry analyze downloaded-policies")
     return filename_directory
 
 
