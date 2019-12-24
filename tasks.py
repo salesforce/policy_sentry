@@ -38,7 +38,7 @@ def install_package(c):
 @task
 def uninstall_package(c):
     """Uninstall the policy_sentry package"""
-    c.run('echo "y" > pip3 uninstall policy_sentry', pty=True)
+    c.run('echo "y" | pip3 uninstall policy_sentry', pty=True)
 
 
 @task
