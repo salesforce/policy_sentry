@@ -1,5 +1,8 @@
 from policy_sentry.shared.analyze import determine_actions_to_expand
 import unittest
+import logging
+
+logger = logging.getLogger('policy_sentry')
 
 
 class ExpandWildcardActionsTestCase(unittest.TestCase):
@@ -43,5 +46,5 @@ class ExpandWildcardActionsTestCase(unittest.TestCase):
             'ecr:uploadlayerpart',
             'ecr:batchdeleteimage'
         ]
-        print(determine_actions_to_expand(action_list))
+        logger.info(determine_actions_to_expand(action_list))
         self.assertListEqual(sorted(determine_actions_to_expand(action_list)), sorted(desired_result))

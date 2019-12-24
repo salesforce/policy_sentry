@@ -2,11 +2,13 @@
 Functions that relate to manipulating files, loading files, and managing filepaths.
 """
 import json
+import logging
 import os.path
 from os import listdir
 from os.path import isfile, join
-
 import yaml
+
+logger = logging.getLogger(__name__)
 
 
 def read_this_file(filename):
@@ -35,7 +37,7 @@ def read_yaml_file(filename):
         try:
             cfg = yaml.safe_load(yaml_file)
         except yaml.YAMLError as exc:
-            print(exc)
+            logger.critical(exc)
     return cfg
 
 
@@ -47,11 +49,10 @@ def check_valid_file_path(file):
     """
 
     if os.path.exists(file):
-        # print("Evaluating: " + file)
         return True
     else:
-        print("File does not exist or is formatted incorrectly: " +
-              file + "\nPlease provide a valid path.")
+        logger.critical(
+            f"File does not exist or is formatted incorrectly: {file}\nPlease provide a valid path.")
         return False
 
 

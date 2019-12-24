@@ -1,9 +1,12 @@
 """
 At policy_sentry initialize time, this function is used to scrape the AWS HTML docs to build the sqlite database.
 """
+import logging
 import yaml
 import pandas
 from policy_sentry.shared.constants import LINKS_YML_FILE_LOCAL
+
+logger = logging.getLogger(__name__)
 
 
 def get_html(directory, requested_service):
@@ -15,7 +18,7 @@ def get_html(directory, requested_service):
         try:
             cfg = yaml.safe_load(yaml_file)
         except yaml.YAMLError as exc:
-            print(exc)
+            logger.critical(exc)
     # pylint: disable=duplicate-code
     for service_name in cfg:
         if service_name == requested_service:
@@ -27,7 +30,7 @@ def get_html(directory, requested_service):
             html_list.append(parsed_html)
         except ValueError as v_e:
             if 'No tables found' in str(v_e):
-                print(f"No tables found for {link}")
+                logger.info(f"No tables found for {link}")
             else:
                 raise v_e
 

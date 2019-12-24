@@ -10,6 +10,7 @@
 """
 import os
 from glob import glob
+import logging
 import click
 from policy_sentry.shared.analyze import analyze_policy_directory, analyze_policy_file
 from policy_sentry.shared.report import load_report_config_file, create_csv_report, create_json_report, \
@@ -25,6 +26,13 @@ PRIVILEGE_ESCALATION_FILENAME = AUDIT_DIRECTORY_PATH + '/privilege-escalation.tx
 NETWORK_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/network-exposure.txt'
 RESOURCE_EXPOSURE_FILENAME = AUDIT_DIRECTORY_PATH + '/resource-exposure.txt'
 # DATA_ACCESS_ARN_LIST_FILENAME = AUDIT_DIRECTORY_PATH + '/data-access-arn-list.txt'
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 @click.group()
@@ -55,8 +63,18 @@ def analyze():
     help='Use this flag to enable a Markdown report, which can be used with pandoc to generate an HTML report. '
          'Due to potentially very large report sizes, this is set to False by default.'
 )
-def downloaded_policies(report_config, report_name, include_markdown_report):
+@click.option(
+    '--quiet',
+    default=False,
+    is_flag=True
+)
+def downloaded_policies(report_config, report_name, include_markdown_report, quiet):
     """Analyze all locally downloaded IAM policy files and generate a report."""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
+
     # Get report config
     report_config = load_report_config_file(report_config)
     excluded_role_patterns = report_config['report-config']['excluded-role-patterns']
@@ -161,9 +179,18 @@ def downloaded_policies(report_config, report_name, include_markdown_report):
     help='Use this flag to enable a Markdown report, which can be used with pandoc to generate an HTML report. '
          'Due to potentially very large report sizes, this is set to False by default.'
 )
-def policy_file(policy, report_config, report_path, account_id, include_markdown_report):
+@click.option(
+    '--quiet',
+    default=False,
+    is_flag=True
+)
+# pylint: disable=too-many-arguments
+def policy_file(policy, report_config, report_path, account_id, include_markdown_report, quiet):
     """Analyze a *single* policy file and generate a report"""
-
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     # Get report config
     report_config = load_report_config_file(report_config)
     excluded_role_patterns = report_config['report-config']['excluded-role-patterns']

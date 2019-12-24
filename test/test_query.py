@@ -1,4 +1,5 @@
 import unittest
+import logging
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, \
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
@@ -8,6 +9,7 @@ from policy_sentry.shared.query import query_condition_table_by_name, query_cond
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 db_session = connect_db(DATABASE_FILE_PATH)
+logger = logging.getLogger('policy_sentry')
 
 
 class QueryTestCase(unittest.TestCase):
@@ -54,7 +56,7 @@ class QueryTestCase(unittest.TestCase):
             "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         }
         output = query_arn_table_for_arn_types(db_session, "s3")
-        print(output)
+        logger.debug(output)
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
@@ -121,7 +123,7 @@ class QueryTestCase(unittest.TestCase):
                         'ram:enablesharingwithawsorganization', 'ram:rejectresourceshareinvitation',
                         'ram:updateresourceshare']
         output = query_action_table_by_access_level(db_session, "ram", "Permissions management")
-        print(output)
+        logger.debug(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
@@ -132,8 +134,8 @@ class QueryTestCase(unittest.TestCase):
                           'ram:disassociateresourceshare', 'ram:updateresourceshare']
         output = query_action_table_by_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
-        print(output)
         self.maxDiff = None
+        logger.debug(output)
         self.assertListEqual(desired_output, output)
 
     def test_query_action_table_for_service_specific_condition_key_matches(self):
@@ -148,8 +150,8 @@ class QueryTestCase(unittest.TestCase):
             'ses:sendtemplatedemail'
         ]
         output = query_action_table_for_all_condition_key_matches(db_session, "ses", "ses:FeedbackAddress")
-        print(output)
         self.maxDiff = None
+        logger.debug(output)
         self.assertListEqual(desired_output, output)
 
     # Nuking this test... as AWS adds on more condition keys, this becomes impossible to maintain as a single test.
@@ -175,7 +177,7 @@ class QueryTestCase(unittest.TestCase):
         ]
         output = query_action_table_for_actions_supporting_wildcards_only(db_session, "secretsmanager")
         self.maxDiff = None
-        print(output)
+        logger.debug(output)
         self.assertListEqual(desired_output, output)
 
     def test_remove_actions_that_are_not_wildcard_arn_only(self):

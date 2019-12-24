@@ -3,9 +3,12 @@ Functions to support downloading policies from live AWS accounts in bulk for ana
 """
 import sys
 import json
+import logging
 from policy_sentry.shared.login import login
 from policy_sentry.shared.file import write_json_file, create_directory_if_it_doesnt_exist
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
+
+logger = logging.getLogger(__name__)
 
 
 def download_remote_policies(profile=None, customer_managed=True, attached_only=True):
@@ -59,11 +62,11 @@ def download_policies_recursively(profiles):
 
     for profile in profiles:
         try:
-            print(f"Downloading policies under profile {profile}")
+            logger.info(f"Downloading policies under profile {profile}")
             download_dir = download_remote_policies(profile, True, True)
             download_directories.append(download_dir)
         except TypeError as t_e:
-            print(t_e)
+            logger.critical(t_e)
             sys.exit()
     return download_directories
 

@@ -4,6 +4,7 @@ Functions for building the database - by parsing through the AWS Docs and storin
 """
 import os
 import json
+import logging
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
@@ -16,6 +17,7 @@ from policy_sentry.shared.conditions import get_service_from_condition_key, get_
 from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
 
 Base = declarative_base()  # pylint: disable=invalid-name
+logger = logging.getLogger(__name__)
 
 
 class ActionTable(Base):
@@ -86,10 +88,11 @@ def create_database(db_session, services, access_level_overrides_file):
     """
     directory = HTML_DIRECTORY_PATH + '/'
     # directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
-    print("Reading the html docs from this directory: " + directory)
-    print(f"Using access level overrides file {access_level_overrides_file}")
+    logger.info(f"Reading the html docs from this directory: {directory}")
+    logger.info(
+        f"Using access level overrides file {access_level_overrides_file}")
     for service in services:
-        print("Building tables for " + service)
+        logger.info(f"Building tables for {service}")
         build_arn_table(db_session, service)
         db_session.commit()
         build_action_table(db_session, service, access_level_overrides_file)
@@ -198,7 +201,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                             service, str.lower(action_name), table['data'][i][2], access_level_overrides_cfg)
                         if override_result:
                             access_level = override_result
-                            print(
+
+                            logger.info(
                                 f"Override: Setting access level for {service}:{action_name} to {access_level}")
                         else:
                             access_level = table['data'][i][2]

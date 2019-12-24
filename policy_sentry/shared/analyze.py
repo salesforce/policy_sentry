@@ -4,12 +4,15 @@ Functions to support the analyze capability in this tool
 import fnmatch
 import copy
 import re
+import logging
 from policy_sentry.shared.file import read_this_file
 from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
     get_all_actions, get_lowercase_action_list, get_actions_from_policy
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+
+logger = logging.getLogger(__name__)
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -28,14 +31,10 @@ def determine_risky_actions(requested_actions, audit_file):
 
     risky_actions = read_risky_iam_permissions_text_file(audit_file)
     risky_actions = get_lowercase_action_list(risky_actions)
-    # print("Auditing for risky actions...")
-    # print("Please justify why you need permissions to the following actions:")
     actions_to_triage = []
     for action in requested_actions:
         if action in risky_actions:
-            # print("{}".format(action))
             actions_to_triage.append(action)
-    # print("Auditing for risky actions complete!")
     return actions_to_triage
 
 
@@ -65,7 +64,7 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
         # if we get a wildcard for a tech we've never heard of, just return the
         # wildcard
         if not expanded:
-            print(
+            logger.warning(
                 "ERROR: The action {} references a wildcard for an unknown resource.".format(action))
             return [action.lower()]
 
@@ -139,14 +138,6 @@ def analyze_by_access_level(policy_json, db_session, access_level):
     expanded_actions = determine_actions_to_expand(requested_actions)
     actions_by_level = get_actions_by_access_level(
         db_session, expanded_actions, access_level)
-    # if not actions_by_level:
-    #     pass
-    # else:
-    #     policy_path_elements = policy_file.split('/')
-    #     # policy_name = policy_path_elements[-1]
-    #     # print("\nPolicy: " + policy_name)
-    #     # pp = pprint.PrettyPrinter(indent=4)
-    #     # pp.pprint(levels)
     return actions_by_level
 
 
@@ -213,7 +204,6 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
             # Store the account ID
         else:
             finding['account_id'] = account_id
-        # print(finding['account_id'])
         # except KeyError as k_e:
         #     print(k_e)
         #     continue

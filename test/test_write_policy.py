@@ -1,5 +1,6 @@
 import unittest
 import json
+import logging
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.policy import ArnActionGroup
 from policy_sentry.command.write_policy import print_policy
@@ -7,6 +8,7 @@ from policy_sentry.shared.actions import get_dependent_actions
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 db_session = connect_db(DATABASE_FILE_PATH)
+logger = logging.getLogger('policy_sentry')
 
 
 class WritePolicyCrudTestCase(unittest.TestCase):
@@ -37,7 +39,6 @@ class WritePolicyCrudTestCase(unittest.TestCase):
         arn_action_group.update_actions_for_raw_arn_format(db_session)
         arn_dict = arn_action_group.get_policy_elements(db_session)
         policy = print_policy(arn_dict, db_session)
-        # print(policy)
         self.assertEqual(policy, desired_output)
 
     def test_write_policy_govcloud(self):
@@ -67,7 +68,6 @@ class WritePolicyCrudTestCase(unittest.TestCase):
         arn_action_group.update_actions_for_raw_arn_format(db_session)
         arn_dict = arn_action_group.get_policy_elements(db_session)
         policy = print_policy(arn_dict, db_session)
-        # print(policy)
         self.assertEqual(policy, desired_output)
 
     def test_write_policy_beijing(self):
@@ -97,8 +97,8 @@ class WritePolicyCrudTestCase(unittest.TestCase):
         arn_action_group.update_actions_for_raw_arn_format(db_session)
         arn_dict = arn_action_group.get_policy_elements(db_session)
         policy = print_policy(arn_dict, db_session)
-        # print(policy)
         self.assertEqual(policy, desired_output)
+
 
 actions_test_data_1 = ['kms:CreateCustomKeyStore', 'kms:CreateGrant']
 actions_test_data_2 = ['ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
@@ -173,7 +173,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 
         arn_dict = arn_action_group.process_resource_specific_acls(cfg, db_session)
         output = print_policy(arn_dict, db_session, None)
-        print(json.dumps(output, indent=4))
+        logger.debug(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [

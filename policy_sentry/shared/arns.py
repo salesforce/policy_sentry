@@ -141,6 +141,5 @@ def does_arn_match(arn_to_test, arn_in_database):
                 else:
                     score += 1
 
-    # print("Score is " + str(score))
     # It passes if the alarm does not ring
     return score < 1

@@ -3,6 +3,7 @@ Functins for logging into AWS and returning Boto3 sessions.
 """
 import configparser
 import os
+import logging
 
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
@@ -10,6 +11,8 @@ from botocore.exceptions import ClientError, NoCredentialsError
 
 def login_sts_test(sts_session):
     """Test the login procedure with boto3 STS session."""
+    # Mute botocore, except when errors occur
+    logging.getLogger('botocore').setLevel(logging.WARN)
     try:
         sts_session.get_caller_identity()
     except ClientError as c_e:
@@ -32,6 +35,9 @@ def login_sts_test(sts_session):
 
 def login_iam_test(iam_session):
     """Test the login procedure with boto3 IAM session."""
+    # Mute botocore, except when errors occur
+    logging.getLogger('botocore').setLevel(logging.WARN)
+
     try:
         iam_session.get_user(UserName="test")
     except ClientError as c_e:

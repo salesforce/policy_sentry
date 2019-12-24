@@ -1,5 +1,6 @@
 import os
 import unittest
+import logging
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.analyze import analyze_by_access_level
@@ -8,6 +9,8 @@ from policy_sentry.shared.actions import get_actions_by_access_level, get_action
     get_actions_from_json_policy_file
 
 db_session = connect_db(DATABASE_FILE_PATH)
+logging.basicConfig()
+logger = logging.getLogger('policy_sentry')
 
 resource_exposure_finding = {
     "some-risky-policy": {
@@ -70,12 +73,12 @@ class FindingsTestCase(unittest.TestCase):
         findings = Findings()
         # Policy name: some-risky-policy
         findings.add(privilege_escalation_finding)
-        print(privilege_escalation_finding)
+        logger.debug(privilege_escalation_finding)
         # Policy name: yolo-policy
         findings.add(privilege_escalation_yolo_policy)
-        print(privilege_escalation_yolo_policy)
+        logger.debug(privilege_escalation_yolo_policy)
         findings_for_second_policy_name = findings.get_findings_by_policy_name('yolo-policy')
-        print(findings_for_second_policy_name)
+        logger.debug(findings_for_second_policy_name)
         self.assertDictEqual(findings_for_second_policy_name, privilege_escalation_yolo_policy['yolo-policy'])
 
     # def test_get_findings_by_account_id(self):
@@ -99,7 +102,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             "ecr:TagResource",  # Tagging
             "ecr:SetRepositoryPolicy",  # Permissions management
         ]
-        print("Read")
+        logger.debug("Read")
         # Read
         self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "read"), ["ecr:batchgetimage"])
         # Write
@@ -176,7 +179,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
         policy_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir +
                                                         '/examples/analyze/wildcards.json'))
         requested_actions = get_actions_from_json_policy_file(policy_file_path)
-        print(requested_actions)
+        logger.debug(requested_actions)
         desired_actions_list = ['ecr:*', 's3:*']
         self.maxDiff = None
         self.assertListEqual(requested_actions, desired_actions_list)
@@ -187,7 +190,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
         policy_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir +
                                                         '/examples/analyze/explicit-actions.json'))
         requested_actions = get_actions_from_json_policy_file(policy_file_path)
-        # print(requested_actions)
+        logger.debug(requested_actions)
         desired_actions_list = [
             'ecr:batchchecklayeravailability',
             'ecr:batchgetimage',
@@ -244,7 +247,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             ]
         }
         permissions_management_actions = analyze_by_access_level(permissions_management_policy, db_session, "permissions-management")
-        print(permissions_management_actions)
+        logger.debug(permissions_management_actions)
         desired_actions_list = [
             'ecr:setrepositorypolicy',
             'iam:createaccesskey',

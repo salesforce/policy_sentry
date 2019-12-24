@@ -20,7 +20,11 @@ Q: How many policies can I attach to an IAM role?
 * For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
 """
+import logging
+from sys import stderr
 from policyuniverse.expander_minimizer import _get_prefixes_for_action
+
+logger = logging.getLogger(__name__)
 
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:
@@ -39,6 +43,12 @@ def get_denied_prefixes_from_desired(desired_actions, all_actions):  # pylint: d
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
 def check_min_permission_length(permission, minchars=None):  # pylint: disable=missing-function-docstring
     if minchars and len(permission) < int(minchars) and permission != "":
+        logger.debug(
+            "Skipping prefix {} because length of {}".format(
+                permission, len(permission)
+            ),
+            file=stderr,
+        )
         # print(
         #     "Skipping prefix {} because length of {}".format(
         #         permission, len(permission)
@@ -78,8 +88,10 @@ def minimize_statement_actions(desired_actions, all_actions, minchars=None):  # 
                     break
 
         if not found_prefix:
-            print("Could not suitable prefix. Defaulting to {}".format(
+            logger.debug("Could not suitable prefix. Defaulting to {}".format(
                 prefixes[-1]))
+            # print("Could not suitable prefix. Defaulting to {}".format(
+            #     prefixes[-1]))
             minimized_actions.add(prefixes[-1])
     # sort the actions
     minimized_actions_list = sorted(minimized_actions)

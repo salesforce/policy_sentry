@@ -1,10 +1,12 @@
 import unittest
 import json
+import logging
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_access_levels, write_policy_with_actions
-from policy_sentry.shared.policy import ArnActionGroup
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
+logging.basicConfig()
+logger = logging.getLogger('policy_sentry')
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
@@ -284,7 +286,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         self.maxDiff = None
 
         result = write_policy_with_access_levels(crud_file_input, db_session)
-        print(json.dumps(result, indent=4))
+        logger.debug(json.dumps(result, indent=4))
 
     def test_empty_strings_in_access_level_categories(self):
         """
@@ -318,7 +320,8 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         }
         with self.assertRaises(SystemExit):
             result = write_policy_with_access_levels(crud_file_input, db_session)
-            print(json.dumps(result, indent=4))
+            logger.debug(json.dumps(result, indent=4))
+            logger.debug(json.dumps(result, indent=4))
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):

@@ -4,11 +4,14 @@ Functions to support creating the proper resources in the Policy Sentry Config d
 import os
 import sys
 import shutil
+import logging
 from distutils.dir_util import copy_tree
 from policy_sentry.shared.file import create_directory_if_it_doesnt_exist, \
     list_files_in_directory, read_yaml_file
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, AUDIT_DIRECTORY_PATH, DATABASE_FILE_PATH, \
     HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
+
+logger = logging.getLogger(__name__)
 
 
 def create_policy_sentry_config_directory():
@@ -16,9 +19,8 @@ def create_policy_sentry_config_directory():
     Creates a config directory at $HOME/.policy_sentry/
     :return: the path of the database file
     """
-    print("Creating the database...")
-
-    print("We will store the new database here: " + DATABASE_FILE_PATH)
+    logger.info("Creating the database...")
+    logger.info(f"We will store the new database here: {DATABASE_FILE_PATH}")
     # If the database file already exists
     if os.path.exists(DATABASE_FILE_PATH):
         os.remove(DATABASE_FILE_PATH)
@@ -70,7 +72,7 @@ def create_audit_directory():
     for file in file_list:
         if file.endswith(".txt"):
             shutil.copy(source + '/' + file, destination)
-            print("copying " + file + " to " + destination)
+            logger.debug(f"copying {file} to {destination}")
 
 
 def create_policy_analysis_directory():
@@ -118,7 +120,7 @@ def create_default_report_config_file():
     existing_overrides_file_path = os.path.abspath(os.path.dirname(
         __file__)) + '/data/' + 'audit/' + existing_report_config_file
     shutil.copy(existing_overrides_file_path, target_report_config_file_path)
-    print(
+    logger.info(
         f"Copying overrides file {existing_report_config_file} to {target_report_config_file_path}")
 
 
@@ -174,7 +176,7 @@ def determine_access_level_override(
         override_decision = override_access_level(
             service_override_config, action_name, "Tagging")
     else:
-        print(
+        logger.critical(
             f"Unknown error - determine_override_status() can't determine the access level of"
             f" {service}:{action_name} during the scraping process. The provided access level "
             f"was {provided_access_level}. Exiting...")

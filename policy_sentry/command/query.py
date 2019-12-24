@@ -2,8 +2,8 @@
 Allow users to use specific pre-compiled queries against the action, arn, and condition tables from command line.
 """
 import json
+import logging
 import click
-
 from policy_sentry.shared.actions import transform_access_level_text, get_all_services_from_action_table
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
@@ -11,6 +11,13 @@ from policy_sentry.shared.query import query_condition_table, query_condition_ta
     query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
     query_action_table_by_access_level, query_action_table_for_all_condition_key_matches, \
     query_action_table_for_actions_supporting_wildcards_only, query_arn_table_for_arn_types
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 @click.group()
@@ -54,8 +61,17 @@ def query():
     required=False,
     help='If action table is chosen, show the IAM actions that only support '
          'wildcard resources - i.e., cannot support ARNs in the resource block.')
-def action_table(name, service, access_level, condition, wildcard_only):
+@click.option(
+    '--quiet',
+    default=False,
+    is_flag=True
+)
+def action_table(name, service, access_level, condition, wildcard_only, quiet):
     """Query the Action Table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Actions on all services
     if service == "all":
@@ -130,8 +146,17 @@ def action_table(name, service, access_level, condition, wildcard_only):
     required=False,
     help='Show the short names of ARN Types. If empty, this will show RAW ARNs only.'
 )
-def arn_table(name, service, list_arn_types):
+@click.option(
+    '--quiet',
+    default=False,
+    is_flag=True
+)
+def arn_table(name, service, list_arn_types, quiet):
     """Query the ARN Table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
@@ -164,8 +189,17 @@ def arn_table(name, service, list_arn_types):
     required=True,
     help="Filter according to AWS service."
 )
-def condition_table(name, service):
+@click.option(
+    '--quiet',
+    default=False,
+    is_flag=True
+)
+def condition_table(name, service, quiet):
     """Query the condition keys table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:

@@ -2,6 +2,7 @@
 Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
 Create the SQLite database and fill it with the tables scraped from the AWS Docs
 """
+import logging
 import click
 from policy_sentry.shared.actions import get_all_services_from_action_table
 from policy_sentry.shared.config import create_policy_sentry_config_directory, \
@@ -11,6 +12,9 @@ from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.awsdocs import update_html_docs_directory, get_list_of_service_prefixes_from_links_file, \
     create_service_links_mapping_file
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL
+
+logging.basicConfig()
+logger = logging.getLogger(__name__)
 
 
 @click.command(
@@ -65,17 +69,18 @@ def initialize(access_level_overrides_file, fetch):
         # Update the links.yml file
         prefix_list = create_service_links_mapping_file(
             HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL)
-        print(f"Services: {prefix_list}")
+        logger.info(f"Services: {prefix_list}")
 
     # Connect to the database at that path with SQLAlchemy
     db_session = connect_db(database_path)
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_LOCAL)
-    print(f"Services to build for: ${LINKS_YML_FILE_LOCAL}")
+    logger.info(f"Services to build for: ${LINKS_YML_FILE_LOCAL}")
 
     # Fill in the database with data on the AWS services
     create_database(db_session, all_aws_services, access_level_overrides_file)
-    print("Created tables for all services!")
+    logger.info("Created tables for all services!")
     all_aws_services = get_all_services_from_action_table(db_session)
     total_count_of_services = str(len(all_aws_services))
-    print(f"{total_count_of_services} AWS services in the database: {all_aws_services}")
+    logger.info(
+        f"{total_count_of_services} AWS services in the database: {all_aws_services}")

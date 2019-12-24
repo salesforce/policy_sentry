@@ -81,8 +81,9 @@ def write_policy(c):
     """
     Integration testing: Tests the `write-policy` function.
     """
+    c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml --quiet', pty=True)
     c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
+    c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml --minimize=0', pty=True)
     c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
 
 
@@ -132,7 +133,7 @@ def run_unit_tests(c):
     """Unit testing: Runs unit tests using `nosetests`"""
     # TODO If the database is not found we should build it, otherwise just run the tests.
     c.run('echo "Running Unit tests"')
-    c.run('nosetests -v', warn=True)
+    c.run('nosetests -v --logging-level=INFO', warn=True)
 
 
 # Add all testing tasks to the test collection

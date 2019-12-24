@@ -3,6 +3,7 @@ Roles is a data holder for sublists. It supports the write-policy actions mode.
 In the future, this data structure should probably go away, or it should at least be renamed.
 """
 import sys
+import logging
 
 
 class Roles:
@@ -44,7 +45,7 @@ class Roles:
                             ]
                         )
         except KeyError as k_e:
-            print("Yaml file is missing this block: " + k_e.args[0])
+            logging.debug(f"Yaml file is missing this block: {k_e.args[0]}")
             sys.exit()
         # except TypeError:
         #     print("Yaml file is not formatted properly. Please see the documentation for the proper format.")

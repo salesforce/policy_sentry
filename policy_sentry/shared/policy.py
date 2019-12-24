@@ -5,11 +5,14 @@ ArnActionGroup
 import copy
 import sys
 import re
+import logging
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable
 from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
 from policy_sentry.shared.actions import get_action_name_from_action, get_service_from_action
 from policy_sentry.shared.query import remove_actions_that_are_not_wildcard_arn_only
+
+logger = logging.getLogger(__name__)
 
 
 class ArnActionGroup:
@@ -144,9 +147,10 @@ class ArnActionGroup:
         #     print("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()
         except IndexError:
-            print("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''. "
-                  "Please evaluate your YML file and try again.")
-            sys.exit()
+
+            logger.debug("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''. "
+                         "Please evaluate your YML file and try again.")
+            sys.exit(-1)
 
         self.update_actions_for_raw_arn_format(db_session)
         arn_dict = self.get_policy_elements(db_session)
@@ -259,7 +263,7 @@ class ArnActionGroup:
                             self.arns[i]['actions'].remove(
                                 str(actions_under_wildcard_resources_to_nuke[j]))
                         except BaseException:  # pylint: disable=broad-except
-                            print("Removal not successful")
+                            logger.debug("Removal not successful")
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
