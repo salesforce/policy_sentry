@@ -33,7 +33,7 @@ class Roles:
         """Given the YAML file used for the list of actions config, process it."""
         try:
             for category in cfg:
-                if category == 'roles_with_actions':
+                if category == 'policy_with_actions':
                     for principal in cfg[category]:
                         self.add_role(
                             [

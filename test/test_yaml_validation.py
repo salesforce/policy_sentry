@@ -9,7 +9,7 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 valid_cfg_for_crud = {
-    "roles_with_crud_levels": [
+    "policy_with_crud_levels": [
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
@@ -44,7 +44,7 @@ valid_cfg_for_crud = {
 }
 
 valid_cfg_for_actions = {
-    "roles_with_actions": [
+    "policy_with_actions": [
         {
             "name": "RoleNameWithActions",
             "description": "Why I need these privs",
@@ -69,7 +69,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #     :return:
     #     """
     #     cfg_multiple_roles_in_file = {
-    #         "roles_with_actions": [
+    #         "policy_with_actions": [
     #             {
     #                 "name": "RoleNameWithActions",
     #                 "description": "Why I need these privs",
@@ -101,11 +101,11 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #
     # def test_both_roles_in_file(self):
     #     """
-    #     test_both_roles_in_file: write-policy when the YAML file contains both roles_with_crud_levels and roles_with_actions in the file (should only contain one)
+    #     test_both_roles_in_file: write-policy when the YAML file contains both policy_with_crud_levels and policy_with_actions in the file (should only contain one)
     #     :return:
     #     """
     #     cfg_both_roles_in_file = {
-    #         "roles_with_actions": [
+    #         "policy_with_actions": [
     #             {
     #                 "name": "RoleNameWithActions",
     #                 "description": "Why I need these privs",
@@ -118,7 +118,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #                 ]
     #             },
     #         ],
-    #         "roles_with_crud_levels": [
+    #         "policy_with_crud_levels": [
     #             {
     #                 "name": "DuplicateRoleNameWithActions",
     #                 "description": "Why I need these privs",
@@ -164,8 +164,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
 
     # def test_missing_category_as_dict(self):
     #     """
-    #     Test case: write-policy when the YAML file does not contain roles_with_crud_levels or
-    #     roles_with_actions, and the input is as a dict instead of a list
+    #     Test case: write-policy when the YAML file does not contain policy_with_crud_levels or
+    #     policy_with_actions, and the input is as a dict instead of a list
     #     :return:
     #     """
     #     cfg_with_missing_category = {
@@ -189,7 +189,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_name = {
-            "roles_with_actions": [
+            "policy_with_actions": [
                 {
                     "description": "Why I need these privs",
                     "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
@@ -212,7 +212,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_description = {
-            "roles_with_actions": [
+            "policy_with_actions": [
                 {
                     "name": "RoleNameWithActions",
                     "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
@@ -235,7 +235,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_actions = {
-            "roles_with_actions": [
+            "policy_with_actions": [
                 {
                     "name": "RoleNameWithActions",
                     "description": "Why I need these privs",
@@ -263,7 +263,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         """
 
         crud_file_input = {
-            "roles_with_crud_levels": [
+            "policy_with_crud_levels": [
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
@@ -292,7 +292,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         :return:
         """
         crud_file_input = {
-            "roles_with_crud_levels": [
+            "policy_with_crud_levels": [
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
@@ -329,7 +329,7 @@ class YamlValidationActionsTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_actions = {
-            "roles_with_actions": [
+            "policy_with_actions": [
                 {
                     "name": "RoleNameWithActions",
                     "description": "Why I need these privs",

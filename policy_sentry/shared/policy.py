@@ -106,7 +106,7 @@ class ArnActionGroup:
         """
         try:
             for category in cfg:
-                if category == 'roles_with_crud_levels':
+                if category == 'policy_with_crud_levels':
                     for principal in cfg[category]:
                         if 'wildcard' in principal.keys():
                             if principal['wildcard'] is not None:

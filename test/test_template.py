@@ -5,7 +5,7 @@ from policy_sentry.shared.template import create_actions_template, create_crud_t
 class TemplateTestCase(unittest.TestCase):
     def test_actions_template(self):
         desired_msg = """# Generate my policy when I know the Actions
-roles_with_actions:
+policy_with_actions:
 - name: myrole
   description: ''
   arn: ''
@@ -16,7 +16,7 @@ roles_with_actions:
 
     def test_crud_template(self):
         desired_msg = """# Generate my policy when I know the access levels and ARNs
-roles_with_crud_levels:
+policy_with_crud_levels:
 - name: myrole
   description: ''
   arn: ''

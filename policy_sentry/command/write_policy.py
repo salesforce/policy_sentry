@@ -55,10 +55,10 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
     """
     Writes an IAM policy given a dict containing lists of actions.
     """
-    roles_with_actions = Roles()
-    roles_with_actions.process_actions_config(cfg)
+    policy_with_actions = Roles()
+    policy_with_actions.process_actions_config(cfg)
     supplied_actions = []
-    for role in roles_with_actions.get_roles():
+    for role in policy_with_actions.get_roles():
         supplied_actions.extend(role[3].copy())
     supplied_actions = get_dependent_actions(db_session, supplied_actions)
     arn_action_group = ArnActionGroup()

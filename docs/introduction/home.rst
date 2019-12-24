@@ -56,7 +56,7 @@ It will generate a file like this:
 
 .. code-block:: yaml
 
-   roles_with_crud_levels:
+   policy_with_crud_levels:
    - name: myRole
      description: '' # Insert description
      arn: '' # Insert the ARN of the role that will use this
@@ -75,7 +75,7 @@ Then just fill it out:
 
 .. code-block:: yaml
 
-   roles_with_crud_levels:
+   policy_with_crud_levels:
    - name: myRole
      description: 'Justification for privileges'
      arn: 'arn:aws:iam::123456789102:role/myRole'
