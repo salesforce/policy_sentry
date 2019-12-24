@@ -10,6 +10,7 @@ script:
   - invoke build.install-package
   - invoke test.lint
   - invoke integration.clean
+  - invoke integration.version
   - invoke integration.initialize
   - invoke unit.nose
   - invoke integration.analyze-policy
