@@ -43,6 +43,7 @@ class QueryTestCase(unittest.TestCase):
             "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
         ]
         output = query_arn_table_for_raw_arns(db_session, "s3")
+        self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
     def test_query_arn_table_for_arn_types(self):
@@ -70,13 +71,32 @@ class QueryTestCase(unittest.TestCase):
 
     def test_query_action_table(self):
         """test_query_action_table: Tests function that gets a list of actions per AWS service."""
-        desired_output = ['ram:acceptresourceshareinvitation', 'ram:associateresourceshare', 'ram:createresourceshare',
-                        'ram:deleteresourceshare', 'ram:disassociateresourceshare',
-                        'ram:enablesharingwithawsorganization', 'ram:getresourcepolicies',
-                        'ram:getresourceshareassociations', 'ram:getresourceshareinvitations', 'ram:getresourceshares',
-                        'ram:listpendinginvitationresources', 'ram:rejectresourceshareinvitation', 'ram:tagresource',
-                        'ram:untagresource', 'ram:updateresourceshare']
+        desired_output = [
+            'ram:acceptresourceshareinvitation',
+            'ram:associateresourceshare',
+            'ram:associateresourcesharepermission',
+            'ram:createresourceshare',
+            'ram:deleteresourceshare',
+            'ram:disassociateresourceshare',
+            'ram:disassociateresourcesharepermission',
+            'ram:enablesharingwithawsorganization',
+            'ram:getpermission',
+            'ram:getresourcepolicies',
+            'ram:getresourceshareassociations',
+            'ram:getresourceshareinvitations',
+            'ram:getresourceshares',
+            'ram:listpendinginvitationresources',
+            'ram:listpermissions',
+            'ram:listprincipals',
+            'ram:listresourcesharepermissions',
+            'ram:listresources',
+            'ram:rejectresourceshareinvitation',
+            'ram:tagresource',
+            'ram:untagresource',
+            'ram:updateresourceshare'
+        ]
         output = query_action_table(db_session, "ram")
+        self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
     def test_query_action_table_by_name(self):
@@ -196,5 +216,6 @@ class QueryTestCase(unittest.TestCase):
             "secretsmanager:listsecrets",
         ]
         output = remove_actions_that_are_not_wildcard_arn_only(db_session, provided_actions_list)
+        self.maxDiff = None
         self.assertListEqual(desired_output, output)
 

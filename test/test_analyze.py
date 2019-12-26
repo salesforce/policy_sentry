@@ -100,6 +100,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             "ecr:SetRepositoryPolicy",  # Permissions management
         ]
         print("Read")
+        self.maxDiff = None
         # Read
         self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "read"), ["ecr:batchgetimage"])
         # Write
@@ -251,5 +252,6 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             'iam:deleteaccesskey',
             'secretsmanager:deleteresourcepolicy'
         ]
+        self.maxDiff = None
         self.assertListEqual(permissions_management_actions, desired_actions_list)
 

@@ -44,4 +44,5 @@ class ExpandWildcardActionsTestCase(unittest.TestCase):
             'ecr:batchdeleteimage'
         ]
         print(determine_actions_to_expand(action_list))
+        self.maxDiff = None
         self.assertListEqual(sorted(determine_actions_to_expand(action_list)), sorted(desired_result))

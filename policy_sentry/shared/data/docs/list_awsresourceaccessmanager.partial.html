@@ -210,7 +210,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w463aac29c13c26d688c11b9">
+       <table class="awsui-util-container" id="w471aac29c13c26d700c11b9">
         <tr>
          <th>
           Actions
@@ -263,17 +263,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="3">
+         <td>
           <a id="awsresourceaccessmanager-AssociateResourceShare">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceShare.html">
            AssociateResourceShare
           </a>
          </td>
-         <td rowspan="3">
+         <td>
           Associates resource(s) and/or principal(s) to a resource share
          </td>
-         <td rowspan="3">
+         <td>
           Write
          </td>
          <td>
@@ -295,39 +295,29 @@
         </tr>
         <tr>
          <td>
+          <a id="awsresourceaccessmanager-AssociateResourceSharePermission">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceSharePermission.html">
+           AssociateResourceSharePermission
+          </a>
+         </td>
+         <td>
+          Associate a Permission with a Resource Share.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
           <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal
+           <a href="#awsresourceaccessmanager-resource-share">
+            resource-share*
            </a>
           </p>
          </td>
          <td>
           <p>
-           <a href="#awsresourceaccessmanager-ram_Principal">
-            ram:Principal
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-resource">
-            resource
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_RequestedResourceType">
-            ram:RequestedResourceType
-           </a>
-          </p>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_ResourceArn">
-            ram:ResourceArn
+           <a href="#awsresourceaccessmanager-ram_AllowsExternalPrincipals">
+            ram:AllowsExternalPrincipals
            </a>
           </p>
           <p>
@@ -335,42 +325,29 @@
             ram:ResourceShareName
            </a>
           </p>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_RequestedAllowsExternalPrincipals">
+            ram:RequestedAllowsExternalPrincipals
+           </a>
+          </p>
          </td>
          <td>
          </td>
         </tr>
         <tr>
-         <td rowspan="3">
+         <td rowspan="2">
           <a id="awsresourceaccessmanager-CreateResourceShare">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">
            CreateResourceShare
           </a>
          </td>
-         <td rowspan="3">
+         <td rowspan="2">
           Create resource share with provided resource(s) and/or principal(s)
          </td>
-         <td rowspan="3">
+         <td rowspan="2">
           Write
          </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_Principal">
-            ram:Principal
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
          <td>
           <p>
            <a href="#awsresourceaccessmanager-resource-share">
@@ -417,17 +394,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="3">
+         <td>
           <a id="awsresourceaccessmanager-DeleteResourceShare">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_DeleteResourceShare.html">
            DeleteResourceShare
           </a>
          </td>
-         <td rowspan="3">
+         <td>
           Delete resource share
          </td>
-         <td rowspan="3">
+         <td>
           Write
          </td>
          <td>
@@ -449,62 +426,16 @@
         </tr>
         <tr>
          <td>
-          <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_Principal">
-            ram:Principal
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-resource">
-            resource
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_RequestedResourceType">
-            ram:RequestedResourceType
-           </a>
-          </p>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_ResourceArn">
-            ram:ResourceArn
-           </a>
-          </p>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_ResourceShareName">
-            ram:ResourceShareName
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td rowspan="3">
           <a id="awsresourceaccessmanager-DisassociateResourceShare">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceShare.html">
            DisassociateResourceShare
           </a>
          </td>
-         <td rowspan="3">
+         <td>
           Disassociates resource(s) and/or principal(s) from a resource share
          </td>
-         <td rowspan="3">
+         <td>
           Write
          </td>
          <td>
@@ -526,44 +457,39 @@
         </tr>
         <tr>
          <td>
+          <a id="awsresourceaccessmanager-DisassociateResourceSharePermission">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceSharePermission.html">
+           DisassociateResourceSharePermission
+          </a>
+         </td>
+         <td>
+          Disassociate a Permission from a Resource Share.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
           <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal
+           <a href="#awsresourceaccessmanager-resource-share">
+            resource-share*
            </a>
           </p>
          </td>
          <td>
           <p>
-           <a href="#awsresourceaccessmanager-ram_Principal">
-            ram:Principal
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-resource">
-            resource
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_RequestedResourceType">
-            ram:RequestedResourceType
-           </a>
-          </p>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_ResourceArn">
-            ram:ResourceArn
+           <a href="#awsresourceaccessmanager-ram_AllowsExternalPrincipals">
+            ram:AllowsExternalPrincipals
            </a>
           </p>
           <p>
            <a href="#awsresourceaccessmanager-ram_ResourceShareName">
             ram:ResourceShareName
+           </a>
+          </p>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_RequestedAllowsExternalPrincipals">
+            ram:RequestedAllowsExternalPrincipals
            </a>
           </p>
          </td>
@@ -588,6 +514,37 @@
          <td>
          </td>
          <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsresourceaccessmanager-GetPermission">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_GetPermission.html">
+           GetPermission
+          </a>
+         </td>
+         <td>
+          Gets the contents of an AWS RAM permission.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#awsresourceaccessmanager-permission">
+            permission*
+           </a>
+          </p>
+         </td>
+         <td>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_PermissionArn">
+            ram:PermissionArn
+           </a>
+          </p>
          </td>
          <td>
          </td>
@@ -749,89 +706,105 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="2">
+         <td>
+          <a id="awsresourceaccessmanager-ListPermissions">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPermissions.html">
+           ListPermissions
+          </a>
+         </td>
+         <td>
+          Lists the AWS RAM permissions.
+         </td>
+         <td>
+          List
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="awsresourceaccessmanager-ListPrincipals">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPrincipals.html">
            ListPrincipals
           </a>
          </td>
-         <td rowspan="2">
+         <td>
           Retrieve list of principals for a specified resource
          </td>
-         <td rowspan="2">
+         <td>
+          List
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsresourceaccessmanager-ListResourceSharePermissions">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceSharePermissions.html">
+           ListResourceSharePermissions
+          </a>
+         </td>
+         <td>
+          List the Permissions associated with a Resource Share.
+         </td>
+         <td>
           List
          </td>
          <td>
           <p>
-           <a href="#awsresourceaccessmanager-resource">
-            resource*
+           <a href="#awsresourceaccessmanager-resource-share">
+            resource-share*
            </a>
           </p>
          </td>
          <td>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_AllowsExternalPrincipals">
+            ram:AllowsExternalPrincipals
+           </a>
+          </p>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_ResourceShareName">
+            ram:ResourceShareName
+           </a>
+          </p>
+          <p>
+           <a href="#awsresourceaccessmanager-ram_RequestedAllowsExternalPrincipals">
+            ram:RequestedAllowsExternalPrincipals
+           </a>
+          </p>
          </td>
          <td>
          </td>
         </tr>
         <tr>
          <td>
-          <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_Principal">
-            ram:Principal
-           </a>
-          </p>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td rowspan="2">
           <a id="awsresourceaccessmanager-ListResources">
           </a>
           <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResources.html">
            ListResources
           </a>
          </td>
-         <td rowspan="2">
+         <td>
           Retrieve list of resources for a specified principal
          </td>
-         <td rowspan="2">
+         <td>
           List
          </td>
          <td>
-          <p>
-           <a href="#awsresourceaccessmanager-principal">
-            principal*
-           </a>
-          </p>
          </td>
          <td>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-resource">
-            resource
-           </a>
-          </p>
-         </td>
-         <td>
-          <p>
-           <a href="#awsresourceaccessmanager-ram_ResourceArn">
-            ram:ResourceArn
-           </a>
-          </p>
          </td>
          <td>
          </td>
@@ -1019,7 +992,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w463aac29c13c26d688c13b5">
+       <table class="awsui-util-container" id="w471aac29c13c26d700c13b5">
         <tr>
          <th>
           Resource Types
@@ -1102,10 +1075,10 @@
         </tr>
         <tr>
          <td>
-          <a id="awsresourceaccessmanager-resource">
+          <a id="awsresourceaccessmanager-permission">
           </a>
-          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_Resource.html">
-           resource
+          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ResourceSharePermissionDetail.html">
+           permission
           </a>
          </td>
          <td>
@@ -1114,51 +1087,15 @@
            <span>
             {
            </span>
-           Partition}:$
+           Partition}:ram::$
            <span>
             {
            </span>
-           Service}:$
-           <span>
-            {
-           </span>
-           Region}:#
-           <span>
-            {
-           </span>
-           Account}:$
-           <span>
-            {
-           </span>
-           ResourceType}/$
+           Account}:permission/$
            <span>
             {
            </span>
            ResourcePath}
-          </code>
-         </td>
-         <td>
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <a id="awsresourceaccessmanager-principal">
-          </a>
-          <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_Principal.html">
-           principal
-          </a>
-         </td>
-         <td>
-          <code class="code">
-           arn:$
-           <span>
-            {
-           </span>
-           Partition}:iam::$
-           <span>
-            {
-           </span>
-           Account}:root
           </code>
          </td>
          <td>
@@ -1199,7 +1136,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w463aac29c13c26d688c15b7">
+       <table class="awsui-util-container" id="w471aac29c13c26d700c15b7">
         <tr>
          <th>
           Condition Keys
@@ -1215,11 +1152,13 @@
          <td>
           <a id="awsresourceaccessmanager-aws_RequestTag___TagKey_">
           </a>
-          aws:RequestTag/$
-          <span>
-           {
-          </span>
-          TagKey}
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+           aws:RequestTag/$
+           <span>
+            {
+           </span>
+           TagKey}
+          </a>
          </td>
          <td>
           Specifies a tag key and value pair that must be used when creating or tagging a resource
@@ -1234,11 +1173,13 @@
          <td>
           <a id="awsresourceaccessmanager-aws_ResourceTag___TagKey_">
           </a>
-          aws:ResourceTag/$
-          <span>
-           {
-          </span>
-          TagKey}
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+           aws:ResourceTag/$
+           <span>
+            {
+           </span>
+           TagKey}
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on resources that have the specified
@@ -1252,7 +1193,9 @@
          <td>
           <a id="awsresourceaccessmanager-aws_TagKeys">
           </a>
-          aws:TagKeys
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+           aws:TagKeys
+          </a>
          </td>
          <td>
           Specifies the tag keys that can be used when creating or tagging a resource share
@@ -1265,7 +1208,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_AllowsExternalPrincipals">
           </a>
-          ram:AllowsExternalPrincipals
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:AllowsExternalPrincipals
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on resource shares that allow or deny
@@ -1279,9 +1224,27 @@
         </tr>
         <tr>
          <td>
+          <a id="awsresourceaccessmanager-ram_PermissionArn">
+          </a>
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:PermissionArn
+          </a>
+         </td>
+         <td>
+          Indicates that the action can only be performed on a resource using the specified
+                              Permission ARN.
+         </td>
+         <td>
+          Arn
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="awsresourceaccessmanager-ram_Principal">
           </a>
-          ram:Principal
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:Principal
+          </a>
          </td>
          <td>
           Principals with the specified format can be associated to or disassociated from a
@@ -1295,7 +1258,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_RequestedAllowsExternalPrincipals">
           </a>
-          ram:RequestedAllowsExternalPrincipals
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:RequestedAllowsExternalPrincipals
+          </a>
          </td>
          <td>
           The request must have the specified value for 'allowExternalPrincipals'. External
@@ -1309,7 +1274,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_RequestedResourceType">
           </a>
-          ram:RequestedResourceType
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:RequestedResourceType
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on the specified resource type
@@ -1322,7 +1289,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_ResourceArn">
           </a>
-          ram:ResourceArn
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:ResourceArn
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on a resource with the specified ARN.
@@ -1335,7 +1304,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_ResourceShareName">
           </a>
-          ram:ResourceShareName
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:ResourceShareName
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on a resource share with the specified
@@ -1349,7 +1320,9 @@
          <td>
           <a id="awsresourceaccessmanager-ram_ShareOwnerAccountId">
           </a>
-          ram:ShareOwnerAccountId
+          <a href="https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition">
+           ram:ShareOwnerAccountId
+          </a>
          </td>
          <td>
           Indicates that the action can only be performed on resource shares owned by a specific

@@ -120,7 +120,7 @@
        <li class="listitem">
         <p>
          Learn how to
-         <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/">
+         <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
           configure this service
          </a>
          .
@@ -129,7 +129,7 @@
        <li class="listitem">
         <p>
          View a list of the
-         <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/">
+         <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.html">
           API operations available for this             service
          </a>
          .
@@ -138,7 +138,7 @@
        <li class="listitem">
         <p>
          Learn how to secure this service and its resources by
-         <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+         <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/marketplace-catalog/latest/api-reference/api-access-control.html">
           using IAM
          </a>
          permission policies.
@@ -210,7 +210,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w463aac29c13c26d560c11b9">
+       <table class="awsui-util-container" id="w471aac29c13c26d568c11b9">
         <tr>
          <th>
           Actions
@@ -235,12 +235,12 @@
          <td>
           <a id="awsmarketplacecatalog-CancelChangeSet">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_CancelChangeSet.html">
            CancelChangeSet
           </a>
          </td>
          <td>
-          Cancel an existing change set
+          Cancels a running change set.
          </td>
          <td>
           Write
@@ -256,12 +256,12 @@
          <td>
           <a id="awsmarketplacecatalog-DescribeChangeSet">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_DescribeChangeSet.html">
            DescribeChangeSet
           </a>
          </td>
          <td>
-          Returns the details of an existing change set
+          Returns the details of an existing change set.
          </td>
          <td>
           Read
@@ -277,12 +277,12 @@
          <td>
           <a id="awsmarketplacecatalog-DescribeEntity">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_DescribeEntity.html">
            DescribeEntity
           </a>
          </td>
          <td>
-          Returns the details of an existing entity
+          Returns the details of an existing entity.
          </td>
          <td>
           Read
@@ -298,12 +298,12 @@
          <td>
           <a id="awsmarketplacecatalog-ListChangeSets">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_ListChangeSets.html">
            ListChangeSets
           </a>
          </td>
          <td>
-          List existing change sets
+          Lists existing change sets.
          </td>
          <td>
           Read
@@ -319,12 +319,12 @@
          <td>
           <a id="awsmarketplacecatalog-ListEntities">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_ListEntities.html">
            ListEntities
           </a>
          </td>
          <td>
-          List existing entities
+          Lists existing entities.
          </td>
          <td>
           Read
@@ -340,12 +340,12 @@
          <td>
           <a id="awsmarketplacecatalog-StartChangeSet">
           </a>
-          <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/marketplace-management-portal-user-access.html#detailed-management-portal-permissions">
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_StartChangeSet.html">
            StartChangeSet
           </a>
          </td>
          <td>
-          Request a new change set
+          Requests a new change set.
          </td>
          <td>
           Write
@@ -353,6 +353,11 @@
          <td>
          </td>
          <td>
+          <p>
+           <a href="#awsmarketplacecatalog-catalog_ChangeType">
+            catalog:ChangeType
+           </a>
+          </p>
          </td>
          <td>
          </td>
@@ -366,29 +371,138 @@
       Resources Defined by        AWS Marketplace Catalog
      </h2>
      <p>
-      AWS Marketplace Catalog does not support specifying a resource ARN in the
+      The following resource types are defined by this service and can be used in the
       <code class="code">
        Resource
       </code>
-      element of an IAM policy statement. To allow access to      AWS Marketplace Catalog,
-                  specify
-      <code class="code">
-       “Resource”: “*”
-      </code>
-      in your policy.
+      element of IAM permission policy statements. Each action in the
+      <a href="#awsmarketplacecatalog-actions-as-permissions">
+       Actions table
+      </a>
+      identifies the      resource types that can be specified with that action. A resource
+                  type can also define which      condition keys you can include in a policy. These
+                  keys are displayed in the last column of the      table. For details about the columns
+                  in the following table, see
+      <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+       The Resource Types Table
+      </a>
+      .
      </p>
+     <div class="table-container">
+      <div class="table-contents">
+       <table class="awsui-util-container" id="w471aac29c13c26d568c13b5">
+        <tr>
+         <th>
+          Resource Types
+         </th>
+         <th>
+          ARN
+         </th>
+         <th>
+          Condition Keys
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsmarketplacecatalog-Entity">
+          </a>
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeEntity.html#API_DescribeEntity_ResponseSyntax">
+           Entity
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:aws-marketplace:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:$
+           <span>
+            {
+           </span>
+           Catalog}/$
+           <span>
+            {
+           </span>
+           EntityType}/$
+           <span>
+            {
+           </span>
+           ResourceId}
+          </code>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsmarketplacecatalog-ChangeSet">
+          </a>
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_ResponseSyntax">
+           ChangeSet
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:aws-marketplace:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:$
+           <span>
+            {
+           </span>
+           Catalog}/ChangeSet/$
+           <span>
+            {
+           </span>
+           ResourceId}
+          </code>
+         </td>
+         <td>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <awsdocs-table-expander>
+      </awsdocs-table-expander>
+     </div>
      <h2 id="awsmarketplacecatalog-policy-keys">
       Condition Keys for        AWS Marketplace Catalog
      </h2>
      <p>
-      Marketplace Catalog has no service-specific context keys that can be used in the
+      AWS Marketplace Catalog defines the following condition keys that can be used in the
       <code class="code">
        Condition
       </code>
-      element of policy statements. For the list of the global context keys      that are
-                  available to all services, see
+      element of an IAM policy. You can use these keys to further refine      the conditions
+                  under which the policy statement applies. For details about the columns in the   
+                  following table, see
+      <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+       The Condition Keys Table
+      </a>
+      .
+     </p>
+     <p>
+      To view the global condition keys that are available to all services, see
       <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-       Available Keys for        Conditions
+       Available Global        Condition Keys
       </a>
       in the
       <em>
@@ -396,6 +510,40 @@
       </em>
       .
      </p>
+     <div class="table-container">
+      <div class="table-contents">
+       <table class="awsui-util-container" id="w471aac29c13c26d568c15b7">
+        <tr>
+         <th>
+          Condition Keys
+         </th>
+         <th>
+          Description
+         </th>
+         <th>
+          Type
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsmarketplacecatalog-catalog_ChangeType">
+          </a>
+          <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/api-access-control.html">
+           catalog:ChangeType
+          </a>
+         </td>
+         <td>
+          Enables you to verify change type in the StartChangeSet request.
+         </td>
+         <td>
+          String
+         </td>
+        </tr>
+       </table>
+      </div>
+      <awsdocs-table-expander>
+      </awsdocs-table-expander>
+     </div>
      <awsdocs-copyright class="copyright-print">
      </awsdocs-copyright>
     </div>
