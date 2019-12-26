@@ -31,17 +31,27 @@ cloudfront:
     Write:
         - createdistributionwithtags
         - createstreamingdistributionwithtags
+chime:
+    Permissions management:
+        - deletevoiceconnectorterminationcredentials
+        - putvoiceconnectorterminationcredentials
 codebuild:
     # AWS documentation lists this as "Write"
-    Write:
+    Permissions management:
         - deleteresourcepolicy
         - putresourcepolicy
+        # GitHub credentials management
+        - deletesourcecredentials
+        - importsourcecredentials
 codepipeline:
     # AWS documentation lists these as "Tagging"
     Write:
         - createcustomactiontype
         - createpipeline
         - putwebhook
+cognito-identity:
+    Permissions management:
+        - setidentitypoolroles
 connect:
     # AWS documentation has these as "Read"
     Permissions management:
@@ -91,6 +101,9 @@ fsx:
         - createbackup
         - createfilesystem
         - createfilesystemfrombackup
+gamelift:
+    Permissions management:
+        - requestuploadcredentials  # Credentials exposure
 glue:
     # AWS documentation lists this as "Write"
     Permissions management:
@@ -204,6 +217,9 @@ medialive:
         - createinput
         - createinputsecuritygroup
         - purchaseoffering
+mediapackage:
+    Permissions management:
+        - rotateingestendpointcredentials
 mobiletargeting:
     # AWS Documentation lists these as "Tagging"
     Write:
@@ -336,6 +352,12 @@ states:
     Write:
         - createstatemachine
         - createactivity
+storagegateway:
+    Permissions management:
+        - updatechapcredentials
+        - deletechapcredentials
+        - setlocalconsolepassword
+        - setsmbguestpassword
 waf:
     # AWS documentation lists this one as "Permissions management"
     Write:
@@ -360,3 +382,7 @@ xray:
 worklink:
     Permissions management:
         - updatedevicepolicyconfiguration
+workmail:
+    Permissions management:
+        - resetpassword
+        - resetuserpassword
