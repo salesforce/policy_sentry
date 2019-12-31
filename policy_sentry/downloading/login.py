@@ -1,9 +1,8 @@
 """
-Functins for logging into AWS and returning Boto3 sessions.
+Functions for logging into AWS and returning Boto3 sessions.
 """
 import configparser
 import os
-
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
 

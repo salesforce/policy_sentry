@@ -1,7 +1,7 @@
 import unittest
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.minimize import minimize_statement_actions
-from policy_sentry.shared.actions import get_all_actions
+from policy_sentry.writing.minimize import minimize_statement_actions
+from policy_sentry.querying.all import get_all_actions
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 db_session = connect_db(DATABASE_FILE_PATH)

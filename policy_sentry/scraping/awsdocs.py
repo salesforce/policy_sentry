@@ -123,7 +123,7 @@ def get_list_of_service_prefixes_from_links_file(links_yml_file):
     Gets a list of service prefixes from the links file. Used for unit tests.
     :return:
     """
-    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/links.yml'
+    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/data/links.yml'
     service_prefixes = []
     with open(links_yml_file, 'r') as yaml_file:
         try:

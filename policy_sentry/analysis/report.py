@@ -7,7 +7,7 @@ import json
 from jinja2 import Template
 
 from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
-from policy_sentry.shared.file import read_yaml_file
+from policy_sentry.util.file import read_yaml_file
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 

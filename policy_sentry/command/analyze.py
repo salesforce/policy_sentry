@@ -11,10 +11,10 @@
 import os
 from glob import glob
 import click
-from policy_sentry.shared.analyze import analyze_policy_directory, analyze_policy_file
-from policy_sentry.shared.report import load_report_config_file, create_csv_report, create_json_report, \
+from policy_sentry.analysis.analyze import analyze_policy_directory, analyze_policy_file
+from policy_sentry.analysis.report import load_report_config_file, create_csv_report, create_json_report, \
     create_markdown_report, create_markdown_report_template
-from policy_sentry.shared.finding import Findings
+from policy_sentry.analysis.finding import Findings
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, \
     AUDIT_DIRECTORY_PATH
 

@@ -4,13 +4,15 @@ Allow users to use specific pre-compiled queries against the action, arn, and co
 import json
 import click
 
-from policy_sentry.shared.actions import transform_access_level_text, get_all_services_from_action_table
+from policy_sentry.util.access_levels import transform_access_level_text
+from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.query import query_condition_table, query_condition_table_by_name, \
-    query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
-    query_action_table_by_access_level, query_action_table_for_all_condition_key_matches, \
-    query_action_table_for_actions_supporting_wildcards_only, query_arn_table_for_arn_types
+from policy_sentry.querying.arns import get_arn_type_details, get_arn_types_for_service, get_raw_arns_for_service
+from policy_sentry.querying.actions import get_actions_for_service, get_actions_with_access_level, \
+    get_action_data, get_actions_that_support_wildcard_arns_only, \
+    get_actions_matching_condition_key
+from policy_sentry.querying.conditions import get_condition_keys_for_service, get_condition_key_details
 
 
 @click.group()
@@ -59,13 +61,13 @@ def action_table(name, service, access_level, condition, wildcard_only):
     db_session = connect_db(DATABASE_FILE_PATH)
     # Actions on all services
     if service == "all":
-        all_services = get_all_services_from_action_table(db_session)
+        all_services = get_all_service_prefixes(db_session)
         if access_level:
             level = transform_access_level_text(access_level)
             print(f"{access_level} actions across ALL services:\n")
             results = []
             for serv in all_services:
-                output = query_action_table_by_access_level(
+                output = get_actions_with_access_level(
                     db_session, serv, level)
                 results.extend(output)
             for result in results:
@@ -79,14 +81,14 @@ def action_table(name, service, access_level, condition, wildcard_only):
         print(
             f"All IAM actions under the {service} service that have the access level {access_level}:")
         level = transform_access_level_text(access_level)
-        output = query_action_table_by_access_level(db_session, service, level)
+        output = get_actions_with_access_level(db_session, service, level)
         print(json.dumps(output, indent=4))
     # Get a list of all IAM actions under the service that support the
     # specified condition key.
     elif condition:
         print(
             f"IAM actions under {service} service that support the {condition} condition only:")
-        output = query_action_table_for_all_condition_key_matches(
+        output = get_actions_matching_condition_key(
             db_session, service, condition)
         print(json.dumps(output, indent=4))
     # Get a list of IAM Actions under the service that only support resources = "*"
@@ -94,16 +96,16 @@ def action_table(name, service, access_level, condition, wildcard_only):
     elif wildcard_only:
         print(
             f"IAM actions under {service} service that support wildcard resource values only:")
-        output = query_action_table_for_actions_supporting_wildcards_only(
+        output = get_actions_that_support_wildcard_arns_only(
             db_session, service)
         print(json.dumps(output, indent=4))
     elif name and access_level is None:
-        output = query_action_table_by_name(db_session, service, name)
+        output = get_action_data(db_session, service, name)
         print(json.dumps(output, indent=4))
     else:
         print(f"All IAM actions available to {service}:")
         # Get a list of all IAM Actions available to the service
-        action_list = query_action_table(db_session, service)
+        action_list = get_actions_for_service(db_session, service)
         print(f"ALL {service} actions:")
         for item in action_list:
             print(item)
@@ -135,17 +137,17 @@ def arn_table(name, service, list_arn_types):
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
-        raw_arns = query_arn_table_for_raw_arns(db_session, service)
+        raw_arns = get_raw_arns_for_service(db_session, service)
         for item in raw_arns:
             print(item)
     # Get a list of all the ARN types per service, paired with the RAW ARNs
     elif name is None and list_arn_types:
-        output = query_arn_table_for_arn_types(db_session, service)
+        output = get_arn_types_for_service(db_session, service)
         print(json.dumps(output, indent=4))
     # Get the raw ARN format for the `cloud9` service with the short name
     # `environment`
     else:
-        output = query_arn_table_by_name(db_session, service, name)
+        output = get_arn_type_details(db_session, service, name)
         print(json.dumps(output, indent=4))
 
 
@@ -169,10 +171,10 @@ def condition_table(name, service):
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:
-        condition_results = query_condition_table(db_session, service)
+        condition_results = get_condition_keys_for_service(db_session, service)
         for item in condition_results:
             print(item)
     # Get details on the specific condition key
     else:
-        output = query_condition_table_by_name(db_session, service, name)
+        output = get_condition_key_details(db_session, service, name)
         print(json.dumps(output, indent=4))

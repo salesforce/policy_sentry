@@ -3,12 +3,13 @@ Create the Policy Sentry config folder (~/.policy_sentry/) and the contents with
 Create the SQLite database and fill it with the tables scraped from the AWS Docs
 """
 import click
-from policy_sentry.shared.actions import get_all_services_from_action_table
-from policy_sentry.shared.config import create_policy_sentry_config_directory, \
-    create_audit_directory, create_default_overrides_file, create_policy_analysis_directory, \
-    create_default_report_config_file, create_html_docs_directory
+from policy_sentry.querying.all import get_all_service_prefixes
+from policy_sentry.configuration.access_level_overrides import create_default_overrides_file
+from policy_sentry.configuration.analysis import create_default_report_config_file
+from policy_sentry.configuration.config_directory import create_policy_sentry_config_directory, \
+    create_audit_directory, create_policy_analysis_directory, create_html_docs_directory
 from policy_sentry.shared.database import connect_db, create_database
-from policy_sentry.shared.awsdocs import update_html_docs_directory, get_list_of_service_prefixes_from_links_file, \
+from policy_sentry.scraping.awsdocs import update_html_docs_directory, get_list_of_service_prefixes_from_links_file, \
     create_service_links_mapping_file
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL
 
@@ -69,6 +70,7 @@ def initialize(access_level_overrides_file, fetch):
 
     # Connect to the database at that path with SQLAlchemy
     db_session = connect_db(database_path)
+    # Use the list of services that were listed in the links.yml file
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_LOCAL)
     print(f"Services to build for: ${LINKS_YML_FILE_LOCAL}")
@@ -76,6 +78,8 @@ def initialize(access_level_overrides_file, fetch):
     # Fill in the database with data on the AWS services
     create_database(db_session, all_aws_services, access_level_overrides_file)
     print("Created tables for all services!")
-    all_aws_services = get_all_services_from_action_table(db_session)
-    total_count_of_services = str(len(all_aws_services))
-    print(f"{total_count_of_services} AWS services in the database: {all_aws_services}")
+
+    # Query the database for all the services that are now in the database.
+    all_aws_service_prefixes = get_all_service_prefixes(db_session)
+    total_count_of_services = str(len(all_aws_service_prefixes))
+    print(f"{total_count_of_services} AWS services in the database. \nServices: {all_aws_service_prefixes}")

@@ -2,10 +2,12 @@ import os
 import unittest
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-from policy_sentry.shared.analyze import analyze_by_access_level
-from policy_sentry.shared.finding import Findings
-from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_policy, \
-    get_actions_from_json_policy_file
+from policy_sentry.analysis.analyze import analyze_by_access_level
+from policy_sentry.analysis.finding import Findings
+from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
+from policy_sentry.querying.actions import remove_actions_not_matching_access_level
+from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
+
 
 db_session = connect_db(DATABASE_FILE_PATH)
 
@@ -90,8 +92,8 @@ class FindingsTestCase(unittest.TestCase):
 
 class AnalyzeActionsTestCase(unittest.TestCase):
 
-    def test_get_actions_by_access_level(self):
-        """test_get_actions_by_access_level: Verify get_actions_by_access_level is working as expected"""
+    def test_remove_actions_not_matching_access_level(self):
+        """test_remove_actions_not_matching_access_level: Verify remove_actions_not_matching_access_level is working as expected"""
         actions_list = [
             "ecr:BatchGetImage",  # Read
             "ecr:CreateRepository",  # Write
@@ -102,15 +104,15 @@ class AnalyzeActionsTestCase(unittest.TestCase):
         print("Read")
         self.maxDiff = None
         # Read
-        self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "read"), ["ecr:batchgetimage"])
+        self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "read"), ["ecr:batchgetimage"])
         # Write
-        self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "write"), ["ecr:createrepository"])
+        self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "write"), ["ecr:createrepository"])
         # List
-        self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "list"), ["ecr:describerepositories"])
+        self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "list"), ["ecr:describerepositories"])
         # Tagging
-        self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "tagging"), ["ecr:tagresource"])
+        self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "tagging"), ["ecr:tagresource"])
         # Permissions management
-        self.assertListEqual(get_actions_by_access_level(db_session, actions_list, "permissions-management"), ["ecr:setrepositorypolicy"])
+        self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "permissions-management"), ["ecr:setrepositorypolicy"])
 
     def test_get_actions_from_policy(self):
         """test_get_actions_from_policy: Verify that the get_actions_from_policy function is grabbing the actions

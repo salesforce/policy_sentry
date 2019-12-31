@@ -4,12 +4,13 @@ Functions to support the analyze capability in this tool
 import fnmatch
 import copy
 import re
-from policy_sentry.shared.file import read_this_file
-from policy_sentry.shared.actions import get_actions_by_access_level, get_actions_from_json_policy_file, \
-    get_all_actions, get_lowercase_action_list, get_actions_from_policy
+from policy_sentry.querying.actions import remove_actions_not_matching_access_level
+from policy_sentry.querying.all import get_all_actions
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.file import list_files_in_directory
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+from policy_sentry.util.actions import get_lowercase_action_list
+from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
+from policy_sentry.util.file import list_files_in_directory, read_this_file
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -28,14 +29,10 @@ def determine_risky_actions(requested_actions, audit_file):
 
     risky_actions = read_risky_iam_permissions_text_file(audit_file)
     risky_actions = get_lowercase_action_list(risky_actions)
-    # print("Auditing for risky actions...")
-    # print("Please justify why you need permissions to the following actions:")
     actions_to_triage = []
     for action in requested_actions:
         if action in risky_actions:
-            # print("{}".format(action))
             actions_to_triage.append(action)
-    # print("Auditing for risky actions complete!")
     return actions_to_triage
 
 
@@ -137,16 +134,8 @@ def analyze_by_access_level(policy_json, db_session, access_level):
     """
     requested_actions = get_actions_from_policy(policy_json)
     expanded_actions = determine_actions_to_expand(requested_actions)
-    actions_by_level = get_actions_by_access_level(
+    actions_by_level = remove_actions_not_matching_access_level(
         db_session, expanded_actions, access_level)
-    # if not actions_by_level:
-    #     pass
-    # else:
-    #     policy_path_elements = policy_file.split('/')
-    #     # policy_name = policy_path_elements[-1]
-    #     # print("\nPolicy: " + policy_name)
-    #     # pp = pprint.PrettyPrinter(indent=4)
-    #     # pp.pprint(levels)
     return actions_by_level
 
 

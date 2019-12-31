@@ -2,7 +2,6 @@ import unittest
 import json
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_access_levels, write_policy_with_actions
-from policy_sentry.shared.policy import ArnActionGroup
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 db_session = connect_db(DATABASE_FILE_PATH)
