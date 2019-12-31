@@ -10,7 +10,7 @@ from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
 from policy_sentry.configuration.access_level_overrides import get_action_access_level_overrides_from_yml
 from policy_sentry.scraping.scrape import get_html
-from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
+from policy_sentry.shared.constants import BUNDLED_DATABASE_FILE_PATH, HTML_DIRECTORY_PATH
 from policy_sentry.util.access_levels import determine_access_level_override
 from policy_sentry.util.arns import get_resource_path_from_arn, get_partition_from_arn, get_account_from_arn, \
     get_region_from_arn, get_resource_from_arn, get_service_from_arn
@@ -111,7 +111,11 @@ def connect_db(db_file):
     #  sqlite:///relative/path/to/file.db
     # sqlite:////absolute/path/to/file.db # Using this one. db_file is
     # prefixed with another / so it works out to 4
-    engine = create_engine(str('sqlite:///' + db_file), echo=False)
+    if db_file == 'bundled':
+        database_path = BUNDLED_DATABASE_FILE_PATH
+    else:
+        database_path = db_file
+    engine = create_engine(str('sqlite:///' + database_path), echo=False)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)  # pylint: disable=invalid-name
     Session.configure(bind=engine)

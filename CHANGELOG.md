@@ -1,7 +1,7 @@
 # Changelog
 ## 2019-12-31
 ## Changed
-* Note: All changes here are in the background, with changes in folder structure, method naming, and testing scripts; nothing is different with the user experience.
+* Developers can now easily leverage Policy Sentry as a python package without needing to build the database from the docs. Just use `db_session = connect_db('bundled')` before passing in commands that require the `db_session` and you're ready to go. Fixes #74
 * Pyinvoke file now has try/except to catch failures, so we can have the build fail if the Invoke commands tests give non zero responses.
 * Moved to a saner subfolder structure, where the folders are mostly specific to their commands.
   - The new folders are `analysis`, `configuration`, `downloading`, `querying`, `scraping`, `util`, and `writing`
