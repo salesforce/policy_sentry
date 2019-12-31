@@ -20,7 +20,7 @@ code isn't the measure of a good developer (that would disqualify all of us!);
 it's trying to create something, making mistakes, and learning from those
 mistakes. That's how we all improve.
 
-We've provided some clear `Contribution Guidelines`_ that you can read below.
+We've provided some clear Contribution Guidelines that you can read below.
 The guidelines outline the process that you'll need to follow to get a patch
 merged. By making expectations and process explicit, we hope it will make it
 easier for you to contribute.
@@ -227,7 +227,8 @@ Updating the AWS HTML files
 This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`
 
 .. code-block:: bash
-   python3 ./utils/download_docs.py
+
+    python3 ./utils/download_docs.py
 
 This downloads the Actions, Resources, and Condition Keys pages per-service to the ``policy_sentry/shared/data/docs`` folder. It also add a file titled ``policy_sentry/shared/data/links.yml`` as well.
 

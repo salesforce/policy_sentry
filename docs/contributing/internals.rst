@@ -51,11 +51,13 @@ Subfolders
 ~~~~~~~~~~
 
 **Folders per command**:
+
 * The folders are mostly specific to their commands. For example, consider the files in the `policy_sentry/analysis` folder.
-    - The files in this folder are specific to the `analyze` command
-    - They all can import from the `util` folder and the `shared` folder.
-    - The files in this folder **don't import from other subfolders specific to other commands**, like `writing` or `downloading`. (*Note: There is an occasional exception here of re-using functions from the `querying` folder*)
-    - Files in the `analysis` folder,  to the `analyze` command. They don't import from each other, with the occasional exception of re-using functions from the `querying` folder. They all import common methods from the `util` folder and the `shared` folder as well.
+* The files in this folder are specific to the `analyze` command
+   - They all can import from the `util` folder and the `shared` folder.
+   - The files in this folder **don't import from other subfolders specific to other commands**, like `writing` or `downloading`. (*Note: There is an occasional exception here of re-using functions from the `querying` folder*)
+   - Files in the `analysis` folder,  to the `analyze` command. They don't import from each other, with the occasional exception of re-using functions from the `querying` folder. They all import common methods from the `util` folder and the `shared` folder as well.
+
 
 **Files**:
 

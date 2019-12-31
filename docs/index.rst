@@ -43,6 +43,7 @@ Navigate below to get started with Policy Sentry!
    user-guide/downloading-policies
    user-guide/analyze-policy
    user-guide/querying-the-database
+   user-guide/usage-as-a-python-package
    user-guide/command-cheat-sheet
 
 .. toctree::
@@ -72,4 +73,3 @@ Navigate below to get started with Policy Sentry!
    :caption: Appendix
 
    appendix/implementation-strategy
-   appendix/policy_sentry-as-a-python-package

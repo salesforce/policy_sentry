@@ -1,5 +1,5 @@
-Policy Sentry as a Python Package
-########################################
+Usage as a Python Package
+--------------------------------------
 
 When using Policy Sentry manually, you have to build a local database file with the initialize function. However, if you want to leverage Policy Sentry's capabilities that require the use of the IAM database (such as querying the IAM database table) you can do so with the database file that is bundled with the Python package, as well as a trick we've built into the `connect_db` function. This way, you don't have to initialize the database and can just query it immediately.
 
