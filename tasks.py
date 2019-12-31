@@ -78,10 +78,10 @@ def create_db(c):
         initialize.initialize('')
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 @task
@@ -91,10 +91,10 @@ def version_check(c):
         c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 @task(pre=[install_package])
@@ -108,10 +108,10 @@ def write_policy(c):
         c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 @task(pre=[install_package])
@@ -121,10 +121,10 @@ def analyze_policy(c):
         c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 @task(pre=[install_package])
@@ -146,10 +146,10 @@ def query(c):
         c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 # TEST - SECURITY
@@ -161,10 +161,10 @@ def security_scan(c):
         c.run('safety check')
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 # TEST - LINT
@@ -176,10 +176,10 @@ def run_linter(c):
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 # UNIT TESTING
@@ -192,10 +192,10 @@ def run_unit_tests(c):
         c.run('nosetests -v')
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(-1)
+        sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
-        sys.exit(-1)
+        sys.exit()
 
 
 # Add all testing tasks to the test collection
