@@ -36,7 +36,7 @@ Instructions
 
 .. code-block:: yaml
 
-    roles_with_crud_levels:
+    policy_with_crud_levels:
     - name: myRole
       description: ''
       arn: ''
@@ -59,7 +59,7 @@ Instructions
 
 .. code-block:: yaml
 
-    roles_with_crud_levels:
+    policy_with_crud_levels:
     - name: myRole
       description: 'Justification for privileges'
       arn: 'arn:aws:iam::123456789102:role/myRole'
@@ -172,7 +172,7 @@ Instructions
 
 .. code-block:: yaml
 
-    roles_with_actions:
+    policy_with_actions:
     - name: myRole
       description: '' # Insert value here
       arn: '' # Insert value here
@@ -183,7 +183,7 @@ Instructions
 
 .. code-block:: yaml
 
-    roles_with_actions:
+    policy_with_actions:
     - name: 'RoleNameWithActions'
       description: 'Justification for privileges' # for auditability
       arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability

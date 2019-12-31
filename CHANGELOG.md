@@ -3,6 +3,7 @@
 ## Added
 * `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
 * `--version` flag. Fixes #48
+* Renamed write-policy template's `roles_with_crud_levels` and `roles_with_actions` to `policy_with_crud_levels` and `policy_with_actions` since this makes way more sense. Discussion is in #65. Version bump to 0.7.0 because this creates breaking changes.
 
 ## 2019-12-19
 ## Changed

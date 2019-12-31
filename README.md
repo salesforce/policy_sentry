@@ -77,7 +77,7 @@ policy_sentry create-template --name myRole --output-file crud.yml --template-ty
 It will generate a file like this:
 
 ```yaml
-roles_with_crud_levels:
+policy_with_crud_levels:
 - name: myRole
   description: ''
   arn: ''
@@ -102,7 +102,7 @@ roles_with_crud_levels:
 Then just fill it out:
 
 ```yaml
-roles_with_crud_levels:
+policy_with_crud_levels:
 - name: myRole
   description: 'Justification for privileges'
   arn: 'arn:aws:iam::123456789102:role/myRole'

@@ -4,7 +4,7 @@ These can be used for generating policies
 from jinja2 import Template
 
 ACTIONS_TEMPLATE = '''# Generate my policy when I know the Actions
-roles_with_actions:
+policy_with_actions:
 - name: {{ name }}
   description: ''
   arn: ''
@@ -13,7 +13,7 @@ roles_with_actions:
 '''
 
 CRUD_TEMPLATE = '''# Generate my policy when I know the access levels and ARNs
-roles_with_crud_levels:
+policy_with_crud_levels:
 - name: {{ name }}
   description: ''
   arn: ''
