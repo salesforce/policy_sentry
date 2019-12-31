@@ -3,12 +3,13 @@ Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD m
 """
 import json
 import click
-from policy_sentry.shared.actions import get_all_actions, get_dependent_actions
+from policy_sentry.querying.all import get_all_actions
+from policy_sentry.querying.actions import get_dependent_actions
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.minimize import minimize_statement_actions
-from policy_sentry.shared.policy import ArnActionGroup
-from policy_sentry.shared.roles import Roles
-from policy_sentry.shared.file import read_yaml_file
+from policy_sentry.writing.minimize import minimize_statement_actions
+from policy_sentry.writing.policy import ArnActionGroup
+from policy_sentry.writing.roles import Roles
+from policy_sentry.util.file import read_yaml_file
 from policy_sentry.shared.constants import DATABASE_FILE_PATH, POLICY_LANGUAGE_VERSION
 
 

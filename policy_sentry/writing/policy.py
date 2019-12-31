@@ -1,5 +1,4 @@
 """
-PolicyGroup
 ArnActionGroup
 """
 import copy
@@ -7,9 +6,9 @@ import sys
 import re
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable, ArnTable
-from policy_sentry.shared.arns import get_service_from_arn, does_arn_match
-from policy_sentry.shared.actions import get_action_name_from_action, get_service_from_action
-from policy_sentry.shared.query import remove_actions_that_are_not_wildcard_arn_only
+from policy_sentry.util.arns import get_service_from_arn, does_arn_match
+from policy_sentry.util.actions import get_action_name_from_action, get_service_from_action, get_full_action_name
+from policy_sentry.util.text import capitalize_first_character
 
 
 class ArnActionGroup:
@@ -387,6 +386,29 @@ class ArnActionGroup:
         return arn_dict
 
 
+def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
+    """Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot."""
+    # remove duplicates, if there are any
+    actions_list_unique = list(dict.fromkeys(actions_list))
+    actions_list_placeholder = []
+    for action in actions_list_unique:
+        service = get_service_from_action(action)
+        action_name = get_action_name_from_action(action)
+
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
+            ActionTable.service.ilike(service),
+            ActionTable.name.ilike(action_name),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
+        ))
+        for row in rows:
+            if row.service == service and row.name == action_name:
+                actions_list_placeholder.append(
+                    get_full_action_name(service, action_name))
+    return actions_list_placeholder
+
+
 def create_policy_sid_namespace(service, access_level, resource_type_name):
     """
     Description: Simply generates the SID name. The SID groups ARN types that share an access level. For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we choose to group them.
@@ -404,13 +426,3 @@ def create_policy_sid_namespace(service, access_level, resource_type_name):
     sid_namespace = capitalize_first_character(service) + capitalize_first_character(
         access_level) + capitalize_first_character(resource_type_name)
     return sid_namespace
-
-
-def capitalize_first_character(some_string):
-    """
-    Description: Capitalizes the first character of a string
-    :param some_string:
-    :return:
-    """
-    return ' '.join(''.join([w[0].upper(), w[1:].lower()])
-                    for w in some_string.split())

@@ -7,14 +7,15 @@ or update the HTML files on their own.
 """
 import sys
 import os
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
-# from policy_sentry.shared import awsdocs
-from shared.awsdocs import update_html_docs_directory, create_service_links_mapping_file
+
+# sys.path.append(
+#     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
+from policy_sentry.scraping.awsdocs import update_html_docs_directory, create_service_links_mapping_file
+# from scraping.awsdocs import update_html_docs_directory, create_service_links_mapping_file
 
 if __name__ == '__main__':
     html_directory_path = 'policy_sentry/shared/data/docs/'
-    links_yml_file = './policy_sentry/shared/links.yml'
+    links_yml_file = './policy_sentry/shared/data/links.yml'
     print("Reminder: Run this from the main directory of the code repository.")
     print(f"Updating the HTML docs directory at {html_directory_path}.")
     update_html_docs_directory(html_directory_path)

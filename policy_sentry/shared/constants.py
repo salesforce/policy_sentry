@@ -18,7 +18,7 @@ BASE_DOCUMENTATION_URL = \
 # The path for the service prefixes <=> links YML file
 LINKS_YML_FILE_LOCAL = HOME + CONFIG_DIRECTORY + 'links.yml'
 # The one in this directory - i.e., in the code repository
-LINKS_YML_FILE_IN_PACKAGE = abspath(dirname(__file__)) + '/links.yml'
+LINKS_YML_FILE_IN_PACKAGE = abspath(dirname(__file__)) + '/data/links.yml'
 
 # Database
 DATABASE_FILE_NAME = 'aws.sqlite3'

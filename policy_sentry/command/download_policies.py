@@ -4,8 +4,8 @@ Specify a profile from the AWS Credentials file for a single download.
 Alternatively, do a bulk download for all authenticated profiles within the aws credentials file.
 """
 import click
-from policy_sentry.shared.download import download_remote_policies, download_policies_recursively
-from policy_sentry.shared.login import get_list_of_aws_profiles
+from policy_sentry.downloading.download import download_remote_policies, download_policies_recursively
+from policy_sentry.downloading.login import get_list_of_aws_profiles
 from policy_sentry.shared.constants import DEFAULT_CREDENTIALS_FILE
 
 

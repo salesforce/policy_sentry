@@ -3,8 +3,8 @@ Functions to support downloading policies from live AWS accounts in bulk for ana
 """
 import sys
 import json
-from policy_sentry.shared.login import login
-from policy_sentry.shared.file import write_json_file, create_directory_if_it_doesnt_exist
+from policy_sentry.downloading.login import login
+from policy_sentry.util.file import write_json_file, create_directory_if_it_doesnt_exist
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
 
 
@@ -30,7 +30,7 @@ def download_remote_policies(profile=None, customer_managed=True, attached_only=
     create_directory_if_it_doesnt_exist(customer_managed_policy_file_directory)
     create_directory_if_it_doesnt_exist(aws_managed_policy_file_directory)
 
-    policy_group = PolicyGroup()
+    policy_group = RemotePolicyGroup()
     policy_group.set_remote_policy_metadata(
         iam_session, customer_managed, attached_only)
     policy_names = policy_group.get_policy_names()
@@ -68,7 +68,7 @@ def download_policies_recursively(profiles):
     return download_directories
 
 
-class PolicyGroup:
+class RemotePolicyGroup:
     """
     This is used for downloading IAM policies remotely. It requires chaining two boto3 calls back to back.
     """

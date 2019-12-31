@@ -1,4 +1,13 @@
 # Changelog
+## 2019-12-31
+## Changed
+* Note: All changes here are in the background, with changes in folder structure, method naming, and testing scripts; nothing is different with the user experience.
+* Pyinvoke file now has try/except to catch failures, so we can have the build fail if the Invoke commands tests give non zero responses.
+* Moved to a saner subfolder structure, where the folders are mostly specific to their commands.
+  - The new folders are `analysis`, `configuration`, `downloading`, `querying`, `scraping`, `util`, and `writing`
+  - Files in the `analysis` folder, for example, relate to the `analyze` command. They don't import from each other, with the occasional exception of re-using functions from the `querying` folder. They all import common methods from the `util` folder and the `shared` folder as well.
+* Renamed all the function names under querying folder so they make more sense.
+
 ## 2019-12-24
 ## Added
 * `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.

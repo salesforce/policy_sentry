@@ -9,7 +9,7 @@ from policy_sentry.shared.constants import LINKS_YML_FILE_LOCAL
 def get_html(directory, requested_service):
     """Get the tables from each HTML file from the AWS docs.."""
     links = []
-    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/links.yml'
+    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/data/links.yml'
     # with open(links_yml_file, 'r') as yaml_file:
     with open(LINKS_YML_FILE_LOCAL, 'r') as yaml_file:
         try:

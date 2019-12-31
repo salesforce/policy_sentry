@@ -1,18 +1,21 @@
 import unittest
 from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.query import query_condition_table_by_name, query_condition_table, \
-    query_arn_table_for_raw_arns, query_arn_table_by_name, query_action_table, query_action_table_by_name, \
-    query_action_table_by_access_level, query_action_table_by_arn_type_and_access_level, \
-    query_action_table_for_all_condition_key_matches, query_action_table_for_actions_supporting_wildcards_only, \
-    query_arn_table_for_arn_types, remove_actions_that_are_not_wildcard_arn_only
+
+from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
+from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
+    get_arn_types_for_service
+from policy_sentry.querying.actions import get_actions_for_service, get_action_data, \
+    get_actions_with_access_level, get_actions_with_arn_type_and_access_level, \
+    get_actions_matching_condition_key, get_actions_that_support_wildcard_arns_only
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+from policy_sentry.writing.policy import remove_actions_that_are_not_wildcard_arn_only
 
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class QueryTestCase(unittest.TestCase):
-    def test_query_condition_table(self):
-        """test_query_condition_table: Tests function that grabs a list of condition keys per service."""
+    def test_get_condition_keys_for_service(self):
+        """test_get_condition_keys_for_service: Tests function that grabs a list of condition keys per service."""
         desired_output = [
             'cloud9:EnvironmentId',
             'cloud9:EnvironmentName',
@@ -21,56 +24,56 @@ class QueryTestCase(unittest.TestCase):
             'cloud9:SubnetId',
             'cloud9:UserArn'
         ]
-        output = query_condition_table(db_session, "cloud9")
+        output = get_condition_keys_for_service(db_session, "cloud9")
         self.assertEquals(desired_output, output)
 
-    def test_query_condition_table_by_name(self):
-        """test_query_condition_table_by_name: Tests function that grabs details about a specific condition key"""
+    def test_get_condition_key_details(self):
+        """test_get_condition_key_details: Tests function that grabs details about a specific condition key"""
         desired_output = {
             "name": "cloud9:Permissions",
             "description": "Filters access by the type of AWS Cloud9 permissions",
             "condition_value_type": "string"
         }
-        output = query_condition_table_by_name(db_session, "cloud9", "cloud9:Permissions")
+        output = get_condition_key_details(db_session, "cloud9", "cloud9:Permissions")
         self.assertEquals(desired_output, output)
 
-    def test_query_arn_table_for_raw_arns(self):
-        """test_query_arn_table_for_raw_arns: Tests function that grabs a list of raw ARNs per service"""
+    def test_get_raw_arns_for_service(self):
+        """test_get_raw_arns_for_service: Tests function that grabs a list of raw ARNs per service"""
         desired_output = [
             "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "arn:${Partition}:s3:::${BucketName}",
             "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
             "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
         ]
-        output = query_arn_table_for_raw_arns(db_session, "s3")
+        output = get_raw_arns_for_service(db_session, "s3")
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
-    def test_query_arn_table_for_arn_types(self):
-        """test_query_arn_table_for_arn_types: Tests function that grabs arn_type and raw_arn pairs"""
+    def test_get_arn_types_for_service(self):
+        """test_get_arn_types_for_service: Tests function that grabs arn_type and raw_arn pairs"""
         desired_output = {
             "accesspoint": "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "bucket": "arn:${Partition}:s3:::${BucketName}",
             "object": "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
             "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         }
-        output = query_arn_table_for_arn_types(db_session, "s3")
+        output = get_arn_types_for_service(db_session, "s3")
         print(output)
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
-    def test_query_arn_table_by_name(self):
-        """test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name"""
+    def test_get_arn_type_details(self):
+        """test_get_arn_type_details: Tests function that grabs details about a specific ARN name"""
         desired_output = {
             "resource_type_name": "environment",
             "raw_arn": "arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}",
             "condition_keys": None
         }
-        output = query_arn_table_by_name(db_session, "cloud9", "environment")
+        output = get_arn_type_details(db_session, "cloud9", "environment")
         self.assertEquals(desired_output, output)
 
-    def test_query_action_table(self):
-        """test_query_action_table: Tests function that gets a list of actions per AWS service."""
+    def test_get_actions_for_service(self):
+        """test_get_actions_for_service: Tests function that gets a list of actions per AWS service."""
         desired_output = [
             'ram:acceptresourceshareinvitation',
             'ram:associateresourceshare',
@@ -95,12 +98,12 @@ class QueryTestCase(unittest.TestCase):
             'ram:untagresource',
             'ram:updateresourceshare'
         ]
-        output = query_action_table(db_session, "ram")
+        output = get_actions_for_service(db_session, "ram")
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
-    def test_query_action_table_by_name(self):
-        """test_query_action_table_by_name: Tests function that gets details on a specific IAM Action."""
+    def test_get_action_data(self):
+        """test_get_action_data: Tests function that gets details on a specific IAM Action."""
         desired_output = {
             'ram': [
                 {
@@ -129,35 +132,35 @@ class QueryTestCase(unittest.TestCase):
                 }
             ]
         }
-        output = query_action_table_by_name(db_session, 'ram', 'createresourceshare')
+        output = get_action_data(db_session, 'ram', 'createresourceshare')
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
-    def test_query_action_table_by_access_level(self):
-        """test_query_action_table_by_access_level: Tests function that gets a list of actions in a
+    def test_get_actions_with_access_level(self):
+        """test_get_actions_with_access_level: Tests function that gets a list of actions in a
         service under different access levels."""
         desired_output = ['ram:acceptresourceshareinvitation', 'ram:associateresourceshare', 'ram:createresourceshare',
                         'ram:deleteresourceshare', 'ram:disassociateresourceshare',
                         'ram:enablesharingwithawsorganization', 'ram:rejectresourceshareinvitation',
                         'ram:updateresourceshare']
-        output = query_action_table_by_access_level(db_session, "ram", "Permissions management")
+        output = get_actions_with_access_level(db_session, "ram", "Permissions management")
         print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
-    def test_query_action_table_by_arn_type_and_access_level(self):
-        """test_query_action_table_by_arn_type_and_access_level: Tests a function that gets a list of
+    def test_get_actions_with_arn_type_and_access_level(self):
+        """test_get_actions_with_arn_type_and_access_level: Tests a function that gets a list of
         actions in a service under different access levels, specific to an ARN format."""
         desired_output = ['ram:associateresourceshare', 'ram:createresourceshare', 'ram:deleteresourceshare',
                           'ram:disassociateresourceshare', 'ram:updateresourceshare']
-        output = query_action_table_by_arn_type_and_access_level(db_session, "ram", "resource-share",
+        output = get_actions_with_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
         print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
-    def test_query_action_table_for_service_specific_condition_key_matches(self):
-        """test_query_action_table_for_service_specific_condition_key_matches: Tests a function that gathers all instances in
+    def test_get_actions_matching_condition_key(self):
+        """test_get_actions_matching_condition_key: Tests a function that gathers all instances in
         the action tables where the condition key exists."""
         desired_output = [
             'ses:sendemail',
@@ -167,33 +170,33 @@ class QueryTestCase(unittest.TestCase):
             'ses:sendrawemail',
             'ses:sendtemplatedemail'
         ]
-        output = query_action_table_for_all_condition_key_matches(db_session, "ses", "ses:FeedbackAddress")
+        output = get_actions_matching_condition_key(db_session, "ses", "ses:FeedbackAddress")
         print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
     # Nuking this test... as AWS adds on more condition keys, this becomes impossible to maintain as a single test.
-    # def test_query_action_table_for_all_condition_key_matches(self):
-    #     """test_query_action_table_for_all_condition_key_matches: Tests a function that creates a list of all IAM
+    # def test_get_actions_matching_condition_key(self):
+    #     """test_get_actions_matching_condition_key: Tests a function that creates a list of all IAM
     #     actions that support the supplied condition key."""
     #     # condition_key = "aws:RequestTag"
     #     desired_list = [
     #         'appstream:associatefleet', 'appstream:batchassociateuserstack', 'appstream:batchdisassociateuserstack', 'appstream:copyimage', 'appstream:createimagebuilderstreamingurl', 'appstream:createstreamingurl', 'appstream:deletefleet', 'appstream:deleteimage', 'appstream:deleteimagebuilder', 'appstream:deleteimagepermissions', 'appstream:deletestack', 'appstream:disassociatefleet', 'appstream:startfleet', 'appstream:startimagebuilder', 'appstream:stopfleet', 'appstream:stopimagebuilder', 'appstream:tagresource', 'appstream:updatefleet', 'appstream:updateimagepermissions', 'appstream:updatestack', 'appsync:deletegraphqlapi', 'appsync:getgraphqlapi', 'appsync:listtagsforresource', 'appsync:tagresource', 'appsync:updategraphqlapi', 'codecommit:tagresource', 'cognito-identity:createidentitypool', 'cognito-identity:listtagsforresource', 'cognito-identity:tagresource', 'cognito-identity:untagresource', 'cognito-idp:createuserpool', 'cognito-idp:listtagsforresource', 'cognito-idp:tagresource', 'cognito-idp:untagresource', 'cognito-idp:updateuserpool', 'dms:describereplicationinstancetasklogs', 'mobiletargeting:createapp', 'mobiletargeting:createcampaign', 'mobiletargeting:createsegment', 'mobiletargeting:deletecampaign', 'mobiletargeting:deletesegment', 'mobiletargeting:getapp', 'mobiletargeting:getapps', 'mobiletargeting:getcampaign', 'mobiletargeting:getcampaignversion', 'mobiletargeting:getcampaignversions', 'mobiletargeting:getcampaigns', 'mobiletargeting:getsegment', 'mobiletargeting:getsegmentversion', 'mobiletargeting:getsegmentversions', 'mobiletargeting:getsegments', 'mobiletargeting:listtagsforresource', 'mobiletargeting:tagresource', 'mobiletargeting:untagresource', 'mobiletargeting:updatecampaign', 'mobiletargeting:updatesegment']
     #     stuff = "aws:ResourceTag/${TagKey}"
-    #     output = query_action_table_for_all_condition_key_matches(db_session, service=None, condition_key=stuff)
+    #     output = get_actions_matching_condition_key(db_session, service=None, condition_key=stuff)
     #     self.maxDiff = None
     #     print(output)
     #     self.assertListEqual(desired_list, output)
 
-    def test_query_action_table_for_actions_supporting_wildcards_only(self):
-        """test_query_action_table_for_actions_supporting_wildcards_only: Tests function that shows all
+    def test_get_actions_that_support_wildcard_arns_only(self):
+        """test_get_actions_that_support_wildcard_arns_only: Tests function that shows all
         actions that support * resources only."""
         desired_output = [
             "secretsmanager:createsecret",
             "secretsmanager:getrandompassword",
             "secretsmanager:listsecrets"
         ]
-        output = query_action_table_for_actions_supporting_wildcards_only(db_session, "secretsmanager")
+        output = get_actions_that_support_wildcard_arns_only(db_session, "secretsmanager")
         self.maxDiff = None
         print(output)
         self.assertListEqual(desired_output, output)

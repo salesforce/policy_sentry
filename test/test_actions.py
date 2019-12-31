@@ -1,6 +1,6 @@
 import unittest
-from policy_sentry.shared.actions import get_dependent_actions, get_actions_by_access_level, get_actions_from_policy, \
-    get_actions_from_json_policy_file
+from policy_sentry.querying.actions import get_dependent_actions, remove_actions_not_matching_access_level
+from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import os

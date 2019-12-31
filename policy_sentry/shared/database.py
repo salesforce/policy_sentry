@@ -8,12 +8,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
-from policy_sentry.shared.arns import get_service_from_arn, get_resource_from_arn, get_resource_path_from_arn, \
-    get_region_from_arn, get_account_from_arn, get_partition_from_arn
-from policy_sentry.shared.config import get_action_access_level_overrides_from_yml, determine_access_level_override
-from policy_sentry.shared.scrape import get_html
-from policy_sentry.shared.conditions import get_service_from_condition_key, get_comma_separated_condition_keys
+from policy_sentry.configuration.access_level_overrides import get_action_access_level_overrides_from_yml
+from policy_sentry.scraping.scrape import get_html
 from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
+from policy_sentry.util.access_levels import determine_access_level_override
+from policy_sentry.util.arns import get_resource_path_from_arn, get_partition_from_arn, get_account_from_arn, \
+    get_region_from_arn, get_resource_from_arn, get_service_from_arn
+from policy_sentry.util.conditions import get_comma_separated_condition_keys, get_service_from_condition_key
 
 Base = declarative_base()  # pylint: disable=invalid-name
 

@@ -174,12 +174,16 @@ Output:
 
     test_overrides_yml_config: Tests the format of the overrides yml file for the RAM service ... ok
     test_passing_overall_iam_action_override: Tests iam:CreateAccessKey ... ok
-    test_get_actions_by_access_level (test_actions.ActionsTestCase) ... ok
     test_get_dependent_actions_double (test_actions.ActionsTestCase) ... ok
     test_get_dependent_actions_several (test_actions.ActionsTestCase) ... ok
     test_get_dependent_actions_single (test_actions.ActionsTestCase) ... ok
+    test_analyze_by_access_level: Test out calling this as a library ... ok
+    test_get_actions_from_policy: Verify that the get_actions_from_policy function is grabbing the actions ... ok
+    test_get_actions_from_policy_file_with_explicit_actions: Verify that we can get a list of actions from a ... ok
+    test_get_actions_from_policy_file_with_wildcards: Verify that we can read the actions from a file, ... ok
+    test_remove_actions_not_matching_access_level: Verify remove_actions_not_matching_access_level is working as expected ... ok
     test_get_findings: Ensure that finding.get_findings() combines two risk findings for one policy properly. ... ok
-    test_get_findings_by_policy_name (test_analyze.FindingsTestCase) ... ok
+    test_get_findings_by_policy_name: Testing out the 'Findings' object ... ok
     test_add_s3_permissions_management_arn (test_arn_action_group.ArnActionGroupTestCase) ... ok
     test_get_policy_elements (test_arn_action_group.ArnActionGroupTestCase) ... ok
     test_update_actions_for_raw_arn_format (test_arn_action_group.ArnActionGroupTestCase) ... ok
@@ -191,17 +195,17 @@ Output:
     test_does_arn_match_case_bucket (test_arns.ArnsTestCase) ... ok
     test_determine_actions_to_expand: provide expanded list of actions, like ecr:* ... ok
     test_minimize_statement_actions (test_minimize_wildcard_actions.MinimizeWildcardActionsTestCase) ... ok
-    test_query_action_table: Tests function that gets a list of actions per AWS service. ... ok
-    test_query_action_table_by_access_level: Tests function that gets a list of actions in a ... ok
-    test_query_action_table_by_arn_type_and_access_level: Tests a function that gets a list of ... ok
-    test_query_action_table_by_name: Tests function that gets details on a specific IAM Action. ... ok
-    test_query_action_table_for_actions_supporting_wildcards_only: Tests function that shows all ... ok
-    test_query_action_table_for_service_specific_condition_key_matches: Tests a function that gathers all instances in ... ok
-    test_query_arn_table_by_name: Tests function that grabs details about a specific ARN name ... ok
-    test_query_arn_table_for_arn_types: Tests function that grabs arn_type and raw_arn pairs ... ok
-    test_query_arn_table_for_raw_arns: Tests function that grabs a list of raw ARNs per service ... ok
-    test_query_condition_table: Tests function that grabs a list of condition keys per service. ... ok
-    test_query_condition_table_by_name: Tests function that grabs details about a specific condition key ... ok
+    test_get_action_data: Tests function that gets details on a specific IAM Action. ... ok
+    test_get_actions_for_service: Tests function that gets a list of actions per AWS service. ... ok
+    test_get_actions_matching_condition_key: Tests a function that gathers all instances in ... ok
+    test_get_actions_that_support_wildcard_arns_only: Tests function that shows all ... ok
+    test_get_actions_with_access_level: Tests function that gets a list of actions in a ... ok
+    test_get_actions_with_arn_type_and_access_level: Tests a function that gets a list of ... ok
+    test_get_arn_type_details: Tests function that grabs details about a specific ARN name ... ok
+    test_get_arn_types_for_service: Tests function that grabs arn_type and raw_arn pairs ... ok
+    test_get_condition_key_details: Tests function that grabs details about a specific condition key ... ok
+    test_get_condition_keys_for_service: Tests function that grabs a list of condition keys per service. ... ok
+    test_get_raw_arns_for_service: Tests function that grabs a list of raw ARNs per service ... ok
     test_remove_actions_that_are_not_wildcard_arn_only: Tests function that removes actions from a list that ... ok
     test_actions_template (test_template.TemplateTestCase) ... ok
     test_crud_template (test_template.TemplateTestCase) ... ok
@@ -217,11 +221,6 @@ Output:
     test_actions_missing_description: write-policy when the YAML file is missing a description ... ok
     test_actions_missing_name: write-policy when the YAML file is missing a name ... ok
 
-    ----------------------------------------------------------------------
-    Ran 44 tests in 1.762s
-
-    OK
-
 Updating the AWS HTML files
 ----------------------------
 
@@ -230,7 +229,7 @@ This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*
 .. code-block:: bash
    python3 ./utils/download_docs.py
 
-This downloads the Actions, Resources, and Condition Keys pages per-service to the ``policy_sentry/shared/data/docs`` folder. It also add a file titled ``policy_sentry/shared/links.yml`` as well.
+This downloads the Actions, Resources, and Condition Keys pages per-service to the ``policy_sentry/shared/data/docs`` folder. It also add a file titled ``policy_sentry/shared/data/links.yml`` as well.
 
 When a user runs ``policy_sentry initialize``, these files are copied over to the config folder (``~/.policy_sentry/``).
 

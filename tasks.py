@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import os
-from invoke import task, Collection
+from invoke import task, Collection, UnexpectedExit, Failure
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
 from policy_sentry.command import initialize
@@ -61,19 +61,32 @@ def upload_to_pypi_prod_server(c):
 @task
 def clean_config_directory(c):
     """Runs `rm -rf $HOME/.policy_sentry`"""
-    c.run('rm -rf $HOME/.policy_sentry/')
-
+    try:
+        c.run('rm -rf $HOME/.policy_sentry/')
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 @task
 def create_db(c):
     """Integration testing: Initialize the policy_sentry database"""
-    initialize.initialize('')
-
+    try:
+        initialize.initialize('')
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 @task
 def version_check(c):
     """Print the version"""
-    c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
+    try:
+        c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 @task(pre=[install_package])
@@ -81,49 +94,74 @@ def write_policy(c):
     """
     Integration testing: Tests the `write-policy` function.
     """
-    c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
+    try:
+        c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 @task(pre=[install_package])
 def analyze_policy(c):
     """Integration testing: Tests the `analyze` functionality"""
-    c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
+    try:
+        c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 @task(pre=[install_package])
 def query(c):
     """Integration testing: Tests the `query` functionality (querying the IAM database)"""
-    c.run('echo "Querying the action table"', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query action-table --service ram', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query action-table '
-          '--service ram --access-level permissions-management', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress', pty=True)
-    c.run('echo "Querying the ARN table"', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query arn-table --service ssm', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types', pty=True)
-    c.run('echo "Querying the condition keys table"', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9', pty=True)
-    c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
+    try:
+        c.run('echo "Querying the action table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table '
+              '--service ram --access-level permissions-management', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress', pty=True)
+        c.run('echo "Querying the ARN table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service ssm', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types', pty=True)
+        c.run('echo "Querying the condition keys table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 # TEST - SECURITY
 @task
 def security_scan(c):
     """Runs `bandit` and `safety check`"""
-    c.run('bandit -r policy_sentry/')
-    c.run('safety check', warn=True)
+    try:
+        c.run('bandit -r policy_sentry/')
+        c.run('safety check')
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 # TEST - LINT
 @task
 def run_linter(c):
     """Linting with `pylint` and `autopep8`"""
-    c.run('pylint policy_sentry/', warn=True)
-    c.run('autopep8 -r --in-place policy_sentry/', warn=True)
+    try:
+        c.run('autopep8 -r --in-place policy_sentry/', warn=False)
+        c.run('pylint policy_sentry/', warn=False)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 # UNIT TESTING
@@ -131,8 +169,13 @@ def run_linter(c):
 def run_unit_tests(c):
     """Unit testing: Runs unit tests using `nosetests`"""
     # TODO If the database is not found we should build it, otherwise just run the tests.
-    c.run('echo "Running Unit tests"')
-    c.run('nosetests -v', warn=True)
+    try:
+        c.run('echo "Running Unit tests"')
+        c.run('nosetests -v')
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
 
 
 # Add all testing tasks to the test collection

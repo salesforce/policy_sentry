@@ -4,7 +4,7 @@ Users don't have to remember exactly how to phrase the yaml files, so this comma
 """
 from pathlib import Path
 import click
-from policy_sentry.shared.template import create_actions_template, create_crud_template
+from policy_sentry.writing.template import create_actions_template, create_crud_template
 
 
 @click.command(

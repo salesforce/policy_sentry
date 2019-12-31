@@ -1,5 +1,5 @@
 import unittest
-from policy_sentry.shared.arns import does_arn_match
+from policy_sentry.util.arns import does_arn_match
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
