@@ -1,5 +1,9 @@
 from policy_sentry.analysis.analyze import determine_actions_to_expand
+from policy_sentry.shared.database import connect_db
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import unittest
+
+db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class ExpandWildcardActionsTestCase(unittest.TestCase):
@@ -43,6 +47,6 @@ class ExpandWildcardActionsTestCase(unittest.TestCase):
             'ecr:uploadlayerpart',
             'ecr:batchdeleteimage'
         ]
-        print(determine_actions_to_expand(action_list))
+        print(determine_actions_to_expand(db_session, action_list))
         self.maxDiff = None
-        self.assertListEqual(sorted(determine_actions_to_expand(action_list)), sorted(desired_result))
+        self.assertListEqual(sorted(determine_actions_to_expand(db_session, action_list)), sorted(desired_result))

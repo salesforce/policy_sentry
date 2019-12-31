@@ -6,8 +6,6 @@ import copy
 import re
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.querying.all import get_all_actions
-from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.util.actions import get_lowercase_action_list
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.util.file import list_files_in_directory, read_this_file
@@ -36,19 +34,18 @@ def determine_risky_actions(requested_actions, audit_file):
     return actions_to_triage
 
 
-def expand(action):  # FIXME [MJ] change the name to be more descriptive
+# FIXME [MJ] change the name to be more descriptive
+def expand(action, db_session):
     """
     expand the action wildcards into a full action
     """
-
-    db_session = connect_db(DATABASE_FILE_PATH)
 
     all_actions = get_all_actions(db_session)
 
     if isinstance(action, list):
         expanded_actions = []
         for item in action:
-            expanded_actions.extend(expand(item))
+            expanded_actions.extend(expand(item, db_session))
         return expanded_actions
 
     if "*" in action:
@@ -70,7 +67,7 @@ def expand(action):  # FIXME [MJ] change the name to be more descriptive
     return [action.lower()]
 
 
-def determine_actions_to_expand(action_list):
+def determine_actions_to_expand(db_session, action_list):
     """
     check to see if an action needs to get expanded
     """
@@ -80,7 +77,7 @@ def determine_actions_to_expand(action_list):
     new_action_list = []
     for action in range(len(action_list)):
         if "*" in action_list[action]:
-            expanded_action = expand(action_list[action])
+            expanded_action = expand(action_list[action], db_session)
             new_action_list.extend(expanded_action)
         else:
             # If there is no wildcard, copy that action name over to the new_action_list
@@ -90,14 +87,15 @@ def determine_actions_to_expand(action_list):
     return new_action_list
 
 
-def analyze_policy_file(policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_file(db_session, policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
     """
     Given a policy file, determine risky actions based on a separate file containing a list of actions.
     If it matches a policy exclusion pattern from the report-config.yml file, that policy file will be skipped.
     """
     # FIXME: Rename "role_exclusion_pattern" to "policy_exclusion_pattern"
     requested_actions = get_actions_from_json_policy_file(policy_file)
-    expanded_actions = determine_actions_to_expand(requested_actions)
+    expanded_actions = determine_actions_to_expand(
+        db_session, requested_actions)
 
     finding = {}
     policy_findings = {}
@@ -133,7 +131,8 @@ def analyze_by_access_level(policy_json, db_session, access_level):
     has 'Permissions management' level access
     """
     requested_actions = get_actions_from_policy(policy_json)
-    expanded_actions = determine_actions_to_expand(requested_actions)
+    expanded_actions = determine_actions_to_expand(
+        db_session, requested_actions)
     actions_by_level = remove_actions_not_matching_access_level(
         db_session, expanded_actions, access_level)
     return actions_by_level
@@ -147,10 +146,11 @@ def analyze_by_access_level(policy_json, db_session, access_level):
 #     """
 
 
-def analyze_policy_directory(policy_directory, account_id, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_directory(db_session, policy_directory, account_id, from_audit_file, finding_type, excluded_role_patterns):
     """
     Audits a directory of policy JSON files.
 
+    :param db_session: SQLAlchemy database session object
     :param policy_directory:
     :param db_session:
     :param from_audit_file:
@@ -188,7 +188,8 @@ def analyze_policy_directory(policy_directory, account_id, from_audit_file, find
         if any(regex.match(policy_name) for regex in reg_list):
             continue
         requested_actions = get_actions_from_json_policy_file(this_file)
-        expanded_actions = determine_actions_to_expand(requested_actions)
+        expanded_actions = determine_actions_to_expand(
+            db_session, requested_actions)
         actions_list = determine_risky_actions(
             expanded_actions, from_audit_file)
 

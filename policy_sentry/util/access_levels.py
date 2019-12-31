@@ -18,18 +18,23 @@ def override_access_level(
     :return:
     """
     real_access_level = []  # This will hold the real access level in index 0
-    for i in range(len(service_override_config.keys())):
-        keys = list(service_override_config.keys())
-        actions_list = service_override_config[keys[i]]
-        # If it exists in the list, then set the real_access_level to the key (key is read, write, list, etc.)
-        # Once we meet this condition, break the loop so we can return the
-        # value
-        # pylint: disable=no-else-break
-        if str.lower(action_name) in actions_list:
-            real_access_level.append(keys[i])
-            break
-        else:
-            continue
+    try:
+        for i in range(len(service_override_config.keys())):
+            keys = list(service_override_config.keys())
+            actions_list = service_override_config[keys[i]]
+            # If it exists in the list, then set the real_access_level to the key (key is read, write, list, etc.)
+            # Once we meet this condition, break the loop so we can return the
+            # value
+            # pylint: disable=no-else-break
+            if str.lower(action_name) in actions_list:
+                real_access_level.append(keys[i])
+                break
+            else:
+                continue
+    except AttributeError as a_e:
+        print(f"AttributeError: {a_e}\n"
+              f"Service overrides config is {service_override_config}\n"
+              f"Keys are {service_override_config.keys()}")
     # first index will contain the access level given in the override config for that action.
     # since we break the loop, we know it only contains one value.
     if len(real_access_level) > 0:
