@@ -32,3 +32,14 @@ Usage
 
     policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
     policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
+
+
+Skipping Initialization
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When using Policy Sentry manually, you have to build a local database file with the initialize function.
+
+However, if you are developing your own Python code and you want to import Policy Sentry as a third party package, you can skip the initialization and leverage the local database file that is bundled with the Python package itself.
+
+This is especially useful for developers who wish to leverage Policy Sentry's capabilities that require the use of the IAM database (such as querying the IAM database table). This way, you don't have to initialize the database and can just query it immediately.
+

@@ -1,11 +1,15 @@
 Usage as a Python Package
 --------------------------------------
 
-When using Policy Sentry manually, you have to build a local database file with the initialize function. However, if you want to leverage Policy Sentry's capabilities that require the use of the IAM database (such as querying the IAM database table) you can do so with the database file that is bundled with the Python package, as well as a trick we've built into the `connect_db` function. This way, you don't have to initialize the database and can just query it immediately.
+When using Policy Sentry manually, you have to build a local database file with the initialize function.
+
+However, if you are developing your own Python code and you want to import Policy Sentry as a third party package, you can skip the initialization and leverage the local database file that is bundled with the Python package itself.
+
+This is especially useful for developers who wish to leverage Policy Sentry's capabilities that require the use of the IAM database (such as querying the IAM database table). This way, you don't have to initialize the database and can just query it immediately.
 
 The code example is  located `here <https://github.com/salesforce/policy_sentry/blob/master/examples/third-party-package/example.py>`_. It is also shown below.
 
-The trick is to just use `'bundled'` as the single parameter for the `connect_db` method. See the example.
+We've built a trick into the `connect_db` function that developers can specify to leverage the local database. The trick is to just use `'bundled'` as the single parameter for the `connect_db` method. See the example.
 
 .. code-block:: python
 
@@ -22,7 +26,6 @@ The trick is to just use `'bundled'` as the single parameter for the `connect_db
 
     if __name__ == '__main__':
         example()
-
 
 
 Try running the code from the root of the repository:

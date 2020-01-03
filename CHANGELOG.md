@@ -1,8 +1,11 @@
 # Changelog
 ## 2020-01-03
 ### Added
+* Docker support
+* Fix the issue with pre-bundled paths.
 * Write-policy allows either stdin or input-file. Fixes #78.
 * YAML Validation via Schema
+* Version bump to 0.6.5
 
 ## 2019-12-31
 ### Changed

@@ -18,7 +18,7 @@ def check(conf_schema, conf):
         return False
 
 
-crud_schema = Schema({
+CRUD_SCHEMA = Schema({
     'policy_with_crud_levels': [
         {
             'name': And(Use(str)),
@@ -35,7 +35,7 @@ crud_schema = Schema({
     ]
 })
 
-actions_schema = Schema({
+ACTIONS_SCHEMA = Schema({
     'policy_with_actions': [
         {
             'name': And(Use(str)),
@@ -51,7 +51,7 @@ def check_actions_schema(cfg):
     """
     Determines whether the user-provided config matches the required schema for Actions mode
     """
-    result = check(actions_schema, cfg)
+    result = check(ACTIONS_SCHEMA, cfg)
     if result is True:
         return result
     else:
@@ -64,7 +64,7 @@ def check_crud_schema(cfg):
     """
     Determines whether the user-provided config matches the required schema for CRUD mode
     """
-    result = check(crud_schema, cfg)
+    result = check(CRUD_SCHEMA, cfg)
     if result is True:
         return result
     else:

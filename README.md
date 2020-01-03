@@ -192,10 +192,10 @@ This rapidly speeds up the time to develop IAM policies, and ensures that all po
 * `policy_sentry` is available via pip. To install, run:
 
 ```bash
-pip install --user policy_sentry
+pip3 install --user policy_sentry
 ```
 
-* Initialization
+### Initialization
 
 ```bash
 # Initialize the policy_sentry config folder and create the IAM database tables.
@@ -206,10 +206,11 @@ policy_sentry initialize --fetch
 
 # Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
 policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
+
 policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
 ```
 
-* Policy Writing cheat sheet
+### Policy Writing cheat sheet
 
 ```bash
 # Initialize the policy_sentry config folder and create the IAM database tables.
@@ -231,7 +232,7 @@ policy_sentry create-template --name myRole --output-file tmp.yml --template-typ
 policy_sentry write-policy --input-file examples/yml/actions.yml
 ```
 
-* IAM Database Query Cheat Sheet
+### IAM Database Query Cheat Sheet
 
 ```bash
 
@@ -278,7 +279,7 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
 
-* Policy Analysis Cheat Sheet
+### Policy Analysis Cheat Sheet
 
 ```bash
 # Initialize the policy_sentry config folder and create the IAM database tables.
@@ -328,9 +329,14 @@ policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.jso
 
 * `write-policy-dir`: This can be helpful in the Terraform use case. For more information, see the [documentation][15].
 
+* `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
+  - Option 1: Query the Actions Table (`action-table`)
+  - Option 2: Query the ARNs Table (`arn-table`)
+  - Option 3: Query the Conditions Table (`condition-table`)
+
 * `download-policies`: Download IAM policies from your AWS account for analysis.
 
-* ``analyze``: Analyze IAM policies downloaded locally, expands the wildcards (like ``s3:List*``) if necessary, and generates a report based on policies that are flagged for these risk categories:
+* `analyze`: Analyze IAM policies downloaded locally, expands the wildcards (like ``s3:List*``) if necessary, and generates a report based on policies that are flagged for these risk categories:
 
   - Privilege Escalation: This is based off of [Rhino Security Labs research](https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation).
 
@@ -340,11 +346,34 @@ policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.jso
 
   - Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
-* `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
-  - Option 1: Query the Actions Table (`action-table`)
-  - Option 2: Query the ARNs Table (`arn-table`)
-  - Option 3: Query the Conditions Table (`condition-table`)
 
+### Docker
+
+If you prefer using Docker instead of installing the script with Python, we support that as well. From the root of the repository, use this to build the docker image:
+
+```bash
+docker build -t kmcquade/policy_sentry .
+```
+
+Use this to run some basic commands:
+
+```bash
+# Basic commands with no arguments
+docker run -i --rm kmcquade/policy_sentry:latest "--help"
+docker run -i --rm kmcquade/policy_sentry:latest "query"
+
+# Query the database
+docker run -i --rm kmcquade/policy_sentry:latest "query action-table --service all --access-level permissions-management"
+```
+
+The `write-policy` command also supports passing in the YML config via STDIN. If you are using the docker method, try it out here:
+
+```bash
+# Write policies by passing in the config via STDIN
+cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy --crud"
+
+cat examples/yml/actions.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"
+```
 
 ### Updating the AWS HTML files
 
