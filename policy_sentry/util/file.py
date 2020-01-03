@@ -19,9 +19,6 @@ def read_this_file(filename):
     return lines
 
 
-# FIXME as with the json files we should have a generic validation function, maybe it can read the file extension
-# and then figure out what to do with it. I like what is going on here but where do you check to see if the file
-# exists or validate the path?
 def read_yaml_file(filename):
     """
     Description: Reads a YAML file, safe loads, and returns the dictionary

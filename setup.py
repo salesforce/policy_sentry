@@ -44,7 +44,7 @@ setuptools.setup(
         'botocore',
         'requests',
         'markdown',
-        'schema'
+        'schema',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

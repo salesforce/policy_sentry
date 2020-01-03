@@ -14,7 +14,7 @@ def check(conf_schema, conf):
         conf_schema.validate(conf)
         return True
     except SchemaError as s_e:
-        print(f"{s_e.autos[0]}:\n{s_e.autos[2]}")
+        print(s_e)
         return False
 
 

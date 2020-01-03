@@ -3,6 +3,7 @@ Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD m
 """
 import sys
 import json
+import yaml
 import click
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import get_dependent_actions
@@ -105,7 +106,11 @@ def write_policy(input_file, crud, minimize):
     if input_file:
         cfg = read_yaml_file(input_file)
     else:
-        cfg = sys.stdin
+        try:
+            cfg = yaml.safe_load(sys.stdin)
+        except yaml.YAMLError as exc:
+            print(exc)
+            sys.exit()
 
     # User supplies file containing resource-specific access levels
     if crud:

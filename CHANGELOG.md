@@ -1,6 +1,7 @@
 # Changelog
 ## 2020-01-03
 ### Added
+* Write-policy allows either stdin or input-file. Fixes #78.
 * YAML Validation via Schema
 
 ## 2019-12-31
