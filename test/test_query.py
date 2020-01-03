@@ -1,13 +1,12 @@
 import unittest
+from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
-
-from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
-from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
-    get_arn_types_for_service
 from policy_sentry.querying.actions import get_actions_for_service, get_action_data, \
     get_actions_with_access_level, get_actions_with_arn_type_and_access_level, \
     get_actions_matching_condition_key, get_actions_that_support_wildcard_arns_only
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
+from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
+    get_arn_types_for_service
+from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
 from policy_sentry.writing.policy import remove_actions_that_are_not_wildcard_arn_only
 
 db_session = connect_db(DATABASE_FILE_PATH)

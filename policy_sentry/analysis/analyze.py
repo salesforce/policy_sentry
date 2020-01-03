@@ -34,7 +34,6 @@ def determine_risky_actions(requested_actions, audit_file):
     return actions_to_triage
 
 
-# FIXME [MJ] change the name to be more descriptive
 def expand(action, db_session):
     """
     expand the action wildcards into a full action
@@ -71,9 +70,6 @@ def determine_actions_to_expand(db_session, action_list):
     """
     check to see if an action needs to get expanded
     """
-
-    # FIXME why is this new, what is the change? Set a more descriptive variable name, this is a temp/local var
-    # TODO Consider using enumerate instead of iterating with range and len
     new_action_list = []
     for action in range(len(action_list)):
         if "*" in action_list[action]:
@@ -81,8 +77,6 @@ def determine_actions_to_expand(db_session, action_list):
             new_action_list.extend(expanded_action)
         else:
             # If there is no wildcard, copy that action name over to the new_action_list
-            # TODO do we check for dupes here to make sure we are staying DRY?
-            # [MJ] create issue for this
             new_action_list.append(action_list[action])
     return new_action_list
 

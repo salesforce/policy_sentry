@@ -1,16 +1,18 @@
 """
 Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD mode or Actions mode.
 """
+import sys
 import json
 import click
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import get_dependent_actions
+from policy_sentry.shared.constants import DATABASE_FILE_PATH, POLICY_LANGUAGE_VERSION
 from policy_sentry.shared.database import connect_db
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.writing.policy import ArnActionGroup
 from policy_sentry.writing.roles import Roles
+from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.util.file import read_yaml_file
-from policy_sentry.shared.constants import DATABASE_FILE_PATH, POLICY_LANGUAGE_VERSION
 
 
 def print_policy(
@@ -76,7 +78,7 @@ def write_policy_with_actions(cfg, db_session, minimize_statement=False):
 @click.option(
     '--input-file',
     type=str,
-    required=True,
+    # required=True,
     help='Path of the YAML File used for generating policies'
 )
 @click.option(
@@ -97,17 +99,21 @@ def write_policy(input_file, crud, minimize):
     Write a least-privilege IAM Policy by supplying either a list of actions or
     access levels specific to resource ARNs!
     """
-    # TODO: JSON Validation function
 
     db_session = connect_db(DATABASE_FILE_PATH)
 
-    cfg = read_yaml_file(input_file)
+    if input_file:
+        cfg = read_yaml_file(input_file)
+    else:
+        cfg = sys.stdin
 
     # User supplies file containing resource-specific access levels
     if crud:
+        check_crud_schema(cfg)
         policy = write_policy_with_access_levels(cfg, db_session, minimize)
     # User supplies file containing a list of IAM actions
     else:
+        check_actions_schema(cfg)
         policy = write_policy_with_actions(cfg, db_session, minimize)
     print(json.dumps(policy, indent=4))
     return policy

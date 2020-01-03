@@ -41,7 +41,7 @@ class WritePolicyCrudTestCase(unittest.TestCase):
         self.assertEqual(policy, desired_output)
 
     def test_write_policy_govcloud(self):
-        """Tests ARNs with the partition `aws-us-gov` instead of `aws`"""
+        """test_write_policy_govcloud: Tests ARNs with the partition `aws-us-gov` instead of `aws`"""
         arn_action_group = ArnActionGroup()
         govcloud_arn_list_from_user = ["arn:aws-us-gov:s3:::example-org-s3-access-logs"]
         access_level = "Permissions management"
@@ -71,7 +71,7 @@ class WritePolicyCrudTestCase(unittest.TestCase):
         self.assertEqual(policy, desired_output)
 
     def test_write_policy_beijing(self):
-        """Tests ARNs with the partiion `aws-cn` instead of just `aws`"""
+        """test_write_policy_beijing: Tests ARNs with the partiion `aws-cn` instead of just `aws`"""
         arn_action_group = ArnActionGroup()
         govcloud_arn_list_from_user = ["arn:aws-cn:s3:::example-org-s3-access-logs"]
         access_level = "Permissions management"

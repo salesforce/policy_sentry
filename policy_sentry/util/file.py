@@ -15,10 +15,7 @@ def read_this_file(filename):
 
     with open(filename, 'r') as fileobj:
         for row in fileobj:
-            # FIXME check for bad or unknown characters, we know this should be
-            # in a standard format,
             lines.append(row.rstrip('\n'))
-            # we should enforce it
     return lines
 
 
