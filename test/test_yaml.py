@@ -93,7 +93,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             }
     #         ]
     #     }
-    #     # TODO: Have some error handling to let the user know if there are multiple blocks
     #     with self.assertRaises(SystemExit):
     #         policy = write_policy_with_actions(cfg_multiple_roles_in_file, db_session)
     #
@@ -156,7 +155,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             }
     #         ]
     #     }
-    #     # TODO: Have some error handling to let the user know if there are multiple blocks
     #     with self.assertRaises(SystemExit):
     #         policy = write_policy_with_actions(cfg_both_roles_in_file, db_session)
     #
@@ -226,7 +224,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         }
         with self.assertRaises(SystemExit):
             policy = write_policy_with_actions(cfg_with_missing_description, db_session)
-
 
     def test_actions_missing_arn(self):
         """

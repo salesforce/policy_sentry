@@ -15,16 +15,10 @@ def read_this_file(filename):
 
     with open(filename, 'r') as fileobj:
         for row in fileobj:
-            # FIXME check for bad or unknown characters, we know this should be
-            # in a standard format,
             lines.append(row.rstrip('\n'))
-            # we should enforce it
     return lines
 
 
-# FIXME as with the json files we should have a generic validation function, maybe it can read the file extension
-# and then figure out what to do with it. I like what is going on here but where do you check to see if the file
-# exists or validate the path?
 def read_yaml_file(filename):
     """
     Description: Reads a YAML file, safe loads, and returns the dictionary

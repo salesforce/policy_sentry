@@ -44,6 +44,7 @@ Navigate below to get started with Policy Sentry!
    user-guide/analyze-policy
    user-guide/querying-the-database
    user-guide/usage-as-a-python-package
+   user-guide/docker
    user-guide/command-cheat-sheet
 
 .. toctree::

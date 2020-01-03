@@ -1,6 +1,14 @@
 # Changelog
+## 2020-01-03
+### Added
+* Docker support
+* Fix the issue with pre-bundled paths.
+* Write-policy allows either stdin or input-file. Fixes #78.
+* YAML Validation via Schema
+* Version bump to 0.6.5
+
 ## 2019-12-31
-## Changed
+### Changed
 * Developers can now easily leverage Policy Sentry as a python package without needing to build the database from the docs. Just use `db_session = connect_db('bundled')` before passing in commands that require the `db_session` and you're ready to go. Fixes #74
 * Pyinvoke file now has try/except to catch failures, so we can have the build fail if the Invoke commands tests give non zero responses.
 * Moved to a saner subfolder structure, where the folders are mostly specific to their commands.
@@ -9,21 +17,21 @@
 * Renamed all the function names under querying folder so they make more sense.
 
 ## 2019-12-24
-## Added
+### Added
 * `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
 * `--version` flag. Fixes #48
 * Renamed write-policy template's `roles_with_crud_levels` and `roles_with_actions` to `policy_with_crud_levels` and `policy_with_actions` since this makes way more sense. Discussion is in #65. Version bump to 0.7.0 because this creates breaking changes.
 
 ## 2019-12-19
-## Changed
+### Changed
 * Minor change - broke up the guts of `get_actions_from_policy_file` into a separate function, `get_actions_from_policy` so we can use this outside of Policy Sentry. Added unit tests to match.
 * Swapped names to example JSON policy files
 * Fixed some missing unit tests
 
 ## 2019-12-18
-## Added
+### Added
 * Added basic integration testing with PyInvoke. Fixes #58. Generally overhauled the invoke tasks file.
-## Changed
+### Changed
 * Fixed the cheat sheet documentation in Readme and ReadtheDocs. Fixed "Contributing" docs, and `initialize --fetch`
 * Modified the comments in the Policy Sentry YML Template (`--create-template`) so it makes more sense on its own.
 

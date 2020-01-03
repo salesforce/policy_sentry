@@ -40,10 +40,11 @@ setuptools.setup(
         'html5lib',
         'lxml',
         'jinja2',
-        "boto3",
-        "botocore",
-        "requests",
-        "markdown"
+        'boto3',
+        'botocore',
+        'requests',
+        'markdown',
+        'schema',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

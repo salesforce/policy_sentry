@@ -3,14 +3,16 @@ Classes for the Actions, ARNs, and Conditions Tables structure
 Functions for building the database - by parsing through the AWS Docs and storing it in the database
 """
 import os
+import sys
 import json
+from sqlite3 import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String
 from policy_sentry.configuration.access_level_overrides import get_action_access_level_overrides_from_yml
 from policy_sentry.scraping.scrape import get_html
-from policy_sentry.shared.constants import BUNDLED_DATABASE_FILE_PATH, HTML_DIRECTORY_PATH
+from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
 from policy_sentry.util.access_levels import determine_access_level_override
 from policy_sentry.util.arns import get_resource_path_from_arn, get_partition_from_arn, get_account_from_arn, \
     get_region_from_arn, get_resource_from_arn, get_service_from_arn
@@ -86,7 +88,6 @@ def create_database(db_session, services, access_level_overrides_file):
     :return: the SQLAlchemy database session.
     """
     directory = HTML_DIRECTORY_PATH + '/'
-    # directory = os.path.abspath(os.path.dirname(__file__)) + '/data/docs/'
     print("Reading the html docs from this directory: " + directory)
     print(f"Using access level overrides file {access_level_overrides_file}")
     for service in services:
@@ -112,14 +113,18 @@ def connect_db(db_file):
     # sqlite:////absolute/path/to/file.db # Using this one. db_file is
     # prefixed with another / so it works out to 4
     if db_file == 'bundled':
-        database_path = BUNDLED_DATABASE_FILE_PATH
+        database_path = str(os.path.dirname(__file__)) + '/data/aws.sqlite3'
     else:
         database_path = db_file
     engine = create_engine(str('sqlite:///' + database_path), echo=False)
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)  # pylint: disable=invalid-name
-    Session.configure(bind=engine)
-    db_session = Session()
+    try:
+        Base.metadata.create_all(engine)
+        Session = sessionmaker(bind=engine)  # pylint: disable=invalid-name
+        Session.configure(bind=engine)
+        db_session = Session()
+    except OperationalError as o_e:
+        print(o_e)
+        sys.exit()
     return db_session
 
 

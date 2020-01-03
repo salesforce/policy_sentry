@@ -11,11 +11,15 @@ from pathlib import Path
 sys.path.append(str(Path(os.path.dirname(__file__)).parent))
 from policy_sentry.scraping.awsdocs import update_html_docs_directory, create_service_links_mapping_file, \
     get_list_of_service_prefixes_from_links_file
-from policy_sentry.shared.constants import LINKS_YML_FILE_IN_PACKAGE, BUNDLED_DATABASE_FILE_PATH, DEFAULT_ACCESS_OVERRIDES_FILE
+from policy_sentry.shared.constants import LINKS_YML_FILE_IN_PACKAGE, DEFAULT_ACCESS_OVERRIDES_FILE
 from policy_sentry.shared.database import connect_db, create_database
+
+BUNDLED_DATABASE_FILE_PATH = str(Path(
+    os.path.dirname(__file__)).parent) + '/policy_sentry/shared/data/' + 'aws.sqlite3'
 
 
 def build_database():
+    print(BUNDLED_DATABASE_FILE_PATH)
     db_session = connect_db(BUNDLED_DATABASE_FILE_PATH)
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_IN_PACKAGE)
