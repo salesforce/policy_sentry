@@ -54,23 +54,39 @@ Navigate below to get started with Policy Sentry!
    terraform/terraform-demo
    terraform/terraform-modules
 
-.. toctree::
-   :maxdepth: 1
-   :caption: IAM Knowledge
-
-   iam-knowledge/iam-policies
-   iam-knowledge/minimization
 
 .. toctree::
    :maxdepth: 1
    :caption: Contributing
 
-   contributing/contributing
-   contributing/internals
-   contributing/roadmap
+   contributing/index.rst
+
+..
+    .. toctree::
+       :maxdepth: 1
+       :caption: Module Index
+       module-index/modules.rst
+
 
 .. toctree::
    :maxdepth: 1
    :caption: Appendix
 
    appendix/implementation-strategy
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: IAM Background
+
+   iam-knowledge/iam-policies
+   iam-knowledge/minimization
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

@@ -8,6 +8,10 @@ from policy_sentry.command import initialize
 
 # Create the necessary collections (namespaces)
 ns = Collection()
+
+docs = Collection('docs')
+ns.add_collection(docs)
+
 test = Collection('test')
 ns.add_collection(test)
 
@@ -19,6 +23,16 @@ ns.add_collection(unit)
 
 build = Collection('build')
 ns.add_collection(build)
+
+
+@task
+def make_module_docs(c):
+    c.run('sphinx-apidoc -o ./docs/module-index/ policy_sentry/')
+
+@task
+def make_html(c):
+    """Make the HTML docs locally"""
+    c.run('make -C ./docs html')
 
 
 # BUILD
@@ -207,6 +221,9 @@ integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
 
 unit.add_task(run_unit_tests, 'nose')
+
+docs.add_task(make_module_docs, 'make_docs')
+docs.add_task(make_html, 'make_html')
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(run_linter, 'lint')

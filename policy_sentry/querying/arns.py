@@ -6,7 +6,13 @@ from policy_sentry.shared.database import ArnTable
 
 
 def get_raw_arns_for_service(db_session, service):
-    """Get a list of available raw ARNs per AWS service"""
+    """
+    Get a list of available raw ARNs per AWS service
+
+    :param db_session: SQLAlchemy database session object
+    :param service: An AWS service prefix, like `s3` or `kms`
+    :return: A list of raw ARNs
+    """
     results = []
     rows = db_session.query(ArnTable.raw_arn).filter(
         ArnTable.service.like(service))
@@ -16,7 +22,13 @@ def get_raw_arns_for_service(db_session, service):
 
 
 def get_arn_types_for_service(db_session, service):
-    """Get a list of available ARN short names per AWS service"""
+    """
+    Get a list of available ARN short names per AWS service.
+
+    :param db_session: SQLAlchemy database session object
+    :param service: An AWS service prefix, like `s3` or `kms`
+    :return: A list of ARN types, like `bucket` or `object`
+    """
     results = {}
     rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(
         ArnTable.service.like(service))
@@ -26,7 +38,18 @@ def get_arn_types_for_service(db_session, service):
 
 
 def get_arn_type_details(db_session, service, name):
-    """Get details about a resource ARN type name in JSON format."""
+    """
+    Get details about a resource ARN type name in JSON format.
+    yo.
+    stuff.
+
+    more.
+
+    :param db_session: SQLAlchemy database session object
+    :param service: An AWS service prefix, like `s3` or `kms`
+    :param name: The name of a resource type, like `bucket` or `object`
+    :return: Metadata about an ARN type
+    """
     rows = db_session.query(ArnTable).filter(
         ArnTable.resource_type_name.like(name), ArnTable.service.like(service))
     result = rows.first()

@@ -7,6 +7,9 @@ def get_all_actions(db_session):
     """
     Gets a huge list of all IAM actions. This is used as part of the policyuniverse approach to minimizing
     IAM Policies to meet AWS-mandated character limits on policies.
+
+    :param db_session: SQLAlchemy database session object
+    :return: A list of all actions present in the database.
     """
     all_actions = set()
     rows = db_session.query(ActionTable.service, ActionTable.name).distinct(
@@ -21,10 +24,12 @@ def get_all_actions(db_session):
 def get_all_service_prefixes(db_session):
     """
     Gets all the AWS service prefixes from the actions table.
+
     If the action table does NOT have specific IAM actions (and therefore only supports * actions),
     then it will not be included in the response.
+
     :param db_session: The SQLAlchemy database session
-    :return: service_prefixes: A list of all AWS service prefixes present in the table.
+    :return: A list of all AWS service prefixes present in the table.
     """
     service_prefixes = []
     rows = db_session.query(ActionTable.service).distinct(ActionTable.service)

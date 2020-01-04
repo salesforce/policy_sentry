@@ -149,21 +149,7 @@ def analyze_policy_directory(db_session, policy_directory, account_id, from_audi
     :param db_session:
     :param from_audit_file:
     :param findings_obj: Findings object
-
     :return: policy_findings: A dictionary of policy names as keys.
-    The values for those are a list of actions. Like this:
-    credentials_exposure_findings = [
-        {
-            "PolicyName": [
-                "ecr:GetAuthorizationToken"
-            ]
-        },
-        {
-            "PolicyName2": [
-                "redshift:getclustercredentials"
-            ]
-        }
-    ]
     """
     policy_file_list = list_files_in_directory(policy_directory)
     policy_findings = {}
