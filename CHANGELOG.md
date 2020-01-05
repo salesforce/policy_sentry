@@ -1,4 +1,8 @@
 # Changelog
+## 2020-01-04
+### Changed
+* Fixed an issue where condition keys were being stored as `'aws:RequestTag/$  {  TagKey}'` - we need it without extra spaces.
+
 ## 2020-01-03
 ### Added
 * Docker support
