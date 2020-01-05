@@ -325,10 +325,11 @@ def build_condition_table(db_session, service):
                         temp_description = 'None'
                     else:
                         temp_description = table['data'][i][1]
-
+                    # Name: sometimes there are random spaces in the string, like 'aws:RequestTag/$  {  TagKey}'.
+                    condition_key_name = table['data'][i][0].replace(" ", "")
                     db_session.add(ConditionTable(
                         service=service,
-                        condition_key_name=table['data'][i][0],
+                        condition_key_name=condition_key_name,
                         condition_key_service=get_service_from_condition_key(
                             table['data'][i][0]),
                         description=temp_description,
