@@ -16,18 +16,7 @@ class ArnActionGroup:
     This class is critical to the creation of least privilege policies.
     It uses the SIDs as namespaces. The namespaces follow this format:
         {Servicename}{Accesslevel}{Resourcetypename}
-    So, a resulting statement might look like this:
-
-        {
-            "Sid": "S3ListBucket",  # {Servicename}{Accesslevel}{Resourcetypename}
-            "Effect": "Allow",      # Always generates policies with effect allow
-            "Action": [
-                "s3:listbucket"     # Actions ONLY include actions that are under the "List" access level
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-org-flow-logs"    # The ARN format is of the "Bucket" Resourcetypename.
-            ]
-        },
+    So, a resulting statement's SID might look like 'S3ListBucket'
     """
 
     def __init__(self):
@@ -75,11 +64,12 @@ class ArnActionGroup:
             actions_list):
         """
         Add a single entry with all the necessary fields filled out.
-        :param arn_from_user:
-        :param service:
-        :param access_level:
-        :param raw_arn_format:
-        :param actions_list:
+
+        :param arn_from_user: The literal ARN that the user wants to put in the policy
+        :param service: A service prefix, like s3
+        :param access_level: Access level for the IAM action
+        :param raw_arn_format: The raw arn that matches format of the arn_from_user
+        :param actions_list: A list of actions
         """
         temp_arn_dict = {
             'arn': arn_from_user,
@@ -99,9 +89,11 @@ class ArnActionGroup:
     def process_resource_specific_acls(self, cfg, db_session):
         """
         Processes the YAML file for the resources per access level, and adds it to the object.
+
         :param cfg: A dictionary loaded from the YAML file
         :param db_session: Database session
         :return: the fully formed dict containing the ARNs and actions
+        :rtype: dict
         """
         try:
             for category in cfg:
@@ -153,11 +145,13 @@ class ArnActionGroup:
 
     def process_list_of_actions(self, supplied_actions, db_session):
         """
-        Takes a list of actions, queries the database for corresponding arns, adds them to the object
+        Takes a list of actions, queries the database for corresponding arns, adds them to the object.
+
         :param supplied_actions: A list of supplied actions
         :param db_session: SQLAlchemy database session object
         :return: arn_dict: This is the compiled and updated dictionary after all necessary processing.
             This plugs into create_policy
+        :rtype: dict
         """
         arns_matching_supplied_actions = []
         # query the database for corresponding ARNs and add them to arns_matching_supplied_actions
@@ -211,15 +205,19 @@ class ArnActionGroup:
     def get_arns(self):
         """
         Getter function for the ARNs object
+
         :return: ARNs object
+        :rtype: dict
         """
         return self.arns
 
     def does_action_exist(self, action):
         """
         Get boolean response for whether or not an action exists under any of the ARNs.
+
         :param action: full action name, like s3:GetObject
         :return: True or False
+        :rtype: bool
         """
         exists = 0
         for i in range(len(self.arns)):
@@ -262,8 +260,8 @@ class ArnActionGroup:
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
-        Considers the attribute values under each value in self.arns, and
-        fills in the actions lists accordingly.
+        Considers the attribute values under each value in self.arns, and fills in the actions lists accordingly.
+
         :param db_session: SQLAlchemy database session
         """
         for i in range(len(self.arns)):
@@ -279,7 +277,6 @@ class ArnActionGroup:
     def remove_actions_not_matching_list(self, actions_list):
         """
         :param actions_list: List of actions to leave. All actions not in this list are removed
-        :return: Nothing
         """
         for i in range(len(self.arns)):
             placeholder_actions_list = []
@@ -325,7 +322,6 @@ class ArnActionGroup:
     def combine_policy_elements(self):
         """
         Consolidate the policy elements by looking at where ARNs are used
-        :return:
         """
         # Using numbers in the 'altered' list to identify indexes that have
         # been altered
@@ -347,12 +343,11 @@ class ArnActionGroup:
 
     def get_policy_elements(self, db_session):
         """
+        Return the policy elements to the user.
 
         :param db_session: database session.
-        :return: arn_dict. This is a dictionary of dictionaries. Each sub-dictionary has the following elements:
-          1. name: The SID namespace. This follows the format of {Servicename} + {Accesslevel} + {Resourcetypename}.
-          2. actions: A list of actions
-          3. arns: A list of resource ARNs that fall under this namespace.
+        :return: A dictionary that contains the SID namespace, a list of actions, and a list of resource ARNs that fall under this namespace
+        :rtype: dict
         """
         arn_dict = {}
         for i in range(len(self.arns)):
@@ -387,7 +382,14 @@ class ArnActionGroup:
 
 
 def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
-    """Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot."""
+    """
+    Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
+
+    :param db_session: SQL Alchemy database session object
+    :param actions_list: A list of actions
+    :return: An updated list of actions
+    :rtype: list
+    """
     # remove duplicates, if there are any
     actions_list_unique = list(dict.fromkeys(actions_list))
     actions_list_placeholder = []
@@ -411,11 +413,15 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
 
 def create_policy_sid_namespace(service, access_level, resource_type_name):
     """
-    Description: Simply generates the SID name. The SID groups ARN types that share an access level. For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we choose to group them.
+    Simply generates the SID name. The SID groups ARN types that share an access level.
+
+    For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we choose to group them.
+
     :param service: "ssm"
     :param access_level: "Read"
     :param resource_type_name: "parameter"
     :return: SsmReadParameter
+    :rtype: str
     """
     # Sanitize the resource_type_name; otherwise we hit some list conversion
     # errors

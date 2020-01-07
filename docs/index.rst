@@ -1,7 +1,7 @@
 Policy Sentry Documentation
-==========================================================
+============================
 
-Policy Sentry is an AWS IAM Least Privilege Policy Generator, auditor, and analysis database. It compiles database tables based on the AWS IAM Documentation on `Actions, Resources, and Condition Keys <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ and leverages that data to create least-privilege IAM policies.
+`Policy Sentry <https://github.com/salesforce/policy_sentry>`__ is an AWS IAM Least Privilege Policy Generator, auditor, and analysis database. It compiles database tables based on the AWS IAM Documentation on `Actions, Resources, and Condition Keys <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ and leverages that data to create least-privilege IAM policies.
 
 Organizations can use Policy Sentry to:
 
@@ -43,7 +43,6 @@ Navigate below to get started with Policy Sentry!
    user-guide/downloading-policies
    user-guide/analyze-policy
    user-guide/querying-the-database
-   user-guide/usage-as-a-python-package
    user-guide/docker
    user-guide/command-cheat-sheet
 
@@ -54,23 +53,51 @@ Navigate below to get started with Policy Sentry!
    terraform/terraform-demo
    terraform/terraform-modules
 
-.. toctree::
-   :maxdepth: 1
-   :caption: IAM Knowledge
-
-   iam-knowledge/iam-policies
-   iam-knowledge/minimization
 
 .. toctree::
    :maxdepth: 1
    :caption: Contributing
 
-   contributing/contributing
-   contributing/internals
-   contributing/roadmap
+   contributing/index.rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Library Usage
+
+   library-usage/index.rst
+   library-usage/reference/index.rst
+   library-usage/examples/index.rst
+
+
+..
+    .. toctree::
+       :maxdepth: 2
+       :caption: Library reference
+       library-usage/reference/index
+
+..
+    .. toctree::
+       :maxdepth: 2
+       :caption: Library examples
+       library-usage/examples/index
 
 .. toctree::
    :maxdepth: 1
    :caption: Appendix
 
    appendix/implementation-strategy
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: IAM Background
+
+   iam-knowledge/iam-policies
+   iam-knowledge/minimization
+
+
+Indices and tables
+==================
+
+* :ref:`modindex`
+

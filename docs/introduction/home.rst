@@ -1,7 +1,7 @@
 Overview
 =============
 
-Policy Sentry is an IAM Least Privilege Policy Generator, auditor, and analysis database.
+`Policy Sentry <https://github.com/salesforce/policy_sentry>`__ is an IAM Least Privilege Policy Generator, auditor, and analysis database.
 
 Motivation
 ----------

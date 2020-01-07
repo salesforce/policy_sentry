@@ -8,6 +8,10 @@ from policy_sentry.command import initialize
 
 # Create the necessary collections (namespaces)
 ns = Collection()
+
+docs = Collection('docs')
+ns.add_collection(docs)
+
 test = Collection('test')
 ns.add_collection(test)
 
@@ -19,6 +23,25 @@ ns.add_collection(unit)
 
 build = Collection('build')
 ns.add_collection(build)
+
+
+@task
+def make_html(c):
+    """Make the HTML docs locally"""
+    c.run('make -C ./docs html')
+
+
+@task
+def remove_html_files(c):
+    """Remove the html files"""
+    c.run('rm -rf ./docs/_build/*')
+    c.run('rmdir ./docs/_build/')
+
+
+@task
+def open_html_docs(c):
+    """Open HTML docs in Google Chrome locally on your computer"""
+    c.run('open -a "Google Chrome" docs/_build/html/index.html')
 
 
 # BUILD
@@ -207,6 +230,10 @@ integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
 
 unit.add_task(run_unit_tests, 'nose')
+
+docs.add_task(remove_html_files, 'remove-html-files')
+docs.add_task(make_html, 'make-html')
+docs.add_task(open_html_docs, 'open-html-docs')
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(run_linter, 'lint')
