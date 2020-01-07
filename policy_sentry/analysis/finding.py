@@ -13,18 +13,7 @@ class Findings:
     """
     One finding type per Finding instance. Multiple policies per instances.
     A single finding object looks like this:
-    credentials_exposure_findings = [
-        {
-            "PolicyName": [
-                "ecr:GetAuthorizationToken"
-            ]
-        },
-        {
-            "PolicyName2": [
-                "redshift:getclustercredentials"
-            ]
-        }
-    ]
+    credentials_exposure_findings = [{"PolicyName": ["ecr:GetAuthorizationToken"]}]
     """
     occurrences = {}
 
@@ -32,7 +21,12 @@ class Findings:
         self.occurrences = {}
 
     def add(self, policy_finding):
-        """Add a new policy to the Finding object."""
+        """
+        Add a new policy to the Finding object.
+
+        :param policy_finding: An entry to add to the finding object, like {"PolicyName": ["ecr:GetAuthorizationToken"]}
+        :return: The findings and finding types for that policy.
+        """
         for key, value in policy_finding.items():
             if key in self.occurrences:
                 self.occurrences[key].update(value)
@@ -42,11 +36,20 @@ class Findings:
         return self.occurrences
 
     def get_findings_by_policy_name(self, policy_name):
-        """Given the name of a policy, return findings that contain finding types with action lists under them."""
+        """
+        Given the name of a policy, return findings that contain finding types with action lists under them.
+
+        :param policy_name: The name of the policy to look for.
+        :return: The findings and finding types for that policy.
+        """
         return self.occurrences[policy_name]
 
     def get_findings(self):
-        """Get all findings as a dict."""
+        """
+        Get all findings as a dict
+
+        :return: The findings and finding types for that policy.
+        """
         return self.occurrences
 
     # def get_findings_by_account_id(self, account_id):

@@ -1,4 +1,13 @@
 # Changelog
+## 2020-01-07
+### Added
+* PyInvoke commands to support the Sphinx documentation testing locally
+* Sample scripts to demonstrate the usage of our methods for developers who want to import Policy Sentry
+* Documentation uplift in general
+
+### Changed
+* A lot of the docstrings in the code
+
 ## 2020-01-03
 ### Added
 * Docker support

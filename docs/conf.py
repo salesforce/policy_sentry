@@ -6,6 +6,7 @@
 
 import sys
 import os
+from pathlib import Path
 import shlex
 import sphinx_rtd_theme
 import sphinx_markdown_tables
@@ -13,7 +14,8 @@ import sphinx_markdown_tables
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('../..'))
+# sys.path.insert(0, os.path.abspath('../..'))
+sys.path.append(str(Path(os.path.dirname(__file__)).parent))
 
 master_doc = 'index'
 

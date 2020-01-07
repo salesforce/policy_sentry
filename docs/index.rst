@@ -1,7 +1,7 @@
 Policy Sentry Documentation
-==========================================================
+============================
 
-Policy Sentry is an AWS IAM Least Privilege Policy Generator, auditor, and analysis database. It compiles database tables based on the AWS IAM Documentation on `Actions, Resources, and Condition Keys <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ and leverages that data to create least-privilege IAM policies.
+`Policy Sentry <https://github.com/salesforce/policy_sentry>`__ is an AWS IAM Least Privilege Policy Generator, auditor, and analysis database. It compiles database tables based on the AWS IAM Documentation on `Actions, Resources, and Condition Keys <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ and leverages that data to create least-privilege IAM policies.
 
 Organizations can use Policy Sentry to:
 
@@ -43,7 +43,6 @@ Navigate below to get started with Policy Sentry!
    user-guide/downloading-policies
    user-guide/analyze-policy
    user-guide/querying-the-database
-   user-guide/usage-as-a-python-package
    user-guide/docker
    user-guide/command-cheat-sheet
 
@@ -61,12 +60,26 @@ Navigate below to get started with Policy Sentry!
 
    contributing/index.rst
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Library Usage
+
+   library-usage/index.rst
+   library-usage/reference/index.rst
+   library-usage/examples/index.rst
+
+
 ..
     .. toctree::
-       :maxdepth: 1
-       :caption: Module Index
-       module-index/modules.rst
+       :maxdepth: 2
+       :caption: Library reference
+       library-usage/reference/index
 
+..
+    .. toctree::
+       :maxdepth: 2
+       :caption: Library examples
+       library-usage/examples/index
 
 .. toctree::
    :maxdepth: 1
@@ -86,7 +99,5 @@ Navigate below to get started with Policy Sentry!
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
 

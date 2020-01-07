@@ -82,6 +82,7 @@ class ConditionTable(Base):
 def create_database(db_session, services, access_level_overrides_file):
     """
     Calls the functions to build the ARN tables.
+
     :param db_session: the SQLAlchemy database session.
     :param services: List of all services to build the tables for. Defaults to all AWS Services
     :param access_level_overrides_file: A file we can use to override the Access levels per action
@@ -133,6 +134,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
     Builds the action table in the SQLite database.
     See the first Table on any service-specific page in the Actions, Resources, and Condition Keys documentation.
     That information is scraped, parsed, and stored in the SQLite database using this function.
+
     :param db_session: Database session object
     :param service: AWS Service to query. This can be called in a loop or for a single service (see connect_db function above).
     :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
@@ -259,6 +261,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
 def build_arn_table(db_session, service):
     """
     Builds the ARN Table - the table of resource types - in the SQLite database.
+
     :param db_session: SQLAlchemy database session.
     :param service: The AWS service prefix
     """
@@ -307,6 +310,7 @@ def build_arn_table(db_session, service):
 def build_condition_table(db_session, service):
     """
     Build the Conditions table - the list of conditions available to each service.
+
     :param db_session: SQLAlchemy database session
     :param service: AWS Service Prefix
     """

@@ -26,6 +26,9 @@ from policyuniverse.expander_minimizer import _get_prefixes_for_action
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L101
 def get_denied_prefixes_from_desired(desired_actions, all_actions):  # pylint: disable=missing-function-docstring
+    """
+    Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here: https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L101
+    """
     denied_actions = all_actions.difference(desired_actions)
     denied_prefixes = set()
     for denied_action in denied_actions:
@@ -38,6 +41,10 @@ def get_denied_prefixes_from_desired(desired_actions, all_actions):  # pylint: d
 # Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
 def check_min_permission_length(permission, minchars=None):  # pylint: disable=missing-function-docstring
+    """
+    Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
+    https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
+    """
     if minchars and len(permission) < int(minchars) and permission != "":
         # print(
         #     "Skipping prefix {} because length of {}".format(
@@ -52,6 +59,10 @@ def check_min_permission_length(permission, minchars=None):  # pylint: disable=m
 # This is a condensed version of policyuniverse's minimize_statement_actions, changed for our purposes.
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L123
 def minimize_statement_actions(desired_actions, all_actions, minchars=None):  # pylint: disable=missing-function-docstring
+    """
+    This is a condensed version of policyuniverse's minimize_statement_actions, changed for our purposes.
+    https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L123
+    """
     minimized_actions = set()
     denied_prefixes = get_denied_prefixes_from_desired(
         desired_actions, all_actions)
