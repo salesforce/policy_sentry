@@ -21,9 +21,11 @@ def read_this_file(filename):
 
 def read_yaml_file(filename):
     """
-    Description: Reads a YAML file, safe loads, and returns the dictionary
+    Reads a YAML file, safe loads, and returns the dictionary
+
     :param filename: name of the yaml file
     :return: dictionary of YAML file contents
+    :
     """
     with open(filename, 'r') as yaml_file:
         try:
@@ -36,8 +38,10 @@ def read_yaml_file(filename):
 def check_valid_file_path(file):
     """
     Checks if the file path is valid.
+
     :param file: The file to check.
     :return: True if it exists, False if it does not
+    :rtype: bool
     """
 
     if os.path.exists(file):

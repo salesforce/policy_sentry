@@ -246,7 +246,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
                 }
             ]
         }
-        permissions_management_actions = analyze_by_access_level(permissions_management_policy, db_session, "permissions-management")
+        permissions_management_actions = analyze_by_access_level(db_session, permissions_management_policy, "permissions-management")
         print(permissions_management_actions)
         desired_actions_list = [
             'ecr:setrepositorypolicy',
