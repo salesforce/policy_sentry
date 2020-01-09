@@ -4,10 +4,9 @@ Contributing
 Want to contribute back to Policy Sentry? This page describes the general development
 flow, our philosophy, the test suite, and issue tracking.
 
-Impostor Syndrome Disclaimer
-----------------------------
+**Impostor Syndrome Disclaimer**
 
-Before we get into the details: **We want your help. No, really.**
+Before we get into the details: *We want your help. No, really.*
 
 There may be a little voice inside your head that is telling you that you're
 not ready to be an open source contributor; that your skills aren't nearly good
@@ -36,8 +35,8 @@ that includes giving feedback about the contribution guidelines.)
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contributing
+   :maxdepth: 2
+   :caption: Contents
 
    documentation
    iam-database

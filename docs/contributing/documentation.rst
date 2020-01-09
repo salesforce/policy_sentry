@@ -1,5 +1,5 @@
 Contributing to Documentation
-------------------------------
+=============================
 
 If you're looking to help document Policy Sentry, your first step is to get set up with Sphinx, our documentation tool. First you will want to make sure you have a few things on your local system:
 

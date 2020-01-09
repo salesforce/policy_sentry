@@ -1,5 +1,5 @@
 Project Structure
--------------------
+=================
 
 We'll focus mostly on the intent and approach of the major files (and subfolders) within the ``policy_sentry/shared`` directory:
 

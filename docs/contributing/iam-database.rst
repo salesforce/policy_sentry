@@ -1,5 +1,5 @@
 IAM Database
------------------
+============
 
 
 Policy Sentry leverages HTML files from the `Actions, Resources, and Condition Keys page <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__ AWS documentation to build the IAM database.

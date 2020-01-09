@@ -55,7 +55,7 @@ Navigate below to get started with Policy Sentry!
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :caption: Contributing
 
    contributing/index.rst
