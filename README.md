@@ -80,7 +80,7 @@ It will generate a file like this:
 policy_with_crud_levels:
 - name: myRole
   description: ''
-  arn: ''
+  role_arn: ''
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:
@@ -89,7 +89,7 @@ policy_with_crud_levels:
     - ''
   list:
     - ''
-  tag:
+  tagging:
     - ''
   permissions-management:
     - ''
@@ -105,14 +105,14 @@ Then just fill it out:
 policy_with_crud_levels:
 - name: myRole
   description: 'Justification for privileges'
-  arn: 'arn:aws:iam::123456789102:role/myRole'
+  role_arn: 'arn:aws:iam::123456789102:role/myRole'
   read:
     - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
   write:
     - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
   list:
     - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-  tag:
+  tagging:
     - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
   permissions-management:
     - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'

@@ -83,10 +83,10 @@ def write_policy_dir(input_dir, output_dir, crud, minimize):
         cfg = read_yaml_file(yaml_file)
         # User supplies file containing resource-specific access levels
         if crud:
-            policy = write_policy_with_access_levels(cfg, db_session, minimize)
+            policy = write_policy_with_access_levels(db_session, cfg, minimize)
         # User supplies file containing a list of IAM actions
         else:
-            policy = write_policy_with_actions(cfg, db_session, minimize)
+            policy = write_policy_with_actions(db_session, cfg, minimize)
         print("Writing policy for " + base_name + '\n')
 
         target_file = str(output_dir + '/' + base_name_no_extension + '.json')

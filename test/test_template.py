@@ -8,7 +8,7 @@ class TemplateTestCase(unittest.TestCase):
 policy_with_actions:
 - name: myrole
   description: ''
-  arn: ''
+  role_arn: ''
   actions:
   - ''"""
         actions_template = create_actions_template("myrole")
@@ -19,7 +19,7 @@ policy_with_actions:
 policy_with_crud_levels:
 - name: myrole
   description: ''
-  arn: ''
+  role_arn: ''
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:
@@ -28,7 +28,7 @@ policy_with_crud_levels:
     - ''
   list:
     - ''
-  tag:
+  tagging:
     - ''
   permissions-management:
     - ''

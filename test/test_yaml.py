@@ -12,7 +12,7 @@ valid_cfg_for_crud = {
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
+            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "read": [
                 "arn:aws:s3:::example-org-sbx-vmimport",
                 "arn:aws:s3:::example-kinnaird",
@@ -32,7 +32,7 @@ valid_cfg_for_crud = {
                 "arn:aws:s3:::example-org-flow-logs",
                 "arn:aws:s3:::example-org-sbx-vmimport/stuff"
             ],
-            "tag": [
+            "tagging": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/test"
             ],
             "permissions-management": [
@@ -47,7 +47,7 @@ valid_cfg_for_actions = {
         {
             "name": "RoleNameWithActions",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+            "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
             "actions": [
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
@@ -72,7 +72,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             {
     #                 "name": "RoleNameWithActions",
     #                 "description": "Why I need these privs",
-    #                 "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
     #                 "actions": [
     #                     "kms:CreateGrant",
     #                     "kms:CreateCustomKeyStore",
@@ -83,7 +83,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             {
     #                 "name": "DuplicateRoleNameWithActions",
     #                 "description": "Why I need these privs",
-    #                 "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
     #                 "actions": [
     #                     "kms:CreateGrant",
     #                     "kms:CreateCustomKeyStore",
@@ -107,7 +107,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             {
     #                 "name": "RoleNameWithActions",
     #                 "description": "Why I need these privs",
-    #                 "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
     #                 "actions": [
     #                     "kms:CreateGrant",
     #                     "kms:CreateCustomKeyStore",
@@ -120,7 +120,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #             {
     #                 "name": "DuplicateRoleNameWithActions",
     #                 "description": "Why I need these privs",
-    #                 "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
     #                 "actions": [
     #                     "kms:CreateGrant",
     #                     "kms:CreateCustomKeyStore",
@@ -146,7 +146,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
     #                     "arn:aws:s3:::example-org-flow-logs",
     #                     "arn:aws:s3:::example-org-sbx-vmimport/stuff"
     #                 ],
-    #                 "tag": [
+    #                 "tagging": [
     #                     "arn:aws:ssm:us-east-1:123456789012:parameter/test"
     #                 ],
     #                 "permissions-management": [
@@ -189,7 +189,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
             "policy_with_actions": [
                 {
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+                    "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
                     "actions": [
                         "kms:CreateGrant",
                         "kms:CreateCustomKeyStore",
@@ -199,8 +199,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 }
             ]
         }
-        with self.assertRaises(SystemExit):
-            policy = write_policy_with_actions(cfg_with_missing_name, db_session)
+        with self.assertRaises(Exception):
+            policy = write_policy_with_actions(db_session, cfg_with_missing_name)
 
 
     def test_actions_missing_description(self):
@@ -212,7 +212,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
             "policy_with_actions": [
                 {
                     "name": "RoleNameWithActions",
-                    "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+                    "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
                     "actions": [
                         "kms:CreateGrant",
                         "kms:CreateCustomKeyStore",
@@ -222,8 +222,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 }
             ]
         }
-        with self.assertRaises(SystemExit):
-            policy = write_policy_with_actions(cfg_with_missing_description, db_session)
+        with self.assertRaises(Exception):
+            policy = write_policy_with_actions(db_session, cfg_with_missing_description)
 
     def test_actions_missing_arn(self):
         """
@@ -244,8 +244,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 }
             ]
         }
-        with self.assertRaises(SystemExit):
-            policy = write_policy_with_actions(cfg_with_missing_actions, db_session)
+        with self.assertRaises(Exception):
+            policy = write_policy_with_actions(db_session, cfg_with_missing_actions)
 
 
 class YamlValidationCrudTestCase(unittest.TestCase):
@@ -263,7 +263,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
+                    "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
                     "read": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
@@ -279,7 +279,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         }
         self.maxDiff = None
 
-        result = write_policy_with_access_levels(crud_file_input, db_session)
+        result = write_policy_with_access_levels(db_session, crud_file_input)
         print(json.dumps(result, indent=4))
 
     def test_empty_strings_in_access_level_categories(self):
@@ -292,7 +292,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::123456789012:role/RiskyEC2",
+                    "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
                     "read": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
@@ -303,7 +303,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                     "list": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
-                    "tag": [
+                    "tagging": [
                         ""
                     ],
                     "permissions-management": [
@@ -313,7 +313,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             ]
         }
         with self.assertRaises(SystemExit):
-            result = write_policy_with_access_levels(crud_file_input, db_session)
+            result = write_policy_with_access_levels(db_session, crud_file_input)
             print(json.dumps(result, indent=4))
 
 
@@ -329,10 +329,10 @@ class YamlValidationActionsTestCase(unittest.TestCase):
                 {
                     "name": "RoleNameWithActions",
                     "description": "Why I need these privs",
-                    "arn": "arn:aws:iam::123456789102:role/RiskyEC2",
+                    "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
                 }
             ]
         }
-        with self.assertRaises(SystemExit):
-            policy = write_policy_with_actions(cfg_with_missing_actions, db_session)
+        with self.assertRaises(Exception):
+            policy = write_policy_with_actions(db_session, cfg_with_missing_actions)
 

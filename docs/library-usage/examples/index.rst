@@ -8,4 +8,5 @@ These are examples for the modules and functions that will be of interest for de
    :caption: Library examples
 
    querying
+   writing
    analysis

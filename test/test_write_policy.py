@@ -1,10 +1,10 @@
 import unittest
 import json
-from policy_sentry.shared.database import connect_db
-from policy_sentry.writing.policy import ArnActionGroup
 from policy_sentry.command.write_policy import print_policy
 from policy_sentry.querying.actions import get_dependent_actions
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+from policy_sentry.shared.database import connect_db
+from policy_sentry.writing.policy import ArnActionGroup
 
 db_session = connect_db(DATABASE_FILE_PATH)
 
@@ -150,7 +150,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                 {
                     'name': 'RoleNameWithCRUD',
                     'description': 'Why I need these privs',
-                    'arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
                     'permissions-management': [
                         'arn:aws:s3:::example-org-s3-access-logs'
                     ],

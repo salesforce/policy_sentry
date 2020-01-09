@@ -6,7 +6,7 @@ valid_cfg_for_crud = {
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789012:role/MyRole",
+            "role_arn": "arn:aws:iam::123456789012:role/MyRole",
             "read": [
                 "arn:aws:s3:::example-org-sbx-vmimport",
             ],
@@ -17,7 +17,7 @@ valid_cfg_for_crud = {
                 "arn:aws:s3:::example-org-flow-logs",
                 "arn:aws:s3:::example-org-sbx-vmimport/stuff"
             ],
-            "tag": [
+            "tagging": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/test"
             ],
             "permissions-management": [
@@ -35,7 +35,7 @@ valid_cfg_for_actions = {
         {
             "name": "RoleNameWithActions",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789102:role/MyRole",
+            "role_arn": "arn:aws:iam::123456789102:role/MyRole",
             "actions": [
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
@@ -51,7 +51,7 @@ valid_crud_with_one_item_only = {
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789012:role/MyRole",
+            "role_arn": "arn:aws:iam::123456789012:role/MyRole",
             "read": [
                 "arn:aws:s3:::example-org-sbx-vmimport",
             ],
@@ -64,7 +64,7 @@ invalid_crud_with_mispelled_category = {
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
-            "arn": "arn:aws:iam::123456789012:role/MyRole",
+            "role_arn": "arn:aws:iam::123456789012:role/MyRole",
             "reed": [
                 "arn:aws:s3:::example-org-sbx-vmimport",
             ],

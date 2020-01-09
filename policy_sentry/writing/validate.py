@@ -23,12 +23,12 @@ CRUD_SCHEMA = Schema({
         {
             'name': And(Use(str)),
             'description': And(Use(str)),
-            'arn': And(Use(str)),
+            'role_arn': And(Use(str)),
             Optional('read'): [str],
             Optional('write'): [str],
             Optional('list'): [str],
             Optional('permissions-management'): [str],
-            Optional('tag'): [str],
+            Optional('tagging'): [str],
             Optional('wildcard'): [str],
 
         }
@@ -40,7 +40,7 @@ ACTIONS_SCHEMA = Schema({
         {
             'name': And(Use(str)),
             'description': And(Use(str)),
-            'arn': And(Use(str)),
+            'role_arn': And(Use(str)),
             'actions': And([str]),
         }
     ]

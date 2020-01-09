@@ -9,6 +9,8 @@ Policy Sentry can be used as a Python library. Check out this documentation for 
    :caption: Library Usage
 
    getting-started-with-the-library
+   examples/index.rst
+   reference/index.rst
 
 ..
     .. toctree::

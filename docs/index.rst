@@ -65,9 +65,6 @@ Navigate below to get started with Policy Sentry!
    :caption: Library Usage
 
    library-usage/index.rst
-   library-usage/reference/index.rst
-   library-usage/examples/index.rst
-
 
 ..
     .. toctree::
@@ -75,11 +72,6 @@ Navigate below to get started with Policy Sentry!
        :caption: Library reference
        library-usage/reference/index
 
-..
-    .. toctree::
-       :maxdepth: 2
-       :caption: Library examples
-       library-usage/examples/index
 
 .. toctree::
    :maxdepth: 1
