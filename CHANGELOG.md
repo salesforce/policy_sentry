@@ -1,11 +1,9 @@
 # Changelog
 ## 2020-01-09
-### Breaking changes
-* Templates:
-  - `arn` is now `role_arn` to avoid confusion when writing templates
-  - `tag` is now `tagging` to avoid inconsistency when writing templates
+
 
 ### Changed
+* 0.6.7 release to avoid issues with breaking changes
 * Template:
   - `arn` is now `role_arn` to avoid confusion when writing templates
   - `tag` is now `tagging` to avoid inconsistency when writing templates
