@@ -41,13 +41,13 @@
    </div>
    <div id="page-toc-src">
     <a href="#amazonfsx-actions-as-permissions">
-     Actions Defined by        Amazon FSx
+     Actions
     </a>
     <a href="#amazonfsx-resources-for-iam-policies">
-     Resources Defined by        Amazon FSx
+     Resource Types
     </a>
     <a href="#amazonfsx-policy-keys">
-     Condition Keys for        Amazon FSx
+     Condition Keys
     </a>
    </div>
    <!--option.hide-feedback-links = 0-->
@@ -160,7 +160,7 @@
        </li>
        <li>
         <a href="#amazonfsx-resources-for-iam-policies">
-         Resources Defined by        Amazon FSx
+         Resource Types Defined by        Amazon FSx
         </a>
        </li>
        <li>
@@ -187,7 +187,7 @@
      <p>
       The
       <b>
-       Resource
+       Resource Types
       </b>
       column indicates whether each action supports      resource-level permissions. If
                   there is no value for this column, you must specify all      resources ("*") in the
@@ -210,7 +210,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w471aac29c13c26d400c11b9">
+       <table class="awsui-util-container" id="w473aac29c13c25d406c11b9">
         <tr>
          <th>
           Actions
@@ -230,6 +230,32 @@
          <th>
           Dependent Actions
          </th>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonfsx-CancelDataRepositoryTask">
+          </a>
+          <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CancelDataRepositoryTask.html">
+           CancelDataRepositoryTask
+          </a>
+         </td>
+         <td>
+          This action cancels a data repository task
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonfsx-task">
+            task*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
         </tr>
         <tr>
          <td rowspan="3">
@@ -262,6 +288,63 @@
           <p>
            <a href="#amazonfsx-file-system">
             file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+         </td>
+         <td>
+          <p>
+           <a href="#amazonfsx-aws_RequestTag___TagKey_">
+            aws:RequestTag/${TagKey}
+           </a>
+          </p>
+          <p>
+           <a href="#amazonfsx-aws_TagKeys">
+            aws:TagKeys
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td rowspan="3">
+          <a id="amazonfsx-CreateDataRepositoryTask">
+          </a>
+          <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateDataRepositoryTask.html">
+           CreateDataRepositoryTask
+          </a>
+         </td>
+         <td rowspan="3">
+          This action creates a new task.
+         </td>
+         <td rowspan="3">
+          Tagging
+         </td>
+         <td>
+          <p>
+           <a href="#amazonfsx-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#amazonfsx-task">
+            task*
            </a>
           </p>
          </td>
@@ -467,6 +550,30 @@
         </tr>
         <tr>
          <td>
+          <a id="amazonfsx-DescribeDataRepositoryTasks">
+          </a>
+          <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeDataRepositoryTasks.html">
+           DescribeDataRepositoryTasks
+          </a>
+         </td>
+         <td>
+          This action returns the description of specific Amazon FSx data repository task, if
+                              one or more TaskIds are provided for that data repository task. Otherwise, it returns
+                              all data repository task owned by your AWS account in the AWS Region of the endpoint
+                              that you're calling.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="amazonfsx-DescribeFileSystems">
           </a>
           <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">
@@ -490,17 +597,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="2">
+         <td rowspan="3">
           <a id="amazonfsx-ListTagsForResource">
           </a>
           <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_ListTagsForResource.html">
            ListTagsForResource
           </a>
          </td>
-         <td rowspan="2">
+         <td rowspan="3">
           This action lists tags for an Amazon FSx resource.
          </td>
-         <td rowspan="2">
+         <td rowspan="3">
           Read
          </td>
          <td>
@@ -529,17 +636,30 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="3">
+         <td>
+          <p>
+           <a href="#amazonfsx-task">
+            task
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td rowspan="4">
           <a id="amazonfsx-TagResource">
           </a>
           <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_TagResource.html">
            TagResource
           </a>
          </td>
-         <td rowspan="3">
+         <td rowspan="4">
           This action tags an Amazon FSx resource.
          </td>
-         <td rowspan="3">
+         <td rowspan="4">
           Tagging
          </td>
          <td>
@@ -559,6 +679,19 @@
           <p>
            <a href="#amazonfsx-file-system">
             file-system
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#amazonfsx-task">
+            task
            </a>
           </p>
          </td>
@@ -586,17 +719,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="3">
+         <td rowspan="4">
           <a id="amazonfsx-UntagResource">
           </a>
           <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UntagResource.html">
            UntagResource
           </a>
          </td>
-         <td rowspan="3">
+         <td rowspan="4">
           This action removes a tag from an Amazon FSx resource.
          </td>
-         <td rowspan="3">
+         <td rowspan="4">
           Tagging
          </td>
          <td>
@@ -616,6 +749,19 @@
           <p>
            <a href="#amazonfsx-file-system">
             file-system
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#amazonfsx-task">
+            task
            </a>
           </p>
          </td>
@@ -669,7 +815,7 @@
       </awsdocs-table-expander>
      </div>
      <h2 id="amazonfsx-resources-for-iam-policies">
-      Resources Defined by        Amazon FSx
+      Resource Types Defined by        Amazon FSx
      </h2>
      <p>
       The following resource types are defined by this service and can be used in the
@@ -691,7 +837,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w471aac29c13c26d400c13b5">
+       <table class="awsui-util-container" id="w473aac29c13c25d406c13b5">
         <tr>
          <th>
           Resource Types
@@ -769,6 +915,39 @@
           </p>
          </td>
         </tr>
+        <tr>
+         <td>
+          <a id="amazonfsx-task">
+          </a>
+          <a href="https://docs.aws.amazon.com/fsx/latest/access-control-overview.html#access-control-resources">
+           task
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:fsx:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:task/*
+          </code>
+         </td>
+         <td>
+          <p>
+           <a href="#amazonfsx-aws_ResourceTag___TagKey_">
+            aws:ResourceTag/${TagKey}
+           </a>
+          </p>
+         </td>
+        </tr>
        </table>
       </div>
       <awsdocs-table-expander>
@@ -803,7 +982,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w471aac29c13c26d400c15b7">
+       <table class="awsui-util-container" id="w473aac29c13c25d406c15b7">
         <tr>
          <th>
           Condition Keys

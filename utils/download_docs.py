@@ -20,6 +20,8 @@ BUNDLED_DATABASE_FILE_PATH = str(Path(
 
 def build_database():
     print(BUNDLED_DATABASE_FILE_PATH)
+    if os.path.exists(BUNDLED_DATABASE_FILE_PATH):
+        os.remove(BUNDLED_DATABASE_FILE_PATH)
     db_session = connect_db(BUNDLED_DATABASE_FILE_PATH)
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_IN_PACKAGE)
