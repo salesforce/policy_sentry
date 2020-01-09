@@ -39,7 +39,7 @@ class Roles:
                             [
                                 principal['name'],
                                 principal['description'],
-                                principal['arn'],
+                                principal['role_arn'],
                                 principal['actions'],
                             ]
                         )

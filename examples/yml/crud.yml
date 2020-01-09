@@ -1,7 +1,7 @@
 policy_with_crud_levels:
 - name: 'RoleNameWithCRUD'
   description: 'Why I need these privs'
-  arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
+  role_arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
   read:
     - arn:aws:s3:::example-org-sbx-vmimport
     - arn:aws:s3:::example-kinnaird
@@ -18,7 +18,7 @@ policy_with_crud_levels:
   list:
     - arn:aws:s3:::example-org-flow-logs
     - arn:aws:s3:::example-org-sbx-vmimport/stuff
-  tag:
+  tagging:
     - arn:aws:ssm:us-east-1:123456789012:parameter/test
   permissions-management:
     - arn:aws:s3:::example-org-s3-access-logs

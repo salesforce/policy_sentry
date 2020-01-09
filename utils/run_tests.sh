@@ -17,3 +17,5 @@ pipenv run invoke integration.analyze-policy
 pipenv run invoke integration.query
 pipenv run invoke integration.write-policy
 pipenv run invoke test.security
+pipenv run invoke docs.remove-html-files
+pipenv run invoke docs.make-html

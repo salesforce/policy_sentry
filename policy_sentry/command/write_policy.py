@@ -45,20 +45,22 @@ def print_policy(
     return policy
 
 
-def write_policy_with_access_levels(cfg, db_session, minimize_statement=False):
+def write_policy_with_access_levels(db_session, cfg, minimize_statement=None):
     """
     Writes an IAM policy given a dict containing Access Levels and ARNs.
     """
+    check_crud_schema(cfg)
     arn_action_group = ArnActionGroup()
     arn_dict = arn_action_group.process_resource_specific_acls(cfg, db_session)
     policy = print_policy(arn_dict, db_session, minimize_statement)
     return policy
 
 
-def write_policy_with_actions(cfg, db_session, minimize_statement=False):
+def write_policy_with_actions(db_session, cfg, minimize_statement=None):
     """
     Writes an IAM policy given a dict containing lists of actions.
     """
+    check_actions_schema(cfg)
     policy_with_actions = Roles()
     policy_with_actions.process_actions_config(cfg)
     supplied_actions = []
@@ -114,11 +116,9 @@ def write_policy(input_file, crud, minimize):
 
     # User supplies file containing resource-specific access levels
     if crud:
-        check_crud_schema(cfg)
-        policy = write_policy_with_access_levels(cfg, db_session, minimize)
+        policy = write_policy_with_access_levels(db_session, cfg, minimize)
     # User supplies file containing a list of IAM actions
     else:
-        check_actions_schema(cfg)
-        policy = write_policy_with_actions(cfg, db_session, minimize)
+        policy = write_policy_with_actions(db_session, cfg, minimize)
     print(json.dumps(policy, indent=4))
     return policy

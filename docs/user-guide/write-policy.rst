@@ -39,7 +39,7 @@ Instructions
     policy_with_crud_levels:
     - name: myRole
       description: ''
-      arn: ''
+      role_arn: ''
       # Insert ARNs below
       read:
         - ''
@@ -47,7 +47,7 @@ Instructions
         - ''
       list:
         - ''
-      tag:
+      tagging:
         - ''
       permissions-management:
         - ''
@@ -62,14 +62,14 @@ Instructions
     policy_with_crud_levels:
     - name: myRole
       description: 'Justification for privileges'
-      arn: 'arn:aws:iam::123456789102:role/myRole'
+      role_arn: 'arn:aws:iam::123456789102:role/myRole'
       read:
         - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
       write:
         - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
       list:
         - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-      tag:
+      tagging:
         - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
       permissions-management:
         - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
@@ -175,7 +175,7 @@ Instructions
     policy_with_actions:
     - name: myRole
       description: '' # Insert value here
-      arn: '' # Insert value here
+      role_arn: '' # Insert value here
       actions:
       - ''  # Fill in your IAM actions here
 
@@ -186,7 +186,7 @@ Instructions
     policy_with_actions:
     - name: 'RoleNameWithActions'
       description: 'Justification for privileges' # for auditability
-      arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability
+      role_arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability
       actions:
         - kms:CreateGrant
         - kms:CreateCustomKeyStore

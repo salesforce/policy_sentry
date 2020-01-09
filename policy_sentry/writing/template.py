@@ -7,7 +7,7 @@ ACTIONS_TEMPLATE = '''# Generate my policy when I know the Actions
 policy_with_actions:
 - name: {{ name }}
   description: ''
-  arn: ''
+  role_arn: ''
   actions:
   - ''
 '''
@@ -16,7 +16,7 @@ CRUD_TEMPLATE = '''# Generate my policy when I know the access levels and ARNs
 policy_with_crud_levels:
 - name: {{ name }}
   description: ''
-  arn: ''
+  role_arn: ''
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:
@@ -25,7 +25,7 @@ policy_with_crud_levels:
     - ''
   list:
     - ''
-  tag:
+  tagging:
     - ''
   permissions-management:
     - ''
@@ -34,6 +34,33 @@ policy_with_crud_levels:
   wildcard:
     - ''
 '''
+
+CRUD_TEMPLATE_DICT = {
+    'policy_with_crud_levels': [
+        {
+            'name': '',
+            'description': '',
+            'role_arn': '',
+            'read': [],
+            'write': [],
+            'list': [],
+            'tagging': [],
+            'permissions-management': [],
+            'wildcard': [],
+        }
+    ]
+}
+
+ACTIONS_TEMPLATE_DICT = {
+    'policy_with_actions': [
+        {
+            'name': '',
+            'description': '',
+            'role_arn': '',
+            'actions': [],
+        }
+    ]
+}
 
 
 def create_crud_template(name):
@@ -48,3 +75,13 @@ def create_actions_template(name):
     template = Template(ACTIONS_TEMPLATE)
     msg = template.render(name=name)
     return msg
+
+
+def get_crud_template_dict():
+    """Generate the CRUD template in dict format"""
+    return CRUD_TEMPLATE_DICT
+
+
+def get_actions_template_dict():
+    """Get the Actions template in dict format."""
+    return ACTIONS_TEMPLATE_DICT
