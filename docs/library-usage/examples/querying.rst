@@ -3,6 +3,8 @@ Querying
 
 The following are examples of how to leverage some of the functions available from Policy Sentry. The functions selected are likely to be of most interest to other developers.
 
+These ones relate to querying the IAM database.
+
 All
 ---
 
