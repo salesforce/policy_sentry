@@ -1,4 +1,4 @@
-Developing Locally
+Testing
 -----------------------
 
 
@@ -61,8 +61,6 @@ To run and develop Policy Sentry without having to install from PyPi, you can us
 
     invoke unit.nose
 
-Testing
------------------------
 
 Local Unit Testing and Integration Testing: Quick and Easy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

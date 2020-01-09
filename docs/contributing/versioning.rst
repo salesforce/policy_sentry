@@ -1,5 +1,5 @@
 Versioning
---------------------
+===========
 
 We try to follow `Semantic Versioning <https://semver.org/>`__ as much as possible.
 
