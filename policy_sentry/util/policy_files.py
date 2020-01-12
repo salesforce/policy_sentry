@@ -13,8 +13,8 @@ def get_actions_from_policy(data):
             # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
             if isinstance(data['Statement'], dict):
                 # We only want to evaluate policies that have Effect = "Allow"
-                # pylint: disable=no-else-continue, literal-comparison
-                if data['Statement']['Effect'] is 'Deny':
+                # pylint: disable=no-else-continue
+                if data['Statement']['Effect'] == 'Deny':
                     continue
                 else:
                     try:

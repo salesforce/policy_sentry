@@ -80,8 +80,7 @@ def minimize_statement_actions(desired_actions, all_actions, minchars=None):  # 
                 continue
             # If the action name is not empty
             if prefix not in denied_prefixes:
-                # pylint: disable=literal-comparison
-                if permission is not '':
+                if permission != '':
                     if prefix not in desired_actions:
                         prefix = "{}*".format(prefix)
                     minimized_actions.add(prefix)
