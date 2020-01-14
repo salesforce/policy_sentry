@@ -12,7 +12,7 @@ policy_with_actions:
   actions:
   - ''"""
         actions_template = create_actions_template("myrole")
-        self.assertEquals(desired_msg, actions_template)
+        self.assertEqual(desired_msg, actions_template)
 
     def test_crud_template(self):
         desired_msg = """# Generate my policy when I know the access levels and ARNs
@@ -37,4 +37,4 @@ policy_with_crud_levels:
   wildcard:
     - ''"""
         crud_template = create_crud_template("myrole")
-        self.assertEquals(desired_msg, crud_template)
+        self.assertEqual(desired_msg, crud_template)

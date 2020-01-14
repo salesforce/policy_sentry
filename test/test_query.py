@@ -24,7 +24,7 @@ class QueryTestCase(unittest.TestCase):
             'cloud9:UserArn'
         ]
         output = get_condition_keys_for_service(db_session, "cloud9")
-        self.assertEquals(desired_output, output)
+        self.assertEqual(desired_output, output)
 
     def test_get_condition_key_details(self):
         """test_get_condition_key_details: Tests function that grabs details about a specific condition key"""
@@ -34,7 +34,7 @@ class QueryTestCase(unittest.TestCase):
             "condition_value_type": "string"
         }
         output = get_condition_key_details(db_session, "cloud9", "cloud9:Permissions")
-        self.assertEquals(desired_output, output)
+        self.assertEqual(desired_output, output)
 
     def test_get_raw_arns_for_service(self):
         """test_get_raw_arns_for_service: Tests function that grabs a list of raw ARNs per service"""
@@ -69,7 +69,7 @@ class QueryTestCase(unittest.TestCase):
             "condition_keys": None
         }
         output = get_arn_type_details(db_session, "cloud9", "environment")
-        self.assertEquals(desired_output, output)
+        self.assertEqual(desired_output, output)
 
     def test_get_actions_for_service(self):
         """test_get_actions_for_service: Tests function that gets a list of actions per AWS service."""

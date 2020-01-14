@@ -207,9 +207,8 @@ def run_linter(c):
 
 # UNIT TESTING
 @task
-def run_unit_tests(c):
+def run_nosetests(c):
     """Unit testing: Runs unit tests using `nosetests`"""
-    # TODO If the database is not found we should build it, otherwise just run the tests.
     c.run('echo "Running Unit tests"')
     try:
         c.run('nosetests -v')
@@ -221,6 +220,19 @@ def run_unit_tests(c):
         sys.exit()
 
 
+@task
+def run_pytest(c):
+    """Unit testing: Runs unit tests using `pytest`"""
+    c.run('echo "Running Unit tests"')
+    try:
+        c.run('pytest -v')
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+        sys.exit()
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
+        sys.exit()
+
 # Add all testing tasks to the test collection
 integration.add_task(clean_config_directory, 'clean')
 integration.add_task(version_check, 'version')
@@ -229,7 +241,8 @@ integration.add_task(analyze_policy, 'analyze-policy')
 integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
 
-unit.add_task(run_unit_tests, 'nose')
+unit.add_task(run_nosetests, 'nose')
+unit.add_task(run_pytest, 'pytest')
 
 docs.add_task(remove_html_files, 'remove-html-files')
 docs.add_task(make_html, 'make-html')
