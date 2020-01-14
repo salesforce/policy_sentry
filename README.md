@@ -11,6 +11,8 @@ IAM Least Privilege Policy Generator, auditor, and analysis database.
 
 For walkthroughs and full documentation, please visit the [project on ReadTheDocs](https://policy-sentry.readthedocs.io/en/latest/index.html).
 
+See the [Salesforce Engineering Blog post](https://engineering.salesforce.com/salesforce-cloud-security-automating-least-privilege-in-aws-iam-with-policy-sentry-b04fe457b8dc) on Policy Sentry.
+
 ## Overview
 
 Writing security-conscious IAM Policies by hand can be very tedious and inefficient. Many Infrastructure as Code developers have experienced something like this:
@@ -189,11 +191,29 @@ This rapidly speeds up the time to develop IAM policies, and ensures that all po
 
 ## Quickstart
 
-* `policy_sentry` is available via pip. To install, run:
+
+#### Installation
+
+* Policy Sentry is available via pip. To install, run:
 
 ```bash
 pip3 install --user policy_sentry
 ```
+
+#### Shell completion
+
+To enable Bash completion, put this in your `.bashrc`:
+
+```bash
+eval "$(_POLICY_SENTRY_COMPLETE=source policy_sentry)"
+```
+
+To enable ZSH completion, put this in your `.zshrc`:
+
+```
+eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
+```
+
 
 ### Initialization
 

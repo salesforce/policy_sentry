@@ -18,9 +18,9 @@ Writing security-conscious IAM Policies by hand can be very tedious and ineffici
 Such a process is not ideal for security or for Infrastructure as Code developers. We need to make it easier to write IAM Policies securely and abstract the complexity of writing least-privilege IAM policies. That's why I made this tool.
 
 Authoring Secure IAM Policies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------
 
-``policy_sentry``\ 's flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
+Policy Sentry's flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
 
 
 * "I need Read/Write/List access to ``arn:aws:s3:::example-org-sbx-vmimport``\ "
@@ -30,7 +30,7 @@ Authoring Secure IAM Policies
 ...and our automation should create policies that correspond to those access levels.
 
 
-How do we accomplish this? Well, policy_sentry leverages the AWS documentation on `Actions, Resources, and Condition Keys <1>`_ documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
+How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on `Actions, Resources, and Condition Keys <1>`_ documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
 
 +----------------------------------+------------------------+--------------------+
 | **Actions**                      | **Access Level**       | **Resource Types** |
@@ -159,47 +159,68 @@ Notice how the policy above recognizes the ARNs that the user supplies, along wi
 
 This rapidly speeds up the time to develop IAM policies, and ensures that all policies created limit access to exactly what your role needs access to. This way, developers only have to determine the resources that they need to access, and we abstract the complexity of IAM policies away from their development processes.
 
+
 Installation
--------------
+------------
 
-
-* ``policy_sentry`` is available via pip. To install, run:
+* Policy Sentry is available via pip. To install, run:
 
 .. code-block:: bash
 
-   pip install --user policy_sentry
+   pip3 install --user policy_sentry
+
+
+Shell completion
+~~~~~~~~~~~~~~~~
+
+
+To enable Bash completion, put this in your `.bashrc`:
+
+
+.. code-block:: bash
+
+   eval "$(_POLICY_SENTRY_COMPLETE=source policy_sentry)"
+
+
+To enable ZSH completion, put this in your `.zshrc`:
+
+.. code-block:: bash
+
+   eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 
 
 
 Usage
-^^^^^
+-------------
 
 
-*
-  ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
+* ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
 
-*
-  ``create-template``\ : Creates the YML file templates for use in the ``write-policy`` command types.
+* ``create-template``\ : Creates the YML file templates for use in the ``write-policy`` command types.
 
-*
-  ``write-policy``\ : Leverage a YAML file to write policies for you
-
+* ``write-policy``\ : Leverage a YAML file to write policies for you
 
   * Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the `documentation on CRUD mode <https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#crud-mode-arns-and-access-levels>`__
   * Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the `documentation on Action Mode <https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#actions-mode-lists-of-iam-actions>`__.
 
-*
-  ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
+* ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
 
-*
-  ``download-policies``\ : Download IAM policies from your AWS account for analysis.
+* ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
+  - Option 1: Query the Actions Table (``action-table``)
+  - Option 2: Query the ARNs Table (``arn-table``)
+  - Option 3: Query the Conditions Table (``condition-table``)
 
-*
-  ``analyze-iam-policy``: Analyze an IAM policy read from a JSON file, expands the wildcards (like ``s3:List*`` if necessary.
+* ``download-policies``\ : Download IAM policies from your AWS account for analysis.
 
+* ``analyze``: Analyze an IAM policy read from a JSON file, expands the wildcards (like ``s3:List*`` if necessary, and generates a report based on policies that are flagged for these risk categories:
 
-  * Option 1: Audits them to see if certain IAM actions are permitted, based on actions in a separate text file. See the `documentation on Initialization <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
-  * Option 2: Audits them to see if any of the actions in the policy meet a certain access level, such as "Permissions management."
+  * Privilege Escalation: This is based off of [Rhino Security Labs research](https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation).
+
+  * Resource Exposure: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
+
+  * Network Exposure: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
+
+  * Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
 
 Author Information
