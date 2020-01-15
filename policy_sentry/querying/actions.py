@@ -4,6 +4,7 @@ This supports the policy_sentry query functionality
 """
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable
+from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.util.actions import get_full_action_name
 from policy_sentry.util.access_levels import transform_access_level_text
 
@@ -96,6 +97,12 @@ def get_actions_with_access_level(db_session, service, access_level):
     :return: A list of actions
     """
     actions_list = []
+    all_services = get_all_service_prefixes(db_session)
+    if service == "all":
+        for serv in all_services:
+            output = get_actions_with_access_level(
+                db_session, serv, access_level)
+            actions_list.extend(output)
     rows = db_session.query(ActionTable).filter(and_(
         ActionTable.service.like(service),
         ActionTable.access_level.ilike(access_level)

@@ -147,6 +147,18 @@ class QueryTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
+    def test_get_all_actions_with_access_level(self):
+        """test_get_all_actions_with_access_level: Get all actions with a given access level"""
+        # list1 elements should be in result
+        list1 = get_actions_with_access_level(db_session, "all", "Permissions management")
+        list2 = ["s3:deleteaccesspointpolicy", "s3:putbucketacl"]
+        self.maxDiff = None
+        print(list1)
+        # decision = list1 contains all elements of list2 using all()
+        decision = all(elem in list1 for elem in list2)
+        print(f"decision is {decision}")
+        self.assertTrue(decision)
+
     def test_get_actions_with_arn_type_and_access_level(self):
         """test_get_actions_with_arn_type_and_access_level: Tests a function that gets a list of
         actions in a service under different access levels, specific to an ARN format."""
