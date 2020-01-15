@@ -1,7 +1,10 @@
 # Changelog
+## 2020-01-10
+### Added
+* `get_all_actions_with_access_level` now supports "all" as a valid input, so you can easily request all IAM actions that are at a certain access level, regardless of service.
+* 0.6.8 Version bump so I can use it
+
 ## 2020-01-09
-
-
 ### Changed
 * 0.6.7 release to avoid issues with breaking changes
 * Template:
