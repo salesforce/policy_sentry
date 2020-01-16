@@ -3,7 +3,8 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.querying.actions import get_actions_for_service, get_action_data, \
     get_actions_with_access_level, get_actions_with_arn_type_and_access_level, \
-    get_actions_matching_condition_key, get_actions_that_support_wildcard_arns_only
+    get_actions_matching_condition_key, get_actions_that_support_wildcard_arns_only, \
+    get_actions_matching_condition_crud_and_arn
 from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
     get_arn_types_for_service
 from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
@@ -186,13 +187,52 @@ class QueryTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
+    def test_get_actions_matching_condition_crud_and_arn(self):
+        """test_get_actions_matching_condition_crud_and_arn: Get a list of IAM Actions matching condition key,
+        CRUD level, and raw ARN"""
+        results = get_actions_matching_condition_crud_and_arn(
+            db_session,
+            "ram:ResourceArn",
+            "Permissions management",
+            "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}"
+        )
+        desired_results = ['ram:createresourceshare']
+        self.assertListEqual(desired_results, results)
+
+    def test_get_actions_matching_condition_crud_and_wildcard_arn(self):
+        """test_get_actions_matching_condition_crud_and_wildcard_arn: Get a list of IAM Actions matching condition key
+        , CRUD level, and raw ARN. Raw ARN equals * in this case"""
+        desired_results = [
+            'swf:pollforactivitytask',
+            'swf:pollfordecisiontask',
+            'swf:respondactivitytaskcompleted',
+            'swf:startworkflowexecution'
+        ]
+        results = get_actions_matching_condition_crud_and_arn(db_session, "swf:taskList.name", "Write", "*")
+        self.assertListEqual(desired_results, results)
+
+        # This one leverages a condition key that is partway through a string in the database
+        # - luckily, SQLAlchemy's ilike function allows us to find it anyway because it's a substring
+        # kms:CallerAccount,kms:EncryptionAlgorithm,kms:EncryptionContextKeys,kms:ViaService
+        desired_results = [
+            'kms:decrypt',
+            'kms:encrypt',
+            'kms:generatedatakey',
+            'kms:generatedatakeypair',
+            'kms:generatedatakeypairwithoutplaintext',
+            'kms:generatedatakeywithoutplaintext',
+            'kms:reencryptfrom',
+            'kms:reencryptto'
+        ]
+        results = get_actions_matching_condition_crud_and_arn(db_session, "kms:EncryptionAlgorithm", "Write", "*")
+        self.assertListEqual(desired_results, results)
+
     # Nuking this test... as AWS adds on more condition keys, this becomes impossible to maintain as a single test.
     # def test_get_actions_matching_condition_key(self):
     #     """test_get_actions_matching_condition_key: Tests a function that creates a list of all IAM
     #     actions that support the supplied condition key."""
     #     # condition_key = "aws:RequestTag"
-    #     desired_list = [
-    #         'appstream:associatefleet', 'appstream:batchassociateuserstack', 'appstream:batchdisassociateuserstack', 'appstream:copyimage', 'appstream:createimagebuilderstreamingurl', 'appstream:createstreamingurl', 'appstream:deletefleet', 'appstream:deleteimage', 'appstream:deleteimagebuilder', 'appstream:deleteimagepermissions', 'appstream:deletestack', 'appstream:disassociatefleet', 'appstream:startfleet', 'appstream:startimagebuilder', 'appstream:stopfleet', 'appstream:stopimagebuilder', 'appstream:tagresource', 'appstream:updatefleet', 'appstream:updateimagepermissions', 'appstream:updatestack', 'appsync:deletegraphqlapi', 'appsync:getgraphqlapi', 'appsync:listtagsforresource', 'appsync:tagresource', 'appsync:updategraphqlapi', 'codecommit:tagresource', 'cognito-identity:createidentitypool', 'cognito-identity:listtagsforresource', 'cognito-identity:tagresource', 'cognito-identity:untagresource', 'cognito-idp:createuserpool', 'cognito-idp:listtagsforresource', 'cognito-idp:tagresource', 'cognito-idp:untagresource', 'cognito-idp:updateuserpool', 'dms:describereplicationinstancetasklogs', 'mobiletargeting:createapp', 'mobiletargeting:createcampaign', 'mobiletargeting:createsegment', 'mobiletargeting:deletecampaign', 'mobiletargeting:deletesegment', 'mobiletargeting:getapp', 'mobiletargeting:getapps', 'mobiletargeting:getcampaign', 'mobiletargeting:getcampaignversion', 'mobiletargeting:getcampaignversions', 'mobiletargeting:getcampaigns', 'mobiletargeting:getsegment', 'mobiletargeting:getsegmentversion', 'mobiletargeting:getsegmentversions', 'mobiletargeting:getsegments', 'mobiletargeting:listtagsforresource', 'mobiletargeting:tagresource', 'mobiletargeting:untagresource', 'mobiletargeting:updatecampaign', 'mobiletargeting:updatesegment']
+    #     desired_list = []
     #     stuff = "aws:ResourceTag/${TagKey}"
     #     output = get_actions_matching_condition_key(db_session, service=None, condition_key=stuff)
     #     self.maxDiff = None
