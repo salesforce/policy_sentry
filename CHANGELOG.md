@@ -17,7 +17,6 @@
 * `command/write_policy/write_policy_with_actions` and `command/write_policy/write_policy_with_access_levels` can be called directly.
 * `writing/template/` now exposes `get_crud_template_dict` and `get_actions_template_dict` so developers can create the templates by calling the library. We might add on additional ones so they can just pass in lists without having to know the format, but not right now. They can pass that into `write_policy_with_actions` and `write_policy_with_access_levels`
 
-
 ## 2020-01-08
 * Fixed an issue where the bundled database was being appended to instead of overwritten when going through an update.
 * Documentation updates
