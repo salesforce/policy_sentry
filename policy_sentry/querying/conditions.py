@@ -42,3 +42,4 @@ def get_condition_key_details(db_session, service, condition_key_name):
         'condition_value_type': result.condition_value_type
     }
     return output
+

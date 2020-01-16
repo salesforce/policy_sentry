@@ -4,7 +4,9 @@ This supports the policy_sentry query functionality
 """
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable
+from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.util.actions import get_full_action_name
+from policy_sentry.util.arns import get_service_from_arn
 from policy_sentry.util.access_levels import transform_access_level_text
 
 
@@ -96,6 +98,12 @@ def get_actions_with_access_level(db_session, service, access_level):
     :return: A list of actions
     """
     actions_list = []
+    all_services = get_all_service_prefixes(db_session)
+    if service == "all":
+        for serv in all_services:
+            output = get_actions_with_access_level(
+                db_session, serv, access_level)
+            actions_list.extend(output)
     rows = db_session.query(ActionTable).filter(and_(
         ActionTable.service.like(service),
         ActionTable.access_level.ilike(access_level)
@@ -158,6 +166,40 @@ def get_actions_matching_condition_key(db_session, service, condition_key):
             action = get_full_action_name(row.service, row.name)
             actions_list.append(action)
 
+    return actions_list
+
+
+def get_actions_matching_condition_crud_and_arn(db_session, condition_key, access_level, raw_arn):
+    """
+    Get a list of IAM Actions matching a condition key, CRUD level, and raw ARN format.
+
+    :param db_session: SQL Alchemy database session
+    :param condition_key: A condition key, like aws:TagKeys
+    :param access_level: Access level that matches the database value. "Read", "Write", "List", "Tagging", or "Permissions management"
+    :param raw_arn: The raw ARN format in the database, like arn:${Partition}:s3:::${BucketName}
+    :return: List of IAM Actions
+    """
+    actions_list = []
+    looking_for = '%{0}%'.format(condition_key)
+    if raw_arn == "*":
+        rows = db_session.query(ActionTable).filter(and_(
+            # ActionTable.service.ilike(service),
+            ActionTable.access_level.ilike(access_level),
+            ActionTable.resource_arn_format.is_(raw_arn),
+            ActionTable.condition_keys.ilike(looking_for),
+        ))
+    else:
+        service = get_service_from_arn(raw_arn)
+        rows = db_session.query(ActionTable).filter(and_(
+            ActionTable.service.ilike(service),
+            ActionTable.access_level.ilike(access_level),
+            ActionTable.resource_arn_format.ilike(raw_arn),
+            ActionTable.condition_keys.ilike(looking_for),
+        ))
+
+    for row in rows:
+        action = get_full_action_name(row.service, row.name)
+        actions_list.append(action)
     return actions_list
 
 
