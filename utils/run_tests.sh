@@ -12,7 +12,8 @@ pipenv run invoke test.lint
 pipenv run invoke integration.clean
 pipenv run invoke integration.version
 pipenv run invoke integration.initialize
-pipenv run invoke unit.nose
+#pipenv run invoke unit.nose
+pipenv run invoke unit.pytest
 pipenv run invoke integration.analyze-policy
 pipenv run invoke integration.query
 pipenv run invoke integration.write-policy
