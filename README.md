@@ -1,3 +1,5 @@
+![](http://i.imgur.com/uITz0cM.gif)
+
 # Policy Sentry
 
 [![Build Status](https://travis-ci.org/salesforce/policy_sentry.svg?branch=master)](https://travis-ci.org/salesforce/policy_sentry)
