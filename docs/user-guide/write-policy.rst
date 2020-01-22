@@ -166,7 +166,7 @@ Instructions
 
 .. code-block:: bash
 
-    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+    policy_sentry create-template --name myRole --output-file actions.yml --template-type actions
 
 * It will generate a file with contents like this:
 
@@ -198,7 +198,7 @@ Instructions
 
 .. code-block:: bash
 
-   policy_sentry write-policy --input-file examples/actions.yml
+   policy_sentry write-policy --input-file actions.yml
 
 
 * The output will look like this:
