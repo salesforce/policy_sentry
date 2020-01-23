@@ -102,21 +102,27 @@ def create_database(db_session, services, access_level_overrides_file):
     return db_session
 
 
-def connect_db(db_file):
+def connect_db(db_file, initialization=False):
     """
     Given the absolute path to a SQLite database, connect to the database and return a database session.
     :param db_file: The absolute path to the SQLite database.
+    :param initialization: Boolean to indicate whether or not this is at the initialization step. If set to True, this will not throw an error when the database file does not exist. Defaults to False.
     :return: Database session object.
     """
     # Valid SQLite URL forms are:
     #  sqlite:///:memory: (or, sqlite://)
     #  sqlite:///relative/path/to/file.db
-    # sqlite:////absolute/path/to/file.db # Using this one. db_file is
+    #  sqlite:////absolute/path/to/file.db # Using this one. db_file is
     # prefixed with another / so it works out to 4
     if db_file == 'bundled':
         database_path = str(os.path.dirname(__file__)) + '/data/aws.sqlite3'
     else:
         database_path = db_file
+
+    if not initialization and not os.path.isfile(database_path):
+        print("ERROR: The database path does not exist. Please run `policy_sentry initialize` to initialize the IAM "
+              "database.")
+        sys.exit(1)
     engine = create_engine(str('sqlite:///' + database_path), echo=False)
     try:
         Base.metadata.create_all(engine)
