@@ -4,7 +4,7 @@ from policy_sentry.shared.database import connect_db
 from policy_sentry.querying.actions import get_actions_for_service, get_action_data, \
     get_actions_with_access_level, get_actions_with_arn_type_and_access_level, \
     get_actions_matching_condition_key, get_actions_that_support_wildcard_arns_only, \
-    get_actions_matching_condition_crud_and_arn
+    get_actions_matching_condition_crud_and_arn, get_actions_at_access_level_that_support_wildcard_arns_only
 from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
     get_arn_types_for_service
 from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
@@ -147,6 +147,16 @@ class QueryTestCase(unittest.TestCase):
         print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
+        """test_get_actions_at_access_level_that_support_wildcard_arns_only: Test function that gets a list of
+         wildcard-only actions in a service under different access levels"""
+        permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(db_session, "s3", "Permissions management")
+        list_output = get_actions_at_access_level_that_support_wildcard_arns_only(db_session, "s3", "List")
+        read_output = get_actions_at_access_level_that_support_wildcard_arns_only(db_session, "s3", "Read")
+        self.assertListEqual(permissions_output, ['s3:putaccountpublicaccessblock'])
+        self.assertListEqual(list_output, ['s3:listallmybuckets'])
+        self.assertListEqual(read_output, ['s3:getaccesspoint', 's3:getaccountpublicaccessblock', 's3:listaccesspoints'])
 
     def test_get_all_actions_with_access_level(self):
         """test_get_all_actions_with_access_level: Get all actions with a given access level"""

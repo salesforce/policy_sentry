@@ -16,6 +16,7 @@ pipenv run invoke integration.initialize
 pipenv run invoke unit.pytest
 pipenv run invoke integration.analyze-policy
 pipenv run invoke integration.query
+pipenv run invoke integration.query-yaml
 pipenv run invoke integration.write-policy
 pipenv run invoke test.security
 pipenv run invoke docs.remove-html-files

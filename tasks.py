@@ -175,6 +175,31 @@ def query(c):
         sys.exit()
 
 
+@task(pre=[install_package])
+def query_with_yaml(c):
+    """Integration testing: Tests the `query` functionality (querying the IAM database) - but with yaml"""
+    try:
+        c.run('echo "Querying the action table with yaml option"')
+        c.run('echo "Querying the action table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table ''--service ram --access-level permissions-management --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress --fmt yaml', pty=True)
+        c.run('echo "Querying the ARN table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service ssm --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types --fmt yaml', pty=True)
+        c.run('echo "Querying the condition keys table"', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions --fmt yaml', pty=True)
+    except UnexpectedExit as u_e:
+        print(f"FAIL! UnexpectedExit: {u_e}")
+        sys.exit()
+    except Failure as f_e:
+        print(f"FAIL: Failure: {f_e}")
+        sys.exit()
+
+
 # TEST - SECURITY
 @task
 def security_scan(c):
@@ -240,6 +265,7 @@ integration.add_task(create_db, 'initialize')
 integration.add_task(analyze_policy, 'analyze-policy')
 integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
+integration.add_task(query_with_yaml, 'query-yaml')
 
 unit.add_task(run_nosetests, 'nose')
 unit.add_task(run_pytest, 'pytest')

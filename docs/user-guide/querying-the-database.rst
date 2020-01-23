@@ -13,6 +13,14 @@ Commands
 
 .. code-block:: bash
 
+    # NOTE: Use --fmt yaml or --fmt json to change the output format. Defaults to json for querying
+
+    # Get a list of actions that do not support resource constraints
+    policy_sentry query action-table --service s3 --wildcard-only --fmt yaml
+
+    # Get a list of actions at the "Read" level in S3 that do not support resource constraints
+    policy_sentry query action-table --service s3 --access-level read --wildcard-only --fmt yaml
+
     # Get a list of all IAM Actions available to the RAM service
     policy_sentry query action-table --service ram
 
@@ -75,6 +83,8 @@ Options
                                       actions that only support wildcard resources
                                       - i.e., cannot support ARNs in the resource
                                       block.
+      --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
+                                      "yaml"
       --help                          Show this message and exit.
 
 * arn-table
@@ -83,13 +93,16 @@ Options
 
     Usage: policy_sentry query arn-table [OPTIONS]
 
+      Query the ARN Table from the Policy Sentry database
+
     Options:
-      --service TEXT    Filter according to AWS service.  [required]
-      --name TEXT       The short name of the resource ARN type. For example,
-                        `bucket` under service `s3`.
-      --list-arn-types  If ARN table is chosen, show the short names of ARN Types.
-                        If empty, this will show RAW ARNs only.
-      --help            Show this message and exit.
+      --service TEXT     Filter according to AWS service.  [required]
+      --name TEXT        The short name of the resource ARN type. For example,
+                         `bucket` under service `s3`.
+      --list-arn-types   Show the short names of ARN Types. If empty, this will
+                         show RAW ARNs only.
+      --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
+      --help             Show this message and exit.
 
 * condition-table
 
@@ -97,8 +110,13 @@ Options
 
     Usage: policy_sentry query condition-table [OPTIONS]
 
+      Query the condition keys table from the Policy Sentry database
+
     Options:
-      --name TEXT     Get details on a specific condition key. Leave this blank to
-                      get a list of all condition keys available to the service.
-      --service TEXT  Filter according to AWS service.  [required]
-      --help          Show this message and exit.
+      --name TEXT        Get details on a specific condition key. Leave this blank
+                         to get a list of all condition keys available to the
+                         service.
+      --service TEXT     Filter according to AWS service.  [required]
+      --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
+      --help             Show this message and exit.
+
