@@ -60,20 +60,26 @@ Policy Writing Commands
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
+    # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
+    # CRUD mode
+    policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
+    # Actions mode
+    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+
+    # Get a list of actions that do not support resource constraints
+    policy_sentry query action-table --service s3 --wildcard-only --fmt yaml
+
+    # Get a list of actions at the "Write" level in S3 that do not support resource constraints
+    policy_sentry query action-table --service s3 --access-level write --wildcard-only --fmt yaml
+
     # Initialize the policy_sentry config folder and create the IAM database tables.
     policy_sentry initialize
-
-    # Create a template file for use in the write-policy command (crud mode)
-    policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
 
     # Write policy based on resource-specific access levels
     policy_sentry write-policy --crud --input-file examples/yml/crud.yml
 
     # Write policy_sentry YML files based on resource-specific access levels on a directory basis
     policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
-
-    # Create a template file for use in the write-policy command (actions mode)
-    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
 
     # Write policy based on a list of actions
     policy_sentry write-policy --input-file examples/yml/actions.yml

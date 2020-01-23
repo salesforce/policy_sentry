@@ -1,4 +1,10 @@
 # Changelog
+## 2020-01-22
+### Added
+* Query command now supports querying for wildcard only actions at an access level per service. For example, the only wildcard-only action under S3 at the Permissions management access level is `s3:PutAccountPublicAccessBlock`
+### Changed
+* `query` command now supports yaml output. This Fixes #95 (output in the Query command) but does not fix #11 (since #11 is asking for the write-policy command to support YAML, and was before the query functionality came out).
+
 ## 2020-01-15
 ### Added
 * `get_actions_matching_condition_key_crud_and_arn` is available. This provides some scaffolding for #21

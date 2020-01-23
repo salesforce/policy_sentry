@@ -87,13 +87,35 @@ def get_actions_that_support_wildcard_arns_only(db_session, service):
     return actions_list
 
 
+def get_actions_at_access_level_that_support_wildcard_arns_only(db_session, service, access_level):
+    """
+    Get a list of actions at an access level that do not support restricting the action to resource ARNs.
+
+    :param db_session: SQLAlchemy database session object
+    :param service: A single AWS service prefix, like `s3` or `kms`
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
+    :return: A list of actions
+    """
+    actions_list = []
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
+        ActionTable.service.ilike(service),
+        ActionTable.resource_arn_format.like("*"),
+        ActionTable.access_level.ilike(access_level),
+        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(
+            ActionTable.resource_arn_format.notlike('*')))
+    ))
+    for row in rows:
+        actions_list.append(get_full_action_name(row.service, row.name))
+    return actions_list
+
+
 def get_actions_with_access_level(db_session, service, access_level):
     """
     Get a list of actions in a service under different access levels.
 
     :param db_session: SQLAlchemy database session object
     :param service: A single AWS service prefix, like `s3` or `kms`
-    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions Management', or 'Tagging'
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
 
     :return: A list of actions
     """
