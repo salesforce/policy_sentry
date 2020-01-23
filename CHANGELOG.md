@@ -1,4 +1,7 @@
 # Changelog
+## 2020-01-23
+* Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
+
 ## 2020-01-22
 ### Added
 * Query command now supports querying for wildcard only actions at an access level per service. For example, the only wildcard-only action under S3 at the Permissions management access level is `s3:PutAccountPublicAccessBlock`

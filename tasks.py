@@ -250,13 +250,14 @@ def run_pytest(c):
     """Unit testing: Runs unit tests using `pytest`"""
     c.run('echo "Running Unit tests"')
     try:
-        c.run('pytest -v')
+        c.run('python -m pytest -v')
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit()
     except Failure as f_e:
         print(f"FAIL: Failure: {f_e}")
         sys.exit()
+
 
 # Add all testing tasks to the test collection
 integration.add_task(clean_config_directory, 'clean')
