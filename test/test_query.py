@@ -110,23 +110,14 @@ class QueryTestCase(unittest.TestCase):
                     'action': 'ram:createresourceshare',
                     'description': 'Create resource share with provided resource(s) and/or principal(s)',
                     'access_level': 'Permissions management',
-                    'resource_arn_format': 'arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}',
-                    'condition_keys': [
-                        'ram:RequestedResourceType',
-                        'ram:ResourceArn',
-                        # 'ram:AllowsExternalPrincipals',
-                        'ram:RequestedAllowsExternalPrincipals'
-                    ],
-                    'dependent_actions': None
-                },
-                {
-                    'action': 'ram:createresourceshare',
-                    'description': 'Create resource share with provided resource(s) and/or principal(s)',
-                    'access_level': 'Permissions management',
                     'resource_arn_format': '*',
                     'condition_keys': [
                         'aws:RequestTag/${TagKey}',
-                        'aws:TagKeys'
+                        'aws:TagKeys',
+                        'ram:RequestedResourceType',
+                        'ram:ResourceArn',
+                        'ram:RequestedAllowsExternalPrincipals',
+                        'ram:Principal'
                     ],
                     'dependent_actions': None
                 }
@@ -173,8 +164,13 @@ class QueryTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level(self):
         """test_get_actions_with_arn_type_and_access_level: Tests a function that gets a list of
         actions in a service under different access levels, specific to an ARN format."""
-        desired_output = ['ram:associateresourceshare', 'ram:createresourceshare', 'ram:deleteresourceshare',
-                          'ram:disassociateresourceshare', 'ram:updateresourceshare']
+        desired_output = [
+            'ram:associateresourceshare',
+            # 'ram:createresourceshare',
+            'ram:deleteresourceshare',
+            'ram:disassociateresourceshare',
+            'ram:updateresourceshare'
+        ]
         output = get_actions_with_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
         print(output)
@@ -202,11 +198,13 @@ class QueryTestCase(unittest.TestCase):
         CRUD level, and raw ARN"""
         results = get_actions_matching_condition_crud_and_arn(
             db_session,
-            "ram:ResourceArn",
-            "Permissions management",
-            "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}"
+            "elasticbeanstalk:InApplication",
+            "List",
+            "arn:${Partition}:elasticbeanstalk:${Region}:${Account}:environment/${ApplicationName}/${EnvironmentName}"
         )
-        desired_results = ['ram:createresourceshare']
+        desired_results = [
+            'elasticbeanstalk:describeenvironments',
+        ]
         self.assertListEqual(desired_results, results)
 
     def test_get_actions_matching_condition_crud_and_wildcard_arn(self):

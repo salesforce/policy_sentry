@@ -1,6 +1,8 @@
 # Changelog
 ## 2020-01-23
 * Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
+* Docs refresh
+* Fixes #71 - cognito-identity Write actions as permissions management
 
 ## 2020-01-22
 ### Added
