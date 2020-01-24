@@ -1,5 +1,4 @@
 # Changelog
-
 # 0.6.9 (2020-01-24)
 ### Added
 * database: Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
@@ -7,6 +6,7 @@
 * query: The `query` command now supports yaml output. This Fixes #95 (output in the Query command) but does not fix #11 (since #11 is asking for the write-policy command to support YAML, and was before the query functionality came out).
 * query: the `get_actions_matching_condition_key_crud_and_arn` is available. This provides some scaffolding for #21
 * travis: Auto-deployment of Python package with TravisCI
+* aws-docs: Fixes #71 - cognito-identity Write actions as permissions management
 
 ## 0.6.8 (2020-01-10)
 * query: The function `get_all_actions_with_access_level` now supports "all" as a valid input, so you can easily request all IAM actions that are at a certain access level, regardless of service.

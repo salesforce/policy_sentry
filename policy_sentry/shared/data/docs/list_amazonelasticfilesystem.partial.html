@@ -6,7 +6,7 @@
    Actions, Resources, and Condition Keys for      Amazon Elastic File System - AWS Identity and Access Management
   </title>
   <meta content="iam-ug.pdf#list_amazonelasticfilesystem" name="pdf"/>
-  <meta content="http://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+  <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
   <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonelasticfilesystem.md" name="github"/>
   <meta content="aws-iam-release-notes.rss" name="rss"/>
   <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
@@ -20,7 +20,7 @@
    <div style="display: none">
     <a href="iam-ug.pdf#list_amazonelasticfilesystem" target="_blank" title="Open PDF">
     </a>
-    <a href="http://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+    <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
     </a>
     <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonelasticfilesystem.md" target="_blank" title="Edit on GitHub">
     </a>
@@ -210,7 +210,11 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w473aac29c13c25d322c11b9">
+       <table class="awsui-util-container" id="w474aac29c14c25d330c11b9">
+        <p class="title">
+         <b>
+         </b>
+        </p>
         <tr>
          <th>
           Actions
@@ -235,13 +239,115 @@
          <td>
           <a id="amazonelasticfilesystem-Backup">
           </a>
-          <a href="https://docs.aws.amazon.com/efs/latest/ug/Action_Backup.html">
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-backup-solutions.html">
            Backup
           </a>
           [permission only]
          </td>
          <td>
           Starts a backup job for an existing file system.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-ClientMount">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-client-authorization.html">
+           ClientMount
+          </a>
+          [permission only]
+         </td>
+         <td>
+          Permission for allowing read-access to a file system.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-ClientRootAccess">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-client-authorization.html">
+           ClientRootAccess
+          </a>
+          [permission only]
+         </td>
+         <td>
+          Permission for allowing root-access to a file system.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-ClientWrite">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-client-authorization.html">
+           ClientWrite
+          </a>
+          [permission only]
+         </td>
+         <td>
+          Permission for allowing write-access to a file system.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-CreateAccessPoint">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_CreateAccessPoint.html">
+           CreateAccessPoint
+          </a>
+         </td>
+         <td>
+          Creates an access point for the specified file system.
          </td>
          <td>
           Write
@@ -361,6 +467,27 @@
         </tr>
         <tr>
          <td>
+          <a id="amazonelasticfilesystem-DeleteAccessPoint">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DeleteAccessPoint.html">
+           DeleteAccessPoint
+          </a>
+         </td>
+         <td>
+          Deletes the specified access point.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="amazonelasticfilesystem-DeleteFileSystem">
           </a>
           <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DeleteFileSystem.html">
@@ -369,6 +496,32 @@
          </td>
          <td>
           Deletes a file system, permanently severing access to its contents.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-DeleteFileSystemPolicy">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DeleteFileSystemPolicy.html">
+           DeleteFileSystemPolicy
+          </a>
+         </td>
+         <td>
+          Clears the resource-level policy for a given file system.
          </td>
          <td>
           Write
@@ -446,6 +599,32 @@
             aws:TagKeys
            </a>
           </p>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-DescribeFileSystemPolicy">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DescribeFileSystemPolicy.html">
+           DescribeFileSystemPolicy
+          </a>
+         </td>
+         <td>
+          Returns the current resource-level policy for a given file system.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system
+           </a>
+          </p>
+         </td>
+         <td>
          </td>
          <td>
          </td>
@@ -587,6 +766,32 @@
         </tr>
         <tr>
          <td>
+          <a id="amazonelasticfilesystem-ListTagsForResource">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_ListTagsForResource.html">
+           ListTagsForResource
+          </a>
+         </td>
+         <td>
+          Returns the tags associated with the specified Amazon EFS resource.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="amazonelasticfilesystem-ModifyMountTargetSecurityGroups">
           </a>
           <a href="https://docs.aws.amazon.com/efs/latest/ug/API_ModifyMountTargetSecurityGroups.html">
@@ -595,6 +800,33 @@
          </td>
          <td>
           Modifies the set of security groups in effect for a mount target.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-file-system">
+            file-system*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-PutFileSystemPolicy">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_PutFileSystemPolicy.html">
+           PutFileSystemPolicy
+          </a>
+         </td>
+         <td>
+          Apply a resource-level policy granting and/or restricting actions from given actors
+                              for the specified file system.
          </td>
          <td>
           Write
@@ -641,7 +873,7 @@
          <td>
           <a id="amazonelasticfilesystem-Restore">
           </a>
-          <a href="https://docs.aws.amazon.com/efs/latest/ug/Action_Restore.html">
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-backup-solutions.html">
            Restore
           </a>
           [permission only]
@@ -658,6 +890,48 @@
             file-system*
            </a>
           </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-TagResource">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_TagResource.html">
+           TagResource
+          </a>
+         </td>
+         <td>
+          Creates or overwrites tags associated with the specified Amazon EFS resource.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-UntagResource">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/API_UntagResource.html">
+           UntagResource
+          </a>
+         </td>
+         <td>
+          Deletes the specified tags from a specified Amazon EFS resource.
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
          </td>
          <td>
          </td>
@@ -719,7 +993,11 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w473aac29c13c25d322c13b5">
+       <table class="awsui-util-container" id="w474aac29c14c25d330c13b5">
+        <p class="title">
+         <b>
+         </b>
+        </p>
         <tr>
          <th>
           Resource Types
@@ -768,6 +1046,43 @@
           </p>
          </td>
         </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticfilesystem-access-point">
+          </a>
+          <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-resources">
+           access-point
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:elasticfilesystem:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:access-point/$
+           <span>
+            {
+           </span>
+           AccessPointId}
+          </code>
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticfilesystem-aws_ResourceTag___TagKey_">
+            aws:ResourceTag/${TagKey}
+           </a>
+          </p>
+         </td>
+        </tr>
        </table>
       </div>
       <awsdocs-table-expander>
@@ -803,7 +1118,11 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w473aac29c13c25d322c15b7">
+       <table class="awsui-util-container" id="w474aac29c14c25d330c15b7">
+        <p class="title">
+         <b>
+         </b>
+        </p>
         <tr>
          <th>
           Condition Keys
@@ -819,13 +1138,16 @@
          <td>
           <a id="amazonelasticfilesystem-aws_RequestTag___TagKey_">
           </a>
-          aws:RequestTag/$
-          <span>
-           {
-          </span>
-          TagKey}
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+           aws:RequestTag/$
+           <span>
+            {
+           </span>
+           TagKey}
+          </a>
          </td>
          <td>
+          Filters actions based on the allowed set of values for each of the tags
          </td>
          <td>
           String
@@ -835,13 +1157,16 @@
          <td>
           <a id="amazonelasticfilesystem-aws_ResourceTag___TagKey_">
           </a>
-          aws:ResourceTag/$
-          <span>
-           {
-          </span>
-          TagKey}
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+           aws:ResourceTag/$
+           <span>
+            {
+           </span>
+           TagKey}
+          </a>
          </td>
          <td>
+          Filters actions based on tag key-value pairs attached to the resource
          </td>
          <td>
           String
@@ -851,9 +1176,12 @@
          <td>
           <a id="amazonelasticfilesystem-aws_TagKeys">
           </a>
-          aws:TagKeys
+          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+           aws:TagKeys
+          </a>
          </td>
          <td>
+          Filters actions based on the presence of mandatory tags in the request
          </td>
          <td>
           String
