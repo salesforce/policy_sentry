@@ -8,8 +8,6 @@ before_install:
 install:
 - pip install pipenv
 - pipenv install --dev
-before_script:
-- invoke unit.pytest
 script:
 - invoke build.install-package
 - invoke test.lint
