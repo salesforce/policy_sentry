@@ -58,6 +58,17 @@ desired_crud_policy = {
             "Resource": [
                 "arn:aws:kms:us-east-1:123456789012:key/123456"
             ]
+        },
+        {
+            "Sid": "SsmTaggingParameter",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+            ],
+            "Action": [
+                "ssm:addtagstoresource",
+                "ssm:removetagsfromresource",
+            ],
         }
     ]
 }
@@ -137,4 +148,5 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # Modify it
         policy = write_policy_with_access_levels(db_session, crud_template, None)
         # print(json.dumps(policy, indent=4))
+        self.maxDiff = None
         self.assertDictEqual(desired_crud_policy, policy)
