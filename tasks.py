@@ -220,7 +220,7 @@ def security_scan(c):
 def run_linter(c):
     """Linting with `pylint` and `autopep8`"""
     try:
-        c.run('autopep8 -r --in-place policy_sentry/', warn=False)
+        c.run('autopep8 -r --in-place policy_sentry/', warn=True)
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:
         print(f"FAIL! UnexpectedExit: {u_e}")
