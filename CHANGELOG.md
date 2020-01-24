@@ -1,102 +1,76 @@
 # Changelog
-## 2020-01-23
-* Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
 
-## 2020-01-22
+# 0.6.9 (2020-01-24)
 ### Added
-* Query command now supports querying for wildcard only actions at an access level per service. For example, the only wildcard-only action under S3 at the Permissions management access level is `s3:PutAccountPublicAccessBlock`
+* database: Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
+* query: The `query` command now supports querying for wildcard only actions at an access level per service. For example, the only wildcard-only action under S3 at the Permissions management access level is `s3:PutAccountPublicAccessBlock`
+* query: The `query` command now supports yaml output. This Fixes #95 (output in the Query command) but does not fix #11 (since #11 is asking for the write-policy command to support YAML, and was before the query functionality came out).
+* query: the `get_actions_matching_condition_key_crud_and_arn` is available. This provides some scaffolding for #21
+* travis: Auto-deployment of Python package with TravisCI
+
+## 0.6.8 (2020-01-10)
+* query: The function `get_all_actions_with_access_level` now supports "all" as a valid input, so you can easily request all IAM actions that are at a certain access level, regardless of service.
+
+## 0.6.7 (2020-01-09)
 ### Changed
-* `query` command now supports yaml output. This Fixes #95 (output in the Query command) but does not fix #11 (since #11 is asking for the write-policy command to support YAML, and was before the query functionality came out).
+* write-policy: `command/write_policy/write_policy_with_actions` and `command/write_policy/write_policy_with_access_levels` can be called directly.
+* template: `arn` is now `role_arn` to avoid confusion when writing templates
+* template: `tag` is now `tagging` to avoid inconsistency when writing templates
+* template: `writing/template/` now exposes `get_crud_template_dict` and `get_actions_template_dict` so developers can create the templates by calling the library. We might add on additional ones so they can just pass in lists without having to know the format, but not right now. They can pass that into `write_policy_with_actions` and `write_policy_with_access_levels`
 
-## 2020-01-15
+## 0.6.6 (2020-01-08)
 ### Added
-* `get_actions_matching_condition_key_crud_and_arn` is available. This provides some scaffolding for #21
-
-## 2020-01-10
 ### Added
-* `get_all_actions_with_access_level` now supports "all" as a valid input, so you can easily request all IAM actions that are at a certain access level, regardless of service.
-* 0.6.8 Version bump so I can use it
-
-## 2020-01-09
-### Changed
-* 0.6.7 release to avoid issues with breaking changes
-* Template:
-  - `arn` is now `role_arn` to avoid confusion when writing templates
-  - `tag` is now `tagging` to avoid inconsistency when writing templates
-* `command/write_policy/write_policy_with_actions` and `command/write_policy/write_policy_with_access_levels` can be called directly.
-* `writing/template/` now exposes `get_crud_template_dict` and `get_actions_template_dict` so developers can create the templates by calling the library. We might add on additional ones so they can just pass in lists without having to know the format, but not right now. They can pass that into `write_policy_with_actions` and `write_policy_with_access_levels`
-
-## 2020-01-08
-* Fixed an issue where the bundled database was being appended to instead of overwritten when going through an update.
-* Documentation updates
-* 0.6.6 release
-## 2020-01-07
-### Added
-* PyInvoke commands to support the Sphinx documentation testing locally
-* Sample scripts to demonstrate the usage of our methods for developers who want to import Policy Sentry
+* docs: PyInvoke commands to support the Sphinx documentation testing locally
+* docs: Sample scripts to demonstrate the usage of our methods for developers who want to import Policy Sentry
 * Documentation uplift in general
-
+* docs: A lot of the docstrings in the code
 ### Changed
-* A lot of the docstrings in the code
+* database: Fixed an issue where the bundled database was being appended to instead of overwritten when going through an update.
+* database: Fixed an issue where condition keys were being stored as `'aws:RequestTag/$  {  TagKey}'` - we need it without extra spaces.
 
-## 2020-01-04
-### Changed
-* Fixed an issue where condition keys were being stored as `'aws:RequestTag/$  {  TagKey}'` - we need it without extra spaces.
-
-## 2020-01-03
+## 0.6.5 (2020-01-03)
 ### Added
 * Docker support
-* Fix the issue with pre-bundled paths.
-* Write-policy allows either stdin or input-file. Fixes #78.
-* YAML Validation via Schema
-* Version bump to 0.6.5
+* database: Fix an issue with pre-bundled database paths.
+* write-policy: Write-policy allows either stdin or input-file. Fixes #78.
+* template: YAML Validation via Schema
 
-## 2019-12-31
-### Changed
+## 0.6.4 (2020-01-03)
+### Added
 * Developers can now easily leverage Policy Sentry as a python package without needing to build the database from the docs. Just use `db_session = connect_db('bundled')` before passing in commands that require the `db_session` and you're ready to go. Fixes #74
+* `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
+* `--version` flag. Fixes #48
+* Renamed write-policy template's `roles_with_crud_levels` and `roles_with_actions` to `policy_with_crud_levels` and `policy_with_actions` since this makes way more sense. Discussion is in #65. Version bump to 0.7.0 because this creates breaking changes.
+### Changed
 * Pyinvoke file now has try/except to catch failures, so we can have the build fail if the Invoke commands tests give non zero responses.
 * Moved to a saner subfolder structure, where the folders are mostly specific to their commands.
   - The new folders are `analysis`, `configuration`, `downloading`, `querying`, `scraping`, `util`, and `writing`
   - Files in the `analysis` folder, for example, relate to the `analyze` command. They don't import from each other, with the occasional exception of re-using functions from the `querying` folder. They all import common methods from the `util` folder and the `shared` folder as well.
 * Renamed all the function names under querying folder so they make more sense.
 
-## 2019-12-24
+## 0.6.3 (2019-12-19)
 ### Added
-* `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
-* `--version` flag. Fixes #48
-* Renamed write-policy template's `roles_with_crud_levels` and `roles_with_actions` to `policy_with_crud_levels` and `policy_with_actions` since this makes way more sense. Discussion is in #65. Version bump to 0.7.0 because this creates breaking changes.
-
-## 2019-12-19
+* Added basic integration testing with PyInvoke. Fixes #58. Generally overhauled the invoke tasks file.
 ### Changed
 * Minor change - broke up the guts of `get_actions_from_policy_file` into a separate function, `get_actions_from_policy` so we can use this outside of Policy Sentry. Added unit tests to match.
 * Swapped names to example JSON policy files
 * Fixed some missing unit tests
-
-## 2019-12-18
-### Added
-* Added basic integration testing with PyInvoke. Fixes #58. Generally overhauled the invoke tasks file.
-### Changed
 * Fixed the cheat sheet documentation in Readme and ReadtheDocs. Fixed "Contributing" docs, and `initialize --fetch`
 * Modified the comments in the Policy Sentry YML Template (`--create-template`) so it makes more sense on its own.
 
-## 2019-12-17
+## 0.6.2 (2019-12-17)
 ### Added
-* Version bump to 0.6.2
 * `overrides-resource-policies.yml` to specifically identify API calls that modify resource based policies.
 * `resource-policies.txt` to answer Scott Piper's question about API calls that can modify resource policies.
 ### Changed
 * The `--fetch` argument was not working because AWS changed their documentation. This incorporates the new documentation instead and changed the logic for the scraping process.
 * The initialization command now copies both overrides yml files, not just one
-
-## 2019-12-11
-### Added
 * Improved invoke and travis for integration testing
-
-## 2019-12-10
 ### Changed
 * `--fetch` argument now passes security check. Using requests and beautifulsoup instead of wget and subprocess.
 
-## 2019-12-01
+## 0.6.1 (2019-12-01)
 ### Added
 * `--fetch` argument to `policy_sentry initialize` command.
 * Cutting this as a new release - 0.6.1. This release makes it so people don't have to rely on our HTML docs being up to date.
@@ -109,13 +83,11 @@
 * Made updates to the access-level-overrides.yml file
 * download-docs utilities - used long form flags for wget command
 
-## 2019-11-27, part 2
+## 0.6.0 (2019-11-27)
 ### Changed
 * pylint
   - `.pylintrc` generated, added items to the exclusion list.
   - Fixes for pylint
-
-## 2019-11-27
 ### Changed
 * Refined the Network exposure actions to Create actions only - i.e., those that could cause exposure only (it does not include delete actions, only create). Typically only API calls that have public IPs as an option
 
