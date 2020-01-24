@@ -1,4 +1,5 @@
 import unittest
+import json
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.querying.actions import get_actions_for_service, get_action_data, \
@@ -105,25 +106,26 @@ class QueryTestCase(unittest.TestCase):
     def test_get_action_data(self):
         """test_get_action_data: Tests function that gets details on a specific IAM Action."""
         desired_output = {
-            'ram': [
+            "ram": [
                 {
-                    'action': 'ram:createresourceshare',
-                    'description': 'Create resource share with provided resource(s) and/or principal(s)',
-                    'access_level': 'Permissions management',
-                    'resource_arn_format': '*',
-                    'condition_keys': [
-                        'aws:RequestTag/${TagKey}',
-                        'aws:TagKeys',
-                        'ram:RequestedResourceType',
-                        'ram:ResourceArn',
-                        'ram:RequestedAllowsExternalPrincipals',
-                        'ram:Principal'
+                    "action": "ram:createresourceshare",
+                    "description": "Create resource share with provided resource(s) and/or principal(s)",
+                    "access_level": "Permissions management",
+                    "resource_arn_format": "*",
+                    "condition_keys": [
+                        "aws:RequestTag/${TagKey}",
+                        "aws:TagKeys",
+                        "ram:RequestedResourceType",
+                        "ram:ResourceArn",
+                        "ram:RequestedAllowsExternalPrincipals",
+                        "ram:Principal"
                     ],
-                    'dependent_actions': None
+                    "dependent_actions": None
                 }
             ]
         }
         output = get_action_data(db_session, 'ram', 'createresourceshare')
+        print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 

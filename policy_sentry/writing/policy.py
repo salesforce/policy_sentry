@@ -126,10 +126,10 @@ class ArnActionGroup:
                                     db_session,
                                     principal['permissions-management'],
                                     "Permissions management")
-                        if 'tag' in principal.keys():
-                            if principal['tag'] is not None:
+                        if 'tagging' in principal.keys():
+                            if principal['tagging'] is not None:
                                 self.add(
-                                    db_session, principal['tag'], "Tagging")
+                                    db_session, principal['tagging'], "Tagging")
 
         # except KeyError as e:
         #     print("Yaml file is missing this block: " + e.args[0])
