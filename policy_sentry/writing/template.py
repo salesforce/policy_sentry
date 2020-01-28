@@ -6,8 +6,8 @@ from jinja2 import Template
 ACTIONS_TEMPLATE = '''# Generate my policy when I know the Actions
 policy_with_actions:
 - name: {{ name }}
-  description: ''
-  role_arn: ''
+  description: '' # For human auditability
+  role_arn: '' # For human auditability
   actions:
   - ''
 '''
@@ -15,8 +15,8 @@ policy_with_actions:
 CRUD_TEMPLATE = '''# Generate my policy when I know the access levels and ARNs
 policy_with_crud_levels:
 - name: {{ name }}
-  description: ''
-  role_arn: ''
+  description: '' # For human auditability
+  role_arn: '' # For human auditability
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:

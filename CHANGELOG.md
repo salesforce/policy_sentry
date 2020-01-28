@@ -1,5 +1,14 @@
 # Changelog
-# 0.6.9 (2020-01-24)
+# 0.6.11 (2020-01-28)
+### Changed
+* Now you can skip the long wait under the `initialize` command - the initialize command finishes instantly. To rebuild the database, run `initialize --build`, or to build it with the latest AWS docs, use `initialize --fetch`. Fixes #101
+* Documentation updates. Fixes #102
+
+# 0.6.10 (2020-01-24)
+### Changed
+* writing: In the last version, if you specified "tagging" in your YML file, the write-policy command was ignoring it. This fixes that. #100
+
+## 0.6.9 (2020-01-24)
 ### Added
 * database: Fixes #51 - Give the user an error when the database file does not exist (in `connect_db` function). Except for the case of the initialize function.
 * query: The `query` command now supports querying for wildcard only actions at an access level per service. For example, the only wildcard-only action under S3 at the Permissions management access level is `s3:PutAccountPublicAccessBlock`

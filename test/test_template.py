@@ -7,8 +7,8 @@ class TemplateTestCase(unittest.TestCase):
         desired_msg = """# Generate my policy when I know the Actions
 policy_with_actions:
 - name: myrole
-  description: ''
-  role_arn: ''
+  description: '' # For human auditability
+  role_arn: '' # For human auditability
   actions:
   - ''"""
         actions_template = create_actions_template("myrole")
@@ -18,8 +18,8 @@ policy_with_actions:
         desired_msg = """# Generate my policy when I know the access levels and ARNs
 policy_with_crud_levels:
 - name: myrole
-  description: ''
-  role_arn: ''
+  description: '' # For human auditability
+  role_arn: '' # For human auditability
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:
