@@ -9,7 +9,24 @@
 
 IAM Least Privilege Policy Generator, auditor, and analysis database.
 
-## Wiki
+- [Documentation](#documentation)
+- [Overview](#overview)
+  * [Authoring Secure IAM Policies](#authoring-secure-iam-policies)
+- [Quickstart](#quickstart)
+    + [Installation](#installation)
+    + [Shell completion](#shell-completion)
+  * [Initialization](#initialization)
+  * [Policy Writing cheat sheet](#policy-writing-cheat-sheet)
+  * [IAM Database Query Cheat Sheet](#iam-database-query-cheat-sheet)
+  * [Policy Analysis Cheat Sheet](#policy-analysis-cheat-sheet)
+- [Commands](#commands)
+  * [Usage](#usage)
+  * [Library usage](#library-usage)
+  * [Docker](#docker)
+  * [Updating the AWS HTML files](#updating-the-aws-html-files)
+- [References](#references)
+
+## Documentation
 
 For walkthroughs and full documentation, please visit the [project on ReadTheDocs](https://policy-sentry.readthedocs.io/en/latest/index.html).
 
@@ -72,7 +89,21 @@ How do we accomplish this? Well, Policy Sentry leverages the AWS documentation o
   </tr>
 </table>
 
-Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
+Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels.
+
+To get started, install Policy Sentry:
+
+```bash
+pip3 install --user policy_sentry
+```
+
+Then initialize the IAM database:
+
+```bash
+policy_sentry initialize
+```
+
+To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
 policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
@@ -83,8 +114,8 @@ It will generate a file like this:
 ```yaml
 policy_with_crud_levels:
 - name: myRole
-  description: ''
-  role_arn: ''
+  description: '' # For human auditability
+  role_arn: '' # For human auditability
   # Insert ARNs under each access level below
   # If you do not need to use certain access levels, delete them.
   read:

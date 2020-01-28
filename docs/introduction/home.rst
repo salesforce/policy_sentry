@@ -46,7 +46,19 @@ How do we accomplish this? Well, Policy Sentry leverages the AWS documentation o
 | secretsmanager:TagResource       | Tagging                | secret             |
 +----------------------------------+------------------------+--------------------+
 
-Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels. To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
+Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels.
+
+To get started, install Policy Sentry:
+
+.. code-block:: bash
+   pip3 install --user policy_sentry
+
+Then initialize the IAM database:
+
+.. code-block:: bash
+   policy_sentry initialize
+
+To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 .. code-block:: bash
 
