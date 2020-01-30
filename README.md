@@ -54,7 +54,7 @@ Policy Sentry's flagship feature is that it can create IAM policies based on res
 
 ...and our automation should create policies that correspond to those access levels.
 
-How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys](1) documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
+How do we accomplish this? Well, Policy Sentry leverages the AWS documentation on [Actions, Resources, and Condition Keys][1] documentation to look up the actions, access levels, and resource types, and generates policies according to the ARNs and access levels. Consider the table snippet below:
 
 <table class="tg">
   <tr>
