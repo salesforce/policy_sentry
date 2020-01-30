@@ -11,7 +11,7 @@ if __name__ == '__main__':
         "Permissions management",
         "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}"
     )
-    print(json.dumps(output, indent=4))
+    print(json.dumps(results, indent=4))
 
 """
 Output:
