@@ -23,6 +23,23 @@ def read_risky_iam_permissions_text_file(audit_file):
     return risky_actions
 
 
+def determine_risky_actions_from_list(requested_actions, risky_actions):
+    """
+    compare the actions in the policy against a list of high risk actions
+
+    :param requested_actions: A list of the actions that are requested by the policy under evaluation
+    :param risky_actions: A list of risky IAM actions to evaluate.
+    :return: a list of any actions that are included in the file of risky actions
+    """
+
+    risky_actions = get_lowercase_action_list(risky_actions)
+    actions_to_triage = []
+    for action in requested_actions:
+        if action in risky_actions:
+            actions_to_triage.append(action)
+    return actions_to_triage
+
+
 def determine_risky_actions(requested_actions, audit_file):
     """
     compare the actions in the policy against the audit file of high risk actions
@@ -33,12 +50,7 @@ def determine_risky_actions(requested_actions, audit_file):
     """
 
     risky_actions = read_risky_iam_permissions_text_file(audit_file)
-    risky_actions = get_lowercase_action_list(risky_actions)
-    actions_to_triage = []
-    for action in requested_actions:
-        if action in risky_actions:
-            actions_to_triage.append(action)
-    return actions_to_triage
+    return determine_risky_actions_from_list(requested_actions, risky_actions)
 
 
 def expand(action, db_session):
