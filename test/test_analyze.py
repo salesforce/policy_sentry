@@ -2,7 +2,7 @@ import os
 import unittest
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-from policy_sentry.analysis.analyze import analyze_by_access_level
+from policy_sentry.analysis.analyze import analyze_by_access_level, determine_risky_actions_from_list
 from policy_sentry.analysis.finding import Findings
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
@@ -257,3 +257,24 @@ class AnalyzeActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(permissions_management_actions, desired_actions_list)
 
+    def test_determine_risky_actions_from_list(self):
+        """test_determine_risky_actions_from_list: Test comparing requested actions to a list of risky actions"""
+        requested_actions = [
+            'ecr:putimage',
+            'ecr:uploadlayerpart',
+            'iam:createaccesskey',
+            'iam:deleteaccesskey'
+        ]
+        risky_actions = [
+            'iam:createaccesskey',
+            'iam:deleteaccesskey',
+            'iam:listaccesskeys',
+            'iam:updateaccesskey'
+        ]
+        actions_to_triage = determine_risky_actions_from_list(requested_actions, risky_actions)
+        expected = [
+            'iam:createaccesskey',
+            'iam:deleteaccesskey'
+        ]
+        self.maxDiff = None
+        self.assertListEqual(actions_to_triage, expected)
