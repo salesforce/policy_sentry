@@ -2,6 +2,7 @@
 ArnActionGroup
 """
 import copy
+import logging
 import sys
 import re
 from sqlalchemy import and_
@@ -9,6 +10,8 @@ from policy_sentry.shared.database import ActionTable, ArnTable
 from policy_sentry.util.arns import get_service_from_arn, does_arn_match
 from policy_sentry.util.actions import get_action_name_from_action, get_service_from_action, get_full_action_name
 from policy_sentry.util.text import capitalize_first_character
+
+logger = logging.getLogger(__name__)
 
 
 class ArnActionGroup:
@@ -132,11 +135,11 @@ class ArnActionGroup:
                                     db_session, principal['tagging'], "Tagging")
 
         # except KeyError as e:
-        #     print("Yaml file is missing this block: " + e.args[0])
+        #     logger.debug("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()
         except IndexError:
-            print("IndexError: list index out of range. This is likely due to an ARN in your list equaling ''. "
-                  "Please evaluate your YML file and try again.")
+            print("IndexError: list index out of range. This is likely due to an ARN in your list "
+                  "equaling ''. Please evaluate your YML file and try again.")
             sys.exit()
 
         self.update_actions_for_raw_arn_format(db_session)
@@ -256,7 +259,7 @@ class ArnActionGroup:
                             self.arns[i]['actions'].remove(
                                 str(actions_under_wildcard_resources_to_nuke[j]))
                         except BaseException:  # pylint: disable=broad-except
-                            print("Removal not successful")
+                            logger.debug("Removal not successful")
 
     def update_actions_for_raw_arn_format(self, db_session):
         """
@@ -316,8 +319,8 @@ class ArnActionGroup:
                 del self.arns[indexes_to_delete[i]]
                 # except ValueError as e:
                 #     if 'list.remove(x)' in str(e):
-                #         print("Action is " + self.arns[i]['actions'][action])
-                #         print("actions_list is" + str(actions_list))
+                #         logger.debug("Action is " + self.arns[i]['actions'][action])
+                #         logger.debug("actions_list is" + str(actions_list))
 
     def combine_policy_elements(self):
         """

@@ -1,5 +1,5 @@
-Querying the Policy Database
-----------------------------
+Querying the IAM Policy Database
+--------------------------------
 
 Policy Sentry relies on a SQLite database, generated at `initialize` time, which contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__. The HTML files from that AWS documentation is scraped and stored in the SQLite database, which is then stored in ``$HOME/.policy_sentry/aws.sqlite3``.
 
@@ -85,6 +85,7 @@ Options
                                       block.
       --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
                                       "yaml"
+      --quiet             Set the logging level to WARNING instead of INFO.
       --help                          Show this message and exit.
 
 * arn-table
@@ -102,6 +103,7 @@ Options
       --list-arn-types   Show the short names of ARN Types. If empty, this will
                          show RAW ARNs only.
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
+      --quiet             Set the logging level to WARNING instead of INFO.
       --help             Show this message and exit.
 
 * condition-table
@@ -118,5 +120,6 @@ Options
                          service.
       --service TEXT     Filter according to AWS service.  [required]
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
+      --quiet             Set the logging level to WARNING instead of INFO.
       --help             Show this message and exit.
 

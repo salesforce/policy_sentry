@@ -3,6 +3,7 @@ Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD m
 """
 import sys
 import json
+import logging
 import yaml
 import click
 from policy_sentry.querying.all import get_all_actions
@@ -14,6 +15,13 @@ from policy_sentry.writing.policy import ArnActionGroup
 from policy_sentry.writing.roles import Roles
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.util.file import read_yaml_file
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 def print_policy(
@@ -97,12 +105,21 @@ def write_policy_with_actions(db_session, cfg, minimize_statement=None):
     help='Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. '
          'Set this to the character length you want - for example, 4'
 )
-def write_policy(input_file, crud, minimize):
+@click.option(
+    '--quiet',
+    help='Set the logging level to WARNING instead of INFO.',
+    default=False,
+    is_flag=True
+)
+def write_policy(input_file, crud, minimize, quiet):
     """
     Write a least-privilege IAM Policy by supplying either a list of actions or
     access levels specific to resource ARNs!
     """
-
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
 
     if input_file:
@@ -111,7 +128,7 @@ def write_policy(input_file, crud, minimize):
         try:
             cfg = yaml.safe_load(sys.stdin)
         except yaml.YAMLError as exc:
-            print(exc)
+            logger.critical(exc)
             sys.exit()
 
     # User supplies file containing resource-specific access levels

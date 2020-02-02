@@ -1,26 +1,32 @@
+# pylint: disable=W1202
 """
 Functions for logging into AWS and returning Boto3 sessions.
 """
 import configparser
 import os
+import logging
 import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
+
+logger = logging.getLogger(__name__)
 
 
 def login_sts_test(sts_session):
     """Test the login procedure with boto3 STS session."""
+    # Mute botocore, except when errors occur
+    logging.getLogger('botocore').setLevel(logging.WARN)
     try:
         sts_session.get_caller_identity()
     except ClientError as c_e:
         if "InvalidClientTokenId" in str(c_e):
-            print(
+            logger.critical(
                 "ERROR: sts.get_caller_identity failed with InvalidClientTokenId. "
                 "Likely cause is no AWS credentials are set.",
                 flush=True,
             )
             exit(-1)
         else:
-            print(
+            logger.critical(
                 "ERROR: Unknown exception when trying to call sts.get_caller_identity: {}".format(
                     c_e
                 ),
@@ -31,11 +37,13 @@ def login_sts_test(sts_session):
 
 def login_iam_test(iam_session):
     """Test the login procedure with boto3 IAM session."""
+    # Mute botocore, except when errors occur
+    logging.getLogger('botocore').setLevel(logging.WARN)
     try:
         iam_session.get_user(UserName="test")
     except ClientError as c_e:
         if "InvalidClientTokenId" in str(c_e):
-            print(
+            logger.critical(
                 "ERROR: AWS doesn't allow you to make IAM calls from a session without MFA, and the collect"
                 " command gathers IAM data.  Please use MFA or don't use a session. With aws-vault,"
                 " specify `--no-session` on your `exec`.",
@@ -46,11 +54,11 @@ def login_iam_test(iam_session):
             # Ignore, we're just testing that our creds work
             pass
         else:
-            print("ERROR: Ensure your creds are valid.", flush=True)
-            print(c_e, flush=True)
+            logger.critical("ERROR: Ensure your creds are valid.", flush=True)
+            logger.critical(c_e, flush=True)
             exit(-1)
     except NoCredentialsError:
-        print("ERROR: No AWS credentials configured.", flush=True)
+        logger.critical("ERROR: No AWS credentials configured.", flush=True)
         exit(-1)
 
 

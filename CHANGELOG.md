@@ -1,10 +1,14 @@
 # Changelog
-# 0.6.11 (2020-01-28)
+## 0.6.12 (Unreleased)
+### Changed
+* Replaced a lot of print statements with logging.
+
+## 0.6.11 (2020-01-28)
 ### Changed
 * Now you can skip the long wait under the `initialize` command - the initialize command finishes instantly. To rebuild the database, run `initialize --build`, or to build it with the latest AWS docs, use `initialize --fetch`. Fixes #101
 * Documentation updates. Fixes #102
 
-# 0.6.10 (2020-01-24)
+## 0.6.10 (2020-01-24)
 ### Changed
 * writing: In the last version, if you specified "tagging" in your YML file, the write-policy command was ignoring it. This fixes that. #100
 

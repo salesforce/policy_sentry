@@ -1,3 +1,4 @@
+# pylint: disable=W1202,E1305
 """
 Functions for Minimizing statements, heavily borrowed from policyuniverse.
 https://github.com/Netflix-Skunkworks/policyuniverse/
@@ -20,7 +21,10 @@ Q: How many policies can I attach to an IAM role?
 * For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
 """
+import logging
 from policyuniverse.expander_minimizer import _get_prefixes_for_action
+
+logger = logging.getLogger(__name__)
 
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:
@@ -88,7 +92,7 @@ def minimize_statement_actions(desired_actions, all_actions, minchars=None):  # 
                     break
 
         if not found_prefix:
-            print("Could not suitable prefix. Defaulting to {}".format(
+            logger.debug("Could not suitable prefix. Defaulting to %s".format(
                 prefixes[-1]))
             minimized_actions.add(prefixes[-1])
     # sort the actions

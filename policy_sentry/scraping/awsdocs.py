@@ -11,11 +11,14 @@ or update the HTML files on their own.
 
 from os import listdir
 from os.path import isfile, join
+import logging
 import re
 from bs4 import BeautifulSoup
 import yaml
 import requests
 from policy_sentry.shared.constants import BASE_DOCUMENTATION_URL
+
+logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
 def get_links_from_base_actions_resources_conditions_page():
@@ -66,7 +69,7 @@ def update_html_docs_directory(html_docs_destination):
             # file.write(str(soup.html))
             file.write(str(soup.prettify()))
             file.close()
-        print(f"{page} downloaded")
+        logger.info("%s downloaded", page)
 
 
 # Borrowed and altered from Parliament:
@@ -114,7 +117,8 @@ def create_service_links_mapping_file(html_docs_destination, links_yml_file):
     outfile.close()
     prefix_list.sort()
     prefix_list = list(dict.fromkeys(prefix_list))
-    print(f"Created the service-to-links YML mapping file: {links_yml_file}")
+    logger.info("Created the service-to-links YML mapping file: ",
+                links_yml_file)
     return prefix_list
 
 
@@ -129,7 +133,7 @@ def get_list_of_service_prefixes_from_links_file(links_yml_file):
         try:
             cfg = yaml.safe_load(yaml_file)
         except yaml.YAMLError as exc:
-            print(exc)
+            logger.critical(exc)
     for service_name in cfg:
         service_prefixes.append(service_name)
     return service_prefixes

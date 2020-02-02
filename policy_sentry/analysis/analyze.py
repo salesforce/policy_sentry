@@ -3,12 +3,15 @@ Functions to support the analyze capability in this tool
 """
 import fnmatch
 import copy
+import logging
 import re
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.actions import get_lowercase_action_list
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.util.file import list_files_in_directory, read_this_file
+
+logger = logging.getLogger(__name__)
 
 
 def read_risky_iam_permissions_text_file(audit_file):
@@ -82,8 +85,8 @@ def expand(action, db_session):
         # if we get a wildcard for a tech we've never heard of, just return the
         # wildcard
         if not expanded:
-            print(
-                "ERROR: The action {} references a wildcard for an unknown resource.".format(action))
+            logger.warning(
+                "ERROR: The action %s references a wildcard for an unknown resource.", action)
             return [action.lower()]
 
         return expanded
@@ -227,8 +230,8 @@ def analyze_policy_directory(db_session, policy_directory, account_id, from_audi
             # Store the account ID
         else:
             finding['account_id'] = account_id
-        # print(finding['account_id'])
+        # logger.debug(finding['account_id'])
         # except KeyError as k_e:
-        #     print(k_e)
+        #     logger.debug(k_e)
         #     continue
     return policy_findings

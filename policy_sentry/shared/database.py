@@ -5,6 +5,7 @@ Functions for building the database - by parsing through the AWS Docs and storin
 import os
 import sys
 import json
+import logging
 from sqlite3 import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -18,6 +19,7 @@ from policy_sentry.util.arns import get_resource_path_from_arn, get_partition_fr
     get_region_from_arn, get_resource_from_arn, get_service_from_arn
 from policy_sentry.util.conditions import get_comma_separated_condition_keys, get_service_from_condition_key
 
+logger = logging.getLogger(__name__)
 Base = declarative_base()  # pylint: disable=invalid-name
 
 
@@ -89,10 +91,11 @@ def create_database(db_session, services, access_level_overrides_file):
     :return: the SQLAlchemy database session.
     """
     directory = HTML_DIRECTORY_PATH + '/'
-    print("Reading the html docs from this directory: " + directory)
-    print(f"Using access level overrides file {access_level_overrides_file}")
+    logger.info("Reading the html docs from this directory: %s", directory)
+    logger.info("Using access level overrides file %s",
+                access_level_overrides_file)
     for service in services:
-        print("Building tables for " + service)
+        logger.info("Building tables for %s", service)
         build_arn_table(db_session, service)
         db_session.commit()
         build_action_table(db_session, service, access_level_overrides_file)
@@ -120,8 +123,8 @@ def connect_db(db_file, initialization=False):
         database_path = db_file
 
     if not initialization and not os.path.isfile(database_path):
-        print("ERROR: The database path does not exist. Please run `policy_sentry initialize` to initialize the IAM "
-              "database.")
+        logger.critical("ERROR: The database path does not exist. Please run `policy_sentry initialize` to "
+                        "initialize the IAM database.")
         sys.exit(1)
     engine = create_engine(str('sqlite:///' + database_path), echo=False)
     try:
@@ -130,7 +133,7 @@ def connect_db(db_file, initialization=False):
         Session.configure(bind=engine)
         db_session = Session()
     except OperationalError as o_e:
-        print(o_e)
+        logger.critical(o_e)
         sys.exit()
     return db_session
 
@@ -216,8 +219,8 @@ def build_action_table(db_session, service, access_level_overrides_file):
                             service, str.lower(action_name), table['data'][i][2], access_level_overrides_cfg)
                         if override_result:
                             access_level = override_result
-                            print(
-                                f"Override: Setting access level for {service}:{action_name} to {access_level}")
+                            logger.info(
+                                "Override: Setting access level for %s:%s to %s", service, action_name, access_level)
                         else:
                             access_level = table['data'][i][2]
                     else:

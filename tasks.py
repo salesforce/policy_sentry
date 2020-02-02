@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 import sys
 import os
+import logging
 from invoke import task, Collection, UnexpectedExit, Failure
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
 from policy_sentry.command import initialize
 
+logger = logging.getLogger(__name__)
 # Create the necessary collections (namespaces)
 ns = Collection()
 
@@ -87,10 +89,10 @@ def clean_config_directory(c):
     try:
         c.run('rm -rf $HOME/.policy_sentry/')
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -100,10 +102,10 @@ def create_db(c):
     try:
         initialize.initialize('')
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -113,10 +115,10 @@ def version_check(c):
     try:
         c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -130,10 +132,10 @@ def write_policy(c):
         c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
         c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -143,10 +145,10 @@ def analyze_policy(c):
     try:
         c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -168,10 +170,10 @@ def query(c):
         c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9', pty=True)
         c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -193,10 +195,10 @@ def query_with_yaml(c):
         c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --fmt yaml', pty=True)
         c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions --fmt yaml', pty=True)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -208,10 +210,10 @@ def security_scan(c):
         c.run('bandit -r policy_sentry/')
         c.run('safety check')
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -223,10 +225,10 @@ def run_linter(c):
         c.run('autopep8 -r --in-place policy_sentry/', warn=True)
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -236,12 +238,12 @@ def run_nosetests(c):
     """Unit testing: Runs unit tests using `nosetests`"""
     c.run('echo "Running Unit tests"')
     try:
-        c.run('nosetests -v')
+        c.run('nosetests -v  --logging-level=CRITICAL')
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
@@ -252,10 +254,10 @@ def run_pytest(c):
     try:
         c.run('python -m pytest -v')
     except UnexpectedExit as u_e:
-        print(f"FAIL! UnexpectedExit: {u_e}")
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
     except Failure as f_e:
-        print(f"FAIL: Failure: {f_e}")
+        logger.critical(f"FAIL: Failure: {f_e}")
         sys.exit(1)
 
 
