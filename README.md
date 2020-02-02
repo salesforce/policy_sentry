@@ -1,13 +1,14 @@
-![](http://i.imgur.com/uITz0cM.gif)
 
 # Policy Sentry
+
+IAM Least Privilege Policy Generator, auditor, and analysis database.
 
 [![Build Status](https://travis-ci.org/salesforce/policy_sentry.svg?branch=master)](https://travis-ci.org/salesforce/policy_sentry)
 [![Documentation Status](https://readthedocs.org/projects/policy-sentry/badge/?version=latest)](https://policy-sentry.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/salesforce/policy_sentry](https://badges.gitter.im/salesforce/policy_sentry.svg)](https://gitter.im/salesforce/policy_sentry?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Downloads](https://pepy.tech/badge/policy-sentry)](https://pepy.tech/project/policy-sentry)
 
-
-IAM Least Privilege Policy Generator, auditor, and analysis database.
+![](http://i.imgur.com/uITz0cM.gif)
 
 - [Documentation](#documentation)
 - [Overview](#overview)
