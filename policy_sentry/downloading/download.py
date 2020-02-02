@@ -2,10 +2,13 @@
 Functions to support downloading policies from live AWS accounts in bulk for analysis
 """
 import sys
+import logging
 import json
 from policy_sentry.downloading.login import login
 from policy_sentry.util.file import write_json_file, create_directory_if_it_doesnt_exist
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
+
+logger = logging.getLogger(__name__)
 
 
 def download_remote_policies(profile=None, customer_managed=True, attached_only=True):
@@ -43,8 +46,7 @@ def download_remote_policies(profile=None, customer_managed=True, attached_only=
     else:
         filename_directory = aws_managed_policy_file_directory
 
-    print("Writing the policy files to " + filename_directory)
-    print("")
+    logger.info("Writing the policy files to %s", filename_directory)
     for policy_name in policy_names:
         # get the default policy version for that specific policy
         document = policy_group.get_policy_document(policy_name)
@@ -59,11 +61,11 @@ def download_policies_recursively(profiles):
 
     for profile in profiles:
         try:
-            print(f"Downloading policies under profile {profile}")
+            logger.info("Downloading policies under profile %s", profile)
             download_dir = download_remote_policies(profile, True, True)
             download_directories.append(download_dir)
         except TypeError as t_e:
-            print(t_e)
+            logger.critical(t_e)
             sys.exit()
     return download_directories
 

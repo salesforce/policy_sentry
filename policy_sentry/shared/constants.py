@@ -26,7 +26,8 @@ DATABASE_FILE_PATH = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
 DEFAULT_ACCESS_OVERRIDES_FILE = abspath(
     dirname(__file__)) + '/data/access-level-overrides.yml'
 
-BUNDLED_DATABASE_FILE_PATH = str(Path(dirname(__file__)).parent) + '/shared/data/' + 'aws.sqlite3'
+BUNDLED_DATABASE_FILE_PATH = str(
+    Path(dirname(__file__)).parent) + '/shared/data/' + 'aws.sqlite3'
 # BUNDLED_DATABASE_FILE_PATH = str(Path(dirname(__file__)).parent + '/shared/data/aws.sqlite3')
 # BUNDLED_DATABASE_FILE_PATH = abspath(dirname(__file__)) + '/data/aws.sqlite3'
 

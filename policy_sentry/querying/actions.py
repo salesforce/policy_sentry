@@ -2,12 +2,15 @@
 Methods that execute specific queries against the SQLite database for the ACTIONS table.
 This supports the policy_sentry query functionality
 """
+import logging
 from sqlalchemy import and_
 from policy_sentry.shared.database import ActionTable
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.util.actions import get_full_action_name
 from policy_sentry.util.arns import get_service_from_arn
 from policy_sentry.util.access_levels import transform_access_level_text
+
+logger = logging.getLogger(__name__)
 
 
 def get_actions_for_service(db_session, service):
@@ -254,7 +257,7 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
                 # Just take the first result
                 new_actions_list.append(action)
         except ValueError as v_e:
-            print(f"ValueError: {v_e} for the action {action}")
+            logger.debug("ValueError: %s for the action %s", v_e, action)
             continue
     return new_actions_list
 

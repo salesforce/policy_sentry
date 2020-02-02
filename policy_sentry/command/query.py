@@ -2,6 +2,7 @@
 Allow users to use specific pre-compiled queries against the action, arn, and condition tables from command line.
 """
 import json
+import logging
 import click
 import yaml
 
@@ -14,6 +15,13 @@ from policy_sentry.querying.actions import get_actions_for_service, get_actions_
     get_action_data, get_actions_that_support_wildcard_arns_only, \
     get_actions_matching_condition_key, get_actions_at_access_level_that_support_wildcard_arns_only
 from policy_sentry.querying.conditions import get_condition_keys_for_service, get_condition_key_details
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 @click.group()
@@ -63,8 +71,18 @@ def query():
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"'
 )
-def action_table(name, service, access_level, condition, wildcard_only, fmt):
+@click.option(
+    '--quiet',
+    default=False,
+    help='Set the logging level to WARNING instead of INFO.',
+    is_flag=True
+)
+def action_table(name, service, access_level, condition, wildcard_only, fmt, quiet):
     """Query the Action Table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Actions on all services
     if service == "all":
@@ -154,8 +172,18 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt):
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"'
 )
-def arn_table(name, service, list_arn_types, fmt):
+@click.option(
+    '--quiet',
+    default=False,
+    help='Set the logging level to WARNING instead of INFO.',
+    is_flag=True
+)
+def arn_table(name, service, list_arn_types, fmt, quiet):
     """Query the ARN Table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
@@ -197,8 +225,18 @@ def arn_table(name, service, list_arn_types, fmt):
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"'
 )
-def condition_table(name, service, fmt):
+@click.option(
+    '--quiet',
+    help='Set the logging level to WARNING instead of INFO.',
+    default=False,
+    is_flag=True
+)
+def condition_table(name, service, fmt, quiet):
     """Query the condition keys table from the Policy Sentry database"""
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:

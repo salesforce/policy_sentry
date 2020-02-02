@@ -3,8 +3,16 @@ Create YML Template files for the write-policy command.
 Users don't have to remember exactly how to phrase the yaml files, so this command creates it for them.
 """
 from pathlib import Path
+import logging
 import click
 from policy_sentry.writing.template import create_actions_template, create_crud_template
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 
 @click.command(
@@ -29,12 +37,22 @@ from policy_sentry.writing.template import create_actions_template, create_crud_
     required=True,
     help='Name of the IAM role. This will be inside the resulting YML file.'
 )
-def create_template(output_file, template_type, name):
+@click.option(
+    '--quiet',
+    help='Set the logging level to WARNING instead of INFO.',
+    default=False,
+    is_flag=True
+)
+def create_template(output_file, template_type, name, quiet):
     """
     Writes YML file templates for use in the write-policy
     command, so users can fill out the fields
     without needing to look up the required format.
     """
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     filename = Path(output_file).resolve()
     if template_type == "actions":
         actions_template = create_actions_template(name)
@@ -48,4 +66,4 @@ def create_template(output_file, template_type, name):
             for line in crud_template:
                 file_obj.write(line)
 
-    print("write-policy template file written to:" + str(filename))
+    logger.info("write-policy template file written to: %s", str(filename))

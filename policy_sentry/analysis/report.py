@@ -3,11 +3,13 @@ Generate reports formatted in markdown, report summaries in CSV, and raw data in
 """
 import csv
 import json
-
+import logging
 from jinja2 import Template
 
 from policy_sentry.shared.constants import ANALYSIS_DIRECTORY_PATH
 from policy_sentry.util.file import read_yaml_file
+
+logger = logging.getLogger(__name__)
 
 REPORT_TEMPLATE = '''# Policy Sentry Audit report
 
@@ -189,6 +191,6 @@ def create_markdown_report(report_contents, filename, report_dir=False):
     with open(report_filepath, 'w') as file:
         file.write(report_contents)
     file.close()
-    print("If you wish to convert this to html, use Pandoc like this:\n\n"
-          "pandoc -f markdown overall.md -t html > overall.html")
+    logger.info("If you wish to convert this to html, use Pandoc like this:\n\n"
+                "pandoc -f markdown overall.md -t html > overall.html")
     return report_filepath

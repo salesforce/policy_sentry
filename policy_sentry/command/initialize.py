@@ -3,6 +3,7 @@ Create the Policy Sentry config folder (~/.policy_sentry/) and the contents with
 Create the SQLite database and fill it with the tables scraped from the AWS Docs
 """
 import shutil
+import logging
 import click
 from policy_sentry.configuration.access_level_overrides import create_default_overrides_file
 from policy_sentry.configuration.analysis import create_default_report_config_file
@@ -14,6 +15,17 @@ from policy_sentry.scraping.awsdocs import update_html_docs_directory, get_list_
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL, \
     BUNDLED_DATABASE_FILE_PATH
+
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+
+# logger = logging.getLogger()
+# handler = logging.StreamHandler()
+# formatter = logging.Formatter(
+#     '%(levelname)-8s %(message)s')
+# handler.setFormatter(formatter)
+# logger.addHandler(handler)
+# logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
 
 @click.command(
@@ -42,11 +54,21 @@ from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, HTML_DIRECTOR
     help='Build the SQLite database from the HTML files rather than copying the SQLite database file from '
          'the python package. Defaults to false'
 )
-def initialize(access_level_overrides_file, fetch, build):
+@click.option(
+    '--quiet',
+    help='Set the logging level to WARNING instead of INFO.',
+    default=False,
+    is_flag=True
+)
+def initialize(access_level_overrides_file, fetch, build, quiet):
     """
     Initialize the local database to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
+    if quiet:
+        logger.setLevel(logging.WARNING)
+    else:
+        logger.setLevel(logging.INFO)
     if not access_level_overrides_file:
         overrides_file = HOME + CONFIG_DIRECTORY + 'access-level-overrides.yml'
     else:
@@ -101,4 +123,6 @@ def initialize(access_level_overrides_file, fetch, build):
     # Query the database for all the services that are now in the database.
     all_aws_service_prefixes = get_all_service_prefixes(db_session)
     total_count_of_services = str(len(all_aws_service_prefixes))
-    print(f"{total_count_of_services} AWS services in the database. \nServices: {all_aws_service_prefixes}")
+    print(f"Total AWS services in the IAM database: {total_count_of_services}")
+    print("\nService prefixes:")
+    print(', '.join(all_aws_service_prefixes))

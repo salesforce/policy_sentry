@@ -1,7 +1,10 @@
 """
 Validation for the Policy Sentry YML Templates.
 """
+import logging
 from schema import Optional, Schema, And, Use, SchemaError
+
+logger = logging.getLogger(__name__)
 
 
 def check(conf_schema, conf):
@@ -13,8 +16,16 @@ def check(conf_schema, conf):
     try:
         conf_schema.validate(conf)
         return True
-    except SchemaError as s_e:
-        print(s_e)
+    except SchemaError as schema_error:
+        # logger.info(schema_error)
+        try:
+            # workarounds for Schema's logging approach
+            print(schema_error.autos[0])
+            detailed_error_message = schema_error.autos[2]
+            print(detailed_error_message.split(" in {'")[0])
+            # for error in schema_error.autos:
+        except:  # pylint: disable=bare-except
+            print(schema_error)
         return False
 
 

@@ -1,5 +1,7 @@
 """A few methods for parsing policies."""
 import json
+import logging
+logger = logging.getLogger(__name__)
 
 
 # pylint: disable=too-many-branches,too-many-statements
@@ -27,13 +29,14 @@ def get_actions_from_policy(data):
                             actions_list.extend(
                                 data['Statement']['Action'])
                         elif 'Action' not in data['Statement']:
-                            print('Action is not a key in the statement')
+                            logger.debug(
+                                'Action is not a key in the statement')
                         else:
-                            print(
+                            logger.debug(
                                 "Unknown error: The 'Action' is neither a list nor a string")
                     except KeyError as k_e:
-                        print(
-                            f"KeyError at get_actions_from_policy {k_e}")
+                        logger.debug(
+                            "KeyError at get_actions_from_policy", k_e)
                         exit()
 
             # Otherwise it will be a list of Sids
@@ -51,30 +54,30 @@ def get_actions_from_policy(data):
                                 actions_list.extend(
                                     data['Statement'][i]['Action'])
                             elif data['Statement'][i]['NotAction'] and not data['Statement'][i]['Action']:
-                                print('Skipping due to NotAction')
+                                logger.debug('Skipping due to NotAction')
                             else:
-                                print(
+                                logger.debug(
                                     "Unknown error: The 'Action' is neither a list nor a string")
                                 exit()
                         else:
                             continue
                 except KeyError as k_e:
-                    print(
-                        f"KeyError at get_actions_from_policy {k_e}")
+                    logger.debug(
+                        "KeyError at get_actions_from_policy %s", k_e)
                     exit()
             else:
-                print(
+                logger.critical(
                     "Unknown error: The 'Action' is neither a list nor a string")
                 # exit()
         except TypeError as t_e:
-            print(
-                f"TypeError at get_actions_from_policy {t_e}")
+            logger.critical(
+                "TypeError at get_actions_from_policy %s", t_e)
             exit()
     try:
         actions_list = [x.lower() for x in actions_list]
     except AttributeError as a_e:
-        print(actions_list)
-        print(f"AttributeError: {a_e}")
+        logger.debug(actions_list)
+        logger.debug("AttributeError: %s", a_e)
     actions_list.sort()
     return actions_list
 
@@ -94,6 +97,6 @@ def get_actions_from_json_policy_file(file):
             actions_list = get_actions_from_policy(data)
 
     except:  # pylint: disable=bare-except
-        print("General Error at get_actions_from_json_policy_file.")
+        logger.debug("General Error at get_actions_from_json_policy_file.")
         actions_list = []
     return actions_list

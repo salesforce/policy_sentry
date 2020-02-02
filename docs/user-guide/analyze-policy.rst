@@ -87,6 +87,7 @@ Options
                                  can be used with pandoc to generate an HTML
                                  report. Due to potentially very large report
                                  sizes, this is set to False by default.
+      --quiet                    Set the logging level to WARNING instead of INFO.
       --help                     Show this message and exit.
 
 

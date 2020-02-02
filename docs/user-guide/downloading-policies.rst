@@ -16,6 +16,7 @@ Downloading Policies
       --aws-managed         Use flag if you want to download AWS Managed policies
                             too.
       --include-unattached  Download both attached and unattached policies.
+      --quiet               Set the logging level to WARNING instead of INFO.
       --help                Show this message and exit.
 
 
