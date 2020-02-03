@@ -8,7 +8,7 @@ import re
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.actions import get_lowercase_action_list
-from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
+from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy, get_actions_from_statement
 from policy_sentry.util.file import list_files_in_directory, read_this_file
 
 logger = logging.getLogger(__name__)
@@ -172,6 +172,22 @@ def analyze_by_access_level(db_session, policy_json, access_level):
     :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
     """
     requested_actions = get_actions_from_policy(policy_json)
+    expanded_actions = determine_actions_to_expand(
+        db_session, requested_actions)
+    actions_by_level = remove_actions_not_matching_access_level(
+        db_session, expanded_actions, access_level)
+    return actions_by_level
+
+
+def analyze_statement_by_access_level(db_session, statement_json, access_level):
+    """
+    Determine if a statement has any actions with a given access level.
+
+    :param db_session: SQLAlchemy database session
+    :param statement_json: a dictionary representing a statement from an AWS JSON policy
+    :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
+    """
+    requested_actions = get_actions_from_statement(statement_json)
     expanded_actions = determine_actions_to_expand(
         db_session, requested_actions)
     actions_by_level = remove_actions_not_matching_access_level(

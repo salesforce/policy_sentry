@@ -2,7 +2,7 @@ import os
 import unittest
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-from policy_sentry.analysis.analyze import analyze_by_access_level, determine_risky_actions_from_list
+from policy_sentry.analysis.analyze import analyze_by_access_level, analyze_statement_by_access_level, determine_risky_actions_from_list
 from policy_sentry.analysis.finding import Findings
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
@@ -252,6 +252,31 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             'ecr:setrepositorypolicy',
             'iam:createaccesskey',
             'iam:deleteaccesskey',
+            'secretsmanager:deleteresourcepolicy'
+        ]
+        self.maxDiff = None
+        self.assertListEqual(permissions_management_actions, desired_actions_list)
+
+    def test_analyze_statement_by_access_level(self):
+        """test_analyze_statement_by_access_level: Test out calling this as a library"""
+        permissions_management_statement = {
+            "Effect": "Allow",
+            "Action": [
+                # This one is Permissions management
+                "ecr:setrepositorypolicy",
+                "secretsmanager:DeleteResourcePolicy",
+                # These ones are not permissions management
+                "ecr:GetRepositoryPolicy",
+                "ecr:DescribeRepositories",
+                "ecr:ListImages",
+                "ecr:DescribeImages",
+            ],
+            "Resource": "*"
+        }
+        permissions_management_actions = analyze_statement_by_access_level(db_session, permissions_management_statement, "permissions-management")
+        print(permissions_management_actions)
+        desired_actions_list = [
+            'ecr:setrepositorypolicy',
             'secretsmanager:deleteresourcepolicy'
         ]
         self.maxDiff = None
