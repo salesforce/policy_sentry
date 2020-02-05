@@ -103,6 +103,6 @@ def get_resource_type_name_with_raw_arn(db_session, raw_arn):
     :return: The resource type name, like bucket
     """
     query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(ArnTable.raw_arn.like(raw_arn))
-    resource_type_name = query_resource_type_name.first()
-    resource_type_name = re.sub('[^A-Za-z0-9]+', '', str(resource_type_name))
+    result = query_resource_type_name.first()
+    resource_type_name = re.sub('[^A-Za-z0-9]+', '', str(result.resource_type_name))
     return str(resource_type_name)

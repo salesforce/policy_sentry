@@ -329,7 +329,7 @@ imageVersion;arn:${Partition}:imagebuilder:${Region}:${Account}:image/${ImageNam
 imageRecipe;arn:${Partition}:imagebuilder:${Region}:${Account}:image-recipe/${ImageRecipeName}/${ImageRecipeVersion};arn;${Partition};imagebuilder;${Region};${Account};${ImageRecipeName}/${ImageRecipeVersion};aws:ResourceTag/${TagKey}
 imagePipeline;arn:${Partition}:imagebuilder:${Region}:${Account}:image-pipeline/${ImagePipelineName};arn;${Partition};imagebuilder;${Region};${Account};${ImagePipelineName};aws:ResourceTag/${TagKey}
 infrastructureConfiguration;arn:${Partition}:imagebuilder:${Region}:${Account}:infrastructure-configuration/${ResourceId};arn;${Partition};imagebuilder;${Region};${Account};${ResourceId};aws:ResourceTag/${TagKey}
-kmsKey;arn:${Partition}:kms:${Region}:${Account}:key/${KeyId};arn;${Partition};kms;${Region};${Account};${KeyId};
+key;arn:${Partition}:kms:${Region}:${Account}:key/${KeyId};arn;${Partition};kms;${Region};${Account};${KeyId};
 client;arn:${Partition}:iot:${Region}:${Account}:client/${ClientId};arn;${Partition};iot;${Region};${Account};${ClientId};
 index;arn:${Partition}:iot:${Region}:${Account}:index/${IndexName};arn;${Partition};iot;${Region};${Account};${IndexName};
 job;arn:${Partition}:iot:${Region}:${Account}:job/${JobId};arn;${Partition};iot;${Region};${Account};${JobId};aws:ResourceTag/${TagKey}
@@ -387,8 +387,8 @@ consumer;arn:${Partition}:kinesis:${Region}:${Account}:${StreamType}/${StreamNam
 application;arn:${Partition}:kinesisanalytics:${Region}:${Account}:application/${ApplicationName};arn;${Partition};kinesisanalytics;${Region};${Account};${ApplicationName};aws:ResourceTag/${TagKey}
 application;arn:${Partition}:kinesisanalytics:${Region}:${Account}:application/${ApplicationName};arn;${Partition};kinesisanalytics;${Region};${Account};${ApplicationName};aws:ResourceTag/${TagKey}
 stream;arn:${Partition}:kinesisvideo:${Region}:${Account}:stream/${StreamName}/${CreationTime};arn;${Partition};kinesisvideo;${Region};${Account};${StreamName}/${CreationTime};aws:ResourceTag/${TagKey}
-channel;arn:${Partition}:kinesisvideo:${Region}:${Account}:channel/${ChannelName}/${CreationTime};arn;${Partition};kinesisvideo;${Region};${Account};${ChannelName}/${CreationTime};aws:ResourceTag/${TagKey}
-alias;arn:${Partition}:kms:${Region}:${Account}:alias/${Alias};arn;${Partition};kms;${Region};${Account};${Alias};
+channel;arn:${Partition}:kinesisvideo:${Region}:${Account}alias;arn:${Partition}:kms:${Region}:${Account}:alias/${Alias};arn;${Partition};kms;${Region};${Account};${Alias};
+:channel/${ChannelName}/${CreationTime};arn;${Partition};kinesisvideo;${Region};${Account};${ChannelName}/${CreationTime};aws:ResourceTag/${TagKey}
 key;arn:${Partition}:kms:${Region}:${Account}:key/${KeyId};arn;${Partition};kms;${Region};${Account};${KeyId};
 function;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName};arn;${Partition};lambda;${Region};${Account};${FunctionName};
 layer;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName};arn;${Partition};lambda;${Region};${Account};${LayerName};

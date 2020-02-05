@@ -47,7 +47,7 @@ desired_crud_policy = {
             ]
         },
         {
-            "Sid": "KmsPermissionsmanagementKmskey",
+            "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
                 "kms:creategrant",
@@ -77,7 +77,7 @@ desired_actions_policy = {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "KmsPermissionsmanagementKmskey",
+            "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
                 "kms:creategrant"
