@@ -4,6 +4,7 @@ from policy_sentry.shared.database import connect_db
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.querying.actions import get_action_data
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
@@ -89,11 +90,17 @@ class RefactorTestCase(unittest.TestCase):
     def test_refactored_crud_policy(self):
         """test_refactored_crud_policy"""
         sid_group = SidGroup()
-        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Read")
+        sid_group.add_by_arn_and_access_level(db_session,
+                                              ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Read")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging")
-        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Write")
-        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"], "Write")
-        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:kms:us-east-1:123456789012:key/123456"], "Permissions management")
+        sid_group.add_by_arn_and_access_level(db_session,
+                                              ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
+                                              "Write")
+        sid_group.add_by_arn_and_access_level(db_session,
+                                              ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"],
+                                              "Write")
+        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:kms:us-east-1:123456789012:key/123456"],
+                                              "Permissions management")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")
 
         rendered_policy = sid_group.get_rendered_policy(db_session)
@@ -202,7 +209,6 @@ class RefactorTestCase(unittest.TestCase):
         # print(json.dumps(rendered_policy, indent=4))
         self.assertEqual(rendered_policy, desired_output)
 
-
     # def test_resource_restriction_plus_dependent_action(self):
     #     """
     #     Given iam:generateorganizationsaccessreport with resource constraint, make sure these are added:
@@ -215,3 +221,56 @@ class RefactorTestCase(unittest.TestCase):
     #     """
     #
     #     """
+    def test_add_by_list_of_actions(self):
+        actions_test_data_1 = ['kms:CreateCustomKeyStore', 'kms:CreateGrant']
+        actions_test_data_2 = ['ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
+
+        sid_group = SidGroup()
+        sids = sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
+        # print(json.dumps(sids, indent=4))
+        arns_matching_supplied_actions = [
+            [
+                "*",
+                "Write",
+                "kms:createcustomkeystore"
+            ],
+            [
+                "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
+                "Permissions management",
+                "kms:creategrant"
+            ],
+            [
+                "*",
+                "Permissions management",
+                "kms:creategrant"
+            ]
+        ]
+
+    def test_add_crud_with_wildcard(self):
+        cfg = {
+            'policy_with_crud_levels': [
+                {
+                    'name': 'RoleNameWithCRUD',
+                    'description': 'Why I need these privs',
+                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                    'permissions-management': [
+                        'arn:aws:s3:::example-org-s3-access-logs'
+                    ],
+                    'wildcard': [
+                        # The first three are legitimately wildcard only.
+                        # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                        'ram:enablesharingwithawsorganization',
+                        'ram:getresourcepolicies',
+                        'secretsmanager:createsecret',
+                        # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                        # bypassing this mechanism, while allowing them to explicitly
+                        # request specific privs that require wildcard mode. This next value -
+                        # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                        'secretsmanager:putsecretvalue'
+                    ]
+                }
+            ]
+        }
+        sid_group = SidGroup()
+        rendered_policy = sid_group.process_template(db_session, cfg)
+        print(json.dumps(rendered_policy, indent=4))

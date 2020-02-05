@@ -156,6 +156,8 @@ class ArnActionGroup:
         :rtype: dict
         """
         arns_matching_supplied_actions = []
+        # arns_matching_supplied_actions will look like this:
+        # [['*', 'Write', 'kms:createcustomkeystore']]
         # query the database for corresponding ARNs and add them to arns_matching_supplied_actions
         for action in supplied_actions:
             service_name, action_name = action.split(':')
@@ -199,7 +201,6 @@ class ArnActionGroup:
         if len(actions_with_wildcard) > 0:
             self.add_complete_entry(
                 '*', 'Mult', 'Mult', '*', actions_with_wildcard)
-        # NOTE avoid final and other qualifiers IMHO
         arn_dict = self.get_policy_elements(db_session)
         return arn_dict
 
@@ -395,20 +396,18 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     actions_list_unique = list(dict.fromkeys(actions_list))
     actions_list_placeholder = []
     for action in actions_list_unique:
-        service = get_service_from_action(action)
-        action_name = get_action_name_from_action(action)
+        service_name, action_name = action.split(':')
 
         rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
-            ActionTable.service.ilike(service),
+            ActionTable.service.ilike(service_name),
             ActionTable.name.ilike(action_name),
             ActionTable.resource_arn_format.like("*"),
             ActionTable.name.notin_(
                 db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
         ))
         for row in rows:
-            if row.service == service and row.name == action_name:
-                actions_list_placeholder.append(
-                    get_full_action_name(service, action_name))
+            if row.service == service_name and row.name == action_name:
+                actions_list_placeholder.append(f"{service_name}:{action_name}")
     return actions_list_placeholder
 
 
