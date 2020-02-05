@@ -92,7 +92,6 @@ class RefactorTestCase(unittest.TestCase):
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Read")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Write")
-        # TODO: For some reason it isn't adding both of these secrets.
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"], "Write")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:kms:us-east-1:123456789012:key/123456"], "Permissions management")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")

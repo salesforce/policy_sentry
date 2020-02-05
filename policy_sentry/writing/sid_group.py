@@ -76,7 +76,6 @@ class SidGroup:
         return policy
 
     # TODO: Add conditions as an optional thing here.
-    # TODO: Arn should be a list, not a single item
     def add_by_arn_and_access_level(self, db_session, arn_list, access_level):
         for arn in arn_list:
             # service_prefix = arn.split(':', 5)[2]
