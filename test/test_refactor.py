@@ -97,10 +97,71 @@ class RefactorTestCase(unittest.TestCase):
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")
 
         rendered_policy = sid_group.get_rendered_policy(db_session)
-        print("YOLO: It should have added both write secrets")
-        print(json.dumps(rendered_policy, indent=4))
-        # self.maxDiff = None
-        self.assertEqual("1", "1")
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "SecretsmanagerReadSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:describesecret",
+                        "secretsmanager:getresourcepolicy",
+                        "secretsmanager:getsecretvalue",
+                        "secretsmanager:listsecretversionids"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+                    ]
+                },
+                {
+                    "Sid": "S3TaggingObject",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:deleteobjecttagging",
+                        "s3:deleteobjectversiontagging",
+                        "s3:putobjecttagging",
+                        "s3:putobjectversiontagging",
+                        "s3:replicatetags"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+                    ]
+                },
+                {
+                    "Sid": "SecretsmanagerWriteSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:cancelrotatesecret",
+                        "secretsmanager:deletesecret",
+                        "secretsmanager:putsecretvalue",
+                        "secretsmanager:restoresecret",
+                        "secretsmanager:rotatesecret",
+                        "secretsmanager:updatesecret",
+                        "secretsmanager:updatesecretversionstage"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret",
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
+                    ]
+                },
+                {
+                    "Sid": "KmsPermissionsmanagementKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:creategrant",
+                        "kms:putkeypolicy",
+                        "kms:retiregrant",
+                        "kms:revokegrant"
+                    ],
+                    "Resource": [
+                        "arn:aws:kms:us-east-1:123456789012:key/123456"
+                    ]
+                }
+            ]
+        }
+        # print(json.dumps(rendered_policy, indent=4))
+        self.maxDiff = None
+        self.assertEqual(rendered_policy, desired_output)
 
     def test_write_with_template(self):
         cfg = {
@@ -120,8 +181,26 @@ class RefactorTestCase(unittest.TestCase):
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
-        # print("YOLO")
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:deletebucketpolicy",
+                        "s3:putbucketacl",
+                        "s3:putbucketpolicy",
+                        "s3:putbucketpublicaccessblock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
         # print(json.dumps(rendered_policy, indent=4))
+        self.assertEqual(rendered_policy, desired_output)
 
 
     # def test_resource_restriction_plus_dependent_action(self):
