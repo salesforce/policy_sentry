@@ -40,10 +40,6 @@ def get_arn_types_for_service(db_session, service):
 def get_arn_type_details(db_session, service, name):
     """
     Get details about a resource ARN type name in JSON format.
-    yo.
-    stuff.
-
-    more.
 
     :param db_session: SQLAlchemy database session object
     :param service: An AWS service prefix, like `s3` or `kms`
