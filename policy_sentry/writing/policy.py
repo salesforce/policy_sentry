@@ -158,8 +158,7 @@ class ArnActionGroup:
         arns_matching_supplied_actions = []
         # query the database for corresponding ARNs and add them to arns_matching_supplied_actions
         for action in supplied_actions:
-            action_name = get_action_name_from_action(action)
-            service_name = get_service_from_action(action)
+            service_name, action_name = action.split(':')
             for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service_name),
                                                                  ActionTable.name.like(action_name))):
                 if row.resource_arn_format not in arns_matching_supplied_actions:

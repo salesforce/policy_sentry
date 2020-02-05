@@ -49,10 +49,10 @@ class RefactorTestCase(unittest.TestCase):
         access_level = "Permissions management"
         sid_group.add_by_arn_and_access_level(db_session, arn_list_from_user, access_level)
         status = sid_group.get_sid_group()
-        print(json.dumps(status, indent=4))
-        print()
+        # print(json.dumps(status, indent=4))
+        # print()
         rendered_policy = sid_group.get_rendered_policy(db_session)
-        print(json.dumps(rendered_policy, indent=4))
+        # print(json.dumps(rendered_policy, indent=4))
 
     def test_sid_group(self):
         desired_output = {
@@ -76,15 +76,15 @@ class RefactorTestCase(unittest.TestCase):
         access_level = "Permissions management"
         sid_group.add_by_arn_and_access_level(db_session, arn_list_from_user, access_level)
         status = sid_group.get_sid_group()
-        print(json.dumps(status, indent=4))
+        # print(json.dumps(status, indent=4))
         self.assertEqual(status, desired_output)
 
         rendered_policy = sid_group.get_rendered_policy(db_session)
-        print(json.dumps(rendered_policy, indent=4))
+        # print(json.dumps(rendered_policy, indent=4))
 
     def test_get_actions_data_service_wide(self):
         data = get_action_data(db_session, "s3", "*")
-        print(data)
+        # print(data)
 
     def test_refactored_crud_policy(self):
         """test_refactored_crud_policy"""
@@ -98,7 +98,42 @@ class RefactorTestCase(unittest.TestCase):
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")
 
         rendered_policy = sid_group.get_rendered_policy(db_session)
-        print("YOLO")
+        print("YOLO: It should have added both write secrets")
         print(json.dumps(rendered_policy, indent=4))
         # self.maxDiff = None
         self.assertEqual("1", "1")
+
+    def test_write_with_template(self):
+        cfg = {
+            'policy_with_crud_levels': [
+                {
+                    'name': 'RoleNameWithCRUD',
+                    'description': 'Why I need these privs',
+                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                    'permissions-management': [
+                        'arn:aws:s3:::example-org-s3-access-logs'
+                    ],
+                    'list': [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
+                    ]
+                }
+            ]
+        }
+        sid_group = SidGroup()
+        rendered_policy = sid_group.process_template(db_session, cfg)
+        # print("YOLO")
+        # print(json.dumps(rendered_policy, indent=4))
+
+
+    # def test_resource_restriction_plus_dependent_action(self):
+    #     """
+    #     Given iam:generateorganizationsaccessreport with resource constraint, make sure these are added:
+    #     organizations:DescribePolicy,organizations:ListChildren,organizations:ListParents,
+    #     organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
+    #     """
+    #     # Thought: I think if we have dependent actions, they should prob be added as wildcard only just in case?
+    #
+    # def test_add_wildcard_action(self):
+    #     """
+    #
+    #     """
