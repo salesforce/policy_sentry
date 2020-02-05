@@ -173,7 +173,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 
         arn_dict = arn_action_group.process_resource_specific_acls(cfg, db_session)
         output = print_policy(arn_dict, db_session, None)
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [

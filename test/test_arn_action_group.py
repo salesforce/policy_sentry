@@ -21,7 +21,7 @@ class ArnActionGroupTestCase(unittest.TestCase):
             }
         ]
         arn_action_group.add(db_session, arn_list_from_user, access_level)
-        print(arn_action_group.get_arns())
+        # print(arn_action_group.get_arns())
         self.assertEqual(arn_action_group.get_arns(), desired_output)
 
     def test_update_actions_for_raw_arn_format(self):
@@ -44,7 +44,7 @@ class ArnActionGroupTestCase(unittest.TestCase):
         ]
         arn_action_group.add(db_session, arn_list_from_user, access_level)
         arn_action_group.update_actions_for_raw_arn_format(db_session)
-        print(arn_action_group.get_arns())
+        # print(arn_action_group.get_arns())
         self.assertEqual(arn_action_group.get_arns(), desired_output)
 
     def test_get_policy_elements(self):
@@ -69,5 +69,5 @@ class ArnActionGroupTestCase(unittest.TestCase):
         arn_action_group.add(db_session, arn_list_from_user, access_level)
         arn_action_group.update_actions_for_raw_arn_format(db_session)
         arn_dict = arn_action_group.get_policy_elements(db_session)
-        print(arn_dict)
+        # print(arn_dict)
         self.assertEqual(arn_dict, desired_output)

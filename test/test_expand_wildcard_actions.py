@@ -47,6 +47,6 @@ class ExpandWildcardActionsTestCase(unittest.TestCase):
             'ecr:uploadlayerpart',
             'ecr:batchdeleteimage'
         ]
-        print(determine_actions_to_expand(db_session, action_list))
+        # print(determine_actions_to_expand(db_session, action_list))
         self.maxDiff = None
         self.assertListEqual(sorted(determine_actions_to_expand(db_session, action_list)), sorted(desired_result))

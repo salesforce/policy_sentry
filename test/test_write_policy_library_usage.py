@@ -118,7 +118,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         """test_write_actions_policy_with_library_only: Write an actions mode policy without using the command line at all (library only)"""
         db_session = connect_db('bundled')
         actions_template = get_actions_template_dict()
-        print(actions_template)
+        # print(actions_template)
         actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
         actions_template['policy_with_actions'][0]['name'] = "MyPolicy"
         actions_template['policy_with_actions'][0]['description'] = "Description"
@@ -135,7 +135,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         db_session = connect_db('bundled')
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
-        print(crud_template)
+        # print(crud_template)
         crud_template['policy_with_crud_levels'][0]['name'] = "MyPolicy"
         crud_template['policy_with_crud_levels'][0]['description'] = "Description"
         crud_template['policy_with_crud_levels'][0]['role_arn'] = "somearn"

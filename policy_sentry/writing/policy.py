@@ -37,7 +37,7 @@ class ArnActionGroup:
         for arn_from_user in arn_list_from_user:
             service = get_service_from_arn(arn_from_user)
             for row in db_session.query(ActionTable).filter(
-                    ActionTable.service.like(service)):
+                ActionTable.service.like(service)):
                 if does_arn_match(arn_from_user, row.resource_arn_format):
                     if row.access_level == access_level:
                         # If it's not a key in the dictionary, add it as a key
@@ -59,12 +59,12 @@ class ArnActionGroup:
 
     # pylint: disable=too-many-arguments
     def add_complete_entry(
-            self,
-            arn_from_user,
-            service,
-            access_level,
-            raw_arn_format,
-            actions_list):
+        self,
+        arn_from_user,
+        service,
+        access_level,
+        raw_arn_format,
+        actions_list):
         """
         Add a single entry with all the necessary fields filled out.
 
@@ -138,9 +138,8 @@ class ArnActionGroup:
         #     logger.debug("Yaml file is missing this block: " + e.args[0])
         #     sys.exit()
         except IndexError:
-            print("IndexError: list index out of range. This is likely due to an ARN in your list "
-                  "equaling ''. Please evaluate your YML file and try again.")
-            sys.exit()
+            raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "
+                            "equaling ''. Please evaluate your YML file and try again.")
 
         self.update_actions_for_raw_arn_format(db_session)
         arn_dict = self.get_policy_elements(db_session)
@@ -269,11 +268,11 @@ class ArnActionGroup:
         """
         for i in range(len(self.arns)):
             for row in db_session.query(ActionTable).filter(and_(  # pylint: disable=bad-continuation
-                    ActionTable.access_level.like(
-                        self.arns[i]['access_level']),
-                    ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
+                ActionTable.access_level.like(
+                    self.arns[i]['access_level']),
+                ActionTable.resource_arn_format.like(self.arns[i]['arn_format']))):
                 if self.arns[i]['access_level'] == row.access_level and self.arns[i][
-                        'arn_format'] == row.resource_arn_format:
+                    'arn_format'] == row.resource_arn_format:
                     self.arns[i]['actions'].append(
                         row.service + ':' + row.name)
 
@@ -336,7 +335,7 @@ class ArnActionGroup:
                 # If the ARN also has other occurrences, get the value of those
                 # occurrences and copy it over
                 if self.arns[i]['arn_format'] == self.arns[j]['arn_format'] and len(
-                        self.arns[i]['actions']) > 0 and i not in altered:
+                    self.arns[i]['actions']) > 0 and i not in altered:
                     self.arns[i]['actions'].extend(self.arns[j]['actions'])
                     self.arns[j]['actions'].clear()
                     altered.append(i)

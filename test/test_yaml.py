@@ -280,7 +280,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         self.maxDiff = None
 
         result = write_policy_with_access_levels(db_session, crud_file_input)
-        print(json.dumps(result, indent=4))
+        # print(json.dumps(result, indent=4))
 
     def test_empty_strings_in_access_level_categories(self):
         """
@@ -312,9 +312,9 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                 }
             ]
         }
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(Exception):
             result = write_policy_with_access_levels(db_session, crud_file_input)
-            print(json.dumps(result, indent=4))
+            # print(json.dumps(result, indent=4))
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):

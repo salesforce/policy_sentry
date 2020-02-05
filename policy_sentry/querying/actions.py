@@ -37,12 +37,14 @@ def get_action_data(db_session, service, name):
 
     :param db_session: SQLAlchemy database session object
     :param service: An AWS service prefix, like `s3` or `kms`
-    :param name: The name of an AWS IAM action, like `GetObject`.
+    :param name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*"
     :return: A dictionary containing metadata about an IAM Action.
     """
-    rows = db_session.query(ActionTable).filter(
-        and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
-
+    if name == "*":
+        rows = db_session.query(ActionTable).filter(ActionTable.service.ilike(service))
+    else:
+        rows = db_session.query(ActionTable).filter(
+            and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
     action_table_results = {}
     results = []
 

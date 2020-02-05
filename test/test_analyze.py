@@ -72,12 +72,12 @@ class FindingsTestCase(unittest.TestCase):
         findings = Findings()
         # Policy name: some-risky-policy
         findings.add(privilege_escalation_finding)
-        print(privilege_escalation_finding)
+        # print(privilege_escalation_finding)
         # Policy name: yolo-policy
         findings.add(privilege_escalation_yolo_policy)
-        print(privilege_escalation_yolo_policy)
+        # print(privilege_escalation_yolo_policy)
         findings_for_second_policy_name = findings.get_findings_by_policy_name('yolo-policy')
-        print(findings_for_second_policy_name)
+        # print(findings_for_second_policy_name)
         self.assertDictEqual(findings_for_second_policy_name, privilege_escalation_yolo_policy['yolo-policy'])
 
     # def test_get_findings_by_account_id(self):
@@ -101,7 +101,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             "ecr:TagResource",  # Tagging
             "ecr:SetRepositoryPolicy",  # Permissions management
         ]
-        print("Read")
+        # print("Read ")
         self.maxDiff = None
         # Read
         self.assertListEqual(remove_actions_not_matching_access_level(db_session, actions_list, "read"), ["ecr:batchgetimage"])
@@ -179,7 +179,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
         policy_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir +
                                                         '/examples/analyze/wildcards.json'))
         requested_actions = get_actions_from_json_policy_file(policy_file_path)
-        print(requested_actions)
+        # print(requested_actions)
         desired_actions_list = ['ecr:*', 's3:*']
         self.maxDiff = None
         self.assertListEqual(requested_actions, desired_actions_list)
@@ -247,7 +247,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             ]
         }
         permissions_management_actions = analyze_by_access_level(db_session, permissions_management_policy, "permissions-management")
-        print(permissions_management_actions)
+        # print(permissions_management_actions)
         desired_actions_list = [
             'ecr:setrepositorypolicy',
             'iam:createaccesskey',
@@ -274,7 +274,7 @@ class AnalyzeActionsTestCase(unittest.TestCase):
             "Resource": "*"
         }
         permissions_management_actions = analyze_statement_by_access_level(db_session, permissions_management_statement, "permissions-management")
-        print(permissions_management_actions)
+        # print(permissions_management_actions)
         desired_actions_list = [
             'ecr:setrepositorypolicy',
             'secretsmanager:deleteresourcepolicy'

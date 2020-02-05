@@ -60,7 +60,7 @@ class QueryTestCase(unittest.TestCase):
             "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         }
         output = get_arn_types_for_service(db_session, "s3")
-        print(output)
+        # print(output)
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
@@ -126,7 +126,7 @@ class QueryTestCase(unittest.TestCase):
             ]
         }
         output = get_action_data(db_session, 'ram', 'createresourceshare')
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
@@ -138,7 +138,7 @@ class QueryTestCase(unittest.TestCase):
                         'ram:enablesharingwithawsorganization', 'ram:rejectresourceshareinvitation',
                         'ram:updateresourceshare']
         output = get_actions_with_access_level(db_session, "ram", "Permissions management")
-        print(output)
+        # print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
@@ -158,10 +158,10 @@ class QueryTestCase(unittest.TestCase):
         list1 = get_actions_with_access_level(db_session, "all", "Permissions management")
         list2 = ["s3:deleteaccesspointpolicy", "s3:putbucketacl"]
         self.maxDiff = None
-        print(list1)
+        # print(list1)
         # decision = list1 contains all elements of list2 using all()
         decision = all(elem in list1 for elem in list2)
-        print(f"decision is {decision}")
+        # print(f"decision is {decision}")
         self.assertTrue(decision)
 
     def test_get_actions_with_arn_type_and_access_level(self):
@@ -176,7 +176,7 @@ class QueryTestCase(unittest.TestCase):
         ]
         output = get_actions_with_arn_type_and_access_level(db_session, "ram", "resource-share",
                                                                  "Permissions management")
-        print(output)
+        # print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
@@ -192,7 +192,7 @@ class QueryTestCase(unittest.TestCase):
             'ses:sendtemplatedemail'
         ]
         output = get_actions_matching_condition_key(db_session, "ses", "ses:FeedbackAddress")
-        print(output)
+        # print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
@@ -260,7 +260,7 @@ class QueryTestCase(unittest.TestCase):
         ]
         output = get_actions_that_support_wildcard_arns_only(db_session, "secretsmanager")
         self.maxDiff = None
-        print(output)
+        # print(output)
         self.assertListEqual(desired_output, output)
 
     def test_remove_actions_that_are_not_wildcard_arn_only(self):
@@ -297,7 +297,7 @@ class QueryTestCase(unittest.TestCase):
         ]
         output = get_conditions_for_action_and_raw_arn(db_session, "secretsmanager:createsecret", "*")
         self.maxDiff = None
-        print(output)
+        # print(output)
         self.assertListEqual(desired_condition_keys_list, output)
 
         # Test with non-wildcard as ARN
@@ -307,5 +307,5 @@ class QueryTestCase(unittest.TestCase):
         condition_key = "secretsmanager:SecretId"
         result = get_condition_value_type(db_session, condition_key)
         self.maxDiff = None
-        print(result)
+        # print(result)
         self.assertEqual(desired_result, result)
