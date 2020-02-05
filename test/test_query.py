@@ -8,7 +8,8 @@ from policy_sentry.querying.actions import get_actions_for_service, get_action_d
     get_actions_matching_condition_crud_and_arn, get_actions_at_access_level_that_support_wildcard_arns_only
 from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
     get_arn_types_for_service
-from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service
+from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service, \
+    get_conditions_for_action_and_raw_arn, get_condition_value_type
 from policy_sentry.writing.policy import remove_actions_that_are_not_wildcard_arn_only
 
 db_session = connect_db(DATABASE_FILE_PATH)
@@ -283,3 +284,28 @@ class QueryTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
+    def test_get_conditions_for_action_and_raw_arn(self):
+        """get_conditions_for_action_and_raw_arn: Get a list of conditions corresponding to an action and a raw ARN"""
+        # Test with wildcard as ARN
+        desired_condition_keys_list = [
+            'secretsmanager:Name',
+            'secretsmanager:Description',
+            'secretsmanager:KmsKeyId',
+            'aws:RequestTag/tag-key',
+            'aws:TagKeys',
+            'secretsmanager:ResourceTag/tag-key'
+        ]
+        output = get_conditions_for_action_and_raw_arn(db_session, "secretsmanager:createsecret", "*")
+        self.maxDiff = None
+        print(output)
+        self.assertListEqual(desired_condition_keys_list, output)
+
+        # Test with non-wildcard as ARN
+
+    def test_get_condition_value_type(self):
+        desired_result = "Arn"
+        condition_key = "secretsmanager:SecretId"
+        result = get_condition_value_type(db_session, condition_key)
+        self.maxDiff = None
+        print(result)
+        self.assertEqual(desired_result, result)
