@@ -140,19 +140,6 @@ def write_policy(c):
 
 
 @task(pre=[install_package])
-def analyze_policy(c):
-    """Integration testing: Tests the `analyze` functionality"""
-    try:
-        c.run('./policy_sentry/bin/policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json', pty=True)
-    except UnexpectedExit as u_e:
-        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(1)
-    except Failure as f_e:
-        logger.critical(f"FAIL: Failure: {f_e}")
-        sys.exit(1)
-
-
-@task(pre=[install_package])
 def query(c):
     """Integration testing: Tests the `query` functionality (querying the IAM database)"""
     try:
@@ -265,7 +252,6 @@ def run_pytest(c):
 integration.add_task(clean_config_directory, 'clean')
 integration.add_task(version_check, 'version')
 integration.add_task(create_db, 'initialize')
-integration.add_task(analyze_policy, 'analyze-policy')
 integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
 integration.add_task(query_with_yaml, 'query-yaml')
