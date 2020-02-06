@@ -8,7 +8,7 @@ import logging
 import shutil
 from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_PATH, \
     HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
-from policy_sentry.util.file import create_directory_if_it_doesnt_exist, list_files_in_directory
+from policy_sentry.util.file import create_directory_if_it_doesnt_exist
 
 logger = logging.getLogger(__name__)
 

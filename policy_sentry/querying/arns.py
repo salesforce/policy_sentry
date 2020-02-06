@@ -3,7 +3,7 @@ Methods that execute specific queries against the SQLite database for the ARN ta
 This supports the policy_sentry query functionality
 """
 from policy_sentry.shared.database import ArnTable
-import re
+
 
 def get_arn_data(db_session, service, name):
     """

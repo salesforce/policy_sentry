@@ -1,7 +1,6 @@
 """
 sid_group indicates that this is a collection of policy-related data organized by their SIDs
 """
-import copy
 import logging
 import re
 from policy_sentry.querying.all import get_all_actions
@@ -19,6 +18,26 @@ logger = logging.getLogger(__name__)
 
 
 class SidGroup:
+    """
+    This class is critical to the creation of least privilege policies.
+    It uses the SIDs as namespaces. The namespaces follow this format:
+        {Servicename}{Accesslevel}{Resourcetypename}
+
+    So, a resulting statement's SID might look like 'S3ListBucket'
+
+    If a condition key is supplied (like s3:RequestJob), the SID string will be significantly longer.
+    It will resemble this format:
+            {Servicename}{Accesslevel}{Resourcetypename}{Conditionkeystring}{Conditiontypestring}{Conditionkeyvalue}
+    For example: EC2 write actions on the security-group resource, using the following condition map:
+        "Condition": {
+            "StringEquals": {"ec2:ResourceTag/Owner": "${aws:username}"}
+        }
+    The resulting SID would be:
+        Ec2WriteSecuritygroupResourcetagownerStringequalsAwsusername
+    Or, for actions that support wildcard ARNs only, an example could be:
+        Ec2WriteMultResourcetagownerStringequalsAwsusername
+    """
+
     def __init__(self):
         # Dict instead of list
         # sids instead of ARN
@@ -27,7 +46,7 @@ class SidGroup:
 
     def get_sid_group(self):
         """
-        Get the whole SID group
+        Get the whole SID group as JSON
         """
         return self.sids
 
@@ -36,18 +55,31 @@ class SidGroup:
         if self.sids[sid]:
             return self.sids[sid]
         else:
-            raise Exception("No SID with the value of %s", sid)
+            raise Exception(f"No SID with the value of {sid}")
 
     def list_sids(self):
-        """Get a list of all of them by their identifiers"""
+        """
+        Get a list of all of them by their identifiers
+
+        :rtype: list
+        """
         return self.sids.keys()
 
     def get_universal_conditions(self):
+        """
+        Get the universal conditions maps back as a dict
+
+        :rtype: dict
+        """
         return self.universal_conditions
 
     def get_rendered_policy(self, db_session, minimize=None):
         """
         Get the JSON rendered policy
+
+        :param db_session: SQLAlchemy database session
+        :param minimize: Reduce the character count of policies without creating overlap with other action names
+        :rtype: dict
         """
         statements = []
         all_actions = get_all_actions(db_session)
@@ -72,9 +104,16 @@ class SidGroup:
         }
         return policy
 
+    # pylint: disable=unused-argument
     def add_by_arn_and_access_level(self, db_session, arn_list, access_level, conditions_block=None):
         """
+        This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given by the user.
+        It derives the list of IAM actions based on the user's requested ARNs and access levels.
 
+        :param db_session: SQLAlchemy database session
+        :param arn_list: Just a list of resource ARNs.
+        :param access_level: "Read", "List", "Tagging", "Write", or "Permissions management"
+        :param conditions_block: Optionally, a condition block with one or more conditions
         """
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
@@ -106,16 +145,18 @@ class SidGroup:
                         }
                         if sid_namespace in self.sids.keys():
                             # If the ARN already exists there, skip it.
-                            if arn in self.sids[sid_namespace]["arn"]:
-                                continue
-                            # Otherwise, just append the ARN
-                            else:
+                            if arn not in self.sids[sid_namespace]["arn"]:
                                 self.sids[sid_namespace]["arn"].append(arn)
                         # If it did not exist before at all, create it.
                         else:
                             self.sids[sid_namespace] = temp_sid_dict
 
     def add_action_without_resource_constraint(self, action):
+        """
+        This handles the cases where certain actions do not handle resource constraints - either by AWS, or for flexibility when adding dependent actions.
+
+        :param action: The single action to add to the MultMultNone SID namespace. For instance, s3:ListAllMyBuckets
+        """
         sid_namespace = "MultMultNone"
         temp_sid_dict = {
             'arn': ["*"],
@@ -134,6 +175,7 @@ class SidGroup:
     def add_by_list_of_actions(self, db_session, supplied_actions):
         """
         Takes a list of actions, queries the database for corresponding arns, adds them to the object.
+
         :param db_session: SQLAlchemy database session object
         :param supplied_actions: A list of supplied actions
         """
@@ -184,7 +226,7 @@ class SidGroup:
 
         actions_without_resource_constraints = []
         for item in arns_matching_supplied_actions:
-            if item["resource_arn_format"] is not "*":
+            if item["resource_arn_format"] != "*":
                 self.add_by_arn_and_access_level(db_session, [item["resource_arn_format"]], item["access_level"])
             else:
                 actions_without_resource_constraints.append(item["action"])
@@ -206,6 +248,13 @@ class SidGroup:
         return rendered_policy
 
     def process_template(self, db_session, cfg, minimize=None):
+        """
+        Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or Actions mode.
+
+        :param db_session: SQLAlchemy database session object
+        :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
+        :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
+        """
         try:
             for template in cfg:
                 if template == 'policy_with_crud_levels':

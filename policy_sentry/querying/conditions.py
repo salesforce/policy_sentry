@@ -108,4 +108,3 @@ def get_condition_value_type(db_session, condition_key):
                         f"\n\tpolicy_sentry query condition-table --service ec2")
     condition_value_type = translate_condition_key_data_types(result.condition_value_type)
     return condition_value_type
-

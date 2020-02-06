@@ -285,14 +285,11 @@ def get_dependent_actions(db_session, actions_list):
         action_name = str.lower(action_name)
         rows = get_action_data(db_session, service, action_name)
         for row in rows[service]:
-            if row["dependent_actions"] is None:
-                # Add the original action anyway, but not any dependent actions
-                # new_actions_list.append(action)
-                continue
-            else:
+            if row["dependent_actions"] is not None:
                 # new_actions_list.append(action)
                 dependent_actions = [x.lower() for x in row["dependent_actions"]]
                 new_actions_list.extend(dependent_actions)
+
     new_actions_list = list(dict.fromkeys(new_actions_list))
     return new_actions_list
 
