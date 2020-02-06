@@ -1,59 +1,33 @@
 # Changelog
-## 0.7.1 (Unreleased)
+## Future releases
 * Add conditions support
+* Make it so you can leverage the built-in database without the initialize command entirely
 
 ## 0.7.0 (Unreleased)
 User-facing changes:
 * Removing the old analysis, download, login commands.
-* **Breaking change**: Template format
+* **Breaking change**: Template format is vastly different. You will have to either pin to an old version or update your templates.
 * Now users do not have to specify the `--crud` flag - Policy Sentry will automatically detect the format.
+* **Removed**: `analyze` and `download-policies` commands. We are moving over to Parliament.
 
 Developer library changes:
 * A **lot**. Removed a lot of the old functions.
 * Replaced ArnActionGroup with SidGroup. This will allow us to do conditions, etc. It is also easier to read.
+* The old `write-policy` logic using ArnActionGroup is nuked. Now using SidGroup, since that will help us take advantage of condition keys. And it's clean(er).
+* `write-policy` is easier to call as a method.
+* Unit tests are in a nested folder structure that resembles the rest of the python package.
 
-TODO:
-* Nuke the Analysis and Download commands - DONE
-* Nuke the old write-policy logic - DONE
-* Remove old packages to reduce dependencies - DONE
-* Restructure the test folder - DONE
-* Remove the `--crud` command officially - DONE
-* Fix the `write-policy-dir` command - DONE
-* Make sure `write-policy` is easily callable as a method - DONE
-  - Migrate unit tests from old write-policy thing over to the new one - DONE
-* Consider restructuring the yaml files to get rid of the policy_with_crud_levels nonsense. And then make the mode the only mandatory field. This way it's easier for developers to call it. - DONE
-* fix all the documentation and code examples to fit the new one - DONE
+Other:
+* Documentation is updated to reflect the above.
 
-* Documentation:
-  - Convert to Python Black (Optional)
-  - Update the GIF and documentation (including the blog)
-
-* Coding:
-  - Validate Terraform setup
-
-
-```yaml
-mode: crud  # or mode=actions
-name: 'RoleNameWithCRUD'
-description: 'Why I need these privs'
-role_arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
-read:
-- arn:aws:s3:::example-org-sbx-vmimport
-write:
-- arn:aws:s3:::example-org-s3-access-logs
-list:
-- arn:aws:s3:::example-org-flow-logs
-tagging:
-- arn:aws:ssm:us-east-1:123456789012:parameter/test
-permissions-management:
-- arn:aws:s3:::example-org-s3-access-logs
-```
-
+Pending:
+* Terraform module updates are currently pending
+* Moving to Python Black instead of autopep8
+* Update the GIF and the Medium blog
 
 ## 0.6.12 (Unreleased)
 ### Changed
 * Replaced a lot of print statements with logging.
-* Make it so you can leverage the built-in database without the initialize command entirely
 
 ## 0.6.11 (2020-01-28)
 ### Changed
