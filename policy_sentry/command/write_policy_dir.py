@@ -7,7 +7,7 @@ import logging
 import glob
 import click
 from policy_sentry.shared.database import connect_db
-from policy_sentry.command.write_policy import write_policy_with_actions, write_policy_with_access_levels
+from policy_sentry.command.write_policy import write_policy
 from policy_sentry.util.file import read_yaml_file, write_json_file, check_valid_file_path
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
@@ -102,10 +102,10 @@ def write_policy_dir(input_dir, output_dir, crud, minimize, quiet):
         cfg = read_yaml_file(yaml_file)
         # User supplies file containing resource-specific access levels
         if crud:
-            policy = write_policy_with_access_levels(db_session, cfg, minimize)
+            policy = write_policy(cfg, crud, minimize)
         # User supplies file containing a list of IAM actions
         else:
-            policy = write_policy_with_actions(db_session, cfg, minimize)
+            policy = write_policy(cfg, crud, minimize)
         logger.info("Writing policy for %s\n", base_name)
 
         target_file = str(output_dir + '/' + base_name_no_extension + '.json')

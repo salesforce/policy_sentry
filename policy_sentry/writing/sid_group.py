@@ -203,7 +203,7 @@ class SidGroup:
         rendered_policy = self.get_rendered_policy(db_session)
         return rendered_policy
 
-    def process_template(self, db_session, cfg):
+    def process_template(self, db_session, cfg, minimize=None):
         try:
             for template in cfg:
                 if template == 'policy_with_crud_levels':
@@ -246,7 +246,7 @@ class SidGroup:
         except IndexError:
             raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "
                             "equaling ''. Please evaluate your YML file and try again.")
-        rendered_policy = self.get_rendered_policy(db_session)
+        rendered_policy = self.get_rendered_policy(db_session, minimize)
         return rendered_policy
 
     def remove_actions_not_matching_these(self, actions_to_keep):

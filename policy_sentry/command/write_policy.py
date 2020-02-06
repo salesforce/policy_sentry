@@ -15,6 +15,7 @@ from policy_sentry.writing.policy import ArnActionGroup
 from policy_sentry.writing.roles import Roles
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.util.file import read_yaml_file
+from policy_sentry.writing.sid_group import SidGroup
 
 logger = logging.getLogger()
 handler = logging.StreamHandler()
@@ -22,64 +23,6 @@ formatter = logging.Formatter(
     '%(name)-12s %(levelname)-8s %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
-
-
-def print_policy(
-        arn_dict_with_actions_and_resources,
-        db_session,
-        minimize=None):
-    """
-    Prints the least privilege policy
-    """
-    statement = []
-    all_actions = get_all_actions(db_session)
-
-    for sid in arn_dict_with_actions_and_resources:
-        actions = arn_dict_with_actions_and_resources[sid]['actions']
-        if minimize is not None and isinstance(minimize, int):
-            actions = minimize_statement_actions(
-                actions, all_actions, minchars=minimize)
-        statement.append({
-            "Sid": arn_dict_with_actions_and_resources[sid]['name'],
-            "Effect": "Allow",
-            "Action": actions,
-            "Resource": arn_dict_with_actions_and_resources[sid]['arns']
-        })
-
-    policy = {
-        "Version": POLICY_LANGUAGE_VERSION,
-        "Statement": statement
-    }
-    return policy
-
-
-def write_policy_with_access_levels(db_session, cfg, minimize_statement=None):
-    """
-    Writes an IAM policy given a dict containing Access Levels and ARNs.
-    """
-    check_crud_schema(cfg)
-    arn_action_group = ArnActionGroup()
-    arn_dict = arn_action_group.process_resource_specific_acls(cfg, db_session)
-    policy = print_policy(arn_dict, db_session, minimize_statement)
-    return policy
-
-
-def write_policy_with_actions(db_session, cfg, minimize_statement=None):
-    """
-    Writes an IAM policy given a dict containing lists of actions.
-    """
-    check_actions_schema(cfg)
-    policy_with_actions = Roles()
-    policy_with_actions.process_actions_config(cfg)
-    supplied_actions = []
-    for role in policy_with_actions.get_roles():
-        supplied_actions.extend(role[3].copy())
-    supplied_actions = get_dependent_actions(db_session, supplied_actions)
-    arn_action_group = ArnActionGroup()
-    arn_dict = arn_action_group.process_list_of_actions(
-        supplied_actions, db_session)
-    policy = print_policy(arn_dict, db_session, minimize_statement)
-    return policy
 
 
 @click.command(
@@ -132,10 +75,7 @@ def write_policy(input_file, crud, minimize, quiet):
             sys.exit()
 
     # User supplies file containing resource-specific access levels
-    if crud:
-        policy = write_policy_with_access_levels(db_session, cfg, minimize)
-    # User supplies file containing a list of IAM actions
-    else:
-        policy = write_policy_with_actions(db_session, cfg, minimize)
+    sid_group = SidGroup()
+    policy = sid_group.process_template(db_session, cfg, minimize)
     print(json.dumps(policy, indent=4))
     return policy

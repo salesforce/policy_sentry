@@ -6,18 +6,19 @@
 User-facing changes:
 * Removing the old analysis, download, login commands.
 * **Breaking change**: Template format
+* Now users do not have to specify the `--crud` flag - Policy Sentry will automatically detect the format.
 
 Developer library changes:
 * A **lot**. Removed a lot of the old functions.
 * Replaced ArnActionGroup with SidGroup. This will allow us to do conditions, etc. It is also easier to read.
 
 TODO:
-* Validate Terraform setup
+* Validate Terraform setup. Including the write-policy-dir command
 * fix all the documentation and code examples to fit the new one
 * Convert to Python Black (Optional)
-* Nuke the old setup for ArnActionGroup
 * Nuke the Analysis and Download commands
 * Update the GIF and documentation (including the blog)
+* Migrate unit tests from old write-policy thing over to the new one. This includes test_write_policy, test_write_policy_library_usage, and test_yaml.
 
 ## 0.6.12 (Unreleased)
 ### Changed
