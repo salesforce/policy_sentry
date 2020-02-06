@@ -3,91 +3,11 @@ import unittest
 from policy_sentry.shared.database import connect_db
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.analysis.analyze import analyze_by_access_level, analyze_statement_by_access_level, determine_risky_actions_from_list
-from policy_sentry.analysis.finding import Findings
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy
 
-
 db_session = connect_db(DATABASE_FILE_PATH)
-
-resource_exposure_finding = {
-    "some-risky-policy": {
-        "account_id": "0123456789012",
-        "resource_exposure": [
-            "iam:createaccesskey",
-            "iam:deleteaccesskey"
-        ]
-    }
-}
-privilege_escalation_finding = {
-    "some-risky-policy": {
-        "account_id": "0123456789012",
-        "privilege_escalation": [
-            "iam:createaccesskey"
-        ]
-    }
-}
-privilege_escalation_finding_account_2 = {
-    "some-risky-policy": {
-        "account_id": "9876543210123",
-        "privilege_escalation": [
-            "iam:createaccesskey"
-        ]
-    }
-}
-privilege_escalation_yolo_policy = {
-    "yolo-policy": {
-        "account_id": "9876543210123",
-        "privilege_escalation": [
-            "iam:createaccesskey"
-        ]
-    }
-}
-
-
-class FindingsTestCase(unittest.TestCase):
-    def test_get_findings(self):
-        """test_get_findings: Ensure that finding.get_findings() combines two risk findings for one policy properly."""
-        findings = Findings()
-        desired_result = {
-            "some-risky-policy": {
-                "account_id": "0123456789012",
-                "resource_exposure": [
-                    "iam:createaccesskey",
-                    "iam:deleteaccesskey"
-                ],
-                "privilege_escalation": [
-                    "iam:createaccesskey"
-                ]
-            }
-        }
-        findings.add(resource_exposure_finding)
-        findings.add(privilege_escalation_finding)
-        occurrences = findings.get_findings()
-        self.assertDictEqual(occurrences, desired_result)
-
-    def test_get_findings_by_policy_name(self):
-        """test_get_findings_by_policy_name: Testing out the 'Findings' object"""
-        findings = Findings()
-        # Policy name: some-risky-policy
-        findings.add(privilege_escalation_finding)
-        # print(privilege_escalation_finding)
-        # Policy name: yolo-policy
-        findings.add(privilege_escalation_yolo_policy)
-        # print(privilege_escalation_yolo_policy)
-        findings_for_second_policy_name = findings.get_findings_by_policy_name('yolo-policy')
-        # print(findings_for_second_policy_name)
-        self.assertDictEqual(findings_for_second_policy_name, privilege_escalation_yolo_policy['yolo-policy'])
-
-    # def test_get_findings_by_account_id(self):
-    #     findings = Findings()
-    #     # account ID = 0123456789012
-    #     findings.add('privilege_escalation', privilege_escalation_finding)
-    #     # account ID = 9876543210123
-    #     findings.add('privilege_escalation', privilege_escalation_finding_account_2)
-    #     findings_for_second_account = findings.get_findings_by_account_id('9876543210123')
-    #     self.assertDictEqual(findings_for_second_account, privilege_escalation_finding_account_2)
 
 
 class AnalyzeActionsTestCase(unittest.TestCase):

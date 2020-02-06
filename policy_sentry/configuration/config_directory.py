@@ -6,7 +6,7 @@ from os.path import exists, dirname
 from os import remove, mkdir
 import logging
 import shutil
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, AUDIT_DIRECTORY_PATH, DATABASE_FILE_PATH, \
+from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_PATH, \
     HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
 from policy_sentry.util.file import create_directory_if_it_doesnt_exist, list_files_in_directory
 
@@ -56,38 +56,3 @@ def create_html_docs_directory():
         dirname(__file__)).parent) + '/shared/data/' + 'links.yml'
     target_links_file = HOME + CONFIG_DIRECTORY + 'links.yml'
     shutil.copy(existing_links_file, target_links_file)
-
-
-def create_audit_directory():
-    """
-    Creates directory for analyze_iam_policy audit files and places audit files there.
-
-    Essentially:
-    mkdir -p ~/.policy_sentry/audit
-    cp -r $MODULE_DIR/policy_sentry/shared/data/audit/ ~/.policy_sentry/audit/
-    """
-    create_directory_if_it_doesnt_exist(AUDIT_DIRECTORY_PATH)
-    destination = AUDIT_DIRECTORY_PATH
-    existing_audit_files_directory = str(
-        Path(dirname(__file__)).parent) + '/shared/data/audit/'
-    source = existing_audit_files_directory
-    file_list = list_files_in_directory(existing_audit_files_directory)
-
-    for file in file_list:
-        if file.endswith(".txt"):
-            shutil.copy(source + '/' + file, destination)
-            logger.debug("copying %s to %s", file, destination)
-
-
-def create_policy_analysis_directory():
-    """
-    Creates directory for analyze_iam_policy policies.
-
-    Essentially:
-    mkdir -p ~/.policy_sentry/analysis
-    """
-    policy_analysis_directory_path = HOME + CONFIG_DIRECTORY + 'analysis'
-    if exists(policy_analysis_directory_path):
-        pass
-    else:
-        mkdir(policy_analysis_directory_path)

@@ -6,9 +6,8 @@ import shutil
 import logging
 import click
 from policy_sentry.configuration.access_level_overrides import create_default_overrides_file
-from policy_sentry.configuration.analysis import create_default_report_config_file
 from policy_sentry.configuration.config_directory import create_policy_sentry_config_directory, \
-    create_audit_directory, create_policy_analysis_directory, create_html_docs_directory
+    create_html_docs_directory
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.scraping.awsdocs import update_html_docs_directory, get_list_of_service_prefixes_from_links_file, \
     create_service_links_mapping_file
@@ -79,19 +78,9 @@ def initialize(access_level_overrides_file, fetch, build, quiet):
     # Copy over the html docs, which will be used to build the database
     create_html_docs_directory()
 
-    # Create the directory to download IAM policies to
-    create_policy_analysis_directory()
-
-    # Create audit directory to host list of permissions for analyze_iam_policy
-    create_audit_directory()
-
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
     create_default_overrides_file()
-
-    # Create the default reporting configuration file. This is used by
-    # analyze_iam_policy
-    create_default_report_config_file()
 
     if not build and not fetch:
         # copy from the bundled database location to the destination path

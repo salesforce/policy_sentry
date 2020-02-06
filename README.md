@@ -341,43 +341,6 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
 
-### Policy Analysis Cheat Sheet
-
-```bash
-# Initialize the policy_sentry config folder and create the IAM database tables.
-policy_sentry initialize
-
-# Initialize the database, but instead of using the AWS HTML files in the Python package, download the very latest AWS HTML Docs and make sure that Policy Sentry uses them
-policy_sentry initialize --fetch
-
-# Analyze a single IAM policy FILE
-policy_sentry analyze policy-file --policy examples/explicit-actions.json
-
-# Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
-policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
-
-# Download customer-managed IAM policies, including those that are not attached
-policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/.json
-
-# 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
-# 2. Recursively download all IAM policies from accounts in your credentials file
-policy_sentry download-policies --recursive
-
-# Audit all IAM policies downloaded locally and generate CSV and JSON reports.
-policy_sentry analyze downloaded-policies
-
-# Audit all IAM policies and also include a Markdown formatted report, then convert it to HTML
-policy_sentry analyze downloaded-policies --include-markdown-report
-pandoc -f markdown ~/.policy_sentry/analysis/overall.md -t html > overall.html
-
-# Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml
-policy_sentry analyze downloaded-policies --report-config custom-config.yml
-
-# Analyze a specific policy file
-policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.json
-```
-
-
 ## Commands
 
 ### Usage
@@ -395,18 +358,6 @@ policy_sentry analyze policy-file --policy examples/analyze/explicit-actions.jso
   - Option 1: Query the Actions Table (`action-table`)
   - Option 2: Query the ARNs Table (`arn-table`)
   - Option 3: Query the Conditions Table (`condition-table`)
-
-* `download-policies`: Download IAM policies from your AWS account for analysis.
-
-* `analyze`: Analyze IAM policies downloaded locally, expands the wildcards (like ``s3:List*``) if necessary, and generates a report based on policies that are flagged for these risk categories:
-
-  - Privilege Escalation: This is based off of [Rhino Security Labs research](https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation).
-
-  - Resource Exposure: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
-
-  - Network Exposure: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
-
-  - Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
 ### Library usage
 
