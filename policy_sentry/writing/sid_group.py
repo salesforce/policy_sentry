@@ -5,10 +5,10 @@ import copy
 import logging
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import get_action_data, get_actions_with_arn_type_and_access_level, \
-    get_dependent_actions
+    get_dependent_actions_only, get_actions_that_support_wildcard_arns_only
 from policy_sentry.querying.arns import get_arn_data, get_resource_type_name_with_raw_arn
 from policy_sentry.writing.policy import create_policy_sid_namespace
-from policy_sentry.util.arns import does_arn_match
+from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
 from policy_sentry.util.actions import get_lowercase_action_list
@@ -62,10 +62,14 @@ class SidGroup:
         statements = []
         all_actions = get_all_actions(db_session)
 
+        #
+        # render the policy
         for sid in self.sids:
             actions = self.sids[sid]["actions"]
+            if len(actions) == 0:
+                continue
             if minimize is not None and isinstance(minimize, int):
-                actions = minimize_statement_actions(self.sids[sid]["actions"], all_actions, minchars=minimize)
+                actions = minimize_statement_actions(actions, all_actions, minchars=minimize)
             statements.append({
                 "Sid": sid,
                 "Effect": "Allow",
@@ -81,8 +85,8 @@ class SidGroup:
     # TODO: Add conditions as an optional thing here.
     def add_by_arn_and_access_level(self, db_session, arn_list, access_level):
         for arn in arn_list:
-            # service_prefix = arn.split(':', 5)[2]
-            service_action_data = get_action_data(db_session, arn.split(':', 5)[2], "*")
+            service_prefix = get_service_from_arn(arn)
+            service_action_data = get_action_data(db_session, service_prefix, "*")
             for service_prefix in service_action_data:
                 for row in service_action_data[service_prefix]:
                     if does_arn_match(arn, row["resource_arn_format"]) and row["access_level"] == access_level:
@@ -92,6 +96,16 @@ class SidGroup:
                         sid_namespace = create_policy_sid_namespace(service_prefix, access_level, resource_type_name)
                         actions = get_actions_with_arn_type_and_access_level(db_session, service_prefix,
                                                                              resource_type_name, access_level)
+                        # Make supplied actions lowercase
+                        supplied_actions = [x.lower() for x in actions]
+                        # actions_list = get_dependent_actions(db_session, supplied_actions)
+                        dependent_actions = get_dependent_actions_only(db_session, supplied_actions)
+                        # List comprehension to get all dependent actions that are not in the supplied actions.
+                        dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
+                        if len(dependent_actions) > 0:
+                            for dep_action in dependent_actions:
+                                self.add_action_without_resource_constraint(str.lower(dep_action))
+
                         temp_sid_dict = {
                             'arn': [arn],
                             'service': service_prefix,
@@ -135,15 +149,19 @@ class SidGroup:
         :param db_session: SQLAlchemy database session object
         :param supplied_actions: A list of supplied actions
         """
-        supplied_actions = get_dependent_actions(db_session, supplied_actions)
+        # Make supplied actions lowercase
+        supplied_actions = [x.lower() for x in supplied_actions]
+        # actions_list = get_dependent_actions(db_session, supplied_actions)
+        dependent_actions = get_dependent_actions_only(db_session, supplied_actions)
+        # List comprehension to get all dependent actions that are not in the supplied actions.
+        dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
+
         arns_matching_supplied_actions = []
 
-        '''
-        arns_matching_supplied_actions is a list of dicts.
-        It must do this rather than dictionaries because there will be duplicate
-            values by nature of how the entries in the IAM database are structured.
-        I'll provide the example values here to improve readability.
-        '''
+        # arns_matching_supplied_actions is a list of dicts.
+        # It must do this rather than dictionaries because there will be duplicate
+        #     values by nature of how the entries in the IAM database are structured.
+        # I'll provide the example values here to improve readability.
 
         for action in supplied_actions:
             service_name, action_name = action.split(':')
@@ -158,26 +176,21 @@ class SidGroup:
                         }
                         # [row["resource_arn_format"], row["access_level"], row["action"]])
                     )
-        '''
-        arns_matching_supplied_actions =
-        [
-            {
-                "resource_arn_format": "*",
-                "access_level": "Write",
-                "action": "kms:createcustomkeystore"
-            },
-            {
-                "resource_arn_format": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
-                "access_level": "Permissions management",
-                "action": "kms:creategrant"
-            },
-            {
-                "resource_arn_format": "*",
-                "access_level": "Permissions management",
-                "action": "kms:creategrant"
-            }
-        ]
-        '''
+
+        # arns_matching_supplied_actions = [{
+        #         "resource_arn_format": "*",
+        #         "access_level": "Write",
+        #         "action": "kms:createcustomkeystore"
+        #     },{
+        #         "resource_arn_format": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
+        #         "access_level": "Permissions management",
+        #         "action": "kms:creategrant"
+        #     },{
+        #         "resource_arn_format": "*",
+        #         "access_level": "Permissions management",
+        #         "action": "kms:creategrant"
+        # }]
+
         # Identify the actions that do not support resource constraints
         # If that's the case, add it to the wildcard namespace. Otherwise, don't add it.
 
@@ -188,10 +201,16 @@ class SidGroup:
             else:
                 actions_without_resource_constraints.append(item["action"])
 
+        # If there are any dependent actions, we need to add them without resource constraints.
+        # Otherwise, we get into issues where the amount of extra SIDs will balloon.
+        # Also, the user has no way of knowing what those dependent actions are beforehand.
+        # TODO: This is, in fact, a great opportunity to introduce conditions. But we aren't there yet.
+        if len(dependent_actions) > 0:
+            for dep_action in dependent_actions:
+                self.add_action_without_resource_constraint(str.lower(dep_action))
         # Now, because add_by_arn_and_access_level() adds all actions under an access level, we have to
         # remove all actions that do not match the supplied_actions. This is done in-place.
-        self.remove_actions_not_matching_these(supplied_actions)
-        # TODO: Will there be actions that are duplicated across wildcards as well as non-wildcards?
+        self.remove_actions_not_matching_these(supplied_actions + dependent_actions)
         for action in actions_without_resource_constraints:
             self.add_action_without_resource_constraint(action)
         self.remove_actions_duplicated_in_wildcard_arn()
@@ -233,6 +252,9 @@ class SidGroup:
                             if policy['tagging'] is not None:
                                 self.add_by_arn_and_access_level(
                                     db_session, policy['tagging'], "Tagging")
+                # if template == 'policy_with_actions':
+                #     for policy in cfg[template]:
+
         except IndexError:
             raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "
                             "equaling ''. Please evaluate your YML file and try again.")
@@ -306,20 +328,13 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     :rtype: list
     """
     # remove duplicates, if there are any
-    actions_list_unique = list(dict.fromkeys(actions_list))
+    actions_list = list(dict.fromkeys(actions_list))
     actions_list_placeholder = []
 
-    for action in actions_list_unique:
+    for action in actions_list:
         service_name, action_name = action.split(':')
-        # TODO: Leverage a query function for this? Or no?
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
-            ActionTable.service.ilike(service_name),
-            ActionTable.name.ilike(action_name),
-            ActionTable.resource_arn_format.like("*"),
-            ActionTable.name.notin_(
-                db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
-        ))
+        rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
         for row in rows:
-            if row.service == service_name and row.name == action_name:
+            if row == action:
                 actions_list_placeholder.append(f"{service_name}:{action_name}")
     return actions_list_placeholder

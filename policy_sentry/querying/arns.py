@@ -104,5 +104,5 @@ def get_resource_type_name_with_raw_arn(db_session, raw_arn):
     """
     query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(ArnTable.raw_arn.like(raw_arn))
     result = query_resource_type_name.first()
-    resource_type_name = re.sub('[^A-Za-z0-9]+', '', str(result.resource_type_name))
+    resource_type_name = str(result.resource_type_name)
     return str(resource_type_name)

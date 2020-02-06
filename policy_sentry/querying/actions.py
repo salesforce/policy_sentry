@@ -264,15 +264,46 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
     return new_actions_list
 
 
-def get_dependent_actions(db_session, actions_list):
+def get_dependent_actions_only(db_session, actions_list):
     """
     Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
     fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
     to the list, and return the updated list.
 
+    It includes the original action in there as well. So, if you supply kms:CreateCustomKeyStore, it will give you kms:CreateCustomKeyStore as well as cloudhsm:DescribeClusters
+
     To get dependent actions for a single given IAM action, just provide the action as a list with one item, like this:
     get_dependent_actions(db_session, ['kms:CreateCustomKeystore'])
 
+    :param db_session: SQLAlchemy database session object
+    :param actions_list: A list of actions to use in querying the database for dependent actions
+    :return: Updated list of actions, including dependent actions if applicable.
+    """
+    new_actions_list = []
+    for action in actions_list:
+        service, action_name = action.split(':')
+        action_name = str.lower(action_name)
+        rows = get_action_data(db_session, service, action_name)
+        for row in rows[service]:
+            if row["dependent_actions"] is None:
+                # Add the original action anyway, but not any dependent actions
+                # new_actions_list.append(action)
+                continue
+            else:
+                # new_actions_list.append(action)
+                dependent_actions = [x.lower() for x in row["dependent_actions"]]
+                new_actions_list.extend(dependent_actions)
+    new_actions_list = list(dict.fromkeys(new_actions_list))
+    return new_actions_list
+
+
+def get_dependent_actions(db_session, actions_list):
+    """
+    Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
+    fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
+    to the list, and return the updated list.
+    To get dependent actions for a single given IAM action, just provide the action as a list with one item, like this:
+    get_dependent_actions(db_session, ['kms:CreateCustomKeystore'])
     :param db_session: SQLAlchemy database session object
     :param actions_list: A list of actions to use in querying the database for dependent actions
     :return: Updated list of actions, including dependent actions if applicable.

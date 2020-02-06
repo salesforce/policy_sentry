@@ -119,7 +119,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         db_session = connect_db('bundled')
         actions_template = get_actions_template_dict()
         # print(actions_template)
-        actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
+        actions_to_add = ['kms:creategrant', 'kms:createcustomkeystore', 'ec2:authorizesecuritygroupegress', 'ec2:authorizesecuritygroupingress']
         actions_template['policy_with_actions'][0]['name'] = "MyPolicy"
         actions_template['policy_with_actions'][0]['description'] = "Description"
         actions_template['policy_with_actions'][0]['role_arn'] = "somearn"
@@ -128,6 +128,10 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         policy = write_policy_with_actions(db_session, actions_template)
         # print(json.dumps(policy, indent=4))
         self.maxDiff = None
+        # print("desired_actions_policy")
+        # print(json.dumps(desired_actions_policy, indent=4))
+        # print("policy")
+        # print(json.dumps(policy, indent=4))
         self.assertDictEqual(desired_actions_policy, policy)
 
     def test_write_crud_policy_with_library_only(self):

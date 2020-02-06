@@ -11,7 +11,48 @@ db_session = connect_db(DATABASE_FILE_PATH)
 class RefactorTestCase(unittest.TestCase):
 
     def test_sid_group_multiple(self):
+        sid_group = SidGroup()
+        arn_list_from_user = [
+            "arn:aws:s3:::example-org-s3-access-logs",
+            "arn:aws:kms:us-east-1:123456789012:key/123456"
+        ]
+        access_level = "Permissions management"
+        sid_group.add_by_arn_and_access_level(db_session, arn_list_from_user, access_level)
+        output = sid_group.get_sid_group()
+        # print(json.dumps(output, indent=4))
         desired_output = {
+            "S3PermissionsmanagementBucket": {
+                "arn": [
+                    "arn:aws:s3:::example-org-s3-access-logs"
+                ],
+                "service": "s3",
+                "access_level": "Permissions management",
+                "arn_format": "arn:${Partition}:s3:::${BucketName}",
+                "actions": [
+                    "s3:deletebucketpolicy",
+                    "s3:putbucketacl",
+                    "s3:putbucketpolicy",
+                    "s3:putbucketpublicaccessblock"
+                ]
+            },
+            "KmsPermissionsmanagementKey": {
+                "arn": [
+                    "arn:aws:kms:us-east-1:123456789012:key/123456"
+                ],
+                "service": "kms",
+                "access_level": "Permissions management",
+                "arn_format": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
+                "actions": [
+                    "kms:creategrant",
+                    "kms:putkeypolicy",
+                    "kms:retiregrant",
+                    "kms:revokegrant"
+                ]
+            }
+        }
+        self.assertDictEqual(desired_output, output)
+        # print()
+        desired_policy = {
             "Version": "2012-10-17",
             "Statement": [
                 {
@@ -42,17 +83,8 @@ class RefactorTestCase(unittest.TestCase):
                 }
             ]
         }
-        sid_group = SidGroup()
-        arn_list_from_user = [
-            "arn:aws:s3:::example-org-s3-access-logs",
-            "arn:aws:kms:us-east-1:123456789012:key/123456"
-        ]
-        access_level = "Permissions management"
-        sid_group.add_by_arn_and_access_level(db_session, arn_list_from_user, access_level)
-        status = sid_group.get_sid_group()
-        # print(json.dumps(status, indent=4))
-        # print()
         rendered_policy = sid_group.get_rendered_policy(db_session)
+        self.assertDictEqual(desired_policy, rendered_policy)
         # print(json.dumps(rendered_policy, indent=4))
 
     def test_sid_group(self):
@@ -79,13 +111,32 @@ class RefactorTestCase(unittest.TestCase):
         status = sid_group.get_sid_group()
         # print(json.dumps(status, indent=4))
         self.assertEqual(status, desired_output)
-
         rendered_policy = sid_group.get_rendered_policy(db_session)
+        desired_policy = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:deletebucketpolicy",
+                        "s3:putbucketacl",
+                        "s3:putbucketpolicy",
+                        "s3:putbucketpublicaccessblock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
         # print(json.dumps(rendered_policy, indent=4))
+        self.assertDictEqual(desired_policy, rendered_policy)
 
-    def test_get_actions_data_service_wide(self):
-        data = get_action_data(db_session, "s3", "*")
-        # print(data)
+
+    # def test_get_actions_data_service_wide(self):
+    #     data = get_action_data(db_session, "s3", "*")
+    #     # print(data)
 
     def test_refactored_crud_policy(self):
         """test_refactored_crud_policy"""
@@ -209,42 +260,130 @@ class RefactorTestCase(unittest.TestCase):
         # print(json.dumps(rendered_policy, indent=4))
         self.assertEqual(rendered_policy, desired_output)
 
-    # def test_resource_restriction_plus_dependent_action(self):
-    #     """
-    #     Given iam:generateorganizationsaccessreport with resource constraint, make sure these are added:
-    #     organizations:DescribePolicy,organizations:ListChildren,organizations:ListParents,
-    #     organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
-    #     """
-    #     # Thought: I think if we have dependent actions, they should prob be added as wildcard only just in case?
-    #
-    # def test_add_wildcard_action(self):
-    #     """
-    #
-    #     """
-    def test_add_by_list_of_actions(self):
-        actions_test_data_1 = ['kms:CreateCustomKeyStore', 'kms:CreateGrant']
-        actions_test_data_2 = ['ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
+    def test_resource_restriction_plus_dependent_action(self):
+        """
+        test_resource_restriction_plus_dependent_action
+        """
+        # Given iam:generateorganizationsaccessreport with resource constraint, make sure these are added:
+        #  organizations:DescribePolicy,organizations:ListChildren,organizations:ListParents,
+        #  organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
+        actions_test_data_1 = ['iam:generateorganizationsaccessreport']
+        sid_group = SidGroup()
+        sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
+        rendered_policy = sid_group.get_rendered_policy(db_session)
+        print(json.dumps(rendered_policy, indent=4))
+        desired_result = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "organizations:describepolicy",
+                        "organizations:listchildren",
+                        "organizations:listparents",
+                        "organizations:listpoliciesfortarget",
+                        "organizations:listroots",
+                        "organizations:listtargetsforpolicy"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "IamReadAccessreport",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:generateorganizationsaccessreport"
+                    ],
+                    "Resource": [
+                        "arn:${Partition}:iam::${Account}:access-report/${EntityPath}"
+                    ]
+                }
+            ]
+        }
+        self.maxDiff = None
+        self.assertDictEqual(desired_result, rendered_policy)
+
+    def test_resource_restriction_plus_dependent_action_simple_2(self):
+        """
+        test_resource_restriction_plus_dependent_action_simple_2
+        """
+        # Given iam:generateorganizationsaccessreport with resource constraint, make sure these are added:
+        #  organizations:DescribePolicy,organizations:ListChildren,organizations:ListParents,
+        #  organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
 
         sid_group = SidGroup()
-        sids = sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
-        # print(json.dumps(sids, indent=4))
-        arns_matching_supplied_actions = [
-            [
-                "*",
-                "Write",
-                "kms:createcustomkeystore"
-            ],
-            [
-                "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
-                "Permissions management",
-                "kms:creategrant"
-            ],
-            [
-                "*",
-                "Permissions management",
-                "kms:creategrant"
+        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:iam::000000000000:access-report/somepath"], "Read")
+        rendered_policy = sid_group.get_rendered_policy(db_session)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "organizations:describepolicy",
+                        "organizations:listchildren",
+                        "organizations:listparents",
+                        "organizations:listpoliciesfortarget",
+                        "organizations:listroots",
+                        "organizations:listtargetsforpolicy"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "IamReadAccessreport",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:generateorganizationsaccessreport"
+                    ],
+                    "Resource": [
+                        "arn:aws:iam::000000000000:access-report/somepath"
+                    ]
+                }
             ]
-        ]
+        }
+        # print(json.dumps(rendered_policy, indent=4))
+        self.assertDictEqual(rendered_policy, desired_output)
+
+
+    def test_add_by_list_of_actions(self):
+        actions_test_data_1 = ['kms:CreateCustomKeyStore', 'kms:CreateGrant']
+        sid_group = SidGroup()
+        sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
+        output = sid_group.get_rendered_policy(db_session)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "KmsPermissionsmanagementKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:creategrant"
+                    ],
+                    "Resource": [
+                        "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
+                    ]
+                },
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudhsm:describeclusters",
+                        "kms:createcustomkeystore",
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
+        # print(json.dumps(output, indent=4))
+        self.maxDiff = None
+        self.assertDictEqual(desired_output, output)
 
     def test_add_crud_with_wildcard(self):
         cfg = {
@@ -273,4 +412,35 @@ class RefactorTestCase(unittest.TestCase):
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
-        print(json.dumps(rendered_policy, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ram:enablesharingwithawsorganization",
+                        "ram:getresourcepolicies",
+                        "secretsmanager:createsecret"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:deletebucketpolicy",
+                        "s3:putbucketacl",
+                        "s3:putbucketpolicy",
+                        "s3:putbucketpublicaccessblock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        # print(json.dumps(rendered_policy, indent=4))
+        self.assertDictEqual(rendered_policy, desired_output)
