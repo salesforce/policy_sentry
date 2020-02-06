@@ -27,5 +27,5 @@ The `write-policy` command also supports passing in the YML config via STDIN. Tr
 .. code-block:: bash
 
     # Write policies by passing in the config via STDIN
-    cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy --crud"
+    cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"
     cat examples/yml/actions.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"

@@ -12,7 +12,6 @@ Command options
 ~~~~~~~~~~~~~~~
 
 
-* ``--crud``\ : Specify this option to use the CRUD functionality. File must be formatted as expected. Defaults to false.
 * ``--input-file``\ : YAML file containing the CRUD levels + Resource ARNs. Required.
 * ``--minimize``\ : Whether or not to minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want. This can be extended for readability. I suggest setting it to ``0``.
 * ``--quiet``\: Set the logging level to WARNING instead of INFO.
@@ -22,7 +21,7 @@ Example:
 
 .. code-block:: bash
 
-   policy_sentry write-policy --crud --input-file examples/crud.yml
+   policy_sentry write-policy --input-file examples/crud.yml
 
 Instructions
 ~~~~~~~~~~~~~~~
@@ -38,50 +37,50 @@ Instructions
 
 .. code-block:: yaml
 
-    policy_with_crud_levels:
-    - name: myRole
-      description: ''
-      role_arn: ''
-      # Insert ARNs below
-      read:
-        - ''
-      write:
-        - ''
-      list:
-        - ''
-      tagging:
-        - ''
-      permissions-management:
-        - ''
-      # Provide a list of IAM actions that cannot be restricted to ARNs
-      wildcard:
-        - ''
+    mode: crud
+    name: myRole
+    description: ''
+    role_arn: ''
+    # Insert ARNs below
+    read:
+    - ''
+    write:
+    - ''
+    list:
+    - ''
+    tagging:
+    - ''
+    permissions-management:
+    - ''
+    # Provide a list of IAM actions that cannot be restricted to ARNs
+    wildcard:
+    - ''
 
 * Then just fill it out:
 
 .. code-block:: yaml
 
-    policy_with_crud_levels:
-    - name: myRole
-      description: 'Justification for privileges'
-      role_arn: 'arn:aws:iam::123456789102:role/myRole'
-      read:
-        - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-      write:
-        - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-      list:
-        - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-      tagging:
-        - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
-      permissions-management:
-        - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+    mode: crud
+    name: myRole
+    description: 'Justification for privileges'
+    role_arn: 'arn:aws:iam::123456789102:role/myRole'
+    read:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    write:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    list:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    tagging:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+    permissions-management:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 
 
 * Run the command:
 
 .. code-block:: bash
 
-   policy_sentry write-policy --crud --input-file examples/crud.yml
+   policy_sentry write-policy --input-file examples/crud.yml
 
 
 * It will generate an IAM Policy containing an IAM policy with the actions restricted to the ARNs specified above.
@@ -175,26 +174,26 @@ Instructions
 
 .. code-block:: yaml
 
-    policy_with_actions:
-    - name: myRole
-      description: '' # Insert value here
-      role_arn: '' # Insert value here
-      actions:
-      - ''  # Fill in your IAM actions here
+    mode: actions
+    name: myRole
+    description: '' # Insert value here
+    role_arn: '' # Insert value here
+    actions:
+    - ''  # Fill in your IAM actions here
 
 * Create a yaml file with the following contents:
 
 .. code-block:: yaml
 
-    policy_with_actions:
-    - name: 'RoleNameWithActions'
-      description: 'Justification for privileges' # for auditability
-      role_arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability
-      actions:
-        - kms:CreateGrant
-        - kms:CreateCustomKeyStore
-        - ec2:AuthorizeSecurityGroupEgress
-        - ec2:AuthorizeSecurityGroupIngress
+    mode: actions
+    name: 'RoleNameWithActions'
+    description: 'Justification for privileges' # for auditability
+    role_arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability
+    actions:
+    - kms:CreateGrant
+    - kms:CreateCustomKeyStore
+    - ec2:AuthorizeSecurityGroupEgress
+    - ec2:AuthorizeSecurityGroupIngress
 
 
 * Then run this command:
@@ -262,7 +261,6 @@ See the Terraform demo for more details.
    Options:
      --input-dir TEXT    Relative path to Input directory that contains policy_sentry .yml files (CRUD mode only)  [required]
      --output-dir TEXT   Relative path to directory to store AWS JSON policies [required]
-     --crud              Use the CRUD functionality. Defaults to false
      --minimize INTEGER  Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 4
      --quiet             Set the logging level to WARNING instead of INFO.
      --help              Show this message and exit.

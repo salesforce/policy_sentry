@@ -12,7 +12,6 @@ if __name__ == '__main__':
 Output:
 
 [
-    "ec2:associateiaminstanceprofile",
     "iam:passrole"
 ]
 """

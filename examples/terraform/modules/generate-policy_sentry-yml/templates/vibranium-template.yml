@@ -1,14 +1,14 @@
-policy_with_crud_levels:
-- name: ${policy_sentry_role_name}
-  description: ${policy_sentry_role_description}
-  role_arn: ${policy_sentry_role_arn}
-  write:
+mode: crud
+name: ${policy_sentry_role_name}
+description: ${policy_sentry_role_description}
+role_arn: ${policy_sentry_role_arn}
+write:
 ${policy_sentry_yaml_write}
-  read:
+read:
 ${policy_sentry_yaml_read}
-  list:
+list:
 ${policy_sentry_yaml_list}
-  permissions-management:
+permissions-management:
 ${policy_sentry_yaml_permissions_management}
-  tagging:
+tagging:
 ${policy_sentry_yaml_tag}

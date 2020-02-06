@@ -7,16 +7,10 @@ command.write_policy
    :members:
 
 
-writing.policy
---------------
+writing.sid_group
+-----------------
 
-.. automodule:: policy_sentry.writing.policy
-   :members:
-
-writing.roles
---------------
-
-.. automodule:: policy_sentry.writing.roles
+.. automodule:: policy_sentry.writing.sid_group
    :members:
 
 writing.template

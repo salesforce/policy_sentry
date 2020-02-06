@@ -16,7 +16,6 @@ Command options
    Options:
      --input-dir TEXT    Relative path to Input directory that contains policy_sentry .yml files (CRUD mode only)  [required]
      --output-dir TEXT   Relative path to directory to store AWS JSON policies [required]
-     --crud              Use the CRUD functionality. Defaults to false
      --minimize INTEGER  Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 4
      --help              Show this message and exit.
 
@@ -64,7 +63,7 @@ This will create a YML file to be used by policy_sentry in the `environments/iam
 .. code-block:: bash
 
    cd ../iam-resources
-   policy_sentry write-policy-dir --crud --input-dir files --output-dir files
+   policy_sentry write-policy-dir --input-dir files --output-dir files
 
 This will create a JSON file to be consumed by Terraform's ``aws_iam_policy`` resource to create an IAM policy.
 

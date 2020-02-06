@@ -68,45 +68,45 @@ It will generate a file like this:
 
 .. code-block:: yaml
 
-   policy_with_crud_levels:
-   - name: myRole
-     description: '' # Insert description
-     role_arn: '' # Insert the ARN of the role that will use this
-     read:
-       - '' # Insert ARNs for Read access
-     write:
-       - '' # Insert ARNs...
-     list:
-       - '' # Insert ARNs...
-     tagging:
-       - '' # Insert ARNs...
-     permissions-management:
-       - '' # Insert ARNs...
+    mode: crud
+    name: myRole
+    description: '' # Insert description
+    role_arn: '' # Insert the ARN of the role that will use this
+    read:
+    - '' # Insert ARNs for Read access
+    write:
+    - '' # Insert ARNs...
+    list:
+    - '' # Insert ARNs...
+    tagging:
+    - '' # Insert ARNs...
+    permissions-management:
+    - '' # Insert ARNs...
 
 Then just fill it out:
 
 .. code-block:: yaml
 
-   policy_with_crud_levels:
-   - name: myRole
-     description: 'Justification for privileges'
-     role_arn: 'arn:aws:iam::123456789102:role/myRole'
-     read:
-       - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-     write:
-       - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-     list:
-       - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-     tagging:
-       - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
-     permissions-management:
-       - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+    mode: crud
+    name: myRole
+    description: 'Justification for privileges'
+    role_arn: 'arn:aws:iam::123456789102:role/myRole'
+    read:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    write:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    list:
+    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+    tagging:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+    permissions-management:
+    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 
 Then run this command:
 
 .. code-block:: bash
 
-   policy_sentry write-policy --crud --input-file crud.yml
+   policy_sentry write-policy --input-file crud.yml
 
 It will generate these results:
 

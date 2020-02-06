@@ -46,15 +46,15 @@ Make sure you fill out the actual directory path properly. Note that ``yml_file_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* 
+*
   Enter the directory you specified under ``yml_file_destination_path`` above.
 
-* 
+*
   Run the following:
 
 .. code-block:: bash
 
-   policy_sentry write-policy-dir --crud --input-dir files --output-dir files
+   policy_sentry write-policy-dir --input-dir files --output-dir files
 
 4: Create the IAM Policies using JSON files from directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

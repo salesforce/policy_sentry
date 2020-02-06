@@ -1,8 +1,9 @@
 import unittest
 import json
 from policy_sentry.shared.database import connect_db
+from policy_sentry.command.write_policy import write_policy
+from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.template import get_crud_template_dict, get_actions_template_dict
-from policy_sentry.command.write_policy import write_policy_with_access_levels, write_policy_with_actions
 
 desired_crud_policy = {
     "Version": "2012-10-17",
@@ -11,6 +12,7 @@ desired_crud_policy = {
             "Sid": "MultMultNone",
             "Effect": "Allow",
             "Action": [
+                "cloudhsm:describeclusters",
                 "kms:createcustomkeystore"
             ],
             "Resource": [
@@ -47,7 +49,7 @@ desired_crud_policy = {
             ]
         },
         {
-            "Sid": "KmsPermissionsmanagementKmskey",
+            "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
                 "kms:creategrant",
@@ -62,13 +64,13 @@ desired_crud_policy = {
         {
             "Sid": "SsmTaggingParameter",
             "Effect": "Allow",
-            "Resource": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-            ],
             "Action": [
                 "ssm:addtagstoresource",
-                "ssm:removetagsfromresource",
+                "ssm:removetagsfromresource"
             ],
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+            ]
         }
     ]
 }
@@ -77,7 +79,7 @@ desired_actions_policy = {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "KmsPermissionsmanagementKmskey",
+            "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
                 "kms:creategrant"
@@ -101,8 +103,8 @@ desired_actions_policy = {
             "Sid": "MultMultNone",
             "Effect": "Allow",
             "Action": [
-                "kms:createcustomkeystore",
-                "cloudhsm:describeclusters"
+                "cloudhsm:describeclusters",
+                "kms:createcustomkeystore"
             ],
             "Resource": [
                 "*"
@@ -118,35 +120,40 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         """test_write_actions_policy_with_library_only: Write an actions mode policy without using the command line at all (library only)"""
         db_session = connect_db('bundled')
         actions_template = get_actions_template_dict()
-        print(actions_template)
-        actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress', 'ec2:AuthorizeSecurityGroupIngress']
-        actions_template['policy_with_actions'][0]['name'] = "MyPolicy"
-        actions_template['policy_with_actions'][0]['description'] = "Description"
-        actions_template['policy_with_actions'][0]['role_arn'] = "somearn"
-        actions_template['policy_with_actions'][0]['actions'].extend(actions_to_add)
+        # print(actions_template)
+        actions_to_add = ['kms:creategrant', 'kms:createcustomkeystore', 'ec2:authorizesecuritygroupegress', 'ec2:authorizesecuritygroupingress']
+        actions_template['mode'] = 'actions'
+        actions_template['actions'].extend(actions_to_add)
         # Modify it
-        policy = write_policy_with_actions(db_session, actions_template)
-        # print(json.dumps(policy, indent=4))
+        sid_group = SidGroup()
+        minimize = None
+        policy = sid_group.process_template(db_session, actions_template, minimize=minimize)
         self.maxDiff = None
+        # print("desired_actions_policy")
+        # print(json.dumps(desired_actions_policy, indent=4))
+        # print("policy")
+        # print(json.dumps(policy, indent=4))
         self.assertDictEqual(desired_actions_policy, policy)
 
     def test_write_crud_policy_with_library_only(self):
-        """test_write_crud_policy_with_library_only: Write an actions mode policy without using the command line at all (library only)"""
+        """test_write_crud_policy_with_library_only: Write a policy in CRUD mode without using the command line at all (library only)"""
         db_session = connect_db('bundled')
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
-        print(crud_template)
-        crud_template['policy_with_crud_levels'][0]['name'] = "MyPolicy"
-        crud_template['policy_with_crud_levels'][0]['description'] = "Description"
-        crud_template['policy_with_crud_levels'][0]['role_arn'] = "somearn"
-        crud_template['policy_with_crud_levels'][0]['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels'][0]['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels'][0]['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
-        crud_template['policy_with_crud_levels'][0]['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
-        crud_template['policy_with_crud_levels'][0]['wildcard'].extend(wildcard_actions_to_add)
-        crud_template['policy_with_crud_levels'][0]['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
+        crud_template['mode'] = 'crud'
+        crud_template['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
+        crud_template['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+        crud_template['wildcard'].extend(wildcard_actions_to_add)
+        crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
         # Modify it
-        policy = write_policy_with_access_levels(db_session, crud_template, None)
+        sid_group = SidGroup()
+        minimize = None
+        policy = sid_group.process_template(db_session, crud_template, minimize=minimize)
+        # print("desired_crud_policy")
+        # print(json.dumps(desired_crud_policy, indent=4))
+        # print("policy")
         # print(json.dumps(policy, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_crud_policy, policy)

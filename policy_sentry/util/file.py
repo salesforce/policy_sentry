@@ -26,7 +26,6 @@ def read_yaml_file(filename):
 
     :param filename: name of the yaml file
     :return: dictionary of YAML file contents
-    :
     """
     with open(filename, 'r') as yaml_file:
         try:

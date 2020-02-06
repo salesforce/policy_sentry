@@ -4,62 +4,56 @@ These can be used for generating policies
 from jinja2 import Template
 
 ACTIONS_TEMPLATE = '''# Generate my policy when I know the Actions
-policy_with_actions:
-- name: {{ name }}
-  description: '' # For human auditability
-  role_arn: '' # For human auditability
-  actions:
-  - ''
+mode: actions
+name: {{ name }}
+description: '' # For human auditability
+role_arn: '' # For human auditability
+actions:
+- ''
 '''
 
 CRUD_TEMPLATE = '''# Generate my policy when I know the access levels and ARNs
-policy_with_crud_levels:
-- name: {{ name }}
-  description: '' # For human auditability
-  role_arn: '' # For human auditability
-  # Insert ARNs under each access level below
-  # If you do not need to use certain access levels, delete them.
-  read:
-    - ''
-  write:
-    - ''
-  list:
-    - ''
-  tagging:
-    - ''
-  permissions-management:
-    - ''
-  # If the policy needs to use IAM actions that cannot be restricted to ARNs,
-  # like ssm:DescribeParameters, specify those actions here.
-  wildcard:
-    - ''
+mode: crud
+name: {{ name }}
+description: '' # For human auditability
+role_arn: '' # For human auditability
+# Insert ARNs under each access level below
+# If you do not need to use certain access levels, delete them.
+read:
+- ''
+write:
+- ''
+list:
+- ''
+tagging:
+- ''
+permissions-management:
+- ''
+# If the policy needs to use IAM actions that cannot be restricted to ARNs,
+# like ssm:DescribeParameters, specify those actions here.
+wildcard:
+- ''
 '''
 
 CRUD_TEMPLATE_DICT = {
-    'policy_with_crud_levels': [
-        {
-            'name': '',
-            'description': '',
-            'role_arn': '',
-            'read': [],
-            'write': [],
-            'list': [],
-            'tagging': [],
-            'permissions-management': [],
-            'wildcard': [],
-        }
-    ]
+        'mode': 'crud',
+        'name': '',
+        'description': '',
+        'role_arn': '',
+        'read': [],
+        'write': [],
+        'list': [],
+        'tagging': [],
+        'permissions-management': [],
+        'wildcard': [],
 }
 
 ACTIONS_TEMPLATE_DICT = {
-    'policy_with_actions': [
-        {
-            'name': '',
-            'description': '',
-            'role_arn': '',
-            'actions': [],
-        }
-    ]
+        'mode': 'actions',
+        'name': '',
+        'description': '',
+        'role_arn': '',
+        'actions': [],
 }
 
 

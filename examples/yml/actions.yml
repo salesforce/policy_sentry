@@ -1,10 +1,10 @@
 # Generate my policy when I know the Actions
-policy_with_actions:
-- name: 'RoleNameWithActions'
-  description: 'Why I need these privs'
-  role_arn: 'arn:aws:iam::123456789102:role/RiskyEC2'
-  actions:
-  - kms:CreateGrant
-  - kms:CreateCustomKeyStore
-  - ec2:AuthorizeSecurityGroupEgress
-  - ec2:AuthorizeSecurityGroupIngress
+mode: actions
+name: 'RoleNameWithActions'
+description: 'Why I need these privs'
+role_arn: 'arn:aws:iam::123456789102:role/RiskyEC2'
+actions:
+- kms:CreateGrant
+- kms:CreateCustomKeyStore
+- ec2:AuthorizeSecurityGroupEgress
+- ec2:AuthorizeSecurityGroupIngress
