@@ -13,10 +13,13 @@ Developer library changes:
 * Replaced ArnActionGroup with SidGroup. This will allow us to do conditions, etc. It is also easier to read.
 
 TODO:
+* Nuke the Analysis and Download commands - DONE
+* Nuke the old write-policy logic - DONE
+* Remove old packages to reduce dependencies - DONE
+* Remove the `--crud` command officially
 * Validate Terraform setup. Including the write-policy-dir command
 * fix all the documentation and code examples to fit the new one
 * Convert to Python Black (Optional)
-* Nuke the Analysis and Download commands
 * Update the GIF and documentation (including the blog)
 * Migrate unit tests from old write-policy thing over to the new one. This includes test_write_policy, test_write_policy_library_usage, and test_yaml.
 
