@@ -264,7 +264,7 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
     return new_actions_list
 
 
-def get_dependent_actions_only(db_session, actions_list):
+def get_dependent_actions(db_session, actions_list):
     """
     Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
     fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
@@ -297,51 +297,29 @@ def get_dependent_actions_only(db_session, actions_list):
     return new_actions_list
 
 
-def get_dependent_actions(db_session, actions_list):
+def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     """
-    Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
-    fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
-    to the list, and return the updated list.
-    To get dependent actions for a single given IAM action, just provide the action as a list with one item, like this:
-    get_dependent_actions(db_session, ['kms:CreateCustomKeystore'])
-    :param db_session: SQLAlchemy database session object
-    :param actions_list: A list of actions to use in querying the database for dependent actions
-    :return: Updated list of actions, including dependent actions if applicable.
+    Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
+
+    :param db_session: SQL Alchemy database session object
+    :param actions_list: A list of actions
+    :return: An updated list of actions
+    :rtype: list
     """
-    new_actions_list = []
-    for action in actions_list:
-        service, action_name = action.split(':')
-        action = str.lower(action)
-        first_result = None  # Just to appease nosetests
-        for row in db_session.query(ActionTable).filter(and_(ActionTable.service.like(service),
-                                                             ActionTable.name.like(str.lower(action_name)))):
-            # Just take the first result
-            if 1 == 1:  # pylint: disable=comparison-with-itself
-                first_result = row.dependent_actions
+    # remove duplicates, if there are any
+    actions_list_unique = list(dict.fromkeys(actions_list))
+    actions_list_placeholder = []
+    for action in actions_list_unique:
+        service_name, action_name = action.split(':')
 
-        # We store the blank result as the literal string 'None' instead of
-        # Null.
-        if first_result is None:
-            new_actions_list.append(action)
-        elif first_result is not None:
-            # Comma means there are multiple dependent actions
-            if ',' in first_result:
-                split_result = first_result.split(',')
-                for i in range(len(split_result)):
-                    temp = split_result[i]
-                    split_result[i] = str.lower(temp)
-                # Add the action used for the current iteration of the loop
-                new_actions_list.append(action)
-                # Add the dependent actions. Transform tuple to list
-                new_actions_list.extend(split_result)
-            # If there is no comma, there is just one dependent action in the
-            # database
-            else:
-                # Add the action used for the current iteration of the loop
-                new_actions_list.append(action)
-                # Add the dependent action. Transform tuple to list
-                new_actions_list.append(str.lower(first_result))
-        else:
-            new_actions_list.append(action)
-
-    return new_actions_list
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
+            ActionTable.service.ilike(service_name),
+            ActionTable.name.ilike(action_name),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
+        ))
+        for row in rows:
+            if row.service == service_name and row.name == action_name:
+                actions_list_placeholder.append(f"{service_name}:{action_name}")
+    return actions_list_placeholder

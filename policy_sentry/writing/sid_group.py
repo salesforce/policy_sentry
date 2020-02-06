@@ -3,12 +3,13 @@ sid_group indicates that this is a collection of policy-related data organized b
 """
 import copy
 import logging
+import re
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import get_action_data, get_actions_with_arn_type_and_access_level, \
-    get_dependent_actions_only, get_actions_that_support_wildcard_arns_only
-from policy_sentry.querying.arns import get_arn_data, get_resource_type_name_with_raw_arn
-from policy_sentry.writing.policy import create_policy_sid_namespace
+    get_dependent_actions, get_actions_that_support_wildcard_arns_only
+from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
+from policy_sentry.util.text import capitalize_first_character
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
 from policy_sentry.util.actions import get_lowercase_action_list
@@ -87,7 +88,7 @@ class SidGroup:
                                                                              resource_type_name, access_level)
                         # Make supplied actions lowercase
                         supplied_actions = [x.lower() for x in actions]
-                        dependent_actions = get_dependent_actions_only(db_session, supplied_actions)
+                        dependent_actions = get_dependent_actions(db_session, supplied_actions)
                         # List comprehension to get all dependent actions that are not in the supplied actions.
                         dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
                         if len(dependent_actions) > 0:
@@ -138,7 +139,7 @@ class SidGroup:
         # Make supplied actions lowercase
         supplied_actions = [x.lower() for x in supplied_actions]
         # actions_list = get_dependent_actions(db_session, supplied_actions)
-        dependent_actions = get_dependent_actions_only(db_session, supplied_actions)
+        dependent_actions = get_dependent_actions(db_session, supplied_actions)
         # List comprehension to get all dependent actions that are not in the supplied actions.
         dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
 
@@ -326,3 +327,26 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
             if row == action:
                 actions_list_placeholder.append(f"{service_name}:{action_name}")
     return actions_list_placeholder
+
+
+def create_policy_sid_namespace(service, access_level, resource_type_name):
+    """
+    Simply generates the SID name. The SID groups ARN types that share an access level.
+
+    For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we choose to group them.
+
+    :param service: "ssm"
+    :param access_level: "Read"
+    :param resource_type_name: "parameter"
+    :return: SsmReadParameter
+    :rtype: str
+    """
+    # Sanitize the resource_type_name; otherwise we hit some list conversion
+    # errors
+    resource_type_name = re.sub('[^A-Za-z0-9]+', '', resource_type_name)
+    # Also remove the space from the Access level, if applicable. This only
+    # applies for "Permissions management"
+    access_level = re.sub('[^A-Za-z0-9]+', '', access_level)
+    sid_namespace = capitalize_first_character(service) + capitalize_first_character(
+        access_level) + capitalize_first_character(resource_type_name)
+    return sid_namespace

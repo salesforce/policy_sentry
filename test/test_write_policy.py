@@ -1,6 +1,5 @@
 import unittest
 import json
-from policy_sentry.querying.actions import get_dependent_actions
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 
