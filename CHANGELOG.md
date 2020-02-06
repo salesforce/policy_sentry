@@ -1,7 +1,28 @@
 # Changelog
+## 0.7.1 (Unreleased)
+* Add conditions support
+
+## 0.7.0 (Unreleased)
+User-facing changes:
+* Removing the old analysis, download, login commands.
+* **Breaking change**: Template format
+
+Developer library changes:
+* A **lot**. Removed a lot of the old functions.
+* Replaced ArnActionGroup with SidGroup. This will allow us to do conditions, etc. It is also easier to read.
+
+TODO:
+* Validate Terraform setup
+* fix all the documentation and code examples to fit the new one
+* Convert to Python Black (Optional)
+* Nuke the old setup for ArnActionGroup
+* Nuke the Analysis and Download commands
+* Update the GIF and documentation (including the blog)
+
 ## 0.6.12 (Unreleased)
 ### Changed
 * Replaced a lot of print statements with logging.
+* Make it so you can leverage the built-in database without the initialize command entirely
 
 ## 0.6.11 (2020-01-28)
 ### Changed

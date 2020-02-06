@@ -207,7 +207,6 @@ class SidGroup:
         try:
             for template in cfg:
                 if template == 'policy_with_crud_levels':
-                    # for policy in cfg[template]:
                     if 'wildcard' in cfg['policy_with_crud_levels'].keys():
                         provided_wildcard_actions = cfg['policy_with_crud_levels']['wildcard']
                         if isinstance(provided_wildcard_actions, list):
