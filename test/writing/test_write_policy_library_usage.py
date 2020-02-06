@@ -122,10 +122,8 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         actions_template = get_actions_template_dict()
         # print(actions_template)
         actions_to_add = ['kms:creategrant', 'kms:createcustomkeystore', 'ec2:authorizesecuritygroupegress', 'ec2:authorizesecuritygroupingress']
-        actions_template['policy_with_actions']['name'] = "MyPolicy"
-        actions_template['policy_with_actions']['description'] = "Description"
-        actions_template['policy_with_actions']['role_arn'] = "somearn"
-        actions_template['policy_with_actions']['actions'].extend(actions_to_add)
+        actions_template['mode'] = 'actions'
+        actions_template['actions'].extend(actions_to_add)
         # Modify it
         sid_group = SidGroup()
         minimize = None
@@ -142,16 +140,13 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         db_session = connect_db('bundled')
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
-        # print(crud_template)
-        crud_template['policy_with_crud_levels']['name'] = "MyPolicy"
-        crud_template['policy_with_crud_levels']['description'] = "Description"
-        crud_template['policy_with_crud_levels']['role_arn'] = "somearn"
-        crud_template['policy_with_crud_levels']['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels']['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels']['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
-        crud_template['policy_with_crud_levels']['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
-        crud_template['policy_with_crud_levels']['wildcard'].extend(wildcard_actions_to_add)
-        crud_template['policy_with_crud_levels']['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
+        crud_template['mode'] = 'crud'
+        crud_template['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
+        crud_template['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+        crud_template['wildcard'].extend(wildcard_actions_to_add)
+        crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
         # Modify it
         sid_group = SidGroup()
         minimize = None

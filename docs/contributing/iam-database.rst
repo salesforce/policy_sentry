@@ -22,13 +22,13 @@ How Policy Sentry uses the IAM database
 
 policy_sentry follows this process for generating policies.
 
-#. If **User-supplied actions** is chosen:
+#. If the **User-supplied actions** template is provided:
 
    * Look up the actions in our master Actions Table in the database, which contains the Action Tables for all AWS services
    * If the action in the database matches the actions requested by the user, determine the ARN Format required.
    * Proceed to step 3
 
-#. If **User-supplied ARNs with Access levels** (i.e., the ``--crud`` flag) is chosen:
+#. If **User-supplied ARNs with Access levels** template was provided:
 
    * Match the user-supplied ARNs with ARN formats in our ARN Table database, which contains the ARN tables for all AWS Services
    * If it matches, get the access level requested by the user
@@ -36,11 +36,11 @@ policy_sentry follows this process for generating policies.
 
 #. Compile those into groups, sorted by an SID namespace. The SID namespace follows the format of **Service**\ , **Access Level**\ , and **Resource ARN Type**\ , with no character delimiter (to meet AWS IAM Policy formatting expectations). For example, the namespace could be ``SsmReadParameter``\ , ``KmsReadKey``\ , or ``Ec2TagInstance``.
 #. Then, we associate the user-supplied ARNs matching that namespace with the SID.
-#. If **User-supplied actions** is chosen:
+#. If **User-supplied actions** template was provided:
 
    * Associate the IAM actions requested by the user to the service, access level, and ARN type matching the aforementioned SID namespace
 
-#. If **User-supplied ARNs with Access levels** (i.e., the ``--crud`` flag) is chosen:
+#. If the **User-supplied ARNs with Access levels** template was provided:
 
    * Associate all the IAM actions that correspond to the service, access level, and ARN type matching that SID namespace.
 

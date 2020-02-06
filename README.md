@@ -113,51 +113,51 @@ policy_sentry create-template --name myRole --output-file crud.yml --template-ty
 It will generate a file like this:
 
 ```yaml
-policy_with_crud_levels:
-- name: myRole
-  description: '' # For human auditability
-  role_arn: '' # For human auditability
-  # Insert ARNs under each access level below
-  # If you do not need to use certain access levels, delete them.
-  read:
-    - ''
-  write:
-    - ''
-  list:
-    - ''
-  tagging:
-    - ''
-  permissions-management:
-    - ''
-  # If the policy needs to use IAM actions that cannot be restricted to ARNs,
-  # like ssm:DescribeParameters, specify those actions here.
-  wildcard:
-    - ''
+mode: crud
+name: myRole
+description: '' # For human auditability
+role_arn: '' # For human auditability
+# Insert ARNs under each access level below
+# If you do not need to use certain access levels, delete them.
+read:
+- ''
+write:
+- ''
+list:
+- ''
+tagging:
+- ''
+permissions-management:
+- ''
+# If the policy needs to use IAM actions that cannot be restricted to ARNs,
+# like ssm:DescribeParameters, specify those actions here.
+wildcard:
+- ''
 ```
 
 Then just fill it out:
 
 ```yaml
-policy_with_crud_levels:
-- name: myRole
-  description: 'Justification for privileges'
-  role_arn: 'arn:aws:iam::123456789102:role/myRole'
-  read:
-    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-  write:
-    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-  list:
-    - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
-  tagging:
-    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
-  permissions-management:
-    - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+mode: crud
+name: myRole
+description: 'Justification for privileges'
+role_arn: 'arn:aws:iam::123456789102:role/myRole'
+read:
+- 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+write:
+- 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+list:
+- 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
+tagging:
+- 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+permissions-management:
+- 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 ```
 
 Then run this command:
 
 ```bash
-policy_sentry write-policy --crud --input-file crud.yml
+policy_sentry write-policy --input-file crud.yml
 ```
 
 It will generate these results:
@@ -277,10 +277,10 @@ policy_sentry create-template --name myRole --output-file tmp.yml --template-typ
 policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
 
 # Write policy based on resource-specific access levels
-policy_sentry write-policy --crud --input-file examples/yml/crud.yml
+policy_sentry write-policy --input-file examples/yml/crud.yml
 
 # Write policy_sentry YML files based on resource-specific access levels on a directory basis
-policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
+policy_sentry write-policy-dir --input-dir examples/input-dir --output-dir examples/output-dir
 
 # Write policy based on a list of actions
 policy_sentry write-policy --input-file examples/yml/actions.yml
@@ -425,7 +425,7 @@ The `write-policy` command also supports passing in the YML config via STDIN. If
 
 ```bash
 # Write policies by passing in the config via STDIN
-cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy --crud"
+cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"
 
 cat examples/yml/actions.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"
 ```

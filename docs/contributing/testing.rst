@@ -160,7 +160,7 @@ Output:
     test_write_actions_policy_with_library_only: Write an actions mode policy without using the command line at all (library only) ... ok
     test_write_crud_policy_with_library_only: Write an actions mode policy without using the command line at all (library only) ... ok
     test_actions_missing_actions: write-policy actions if the actions block is missing ... ok
-    test_allow_missing_access_level_categories_in_cfg: write-policy --crud when the YAML file ... ok
+    test_allow_missing_access_level_categories_in_cfg: write-policy when the YAML file ... ok
     test_allow_empty_access_level_categories_in_cfg: If the content of a list is an empty string, it should sysexit ... ok
     test_actions_missing_arn: write-policy actions command when YAML file block is missing an ARN ... ok
     test_actions_missing_description: write-policy when the YAML file is missing a description ... ok

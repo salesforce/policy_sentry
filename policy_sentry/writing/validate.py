@@ -30,29 +30,24 @@ def check(conf_schema, conf):
 
 
 CRUD_SCHEMA = Schema({
-    'policy_with_crud_levels':
-        {
-            Optional('name'): And(Use(str)),
-            Optional('description'): And(Use(str)),
-            Optional('role_arn'): And(Use(str)),
-            Optional('read'): [str],
-            Optional('write'): [str],
-            Optional('list'): [str],
-            Optional('permissions-management'): [str],
-            Optional('tagging'): [str],
-            Optional('wildcard'): [str],
-
-        }
+        'mode': 'crud',
+        Optional('name'): And(Use(str)),
+        Optional('description'): And(Use(str)),
+        Optional('role_arn'): And(Use(str)),
+        Optional('read'): [str],
+        Optional('write'): [str],
+        Optional('list'): [str],
+        Optional('permissions-management'): [str],
+        Optional('tagging'): [str],
+        Optional('wildcard'): [str],
 })
 
 ACTIONS_SCHEMA = Schema({
-    'policy_with_actions':
-        {
-            Optional('name'): And(Use(str)),
-            Optional('description'): And(Use(str)),
-            Optional('role_arn'): And(Use(str)),
-            'actions': And([str]),
-        }
+        'mode': 'actions',
+        Optional('name'): And(Use(str)),
+        Optional('description'): And(Use(str)),
+        Optional('role_arn'): And(Use(str)),
+        'actions': And([str]),
 })
 
 

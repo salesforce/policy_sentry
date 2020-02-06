@@ -1,24 +1,24 @@
-policy_with_crud_levels:
-  name: 'RoleNameWithCRUD'
-  description: 'Why I need these privs'
-  role_arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
-  read:
-    - arn:aws:s3:::example-org-sbx-vmimport
-    - arn:aws:s3:::example-kinnaird
-    - arn:aws:ssm:us-east-1:123456789012:parameter/test
-    - arn:aws:ssm:us-east-1:123456789012:parameter/test2
-    - arn:aws:kms:us-east-1:123456789012:key/123456
-    - arn:aws:s3:::job/jobid
-    - arn:aws:s3:::example-org-sbx-vmimport/stuff
-  write:
-    - arn:aws:s3:::example-org-s3-access-logs
-    - arn:aws:s3:::example-org-sbx-vmimport/stuff
-    - arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret
-    - arn:aws:kms:us-east-1:123456789012:key/123456
-  list:
-    - arn:aws:s3:::example-org-flow-logs
-    - arn:aws:s3:::example-org-sbx-vmimport/stuff
-  tagging:
-    - arn:aws:ssm:us-east-1:123456789012:parameter/test
-  permissions-management:
-    - arn:aws:s3:::example-org-s3-access-logs
+mode: crud
+name: 'RoleNameWithCRUD'
+description: 'Why I need these privs'
+role_arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
+read:
+- arn:aws:s3:::example-org-sbx-vmimport
+- arn:aws:s3:::example-kinnaird
+- arn:aws:ssm:us-east-1:123456789012:parameter/test
+- arn:aws:ssm:us-east-1:123456789012:parameter/test2
+- arn:aws:kms:us-east-1:123456789012:key/123456
+- arn:aws:s3:::job/jobid
+- arn:aws:s3:::example-org-sbx-vmimport/stuff
+write:
+- arn:aws:s3:::example-org-s3-access-logs
+- arn:aws:s3:::example-org-sbx-vmimport/stuff
+- arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret
+- arn:aws:kms:us-east-1:123456789012:key/123456
+list:
+- arn:aws:s3:::example-org-flow-logs
+- arn:aws:s3:::example-org-sbx-vmimport/stuff
+tagging:
+- arn:aws:ssm:us-east-1:123456789012:parameter/test
+permissions-management:
+- arn:aws:s3:::example-org-s3-access-logs

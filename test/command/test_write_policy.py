@@ -12,27 +12,25 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
     def test_wildcard_when_not_necessary(self):
         """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
         cfg = {
-            'policy_with_crud_levels':
-                {
-                    'name': 'RoleNameWithCRUD',
-                    'description': 'Why I need these privs',
-                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
-                    'permissions-management': [
-                        'arn:aws:s3:::example-org-s3-access-logs'
-                    ],
-                    'wildcard': [
-                        # The first three are legitimately wildcard only.
-                        # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                        'ram:enablesharingwithawsorganization',
-                        'ram:getresourcepolicies',
-                        'secretsmanager:createsecret',
-                        # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                        # bypassing this mechanism, while allowing them to explicitly
-                        # request specific privs that require wildcard mode. This next value -
-                        # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                        'secretsmanager:putsecretvalue'
-                    ]
-                }
+            'mode': 'crud',
+            'name': 'RoleNameWithCRUD',
+            'description': 'Why I need these privs',
+            'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+            'permissions-management': [
+                'arn:aws:s3:::example-org-s3-access-logs'
+            ],
+            'wildcard': [
+                # The first three are legitimately wildcard only.
+                # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                'ram:enablesharingwithawsorganization',
+                'ram:getresourcepolicies',
+                'secretsmanager:createsecret',
+                # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                # bypassing this mechanism, while allowing them to explicitly
+                # request specific privs that require wildcard mode. This next value -
+                # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                'secretsmanager:putsecretvalue'
+            ]
         }
         db_session = connect_db('bundled')
         output = write_policy_with_template(db_session, cfg)
@@ -68,4 +66,4 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
             ]
         }
         self.maxDiff = None
-        self.assertDictEqual(output, desired_output)
+        self.assertDictEqual(desired_output, output)

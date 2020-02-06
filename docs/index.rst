@@ -40,10 +40,8 @@ Navigate below to get started with Policy Sentry!
    user-guide/installation
    user-guide/initialize
    user-guide/write-policy
-   user-guide/analyze-policy
    user-guide/querying-the-database
    user-guide/docker
-   user-guide/downloading-policies
    user-guide/command-cheat-sheet
 
 .. toctree::

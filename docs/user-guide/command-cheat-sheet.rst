@@ -76,10 +76,10 @@ Policy Writing Commands
     policy_sentry initialize
 
     # Write policy based on resource-specific access levels
-    policy_sentry write-policy --crud --input-file examples/yml/crud.yml
+    policy_sentry write-policy --input-file examples/yml/crud.yml
 
     # Write policy_sentry YML files based on resource-specific access levels on a directory basis
-    policy_sentry write-policy-dir --crud --input-dir examples/input-dir --output-dir examples/output-dir
+    policy_sentry write-policy-dir --input-dir examples/input-dir --output-dir examples/output-dir
 
     # Write policy based on a list of actions
     policy_sentry write-policy --input-file examples/yml/actions.yml

@@ -106,11 +106,17 @@ def does_arn_match(arn_to_test, arn_in_database):
     """Given two ARNs, determine if they match. The cases supported are outlined below.
 
     Case 1: arn:partition:service:region:account-id:resource
+
     Case 2: arn:partition:service:region:account-id:resourcetype/resource
+
     Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier
+
     Case 4: arn:partition:service:region:account-id:resourcetype/resource:qualifier
+
     Case 5: arn:partition:service:region:account-id:resourcetype:resource
+
     Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
+
     Source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
 
     :param arn: ARN to parse

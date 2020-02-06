@@ -38,7 +38,7 @@ This will create a YML file to be used by policy_sentry in the [environments/iam
 
 ```bash
 cd ../iam-resources
-policy_sentry write-policy-dir --crud --input-dir files --output-dir files
+policy_sentry write-policy-dir --input-dir files --output-dir files
 ```
 
 This will create a JSON file to be consumed by Terraform's `aws_iam_policy` resource to create an IAM policy.
@@ -105,7 +105,7 @@ Make sure you fill out the actual directory path properly. Note that `yml_file_d
 * Run the following:
 
 ```bash
-policy_sentry write-policy-dir --crud --input-dir files --output-dir files
+policy_sentry write-policy-dir --input-dir files --output-dir files
 ```
 
 #### Step 4: Create the IAM Policies using JSON files from directory

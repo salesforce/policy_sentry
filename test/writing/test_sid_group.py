@@ -12,22 +12,20 @@ class SidGroupActionsTestCase(unittest.TestCase):
 
     def test_actions_test_case(self):
         cfg = {
-            'policy_with_actions':
-                {
-                    'name': 'RoleNameWithCRUD',
-                    'description': 'Why I need these privs',
-                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
-                    'actions': [
-                        'kms:CreateGrant',
-                        'kms:CreateCustomKeyStore',
-                        'ec2:AuthorizeSecurityGroupEgress',
-                        'ec2:AuthorizeSecurityGroupIngress'
-                    ]
-                }
+            'mode': 'actions',
+            'name': 'RoleNameWithCRUD',
+            'description': 'Why I need these privs',
+            'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+            'actions': [
+                'kms:CreateGrant',
+                'kms:CreateCustomKeyStore',
+                'ec2:AuthorizeSecurityGroupEgress',
+                'ec2:AuthorizeSecurityGroupIngress'
+            ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
-        print(json.dumps(rendered_policy, indent=4))
+        # print(json.dumps(rendered_policy, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -287,18 +285,16 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
     def test_write_with_template(self):
         cfg = {
-            'policy_with_crud_levels':
-                {
-                    'name': 'RoleNameWithCRUD',
-                    'description': 'Why I need these privs',
-                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
-                    'permissions-management': [
-                        'arn:aws:s3:::example-org-s3-access-logs'
-                    ],
-                    'list': [
-                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
-                    ]
-                }
+                'mode': 'crud',
+                'name': 'RoleNameWithCRUD',
+                'description': 'Why I need these privs',
+                'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                'permissions-management': [
+                    'arn:aws:s3:::example-org-s3-access-logs'
+                ],
+                'list': [
+                    "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
+                ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
@@ -449,27 +445,25 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
     def test_add_crud_with_wildcard(self):
         cfg = {
-            'policy_with_crud_levels':
-                {
-                    'name': 'RoleNameWithCRUD',
-                    'description': 'Why I need these privs',
-                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
-                    'permissions-management': [
-                        'arn:aws:s3:::example-org-s3-access-logs'
-                    ],
-                    'wildcard': [
-                        # The first three are legitimately wildcard only.
-                        # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                        'ram:enablesharingwithawsorganization',
-                        'ram:getresourcepolicies',
-                        'secretsmanager:createsecret',
-                        # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                        # bypassing this mechanism, while allowing them to explicitly
-                        # request specific privs that require wildcard mode. This next value -
-                        # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                        'secretsmanager:putsecretvalue'
-                    ]
-                }
+                'mode': 'crud',
+                'name': 'RoleNameWithCRUD',
+                'description': 'Why I need these privs',
+                'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                'permissions-management': [
+                    'arn:aws:s3:::example-org-s3-access-logs'
+                ],
+                'wildcard': [
+                    # The first three are legitimately wildcard only.
+                    # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                    'ram:enablesharingwithawsorganization',
+                    'ram:getresourcepolicies',
+                    'secretsmanager:createsecret',
+                    # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                    # bypassing this mechanism, while allowing them to explicitly
+                    # request specific privs that require wildcard mode. This next value -
+                    # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                    'secretsmanager:putsecretvalue'
+                ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)

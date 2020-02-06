@@ -23,7 +23,7 @@ TODO:
   - Migrate unit tests from old write-policy thing over to the new one - DONE
 
 * Documentation:
-  - fix all the documentation and code examples to fit the new one
+  - fix all the documentation and code examples to fit the new one - DONE
   - Convert to Python Black (Optional)
   - Update the GIF and documentation (including the blog)
 

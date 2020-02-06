@@ -120,7 +120,7 @@ aws-iam-generator still requires you to write the actual policy templates from s
 
 Consider the JSON under `this area <https://github.com/awslabs/aws-iam-generator#managed-policies-derived-from-a-jinja2-template>`_ of their README.
 
-It's essentially a method for managing their policies as code - but it doesn't make those policies restricted to certain resources, unless you configure it that way. Using ``policy_sentry --write-policy --crud``\ , you have to supply a file with resource ARNs, and it will write the policy for you, rather than supplying a policy file, and hoping the ARNs fit that use case.
+It's essentially a method for managing their policies as code - but it doesn't make those policies restricted to certain resources, unless you configure it that way. Using ``policy_sentry --write-policy``\ , you have to supply a file with resource ARNs, and it will write the policy for you, rather than supplying a policy file, and hoping the ARNs fit that use case.
 
 -------------------------------------
 Terraform

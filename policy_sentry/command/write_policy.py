@@ -61,7 +61,8 @@ def write_policy(input_file, minimize, quiet):
         except yaml.YAMLError as exc:
             logger.critical(exc)
             sys.exit()
-    write_policy_with_template(db_session, cfg, minimize)
+    policy = write_policy_with_template(db_session, cfg, minimize)
+    print(json.dumps(policy, indent=4))
     #
     # if input_file:
     #     cfg = read_yaml_file(input_file)
@@ -88,5 +89,4 @@ def write_policy_with_template(db_session, cfg, minimize=None):
     """
     sid_group = SidGroup()
     policy = sid_group.process_template(db_session, cfg, minimize)
-    print(json.dumps(policy, indent=4))
     return policy
