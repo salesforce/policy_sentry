@@ -207,41 +207,42 @@ class SidGroup:
         try:
             for template in cfg:
                 if template == 'policy_with_crud_levels':
-                    for policy in cfg[template]:
-                        if 'wildcard' in policy.keys():
-                            provided_wildcard_actions = policy['wildcard']
-                            if isinstance(provided_wildcard_actions, list):
-                                verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                                    db_session, provided_wildcard_actions)
-                                if len(verified_wildcard_actions) > 0:
-                                    self.add_by_list_of_actions(db_session, verified_wildcard_actions)
-                        if 'read' in policy.keys():
-                            if policy['read'] is not None:
-                                self.add_by_arn_and_access_level(
-                                    db_session, policy['read'], "Read")
-                        if 'write' in policy.keys():
-                            if policy['write'] is not None:
-                                self.add_by_arn_and_access_level(
-                                    db_session, policy['write'], "Write")
-                        if 'list' in policy.keys():
-                            if policy['list'] is not None:
-                                self.add_by_arn_and_access_level(
-                                    db_session, policy['list'], "List")
-                        if 'permissions-management' in policy.keys():
-                            if policy['permissions-management'] is not None:
-                                self.add_by_arn_and_access_level(
-                                    db_session,
-                                    policy['permissions-management'],
-                                    "Permissions management")
-                        if 'tagging' in policy.keys():
-                            if policy['tagging'] is not None:
-                                self.add_by_arn_and_access_level(
-                                    db_session, policy['tagging'], "Tagging")
+                    # for policy in cfg[template]:
+                    if 'wildcard' in cfg['policy_with_crud_levels'].keys():
+                        provided_wildcard_actions = cfg['policy_with_crud_levels']['wildcard']
+                        if isinstance(provided_wildcard_actions, list):
+                            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                                db_session, provided_wildcard_actions)
+                            if len(verified_wildcard_actions) > 0:
+                                self.add_by_list_of_actions(db_session, verified_wildcard_actions)
+                    if 'read' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['read'] is not None:
+                            self.add_by_arn_and_access_level(
+                                db_session, cfg['policy_with_crud_levels']['read'], "Read")
+                    if 'write' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['write'] is not None:
+                            self.add_by_arn_and_access_level(
+                                db_session, cfg['policy_with_crud_levels']['write'], "Write")
+                    if 'list' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['list'] is not None:
+                            self.add_by_arn_and_access_level(
+                                db_session, cfg['policy_with_crud_levels']['list'], "List")
+                    if 'permissions-management' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['permissions-management'] is not None:
+                            self.add_by_arn_and_access_level(
+                                db_session,
+                                cfg['policy_with_crud_levels']['permissions-management'],
+                                "Permissions management")
+                    if 'tagging' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['tagging'] is not None:
+                            self.add_by_arn_and_access_level(
+                                db_session, cfg['policy_with_crud_levels']['tagging'], "Tagging")
+
                 if template == 'policy_with_actions':
-                    for policy in cfg[template]:
-                        if 'actions' in policy.keys():
-                            if policy['actions'] is not None:
-                                self.add_by_list_of_actions(db_session, policy['actions'])
+                    # for policy in cfg[template]:
+                    if 'actions' in cfg['policy_with_actions'].keys():
+                        if cfg['policy_with_actions']['actions'] is not None:
+                            self.add_by_list_of_actions(db_session, cfg['policy_with_actions']['actions'])
 
         except IndexError:
             raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "

@@ -35,17 +35,17 @@ class Roles:
     def process_actions_config(self, cfg):
         """Given the YAML file used for the list of actions config, process it."""
         try:
-            for category in cfg:
-                if category == 'policy_with_actions':
-                    for principal in cfg[category]:
-                        self.add_role(
-                            [
-                                principal['name'],
-                                principal['description'],
-                                principal['role_arn'],
-                                principal['actions'],
-                            ]
-                        )
+            for template in cfg:
+                if template == 'policy_with_actions':
+                    # for principal in cfg[category]:
+                    self.add_role(
+                        [
+                            cfg['policy_with_actions']['name'],
+                            cfg['policy_with_actions']['description'],
+                            cfg['policy_with_actions']['role_arn'],
+                            cfg['policy_with_actions']['actions'],
+                        ]
+                    )
         except KeyError as k_e:
             logger.critical("Yaml file is missing this block: %s", k_e.args[0])
             sys.exit()

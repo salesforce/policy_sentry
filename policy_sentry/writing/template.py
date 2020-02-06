@@ -5,7 +5,7 @@ from jinja2 import Template
 
 ACTIONS_TEMPLATE = '''# Generate my policy when I know the Actions
 policy_with_actions:
-- name: {{ name }}
+  name: {{ name }}
   description: '' # For human auditability
   role_arn: '' # For human auditability
   actions:
@@ -14,7 +14,7 @@ policy_with_actions:
 
 CRUD_TEMPLATE = '''# Generate my policy when I know the access levels and ARNs
 policy_with_crud_levels:
-- name: {{ name }}
+  name: {{ name }}
   description: '' # For human auditability
   role_arn: '' # For human auditability
   # Insert ARNs under each access level below
@@ -36,7 +36,7 @@ policy_with_crud_levels:
 '''
 
 CRUD_TEMPLATE_DICT = {
-    'policy_with_crud_levels': [
+    'policy_with_crud_levels':
         {
             'name': '',
             'description': '',
@@ -48,18 +48,16 @@ CRUD_TEMPLATE_DICT = {
             'permissions-management': [],
             'wildcard': [],
         }
-    ]
 }
 
 ACTIONS_TEMPLATE_DICT = {
-    'policy_with_actions': [
+    'policy_with_actions':
         {
             'name': '',
             'description': '',
             'role_arn': '',
             'actions': [],
         }
-    ]
 }
 
 

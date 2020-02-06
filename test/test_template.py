@@ -6,7 +6,7 @@ class TemplateTestCase(unittest.TestCase):
     def test_actions_template(self):
         desired_msg = """# Generate my policy when I know the Actions
 policy_with_actions:
-- name: myrole
+  name: myrole
   description: '' # For human auditability
   role_arn: '' # For human auditability
   actions:
@@ -17,7 +17,7 @@ policy_with_actions:
     def test_crud_template(self):
         desired_msg = """# Generate my policy when I know the access levels and ARNs
 policy_with_crud_levels:
-- name: myrole
+  name: myrole
   description: '' # For human auditability
   role_arn: '' # For human auditability
   # Insert ARNs under each access level below

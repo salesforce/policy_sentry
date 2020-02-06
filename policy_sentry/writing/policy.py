@@ -99,40 +99,79 @@ class ArnActionGroup:
         :rtype: dict
         """
         try:
-            for category in cfg:
-                if category == 'policy_with_crud_levels':
-                    for principal in cfg[category]:
-                        if 'wildcard' in principal.keys():
-                            if principal['wildcard'] is not None:
-                                provided_wildcard_actions = principal['wildcard']
-                                if isinstance(provided_wildcard_actions, list):
-                                    verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                                        db_session, provided_wildcard_actions)
-                                    if len(verified_wildcard_actions) > 0:
-                                        self.process_list_of_actions(
-                                            verified_wildcard_actions, db_session)
-                        if 'read' in principal.keys():
-                            if principal['read'] is not None:
-                                self.add(
-                                    db_session, principal['read'], "Read")
-                        if 'write' in principal.keys():
-                            if principal['write'] is not None:
-                                self.add(
-                                    db_session, principal['write'], "Write")
-                        if 'list' in principal.keys():
-                            if principal['list'] is not None:
-                                self.add(
-                                    db_session, principal['list'], "List")
-                        if 'permissions-management' in principal.keys():
-                            if principal['permissions-management'] is not None:
-                                self.add(
-                                    db_session,
-                                    principal['permissions-management'],
-                                    "Permissions management")
-                        if 'tagging' in principal.keys():
-                            if principal['tagging'] is not None:
-                                self.add(
-                                    db_session, principal['tagging'], "Tagging")
+            for template in cfg:
+                if template == 'policy_with_crud_levels':
+                    # for policy in cfg[template]:
+                    if 'wildcard' in cfg['policy_with_crud_levels'].keys():
+                        provided_wildcard_actions = cfg['policy_with_crud_levels']['wildcard']
+                        if isinstance(provided_wildcard_actions, list):
+                            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                                db_session, provided_wildcard_actions)
+                            if len(verified_wildcard_actions) > 0:
+                                self.process_list_of_actions(
+                                    verified_wildcard_actions, db_session)
+                    if 'read' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['read'] is not None:
+                            self.add(
+                                db_session, cfg['policy_with_crud_levels']['read'], "Read")
+                    if 'write' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['write'] is not None:
+                            self.add(
+                                db_session, cfg['policy_with_crud_levels']['write'], "Write")
+                    if 'list' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['list'] is not None:
+                            self.add(
+                                db_session, cfg['policy_with_crud_levels']['list'], "List")
+                    if 'permissions-management' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['permissions-management'] is not None:
+                            self.add(
+                                db_session,
+                                cfg['policy_with_crud_levels']['permissions-management'],
+                                "Permissions management")
+                    if 'tagging' in cfg['policy_with_crud_levels'].keys():
+                        if cfg['policy_with_crud_levels']['tagging'] is not None:
+                            self.add(
+                                db_session, cfg['policy_with_crud_levels']['tagging'], "Tagging")
+                if template == 'policy_with_actions':
+                    # for policy in cfg[template]:
+                    if 'actions' in cfg['policy_with_actions'].keys():
+                        if cfg['policy_with_actions']['actions'] is not None:
+                            self.add(db_session, cfg['policy_with_actions']['actions'])
+            #
+            # for category in cfg:
+            #     if category == 'policy_with_crud_levels':
+            #         for principal in cfg[category]:
+            #             if 'wildcard' in principal.keys():
+            #                 if principal['wildcard'] is not None:
+            #                     provided_wildcard_actions = principal['wildcard']
+            #                     if isinstance(provided_wildcard_actions, list):
+            #                         verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+            #                             db_session, provided_wildcard_actions)
+            #                         if len(verified_wildcard_actions) > 0:
+            #                             self.process_list_of_actions(
+            #                                 verified_wildcard_actions, db_session)
+            #             if 'read' in principal.keys():
+            #                 if principal['read'] is not None:
+            #                     self.add(
+            #                         db_session, principal['read'], "Read")
+            #             if 'write' in principal.keys():
+            #                 if principal['write'] is not None:
+            #                     self.add(
+            #                         db_session, principal['write'], "Write")
+            #             if 'list' in principal.keys():
+            #                 if principal['list'] is not None:
+            #                     self.add(
+            #                         db_session, principal['list'], "List")
+            #             if 'permissions-management' in principal.keys():
+            #                 if principal['permissions-management'] is not None:
+            #                     self.add(
+            #                         db_session,
+            #                         principal['permissions-management'],
+            #                         "Permissions management")
+            #             if 'tagging' in principal.keys():
+            #                 if principal['tagging'] is not None:
+            #                     self.add(
+            #                         db_session, principal['tagging'], "Tagging")
 
         # except KeyError as e:
         #     logger.debug("Yaml file is missing this block: " + e.args[0])

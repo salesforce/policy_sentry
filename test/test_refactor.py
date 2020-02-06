@@ -12,7 +12,7 @@ class RefactorWriteActionsTestCase(unittest.TestCase):
 
     def test_actions_test_case(self):
         cfg = {
-            'policy_with_actions': [
+            'policy_with_actions':
                 {
                     'name': 'RoleNameWithCRUD',
                     'description': 'Why I need these privs',
@@ -24,7 +24,6 @@ class RefactorWriteActionsTestCase(unittest.TestCase):
                         'ec2:AuthorizeSecurityGroupIngress'
                     ]
                 }
-            ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
@@ -288,7 +287,7 @@ class RefactorWriteCrudTestCase(unittest.TestCase):
 
     def test_write_with_template(self):
         cfg = {
-            'policy_with_crud_levels': [
+            'policy_with_crud_levels':
                 {
                     'name': 'RoleNameWithCRUD',
                     'description': 'Why I need these privs',
@@ -300,7 +299,6 @@ class RefactorWriteCrudTestCase(unittest.TestCase):
                         "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
                     ]
                 }
-            ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)
@@ -451,7 +449,7 @@ class RefactorWriteCrudTestCase(unittest.TestCase):
 
     def test_add_crud_with_wildcard(self):
         cfg = {
-            'policy_with_crud_levels': [
+            'policy_with_crud_levels':
                 {
                     'name': 'RoleNameWithCRUD',
                     'description': 'Why I need these privs',
@@ -472,7 +470,6 @@ class RefactorWriteCrudTestCase(unittest.TestCase):
                         'secretsmanager:putsecretvalue'
                     ]
                 }
-            ]
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(db_session, cfg)

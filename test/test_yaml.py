@@ -8,7 +8,7 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 valid_cfg_for_crud = {
-    "policy_with_crud_levels": [
+    "policy_with_crud_levels":
         {
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
@@ -39,11 +39,10 @@ valid_cfg_for_crud = {
                 "arn:aws:s3:::example-org-s3-access-logs"
             ]
         }
-    ]
 }
 
 valid_cfg_for_actions = {
-    "policy_with_actions": [
+    "policy_with_actions":
         {
             "name": "RoleNameWithActions",
             "description": "Why I need these privs",
@@ -55,130 +54,10 @@ valid_cfg_for_actions = {
                 "ec2:AuthorizeSecurityGroupIngress"
             ]
         }
-    ]
 }
 
 
 class YamlValidationOverallTestCase(unittest.TestCase):
-
-
-    # def test_multiple_roles_in_file(self):
-    #     """
-    #     test_multiple_roles_in_file: write-policy when the YAML file includes multiple role blocks in the file (should only be 1)
-    #     :return:
-    #     """
-    #     cfg_multiple_roles_in_file = {
-    #         "policy_with_actions": [
-    #             {
-    #                 "name": "RoleNameWithActions",
-    #                 "description": "Why I need these privs",
-    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
-    #                 "actions": [
-    #                     "kms:CreateGrant",
-    #                     "kms:CreateCustomKeyStore",
-    #                     "ec2:AuthorizeSecurityGroupEgress",
-    #                     "ec2:AuthorizeSecurityGroupIngress"
-    #                 ]
-    #             },
-    #             {
-    #                 "name": "DuplicateRoleNameWithActions",
-    #                 "description": "Why I need these privs",
-    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
-    #                 "actions": [
-    #                     "kms:CreateGrant",
-    #                     "kms:CreateCustomKeyStore",
-    #                     "ec2:AuthorizeSecurityGroupEgress",
-    #                     "ec2:AuthorizeSecurityGroupIngress"
-    #                 ]
-    #             }
-    #         ]
-    #     }
-    #     with self.assertRaises(SystemExit):
-    #         policy = write_policy_with_actions(cfg_multiple_roles_in_file, db_session)
-    #
-    #
-    # def test_both_roles_in_file(self):
-    #     """
-    #     test_both_roles_in_file: write-policy when the YAML file contains both policy_with_crud_levels and policy_with_actions in the file (should only contain one)
-    #     :return:
-    #     """
-    #     cfg_both_roles_in_file = {
-    #         "policy_with_actions": [
-    #             {
-    #                 "name": "RoleNameWithActions",
-    #                 "description": "Why I need these privs",
-    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
-    #                 "actions": [
-    #                     "kms:CreateGrant",
-    #                     "kms:CreateCustomKeyStore",
-    #                     "ec2:AuthorizeSecurityGroupEgress",
-    #                     "ec2:AuthorizeSecurityGroupIngress"
-    #                 ]
-    #             },
-    #         ],
-    #         "policy_with_crud_levels": [
-    #             {
-    #                 "name": "DuplicateRoleNameWithActions",
-    #                 "description": "Why I need these privs",
-    #                 "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
-    #                 "actions": [
-    #                     "kms:CreateGrant",
-    #                     "kms:CreateCustomKeyStore",
-    #                     "ec2:AuthorizeSecurityGroupEgress",
-    #                     "ec2:AuthorizeSecurityGroupIngress"
-    #                 ],
-    #                 "read": [
-    #                     "arn:aws:s3:::example-org-sbx-vmimport",
-    #                     "arn:aws:s3:::example-kinnaird",
-    #                     "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-    #                     "arn:aws:ssm:us-east-1:123456789012:parameter/test2",
-    #                     "arn:aws:kms:us-east-1:123456789012:key/123456",
-    #                     "arn:aws:s3:::job/jobid",
-    #                     "arn:aws:s3:::example-org-sbx-vmimport/stuff"
-    #                 ],
-    #                 "write": [
-    #                     "arn:aws:s3:::example-org-s3-access-logs",
-    #                     "arn:aws:s3:::example-org-sbx-vmimport/stuff",
-    #                     "arn:aws:secretsmanager:us-east-1:12345:secret:mysecret",
-    #                     "arn:aws:kms:us-east-1:123456789012:key/123456"
-    #                 ],
-    #                 "list": [
-    #                     "arn:aws:s3:::example-org-flow-logs",
-    #                     "arn:aws:s3:::example-org-sbx-vmimport/stuff"
-    #                 ],
-    #                 "tagging": [
-    #                     "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-    #                 ],
-    #                 "permissions-management": [
-    #                     "arn:aws:s3:::example-org-s3-access-logs"
-    #                 ]
-    #             }
-    #         ]
-    #     }
-    #     with self.assertRaises(SystemExit):
-    #         policy = write_policy_with_actions(cfg_both_roles_in_file, db_session)
-    #
-
-    # def test_missing_category_as_dict(self):
-    #     """
-    #     Test case: write-policy when the YAML file does not contain policy_with_crud_levels or
-    #     policy_with_actions, and the input is as a dict instead of a list
-    #     :return:
-    #     """
-    #     cfg_with_missing_category = {
-    #         {
-    #             "name": "RoleNameWithActions",
-    #             "description": "Why I need these privs",
-    #             "actions": [
-    #                 "kms:CreateGrant",
-    #                 "kms:CreateCustomKeyStore",
-    #                 "ec2:AuthorizeSecurityGroupEgress",
-    #                 "ec2:AuthorizeSecurityGroupIngress",
-    #             ]
-    #         }
-    #     }
-    #     with self.assertRaises(SystemExit):
-    #         policy = write_policy_with_actions(cfg_with_missing_category, db_session)
 
     def test_actions_missing_name(self):
         """
@@ -186,7 +65,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_name = {
-            "policy_with_actions": [
+            "policy_with_actions":
                 {
                     "description": "Why I need these privs",
                     "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
@@ -197,7 +76,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                         "ec2:AuthorizeSecurityGroupIngress"
                     ]
                 }
-            ]
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_actions(db_session, cfg_with_missing_name)
@@ -209,7 +87,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_description = {
-            "policy_with_actions": [
+            "policy_with_actions":
                 {
                     "name": "RoleNameWithActions",
                     "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
@@ -220,7 +98,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                         "ec2:AuthorizeSecurityGroupIngress"
                     ]
                 }
-            ]
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_actions(db_session, cfg_with_missing_description)
@@ -231,7 +108,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_actions = {
-            "policy_with_actions": [
+            "policy_with_actions":
                 {
                     "name": "RoleNameWithActions",
                     "description": "Why I need these privs",
@@ -242,7 +119,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                         "ec2:AuthorizeSecurityGroupIngress"
                     ]
                 }
-            ]
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_actions(db_session, cfg_with_missing_actions)
@@ -259,7 +135,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         """
 
         crud_file_input = {
-            "policy_with_crud_levels": [
+            "policy_with_crud_levels":
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
@@ -275,7 +151,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test",
                     ],
                 }
-            ]
         }
         self.maxDiff = None
 
@@ -288,7 +163,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         :return:
         """
         crud_file_input = {
-            "policy_with_crud_levels": [
+            "policy_with_crud_levels":
                 {
                     "name": "RoleNameWithCRUD",
                     "description": "Why I need these privs",
@@ -310,7 +185,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                         ""
                     ]
                 }
-            ]
         }
         with self.assertRaises(Exception):
             result = write_policy_with_access_levels(db_session, crud_file_input)
@@ -325,13 +199,12 @@ class YamlValidationActionsTestCase(unittest.TestCase):
         :return:
         """
         cfg_with_missing_actions = {
-            "policy_with_actions": [
+            "policy_with_actions":
                 {
                     "name": "RoleNameWithActions",
                     "description": "Why I need these privs",
                     "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
                 }
-            ]
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_actions(db_session, cfg_with_missing_actions)

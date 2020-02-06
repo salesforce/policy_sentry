@@ -120,10 +120,10 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         actions_template = get_actions_template_dict()
         # print(actions_template)
         actions_to_add = ['kms:creategrant', 'kms:createcustomkeystore', 'ec2:authorizesecuritygroupegress', 'ec2:authorizesecuritygroupingress']
-        actions_template['policy_with_actions'][0]['name'] = "MyPolicy"
-        actions_template['policy_with_actions'][0]['description'] = "Description"
-        actions_template['policy_with_actions'][0]['role_arn'] = "somearn"
-        actions_template['policy_with_actions'][0]['actions'].extend(actions_to_add)
+        actions_template['policy_with_actions']['name'] = "MyPolicy"
+        actions_template['policy_with_actions']['description'] = "Description"
+        actions_template['policy_with_actions']['role_arn'] = "somearn"
+        actions_template['policy_with_actions']['actions'].extend(actions_to_add)
         # Modify it
         policy = write_policy_with_actions(db_session, actions_template)
         # print(json.dumps(policy, indent=4))
@@ -140,15 +140,15 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
         # print(crud_template)
-        crud_template['policy_with_crud_levels'][0]['name'] = "MyPolicy"
-        crud_template['policy_with_crud_levels'][0]['description'] = "Description"
-        crud_template['policy_with_crud_levels'][0]['role_arn'] = "somearn"
-        crud_template['policy_with_crud_levels'][0]['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels'][0]['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['policy_with_crud_levels'][0]['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
-        crud_template['policy_with_crud_levels'][0]['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
-        crud_template['policy_with_crud_levels'][0]['wildcard'].extend(wildcard_actions_to_add)
-        crud_template['policy_with_crud_levels'][0]['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
+        crud_template['policy_with_crud_levels']['name'] = "MyPolicy"
+        crud_template['policy_with_crud_levels']['description'] = "Description"
+        crud_template['policy_with_crud_levels']['role_arn'] = "somearn"
+        crud_template['policy_with_crud_levels']['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['policy_with_crud_levels']['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['policy_with_crud_levels']['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
+        crud_template['policy_with_crud_levels']['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+        crud_template['policy_with_crud_levels']['wildcard'].extend(wildcard_actions_to_add)
+        crud_template['policy_with_crud_levels']['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
         # Modify it
         policy = write_policy_with_access_levels(db_session, crud_template, None)
         # print(json.dumps(policy, indent=4))

@@ -146,7 +146,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
     def test_wildcard_when_not_necessary(self):
         """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
         cfg = {
-            'policy_with_crud_levels': [
+            'policy_with_crud_levels':
                 {
                     'name': 'RoleNameWithCRUD',
                     'description': 'Why I need these privs',
@@ -167,7 +167,6 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                         'secretsmanager:putsecretvalue'
                     ]
                 }
-            ]
         }
         arn_action_group = ArnActionGroup()
 

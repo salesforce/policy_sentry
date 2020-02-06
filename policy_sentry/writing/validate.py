@@ -30,7 +30,7 @@ def check(conf_schema, conf):
 
 
 CRUD_SCHEMA = Schema({
-    'policy_with_crud_levels': [
+    'policy_with_crud_levels':
         {
             'name': And(Use(str)),
             'description': And(Use(str)),
@@ -43,18 +43,16 @@ CRUD_SCHEMA = Schema({
             Optional('wildcard'): [str],
 
         }
-    ]
 })
 
 ACTIONS_SCHEMA = Schema({
-    'policy_with_actions': [
+    'policy_with_actions':
         {
             'name': And(Use(str)),
             'description': And(Use(str)),
             'role_arn': And(Use(str)),
             'actions': And([str]),
         }
-    ]
 })
 
 
