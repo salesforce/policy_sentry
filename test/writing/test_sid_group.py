@@ -8,7 +8,7 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
-class RefactorWriteActionsTestCase(unittest.TestCase):
+class SidGroupActionsTestCase(unittest.TestCase):
 
     def test_actions_test_case(self):
         cfg = {
@@ -68,7 +68,7 @@ class RefactorWriteActionsTestCase(unittest.TestCase):
         self.assertDictEqual(desired_output, rendered_policy)
 
 
-class RefactorWriteCrudTestCase(unittest.TestCase):
+class SidGroupCrudTestCase(unittest.TestCase):
 
     def test_sid_group_multiple(self):
         sid_group = SidGroup()

@@ -7,7 +7,7 @@ import logging
 import glob
 import click
 from policy_sentry.shared.database import connect_db
-from policy_sentry.command.write_policy import write_policy
+from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import read_yaml_file, write_json_file, check_valid_file_path
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
@@ -35,12 +35,6 @@ logger.addHandler(handler)
     help='Relative path to directory to store AWS JSON policies'
 )
 @click.option(
-    '--crud',
-    is_flag=True,
-    required=False,
-    help='Use the CRUD functionality. Defaults to false'
-)
-@click.option(
     '--minimize',
     required=False,
     type=int,
@@ -52,7 +46,7 @@ logger.addHandler(handler)
     default=False,
     is_flag=True
 )
-def write_policy_dir(input_dir, output_dir, crud, minimize, quiet):
+def write_policy_dir(input_dir, output_dir, minimize, quiet):
     """
     write_policy, but this time with an input directory of YML/YAML files, and an output directory for all the JSON files
     """
@@ -64,11 +58,6 @@ def write_policy_dir(input_dir, output_dir, crud, minimize, quiet):
     db_session = connect_db(DATABASE_FILE_PATH)
     input_dir = os.path.abspath(input_dir)
     output_dir = os.path.abspath(output_dir)
-
-    if not crud:
-        logger.warning(
-            "Note: If you are using ARNs from Terraform to generate your policies, "
-            "try using the CRUD functionality instead of the default actions-based policy writing functionality.")
 
     if not minimize:
         logger.warning(
@@ -100,18 +89,13 @@ def write_policy_dir(input_dir, output_dir, crud, minimize, quiet):
         base_name_no_extension = os.path.splitext(
             os.path.basename(yaml_file))[0]
         cfg = read_yaml_file(yaml_file)
-        # User supplies file containing resource-specific access levels
-        if crud:
-            policy = write_policy(cfg, crud, minimize)
-        # User supplies file containing a list of IAM actions
-        else:
-            policy = write_policy(cfg, crud, minimize)
+        policy = write_policy_with_template(db_session, cfg, minimize)
         logger.info("Writing policy for %s\n", base_name)
 
         target_file = str(output_dir + '/' + base_name_no_extension + '.json')
         if os.path.exists(target_file):
             logger.info("Target file for %s.json exists in the target directory. "
-                        "Removing it and writing a new file.\n")
+                        "Removing it and writing a new file.\n", target_file)
             os.remove(target_file)
         write_json_file(target_file, policy)
 

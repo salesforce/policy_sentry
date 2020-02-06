@@ -11,6 +11,7 @@ from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 from policy_sentry.util.text import capitalize_first_character
 from policy_sentry.writing.minimize import minimize_statement_actions
+from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
 from policy_sentry.util.actions import get_lowercase_action_list
 
@@ -208,6 +209,7 @@ class SidGroup:
         try:
             for template in cfg:
                 if template == 'policy_with_crud_levels':
+                    check_crud_schema(cfg)
                     if 'wildcard' in cfg['policy_with_crud_levels'].keys():
                         provided_wildcard_actions = cfg['policy_with_crud_levels']['wildcard']
                         if isinstance(provided_wildcard_actions, list):
@@ -239,6 +241,7 @@ class SidGroup:
                                 db_session, cfg['policy_with_crud_levels']['tagging'], "Tagging")
 
                 if template == 'policy_with_actions':
+                    check_actions_schema(cfg)
                     # for policy in cfg[template]:
                     if 'actions' in cfg['policy_with_actions'].keys():
                         if cfg['policy_with_actions']['actions'] is not None:
@@ -329,7 +332,7 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     return actions_list_placeholder
 
 
-def create_policy_sid_namespace(service, access_level, resource_type_name):
+def create_policy_sid_namespace(service, access_level, resource_type_name, condition_block=None):
     """
     Simply generates the SID name. The SID groups ARN types that share an access level.
 
@@ -338,6 +341,7 @@ def create_policy_sid_namespace(service, access_level, resource_type_name):
     :param service: "ssm"
     :param access_level: "Read"
     :param resource_type_name: "parameter"
+    :param condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string": "StringEquals", "condition_value": "test"}
     :return: SsmReadParameter
     :rtype: str
     """
@@ -347,6 +351,15 @@ def create_policy_sid_namespace(service, access_level, resource_type_name):
     # Also remove the space from the Access level, if applicable. This only
     # applies for "Permissions management"
     access_level = re.sub('[^A-Za-z0-9]+', '', access_level)
-    sid_namespace = capitalize_first_character(service) + capitalize_first_character(
+    sid_namespace_prefix = capitalize_first_character(service) + capitalize_first_character(
         access_level) + capitalize_first_character(resource_type_name)
+
+    if condition_block:
+        condition_key_namespace = re.sub('[^A-Za-z0-9]+', '', condition_block['condition_key_string'])
+        condition_type_namespace = condition_block['condition_type_string']
+        condition_value_namespace = re.sub('[^A-Za-z0-9]+', '', condition_block['condition_value'])
+        sid_namespace_condition_suffix = f"{capitalize_first_character(condition_key_namespace)}{capitalize_first_character(condition_type_namespace)}{capitalize_first_character(condition_value_namespace)}"
+        sid_namespace = sid_namespace_prefix + sid_namespace_condition_suffix
+    else:
+        sid_namespace = sid_namespace_prefix
     return sid_namespace

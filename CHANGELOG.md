@@ -16,12 +16,38 @@ TODO:
 * Nuke the Analysis and Download commands - DONE
 * Nuke the old write-policy logic - DONE
 * Remove old packages to reduce dependencies - DONE
-* Remove the `--crud` command officially
-* Validate Terraform setup. Including the write-policy-dir command
-* fix all the documentation and code examples to fit the new one
-* Convert to Python Black (Optional)
-* Update the GIF and documentation (including the blog)
-* Migrate unit tests from old write-policy thing over to the new one. This includes test_write_policy, test_write_policy_library_usage, and test_yaml.
+* Restructure the test folder - DONE
+* Remove the `--crud` command officially - DONE
+* Fix the `write-policy-dir` command - DONE
+* Make sure `write-policy` is easily callable as a method - DONE
+  - Migrate unit tests from old write-policy thing over to the new one - DONE
+
+* Documentation:
+  - fix all the documentation and code examples to fit the new one
+  - Convert to Python Black (Optional)
+  - Update the GIF and documentation (including the blog)
+
+* Coding:
+  - Validate Terraform setup
+  - Consider restructuring the yaml files to get rid of the policy_with_crud_levels nonsense. And then make the mode the only mandatory field. This way it's easier for developers to call it.
+
+```yaml
+mode: crud  # or mode=actions
+name: 'RoleNameWithCRUD'
+description: 'Why I need these privs'
+role_arn: 'arn:aws:iam::123456789012:role/RiskyEC2'
+read:
+- arn:aws:s3:::example-org-sbx-vmimport
+write:
+- arn:aws:s3:::example-org-s3-access-logs
+list:
+- arn:aws:s3:::example-org-flow-logs
+tagging:
+- arn:aws:ssm:us-east-1:123456789012:parameter/test
+permissions-management:
+- arn:aws:s3:::example-org-s3-access-logs
+```
+
 
 ## 0.6.12 (Unreleased)
 ### Changed

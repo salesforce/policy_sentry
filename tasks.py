@@ -128,8 +128,8 @@ def write_policy(c):
     Integration testing: Tests the `write-policy` function.
     """
     try:
-        c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry write-policy --crud --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/crud.yml', pty=True)
         c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")

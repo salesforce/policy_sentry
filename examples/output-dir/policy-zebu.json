@@ -12,6 +12,7 @@
                 "s3:getbucketlocation",
                 "s3:getbucketlogging",
                 "s3:getbucketnotification",
+                "s3:getbucketobjectlockconfiguration",
                 "s3:getbucketpolicy",
                 "s3:getbucketpolicystatus",
                 "s3:getbucketpublicaccessblock",
@@ -24,7 +25,6 @@
                 "s3:getlifecycleconfiguration",
                 "s3:getmetricsconfiguration",
                 "s3:getreplicationconfiguration",
-                "s3:listbucketbytags",
                 "s3:listbucketmultipartuploads",
                 "s3:listbucketversions"
             ],
@@ -56,6 +56,7 @@
                 "kms:getkeypolicy",
                 "kms:getkeyrotationstatus",
                 "kms:getparametersforimport",
+                "kms:getpublickey",
                 "kms:listresourcetags"
             ],
             "Resource": [
@@ -78,6 +79,8 @@
             "Action": [
                 "s3:getobject",
                 "s3:getobjectacl",
+                "s3:getobjectlegalhold",
+                "s3:getobjectretention",
                 "s3:getobjecttagging",
                 "s3:getobjecttorrent",
                 "s3:getobjectversion",
@@ -99,7 +102,6 @@
                 "s3:createbucket",
                 "s3:deletebucket",
                 "s3:deletebucketwebsite",
-                "s3:getbucketobjectlockconfiguration",
                 "s3:putaccelerateconfiguration",
                 "s3:putanalyticsconfiguration",
                 "s3:putbucketcors",
@@ -126,8 +128,6 @@
                 "s3:abortmultipartupload",
                 "s3:deleteobject",
                 "s3:deleteobjectversion",
-                "s3:getobjectlegalhold",
-                "s3:getobjectretention",
                 "s3:putobject",
                 "s3:putobjectlegalhold",
                 "s3:putobjectretention",
@@ -170,13 +170,17 @@
                 "kms:enablekeyrotation",
                 "kms:encrypt",
                 "kms:generatedatakey",
+                "kms:generatedatakeypair",
+                "kms:generatedatakeypairwithoutplaintext",
                 "kms:generatedatakeywithoutplaintext",
                 "kms:importkeymaterial",
                 "kms:reencryptfrom",
                 "kms:reencryptto",
                 "kms:schedulekeydeletion",
+                "kms:sign",
                 "kms:updatealias",
-                "kms:updatekeydescription"
+                "kms:updatekeydescription",
+                "kms:verify"
             ],
             "Resource": [
                 "arn:aws:kms:us-east-1:123456789012:key/123456"

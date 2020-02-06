@@ -30,12 +30,6 @@ logger.addHandler(handler)
     help='Path of the YAML File used for generating policies'
 )
 @click.option(
-    '--crud',
-    is_flag=True,
-    required=False,
-    help='Use the CRUD functionality. Defaults to false'
-)
-@click.option(
     '--minimize',
     required=False,
     type=int,
@@ -48,7 +42,7 @@ logger.addHandler(handler)
     default=False,
     is_flag=True
 )
-def write_policy(input_file, crud, minimize, quiet):
+def write_policy(input_file, minimize, quiet):
     """
     Write a least-privilege IAM Policy by supplying either a list of actions or
     access levels specific to resource ARNs!
@@ -67,8 +61,24 @@ def write_policy(input_file, crud, minimize, quiet):
         except yaml.YAMLError as exc:
             logger.critical(exc)
             sys.exit()
+    write_policy_with_template(db_session, cfg, minimize)
+    #
+    # if input_file:
+    #     cfg = read_yaml_file(input_file)
+    # else:
+    #     try:
+    #         cfg = yaml.safe_load(sys.stdin)
+    #     except yaml.YAMLError as exc:
+    #         logger.critical(exc)
+    #         sys.exit()
+    #
+    # # User supplies file containing resource-specific access levels
+    # sid_group = SidGroup()
+    # policy = sid_group.process_template(db_session, cfg, minimize)
+    # print(json.dumps(policy, indent=4))
 
-    # User supplies file containing resource-specific access levels
+
+def write_policy_with_template(db_session, cfg, minimize=None):
     sid_group = SidGroup()
     policy = sid_group.process_template(db_session, cfg, minimize)
     print(json.dumps(policy, indent=4))
