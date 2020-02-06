@@ -21,15 +21,16 @@ TODO:
 * Fix the `write-policy-dir` command - DONE
 * Make sure `write-policy` is easily callable as a method - DONE
   - Migrate unit tests from old write-policy thing over to the new one - DONE
+* Consider restructuring the yaml files to get rid of the policy_with_crud_levels nonsense. And then make the mode the only mandatory field. This way it's easier for developers to call it. - DONE
+* fix all the documentation and code examples to fit the new one - DONE
 
 * Documentation:
-  - fix all the documentation and code examples to fit the new one - DONE
   - Convert to Python Black (Optional)
   - Update the GIF and documentation (including the blog)
 
 * Coding:
   - Validate Terraform setup
-  - Consider restructuring the yaml files to get rid of the policy_with_crud_levels nonsense. And then make the mode the only mandatory field. This way it's easier for developers to call it.
+
 
 ```yaml
 mode: crud  # or mode=actions
