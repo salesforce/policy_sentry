@@ -8,7 +8,68 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
-class RefactorTestCase(unittest.TestCase):
+class RefactorWriteActionsTestCase(unittest.TestCase):
+
+    def test_actions_test_case(self):
+        cfg = {
+            'policy_with_actions': [
+                {
+                    'name': 'RoleNameWithCRUD',
+                    'description': 'Why I need these privs',
+                    'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
+                    'actions': [
+                        'kms:CreateGrant',
+                        'kms:CreateCustomKeyStore',
+                        'ec2:AuthorizeSecurityGroupEgress',
+                        'ec2:AuthorizeSecurityGroupIngress'
+                    ]
+                }
+            ]
+        }
+        sid_group = SidGroup()
+        rendered_policy = sid_group.process_template(db_session, cfg)
+        print(json.dumps(rendered_policy, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "KmsPermissionsmanagementKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:creategrant"
+                    ],
+                    "Resource": [
+                        "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
+                    ]
+                },
+                {
+                    "Sid": "Ec2WriteSecuritygroup",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ec2:authorizesecuritygroupegress",
+                        "ec2:authorizesecuritygroupingress"
+                    ],
+                    "Resource": [
+                        "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
+                    ]
+                },
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudhsm:describeclusters",
+                        "kms:createcustomkeystore"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(desired_output, rendered_policy)
+
+
+class RefactorWriteCrudTestCase(unittest.TestCase):
 
     def test_sid_group_multiple(self):
         sid_group = SidGroup()
@@ -33,7 +94,8 @@ class RefactorTestCase(unittest.TestCase):
                     "s3:putbucketacl",
                     "s3:putbucketpolicy",
                     "s3:putbucketpublicaccessblock"
-                ]
+                ],
+                "conditions": []
             },
             "KmsPermissionsmanagementKey": {
                 "arn": [
@@ -47,7 +109,8 @@ class RefactorTestCase(unittest.TestCase):
                     "kms:putkeypolicy",
                     "kms:retiregrant",
                     "kms:revokegrant"
-                ]
+                ],
+                "conditions": []
             }
         }
         self.assertDictEqual(desired_output, output)
@@ -101,7 +164,8 @@ class RefactorTestCase(unittest.TestCase):
                     "s3:putbucketacl",
                     "s3:putbucketpolicy",
                     "s3:putbucketpublicaccessblock"
-                ]
+                ],
+                "conditions": []
             }
         }
         sid_group = SidGroup()
@@ -133,7 +197,6 @@ class RefactorTestCase(unittest.TestCase):
         # print(json.dumps(rendered_policy, indent=4))
         self.assertDictEqual(desired_policy, rendered_policy)
 
-
     # def test_get_actions_data_service_wide(self):
     #     data = get_action_data(db_session, "s3", "*")
     #     # print(data)
@@ -142,7 +205,8 @@ class RefactorTestCase(unittest.TestCase):
         """test_refactored_crud_policy"""
         sid_group = SidGroup()
         sid_group.add_by_arn_and_access_level(db_session,
-                                              ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"], "Read")
+                                              ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
+                                              "Read")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging")
         sid_group.add_by_arn_and_access_level(db_session,
                                               ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
@@ -152,7 +216,8 @@ class RefactorTestCase(unittest.TestCase):
                                               "Write")
         sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:kms:us-east-1:123456789012:key/123456"],
                                               "Permissions management")
-        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")
+        sid_group.add_by_arn_and_access_level(db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
+                                              "List")
 
         rendered_policy = sid_group.get_rendered_policy(db_session)
         desired_output = {
@@ -271,7 +336,7 @@ class RefactorTestCase(unittest.TestCase):
         sid_group = SidGroup()
         sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
         rendered_policy = sid_group.get_rendered_policy(db_session)
-        print(json.dumps(rendered_policy, indent=4))
+        # print(json.dumps(rendered_policy, indent=4))
         desired_result = {
             "Version": "2012-10-17",
             "Statement": [
@@ -348,7 +413,6 @@ class RefactorTestCase(unittest.TestCase):
         }
         # print(json.dumps(rendered_policy, indent=4))
         self.assertDictEqual(rendered_policy, desired_output)
-
 
     def test_add_by_list_of_actions(self):
         actions_test_data_1 = ['kms:CreateCustomKeyStore', 'kms:CreateGrant']

@@ -12,20 +12,8 @@ from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
 from policy_sentry.util.actions import get_lowercase_action_list
-from policy_sentry.shared.database import ActionTable
-from sqlalchemy import and_
-logger = logging.getLogger(__name__)
 
-sid_group = {
-    "sid_namespace": {
-        "arns": [],
-        "service": "",
-        "access_level": "",
-        "arn_format": "",
-        "actions": "",
-        "conditions": ""
-    }
-}
+logger = logging.getLogger(__name__)
 
 
 class SidGroup:
@@ -82,8 +70,10 @@ class SidGroup:
         }
         return policy
 
-    # TODO: Add conditions as an optional thing here.
-    def add_by_arn_and_access_level(self, db_session, arn_list, access_level):
+    def add_by_arn_and_access_level(self, db_session, arn_list, access_level, conditions_block=None):
+        """
+
+        """
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
             service_action_data = get_action_data(db_session, service_prefix, "*")
@@ -91,14 +81,12 @@ class SidGroup:
                 for row in service_action_data[service_prefix]:
                     if does_arn_match(arn, row["resource_arn_format"]) and row["access_level"] == access_level:
                         raw_arn_format = row["resource_arn_format"]
-                        # service_arn_data = get_arn_data(db_session, serv, "*")
                         resource_type_name = get_resource_type_name_with_raw_arn(db_session, raw_arn_format)
                         sid_namespace = create_policy_sid_namespace(service_prefix, access_level, resource_type_name)
                         actions = get_actions_with_arn_type_and_access_level(db_session, service_prefix,
                                                                              resource_type_name, access_level)
                         # Make supplied actions lowercase
                         supplied_actions = [x.lower() for x in actions]
-                        # actions_list = get_dependent_actions(db_session, supplied_actions)
                         dependent_actions = get_dependent_actions_only(db_session, supplied_actions)
                         # List comprehension to get all dependent actions that are not in the supplied actions.
                         dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
@@ -111,13 +99,11 @@ class SidGroup:
                             'service': service_prefix,
                             'access_level': access_level,
                             'arn_format': raw_arn_format,
-                            'actions': actions
+                            'actions': actions,
+                            'conditions': []  # TODO: Add conditions
                         }
                         if sid_namespace in self.sids.keys():
-                            # if the exact value already exists, skip it.
-                            # if self.sids[sid_namespace] == temp_sid_dict:
-                            #     continue
-                            # # Or, if the ARN already exists there, skip it.
+                            # If the ARN already exists there, skip it.
                             if arn in self.sids[sid_namespace]["arn"]:
                                 continue
                             # Otherwise, just append the ARN
@@ -214,7 +200,6 @@ class SidGroup:
         for action in actions_without_resource_constraints:
             self.add_action_without_resource_constraint(action)
         self.remove_actions_duplicated_in_wildcard_arn()
-        # return self.sids
         rendered_policy = self.get_rendered_policy(db_session)
         return rendered_policy
 
@@ -252,8 +237,11 @@ class SidGroup:
                             if policy['tagging'] is not None:
                                 self.add_by_arn_and_access_level(
                                     db_session, policy['tagging'], "Tagging")
-                # if template == 'policy_with_actions':
-                #     for policy in cfg[template]:
+                if template == 'policy_with_actions':
+                    for policy in cfg[template]:
+                        if 'actions' in policy.keys():
+                            if policy['actions'] is not None:
+                                self.add_by_list_of_actions(db_session, policy['actions'])
 
         except IndexError:
             raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "
