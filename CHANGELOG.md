@@ -1,12 +1,12 @@
 # Changelog
-## Future releases
+## Future release (Unreleased)
 * Add conditions support
 
 Other Pending:
 * Terraform module updates are currently pending
 * Update the GIF and the Medium blog
 
-## 0.7.0 (Unreleased)
+## 0.7.0 (2020-02-06)
 User-facing changes:
 * The `initialize` command is now completely optional.
 * **Removed**: The `analyze` command is deprecated and removed. We moved this functionality over to Parliament [here](https://github.com/duo-labs/parliament/pull/66)
