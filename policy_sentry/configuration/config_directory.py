@@ -9,7 +9,7 @@ import shutil
 from policy_sentry.shared.constants import (
     HOME,
     CONFIG_DIRECTORY,
-    DATABASE_FILE_PATH,
+    DATABASE_FILE_NAME,
     HTML_DIRECTORY_PATH,
     HTML_DATA_DIRECTORY_SUBFOLDER,
 )
@@ -24,17 +24,18 @@ def create_policy_sentry_config_directory():
     :return: the path of the database file
     """
     logger.info("Creating the database...")
-
-    logger.debug("We will store the new database here: %s", DATABASE_FILE_PATH)
+    database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
+    logger.debug("We will store the new database here: %s", database_file_path)
     # If the database file already exists
-    if exists(DATABASE_FILE_PATH):
-        remove(DATABASE_FILE_PATH)
+
+    if exists(database_file_path):
+        remove(database_file_path)
     elif exists(HOME + CONFIG_DIRECTORY):
         pass
     # If the config directory does not exist
     else:
         mkdir(HOME + CONFIG_DIRECTORY)
-    return DATABASE_FILE_PATH
+    return database_file_path
 
 
 def create_html_docs_directory():

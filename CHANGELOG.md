@@ -1,29 +1,27 @@
 # Changelog
 ## Future releases
 * Add conditions support
-* Make it so you can leverage the built-in database without the initialize command entirely
 
-## 0.7.0 (Unreleased)
-User-facing changes:
-* Removing the old analysis, download, login commands.
-* **Breaking change**: Template format is vastly different. You will have to either pin to an old version or update your templates.
-* Now users do not have to specify the `--crud` flag - Policy Sentry will automatically detect the format.
-* **Removed**: `analyze` and `download-policies` commands. We are moving over to Parliament.
-
-Developer library changes:
-* A **lot**. Removed a lot of the old functions.
-* Replaced ArnActionGroup with SidGroup. This will allow us to do conditions, etc. It is also easier to read.
-* The old `write-policy` logic using ArnActionGroup is nuked. Now using SidGroup, since that will help us take advantage of condition keys. And it's clean(er).
-* `write-policy` is easier to call as a method.
-* Unit tests are in a nested folder structure that resembles the rest of the python package.
-* Moved to Python Black instead of autopep8
-
-Pending:
+Other Pending:
 * Terraform module updates are currently pending
 * Update the GIF and the Medium blog
 
-## 0.6.12 (Unreleased)
-### Changed
+## 0.7.0 (Unreleased)
+User-facing changes:
+* The `initialize` command is now completely optional.
+* **Removed**: The `analyze` command is deprecated and removed. We moved this functionality over to Parliament [here](https://github.com/duo-labs/parliament/pull/66)
+* **Removed**: The `download-policies` command is deprecated and removed.
+* **Breaking change**: Template format is vastly different. You will have to either pin to an old version or update your templates.
+* Now users do not have to specify the `--crud` flag - Policy Sentry will automatically detect the format.
+* **Removed**: `analyze` and `download-policies` commands.
+
+Developer library changes:
+* A **lot**. Removed a lot of the old functions.
+* Replaced `ArnActionGroup` with `SidGroup`. This will allow us to do conditions, etc. It is also easier to read.
+* The old `write-policy` logic using `ArnActionGroup` is nuked. Now using `SidGroup`, since that will help us take advantage of condition keys. And it's clean(er).
+* `write-policy` is easier to call as a method.
+* Unit tests are in a nested folder structure that resembles the rest of the python package.
+* Moved to Python Black instead of autopep8
 * Replaced a lot of print statements with logging.
 
 ## 0.6.11 (2020-01-28)

@@ -38,11 +38,11 @@ Navigate below to get started with Policy Sentry!
    :caption: User Guide
 
    user-guide/installation
-   user-guide/initialize
+   user-guide/command-cheat-sheet
    user-guide/write-policy
    user-guide/querying-the-database
    user-guide/docker
-   user-guide/command-cheat-sheet
+   user-guide/initialize
 
 .. toctree::
    :maxdepth: 1
