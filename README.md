@@ -98,12 +98,6 @@ To get started, install Policy Sentry:
 pip3 install --user policy_sentry
 ```
 
-Then initialize the IAM database:
-
-```bash
-policy_sentry initialize
-```
-
 To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
@@ -251,9 +245,6 @@ eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 ### Policy Writing cheat sheet
 
 ```bash
-# Initialize the policy_sentry config folder and create the IAM database tables.
-policy_sentry initialize
-
 # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
 # CRUD mode
 policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud

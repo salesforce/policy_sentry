@@ -5,12 +5,6 @@ Commands
 ~~~~~~~~
 
 *
-  ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__. See the `documentation <./initialize.html>`__.
-
-*
-  ``download-policies``\ : Download IAM policies from an AWS account locally for analysis against the database.
-
-*
   ``create-template``\ : Creates the YML file templates for use in the ``write-policy`` command types.
 
 *
@@ -23,16 +17,6 @@ Commands
 *
   ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
 
-*
-  ``analyze``: Analyze IAM policies downloaded locally, expands the wildcards (like ``s3:List*``) if necessary, and generates a report based on policies that are flagged for these risk categories:
-
-  #. **Privilege Escalation**: This is based off of `Rhino Security Labs research <https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation>`_
-
-  #. **Resource Exposure**: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
-
-  #. **Network Exposure**: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
-
-  #. **Credentials Exposure**: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, ``ecr:GetAuthorizationToken`` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
 
 * ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
 
@@ -40,20 +24,9 @@ Commands
   * Option 2: Query the ARNs Table (``--table arn``)
   * Option 3: Query the Conditions Table (``--table condition``)
 
+*
+  ``initialize``\ : (Optional) Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__. See the `documentation <./initialize.html>`__.
 
-Initialization
-~~~~~~~~~~~~~~~
-.. code-block:: bash
-
-    # Initialize the policy_sentry config folder and create the IAM database tables.
-    policy_sentry initialize
-
-    # Fetch the most recent version of the AWS documentation so you can experiment with new services.
-    policy_sentry initialize --fetch
-
-    # Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
-    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
-    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
 
 
 Policy Writing Commands
@@ -130,32 +103,16 @@ IAM Database Query Commands
     policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 
 
-Policy Download and Analysis Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Initialization (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: bash
 
     # Initialize the policy_sentry config folder and create the IAM database tables.
     policy_sentry initialize
 
-    # Download customer managed IAM policies from a live account under 'default' profile. By default, it looks for policies that are 1. in use and 2. customer managed
-    policy_sentry download-policies # this will download to ~/.policy_sentry/accountid/customer-managed/.json
+    # Fetch the most recent version of the AWS documentation so you can experiment with new services.
+    policy_sentry initialize --fetch
 
-    # Download customer-managed IAM policies, including those that are not attached
-    policy_sentry download-policies --include-unattached # this will download to ~/.policy_sentry/accountid/customer-managed/*.json
-
-    # Analyze a single IAM policy FILE
-    policy_sentry analyze policy-file --policy examples/explicit-actions.json
-
-    # 1. Use a tool like Gossamer (https://github.com/GESkunkworks/gossamer) to update your AWS credentials profile all at once
-    # 2. Recursively download all IAM policies from accounts in your credentials file
-    policy_sentry download-policies --recursive
-
-    # Audit all IAM policies downloaded locally and generate CSV and JSON reports.
-    policy_sentry analyze downloaded-policies
-
-    # Audit all IAM policies and also include a Markdown formatted report, then convert it to HTML
-    policy_sentry analyze --include-markdown-report
-    pandoc -f markdown ~/.policy_sentry/analysis/overall.md -t html > overall.html
-
-    # Use a custom report configuration. This is typically used for excluding role names. Defaults to ~/.policy_sentry/report-config.yml
-    policy_sentry analyze --report-config custom-config.yml
+    # Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
+    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
+    policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml

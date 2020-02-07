@@ -207,9 +207,6 @@ To enable ZSH completion, put this in your `.zshrc`:
 Usage
 -------------
 
-
-* ``initialize``\ : Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
-
 * ``create-template``\ : Creates the YML file templates for use in the ``write-policy`` command types.
 
 * ``write-policy``\ : Leverage a YAML file to write policies for you
@@ -224,17 +221,7 @@ Usage
   - Option 2: Query the ARNs Table (``arn-table``)
   - Option 3: Query the Conditions Table (``condition-table``)
 
-* ``download-policies``\ : Download IAM policies from your AWS account for analysis.
-
-* ``analyze``: Analyze an IAM policy read from a JSON file, expands the wildcards (like ``s3:List*`` if necessary, and generates a report based on policies that are flagged for these risk categories:
-
-  * Privilege Escalation: This is based off of [Rhino Security Labs research](https://github.com/RhinoSecurityLabs/AWS-IAM-Privilege-Escalation).
-
-  * Resource Exposure: This contains all IAM Actions at the "Permissions Management" resource level. Essentially - if your policy can (1) write IAM Trust Policies, (2) write to the RAM service, or (3) write Resource-based Policies, then the action has the potential to result in resource exposure if an IAM principal with that policy was compromised.
-
-  * Network Exposure: This highlights IAM actions that indicate an IAM principal possessing these actions could create resources that could be exposed to the public at the network level. For example, public RDS clusters, public EC2 instances. While possession of these privileges does not constitute a security vulnerability, it is important to know exactly who has these permissions.
-
-  * Credentials Exposure: This includes IAM actions that grant some kind of credential, where if exposed, it could grant access to sensitive information. For example, `ecr:GetAuthorizationToken` creates a token that is valid for 12 hours, which you can use to authenticate to Elastic Container Registries and download Docker images that are private to the account.
+* ``initialize``\ : (Optional) Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
 
 
 Author Information
