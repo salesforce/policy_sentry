@@ -2,7 +2,7 @@
 Just a common storage space for storing some constants.
 """
 from pathlib import Path
-from os.path import abspath, dirname
+from os.path import abspath, dirname, exists
 
 # General Folders
 HOME = str(Path.home())
@@ -19,14 +19,20 @@ LINKS_YML_FILE_LOCAL = HOME + CONFIG_DIRECTORY + "links.yml"
 LINKS_YML_FILE_IN_PACKAGE = abspath(dirname(__file__)) + "/data/links.yml"
 
 # Database
-DATABASE_FILE_NAME = "aws.sqlite3"
-DATABASE_FILE_PATH = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
-DEFAULT_ACCESS_OVERRIDES_FILE = (
-    abspath(dirname(__file__)) + "/data/access-level-overrides.yml"
-)
-
 BUNDLED_DATABASE_FILE_PATH = (
     str(Path(dirname(__file__)).parent) + "/shared/data/" + "aws.sqlite3"
+)
+DATABASE_FILE_NAME = "aws.sqlite3"
+
+# If the local directory exists, use that one. Otherwise, use the bundled database so the user doesn't
+# have to run the initialize command, unless they want to.
+if exists(HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME):
+    DATABASE_FILE_PATH = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
+else:
+    DATABASE_FILE_PATH = BUNDLED_DATABASE_FILE_PATH
+
+DEFAULT_ACCESS_OVERRIDES_FILE = (
+    abspath(dirname(__file__)) + "/data/access-level-overrides.yml"
 )
 
 # Policy constants

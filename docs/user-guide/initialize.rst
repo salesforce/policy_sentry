@@ -1,7 +1,12 @@
-Initialization
-##############
+Initialization (Optional)
+#########################
 
 `initialize`: This will create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__.
+
+Note: This step is now optional. Typical use cases for running the initialize command are:
+* If you want to run `--fetch` and build the latest database from the AWS Docs. This is good if you want to try out the latest cool services.
+* If you want to verify the database contents on your own.
+* If you want to build the SQLite database from the raw HTML files, rather than copying it from the package.
 
 The database is stored in ``$HOME/.policy_sentry/aws.sqlite3``.
 

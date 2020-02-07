@@ -2,8 +2,11 @@ Writing IAM Policies
 #####################
 
 
-CRUD Mode: ARNs and Access Levels
-----------------------------------
+CRUD Mode
+----------
+
+* **TLDR**: Building IAM policies with resource constraints and access levels.
+
 This is the flagship feature of this tool. You can just specify the CRUD levels (Read, Write, List, Tagging, or Permissions management) for each action in a
 YAML File. The policy will be generated for you. You might need to fiddle with the results for your use in Terraform, but it significantly reduces the level of effort to build least privilege into your policies.
 
@@ -144,9 +147,10 @@ Instructions
     }
 
 
-Actions Mode: Lists of IAM Actions
------------------------------------
-Supply a list of actions in a YAML file and generate the policy accordingly.
+Actions Mode
+-------------
+
+* **TLDR**: Supply a list of actions in a YAML file and generate the policy accordingly.
 
 Command options
 ~~~~~~~~~~~~~~~
@@ -247,8 +251,10 @@ Instructions
     }
 
 
-Folder Mode: Write Multiple Policies from CRUD mode files
-----------------------------------------------------------
+Folder Mode
+------------
+
+* **TLDR**: Write Multiple Policies from CRUD mode templates
 
 This command provides the same function as `write-policy`'s CRUD mode, but it can execute all the CRUD mode files in a folder. This is particularly useful in the Terraform use case, where the Terraform module can export a number of Policy Sentry template files into a folder, which can then be consumed using this command.
 

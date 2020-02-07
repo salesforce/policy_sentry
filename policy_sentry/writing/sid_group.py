@@ -449,9 +449,11 @@ def create_policy_sid_namespace(
         condition_value_namespace = re.sub(
             "[^A-Za-z0-9]+", "", condition_block["condition_value"]
         )
-        sid_namespace_condition_suffix = f"{capitalize_first_character(condition_key_namespace)}" \
-                                         f"{capitalize_first_character(condition_type_namespace)}" \
-                                         f"{capitalize_first_character(condition_value_namespace)}"
+        sid_namespace_condition_suffix = (
+            f"{capitalize_first_character(condition_key_namespace)}"
+            f"{capitalize_first_character(condition_type_namespace)}"
+            f"{capitalize_first_character(condition_value_namespace)}"
+        )
         sid_namespace = sid_namespace_prefix + sid_namespace_condition_suffix
     else:
         sid_namespace = sid_namespace_prefix

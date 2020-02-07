@@ -98,12 +98,6 @@ To get started, install Policy Sentry:
 pip3 install --user policy_sentry
 ```
 
-Then initialize the IAM database:
-
-```bash
-policy_sentry initialize
-```
-
 To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
@@ -248,28 +242,9 @@ To enable ZSH completion, put this in your `.zshrc`:
 eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 ```
 
-
-### Initialization
-
-```bash
-# Initialize the policy_sentry config folder and create the IAM database tables.
-policy_sentry initialize
-
-# Fetch the most recent version of the AWS documentation so you can experiment with new services.
-policy_sentry initialize --fetch
-
-# Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
-policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
-
-policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
-```
-
 ### Policy Writing cheat sheet
 
 ```bash
-# Initialize the policy_sentry config folder and create the IAM database tables.
-policy_sentry initialize
-
 # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
 # CRUD mode
 policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
@@ -340,11 +315,24 @@ policy_sentry query condition-table --service cloud9
 policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
 ```
 
+### Local Initialization (Optional)
+
+```bash
+# Initialize the policy_sentry config folder and create the IAM database tables.
+policy_sentry initialize
+
+# Fetch the most recent version of the AWS documentation so you can experiment with new services.
+policy_sentry initialize --fetch
+
+# Override the Access Levels by specifying your own Access Levels (example:, correcting Permissions management levels)
+policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/overrides-resource-policies.yml
+
+policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
+```
 
 ## Commands
 
 ### Usage
-* `initialize`: Create a SQLite database that contains all of the services available through the [Actions, Resources, and Condition Keys documentation][1]. See the [documentation][12].
 
 * `create-template`: Creates the YML file templates for use in the `write-policy` command types.
 
@@ -358,6 +346,8 @@ policy_sentry query condition-table --service cloud9 --name cloud9:Permissions
   - Option 1: Query the Actions Table (`action-table`)
   - Option 2: Query the ARNs Table (`arn-table`)
   - Option 3: Query the Conditions Table (`condition-table`)
+
+* `initialize`: (Optional). Create a SQLite database that contains all of the services available through the [Actions, Resources, and Condition Keys documentation][1]. See the [documentation][12].
 
 ### Library usage
 
