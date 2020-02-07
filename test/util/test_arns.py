@@ -18,7 +18,6 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class ArnsTestCase(unittest.TestCase):
-
     def test_does_arn_match_case_bucket(self):
         # Case 1: arn:partition:service:region:account-id:resource
         arn_to_test = "arn:aws:s3:::bucket_name"
@@ -28,7 +27,9 @@ class ArnsTestCase(unittest.TestCase):
     def test_does_arn_match_case_1(self):
         # Case 1: arn:partition:service:region:account-id:resource
         arn_to_test = "arn:aws:codecommit:us-east-1:123456789012:MyDemoRepo"
-        arn_in_database = "arn:${Partition}:codecommit:${Region}:${Account}:${RepositoryName}"
+        arn_in_database = (
+            "arn:${Partition}:codecommit:${Region}:${Account}:${RepositoryName}"
+        )
         self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
 
     def test_does_arn_match_case_2(self):
@@ -59,7 +60,9 @@ class ArnsTestCase(unittest.TestCase):
 
     def test_does_arn_match_case_6(self):
         # Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
-        arn_to_test = "arn:aws:states:region:account-id:execution:stateMachineName:executionName"
+        arn_to_test = (
+            "arn:aws:states:region:account-id:execution:stateMachineName:executionName"
+        )
         arn_in_database = "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}"
         self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
 

@@ -19,19 +19,21 @@ def create_default_overrides_file():
     # existing_overrides_file_directory = os.path.abspath(
     #     dirname(__file__)) + '/data/'
     existing_overrides_file_directory = join(
-        str(Path(dirname(__file__)).parent) + '/shared/data/')
+        str(Path(dirname(__file__)).parent) + "/shared/data/"
+    )
     file_list = list_files_in_directory(existing_overrides_file_directory)
 
     source = existing_overrides_file_directory
-    destination = HOME + CONFIG_DIRECTORY + '/'
+    destination = HOME + CONFIG_DIRECTORY + "/"
     for file in file_list:
         if file.endswith(".yml"):
-            shutil.copy(source + '/' + file, destination)
+            shutil.copy(source + "/" + file, destination)
             logger.info("copying overrides file %s to %s", file, destination)
 
 
 def get_action_access_level_overrides_from_yml(
-        service, access_level_overrides_file_path=None):
+    service, access_level_overrides_file_path=None
+):
     """
     Read the YML overrides file, which is formatted like:
     ['ec2']['permissions-management'][action_name].
@@ -39,8 +41,10 @@ def get_action_access_level_overrides_from_yml(
     override whatever they provide in their documentation.
     """
     if not access_level_overrides_file_path:
-        access_level_overrides_file_path = join(Path(dirname(__file__)).parent) + \
-            '/shared/data/access-level-overrides.yml'
+        access_level_overrides_file_path = (
+            join(Path(dirname(__file__)).parent)
+            + "/shared/data/access-level-overrides.yml"
+        )
     cfg = read_yaml_file(access_level_overrides_file_path)
     if service in cfg:
         return cfg[service]

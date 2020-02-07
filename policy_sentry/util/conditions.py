@@ -30,7 +30,7 @@ def translate_condition_key_data_types(condition_str):
 
 def get_service_from_condition_key(condition_key):
     """Given a condition key, return the service prefix"""
-    elements = condition_key.split(':', 2)
+    elements = condition_key.split(":", 2)
     return elements[0]
 
 
@@ -40,6 +40,5 @@ def get_comma_separated_condition_keys(condition_keys):
     :return: result: String containing multiple condition keys, comma-separated
     """
 
-    result = condition_keys.replace(
-        '  ', ',')  # replace the double spaces with a comma
+    result = condition_keys.replace("  ", ",")  # replace the double spaces with a comma
     return result

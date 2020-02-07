@@ -6,8 +6,13 @@ from os.path import exists, dirname
 from os import remove, mkdir
 import logging
 import shutil
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY, DATABASE_FILE_PATH, \
-    HTML_DIRECTORY_PATH, HTML_DATA_DIRECTORY_SUBFOLDER
+from policy_sentry.shared.constants import (
+    HOME,
+    CONFIG_DIRECTORY,
+    DATABASE_FILE_PATH,
+    HTML_DIRECTORY_PATH,
+    HTML_DATA_DIRECTORY_SUBFOLDER,
+)
 from policy_sentry.util.file import create_directory_if_it_doesnt_exist
 
 logger = logging.getLogger(__name__)
@@ -45,14 +50,16 @@ def create_html_docs_directory():
     # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
     # existing_html_docs_folder = abspath(
     #     dirname(__file__)) + HTML_DATA_DIRECTORY_SUBFOLDER
-    existing_html_docs_folder = str(Path(
-        dirname(__file__)).parent) + '/shared' + HTML_DATA_DIRECTORY_SUBFOLDER
+    existing_html_docs_folder = (
+        str(Path(dirname(__file__)).parent) + "/shared" + HTML_DATA_DIRECTORY_SUBFOLDER
+    )
     logger.debug(existing_html_docs_folder)
     if exists(HTML_DIRECTORY_PATH):
         shutil.rmtree(HTML_DIRECTORY_PATH)
     shutil.copytree(existing_html_docs_folder, HTML_DIRECTORY_PATH)
     # Copy the links.yml file from here to the config directory
-    existing_links_file = str(Path(
-        dirname(__file__)).parent) + '/shared/data/' + 'links.yml'
-    target_links_file = HOME + CONFIG_DIRECTORY + 'links.yml'
+    existing_links_file = (
+        str(Path(dirname(__file__)).parent) + "/shared/data/" + "links.yml"
+    )
+    target_links_file = HOME + CONFIG_DIRECTORY + "links.yml"
     shutil.copy(existing_links_file, target_links_file)

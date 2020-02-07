@@ -3,29 +3,31 @@ Just a common storage space for storing some constants.
 """
 from pathlib import Path
 from os.path import abspath, dirname
+
 # General Folders
 HOME = str(Path.home())
-CONFIG_DIRECTORY = '/.policy_sentry/'
+CONFIG_DIRECTORY = "/.policy_sentry/"
 
 # HTML Docs
-HTML_DATA_DIRECTORY_SUBFOLDER = '/data/docs/'
+HTML_DATA_DIRECTORY_SUBFOLDER = "/data/docs/"
 HTML_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + HTML_DATA_DIRECTORY_SUBFOLDER
-BASE_DOCUMENTATION_URL = \
-    "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.partial.html"
+BASE_DOCUMENTATION_URL = "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.partial.html"
 
 # The path for the service prefixes <=> links YML file
-LINKS_YML_FILE_LOCAL = HOME + CONFIG_DIRECTORY + 'links.yml'
+LINKS_YML_FILE_LOCAL = HOME + CONFIG_DIRECTORY + "links.yml"
 # The one in this directory - i.e., in the code repository
-LINKS_YML_FILE_IN_PACKAGE = abspath(dirname(__file__)) + '/data/links.yml'
+LINKS_YML_FILE_IN_PACKAGE = abspath(dirname(__file__)) + "/data/links.yml"
 
 # Database
-DATABASE_FILE_NAME = 'aws.sqlite3'
+DATABASE_FILE_NAME = "aws.sqlite3"
 DATABASE_FILE_PATH = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
-DEFAULT_ACCESS_OVERRIDES_FILE = abspath(
-    dirname(__file__)) + '/data/access-level-overrides.yml'
+DEFAULT_ACCESS_OVERRIDES_FILE = (
+    abspath(dirname(__file__)) + "/data/access-level-overrides.yml"
+)
 
-BUNDLED_DATABASE_FILE_PATH = str(
-    Path(dirname(__file__)).parent) + '/shared/data/' + 'aws.sqlite3'
+BUNDLED_DATABASE_FILE_PATH = (
+    str(Path(dirname(__file__)).parent) + "/shared/data/" + "aws.sqlite3"
+)
 
 # Policy constants
 # https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html

@@ -13,34 +13,33 @@ from policy_sentry.writing.sid_group import SidGroup
 
 logger = logging.getLogger()
 handler = logging.StreamHandler()
-formatter = logging.Formatter(
-    '%(name)-12s %(levelname)-8s %(message)s')
+formatter = logging.Formatter("%(name)-12s %(levelname)-8s %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
 @click.command(
-    short_help='Write least-privilege IAM policies, restricting all actions to resource ARNs.'
+    short_help="Write least-privilege IAM policies, restricting all actions to resource ARNs."
 )
 # pylint: disable=duplicate-code
 @click.option(
-    '--input-file',
+    "--input-file",
     type=str,
     # required=True,
-    help='Path of the YAML File used for generating policies'
+    help="Path of the YAML File used for generating policies",
 )
 @click.option(
-    '--minimize',
+    "--minimize",
     required=False,
     type=int,
-    help='Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. '
-         'Set this to the character length you want - for example, 4'
+    help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. "
+    "Set this to the character length you want - for example, 4",
 )
 @click.option(
-    '--quiet',
-    help='Set the logging level to WARNING instead of INFO.',
+    "--quiet",
+    help="Set the logging level to WARNING instead of INFO.",
     default=False,
-    is_flag=True
+    is_flag=True,
 )
 def write_policy(input_file, minimize, quiet):
     """

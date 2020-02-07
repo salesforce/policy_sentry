@@ -207,9 +207,9 @@ def security_scan(c):
 # TEST - LINT
 @task
 def run_linter(c):
-    """Linting with `pylint` and `autopep8`"""
+    """Linting with `pylint` and `black`"""
     try:
-        c.run('autopep8 -r --in-place policy_sentry/', warn=True)
+        c.run('black policy_sentry/')
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")

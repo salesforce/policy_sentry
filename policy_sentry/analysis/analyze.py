@@ -8,7 +8,11 @@ import re
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.actions import get_lowercase_action_list
-from policy_sentry.util.policy_files import get_actions_from_json_policy_file, get_actions_from_policy, get_actions_from_statement
+from policy_sentry.util.policy_files import (
+    get_actions_from_json_policy_file,
+    get_actions_from_policy,
+    get_actions_from_statement,
+)
 from policy_sentry.util.file import list_files_in_directory, read_this_file
 
 logger = logging.getLogger(__name__)
@@ -86,7 +90,9 @@ def expand(action, db_session):
         # wildcard
         if not expanded:
             logger.warning(
-                "ERROR: The action %s references a wildcard for an unknown resource.", action)
+                "ERROR: The action %s references a wildcard for an unknown resource.",
+                action,
+            )
             return [action.lower()]
 
         return expanded
@@ -114,7 +120,14 @@ def determine_actions_to_expand(db_session, action_list):
     return new_action_list
 
 
-def analyze_policy_file(db_session, policy_file, account_id, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_file(
+    db_session,
+    policy_file,
+    account_id,
+    from_audit_file,
+    finding_type,
+    excluded_role_patterns,
+):
     """
     Given a policy file, determine risky actions based on a separate file containing a list of actions.
     If it matches a policy exclusion pattern from the report-config.yml file, that policy file will be skipped.
@@ -131,14 +144,13 @@ def analyze_policy_file(db_session, policy_file, account_id, from_audit_file, fi
     """
     # FIXME: Rename "role_exclusion_pattern" to "policy_exclusion_pattern"
     requested_actions = get_actions_from_json_policy_file(policy_file)
-    expanded_actions = determine_actions_to_expand(
-        db_session, requested_actions)
+    expanded_actions = determine_actions_to_expand(db_session, requested_actions)
 
     finding = {}
     policy_findings = {}
 
     policy_name = policy_file.rsplit(".", 1)[0]  # after the extension
-    policy_name_split = str.split(policy_name, '/')
+    policy_name_split = str.split(policy_name, "/")
     # if there are multiple folders deep pick `file` from `path/to/file`
     policy_name = policy_name_split[-1:][0]
 
@@ -147,18 +159,17 @@ def analyze_policy_file(db_session, policy_file, account_id, from_audit_file, fi
     if any(regex.match(policy_name) for regex in reg_list):
         return False
     else:
-        actions_list = determine_risky_actions(
-            expanded_actions, from_audit_file)
+        actions_list = determine_risky_actions(expanded_actions, from_audit_file)
         actions_list.sort()  # sort in alphabetical order
         actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
         if actions_list:
             finding[finding_type] = copy.deepcopy(actions_list)
             # Store the account ID
-            finding['account_id'] = account_id
+            finding["account_id"] = account_id
             policy_findings[policy_name] = copy.deepcopy(finding)
         else:
             # Just store the account ID
-            finding['account_id'] = account_id
+            finding["account_id"] = account_id
         return policy_findings
 
 
@@ -172,10 +183,10 @@ def analyze_by_access_level(db_session, policy_json, access_level):
     :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
     """
     requested_actions = get_actions_from_policy(policy_json)
-    expanded_actions = determine_actions_to_expand(
-        db_session, requested_actions)
+    expanded_actions = determine_actions_to_expand(db_session, requested_actions)
     actions_by_level = remove_actions_not_matching_access_level(
-        db_session, expanded_actions, access_level)
+        db_session, expanded_actions, access_level
+    )
     return actions_by_level
 
 
@@ -188,10 +199,10 @@ def analyze_statement_by_access_level(db_session, statement_json, access_level):
     :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
     """
     requested_actions = get_actions_from_statement(statement_json)
-    expanded_actions = determine_actions_to_expand(
-        db_session, requested_actions)
+    expanded_actions = determine_actions_to_expand(db_session, requested_actions)
     actions_by_level = remove_actions_not_matching_access_level(
-        db_session, expanded_actions, access_level)
+        db_session, expanded_actions, access_level
+    )
     return actions_by_level
 
 
@@ -203,7 +214,14 @@ def analyze_statement_by_access_level(db_session, statement_json, access_level):
 #     """
 
 
-def analyze_policy_directory(db_session, policy_directory, account_id, from_audit_file, finding_type, excluded_role_patterns):
+def analyze_policy_directory(
+    db_session,
+    policy_directory,
+    account_id,
+    from_audit_file,
+    finding_type,
+    excluded_role_patterns,
+):
     """
     Audits a directory of policy JSON files.
 
@@ -224,28 +242,26 @@ def analyze_policy_directory(db_session, policy_directory, account_id, from_audi
         actions_list.clear()
         requested_actions.clear()
         expanded_actions.clear()
-        this_file = policy_directory + '/' + policy_file
+        this_file = policy_directory + "/" + policy_file
         policy_name = policy_file.rsplit(".", 1)[0]
         # If the policy name matches excluded role patterns, skip it
         reg_list = map(re.compile, excluded_role_patterns)
         if any(regex.match(policy_name) for regex in reg_list):
             continue
         requested_actions = get_actions_from_json_policy_file(this_file)
-        expanded_actions = determine_actions_to_expand(
-            db_session, requested_actions)
-        actions_list = determine_risky_actions(
-            expanded_actions, from_audit_file)
+        expanded_actions = determine_actions_to_expand(db_session, requested_actions)
+        actions_list = determine_risky_actions(expanded_actions, from_audit_file)
 
         actions_list.sort()  # sort in alphabetical order
         actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
         # try:
         if actions_list:
             finding[finding_type] = copy.deepcopy(actions_list)
-            finding['account_id'] = account_id
+            finding["account_id"] = account_id
             policy_findings[policy_name] = copy.deepcopy(finding)
             # Store the account ID
         else:
-            finding['account_id'] = account_id
+            finding["account_id"] = account_id
         # logger.debug(finding['account_id'])
         # except KeyError as k_e:
         #     logger.debug(k_e)

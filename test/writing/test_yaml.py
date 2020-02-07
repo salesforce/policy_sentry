@@ -19,24 +19,20 @@ valid_cfg_for_crud = {
         "arn:aws:ssm:us-east-1:123456789012:parameter/test2",
         "arn:aws:kms:us-east-1:123456789012:key/123456",
         "arn:aws:s3:::job/jobid",
-        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+        "arn:aws:s3:::example-org-sbx-vmimport/stuff",
     ],
     "write": [
         "arn:aws:s3:::example-org-s3-access-logs",
         "arn:aws:s3:::example-org-sbx-vmimport/stuff",
         "arn:aws:secretsmanager:us-east-1:12345:secret:mysecret",
-        "arn:aws:kms:us-east-1:123456789012:key/123456"
+        "arn:aws:kms:us-east-1:123456789012:key/123456",
     ],
     "list": [
         "arn:aws:s3:::example-org-flow-logs",
-        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+        "arn:aws:s3:::example-org-sbx-vmimport/stuff",
     ],
-    "tagging": [
-        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-    ],
-    "permissions-management": [
-        "arn:aws:s3:::example-org-s3-access-logs"
-    ]
+    "tagging": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
+    "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
 }
 
 valid_cfg_for_actions = {
@@ -48,13 +44,12 @@ valid_cfg_for_actions = {
         "kms:CreateGrant",
         "kms:CreateCustomKeyStore",
         "ec2:AuthorizeSecurityGroupEgress",
-        "ec2:AuthorizeSecurityGroupIngress"
-    ]
+        "ec2:AuthorizeSecurityGroupIngress",
+    ],
 }
 
 
 class YamlValidationOverallTestCase(unittest.TestCase):
-
     def test_allow_missing_name(self):
         """
         test_actions_missing_name: write-policy when the YAML file is missing a name
@@ -68,8 +63,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
                 "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress"
-            ]
+                "ec2:AuthorizeSecurityGroupIngress",
+            ],
         }
         #  This should NOT raise an exception so leaving it as-is.
         policy = write_policy_with_template(db_session, cfg_with_missing_name)
@@ -87,8 +82,8 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
                 "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress"
-            ]
+                "ec2:AuthorizeSecurityGroupIngress",
+            ],
         }
         #  This should NOT raise an exception so leaving it as-is.
         policy = write_policy_with_template(db_session, cfg_with_missing_description)
@@ -106,15 +101,14 @@ class YamlValidationOverallTestCase(unittest.TestCase):
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
                 "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress"
-            ]
+                "ec2:AuthorizeSecurityGroupIngress",
+            ],
         }
         #  This should NOT raise an exception so leaving it as-is.
         policy = write_policy_with_template(db_session, cfg_with_missing_actions)
 
 
 class YamlValidationCrudTestCase(unittest.TestCase):
-
     def test_allow_missing_access_level_categories_in_cfg(self):
         """
         test_allow_missing_access_level_categories_in_cfg: write-policy when the YAML file is missing access level categories. It should write a policy regardless.
@@ -125,16 +119,9 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
             "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
-            "read": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-            ],
-            "write": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-
-            ],
-            "list": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-            ],
+            "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
         }
         self.maxDiff = None
 
@@ -151,22 +138,11 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             "name": "RoleNameWithCRUD",
             "description": "Why I need these privs",
             "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
-            "read": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-            ],
-            "write": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-
-            ],
-            "list": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
-            ],
-            "tagging": [
-                ""
-            ],
-            "permissions-management": [
-                ""
-            ]
+            "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "tagging": [""],
+            "permissions-management": [""],
         }
         with self.assertRaises(Exception):
             result = write_policy_with_template(db_session, crud_file_input)
@@ -174,7 +150,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):
-
     def test_actions_missing_actions(self):
         """
         test_actions_missing_actions: write-policy actions if the actions block is missing
@@ -188,4 +163,3 @@ class YamlValidationActionsTestCase(unittest.TestCase):
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_template(db_session, cfg_with_missing_actions)
-

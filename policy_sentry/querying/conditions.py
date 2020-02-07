@@ -17,8 +17,11 @@ def get_condition_keys_for_service(db_session, service):
     :return: A list of condition keys
     """
     results = []
-    rows = db_session.query(ConditionTable.condition_key_name, ConditionTable.condition_value_type,
-                            ConditionTable.description).filter(ConditionTable.service.like(service))
+    rows = db_session.query(
+        ConditionTable.condition_key_name,
+        ConditionTable.condition_value_type,
+        ConditionTable.description,
+    ).filter(ConditionTable.service.like(service))
     for row in rows:
         results.append(str(row.condition_key_name))
     return results
@@ -34,13 +37,21 @@ def get_condition_key_details(db_session, service, condition_key_name):
     :param condition_key_name: The name of a condition key, like `ec2:Vpc`
     :return: Metadata about the condition key
     """
-    rows = db_session.query(ConditionTable.condition_key_name, ConditionTable.condition_value_type,
-                            ConditionTable.description).filter(and_(ConditionTable.condition_key_name.like(condition_key_name), ConditionTable.service.like(service)))
+    rows = db_session.query(
+        ConditionTable.condition_key_name,
+        ConditionTable.condition_value_type,
+        ConditionTable.description,
+    ).filter(
+        and_(
+            ConditionTable.condition_key_name.like(condition_key_name),
+            ConditionTable.service.like(service),
+        )
+    )
     result = rows.first()
     output = {
-        'name': result.condition_key_name,
-        'description': result.description,
-        'condition_value_type': result.condition_value_type
+        "name": result.condition_key_name,
+        "description": result.description,
+        "condition_value_type": result.condition_value_type,
     }
     return output
 
@@ -54,25 +65,29 @@ def get_conditions_for_action_and_raw_arn(db_session, action, raw_arn):
     :param raw_arn: The raw ARN format specific to the action
     :return:
     """
-    service, action_name = action.split(':')
+    service, action_name = action.split(":")
 
     if raw_arn == "*":
-        rows = db_session.query(ActionTable).filter(and_(
-            ActionTable.service.ilike(service),
-            ActionTable.name.ilike(action_name),
-            ActionTable.resource_arn_format.is_(raw_arn),
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.name.ilike(action_name),
+                ActionTable.resource_arn_format.is_(raw_arn),
+            )
+        )
     else:
-        rows = db_session.query(ActionTable).filter(and_(
-            ActionTable.service.ilike(service),
-            ActionTable.name.ilike(action_name),
-            ActionTable.resource_arn_format.ilike(raw_arn),
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.name.ilike(action_name),
+                ActionTable.resource_arn_format.ilike(raw_arn),
+            )
+        )
     result = rows.first()
     if result.condition_keys is None:
         return False
     else:
-        condition_keys_list = result.condition_keys.split(',')
+        condition_keys_list = result.condition_keys.split(",")
         return condition_keys_list
 
 
@@ -100,11 +115,16 @@ def get_condition_value_type(db_session, condition_key):
     :return:
     """
     rows = db_session.query(ConditionTable).filter(
-        ConditionTable.condition_key_name.ilike(condition_key))
+        ConditionTable.condition_key_name.ilike(condition_key)
+    )
     result = rows.first()
     if result is None:
-        raise Exception(f"There is no condition key titled {condition_key}. Please provide a valid condition key. "
-                        f"\nYou can query available condition keys with query command, such as the following: "
-                        f"\n\tpolicy_sentry query condition-table --service ec2")
-    condition_value_type = translate_condition_key_data_types(result.condition_value_type)
+        raise Exception(
+            f"There is no condition key titled {condition_key}. Please provide a valid condition key. "
+            f"\nYou can query available condition keys with query command, such as the following: "
+            f"\n\tpolicy_sentry query condition-table --service ec2"
+        )
+    condition_value_type = translate_condition_key_data_types(
+        result.condition_value_type
+    )
     return condition_value_type

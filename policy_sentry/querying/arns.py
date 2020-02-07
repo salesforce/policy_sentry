@@ -21,7 +21,8 @@ def get_arn_data(db_session, service, name):
         rows = db_session.query(ArnTable).filter(ArnTable.service.like(service))
     else:
         rows = db_session.query(ArnTable).filter(
-            ArnTable.resource_type_name.like(name), ArnTable.service.like(service))
+            ArnTable.resource_type_name.like(name), ArnTable.service.like(service)
+        )
 
     for row in rows:
         if row.condition_keys:
@@ -29,9 +30,9 @@ def get_arn_data(db_session, service, name):
         else:
             condition_keys = None
         output = {
-            'resource_type_name': row.resource_type_name,
-            'raw_arn': row.raw_arn,
-            'condition_keys': condition_keys
+            "resource_type_name": row.resource_type_name,
+            "raw_arn": row.raw_arn,
+            "condition_keys": condition_keys,
         }
         results.append(output)
     arn_table_results[service] = results
@@ -47,8 +48,7 @@ def get_raw_arns_for_service(db_session, service):
     :return: A list of raw ARNs
     """
     results = []
-    rows = db_session.query(ArnTable.raw_arn).filter(
-        ArnTable.service.like(service))
+    rows = db_session.query(ArnTable.raw_arn).filter(ArnTable.service.like(service))
     for row in rows:
         results.append(str(row.raw_arn))
     return results
@@ -64,7 +64,8 @@ def get_arn_types_for_service(db_session, service):
     """
     results = {}
     rows = db_session.query(ArnTable.resource_type_name, ArnTable.raw_arn).filter(
-        ArnTable.service.like(service))
+        ArnTable.service.like(service)
+    )
     for row in rows:
         results[row.resource_type_name] = row.raw_arn
     return results
@@ -80,16 +81,17 @@ def get_arn_type_details(db_session, service, name):
     :return: Metadata about an ARN type
     """
     rows = db_session.query(ArnTable).filter(
-        ArnTable.resource_type_name.like(name), ArnTable.service.like(service))
+        ArnTable.resource_type_name.like(name), ArnTable.service.like(service)
+    )
     result = rows.first()
     if result.condition_keys:
         condition_keys = result.condition_keys.split(",")
     else:
         condition_keys = None
     output = {
-        'resource_type_name': result.resource_type_name,
-        'raw_arn': result.raw_arn,
-        'condition_keys': condition_keys
+        "resource_type_name": result.resource_type_name,
+        "raw_arn": result.raw_arn,
+        "condition_keys": condition_keys,
     }
     return output
 
@@ -102,7 +104,9 @@ def get_resource_type_name_with_raw_arn(db_session, raw_arn):
     :param raw_arn: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
     :return: The resource type name, like bucket
     """
-    query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(ArnTable.raw_arn.like(raw_arn))
+    query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(
+        ArnTable.raw_arn.like(raw_arn)
+    )
     result = query_resource_type_name.first()
     resource_type_name = str(result.resource_type_name)
     return str(resource_type_name)
