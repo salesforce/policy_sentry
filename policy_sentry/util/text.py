@@ -9,5 +9,4 @@ def capitalize_first_character(some_string):
     :param some_string:
     :return:
     """
-    return ' '.join(''.join([w[0].upper(), w[1:].lower()])
-                    for w in some_string.split())
+    return " ".join("".join([w[0].upper(), w[1:].lower()]) for w in some_string.split())

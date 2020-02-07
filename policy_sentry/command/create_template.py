@@ -9,39 +9,38 @@ from policy_sentry.writing.template import create_actions_template, create_crud_
 
 logger = logging.getLogger()
 handler = logging.StreamHandler()
-formatter = logging.Formatter(
-    '%(name)-12s %(levelname)-8s %(message)s')
+formatter = logging.Formatter("%(name)-12s %(levelname)-8s %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
 @click.command(
     context_settings=dict(max_content_width=160),
-    short_help='Create write-policy YML template files'
+    short_help="Create write-policy YML template files",
 )
 @click.option(
-    '--output-file',
+    "--output-file",
     type=str,
     required=True,
-    help='Relative path to output file where we want to store policy_sentry YML files.'
+    help="Relative path to output file where we want to store policy_sentry YML files.",
 )
 @click.option(
-    '--template-type',
-    type=click.Choice(['actions', 'crud'], case_sensitive=False),
+    "--template-type",
+    type=click.Choice(["actions", "crud"], case_sensitive=False),
     required=True,
-    help='Type of write_policy template to create - actions or CRUD. Case insensitive.'
+    help="Type of write_policy template to create - actions or CRUD. Case insensitive.",
 )
 @click.option(
-    '--name',
+    "--name",
     type=str,
     required=True,
-    help='Name of the IAM role. This will be inside the resulting YML file.'
+    help="Name of the IAM role. This will be inside the resulting YML file.",
 )
 @click.option(
-    '--quiet',
-    help='Set the logging level to WARNING instead of INFO.',
+    "--quiet",
+    help="Set the logging level to WARNING instead of INFO.",
     default=False,
-    is_flag=True
+    is_flag=True,
 )
 def create_template(output_file, template_type, name, quiet):
     """
@@ -56,13 +55,13 @@ def create_template(output_file, template_type, name, quiet):
     filename = Path(output_file).resolve()
     if template_type == "actions":
         actions_template = create_actions_template(name)
-        with open(filename, 'a') as file_obj:
+        with open(filename, "a") as file_obj:
             for line in actions_template:
                 file_obj.write(line)
 
     if template_type == "crud":
         crud_template = create_crud_template(name)
-        with open(filename, 'a') as file_obj:
+        with open(filename, "a") as file_obj:
             for line in crud_template:
                 file_obj.write(line)
 

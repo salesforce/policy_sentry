@@ -9,7 +9,7 @@ def get_service_from_action(action):
     :param action: ec2:DescribeInstance
     :return: ec2
     """
-    service, action_name = action.split(':')  # pylint: disable=unused-variable
+    service, action_name = action.split(":")  # pylint: disable=unused-variable
     return str.lower(service)
 
 
@@ -19,7 +19,7 @@ def get_action_name_from_action(action):
     :param action: ec2:DescribeInstance
     :return: describeinstance
     """
-    service, action_name = action.split(':')  # pylint: disable=unused-variable
+    service, action_name = action.split(":")  # pylint: disable=unused-variable
     return str.lower(action_name)
 
 
@@ -40,5 +40,5 @@ def get_full_action_name(service, action_name):
     :param action_name: action name, like createbucket
     :return: the resulting string
     """
-    action = service + ':' + action_name
+    action = service + ":" + action_name
     return action

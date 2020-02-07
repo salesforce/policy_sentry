@@ -8,31 +8,28 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class WritePolicyPreventWildcardEscalation(unittest.TestCase):
-
     def test_wildcard_when_not_necessary(self):
         """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
         cfg = {
-            'mode': 'crud',
-            'name': 'RoleNameWithCRUD',
-            'description': 'Why I need these privs',
-            'role_arn': 'arn:aws:iam::123456789012:role/RiskyEC2',
-            'permissions-management': [
-                'arn:aws:s3:::example-org-s3-access-logs'
-            ],
-            'wildcard': [
+            "mode": "crud",
+            "name": "RoleNameWithCRUD",
+            "description": "Why I need these privs",
+            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
+            "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
+            "wildcard": [
                 # The first three are legitimately wildcard only.
                 # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                'ram:enablesharingwithawsorganization',
-                'ram:getresourcepolicies',
-                'secretsmanager:createsecret',
+                "ram:enablesharingwithawsorganization",
+                "ram:getresourcepolicies",
+                "secretsmanager:createsecret",
                 # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
                 # bypassing this mechanism, while allowing them to explicitly
                 # request specific privs that require wildcard mode. This next value -
                 # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                'secretsmanager:putsecretvalue'
-            ]
+                "secretsmanager:putsecretvalue",
+            ],
         }
-        db_session = connect_db('bundled')
+        db_session = connect_db("bundled")
         output = write_policy_with_template(db_session, cfg)
         # print(json.dumps(output, indent=4))
         desired_output = {
@@ -44,11 +41,9 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     "Action": [
                         "ram:enablesharingwithawsorganization",
                         "ram:getresourcepolicies",
-                        "secretsmanager:createsecret"
+                        "secretsmanager:createsecret",
                     ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "S3PermissionsmanagementBucket",
@@ -57,13 +52,11 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                         "s3:deletebucketpolicy",
                         "s3:putbucketacl",
                         "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock"
+                        "s3:putbucketpublicaccessblock",
                     ],
-                    "Resource": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
-                    ]
-                }
-            ]
+                    "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
+                },
+            ],
         }
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)

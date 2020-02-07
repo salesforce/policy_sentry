@@ -16,13 +16,10 @@ Developer library changes:
 * The old `write-policy` logic using ArnActionGroup is nuked. Now using SidGroup, since that will help us take advantage of condition keys. And it's clean(er).
 * `write-policy` is easier to call as a method.
 * Unit tests are in a nested folder structure that resembles the rest of the python package.
-
-Other:
-* Documentation is updated to reflect the above.
+* Moved to Python Black instead of autopep8
 
 Pending:
 * Terraform module updates are currently pending
-* Moving to Python Black instead of autopep8
 * Update the GIF and the Medium blog
 
 ## 0.6.12 (Unreleased)

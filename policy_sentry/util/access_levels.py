@@ -3,13 +3,11 @@ Util methods for handling operations relating to access levels.
 All of these access_levels methods are specific to policy sentry internals."""
 import sys
 import logging
+
 logger = logging.getLogger(__name__)
 
 
-def override_access_level(
-        service_override_config,
-        action_name,
-        provided_access_level):
+def override_access_level(service_override_config, action_name, provided_access_level):
     """
     Given the service-specific override config, determine whether or not the
     override config tells us to override the access level in the documentation.
@@ -34,8 +32,12 @@ def override_access_level(
             else:
                 continue
     except AttributeError as a_e:
-        logger.debug("AttributeError: %s\nService overrides config is %s\nKeys are %s", a_e, service_override_config,
-                     service_override_config.keys())
+        logger.debug(
+            "AttributeError: %s\nService overrides config is %s\nKeys are %s",
+            a_e,
+            service_override_config,
+            service_override_config.keys(),
+        )
     # first index will contain the access level given in the override config for that action.
     # since we break the loop, we know it only contains one value.
     if len(real_access_level) > 0:
@@ -71,10 +73,8 @@ def transform_access_level_text(access_level):
 
 
 def determine_access_level_override(
-        service,
-        action_name,
-        provided_access_level,
-        service_override_config):
+    service, action_name, provided_access_level, service_override_config
+):
     """
     override_config
     :param service: service, like iam
@@ -90,22 +90,31 @@ def determine_access_level_override(
     # minor capitalization differences
     if str.lower(provided_access_level) == str.lower("Read"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Read")
+            service_override_config, action_name, "Read"
+        )
     elif str.lower(provided_access_level) == str.lower("Write"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Write")
+            service_override_config, action_name, "Write"
+        )
     elif str.lower(provided_access_level) == str.lower("List"):
         override_decision = override_access_level(
-            service_override_config, action_name, "List")
+            service_override_config, action_name, "List"
+        )
     elif str.lower(provided_access_level) == str.lower("Permissions management"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Permissions management")
+            service_override_config, action_name, "Permissions management"
+        )
     elif str.lower(provided_access_level) == str.lower("Tagging"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Tagging")
+            service_override_config, action_name, "Tagging"
+        )
     else:
-        logger.debug("Unknown error - determine_override_status() can't determine the access level of %s:%s during "
-                     "the scraping process. The provided access level was %s. Exiting...",
-                     service, action_name, provided_access_level)
+        logger.debug(
+            "Unknown error - determine_override_status() can't determine the access level of %s:%s during "
+            "the scraping process. The provided access level was %s. Exiting...",
+            service,
+            action_name,
+            provided_access_level,
+        )
         sys.exit()
     return override_decision

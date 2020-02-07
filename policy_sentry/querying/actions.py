@@ -23,9 +23,10 @@ def get_actions_for_service(db_session, service):
     """
     results = []
     rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-        ActionTable.service.like(service))
+        ActionTable.service.like(service)
+    )
     for row in rows:
-        action = row.service + ':' + row.name
+        action = row.service + ":" + row.name
         if action not in results:
             results.append(action)
     return results
@@ -44,12 +45,13 @@ def get_action_data(db_session, service, name):
         rows = db_session.query(ActionTable).filter(ActionTable.service.ilike(service))
     else:
         rows = db_session.query(ActionTable).filter(
-            and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name)))
+            and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name))
+        )
     action_table_results = {}
     results = []
 
     for row in rows:
-        action = row.service + ':' + row.name
+        action = row.service + ":" + row.name
         if row.condition_keys:
             condition_keys = row.condition_keys.split(",")
         else:
@@ -64,7 +66,7 @@ def get_action_data(db_session, service, name):
             "access_level": row.access_level,
             "resource_arn_format": row.resource_arn_format,
             "condition_keys": condition_keys,
-            "dependent_actions": dependent_actions
+            "dependent_actions": dependent_actions,
         }
         results.append(temp_dict)
 
@@ -81,18 +83,25 @@ def get_actions_that_support_wildcard_arns_only(db_session, service):
     :return: A list of actions
     """
     actions_list = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
-        ActionTable.service.ilike(service),
-        ActionTable.resource_arn_format.like("*"),
-        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(
-            ActionTable.resource_arn_format.notlike('*')))
-    ))
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+        and_(
+            ActionTable.service.ilike(service),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(
+                    ActionTable.resource_arn_format.notlike("*")
+                )
+            ),
+        )
+    )
     for row in rows:
         actions_list.append(get_full_action_name(row.service, row.name))
     return actions_list
 
 
-def get_actions_at_access_level_that_support_wildcard_arns_only(db_session, service, access_level):
+def get_actions_at_access_level_that_support_wildcard_arns_only(
+    db_session, service, access_level
+):
     """
     Get a list of actions at an access level that do not support restricting the action to resource ARNs.
 
@@ -102,13 +111,18 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(db_session, serv
     :return: A list of actions
     """
     actions_list = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
-        ActionTable.service.ilike(service),
-        ActionTable.resource_arn_format.like("*"),
-        ActionTable.access_level.ilike(access_level),
-        ActionTable.name.notin_(db_session.query(ActionTable.name).filter(
-            ActionTable.resource_arn_format.notlike('*')))
-    ))
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+        and_(
+            ActionTable.service.ilike(service),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.access_level.ilike(access_level),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(
+                    ActionTable.resource_arn_format.notlike("*")
+                )
+            ),
+        )
+    )
     for row in rows:
         actions_list.append(get_full_action_name(row.service, row.name))
     return actions_list
@@ -128,13 +142,14 @@ def get_actions_with_access_level(db_session, service, access_level):
     all_services = get_all_service_prefixes(db_session)
     if service == "all":
         for serv in all_services:
-            output = get_actions_with_access_level(
-                db_session, serv, access_level)
+            output = get_actions_with_access_level(db_session, serv, access_level)
             actions_list.extend(output)
-    rows = db_session.query(ActionTable).filter(and_(
-        ActionTable.service.like(service),
-        ActionTable.access_level.ilike(access_level)
-    ))
+    rows = db_session.query(ActionTable).filter(
+        and_(
+            ActionTable.service.like(service),
+            ActionTable.access_level.ilike(access_level),
+        )
+    )
     # Create a list of actions under each service. Use this list to pass in to the remove_actions_not_matching_access_level function
     # which will give you the list of actions you want.
     for row in rows:
@@ -144,7 +159,9 @@ def get_actions_with_access_level(db_session, service, access_level):
     return actions_list
 
 
-def get_actions_with_arn_type_and_access_level(db_session, service, resource_type_name, access_level):
+def get_actions_with_arn_type_and_access_level(
+    db_session, service, resource_type_name, access_level
+):
     """
     Get a list of actions in a service under different access levels, specific to an ARN format.
 
@@ -154,11 +171,13 @@ def get_actions_with_arn_type_and_access_level(db_session, service, resource_typ
     :return: A list of actions
     """
     actions_list = []
-    rows = db_session.query(ActionTable).filter(and_(
-        ActionTable.service.ilike(service),
-        ActionTable.resource_type_name.ilike(resource_type_name),
-        ActionTable.access_level.ilike(access_level)
-    ))
+    rows = db_session.query(ActionTable).filter(
+        and_(
+            ActionTable.service.ilike(service),
+            ActionTable.resource_type_name.ilike(resource_type_name),
+            ActionTable.access_level.ilike(access_level),
+        )
+    )
     for row in rows:
         action = get_full_action_name(row.service, row.name)
         if action not in actions_list:
@@ -176,19 +195,21 @@ def get_actions_matching_condition_key(db_session, service, condition_key):
     :return: A list of actions
     """
     actions_list = []
-    looking_for = '%{0}%'.format(condition_key)
+    looking_for = "%{0}%".format(condition_key)
     if service:
-        rows = db_session.query(ActionTable).filter(and_(
-            ActionTable.service.ilike(service),
-            ActionTable.condition_keys.ilike(looking_for)
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.condition_keys.ilike(looking_for),
+            )
+        )
         for row in rows:
             action = get_full_action_name(row.service, row.name)
             actions_list.append(action)
     else:
-        rows = db_session.query(ActionTable).filter(and_(
-            ActionTable.condition_keys.ilike(looking_for)
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(ActionTable.condition_keys.ilike(looking_for))
+        )
         for row in rows:
             action = get_full_action_name(row.service, row.name)
             actions_list.append(action)
@@ -196,7 +217,9 @@ def get_actions_matching_condition_key(db_session, service, condition_key):
     return actions_list
 
 
-def get_actions_matching_condition_crud_and_arn(db_session, condition_key, access_level, raw_arn):
+def get_actions_matching_condition_crud_and_arn(
+    db_session, condition_key, access_level, raw_arn
+):
     """
     Get a list of IAM Actions matching a condition key, CRUD level, and raw ARN format.
 
@@ -207,22 +230,26 @@ def get_actions_matching_condition_crud_and_arn(db_session, condition_key, acces
     :return: List of IAM Actions
     """
     actions_list = []
-    looking_for = '%{0}%'.format(condition_key)
+    looking_for = "%{0}%".format(condition_key)
     if raw_arn == "*":
-        rows = db_session.query(ActionTable).filter(and_(
-            # ActionTable.service.ilike(service),
-            ActionTable.access_level.ilike(access_level),
-            ActionTable.resource_arn_format.is_(raw_arn),
-            ActionTable.condition_keys.ilike(looking_for),
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(
+                # ActionTable.service.ilike(service),
+                ActionTable.access_level.ilike(access_level),
+                ActionTable.resource_arn_format.is_(raw_arn),
+                ActionTable.condition_keys.ilike(looking_for),
+            )
+        )
     else:
         service = get_service_from_arn(raw_arn)
-        rows = db_session.query(ActionTable).filter(and_(
-            ActionTable.service.ilike(service),
-            ActionTable.access_level.ilike(access_level),
-            ActionTable.resource_arn_format.ilike(raw_arn),
-            ActionTable.condition_keys.ilike(looking_for),
-        ))
+        rows = db_session.query(ActionTable).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.access_level.ilike(access_level),
+                ActionTable.resource_arn_format.ilike(raw_arn),
+                ActionTable.condition_keys.ilike(looking_for),
+            )
+        )
 
     for row in rows:
         action = get_full_action_name(row.service, row.name)
@@ -243,15 +270,17 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
     new_actions_list = []
     for action in actions_list:
         try:
-            service, action_name = action.split(':')
+            service, action_name = action.split(":")
             action = str.lower(action)
             first_result = None  # Just to appease nosetests
             level = transform_access_level_text(access_level)
             query_actions_access_level = db_session.query(ActionTable).filter(
-                and_(ActionTable.service.like(service),
-                     ActionTable.name.like(str.lower(action_name)),
-                     ActionTable.access_level.like(level)
-                     ))
+                and_(
+                    ActionTable.service.like(service),
+                    ActionTable.name.like(str.lower(action_name)),
+                    ActionTable.access_level.like(level),
+                )
+            )
             first_result = query_actions_access_level.first()
             if first_result is None:
                 pass
@@ -281,7 +310,7 @@ def get_dependent_actions(db_session, actions_list):
     """
     new_actions_list = []
     for action in actions_list:
-        service, action_name = action.split(':')
+        service, action_name = action.split(":")
         action_name = str.lower(action_name)
         rows = get_action_data(db_session, service, action_name)
         for row in rows[service]:
@@ -307,15 +336,20 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     actions_list_unique = list(dict.fromkeys(actions_list))
     actions_list_placeholder = []
     for action in actions_list_unique:
-        service_name, action_name = action.split(':')
+        service_name, action_name = action.split(":")
 
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(and_(
-            ActionTable.service.ilike(service_name),
-            ActionTable.name.ilike(action_name),
-            ActionTable.resource_arn_format.like("*"),
-            ActionTable.name.notin_(
-                db_session.query(ActionTable.name).filter(ActionTable.resource_arn_format.notlike('*')))
-        ))
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+            and_(
+                ActionTable.service.ilike(service_name),
+                ActionTable.name.ilike(action_name),
+                ActionTable.resource_arn_format.like("*"),
+                ActionTable.name.notin_(
+                    db_session.query(ActionTable.name).filter(
+                        ActionTable.resource_arn_format.notlike("*")
+                    )
+                ),
+            )
+        )
         for row in rows:
             if row.service == service_name and row.name == action_name:
                 actions_list_placeholder.append(f"{service_name}:{action_name}")

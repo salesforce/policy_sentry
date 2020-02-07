@@ -1,8 +1,12 @@
 import unittest
-from policy_sentry.querying.arns import get_raw_arns_for_service, get_arn_type_details, \
-    get_arn_types_for_service
+from policy_sentry.querying.arns import (
+    get_raw_arns_for_service,
+    get_arn_type_details,
+    get_arn_types_for_service,
+)
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
+
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
@@ -13,7 +17,7 @@ class QueryArnsTestCase(unittest.TestCase):
             "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "arn:${Partition}:s3:::${BucketName}",
             "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
-            "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}"
+            "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         ]
         output = get_raw_arns_for_service(db_session, "s3")
         self.maxDiff = None
@@ -37,7 +41,7 @@ class QueryArnsTestCase(unittest.TestCase):
         desired_output = {
             "resource_type_name": "environment",
             "raw_arn": "arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}",
-            "condition_keys": None
+            "condition_keys": None,
         }
         output = get_arn_type_details(db_session, "cloud9", "environment")
         self.assertEqual(desired_output, output)

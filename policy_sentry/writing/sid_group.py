@@ -4,8 +4,12 @@ sid_group indicates that this is a collection of policy-related data organized b
 import logging
 import re
 from policy_sentry.querying.all import get_all_actions
-from policy_sentry.querying.actions import get_action_data, get_actions_with_arn_type_and_access_level, \
-    get_dependent_actions, get_actions_that_support_wildcard_arns_only
+from policy_sentry.querying.actions import (
+    get_action_data,
+    get_actions_with_arn_type_and_access_level,
+    get_dependent_actions,
+    get_actions_that_support_wildcard_arns_only,
+)
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 from policy_sentry.util.text import capitalize_first_character
@@ -91,21 +95,24 @@ class SidGroup:
             if len(actions) == 0:
                 continue
             if minimize is not None and isinstance(minimize, int):
-                actions = minimize_statement_actions(actions, all_actions, minchars=minimize)
-            statements.append({
-                "Sid": sid,
-                "Effect": "Allow",
-                "Action": actions,
-                "Resource": self.sids[sid]["arn"]
-            })
-        policy = {
-            "Version": POLICY_LANGUAGE_VERSION,
-            "Statement": statements
-        }
+                actions = minimize_statement_actions(
+                    actions, all_actions, minchars=minimize
+                )
+            statements.append(
+                {
+                    "Sid": sid,
+                    "Effect": "Allow",
+                    "Action": actions,
+                    "Resource": self.sids[sid]["arn"],
+                }
+            )
+        policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
         return policy
 
     # pylint: disable=unused-argument
-    def add_by_arn_and_access_level(self, db_session, arn_list, access_level, conditions_block=None):
+    def add_by_arn_and_access_level(
+        self, db_session, arn_list, access_level, conditions_block=None
+    ):
         """
         This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given by the user.
         It derives the list of IAM actions based on the user's requested ARNs and access levels.
@@ -120,28 +127,42 @@ class SidGroup:
             service_action_data = get_action_data(db_session, service_prefix, "*")
             for service_prefix in service_action_data:
                 for row in service_action_data[service_prefix]:
-                    if does_arn_match(arn, row["resource_arn_format"]) and row["access_level"] == access_level:
+                    if (
+                        does_arn_match(arn, row["resource_arn_format"])
+                        and row["access_level"] == access_level
+                    ):
                         raw_arn_format = row["resource_arn_format"]
-                        resource_type_name = get_resource_type_name_with_raw_arn(db_session, raw_arn_format)
-                        sid_namespace = create_policy_sid_namespace(service_prefix, access_level, resource_type_name)
-                        actions = get_actions_with_arn_type_and_access_level(db_session, service_prefix,
-                                                                             resource_type_name, access_level)
+                        resource_type_name = get_resource_type_name_with_raw_arn(
+                            db_session, raw_arn_format
+                        )
+                        sid_namespace = create_policy_sid_namespace(
+                            service_prefix, access_level, resource_type_name
+                        )
+                        actions = get_actions_with_arn_type_and_access_level(
+                            db_session, service_prefix, resource_type_name, access_level
+                        )
                         # Make supplied actions lowercase
                         supplied_actions = [x.lower() for x in actions]
-                        dependent_actions = get_dependent_actions(db_session, supplied_actions)
+                        dependent_actions = get_dependent_actions(
+                            db_session, supplied_actions
+                        )
                         # List comprehension to get all dependent actions that are not in the supplied actions.
-                        dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
+                        dependent_actions = [
+                            x for x in dependent_actions if x not in supplied_actions
+                        ]
                         if len(dependent_actions) > 0:
                             for dep_action in dependent_actions:
-                                self.add_action_without_resource_constraint(str.lower(dep_action))
+                                self.add_action_without_resource_constraint(
+                                    str.lower(dep_action)
+                                )
 
                         temp_sid_dict = {
-                            'arn': [arn],
-                            'service': service_prefix,
-                            'access_level': access_level,
-                            'arn_format': raw_arn_format,
-                            'actions': actions,
-                            'conditions': []  # TODO: Add conditions
+                            "arn": [arn],
+                            "service": service_prefix,
+                            "access_level": access_level,
+                            "arn_format": raw_arn_format,
+                            "actions": actions,
+                            "conditions": [],  # TODO: Add conditions
                         }
                         if sid_namespace in self.sids.keys():
                             # If the ARN already exists there, skip it.
@@ -159,11 +180,11 @@ class SidGroup:
         """
         sid_namespace = "MultMultNone"
         temp_sid_dict = {
-            'arn': ["*"],
-            'service': "Mult",
-            'access_level': "Mult",
-            'arn_format': "*",
-            'actions': [action]
+            "arn": ["*"],
+            "service": "Mult",
+            "access_level": "Mult",
+            "arn_format": "*",
+            "actions": [action],
         }
         if sid_namespace in self.sids.keys():
             if action not in self.sids[sid_namespace]["actions"]:
@@ -194,7 +215,7 @@ class SidGroup:
         # I'll provide the example values here to improve readability.
 
         for action in supplied_actions:
-            service_name, action_name = action.split(':')
+            service_name, action_name = action.split(":")
             action_data = get_action_data(db_session, service_name, action_name)
             for row in action_data[service_name]:
                 if row["resource_arn_format"] not in arns_matching_supplied_actions:
@@ -202,7 +223,7 @@ class SidGroup:
                         {
                             "resource_arn_format": row["resource_arn_format"],
                             "access_level": row["access_level"],
-                            "action": row["action"]
+                            "action": row["action"],
                         }
                         # [row["resource_arn_format"], row["access_level"], row["action"]])
                     )
@@ -227,7 +248,9 @@ class SidGroup:
         actions_without_resource_constraints = []
         for item in arns_matching_supplied_actions:
             if item["resource_arn_format"] != "*":
-                self.add_by_arn_and_access_level(db_session, [item["resource_arn_format"]], item["access_level"])
+                self.add_by_arn_and_access_level(
+                    db_session, [item["resource_arn_format"]], item["access_level"]
+                )
             else:
                 actions_without_resource_constraints.append(item["action"])
 
@@ -256,49 +279,59 @@ class SidGroup:
         :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
         """
         try:
-            if 'mode' in cfg.keys():
-                if cfg['mode'] == 'crud':
+            if "mode" in cfg.keys():
+                if cfg["mode"] == "crud":
                     check_crud_schema(cfg)
-                    if 'wildcard' in cfg.keys():
-                        provided_wildcard_actions = cfg['wildcard']
+                    if "wildcard" in cfg.keys():
+                        provided_wildcard_actions = cfg["wildcard"]
                         if isinstance(provided_wildcard_actions, list):
                             verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                                db_session, provided_wildcard_actions)
+                                db_session, provided_wildcard_actions
+                            )
                             if len(verified_wildcard_actions) > 0:
-                                self.add_by_list_of_actions(db_session, verified_wildcard_actions)
-                    if 'read' in cfg.keys():
-                        if cfg['read'] is not None:
+                                self.add_by_list_of_actions(
+                                    db_session, verified_wildcard_actions
+                                )
+                    if "read" in cfg.keys():
+                        if cfg["read"] is not None:
                             self.add_by_arn_and_access_level(
-                                db_session, cfg['read'], "Read")
-                    if 'write' in cfg.keys():
-                        if cfg['write'] is not None:
+                                db_session, cfg["read"], "Read"
+                            )
+                    if "write" in cfg.keys():
+                        if cfg["write"] is not None:
                             self.add_by_arn_and_access_level(
-                                db_session, cfg['write'], "Write")
-                    if 'list' in cfg.keys():
-                        if cfg['list'] is not None:
+                                db_session, cfg["write"], "Write"
+                            )
+                    if "list" in cfg.keys():
+                        if cfg["list"] is not None:
                             self.add_by_arn_and_access_level(
-                                db_session, cfg['list'], "List")
-                    if 'permissions-management' in cfg.keys():
-                        if cfg['permissions-management'] is not None:
+                                db_session, cfg["list"], "List"
+                            )
+                    if "permissions-management" in cfg.keys():
+                        if cfg["permissions-management"] is not None:
                             self.add_by_arn_and_access_level(
                                 db_session,
-                                cfg['permissions-management'],
-                                "Permissions management")
-                    if 'tagging' in cfg.keys():
-                        if cfg['tagging'] is not None:
+                                cfg["permissions-management"],
+                                "Permissions management",
+                            )
+                    if "tagging" in cfg.keys():
+                        if cfg["tagging"] is not None:
                             self.add_by_arn_and_access_level(
-                                db_session, cfg['tagging'], "Tagging")
+                                db_session, cfg["tagging"], "Tagging"
+                            )
 
-                if cfg['mode'] == 'actions':
+                if cfg["mode"] == "actions":
                     check_actions_schema(cfg)
                     # for policy in cfg[template]:
-                    if 'actions' in cfg.keys():
-                        if cfg['actions'] is not None:
-                            self.add_by_list_of_actions(db_session, cfg['actions'])
+                    if "actions" in cfg.keys():
+                        if cfg["actions"] is not None:
+                            self.add_by_list_of_actions(db_session, cfg["actions"])
 
         except IndexError:
-            raise Exception("IndexError: list index out of range. This is likely due to an ARN in your list "
-                            "equaling ''. Please evaluate your YML file and try again.")
+            raise Exception(
+                "IndexError: list index out of range. This is likely due to an ARN in your list "
+                "equaling ''. Please evaluate your YML file and try again."
+            )
         rendered_policy = self.get_rendered_policy(db_session, minimize)
         return rendered_policy
 
@@ -342,7 +375,7 @@ class SidGroup:
         # If the actions under the MultMultNone SID exist under other SIDs
         if len(actions_under_wildcard_resources) > 0:
             for sid in self.sids:
-                if '*' not in self.sids[sid]["arn_format"]:
+                if "*" not in self.sids[sid]["arn_format"]:
                     for action in actions_under_wildcard_resources:
                         if action in self.sids[sid]["actions"]:
                             # add it to a list of actions to nuke when they are under other SIDs
@@ -351,7 +384,7 @@ class SidGroup:
         # If there are actions that we need to remove from SIDs outside of MultMultNone SID
         if len(actions_under_wildcard_resources_to_nuke) > 0:
             for sid in self.sids:
-                if '*' in self.sids[sid]["arn_format"]:
+                if "*" in self.sids[sid]["arn_format"]:
                     for action in actions_under_wildcard_resources_to_nuke:
                         try:
                             self.sids[sid]["actions"].remove(str(action))
@@ -373,7 +406,7 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     actions_list_placeholder = []
 
     for action in actions_list:
-        service_name, action_name = action.split(':')
+        service_name, action_name = action.split(":")
         rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
         for row in rows:
             if row == action:
@@ -381,7 +414,9 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     return actions_list_placeholder
 
 
-def create_policy_sid_namespace(service, access_level, resource_type_name, condition_block=None):
+def create_policy_sid_namespace(
+    service, access_level, resource_type_name, condition_block=None
+):
     """
     Simply generates the SID name. The SID groups ARN types that share an access level.
 
@@ -396,18 +431,27 @@ def create_policy_sid_namespace(service, access_level, resource_type_name, condi
     """
     # Sanitize the resource_type_name; otherwise we hit some list conversion
     # errors
-    resource_type_name = re.sub('[^A-Za-z0-9]+', '', resource_type_name)
+    resource_type_name = re.sub("[^A-Za-z0-9]+", "", resource_type_name)
     # Also remove the space from the Access level, if applicable. This only
     # applies for "Permissions management"
-    access_level = re.sub('[^A-Za-z0-9]+', '', access_level)
-    sid_namespace_prefix = capitalize_first_character(service) + capitalize_first_character(
-        access_level) + capitalize_first_character(resource_type_name)
+    access_level = re.sub("[^A-Za-z0-9]+", "", access_level)
+    sid_namespace_prefix = (
+        capitalize_first_character(service)
+        + capitalize_first_character(access_level)
+        + capitalize_first_character(resource_type_name)
+    )
 
     if condition_block:
-        condition_key_namespace = re.sub('[^A-Za-z0-9]+', '', condition_block['condition_key_string'])
-        condition_type_namespace = condition_block['condition_type_string']
-        condition_value_namespace = re.sub('[^A-Za-z0-9]+', '', condition_block['condition_value'])
-        sid_namespace_condition_suffix = f"{capitalize_first_character(condition_key_namespace)}{capitalize_first_character(condition_type_namespace)}{capitalize_first_character(condition_value_namespace)}"
+        condition_key_namespace = re.sub(
+            "[^A-Za-z0-9]+", "", condition_block["condition_key_string"]
+        )
+        condition_type_namespace = condition_block["condition_type_string"]
+        condition_value_namespace = re.sub(
+            "[^A-Za-z0-9]+", "", condition_block["condition_value"]
+        )
+        sid_namespace_condition_suffix = f"{capitalize_first_character(condition_key_namespace)}" \
+                                         f"{capitalize_first_character(condition_type_namespace)}" \
+                                         f"{capitalize_first_character(condition_value_namespace)}"
         sid_namespace = sid_namespace_prefix + sid_namespace_condition_suffix
     else:
         sid_namespace = sid_namespace_prefix

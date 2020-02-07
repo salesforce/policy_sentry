@@ -1,8 +1,13 @@
 import unittest
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
-from policy_sentry.querying.conditions import get_condition_key_details, get_condition_keys_for_service, \
-    get_conditions_for_action_and_raw_arn, get_condition_value_type
+from policy_sentry.querying.conditions import (
+    get_condition_key_details,
+    get_condition_keys_for_service,
+    get_conditions_for_action_and_raw_arn,
+    get_condition_value_type,
+)
+
 db_session = connect_db(DATABASE_FILE_PATH)
 
 
@@ -10,12 +15,12 @@ class QueryConditionsTestCase(unittest.TestCase):
     def test_get_condition_keys_for_service(self):
         """querying.conditions.get_condition_keys_for_service test"""
         desired_output = [
-            'cloud9:EnvironmentId',
-            'cloud9:EnvironmentName',
-            'cloud9:InstanceType',
-            'cloud9:Permissions',
-            'cloud9:SubnetId',
-            'cloud9:UserArn'
+            "cloud9:EnvironmentId",
+            "cloud9:EnvironmentName",
+            "cloud9:InstanceType",
+            "cloud9:Permissions",
+            "cloud9:SubnetId",
+            "cloud9:UserArn",
         ]
         output = get_condition_keys_for_service(db_session, "cloud9")
         self.assertEqual(desired_output, output)
@@ -25,7 +30,7 @@ class QueryConditionsTestCase(unittest.TestCase):
         desired_output = {
             "name": "cloud9:Permissions",
             "description": "Filters access by the type of AWS Cloud9 permissions",
-            "condition_value_type": "string"
+            "condition_value_type": "string",
         }
         output = get_condition_key_details(db_session, "cloud9", "cloud9:Permissions")
         self.assertEqual(desired_output, output)
@@ -34,14 +39,16 @@ class QueryConditionsTestCase(unittest.TestCase):
         """querying.conditions.get_conditions_for_action_and_raw_arn"""
         # Test with wildcard as ARN
         desired_condition_keys_list = [
-            'secretsmanager:Name',
-            'secretsmanager:Description',
-            'secretsmanager:KmsKeyId',
-            'aws:RequestTag/tag-key',
-            'aws:TagKeys',
-            'secretsmanager:ResourceTag/tag-key'
+            "secretsmanager:Name",
+            "secretsmanager:Description",
+            "secretsmanager:KmsKeyId",
+            "aws:RequestTag/tag-key",
+            "aws:TagKeys",
+            "secretsmanager:ResourceTag/tag-key",
         ]
-        output = get_conditions_for_action_and_raw_arn(db_session, "secretsmanager:createsecret", "*")
+        output = get_conditions_for_action_and_raw_arn(
+            db_session, "secretsmanager:createsecret", "*"
+        )
         self.maxDiff = None
         # print(output)
         self.assertListEqual(desired_condition_keys_list, output)

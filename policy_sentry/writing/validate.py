@@ -29,26 +29,30 @@ def check(conf_schema, conf):
         return False
 
 
-CRUD_SCHEMA = Schema({
-        'mode': 'crud',
-        Optional('name'): And(Use(str)),
-        Optional('description'): And(Use(str)),
-        Optional('role_arn'): And(Use(str)),
-        Optional('read'): [str],
-        Optional('write'): [str],
-        Optional('list'): [str],
-        Optional('permissions-management'): [str],
-        Optional('tagging'): [str],
-        Optional('wildcard'): [str],
-})
+CRUD_SCHEMA = Schema(
+    {
+        "mode": "crud",
+        Optional("name"): And(Use(str)),
+        Optional("description"): And(Use(str)),
+        Optional("role_arn"): And(Use(str)),
+        Optional("read"): [str],
+        Optional("write"): [str],
+        Optional("list"): [str],
+        Optional("permissions-management"): [str],
+        Optional("tagging"): [str],
+        Optional("wildcard"): [str],
+    }
+)
 
-ACTIONS_SCHEMA = Schema({
-        'mode': 'actions',
-        Optional('name'): And(Use(str)),
-        Optional('description'): And(Use(str)),
-        Optional('role_arn'): And(Use(str)),
-        'actions': And([str]),
-})
+ACTIONS_SCHEMA = Schema(
+    {
+        "mode": "actions",
+        Optional("name"): And(Use(str)),
+        Optional("description"): And(Use(str)),
+        Optional("role_arn"): And(Use(str)),
+        "actions": And([str]),
+    }
+)
 
 
 def check_actions_schema(cfg):
@@ -59,9 +63,11 @@ def check_actions_schema(cfg):
     if result is True:
         return result
     else:
-        raise Exception(f"The provided template does not match the required schema for ACTIONS mode. "
-                        f"Please use the create-template command to generate a valid YML template that "
-                        f"Policy Sentry will accept.")
+        raise Exception(
+            f"The provided template does not match the required schema for ACTIONS mode. "
+            f"Please use the create-template command to generate a valid YML template that "
+            f"Policy Sentry will accept."
+        )
 
 
 def check_crud_schema(cfg):
@@ -72,9 +78,11 @@ def check_crud_schema(cfg):
     if result is True:
         return result
     else:
-        raise Exception(f"The provided template does not match the required schema for CRUD mode. "
-                        f"Please use the create-template command to generate a valid YML template that "
-                        f"Policy Sentry will accept.")
+        raise Exception(
+            f"The provided template does not match the required schema for CRUD mode. "
+            f"Please use the create-template command to generate a valid YML template that "
+            f"Policy Sentry will accept."
+        )
 
 
 def validate_condition_block(condition_block):
@@ -84,11 +92,13 @@ def validate_condition_block(condition_block):
     """
 
     # TODO: Validate that the values are legit somehow
-    CONDITION_BLOCK_SCHEMA = Schema({
-        "condition_key_string": And(Use(str)),
-        "condition_type_string": And(Use(str)),
-        "condition_value": And(Use(str))
-    })
+    CONDITION_BLOCK_SCHEMA = Schema(
+        {
+            "condition_key_string": And(Use(str)),
+            "condition_type_string": And(Use(str)),
+            "condition_value": And(Use(str)),
+        }
+    )
     try:
         CONDITION_BLOCK_SCHEMA.validate(condition_block)
         # TODO: Try to validate whether or not the condition keys are legit

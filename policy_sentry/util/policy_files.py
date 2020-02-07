@@ -1,6 +1,7 @@
 """A few methods for parsing policies."""
 import json
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -8,12 +9,12 @@ def get_actions_from_statement(statement):
     """Given a statement dictionary, create a list of the actions"""
     actions_list = []
     # We only want to evaluate policies that have Effect = "Allow"
-    if statement.get('Effect') == 'Deny':
+    if statement.get("Effect") == "Deny":
         return actions_list
     else:
-        action_clause = statement.get('Action')
+        action_clause = statement.get("Action")
         if not action_clause:
-            logger.debug('No actions contained in statement')
+            logger.debug("No actions contained in statement")
             return actions_list
         # Action = "s3:GetObject"
         if isinstance(action_clause, str):
@@ -22,8 +23,7 @@ def get_actions_from_statement(statement):
         elif isinstance(action_clause, list):
             actions_list.extend(action_clause)
         else:
-            logger.debug(
-                "Unknown error: The 'Action' is neither a list nor a string")
+            logger.debug("Unknown error: The 'Action' is neither a list nor a string")
     return actions_list
 
 
@@ -31,17 +31,16 @@ def get_actions_from_statement(statement):
 def get_actions_from_policy(data):
     """Given a policy dictionary, create a list of the actions"""
     actions_list = []
-    statement_clause = data.get('Statement')
+    statement_clause = data.get("Statement")
     # Statement must be a dict if it's a single statement. Otherwise it will be a list of statements
     if isinstance(statement_clause, dict):
         actions_list.extend(get_actions_from_statement(statement_clause))
     # Otherwise it will be a list of Sids
     elif isinstance(statement_clause, list):
-        for statement in data['Statement']:
+        for statement in data["Statement"]:
             actions_list.extend(get_actions_from_statement(statement))
     else:
-        logger.critical(
-            "Unknown error: The 'Statement' is neither a dict nor a list")
+        logger.critical("Unknown error: The 'Statement' is neither a dict nor a list")
     actions_list = [x.lower() for x in actions_list]
     actions_list.sort()
     return actions_list
