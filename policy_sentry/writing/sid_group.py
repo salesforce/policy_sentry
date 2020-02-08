@@ -350,13 +350,27 @@ class SidGroup:
             self.sids[sid]["actions"].clear()
             self.sids[sid]["actions"].extend(placeholder_actions_list.copy())
 
-        # remove_sids_with_empty_action_lists
         # Now that we've removed a bunch of actions, if there are SID groups without any actions,
         # remove them so we don't get SIDs with empty action lists
+        self.remove_sids_with_empty_action_lists()
+
+    def remove_sids_with_empty_action_lists(self):
+        """
+        Now that we've removed a bunch of actions, if there are SID groups without any actions,
+            remove them so we don't get SIDs with empty action lists
+        """
+        sid_namespaces_to_delete = []
         for sid in self.sids:
+            if len(self.sids[sid]["actions"]) > 0:
+                pass
             # If the size is zero, add it to the indexes_to_delete list.
-            if len(self.sids[sid]["actions"]) == 0:
-                del self.sids[sid]
+            else:
+                sid_namespaces_to_delete.append(sid)
+        # Loop through sid_namespaces_to_delete in reverse order (so we delete index
+        # 10 before index 8, for example)
+        if len(sid_namespaces_to_delete) > 0:
+            for i in reversed(range(len(sid_namespaces_to_delete))):
+                del self.sids[sid_namespaces_to_delete[i]]
 
     def remove_actions_duplicated_in_wildcard_arn(self):
         """

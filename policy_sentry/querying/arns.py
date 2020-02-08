@@ -104,9 +104,10 @@ def get_resource_type_name_with_raw_arn(db_session, raw_arn):
     :param raw_arn: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
     :return: The resource type name, like bucket
     """
+
     query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(
-        ArnTable.raw_arn.like(raw_arn)
+        ArnTable.raw_arn.startswith(raw_arn)
     )
     result = query_resource_type_name.first()
     resource_type_name = str(result.resource_type_name)
-    return str(resource_type_name)
+    return resource_type_name.lower()

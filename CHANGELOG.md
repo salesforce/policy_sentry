@@ -6,6 +6,10 @@ Other Pending:
 * Terraform module updates are currently pending
 * Update the GIF and the Medium blog
 
+## 0.7.0.1 (2020-02-07)
+* Quick fix for @jlongman's issue - #118
+* Fix the overly verbose logs for #119
+
 ## 0.7.0 (2020-02-06)
 User-facing changes:
 * The `initialize` command is now completely optional.
