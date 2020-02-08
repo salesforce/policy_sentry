@@ -140,8 +140,9 @@ def create_database(db_session, services, access_level_overrides_file):
     directory = HTML_DIRECTORY_PATH + "/"
     logger.info("Reading the html docs from this directory: %s", directory)
     logger.info("Using access level overrides file %s", access_level_overrides_file)
+    print("Building tables...")
     for service in services:
-        logger.info("Building tables for %s", service)
+        print(service, sep="", end=", ", flush=True)
         build_arn_table(db_session, service)
         db_session.commit()
         build_action_table(db_session, service, access_level_overrides_file)
@@ -281,7 +282,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
                         )
                         if override_result:
                             access_level = override_result
-                            logger.info(
+                            logger.debug(
                                 "Override: Setting access level for %s:%s to %s",
                                 service,
                                 action_name,

@@ -28,7 +28,7 @@ def create_default_overrides_file():
     for file in file_list:
         if file.endswith(".yml"):
             shutil.copy(source + "/" + file, destination)
-            logger.info("copying overrides file %s to %s", file, destination)
+            logger.debug("copying overrides file %s to %s", file, destination)
 
 
 def get_action_access_level_overrides_from_yml(
