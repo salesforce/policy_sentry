@@ -23,7 +23,7 @@ def create_policy_sentry_config_directory():
     Creates a config directory at $HOME/.policy_sentry/
     :return: the path of the database file
     """
-    logger.info("Creating the database...")
+    print("Creating the database...")
     database_file_path = HOME + CONFIG_DIRECTORY + DATABASE_FILE_NAME
     logger.debug("We will store the new database here: %s", database_file_path)
     # If the database file already exists

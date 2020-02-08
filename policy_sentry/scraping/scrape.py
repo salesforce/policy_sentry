@@ -30,7 +30,7 @@ def get_html(directory, requested_service):
             html_list.append(parsed_html)
         except ValueError as v_e:
             if "No tables found" in str(v_e):
-                logger.info("No tables found for %s", link)
+                logger.debug("No tables found for %s", link)
             else:
                 raise v_e
 

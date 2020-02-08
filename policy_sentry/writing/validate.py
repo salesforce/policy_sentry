@@ -4,7 +4,7 @@ Validation for the Policy Sentry YML Templates.
 import logging
 from schema import Optional, Schema, And, Use, SchemaError
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("__main__." + __name__)
 
 
 def check(conf_schema, conf):
@@ -17,7 +17,6 @@ def check(conf_schema, conf):
         conf_schema.validate(conf)
         return True
     except SchemaError as schema_error:
-        # logger.info(schema_error)
         try:
             # workarounds for Schema's logging approach
             print(schema_error.autos[0])
@@ -25,7 +24,7 @@ def check(conf_schema, conf):
             print(detailed_error_message.split(" in {'")[0])
             # for error in schema_error.autos:
         except:  # pylint: disable=bare-except
-            print(schema_error)
+            logger.critical(schema_error)
         return False
 
 
@@ -104,5 +103,5 @@ def validate_condition_block(condition_block):
         # TODO: Try to validate whether or not the condition keys are legit
         return True
     except SchemaError as s_e:
-        print(s_e)
+        logger.warning(s_e)
         return False

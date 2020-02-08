@@ -18,6 +18,7 @@ from policy_sentry.scraping.awsdocs import (
     get_list_of_service_prefixes_from_links_file,
     create_service_links_mapping_file,
 )
+from policy_sentry.util.logging import set_log_level
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import (
     HOME,
@@ -27,16 +28,7 @@ from policy_sentry.shared.constants import (
     BUNDLED_DATABASE_FILE_PATH,
 )
 
-logging.basicConfig()
 logger = logging.getLogger(__name__)
-
-# logger = logging.getLogger()
-# handler = logging.StreamHandler()
-# formatter = logging.Formatter(
-#     '%(levelname)-8s %(message)s')
-# handler.setFormatter(formatter)
-# logger.addHandler(handler)
-# logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
 
 @click.command(short_help="Create a local database to store AWS IAM information.")
@@ -64,20 +56,18 @@ logger = logging.getLogger(__name__)
     "the python package. Defaults to false",
 )
 @click.option(
-    "--quiet",
-    help="Set the logging level to WARNING instead of INFO.",
-    default=False,
-    is_flag=True,
+    "--log-level",
+    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
+    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
+    default="INFO",
 )
-def initialize(access_level_overrides_file, fetch, build, quiet):
+def initialize(access_level_overrides_file, fetch, build, log_level):
     """
     Initialize the local database to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
-    if quiet:
-        logger.setLevel(logging.WARNING)
-    else:
-        logger.setLevel(logging.INFO)
+    set_log_level(logger, log_level)
+
     if not access_level_overrides_file:
         overrides_file = HOME + CONFIG_DIRECTORY + "access-level-overrides.yml"
     else:
@@ -116,7 +106,7 @@ def initialize(access_level_overrides_file, fetch, build, quiet):
         all_aws_services = get_list_of_service_prefixes_from_links_file(
             LINKS_YML_FILE_LOCAL
         )
-        print(f"Services to build for: ${LINKS_YML_FILE_LOCAL}")
+        logger.debug("Services to build are stored in: %s", LINKS_YML_FILE_LOCAL)
         # Fill in the database with data on the AWS services
         create_database(db_session, all_aws_services, overrides_file)
         print("Created tables for all services!")
@@ -124,6 +114,7 @@ def initialize(access_level_overrides_file, fetch, build, quiet):
     # Query the database for all the services that are now in the database.
     all_aws_service_prefixes = get_all_service_prefixes(db_session)
     total_count_of_services = str(len(all_aws_service_prefixes))
+    print("Initialization complete!")
     print(f"Total AWS services in the IAM database: {total_count_of_services}")
-    print("\nService prefixes:")
-    print(", ".join(all_aws_service_prefixes))
+    logger.debug("\nService prefixes:")
+    logger.debug(", ".join(all_aws_service_prefixes))

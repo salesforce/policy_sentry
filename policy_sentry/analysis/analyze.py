@@ -13,7 +13,7 @@ from policy_sentry.util.policy_files import (
     get_actions_from_policy,
     get_actions_from_statement,
 )
-from policy_sentry.util.file import list_files_in_directory, read_this_file
+from policy_sentry.util.file import read_this_file
 
 logger = logging.getLogger(__name__)
 
@@ -142,7 +142,6 @@ def analyze_policy_file(
     :return: False if the policy name matches excluded role patterns, or if it does not, a dictionary containing the findings.
     :rtype: dict
     """
-    # FIXME: Rename "role_exclusion_pattern" to "policy_exclusion_pattern"
     requested_actions = get_actions_from_json_policy_file(policy_file)
     expanded_actions = determine_actions_to_expand(db_session, requested_actions)
 
@@ -204,66 +203,3 @@ def analyze_statement_by_access_level(db_session, statement_json, access_level):
         db_session, expanded_actions, access_level
     )
     return actions_by_level
-
-
-# def analyze_by_data_access(policy_file, db_session, arn_list):
-#     """
-#     Some ARN types give access to either (1) configuration data, (2) actual data, or both.
-#     Given a list of raw ARNs, this method will return
-#     a big list of actions that grant data access.
-#     """
-
-
-def analyze_policy_directory(
-    db_session,
-    policy_directory,
-    account_id,
-    from_audit_file,
-    finding_type,
-    excluded_role_patterns,
-):
-    """
-    Audits a directory of policy JSON files.
-
-    :param db_session: SQLAlchemy database session object
-    :param policy_directory: The file directory where the policies are stored
-    :param account_id: The AWS Account ID
-    :param from_audit_file: The file containing the list of problematic actions
-    :param finding_type: The type of finding - resource_exposure, privilege_escalation, network_exposure, or credentials_exposure
-    :return: A dictionary of findings with the policy names as keys.
-    """
-    policy_file_list = list_files_in_directory(policy_directory)
-    policy_findings = {}
-    finding = {}
-    actions_list = []
-    requested_actions = []
-    expanded_actions = []
-    for policy_file in policy_file_list:
-        actions_list.clear()
-        requested_actions.clear()
-        expanded_actions.clear()
-        this_file = policy_directory + "/" + policy_file
-        policy_name = policy_file.rsplit(".", 1)[0]
-        # If the policy name matches excluded role patterns, skip it
-        reg_list = map(re.compile, excluded_role_patterns)
-        if any(regex.match(policy_name) for regex in reg_list):
-            continue
-        requested_actions = get_actions_from_json_policy_file(this_file)
-        expanded_actions = determine_actions_to_expand(db_session, requested_actions)
-        actions_list = determine_risky_actions(expanded_actions, from_audit_file)
-
-        actions_list.sort()  # sort in alphabetical order
-        actions_list = list(dict.fromkeys(actions_list))  # remove duplicates
-        # try:
-        if actions_list:
-            finding[finding_type] = copy.deepcopy(actions_list)
-            finding["account_id"] = account_id
-            policy_findings[policy_name] = copy.deepcopy(finding)
-            # Store the account ID
-        else:
-            finding["account_id"] = account_id
-        # logger.debug(finding['account_id'])
-        # except KeyError as k_e:
-        #     logger.debug(k_e)
-        #     continue
-    return policy_findings

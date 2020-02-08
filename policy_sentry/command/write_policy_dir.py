@@ -13,13 +13,10 @@ from policy_sentry.util.file import (
     write_json_file,
     check_valid_file_path,
 )
+from policy_sentry.util.logging import set_log_level
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 logger = logging.getLogger()
-handler = logging.StreamHandler()
-formatter = logging.Formatter("%(name)-12s %(levelname)-8s %(message)s")
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 
 @click.command(
@@ -45,19 +42,16 @@ logger.addHandler(handler)
     help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 4",
 )
 @click.option(
-    "--quiet",
-    help="Set the logging level to WARNING instead of INFO.",
-    default=False,
-    is_flag=True,
+    "--log-level",
+    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
+    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
+    default="INFO",
 )
-def write_policy_dir(input_dir, output_dir, minimize, quiet):
+def write_policy_dir(input_dir, output_dir, minimize, log_level):
     """
     write_policy, but this time with an input directory of YML/YAML files, and an output directory for all the JSON files
     """
-    if quiet:
-        logger.setLevel(logging.WARNING)
-    else:
-        logger.setLevel(logging.INFO)
+    set_log_level(logger, log_level)
 
     db_session = connect_db(DATABASE_FILE_PATH)
     input_dir = os.path.abspath(input_dir)

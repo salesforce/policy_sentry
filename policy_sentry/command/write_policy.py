@@ -6,16 +6,13 @@ import json
 import logging
 import yaml
 import click
+from policy_sentry.util.logging import set_log_level
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
 
 logger = logging.getLogger()
-handler = logging.StreamHandler()
-formatter = logging.Formatter("%(name)-12s %(levelname)-8s %(message)s")
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 
 @click.command(
@@ -36,20 +33,18 @@ logger.addHandler(handler)
     "Set this to the character length you want - for example, 4",
 )
 @click.option(
-    "--quiet",
-    help="Set the logging level to WARNING instead of INFO.",
-    default=False,
-    is_flag=True,
+    "--log-level",
+    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
+    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
+    default="INFO",
 )
-def write_policy(input_file, minimize, quiet):
+def write_policy(input_file, minimize, log_level):
     """
     Write a least-privilege IAM Policy by supplying either a list of actions or
     access levels specific to resource ARNs!
     """
-    if quiet:
-        logger.setLevel(logging.WARNING)
-    else:
-        logger.setLevel(logging.INFO)
+    set_log_level(logger, log_level)
+
     db_session = connect_db(DATABASE_FILE_PATH)
 
     if input_file:

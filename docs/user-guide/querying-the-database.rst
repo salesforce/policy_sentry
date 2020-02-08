@@ -85,7 +85,7 @@ Options
                                       block.
       --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
                                       "yaml"
-      --quiet             Set the logging level to WARNING instead of INFO.
+      --log-level                     Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
       --help                          Show this message and exit.
 
 * arn-table
@@ -103,7 +103,7 @@ Options
       --list-arn-types   Show the short names of ARN Types. If empty, this will
                          show RAW ARNs only.
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-      --quiet             Set the logging level to WARNING instead of INFO.
+      --log-level        Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
       --help             Show this message and exit.
 
 * condition-table
@@ -120,6 +120,6 @@ Options
                          service.
       --service TEXT     Filter according to AWS service.  [required]
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-      --quiet             Set the logging level to WARNING instead of INFO.
+      --log-level        Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
       --help             Show this message and exit.
 
