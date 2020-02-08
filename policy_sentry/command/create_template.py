@@ -65,4 +65,4 @@ def create_template(output_file, template_type, name, quiet):
             for line in crud_template:
                 file_obj.write(line)
 
-    logger.info("write-policy template file written to: %s", str(filename))
+    print(f"write-policy template file written to: {filename}")

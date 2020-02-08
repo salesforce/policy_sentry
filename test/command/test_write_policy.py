@@ -1,8 +1,10 @@
 import unittest
 import json
+from os.path import abspath, pardir, dirname, join
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_template
+from policy_sentry.util.file import read_yaml_file
 
 db_session = connect_db(DATABASE_FILE_PATH)
 
@@ -60,3 +62,17 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
         }
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
+
+
+class TaggingTestCase(unittest.TestCase):
+    def test_write_tagging_only_policy(self):
+        """test_write_tagging_only_policy: We'd never write a policy like this IRL but doing this as a quality check against how it handles the database"""
+        policy_file_path = abspath(
+            join(
+                dirname(__file__), pardir + "/" + pardir + "/examples/yml/tagging.yml",
+            )
+        )
+        cfg = read_yaml_file(policy_file_path)
+
+        policy = write_policy_with_template(db_session, cfg)
+        print(policy)
