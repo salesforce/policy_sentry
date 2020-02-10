@@ -308,7 +308,10 @@ class SidGroup:
                                 db_session, cfg["list"], "List"
                             )
                     if "permissions-management" in cfg.keys():
-                        if cfg["permissions-management"] is not None and cfg["permissions-management"][0] != "":
+                        if (
+                            cfg["permissions-management"] is not None
+                            and cfg["permissions-management"][0] != ""
+                        ):
                             self.add_by_arn_and_access_level(
                                 db_session,
                                 cfg["permissions-management"],
@@ -425,7 +428,9 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
         except ValueError as v_e:
             # We will skip the action because this likely means that the wildcard action provided is not valid.
             logger.debug(v_e)
-            logger.debug("The value provided in wildcard-only section is not formatted properly.")
+            logger.debug(
+                "The value provided in wildcard-only section is not formatted properly."
+            )
             continue
         rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
         for row in rows:
