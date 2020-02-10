@@ -130,7 +130,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
 
     def test_empty_strings_in_access_level_categories(self):
         """
-        test_allow_empty_access_level_categories_in_cfg: If the content of a list is an empty string, it should sysexit
+        test_empty_strings_in_access_level_categories: If the content of a list is an empty string, it should NOT sysexit
         :return:
         """
         crud_file_input = {
@@ -144,9 +144,42 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             "tagging": [""],
             "permissions-management": [""],
         }
-        with self.assertRaises(Exception):
-            result = write_policy_with_template(db_session, crud_file_input)
-            # print(json.dumps(result, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "SsmReadParameter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:getparameter",
+                        "ssm:getparameterhistory",
+                        "ssm:getparameters",
+                        "ssm:getparametersbypath",
+                        "ssm:listtagsforresource"
+                    ],
+                    "Resource": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                    ]
+                },
+                {
+                    "Sid": "SsmWriteParameter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:deleteparameter",
+                        "ssm:deleteparameters",
+                        "ssm:labelparameterversion",
+                        "ssm:putparameter"
+                    ],
+                    "Resource": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                    ]
+                }
+            ]
+        }
+        # with self.assertRaises(Exception):
+        result = write_policy_with_template(db_session, crud_file_input)
+        print(json.dumps(result, indent=4))
+        self.assertDictEqual(desired_output, result)
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):

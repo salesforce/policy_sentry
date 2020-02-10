@@ -293,29 +293,29 @@ class SidGroup:
                                     db_session, verified_wildcard_actions
                                 )
                     if "read" in cfg.keys():
-                        if cfg["read"] is not None:
+                        if cfg["read"] is not None and cfg["read"][0] != "":
                             self.add_by_arn_and_access_level(
                                 db_session, cfg["read"], "Read"
                             )
                     if "write" in cfg.keys():
-                        if cfg["write"] is not None:
+                        if cfg["write"] is not None and cfg["write"][0] != "":
                             self.add_by_arn_and_access_level(
                                 db_session, cfg["write"], "Write"
                             )
                     if "list" in cfg.keys():
-                        if cfg["list"] is not None:
+                        if cfg["list"] is not None and cfg["list"][0] != "":
                             self.add_by_arn_and_access_level(
                                 db_session, cfg["list"], "List"
                             )
                     if "permissions-management" in cfg.keys():
-                        if cfg["permissions-management"] is not None:
+                        if cfg["permissions-management"] is not None and cfg["permissions-management"][0] != "":
                             self.add_by_arn_and_access_level(
                                 db_session,
                                 cfg["permissions-management"],
                                 "Permissions management",
                             )
                     if "tagging" in cfg.keys():
-                        if cfg["tagging"] is not None:
+                        if cfg["tagging"] is not None and cfg["tagging"][0] != "":
                             self.add_by_arn_and_access_level(
                                 db_session, cfg["tagging"], "Tagging"
                             )
@@ -420,7 +420,13 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
     actions_list_placeholder = []
 
     for action in actions_list:
-        service_name, action_name = action.split(":")
+        try:
+            service_name, action_name = action.split(":")
+        except ValueError as v_e:
+            # We will skip the action because this likely means that the wildcard action provided is not valid.
+            logger.debug(v_e)
+            logger.debug("The value provided in wildcard-only section is not formatted properly.")
+            continue
         rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
         for row in rows:
             if row == action:
