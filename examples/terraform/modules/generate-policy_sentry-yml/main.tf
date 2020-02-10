@@ -19,7 +19,7 @@ resource "local_file" "policy_sentry_acl_yml_file" {
   filename = "${var.yml_file_destination_folder}/${var.role_name}.yml"
 
   content = templatefile(
-    "${path.module}/templates/policy_sentry-template.yml", {
+    "${path.module}/templates/policy-sentry-template.yml", {
       //      policy_sentry_role_name                   = yamlencode(local.policy_sentry_yaml_role_name)
       //      policy_sentry_role_description            = yamlencode(local.policy_sentry_yaml_role_description)
       //      policy_sentry_role_arn                    = yamlencode(local.policy_sentry_yaml_role_name)

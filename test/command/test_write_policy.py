@@ -64,15 +64,17 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
         self.assertDictEqual(desired_output, output)
 
 
-class TaggingTestCase(unittest.TestCase):
-    def test_write_tagging_only_policy(self):
-        """test_write_tagging_only_policy: We'd never write a policy like this IRL but doing this as a quality check against how it handles the database"""
-        policy_file_path = abspath(
-            join(
-                dirname(__file__), pardir + "/" + pardir + "/examples/yml/tagging.yml",
-            )
-        )
-        cfg = read_yaml_file(policy_file_path)
+# class TaggingTestCase(unittest.TestCase):
+#     def test_write_tagging_only_policy(self):
+#         """test_write_tagging_only_policy: We'd never write a policy like this IRL but doing this as a quality check against how it handles the database"""
+#         policy_file_path = abspath(
+#             join(
+#                 dirname(__file__), pardir + "/" + pardir + "/examples/yml/tagging.yml",
+#             )
+#         )
+#         cfg = read_yaml_file(policy_file_path)
+#
+#         policy = write_policy_with_template(db_session, cfg)
+#         print(policy)
 
-        policy = write_policy_with_template(db_session, cfg)
-        print(policy)
+

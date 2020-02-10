@@ -6,6 +6,9 @@ Other Pending:
 * Terraform module updates are currently pending
 * Update the GIF and the Medium blog
 
+## 0.7.0.2 (2020-02-10)
+* Ignore empty entries in the yaml template
+
 ## 0.7.0.1 (2020-02-07)
 * Quick fix for @jlongman's issue - #118
 * Fix the overly verbose logs for #119
