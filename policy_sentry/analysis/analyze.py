@@ -142,7 +142,7 @@ def analyze_policy_file(
     :return: False if the policy name matches excluded role patterns, or if it does not, a dictionary containing the findings.
     :rtype: dict
     """
-    requested_actions = get_actions_from_json_policy_file(policy_file)
+    requested_actions = get_actions_from_json_policy_file(db_session, policy_file)
     expanded_actions = determine_actions_to_expand(db_session, requested_actions)
 
     finding = {}
