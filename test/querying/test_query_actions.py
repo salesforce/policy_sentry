@@ -218,11 +218,11 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_remove_actions_not_matching_access_level(self):
         """querying.actions.remove_actions_not_matching_access_level"""
         actions_list = [
-            "ecr:BatchGetImage",  # Read
-            "ecr:CreateRepository",  # Write
-            "ecr:DescribeRepositories",  # List
-            "ecr:TagResource",  # Tagging
-            "ecr:SetRepositoryPolicy",  # Permissions management
+            "ecr:batchgetimage",  # read
+            "ecr:createrepository",  # write
+            "ecr:describerepositories",  # list
+            "ecr:tagresource",  # tagging
+            "ecr:setrepositorypolicy",  # permissions management
         ]
         # print("Read ")
         self.maxDiff = None
@@ -280,9 +280,9 @@ class QueryActionsTestCase(unittest.TestCase):
         """querying.actions.remove_actions_that_are_not_wildcard_arn_only"""
         provided_actions_list = [
             # 3 wildcard only actions
-            "secretsmanager:CreateSecret",
-            "secretsmanager:GetRandomPassword",
-            "secretsmanager:ListSecrets",
+            "secretsmanager:createsecret",
+            "secretsmanager:getrandompassword",
+            "secretsmanager:listsecrets",
             # This one is wildcard OR "secret"
             "secretsmanager:putsecretvalue",
         ]

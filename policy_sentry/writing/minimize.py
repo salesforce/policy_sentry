@@ -73,6 +73,7 @@ def minimize_statement_actions(
     This is a condensed version of policyuniverse's minimize_statement_actions, changed for our purposes.
     https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L123
     """
+    desired_actions = [x.lower() for x in desired_actions]
     minimized_actions = set()
     denied_prefixes = get_denied_prefixes_from_desired(desired_actions, all_actions)
     for action in desired_actions:

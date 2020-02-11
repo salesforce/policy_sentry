@@ -86,7 +86,8 @@ class SidGroup:
         :rtype: dict
         """
         statements = []
-        all_actions = get_all_actions(db_session)
+        # Only set the actions to lowercase if minimize is provided
+        all_actions = get_all_actions(db_session, lowercase=True)
 
         # render the policy
         for sid in self.sids:
@@ -141,7 +142,7 @@ class SidGroup:
                             db_session, service_prefix, resource_type_name, access_level
                         )
                         # Make supplied actions lowercase
-                        #supplied_actions = [x.lower() for x in actions]
+                        # supplied_actions = [x.lower() for x in actions]
                         supplied_actions = actions.copy()
                         dependent_actions = get_dependent_actions(
                             db_session, supplied_actions
@@ -152,9 +153,7 @@ class SidGroup:
                         ]
                         if len(dependent_actions) > 0:
                             for dep_action in dependent_actions:
-                                self.add_action_without_resource_constraint(
-                                    dep_action
-                                )
+                                self.add_action_without_resource_constraint(dep_action)
                                 # self.add_action_without_resource_constraint(
                                 #     str.lower(dep_action)
                                 # )

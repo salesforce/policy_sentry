@@ -1,9 +1,13 @@
 import os
 import unittest
+import json
 from policy_sentry.util.policy_files import (
     get_actions_from_json_policy_file,
     get_actions_from_policy,
 )
+from policy_sentry.shared.database import connect_db
+
+db_session = connect_db('bundled')
 
 
 class PolicyFilesTestCase(unittest.TestCase):
@@ -15,18 +19,18 @@ class PolicyFilesTestCase(unittest.TestCase):
                 {
                     "Effect": "Allow",
                     "Action": [
-                        "ecr:GetAuthorizationToken",
-                        "ecr:BatchCheckLayerAvailability",
-                        "ecr:GetDownloadUrlForLayer",
-                        "ecr:GetRepositoryPolicy",
-                        "ecr:DescribeRepositories",
-                        "ecr:ListImages",
-                        "ecr:DescribeImages",
-                        "ecr:BatchGetImage",
-                        "ecr:InitiateLayerUpload",
-                        "ecr:UploadLayerPart",
-                        "ecr:CompleteLayerUpload",
-                        "ecr:PutImage",
+                        "ecr:getauthorizationtoken",
+                        "ecr:batchchecklayeravailability",
+                        "ecr:getdownloadurlforlayer",
+                        "ecr:getrepositorypolicy",
+                        "ecr:describerepositories",
+                        "ecr:listimages",
+                        "ecr:describeimages",
+                        "ecr:batchgetimage",
+                        "ecr:initiatelayerupload",
+                        "ecr:uploadlayerpart",
+                        "ecr:completelayerupload",
+                        "ecr:putimage",
                     ],
                     "Resource": "*",
                 },
@@ -43,45 +47,28 @@ class PolicyFilesTestCase(unittest.TestCase):
                 },
             ],
         }
-        actions_list = get_actions_from_policy(policy)
+        actions_list = get_actions_from_policy(db_session, policy)
         desired_actions_list = [
-            "ecr:batchchecklayeravailability",
-            "ecr:batchgetimage",
-            "ecr:completelayerupload",
-            "ecr:describeimages",
-            "ecr:describerepositories",
-            "ecr:getauthorizationtoken",
-            "ecr:getdownloadurlforlayer",
-            "ecr:getrepositorypolicy",
-            "ecr:initiatelayerupload",
-            "ecr:listimages",
-            "ecr:putimage",
-            "ecr:uploadlayerpart",
-            "iam:createaccesskey",
-            "iam:deleteaccesskey",
-            "iam:listaccesskeys",
-            "iam:updateaccesskey",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:BatchGetImage",
+            "ecr:CompleteLayerUpload",
+            "ecr:DescribeImages",
+            "ecr:DescribeRepositories",
+            "ecr:GetAuthorizationToken",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetRepositoryPolicy",
+            "ecr:InitiateLayerUpload",
+            "ecr:ListImages",
+            "ecr:PutImage",
+            "ecr:UploadLayerPart",
+            "iam:CreateAccessKey",
+            "iam:DeleteAccessKey",
+            "iam:ListAccessKeys",
+            "iam:UpdateAccessKey"
         ]
         self.maxDiff = None
+        print(json.dumps(actions_list, indent=4))
         self.assertListEqual(desired_actions_list, actions_list)
-
-    def test_get_actions_from_policy_file_with_wildcards(self):
-        """util.policy_files.get_actions_from_policy_file_with_wildcards: Verify that we can read the actions from a file,
-        even if it contains wildcards"""
-        policy_file_path = os.path.abspath(
-            os.path.join(
-                os.path.dirname(__file__),
-                os.path.pardir
-                + "/"
-                + os.path.pardir
-                + "/examples/analyze/wildcards.json",
-            )
-        )
-        requested_actions = get_actions_from_json_policy_file(policy_file_path)
-        # print(requested_actions)
-        desired_actions_list = ["ecr:*", "s3:*"]
-        self.maxDiff = None
-        self.assertListEqual(requested_actions, desired_actions_list)
 
     def test_get_actions_from_policy_file_with_explicit_actions(self):
         """util.policy_file.get_actions_from_policy_file_with_explicit_actions: Verify that we can get a list of actions from a
@@ -95,25 +82,27 @@ class PolicyFilesTestCase(unittest.TestCase):
                 + "/examples/analyze/explicit-actions.json",
             )
         )
-        requested_actions = get_actions_from_json_policy_file(policy_file_path)
+        requested_actions = get_actions_from_json_policy_file(db_session, policy_file_path)
         # print(requested_actions)
-        desired_actions_list = [
-            "ecr:batchchecklayeravailability",
-            "ecr:batchgetimage",
-            "ecr:completelayerupload",
-            "ecr:describeimages",
-            "ecr:describerepositories",
-            "ecr:getauthorizationtoken",
-            "ecr:getdownloadurlforlayer",
-            "ecr:getrepositorypolicy",
-            "ecr:initiatelayerupload",
-            "ecr:listimages",
-            "ecr:putimage",
-            "ecr:uploadlayerpart",
-            "iam:createaccesskey",
-            "iam:deleteaccesskey",
-            "iam:listaccesskeys",
-            "iam:updateaccesskey",
-        ]
         self.maxDiff = None
-        self.assertListEqual(requested_actions, desired_actions_list)
+        print(json.dumps(requested_actions, indent=4))
+        desired_actions = [
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:BatchGetImage",
+            "ecr:CompleteLayerUpload",
+            "ecr:DescribeImages",
+            "ecr:DescribeRepositories",
+            "ecr:GetAuthorizationToken",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetRepositoryPolicy",
+            "ecr:InitiateLayerUpload",
+            "ecr:ListImages",
+            "ecr:PutImage",
+            "ecr:UploadLayerPart",
+            "iam:CreateAccessKey",
+            "iam:DeleteAccessKey",
+            "iam:ListAccessKeys",
+            "iam:UpdateAccessKey"
+        ]
+        self.assertListEqual(requested_actions, desired_actions)
+

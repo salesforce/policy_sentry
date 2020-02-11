@@ -285,7 +285,7 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
                 pass
             else:
                 # Just take the first result
-                new_actions_list.append(action)
+                new_actions_list.append(f"{first_result.service}:{first_result.name}")
         except ValueError as v_e:
             logger.debug("ValueError: %s for the action %s", v_e, action)
             continue
@@ -349,6 +349,9 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
             )
         )
         for row in rows:
-            if row.service == service_name and row.name == action_name:
-                actions_list_placeholder.append(f"{service_name}:{action_name}")
+            if (
+                row.service.lower() == service_name.lower()
+                and row.name.lower() == action_name.lower()
+            ):
+                actions_list_placeholder.append(f"{row.service}:{row.name}")
     return actions_list_placeholder
