@@ -66,7 +66,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         # This one is Permissions management
-                        "ecr:setrepositorypolicy",
+                        "ecr:SetRepositoryPolicy",
                         "secretsmanager:DeleteResourcePolicy",
                         # These ones are not permissions management
                         "ecr:GetRepositoryPolicy",
@@ -111,7 +111,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             "Effect": "Allow",
             "Action": [
                 # This one is Permissions management
-                "ecr:setrepositorypolicy",
+                "ecr:SetRepositoryPolicy",
                 "secretsmanager:DeleteResourcePolicy",
                 # These ones are not permissions management
                 "ecr:GetRepositoryPolicy",
@@ -126,8 +126,8 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         )
         # print(permissions_management_actions)
         desired_actions_list = [
-            "ecr:setrepositorypolicy",
-            "secretsmanager:deleteresourcepolicy",
+            "ecr:SetRepositoryPolicy",
+            "secretsmanager:DeleteResourcePolicy",
         ]
         self.maxDiff = None
         self.assertListEqual(permissions_management_actions, desired_actions_list)

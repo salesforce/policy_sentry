@@ -37,8 +37,8 @@ def get_action_data(db_session, service, name):
     Get details about an IAM Action in JSON format.
 
     :param db_session: SQLAlchemy database session object
-    :param service: An AWS service prefix, like `s3` or `kms`
-    :param name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*"
+    :param service: An AWS service prefix, like `s3` or `kms`. Case insensitive.
+    :param name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*". Case insensitive.
     :return: A dictionary containing metadata about an IAM Action.
     """
     if name == "*":
@@ -271,14 +271,13 @@ def remove_actions_not_matching_access_level(db_session, actions_list, access_le
     for action in actions_list:
         try:
             service, action_name = action.split(":")
-            action = str.lower(action)
             first_result = None  # Just to appease nosetests
             level = transform_access_level_text(access_level)
             query_actions_access_level = db_session.query(ActionTable).filter(
                 and_(
-                    ActionTable.service.like(service),
-                    ActionTable.name.like(str.lower(action_name)),
-                    ActionTable.access_level.like(level),
+                    ActionTable.service.ilike(service),
+                    ActionTable.name.ilike(action_name),
+                    ActionTable.access_level.ilike(level),
                 )
             )
             first_result = query_actions_access_level.first()
@@ -311,13 +310,12 @@ def get_dependent_actions(db_session, actions_list):
     new_actions_list = []
     for action in actions_list:
         service, action_name = action.split(":")
-        action_name = str.lower(action_name)
         rows = get_action_data(db_session, service, action_name)
         for row in rows[service]:
             if row["dependent_actions"] is not None:
                 # new_actions_list.append(action)
-                dependent_actions = [x.lower() for x in row["dependent_actions"]]
-                new_actions_list.extend(dependent_actions)
+                # dependent_actions = [x.lower() for x in row["dependent_actions"]]
+                new_actions_list.extend(row["dependent_actions"])
 
     new_actions_list = list(dict.fromkeys(new_actions_list))
     return new_actions_list

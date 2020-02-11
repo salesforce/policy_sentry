@@ -23,15 +23,15 @@ class SidGroupActionsTestCase(unittest.TestCase):
             ],
         }
         sid_group = SidGroup()
-        rendered_policy = sid_group.process_template(db_session, cfg)
-        # print(json.dumps(rendered_policy, indent=4))
+        output = sid_group.process_template(db_session, cfg)
+        print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
                 {
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
-                    "Action": ["kms:creategrant"],
+                    "Action": ["kms:CreateGrant"],
                     "Resource": [
                         "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
                     ],
@@ -40,8 +40,8 @@ class SidGroupActionsTestCase(unittest.TestCase):
                     "Sid": "Ec2WriteSecuritygroup",
                     "Effect": "Allow",
                     "Action": [
-                        "ec2:authorizesecuritygroupegress",
-                        "ec2:authorizesecuritygroupingress",
+                        "ec2:AuthorizeSecurityGroupEgress",
+                        "ec2:AuthorizeSecurityGroupIngress",
                     ],
                     "Resource": [
                         "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
@@ -50,12 +50,14 @@ class SidGroupActionsTestCase(unittest.TestCase):
                 {
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
-                    "Action": ["cloudhsm:describeclusters", "kms:createcustomkeystore"],
+                    "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
                     "Resource": ["*"],
                 },
             ],
         }
-        self.assertDictEqual(desired_output, rendered_policy)
+        self.maxDiff = None
+        print(output)
+        self.assertDictEqual(output, desired_output)
 
 
 class SidGroupCrudTestCase(unittest.TestCase):
@@ -70,7 +72,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             db_session, arn_list_from_user, access_level
         )
         output = sid_group.get_sid_group()
-        # print(json.dumps(output, indent=4))
+        print(json.dumps(output, indent=4))
         desired_output = {
             "S3PermissionsmanagementBucket": {
                 "arn": ["arn:aws:s3:::example-org-s3-access-logs"],
@@ -78,10 +80,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "access_level": "Permissions management",
                 "arn_format": "arn:${Partition}:s3:::${BucketName}",
                 "actions": [
-                    "s3:deletebucketpolicy",
-                    "s3:putbucketacl",
-                    "s3:putbucketpolicy",
-                    "s3:putbucketpublicaccessblock",
+                    "s3:DeleteBucketPolicy",
+                    "s3:PutBucketAcl",
+                    "s3:PutBucketPolicy",
+                    "s3:PutBucketPublicAccessBlock",
                 ],
                 "conditions": [],
             },
@@ -91,16 +93,16 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "access_level": "Permissions management",
                 "arn_format": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
                 "actions": [
-                    "kms:creategrant",
-                    "kms:putkeypolicy",
-                    "kms:retiregrant",
-                    "kms:revokegrant",
+                    "kms:CreateGrant",
+                    "kms:PutKeyPolicy",
+                    "kms:RetireGrant",
+                    "kms:RevokeGrant",
                 ],
                 "conditions": [],
             },
         }
+        self.maxDiff = None
         self.assertDictEqual(desired_output, output)
-        # print()
         desired_policy = {
             "Version": "2012-10-17",
             "Statement": [
@@ -108,10 +110,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "S3PermissionsmanagementBucket",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deletebucketpolicy",
-                        "s3:putbucketacl",
-                        "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock",
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 },
@@ -119,10 +121,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
                     "Action": [
-                        "kms:creategrant",
-                        "kms:putkeypolicy",
-                        "kms:retiregrant",
-                        "kms:revokegrant",
+                        "kms:CreateGrant",
+                        "kms:PutKeyPolicy",
+                        "kms:RetireGrant",
+                        "kms:RevokeGrant",
                     ],
                     "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
                 },
@@ -140,10 +142,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "access_level": "Permissions management",
                 "arn_format": "arn:${Partition}:s3:::${BucketName}",
                 "actions": [
-                    "s3:deletebucketpolicy",
-                    "s3:putbucketacl",
-                    "s3:putbucketpolicy",
-                    "s3:putbucketpublicaccessblock",
+                    "s3:DeleteBucketPolicy",
+                    "s3:PutBucketAcl",
+                    "s3:PutBucketPolicy",
+                    "s3:PutBucketPublicAccessBlock",
                 ],
                 "conditions": [],
             }
@@ -155,6 +157,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             db_session, arn_list_from_user, access_level
         )
         status = sid_group.get_sid_group()
+        self.maxDiff = None
         # print(json.dumps(status, indent=4))
         self.assertEqual(status, desired_output)
         rendered_policy = sid_group.get_rendered_policy(db_session)
@@ -165,16 +168,17 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "S3PermissionsmanagementBucket",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deletebucketpolicy",
-                        "s3:putbucketacl",
-                        "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock",
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 }
             ],
         }
         # print(json.dumps(rendered_policy, indent=4))
+        self.maxDiff = None
         self.assertDictEqual(desired_policy, rendered_policy)
 
     # def test_get_actions_data_service_wide(self):
@@ -211,7 +215,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List"
         )
 
-        rendered_policy = sid_group.get_rendered_policy(db_session)
+        output = sid_group.get_rendered_policy(db_session)
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -219,10 +223,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "SecretsmanagerReadSecret",
                     "Effect": "Allow",
                     "Action": [
-                        "secretsmanager:describesecret",
-                        "secretsmanager:getresourcepolicy",
-                        "secretsmanager:getsecretvalue",
-                        "secretsmanager:listsecretversionids",
+                        "secretsmanager:DescribeSecret",
+                        "secretsmanager:GetResourcePolicy",
+                        "secretsmanager:GetSecretValue",
+                        "secretsmanager:ListSecretVersionIds",
                     ],
                     "Resource": [
                         "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -232,11 +236,11 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "S3TaggingObject",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deleteobjecttagging",
-                        "s3:deleteobjectversiontagging",
-                        "s3:putobjecttagging",
-                        "s3:putobjectversiontagging",
-                        "s3:replicatetags",
+                        "s3:DeleteObjectTagging",
+                        "s3:DeleteObjectVersionTagging",
+                        "s3:PutObjectTagging",
+                        "s3:PutObjectVersionTagging",
+                        "s3:ReplicateTags",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-sbx-vmimport/stuff"],
                 },
@@ -244,13 +248,13 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "SecretsmanagerWriteSecret",
                     "Effect": "Allow",
                     "Action": [
-                        "secretsmanager:cancelrotatesecret",
-                        "secretsmanager:deletesecret",
-                        "secretsmanager:putsecretvalue",
-                        "secretsmanager:restoresecret",
-                        "secretsmanager:rotatesecret",
-                        "secretsmanager:updatesecret",
-                        "secretsmanager:updatesecretversionstage",
+                        "secretsmanager:CancelRotateSecret",
+                        "secretsmanager:DeleteSecret",
+                        "secretsmanager:PutSecretValue",
+                        "secretsmanager:RestoreSecret",
+                        "secretsmanager:RotateSecret",
+                        "secretsmanager:UpdateSecret",
+                        "secretsmanager:UpdateSecretVersionStage",
                     ],
                     "Resource": [
                         "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret",
@@ -261,18 +265,18 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
                     "Action": [
-                        "kms:creategrant",
-                        "kms:putkeypolicy",
-                        "kms:retiregrant",
-                        "kms:revokegrant",
+                        "kms:CreateGrant",
+                        "kms:PutKeyPolicy",
+                        "kms:RetireGrant",
+                        "kms:RevokeGrant",
                     ],
                     "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
                 },
             ],
         }
-        # print(json.dumps(rendered_policy, indent=4))
+        print(json.dumps(output, indent=4))
         self.maxDiff = None
-        self.assertEqual(rendered_policy, desired_output)
+        self.assertEqual(output, desired_output)
 
     def test_write_with_template(self):
         cfg = {
@@ -294,10 +298,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "S3PermissionsmanagementBucket",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deletebucketpolicy",
-                        "s3:putbucketacl",
-                        "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock",
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 }
@@ -316,28 +320,28 @@ class SidGroupCrudTestCase(unittest.TestCase):
         actions_test_data_1 = ["iam:generateorganizationsaccessreport"]
         sid_group = SidGroup()
         sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
-        rendered_policy = sid_group.get_rendered_policy(db_session)
+        output = sid_group.get_rendered_policy(db_session)
         # print(json.dumps(rendered_policy, indent=4))
-        desired_result = {
+        desired_output = {
             "Version": "2012-10-17",
             "Statement": [
                 {
-                    "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "organizations:describepolicy",
-                        "organizations:listchildren",
-                        "organizations:listparents",
-                        "organizations:listpoliciesfortarget",
-                        "organizations:listroots",
-                        "organizations:listtargetsforpolicy",
+                        "organizations:DescribePolicy",
+                        "organizations:ListChildren",
+                        "organizations:ListParents",
+                        "organizations:ListPoliciesForTarget",
+                        "organizations:ListRoots",
+                        "organizations:ListTargetsForPolicy",
                     ],
                     "Resource": ["*"],
+                    "Sid": "MultMultNone",
                 },
                 {
                     "Sid": "IamReadAccessreport",
                     "Effect": "Allow",
-                    "Action": ["iam:generateorganizationsaccessreport"],
+                    "Action": ["iam:GenerateOrganizationsAccessReport"],
                     "Resource": [
                         "arn:${Partition}:iam::${Account}:access-report/${EntityPath}"
                     ],
@@ -345,7 +349,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         self.maxDiff = None
-        self.assertDictEqual(desired_result, rendered_policy)
+        print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)
 
     def test_resource_restriction_plus_dependent_action_simple_2(self):
         """
@@ -359,7 +364,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         sid_group.add_by_arn_and_access_level(
             db_session, ["arn:aws:iam::000000000000:access-report/somepath"], "Read"
         )
-        rendered_policy = sid_group.get_rendered_policy(db_session)
+        output = sid_group.get_rendered_policy(db_session)
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -367,25 +372,25 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "organizations:describepolicy",
-                        "organizations:listchildren",
-                        "organizations:listparents",
-                        "organizations:listpoliciesfortarget",
-                        "organizations:listroots",
-                        "organizations:listtargetsforpolicy",
+                        "organizations:DescribePolicy",
+                        "organizations:ListChildren",
+                        "organizations:ListParents",
+                        "organizations:ListPoliciesForTarget",
+                        "organizations:ListRoots",
+                        "organizations:ListTargetsForPolicy",
                     ],
                     "Resource": ["*"],
                 },
                 {
                     "Sid": "IamReadAccessreport",
                     "Effect": "Allow",
-                    "Action": ["iam:generateorganizationsaccessreport"],
+                    "Action": ["iam:GenerateOrganizationsAccessReport"],
                     "Resource": ["arn:aws:iam::000000000000:access-report/somepath"],
                 },
             ],
         }
-        # print(json.dumps(rendered_policy, indent=4))
-        self.assertDictEqual(rendered_policy, desired_output)
+        print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)
 
     def test_add_by_list_of_actions(self):
         actions_test_data_1 = ["kms:CreateCustomKeyStore", "kms:CreateGrant"]
@@ -398,7 +403,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 {
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
-                    "Action": ["kms:creategrant"],
+                    "Action": ["kms:CreateGrant"],
                     "Resource": [
                         "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
                     ],
@@ -407,16 +412,16 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "cloudhsm:describeclusters",
-                        "kms:createcustomkeystore",
+                        "cloudhsm:DescribeClusters",
+                        "kms:CreateCustomKeyStore",
                     ],
                     "Resource": ["*"],
                 },
             ],
         }
-        # print(json.dumps(output, indent=4))
+        print(json.dumps(output, indent=4))
         self.maxDiff = None
-        self.assertDictEqual(desired_output, output)
+        self.assertDictEqual(output, desired_output)
 
     def test_add_crud_with_wildcard(self):
         cfg = {
@@ -439,7 +444,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         sid_group = SidGroup()
-        rendered_policy = sid_group.process_template(db_session, cfg)
+        output = sid_group.process_template(db_session, cfg)
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -447,9 +452,9 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "ram:enablesharingwithawsorganization",
-                        "ram:getresourcepolicies",
-                        "secretsmanager:createsecret",
+                        "ram:EnableSharingWithAwsOrganization",
+                        "ram:GetResourcePolicies",
+                        "secretsmanager:CreateSecret",
                     ],
                     "Resource": ["*"],
                 },
@@ -457,14 +462,16 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "S3PermissionsmanagementBucket",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deletebucketpolicy",
-                        "s3:putbucketacl",
-                        "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock",
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 },
             ],
         }
-        # print(json.dumps(rendered_policy, indent=4))
-        self.assertDictEqual(rendered_policy, desired_output)
+        self.maxDiff = None
+        print("Yolo")
+        print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)

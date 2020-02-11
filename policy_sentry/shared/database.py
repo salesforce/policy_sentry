@@ -276,7 +276,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
                     if access_level_overrides_cfg:
                         override_result = determine_access_level_override(
                             service,
-                            str.lower(action_name),
+                            action_name,
                             table["data"][i][2],
                             access_level_overrides_cfg,
                         )

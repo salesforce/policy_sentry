@@ -14,17 +14,17 @@ desired_crud_policy = {
         {
             "Sid": "MultMultNone",
             "Effect": "Allow",
-            "Action": ["cloudhsm:describeclusters", "kms:createcustomkeystore"],
+            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
             "Resource": ["*"],
         },
         {
             "Sid": "SecretsmanagerReadSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:describesecret",
-                "secretsmanager:getresourcepolicy",
-                "secretsmanager:getsecretvalue",
-                "secretsmanager:listsecretversionids",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:ListSecretVersionIds",
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -34,13 +34,13 @@ desired_crud_policy = {
             "Sid": "SecretsmanagerWriteSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:cancelrotatesecret",
-                "secretsmanager:deletesecret",
-                "secretsmanager:putsecretvalue",
-                "secretsmanager:restoresecret",
-                "secretsmanager:rotatesecret",
-                "secretsmanager:updatesecret",
-                "secretsmanager:updatesecretversionstage",
+                "secretsmanager:CancelRotateSecret",
+                "secretsmanager:DeleteSecret",
+                "secretsmanager:PutSecretValue",
+                "secretsmanager:RestoreSecret",
+                "secretsmanager:RotateSecret",
+                "secretsmanager:UpdateSecret",
+                "secretsmanager:UpdateSecretVersionStage",
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -50,17 +50,17 @@ desired_crud_policy = {
             "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
-                "kms:creategrant",
-                "kms:putkeypolicy",
-                "kms:retiregrant",
-                "kms:revokegrant",
+                "kms:CreateGrant",
+                "kms:PutKeyPolicy",
+                "kms:RetireGrant",
+                "kms:RevokeGrant",
             ],
             "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
         },
         {
             "Sid": "SsmTaggingParameter",
             "Effect": "Allow",
-            "Action": ["ssm:addtagstoresource", "ssm:removetagsfromresource"],
+            "Action": ["ssm:AddTagsToResource", "ssm:RemoveTagsFromResource"],
             "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
         },
     ],
@@ -72,15 +72,15 @@ desired_actions_policy = {
         {
             "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
-            "Action": ["kms:creategrant"],
+            "Action": ["kms:CreateGrant"],
             "Resource": ["arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"],
         },
         {
             "Sid": "Ec2WriteSecuritygroup",
             "Effect": "Allow",
             "Action": [
-                "ec2:authorizesecuritygroupegress",
-                "ec2:authorizesecuritygroupingress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
             ],
             "Resource": [
                 "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
@@ -89,7 +89,7 @@ desired_actions_policy = {
         {
             "Sid": "MultMultNone",
             "Effect": "Allow",
-            "Action": ["cloudhsm:describeclusters", "kms:createcustomkeystore"],
+            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
             "Resource": ["*"],
         },
     ],
@@ -103,10 +103,10 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         actions_template = get_actions_template_dict()
         # print(actions_template)
         actions_to_add = [
-            "kms:creategrant",
-            "kms:createcustomkeystore",
-            "ec2:authorizesecuritygroupegress",
-            "ec2:authorizesecuritygroupingress",
+            "kms:CreateGrant",
+            "kms:CreateCustomKeyStore",
+            "ec2:AuthorizeSecurityGroupEgress",
+            "ec2:AuthorizeSecurityGroupIngress",
         ]
         actions_template["mode"] = "actions"
         actions_template["actions"].extend(actions_to_add)
@@ -120,7 +120,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print("desired_actions_policy")
         # print(json.dumps(desired_actions_policy, indent=4))
         # print("policy")
-        # print(json.dumps(policy, indent=4))
+        print(json.dumps(policy, indent=4))
         self.assertDictEqual(desired_actions_policy, policy)
 
     def test_write_crud_policy_with_library_only(self):
@@ -128,8 +128,8 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         db_session = connect_db("bundled")
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = [
-            "kms:createcustomkeystore",
-            "cloudhsm:describeclusters",
+            "kms:CreateCustomKeyStore",
+            # "cloudhsm:describeclusters",
         ]
         crud_template["mode"] = "crud"
         crud_template["read"].append(
