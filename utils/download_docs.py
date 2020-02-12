@@ -136,8 +136,6 @@ def write_iam_database_to_csv():
     for table_file in table_files:
         if os.path.exists(table_file):
             os.remove(table_file)
-        elif os.path.exists(table_file):
-            pass
     print("Writing Action Table to CSV...")
     write_action_table_csv(db_session)
     print("Writing ARN Table to CSV...")
