@@ -15,7 +15,7 @@ Commands
   * Option 2: Actions Mode. Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the documentation for more details.
 
 *
-  ``write-policy-dir``\ : This can be helpful in the Terraform use case. For more information, see the wiki.
+  ``write-policy-dir``\ : This can be helpful in writing batches of JSON policy files at a time.
 
 
 * ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.

@@ -49,7 +49,6 @@ Navigate below to get started with Policy Sentry!
    :caption: Terraform
 
    terraform/terraform-demo
-   terraform/terraform-modules
 
 
 .. toctree::
