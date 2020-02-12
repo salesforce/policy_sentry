@@ -219,7 +219,6 @@ This rapidly speeds up the time to develop IAM policies, and ensures that all po
 
 ## Quickstart
 
-
 #### Installation
 
 * Policy Sentry is available via pip. To install, run:
@@ -330,9 +329,9 @@ policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/override
 policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
 ```
 
-## Commands
+## Usage
 
-### Usage
+### Commands
 
 * `create-template`: Creates the YML file templates for use in the `write-policy` command types.
 
@@ -340,7 +339,7 @@ policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-l
   - Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the [documentation][13]
   - Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation][14].
 
-* `write-policy-dir`: This can be helpful in the Terraform use case. For more information, see the [documentation][15].
+* `write-policy-dir`: This can be helpful in writing batches of JSON Policy files at the same time. For more information, see the [documentation][15].
 
 * `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
   - Option 1: Query the Actions Table (`action-table`)
@@ -349,7 +348,7 @@ policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-l
 
 * `initialize`: (Optional). Create a SQLite database that contains all of the services available through the [Actions, Resources, and Condition Keys documentation][1]. See the [documentation][12].
 
-### Library usage
+### Python Library usage
 
 When using Policy Sentry manually, you have to build a local database file with the `policy_sentry initialize` command.
 
@@ -420,14 +419,56 @@ cat examples/yml/crud.yml | docker run -i --rm kmcquade/policy_sentry:latest "wr
 cat examples/yml/actions.yml | docker run -i --rm kmcquade/policy_sentry:latest "write-policy"
 ```
 
-### Updating the AWS HTML files
+### Terraform
 
-This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`:
+The Terraform module is published and maintained [here](https://github.com/kmcquade/terraform-aws-policy-sentry).
 
-```bash
-pipenv shell
-python3 ./utils/download_docs.py
+* Prerequisites:
+  - Install Policy Sentry (v0.7.2 or higher)
+  - Install Terraform (v0.12.8 or higher)
+
+* Create the `main.tf` in your directory with the following contents:
+
+```hcl
+module "policy_sentry_demo" {
+  source                              = "github.com/kmcquade/terraform-aws-policy-sentry"
+  name                                = var.name
+  read_access_level                   = var.read_access_level
+  write_access_level                  = var.write_access_level
+  list_access_level                   = var.list_access_level
+  tagging_access_level                = var.tagging_access_level
+  permissions_management_access_level = var.permissions_management_access_level
+  wildcard_only_actions               = var.wildcard_only_actions
+  minimize                            = var.minimize
+}
 ```
+
+* Copy and paste the contents of the `variables.tf` file [here](https://github.com/kmcquade/terraform-aws-policy-sentry/blob/master/examples/demo/variables.tf) into your directory.
+
+* Create a `terraform.tfvars` file in your directory with the following contents:
+
+```hcl
+terraform.tfvars:
+name = "PolicySentryTest"
+
+list_access_level = [
+  "arn:aws:s3:::example-org",
+]
+
+read_access_level = [
+  "arn:aws:kms:us-east-1:123456789012:key/shaq"
+]
+
+write_access_level = [
+  "arn:aws:kms:us-east-1:123456789012:key/shaq"
+]
+```
+
+* Run `terraform apply` once to create the JSON policy file.
+
+* Run `terraform apply` **again** (from the same directory) to create the IAM policy.
+
+For the full example, including GIFs depicting real output, see the README for the Terraform module [here](https://github.com/kmcquade/terraform-aws-policy-sentry).
 
 ## References
 
