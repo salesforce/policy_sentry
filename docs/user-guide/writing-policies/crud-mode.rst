@@ -153,7 +153,7 @@ Instructions
     }
 
 
-Wildcard-only options
+Wildcard-only section
 ---------------------
 
 You'll notice that as of release 0.7.1, there is a new section for `wildcard-only`:
@@ -183,7 +183,7 @@ You'll notice that as of release 0.7.1, there is a new section for `wildcard-onl
 
 The `wildcard-only` section is meant to hold IAM actions that do not support resource constraints. Most IAM actions do support resource constraints - for instance, `s3:GetObject` can be restricted according to a specific object or path within an S3 bucket ARN , like `arn:aws:s3:::mybucket/path/*`. However, some IAM actions do **not** support resource constraints.
 
-Example of Wildcard-only actions
+Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For example, run a query against the IAM database to determine "which S3 actions at the LIST access level do not support resource constraints":
@@ -219,7 +219,7 @@ The output will be:
     ]
 
 
-Wildcard-only Actions
+Basic support for Wildcard-only Actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As you can see from the previous example, there are definitely valid use cases for providing access to IAM Actions that do not support resource constraints (i.e., where the Action must be set to `Resource=*`).
@@ -295,11 +295,11 @@ Notice how the output does not include `secretsmanager:DeleteSecret`:
 
 
 
-Writing CRUD-based Policies with Wildcard-only Actions
+CRUD-based support for Wildcard-only Actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-That's very cool - but it's not terribly fast for users to have to run the CLI queries. We decided that it should be even easier than this. If you're using the `Terraform module <https://github.com/kmcquade/terraform-aws-policy-sentry>`__, then *you should never, ever have to query the IAM database*.
+That previous example is very cool - but it's not terribly fast for users to have to run the CLI queries. We decided that it should be even easier than this. If you're using the `Terraform module <https://github.com/kmcquade/terraform-aws-policy-sentry>`__, then *you should never, ever have to query the IAM database*.
 
 Now bear witness to the latest feature addition to Policy Sentry: wildcard-only, CRUD-based, service-specific actions.
 
@@ -399,3 +399,4 @@ After running the command:
         ]
     }
 
+And yes, it's all available in the Terraform module :)
