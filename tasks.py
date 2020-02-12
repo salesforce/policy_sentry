@@ -261,7 +261,7 @@ unit.add_task(run_pytest, 'pytest')
 
 docs.add_task(remove_html_files, 'remove-html-files')
 docs.add_task(make_html, 'make-html')
-docs.add_task(open_html_docs, 'open-html-docs')
+docs.add_task(open_html_docs, 'open-html')
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(run_linter, 'lint')

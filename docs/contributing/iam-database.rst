@@ -56,10 +56,11 @@ The command shown below downloads the Actions, Resources, and Condition Keys pag
 * It also add a file titled ``policy_sentry/shared/data/links.yml`` as well.
 * It also builds a SQLite database file to include as part of the PyPi package.
 
-This will update the
+This will update the HTML files stored in `policy_sentry/shared/data/docs/list_*.partial.html`:
 
 .. code-block:: bash
 
+   pipenv shell
    python3 ./utils/download_docs.py
 
 This downloads the Actions, Resources, and Condition Keys pages per-service to the ``policy_sentry/shared/data/docs`` folder. It also add a file titled ``policy_sentry/shared/data/links.yml`` as well.
