@@ -1,6 +1,7 @@
 """A few methods for parsing policies."""
 import json
 import logging
+from policy_sentry.querying.actions import get_action_data
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,7 @@ def get_actions_from_statement(statement):
 
 
 # pylint: disable=too-many-branches,too-many-statements
-def get_actions_from_policy(data):
+def get_actions_from_policy(db_session, data):
     """Given a policy dictionary, create a list of the actions"""
     actions_list = []
     statement_clause = data.get("Statement")
@@ -42,12 +43,25 @@ def get_actions_from_policy(data):
     else:
         logger.critical("Unknown error: The 'Statement' is neither a dict nor a list")
     actions_list = [x.lower() for x in actions_list]
-    actions_list.sort()
-    return actions_list
+
+    new_actions_list = []
+    if db_session:
+        for action in actions_list:
+            service, action_name = action.split(":")
+            action_data = get_action_data(db_session, service, action_name)
+            if service in action_data.keys():
+                if len(action_data[service]) > 0:
+                    new_actions_list.append(action_data[service][0]["action"])
+
+        new_actions_list.sort()
+        return new_actions_list
+    else:
+        actions_list.sort()
+        return actions_list
 
 
 # pylint: disable=too-many-branches,too-many-statements
-def get_actions_from_json_policy_file(file):
+def get_actions_from_json_policy_file(db_session, file):
     """
     read the json policy file and return a list of actions
     """
@@ -58,7 +72,7 @@ def get_actions_from_json_policy_file(file):
             # validation function/parser as there is a lot of json floating around
             # in this tool. [MJ]
             data = json.load(json_file)
-            actions_list = get_actions_from_policy(data)
+            actions_list = get_actions_from_policy(db_session, data)
 
     except:  # pylint: disable=bare-except
         logger.debug("General Error at get_actions_from_json_policy_file.")

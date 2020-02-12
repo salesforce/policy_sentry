@@ -39,10 +39,10 @@ def determine_risky_actions_from_list(requested_actions, risky_actions):
     :return: a list of any actions that are included in the file of risky actions
     """
 
-    risky_actions = get_lowercase_action_list(risky_actions)
+    risky_actions_lowercase = get_lowercase_action_list(risky_actions)
     actions_to_triage = []
     for action in requested_actions:
-        if action in risky_actions:
+        if action.lower() in risky_actions_lowercase:
             actions_to_triage.append(action)
     return actions_to_triage
 
@@ -80,7 +80,7 @@ def expand(action, db_session):
 
     if "*" in action:
         expanded = [
-            expanded_action.lower()
+            expanded_action
             # for expanded_action in all_permissions
             for expanded_action in all_actions
             if fnmatch.fnmatchcase(expanded_action.lower(), action.lower())
@@ -93,10 +93,10 @@ def expand(action, db_session):
                 "ERROR: The action %s references a wildcard for an unknown resource.",
                 action,
             )
-            return [action.lower()]
+            return [action]
 
         return expanded
-    return [action.lower()]
+    return [action]
 
 
 def determine_actions_to_expand(db_session, action_list):
@@ -142,7 +142,7 @@ def analyze_policy_file(
     :return: False if the policy name matches excluded role patterns, or if it does not, a dictionary containing the findings.
     :rtype: dict
     """
-    requested_actions = get_actions_from_json_policy_file(policy_file)
+    requested_actions = get_actions_from_json_policy_file(db_session, policy_file)
     expanded_actions = determine_actions_to_expand(db_session, requested_actions)
 
     finding = {}
@@ -181,7 +181,7 @@ def analyze_by_access_level(db_session, policy_json, access_level):
     :param policy_json: a dictionary representing the AWS JSON policy
     :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
     """
-    requested_actions = get_actions_from_policy(policy_json)
+    requested_actions = get_actions_from_policy(db_session, policy_json)
     expanded_actions = determine_actions_to_expand(db_session, requested_actions)
     actions_by_level = remove_actions_not_matching_access_level(
         db_session, expanded_actions, access_level

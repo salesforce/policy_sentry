@@ -151,11 +151,11 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                     "Sid": "SsmReadParameter",
                     "Effect": "Allow",
                     "Action": [
-                        "ssm:getparameter",
-                        "ssm:getparameterhistory",
-                        "ssm:getparameters",
-                        "ssm:getparametersbypath",
-                        "ssm:listtagsforresource"
+                        "ssm:GetParameter",
+                        "ssm:GetParameterHistory",
+                        "ssm:GetParameters",
+                        "ssm:GetParametersByPath",
+                        "ssm:ListTagsForResource"
                     ],
                     "Resource": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test"
@@ -165,10 +165,10 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                     "Sid": "SsmWriteParameter",
                     "Effect": "Allow",
                     "Action": [
-                        "ssm:deleteparameter",
-                        "ssm:deleteparameters",
-                        "ssm:labelparameterversion",
-                        "ssm:putparameter"
+                        "ssm:DeleteParameter",
+                        "ssm:DeleteParameters",
+                        "ssm:LabelParameterVersion",
+                        "ssm:PutParameter"
                     ],
                     "Resource": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test"
@@ -178,7 +178,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         }
         # with self.assertRaises(Exception):
         result = write_policy_with_template(db_session, crud_file_input)
-        print(json.dumps(result, indent=4))
         self.assertDictEqual(desired_output, result)
 
 

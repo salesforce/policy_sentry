@@ -82,6 +82,8 @@ def initialize(access_level_overrides_file, fetch, build, log_level):
     # provided by AWS documentation
     create_default_overrides_file()
 
+    print("Database will be stored here: %s", database_path)
+
     if not build and not fetch:
         # copy from the bundled database location to the destination path
         shutil.copy(BUNDLED_DATABASE_FILE_PATH, database_path)

@@ -21,14 +21,14 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
             "wildcard": [
                 # The first three are legitimately wildcard only.
                 # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                "ram:enablesharingwithawsorganization",
-                "ram:getresourcepolicies",
-                "secretsmanager:createsecret",
+                "ram:EnableSharingWithAwsOrganization",
+                "ram:GetResourcePolicies",
+                "secretsmanager:CreateSecret",
                 # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
                 # bypassing this mechanism, while allowing them to explicitly
                 # request specific privs that require wildcard mode. This next value -
                 # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                "secretsmanager:putsecretvalue",
+                "secretsmanager:PutSecretValue",
             ],
         }
         db_session = connect_db("bundled")
@@ -41,9 +41,9 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "ram:enablesharingwithawsorganization",
-                        "ram:getresourcepolicies",
-                        "secretsmanager:createsecret",
+                        "ram:EnableSharingWithAwsOrganization",
+                        "ram:GetResourcePolicies",
+                        "secretsmanager:CreateSecret",
                     ],
                     "Resource": ["*"],
                 },
@@ -51,16 +51,17 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     "Sid": "S3PermissionsmanagementBucket",
                     "Effect": "Allow",
                     "Action": [
-                        "s3:deletebucketpolicy",
-                        "s3:putbucketacl",
-                        "s3:putbucketpolicy",
-                        "s3:putbucketpublicaccessblock",
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock",
                     ],
                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 },
             ],
         }
         self.maxDiff = None
+        print(output)
         self.assertDictEqual(desired_output, output)
 
 

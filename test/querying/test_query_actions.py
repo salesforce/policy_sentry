@@ -1,4 +1,5 @@
 import unittest
+import json
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.querying.actions import (
@@ -22,30 +23,31 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_for_service(self):
         """querying.actions.get_actions_for_service"""
         desired_output = [
-            "ram:acceptresourceshareinvitation",
-            "ram:associateresourceshare",
-            "ram:associateresourcesharepermission",
-            "ram:createresourceshare",
-            "ram:deleteresourceshare",
-            "ram:disassociateresourceshare",
-            "ram:disassociateresourcesharepermission",
-            "ram:enablesharingwithawsorganization",
-            "ram:getpermission",
-            "ram:getresourcepolicies",
-            "ram:getresourceshareassociations",
-            "ram:getresourceshareinvitations",
-            "ram:getresourceshares",
-            "ram:listpendinginvitationresources",
-            "ram:listpermissions",
-            "ram:listprincipals",
-            "ram:listresourcesharepermissions",
-            "ram:listresources",
-            "ram:rejectresourceshareinvitation",
-            "ram:tagresource",
-            "ram:untagresource",
-            "ram:updateresourceshare",
+            "ram:AcceptResourceShareInvitation",
+            "ram:AssociateResourceShare",
+            "ram:AssociateResourceSharePermission",
+            "ram:CreateResourceShare",
+            "ram:DeleteResourceShare",
+            "ram:DisassociateResourceShare",
+            "ram:DisassociateResourceSharePermission",
+            "ram:EnableSharingWithAwsOrganization",
+            "ram:GetPermission",
+            "ram:GetResourcePolicies",
+            "ram:GetResourceShareAssociations",
+            "ram:GetResourceShareInvitations",
+            "ram:GetResourceShares",
+            "ram:ListPendingInvitationResources",
+            "ram:ListPermissions",
+            "ram:ListPrincipals",
+            "ram:ListResourceSharePermissions",
+            "ram:ListResources",
+            "ram:RejectResourceShareInvitation",
+            "ram:TagResource",
+            "ram:UntagResource",
+            "ram:UpdateResourceShare",
         ]
         output = get_actions_for_service(db_session, "ram")
+        print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
@@ -54,7 +56,7 @@ class QueryActionsTestCase(unittest.TestCase):
         desired_output = {
             "ram": [
                 {
-                    "action": "ram:createresourceshare",
+                    "action": "ram:CreateResourceShare",
                     "description": "Create resource share with provided resource(s) and/or principal(s)",
                     "access_level": "Permissions management",
                     "resource_arn_format": "*",
@@ -71,22 +73,22 @@ class QueryActionsTestCase(unittest.TestCase):
             ]
         }
         output = get_action_data(db_session, "ram", "createresourceshare")
-        # print(json.dumps(output, indent=4))
+        print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
     def test_get_actions_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_that_support_wildcard_arns_only"""
         desired_output = [
-            "secretsmanager:createsecret",
-            "secretsmanager:getrandompassword",
-            "secretsmanager:listsecrets",
+            "secretsmanager:CreateSecret",
+            "secretsmanager:GetRandomPassword",
+            "secretsmanager:ListSecrets",
         ]
         output = get_actions_that_support_wildcard_arns_only(
             db_session, "secretsmanager"
         )
         self.maxDiff = None
-        # print(output)
+        print(output)
         self.assertListEqual(desired_output, output)
 
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
@@ -100,67 +102,70 @@ class QueryActionsTestCase(unittest.TestCase):
         read_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             db_session, "s3", "Read"
         )
-        self.assertListEqual(permissions_output, ["s3:putaccountpublicaccessblock"])
-        self.assertListEqual(list_output, ["s3:listallmybuckets"])
+        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
+        self.assertListEqual(list_output, ["s3:ListAllMyBuckets"])
         self.assertListEqual(
             read_output,
             [
-                "s3:getaccesspoint",
-                "s3:getaccountpublicaccessblock",
-                "s3:listaccesspoints",
+                "s3:GetAccessPoint",
+                "s3:GetAccountPublicAccessBlock",
+                "s3:ListAccessPoints",
             ],
         )
 
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
         desired_output = [
-            "ram:acceptresourceshareinvitation",
-            "ram:associateresourceshare",
-            "ram:createresourceshare",
-            "ram:deleteresourceshare",
-            "ram:disassociateresourceshare",
-            "ram:enablesharingwithawsorganization",
-            "ram:rejectresourceshareinvitation",
-            "ram:updateresourceshare",
+            "ram:AcceptResourceShareInvitation",
+            "ram:AssociateResourceShare",
+            "ram:CreateResourceShare",
+            "ram:DeleteResourceShare",
+            "ram:DisassociateResourceShare",
+            "ram:EnableSharingWithAwsOrganization",
+            "ram:RejectResourceShareInvitation",
+            "ram:UpdateResourceShare",
         ]
         output = get_actions_with_access_level(
             db_session, "ram", "Permissions management"
         )
         # print(output)
         self.maxDiff = None
+        print(output)
         self.assertListEqual(desired_output, output)
 
     def test_get_actions_with_arn_type_and_access_level(self):
         """querying.actions.get_actions_with_arn_type_and_access_level"""
         desired_output = [
-            "ram:associateresourceshare",
+            "ram:AssociateResourceShare",
             # 'ram:createresourceshare',
-            "ram:deleteresourceshare",
-            "ram:disassociateresourceshare",
-            "ram:updateresourceshare",
+            "ram:DeleteResourceShare",
+            "ram:DisassociateResourceShare",
+            "ram:UpdateResourceShare",
         ]
         output = get_actions_with_arn_type_and_access_level(
             db_session, "ram", "resource-share", "Permissions management"
         )
-        # print(output)
+        print(output)
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
         desired_output = [
-            "ses:sendemail",
-            "ses:sendbulktemplatedemail",
-            "ses:sendcustomverificationemail",
-            "ses:sendemail",
-            "ses:sendrawemail",
-            "ses:sendtemplatedemail",
+            'ses:SendEmail',
+            'ses:SendBulkTemplatedEmail',
+            'ses:SendCustomVerificationEmail',
+            'ses:SendEmail',
+            'ses:SendRawEmail',
+            'ses:SendTemplatedEmail'
         ]
+
         output = get_actions_matching_condition_key(
             db_session, "ses", "ses:FeedbackAddress"
         )
         # print(output)
         self.maxDiff = None
+        print(output)
         self.assertListEqual(desired_output, output)
 
     def test_get_actions_matching_condition_crud_and_arn(self):
@@ -172,36 +177,39 @@ class QueryActionsTestCase(unittest.TestCase):
             "arn:${Partition}:elasticbeanstalk:${Region}:${Account}:environment/${ApplicationName}/${EnvironmentName}",
         )
         desired_results = [
-            "elasticbeanstalk:describeenvironments",
+            "elasticbeanstalk:DescribeEnvironments",
         ]
+        print(results)
         self.assertListEqual(desired_results, results)
 
     def test_get_actions_matching_condition_crud_and_wildcard_arn(self):
         """querying.actions.get_actions_matching_condition_crud_and_wildcard_arn"""
         desired_results = [
-            "swf:pollforactivitytask",
-            "swf:pollfordecisiontask",
-            "swf:respondactivitytaskcompleted",
-            "swf:startworkflowexecution",
+            "swf:PollForActivityTask",
+            "swf:PollForDecisionTask",
+            "swf:RespondActivityTaskCompleted",
+            "swf:StartWorkflowExecution",
         ]
         results = get_actions_matching_condition_crud_and_arn(
             db_session, "swf:taskList.name", "Write", "*"
         )
+        print(results)
         self.assertListEqual(desired_results, results)
 
         # This one leverages a condition key that is partway through a string in the database
         # - luckily, SQLAlchemy's ilike function allows us to find it anyway because it's a substring
         # kms:CallerAccount,kms:EncryptionAlgorithm,kms:EncryptionContextKeys,kms:ViaService
         desired_results = [
-            "kms:decrypt",
-            "kms:encrypt",
-            "kms:generatedatakey",
-            "kms:generatedatakeypair",
-            "kms:generatedatakeypairwithoutplaintext",
-            "kms:generatedatakeywithoutplaintext",
-            "kms:reencryptfrom",
-            "kms:reencryptto",
+            "kms:Decrypt",
+            "kms:Encrypt",
+            "kms:GenerateDataKey",
+            "kms:GenerateDataKeyPair",
+            "kms:GenerateDataKeyPairWithoutPlaintext",
+            "kms:GenerateDataKeyWithoutPlaintext",
+            "kms:ReEncryptFrom",
+            "kms:ReEncryptTo",
         ]
+        print(results)
         results = get_actions_matching_condition_crud_and_arn(
             db_session, "kms:EncryptionAlgorithm", "Write", "*"
         )
@@ -210,11 +218,11 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_remove_actions_not_matching_access_level(self):
         """querying.actions.remove_actions_not_matching_access_level"""
         actions_list = [
-            "ecr:BatchGetImage",  # Read
-            "ecr:CreateRepository",  # Write
-            "ecr:DescribeRepositories",  # List
-            "ecr:TagResource",  # Tagging
-            "ecr:SetRepositoryPolicy",  # Permissions management
+            "ecr:batchgetimage",  # read
+            "ecr:createrepository",  # write
+            "ecr:describerepositories",  # list
+            "ecr:tagresource",  # tagging
+            "ecr:setrepositorypolicy",  # permissions management
         ]
         # print("Read ")
         self.maxDiff = None
@@ -222,27 +230,27 @@ class QueryActionsTestCase(unittest.TestCase):
         read_result = remove_actions_not_matching_access_level(
             db_session, actions_list, "read"
         )
-        self.assertListEqual(read_result, ["ecr:batchgetimage"])
+        self.assertListEqual(read_result, ["ecr:BatchGetImage"])
         # Write
         write_result = remove_actions_not_matching_access_level(
             db_session, actions_list, "write"
         )
-        self.assertListEqual(write_result, ["ecr:createrepository"])
+        self.assertListEqual(write_result, ["ecr:CreateRepository"])
         # List
         list_result = remove_actions_not_matching_access_level(
             db_session, actions_list, "list"
         )
-        self.assertListEqual(list_result, ["ecr:describerepositories"])
+        self.assertListEqual(list_result, ["ecr:DescribeRepositories"])
         # Tagging
         tagging_result = remove_actions_not_matching_access_level(
             db_session, actions_list, "tagging"
         )
-        self.assertListEqual(tagging_result, ["ecr:tagresource"])
+        self.assertListEqual(tagging_result, ["ecr:TagResource"])
         # Permissions management
         permissions_result = remove_actions_not_matching_access_level(
             db_session, actions_list, "permissions-management"
         )
-        self.assertListEqual(permissions_result, ["ecr:setrepositorypolicy"])
+        self.assertListEqual(permissions_result, ["ecr:SetRepositoryPolicy"])
 
     def test_get_dependent_actions(self):
         """querying.actions.get_dependent_actions"""
@@ -251,20 +259,20 @@ class QueryActionsTestCase(unittest.TestCase):
         dependent_actions_several = ["chime:getcdrbucket"]
         self.assertEqual(
             get_dependent_actions(db_session, dependent_actions_single),
-            ["iam:passrole"],
+            ["iam:PassRole"],
         )
         self.assertEqual(
             get_dependent_actions(db_session, dependent_actions_double),
-            ["s3:getbucketpolicy", "s3:putbucketpolicy"],
+            ["s3:GetBucketPolicy", "s3:PutBucketPolicy"],
         )
         self.assertEqual(
             get_dependent_actions(db_session, dependent_actions_several),
             [
-                "s3:getbucketacl",
-                "s3:getbucketlocation",
-                "s3:getbucketlogging",
-                "s3:getbucketversioning",
-                "s3:getbucketwebsite",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation",
+                "s3:GetBucketLogging",
+                "s3:GetBucketVersioning",
+                "s3:GetBucketWebsite",
             ],
         )
 
@@ -280,12 +288,15 @@ class QueryActionsTestCase(unittest.TestCase):
         ]
         desired_output = [
             # 3 wildcard only actions
-            "secretsmanager:createsecret",
-            "secretsmanager:getrandompassword",
-            "secretsmanager:listsecrets",
+            "secretsmanager:CreateSecret",
+            "secretsmanager:GetRandomPassword",
+            "secretsmanager:ListSecrets",
         ]
         output = remove_actions_that_are_not_wildcard_arn_only(
             db_session, provided_actions_list
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+# TODO: Test it when we give actions with wEiRd cases, and it should feed us back the cleaned up version.
+# # TODO: Because above, it actually would fail when they were lowercase, and it would pass when they were UpperCamelCase

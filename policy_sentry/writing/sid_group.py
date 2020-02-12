@@ -86,9 +86,9 @@ class SidGroup:
         :rtype: dict
         """
         statements = []
-        all_actions = get_all_actions(db_session)
+        # Only set the actions to lowercase if minimize is provided
+        all_actions = get_all_actions(db_session, lowercase=True)
 
-        #
         # render the policy
         for sid in self.sids:
             actions = self.sids[sid]["actions"]
@@ -142,7 +142,8 @@ class SidGroup:
                             db_session, service_prefix, resource_type_name, access_level
                         )
                         # Make supplied actions lowercase
-                        supplied_actions = [x.lower() for x in actions]
+                        # supplied_actions = [x.lower() for x in actions]
+                        supplied_actions = actions.copy()
                         dependent_actions = get_dependent_actions(
                             db_session, supplied_actions
                         )
@@ -152,9 +153,10 @@ class SidGroup:
                         ]
                         if len(dependent_actions) > 0:
                             for dep_action in dependent_actions:
-                                self.add_action_without_resource_constraint(
-                                    str.lower(dep_action)
-                                )
+                                self.add_action_without_resource_constraint(dep_action)
+                                # self.add_action_without_resource_constraint(
+                                #     str.lower(dep_action)
+                                # )
 
                         temp_sid_dict = {
                             "arn": [arn],
@@ -201,7 +203,7 @@ class SidGroup:
         :param supplied_actions: A list of supplied actions
         """
         # Make supplied actions lowercase
-        supplied_actions = [x.lower() for x in supplied_actions]
+        # supplied_actions = [x.lower() for x in supplied_actions]
         # actions_list = get_dependent_actions(db_session, supplied_actions)
         dependent_actions = get_dependent_actions(db_session, supplied_actions)
         # List comprehension to get all dependent actions that are not in the supplied actions.
@@ -260,7 +262,8 @@ class SidGroup:
         # TODO: This is, in fact, a great opportunity to introduce conditions. But we aren't there yet.
         if len(dependent_actions) > 0:
             for dep_action in dependent_actions:
-                self.add_action_without_resource_constraint(str.lower(dep_action))
+                self.add_action_without_resource_constraint(dep_action)
+                # self.add_action_without_resource_constraint(str.lower(dep_action))
         # Now, because add_by_arn_and_access_level() adds all actions under an access level, we have to
         # remove all actions that do not match the supplied_actions. This is done in-place.
         self.remove_actions_not_matching_these(supplied_actions + dependent_actions)
@@ -347,7 +350,7 @@ class SidGroup:
             placeholder_actions_list = []
             for action in self.sids[sid]["actions"]:
                 # if the action is not in the list of selected actions, don't copy it to the placeholder list
-                if action in actions_to_keep:
+                if action.lower() in actions_to_keep:
                     placeholder_actions_list.append(action)
             # Clear the list and then extend it to include the updated actions only
             self.sids[sid]["actions"].clear()
@@ -434,7 +437,7 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
             continue
         rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
         for row in rows:
-            if row == action:
+            if row.lower() == action.lower():
                 actions_list_placeholder.append(f"{service_name}:{action_name}")
     return actions_list_placeholder
 

@@ -90,30 +90,30 @@ def determine_access_level_override(
     # minor capitalization differences
     if str.lower(provided_access_level) == str.lower("Read"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Read"
+            service_override_config, str.lower(action_name), "Read"
         )
     elif str.lower(provided_access_level) == str.lower("Write"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Write"
+            service_override_config, str.lower(action_name), "Write"
         )
     elif str.lower(provided_access_level) == str.lower("List"):
         override_decision = override_access_level(
-            service_override_config, action_name, "List"
+            service_override_config, str.lower(action_name), "List"
         )
     elif str.lower(provided_access_level) == str.lower("Permissions management"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Permissions management"
+            service_override_config, str.lower(action_name), "Permissions management"
         )
     elif str.lower(provided_access_level) == str.lower("Tagging"):
         override_decision = override_access_level(
-            service_override_config, action_name, "Tagging"
+            service_override_config, str.lower(action_name), "Tagging"
         )
     else:
         logger.debug(
             "Unknown error - determine_override_status() can't determine the access level of %s:%s during "
             "the scraping process. The provided access level was %s. Exiting...",
             service,
-            action_name,
+            str.lower(action_name),
             provided_access_level,
         )
         sys.exit()

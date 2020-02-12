@@ -12,6 +12,7 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
+    # TODO: Write a wEiRd nOtCaMeLCaSe version of this
     def test_determine_actions_to_expand(self):
         """
         test_determine_actions_to_expand: provide expanded list of actions, like ecr:*
@@ -20,35 +21,35 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         action_list = ["ecr:*"]
         self.maxDiff = None
         desired_result = [
-            "ecr:batchchecklayeravailability",
-            "ecr:deleterepository",
-            "ecr:getauthorizationtoken",
-            "ecr:getlifecyclepolicy",
-            "ecr:deleterepositorypolicy",
-            "ecr:getdownloadurlforlayer",
-            "ecr:untagresource",
-            "ecr:startlifecyclepolicypreview",
-            "ecr:listimages",
-            "ecr:completelayerupload",
-            "ecr:tagresource",
-            "ecr:getrepositorypolicy",
-            "ecr:initiatelayerupload",
-            "ecr:setrepositorypolicy",
-            "ecr:startimagescan",
-            "ecr:putlifecyclepolicy",
-            "ecr:deletelifecyclepolicy",
-            "ecr:describeimages",
-            "ecr:describeimagescanfindings",
-            "ecr:createrepository",
-            "ecr:describerepositories",
-            "ecr:batchgetimage",
-            "ecr:putimage",
-            "ecr:putimagescanningconfiguration",
-            "ecr:putimagetagmutability",
-            "ecr:getlifecyclepolicypreview",
-            "ecr:listtagsforresource",
-            "ecr:uploadlayerpart",
-            "ecr:batchdeleteimage",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:BatchDeleteImage",
+            "ecr:BatchGetImage",
+            "ecr:CompleteLayerUpload",
+            "ecr:CreateRepository",
+            "ecr:DeleteLifecyclePolicy",
+            "ecr:DeleteRepository",
+            "ecr:DeleteRepositoryPolicy",
+            "ecr:DescribeImageScanFindings",
+            "ecr:DescribeImages",
+            "ecr:DescribeRepositories",
+            "ecr:GetAuthorizationToken",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetLifecyclePolicy",
+            "ecr:GetLifecyclePolicyPreview",
+            "ecr:GetRepositoryPolicy",
+            "ecr:InitiateLayerUpload",
+            "ecr:ListImages",
+            "ecr:ListTagsForResource",
+            "ecr:PutImage",
+            "ecr:PutImageScanningConfiguration",
+            "ecr:PutImageTagMutability",
+            "ecr:PutLifecyclePolicy",
+            "ecr:SetRepositoryPolicy",
+            "ecr:StartImageScan",
+            "ecr:StartLifecyclePolicyPreview",
+            "ecr:TagResource",
+            "ecr:UntagResource",
+            "ecr:UploadLayerPart"
         ]
         # print(determine_actions_to_expand(db_session, action_list))
         self.maxDiff = None
@@ -66,12 +67,12 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         # This one is Permissions management
-                        "ecr:setrepositorypolicy",
+                        "ecr:SetRepositoryPolicy",
                         "secretsmanager:DeleteResourcePolicy",
                         # These ones are not permissions management
-                        "ecr:GetRepositoryPolicy",
-                        "ecr:DescribeRepositories",
-                        "ecr:ListImages",
+                        "ecr:getrepositorypolicy",
+                        "ecr:describerepositories",
+                        "ecr:listimages",
                         "ecr:DescribeImages",
                     ],
                     "Resource": "*",
@@ -96,11 +97,11 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         )
         # print(permissions_management_actions)
         desired_actions_list = [
-            "ecr:setrepositorypolicy",
-            "iam:createaccesskey",
-            "iam:deleteaccesskey",
-            "iam:updateaccesskey",
-            "secretsmanager:deleteresourcepolicy",
+            "ecr:SetRepositoryPolicy",
+            "iam:CreateAccessKey",
+            "iam:DeleteAccessKey",
+            "iam:UpdateAccessKey",
+            "secretsmanager:DeleteResourcePolicy",
         ]
         self.maxDiff = None
         self.assertListEqual(permissions_management_actions, desired_actions_list)
@@ -111,7 +112,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             "Effect": "Allow",
             "Action": [
                 # This one is Permissions management
-                "ecr:setrepositorypolicy",
+                "ecr:SetRepositoryPolicy",
                 "secretsmanager:DeleteResourcePolicy",
                 # These ones are not permissions management
                 "ecr:GetRepositoryPolicy",
@@ -126,8 +127,8 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         )
         # print(permissions_management_actions)
         desired_actions_list = [
-            "ecr:setrepositorypolicy",
-            "secretsmanager:deleteresourcepolicy",
+            "ecr:SetRepositoryPolicy",
+            "secretsmanager:DeleteResourcePolicy",
         ]
         self.maxDiff = None
         self.assertListEqual(permissions_management_actions, desired_actions_list)
