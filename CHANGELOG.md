@@ -7,8 +7,9 @@ Other Pending:
 * Update the GIF and the Medium blog
 
 ## Next release (Unreleased)
-* Fix for #124. Working on making sure the output is with UpperCamelCase rather than all lowercase, for human readability.
+* Fixes #124. Output will be in UpperCamelCase rather than all lowercase, for human readability.
 * If `--minimize` is specified for `write-policy`, it will give me lowercase. Otherwise, it will be UpperCamelCase.
+* Fixes #126
 
 ## 0.7.0.2 (2020-02-10)
 * Ignore empty entries in the yaml template
