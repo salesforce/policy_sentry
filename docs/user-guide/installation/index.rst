@@ -26,3 +26,13 @@ To enable ZSH completion, put this in your `.zshrc`:
    eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 
 
+Docker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: docker.rst
+
+
+Rebuilding the IAM Database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: initialize.rst

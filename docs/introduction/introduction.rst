@@ -1,8 +1,6 @@
 Overview
 =============
 
-`Policy Sentry <https://github.com/salesforce/policy_sentry>`__ is an IAM Least Privilege Policy Generator, auditor, and analysis database.
-
 Motivation
 ----------
 
@@ -222,23 +220,3 @@ Usage
   - Option 3: Query the Conditions Table (``condition-table``)
 
 * ``initialize``\ : (Optional) Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`_. See the `documentation <https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html>`__.
-
-
-Author Information
-------------------
-
-Author:
-
-* `Kinnaird McQuade <https://github.com/kmcquade>`_
-
-  * `Twitter <https://twitter.com/kmcquade3>`__
-  * `Keybase <https://keybase.io/kmcquade>`__
-  * `LinkedIn <https://www.linkedin.com/in/kinnairdmcquade/>`__
-
-Contributors:
-
-* `Matt Jones <https://github.com/mattyjones>`__
-
-  * `Twitter <https://twitter.com/CaffeinatedEng>`__
-  * `Keybase <https://keybase.io/urlugal>`__
-  * `LinkedIn <https://www.linkedin.com/in/mattyjones/>`__

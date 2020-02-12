@@ -1,4 +1,4 @@
-Command cheat sheet
+Cheat sheet
 -------------------
 
 Commands
@@ -20,9 +20,9 @@ Commands
 
 * ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
 
-  * Option 1: Query the Actions Table (``--table action``)
-  * Option 2: Query the ARNs Table (``--table arn``)
-  * Option 3: Query the Conditions Table (``--table condition``)
+  * Option 1: Query the Actions Table (``action-table``)
+  * Option 2: Query the ARNs Table (``arn-table``)
+  * Option 3: Query the Conditions Table (``condition-table``)
 
 *
   ``initialize``\ : (Optional) Create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__. See the `documentation <./initialize.html>`__.

@@ -259,7 +259,7 @@ integration.add_task(query_with_yaml, 'query-yaml')
 unit.add_task(run_nosetests, 'nose')
 unit.add_task(run_pytest, 'pytest')
 
-docs.add_task(remove_html_files, 'remove-html-files')
+docs.add_task(remove_html_files, 'clean-html')
 docs.add_task(make_html, 'make-html')
 docs.add_task(open_html_docs, 'open-html')
 
