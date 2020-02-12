@@ -15,21 +15,21 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-            "wildcard": [
-                # The first three are legitimately wildcard only.
-                # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                "ram:EnableSharingWithAwsOrganization",
-                "ram:GetResourcePolicies",
-                "secretsmanager:CreateSecret",
-                # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                # bypassing this mechanism, while allowing them to explicitly
-                # request specific privs that require wildcard mode. This next value -
-                # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                "secretsmanager:PutSecretValue",
-            ],
+            "wildcard-only": {
+                "single-actions": [
+                    # The first three are legitimately wildcard only.
+                    # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                    "ram:EnableSharingWithAwsOrganization",
+                    "ram:GetResourcePolicies",
+                    "secretsmanager:CreateSecret",
+                    # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                    # bypassing this mechanism, while allowing them to explicitly
+                    # request specific privs that require wildcard mode. This next value -
+                    # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                    "secretsmanager:PutSecretValue",
+                ],
+            }
         }
         db_session = connect_db("bundled")
         output = write_policy_with_template(db_session, cfg)

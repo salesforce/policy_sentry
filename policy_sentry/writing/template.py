@@ -3,22 +3,15 @@ These can be used for generating policies
 """
 from jinja2 import Template
 
-ACTIONS_TEMPLATE = """# Generate my policy when I know the Actions
-mode: actions
+ACTIONS_TEMPLATE = """mode: actions
 name: {{ name }}
-description: '' # For human auditability
-role_arn: '' # For human auditability
 actions:
 - ''
 """
 
-CRUD_TEMPLATE = """# Generate my policy when I know the access levels and ARNs
-mode: crud
+CRUD_TEMPLATE = """mode: crud
 name: {{ name }}
-description: '' # For human auditability
-role_arn: '' # For human auditability
-# Insert ARNs under each access level below
-# If you do not need to use certain access levels, delete them.
+# Specify resource ARNs
 read:
 - ''
 write:
@@ -29,30 +22,44 @@ tagging:
 - ''
 permissions-management:
 - ''
-# If the policy needs to use IAM actions that cannot be restricted to ARNs,
-# like ssm:DescribeParameters, specify those actions here.
-wildcard:
-- ''
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide - like 's3' or 'ec2'
+  service-read:
+  - ''
+  service-write:
+  - ''
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
 """
 
 CRUD_TEMPLATE_DICT = {
     "mode": "crud",
     "name": "",
-    "description": "",
-    "role_arn": "",
     "read": [],
     "write": [],
     "list": [],
     "tagging": [],
     "permissions-management": [],
-    "wildcard": [],
+    "wildcard-only": {
+        "single-actions": [],
+        "service-read": [],
+        "service-write": [],
+        "service-list": [],
+        "service-tagging": [],
+        "service-permissions-management": [],
+    },
 }
 
 ACTIONS_TEMPLATE_DICT = {
     "mode": "actions",
     "name": "",
-    "description": "",
-    "role_arn": "",
     "actions": [],
 }
 

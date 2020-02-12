@@ -285,16 +285,19 @@ class SidGroup:
             if "mode" in cfg.keys():
                 if cfg["mode"] == "crud":
                     check_crud_schema(cfg)
-                    if "wildcard" in cfg.keys():
-                        provided_wildcard_actions = cfg["wildcard"]
-                        if isinstance(provided_wildcard_actions, list):
-                            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                                db_session, provided_wildcard_actions
-                            )
-                            if len(verified_wildcard_actions) > 0:
-                                self.add_by_list_of_actions(
-                                    db_session, verified_wildcard_actions
+                    if "wildcard-only" in cfg.keys():
+                        if "single-actions" in cfg["wildcard-only"]:
+                            provided_wildcard_actions = cfg["wildcard-only"][
+                                "single-actions"
+                            ]
+                            if isinstance(provided_wildcard_actions, list):
+                                verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                                    db_session, provided_wildcard_actions
                                 )
+                                if len(verified_wildcard_actions) > 0:
+                                    self.add_by_list_of_actions(
+                                        db_session, verified_wildcard_actions
+                                    )
                     if "read" in cfg.keys():
                         if cfg["read"] is not None and cfg["read"][0] != "":
                             self.add_by_arn_and_access_level(
