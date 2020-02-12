@@ -78,4 +78,48 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 #         policy = write_policy_with_template(db_session, cfg)
 #         print(policy)
 
+class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
+    def test_add_wildcard_only_actions_matching_services_and_access_level(self):
+        """test_add_wildcard_only_actions_matching_services_and_access_level: We'd never write a policy like this
+        IRL but doing this as a quality check against how it handles the database """
+        policy_file_path = abspath(
+            join(
+                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-with-wildcard-service-level.yml",
+            )
+        )
+        cfg = read_yaml_file(policy_file_path)
 
+        output = write_policy_with_template(db_session, cfg)
+        print(json.dumps(output, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ecr:GetAuthorizationToken",
+                        "s3:GetAccessPoint",
+                        "s3:GetAccountPublicAccessBlock",
+                        "s3:ListAccessPoints"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(output, desired_output)

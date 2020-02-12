@@ -5,7 +5,8 @@
 Other Pending:
 * Update the GIF
 
-## Next release (Unreleased)
+## 0.7.1 (Unreleased)
+* Template is modified again. This allows easy additions of wildcard-only actions with access levels, so you never have to look at individual IAM actions again.
 * Fixes #124. Output will be in UpperCamelCase rather than all lowercase, for human readability. Note that if `--minimize` is specified for `write-policy`, it will give me lowercase. Otherwise, it will be UpperCamelCase.
 * Terraform module - #112
 * Small bugs - #126

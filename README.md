@@ -1,4 +1,3 @@
-
 # Policy Sentry
 
 IAM Least Privilege Policy Generator, auditor, and analysis database.
@@ -108,11 +107,8 @@ It will generate a file like this:
 
 ```yaml
 mode: crud
-name: myRole
-description: '' # For human auditability
-role_arn: '' # For human auditability
-# Insert ARNs under each access level below
-# If you do not need to use certain access levels, delete them.
+name: {{ name }}
+# Specify resource ARNs
 read:
 - ''
 write:
@@ -123,10 +119,21 @@ tagging:
 - ''
 permissions-management:
 - ''
-# If the policy needs to use IAM actions that cannot be restricted to ARNs,
-# like ssm:DescribeParameters, specify those actions here.
-wildcard:
-- ''
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide, per access level - like 's3' or 'ec2'
+  service-read:
+  - ''
+  service-write:
+  - ''
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
 ```
 
 Then just fill it out:
@@ -134,8 +141,6 @@ Then just fill it out:
 ```yaml
 mode: crud
 name: myRole
-description: 'Justification for privileges'
-role_arn: 'arn:aws:iam::123456789102:role/myRole'
 read:
 - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
 write:
@@ -448,7 +453,6 @@ module "policy_sentry_demo" {
 * Create a `terraform.tfvars` file in your directory with the following contents:
 
 ```hcl
-terraform.tfvars:
 name = "PolicySentryTest"
 
 list_access_level = [
