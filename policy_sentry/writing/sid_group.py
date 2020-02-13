@@ -298,7 +298,6 @@ class SidGroup:
                                 )
                     if "service-read" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-read"]:
-                            print(cfg["wildcard-only"]["service-read"])
                             if cfg["wildcard-only"]["service-read"][0] != "":
                                 service_read = cfg["wildcard-only"]["service-read"]
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
