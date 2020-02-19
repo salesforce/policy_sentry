@@ -12,7 +12,24 @@ db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
-    # TODO: Write a wEiRd nOtCaMeLCaSe version of this
+    def test_a_determine_actions_to_expand_not_upper_camelcase(self):
+        """test_determine_actions_to_expand_not_upper_camelcase: The nOtCaMeLcAsE version of the same test"""
+        action_list = ["ecr:pUt*"]
+        self.maxDiff = None
+        desired_result = [
+            "ecr:PutImage",
+            "ecr:PutImageScanningConfiguration",
+            "ecr:PutImageTagMutability",
+            "ecr:PutLifecyclePolicy",
+        ]
+        result = determine_actions_to_expand(db_session, action_list)
+        print(result)
+        self.maxDiff = None
+        self.assertListEqual(
+            sorted(determine_actions_to_expand(db_session, action_list)),
+            sorted(desired_result),
+        )
+
     def test_determine_actions_to_expand(self):
         """
         test_determine_actions_to_expand: provide expanded list of actions, like ecr:*
