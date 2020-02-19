@@ -2,13 +2,10 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-Other Pending:
-* Update the GIF
-
-## 0.7.1 (Unreleased)
-* Template is modified again. This allows easy additions of wildcard-only actions with access levels, so you never have to look at individual IAM actions again.
-* Fixes #124. Output will be in UpperCamelCase rather than all lowercase, for human readability. Note that if `--minimize` is specified for `write-policy`, it will give me lowercase. Otherwise, it will be UpperCamelCase.
-* Terraform module - #112
+## 0.7.1
+* **Breaking change** and **new**: Template is modified again. This allows easy additions of wildcard-only actions with access levels specific to services (such as "S3 actions at read access level that do not support resource constraints"), so you never have to look at individual IAM actions again.
+* **New**: Output will be in UpperCamelCase rather than all lowercase, for human readability. Note that if `--minimize` is specified for `write-policy`, it will give me lowercase. Otherwise, it will be UpperCamelCase. Fixes #124.
+* **New**: Terraform module - #112
 * Small bugs - #126
 
 ## 0.7.0.2 (2020-02-10)
