@@ -18,7 +18,6 @@ IAM Least Privilege Policy Generator and analysis database.
     + [Shell completion](#shell-completion)
   * [Policy Writing cheat sheet](#policy-writing-cheat-sheet)
   * [IAM Database Query Cheat Sheet](#iam-database-query-cheat-sheet)
-  * [Local Initialization (Optional)](#local-initialization--optional-)
 - [Usage](#usage)
   * [Commands](#commands)
   * [Python Library usage](#python-library-usage)
