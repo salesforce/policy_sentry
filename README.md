@@ -1,14 +1,14 @@
 
 # Policy Sentry
 
-IAM Least Privilege Policy Generator, auditor, and analysis database.
+IAM Least Privilege Policy Generator and analysis database.
 
 [![Build Status](https://travis-ci.org/salesforce/policy_sentry.svg?branch=master)](https://travis-ci.org/salesforce/policy_sentry)
 [![Documentation Status](https://readthedocs.org/projects/policy-sentry/badge/?version=latest)](https://policy-sentry.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/salesforce/policy_sentry](https://badges.gitter.im/salesforce/policy_sentry.svg)](https://gitter.im/salesforce/policy_sentry?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Downloads](https://pepy.tech/badge/policy-sentry)](https://pepy.tech/project/policy-sentry)
 
-![](http://i.imgur.com/uITz0cM.gif)
+![](https://raw.githubusercontent.com/salesforce/policy_sentry/master/examples/asciinema/policy_sentry.gif)
 
 - [Documentation](#documentation)
 - [Overview](#overview)
@@ -16,15 +16,14 @@ IAM Least Privilege Policy Generator, auditor, and analysis database.
 - [Quickstart](#quickstart)
     + [Installation](#installation)
     + [Shell completion](#shell-completion)
-  * [Initialization](#initialization)
   * [Policy Writing cheat sheet](#policy-writing-cheat-sheet)
   * [IAM Database Query Cheat Sheet](#iam-database-query-cheat-sheet)
-  * [Policy Analysis Cheat Sheet](#policy-analysis-cheat-sheet)
-- [Commands](#commands)
-  * [Usage](#usage)
-  * [Library usage](#library-usage)
+  * [Local Initialization (Optional)](#local-initialization--optional-)
+- [Usage](#usage)
+  * [Commands](#commands)
+  * [Python Library usage](#python-library-usage)
   * [Docker](#docker)
-  * [Updating the AWS HTML files](#updating-the-aws-html-files)
+  * [Terraform](#terraform)
 - [References](#references)
 
 ## Documentation
@@ -447,8 +446,8 @@ module "policy_sentry_demo" {
 
 * Create a `terraform.tfvars` file in your directory with the following contents:
 
-```hcl
 terraform.tfvars:
+```hcl
 name = "PolicySentryTest"
 
 list_access_level = [
