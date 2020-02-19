@@ -1,4 +1,3 @@
-
 # Policy Sentry
 
 IAM Least Privilege Policy Generator and analysis database.
@@ -12,7 +11,7 @@ IAM Least Privilege Policy Generator and analysis database.
 
 - [Documentation](#documentation)
 - [Overview](#overview)
-  * [Authoring Secure IAM Policies](#authoring-secure-iam-policies)
+  * [Writing Secure Policies based on Resource Constraints and Access Levels](#writing-secure-policies-based-on-resource-constraints-and-access-levels)
 - [Quickstart](#quickstart)
     + [Installation](#installation)
     + [Shell completion](#shell-completion)
@@ -43,7 +42,11 @@ Writing security-conscious IAM Policies by hand can be very tedious and ineffici
 
 Such a process is not ideal for security or for Infrastructure as Code developers. We need to make it easier to write IAM Policies securely and abstract the complexity of writing least-privilege IAM policies. That's why I made this tool.
 
-### Authoring Secure IAM Policies
+Policy Sentry allows users to create least-privilege IAM policies in a matter of seconds, rather than tediously writing IAM policies by hand. These policies are scoped down according to access levels and resources. In the case of a breach, this helps to limit the blast radius of compromised credentials by only giving IAM principals access to what they need.
+
+**Before this tool, it could take hours to craft the perfect IAM Policy — but now it can take a matter of seconds**. This way, developers only have to determine the resources that they need to access, and **Policy Sentry abstracts the complexity of IAM policies** away from their development processes.
+
+### Writing Secure Policies based on Resource Constraints and Access Levels
 
 Policy Sentry's flagship feature is that it can create IAM policies based on resource ARNs and access levels. Our CRUD functionality takes the opinionated approach that IAC developers shouldn't have to understand the complexities of AWS IAM - we should abstract the complexity for them. In fact, developers should just be able to say...
 
@@ -107,10 +110,7 @@ It will generate a file like this:
 ```yaml
 mode: crud
 name: myRole
-description: '' # For human auditability
-role_arn: '' # For human auditability
-# Insert ARNs under each access level below
-# If you do not need to use certain access levels, delete them.
+# Specify resource ARNs
 read:
 - ''
 write:
@@ -121,10 +121,21 @@ tagging:
 - ''
 permissions-management:
 - ''
-# If the policy needs to use IAM actions that cannot be restricted to ARNs,
-# like ssm:DescribeParameters, specify those actions here.
-wildcard:
-- ''
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide, per access level - like 's3' or 'ec2'
+  service-read:
+  - ''
+  service-write:
+  - ''
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
 ```
 
 Then just fill it out:
@@ -132,8 +143,6 @@ Then just fill it out:
 ```yaml
 mode: crud
 name: myRole
-description: 'Justification for privileges'
-role_arn: 'arn:aws:iam::123456789102:role/myRole'
 read:
 - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
 write:

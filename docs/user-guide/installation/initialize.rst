@@ -1,5 +1,5 @@
-Initialization (Optional)
-#########################
+Initialize
+#############
 
 `initialize`: This will create a SQLite database that contains all of the services available through the `Actions, Resources, and Condition Keys documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html>`__.
 

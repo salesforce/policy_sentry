@@ -142,10 +142,10 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         crud_template["permissions-management"].append(
             "arn:aws:kms:us-east-1:123456789012:key/123456"
         )
-        crud_template["wildcard"].extend(wildcard_actions_to_add)
         crud_template["tagging"].append(
             "arn:aws:ssm:us-east-1:123456789012:parameter/test"
         )
+        crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
         # Modify it
         sid_group = SidGroup()
         minimize = None

@@ -1,5 +1,6 @@
-Terraform Demo
-##############
+Terraform
+#####################
+
 
 The Terraform module is published `here <https://github.com/kmcquade/terraform-aws-policy-sentry>`__.
 
@@ -110,9 +111,6 @@ Example
     write_access_level = [
       "arn:aws:kms:us-east-1:123456789012:key/shaq"
     ]
-    permissions_management_access_level = [""]
-    tagging_access_level = [""]
-    wildcard_only = [""]
 
 
 4. Run `terraform apply` once to create the JSON policy file.

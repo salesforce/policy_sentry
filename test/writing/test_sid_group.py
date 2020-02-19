@@ -13,8 +13,6 @@ class SidGroupActionsTestCase(unittest.TestCase):
         cfg = {
             "mode": "actions",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "actions": [
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
@@ -282,8 +280,6 @@ class SidGroupCrudTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
             "list": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
@@ -427,21 +423,21 @@ class SidGroupCrudTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-            "wildcard": [
-                # The first three are legitimately wildcard only.
-                # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                "ram:enablesharingwithawsorganization",
-                "ram:getresourcepolicies",
-                "secretsmanager:createsecret",
-                # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                # bypassing this mechanism, while allowing them to explicitly
-                # request specific privs that require wildcard mode. This next value -
-                # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                "secretsmanager:putsecretvalue",
-            ],
+            "wildcard-only": {
+                "single-actions": [
+                    # The first three are legitimately wildcard only.
+                    # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                    "ram:enablesharingwithawsorganization",
+                    "ram:getresourcepolicies",
+                    "secretsmanager:createsecret",
+                    # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                    # bypassing this mechanism, while allowing them to explicitly
+                    # request specific privs that require wildcard mode. This next value -
+                    # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                    "secretsmanager:putsecretvalue",
+                ],
+            }
         }
         sid_group = SidGroup()
         output = sid_group.process_template(db_session, cfg)

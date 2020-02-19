@@ -10,8 +10,6 @@ db_session = connect_db(DATABASE_FILE_PATH)
 valid_cfg_for_crud = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "description": "Why I need these privs",
-    "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
     "read": [
         "arn:aws:s3:::example-org-sbx-vmimport",
         "arn:aws:s3:::example-kinnaird",
@@ -38,8 +36,6 @@ valid_cfg_for_crud = {
 valid_cfg_for_actions = {
     "mode": "actions",
     "name": "RoleNameWithActions",
-    "description": "Why I need these privs",
-    "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
     "actions": [
         "kms:CreateGrant",
         "kms:CreateCustomKeyStore",
@@ -57,8 +53,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         """
         cfg_with_missing_name = {
             "mode": "actions",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
             "actions": [
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
@@ -69,25 +63,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         #  This should NOT raise an exception so leaving it as-is.
         policy = write_policy_with_template(db_session, cfg_with_missing_name)
 
-    def test_allow_missing_description(self):
-        """
-        test_actions_missing_description: write-policy when the YAML file is missing a description
-        :return:
-        """
-        cfg_with_missing_description = {
-            "mode": "actions",
-            "name": "RoleNameWithActions",
-            "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
-            "actions": [
-                "kms:CreateGrant",
-                "kms:CreateCustomKeyStore",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-            ],
-        }
-        #  This should NOT raise an exception so leaving it as-is.
-        policy = write_policy_with_template(db_session, cfg_with_missing_description)
-
     def test_allow_missing_arn(self):
         """
         test_actions_missing_arn: write-policy actions command when YAML file block is missing an ARN
@@ -96,7 +71,6 @@ class YamlValidationOverallTestCase(unittest.TestCase):
         cfg_with_missing_actions = {
             "mode": "actions",
             "name": "RoleNameWithActions",
-            "description": "Why I need these privs",
             "actions": [
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
@@ -117,8 +91,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         crud_file_input = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
             "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
             "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
@@ -136,8 +108,6 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         crud_file_input = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
             "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
             "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
@@ -190,8 +160,6 @@ class YamlValidationActionsTestCase(unittest.TestCase):
         cfg_with_missing_actions = {
             "mode": "actions",
             "name": "RoleNameWithActions",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789102:role/RiskyEC2",
         }
         with self.assertRaises(Exception):
             policy = write_policy_with_template(db_session, cfg_with_missing_actions)

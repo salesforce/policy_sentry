@@ -32,25 +32,24 @@ CRUD_SCHEMA = Schema(
     {
         "mode": "crud",
         Optional("name"): And(Use(str)),
-        Optional("description"): And(Use(str)),
-        Optional("role_arn"): And(Use(str)),
         Optional("read"): [str],
         Optional("write"): [str],
         Optional("list"): [str],
         Optional("permissions-management"): [str],
         Optional("tagging"): [str],
-        Optional("wildcard"): [str],
+        Optional("wildcard-only"): {
+            Optional("single-actions"): [str],
+            Optional("service-read"): [str],
+            Optional("service-write"): [str],
+            Optional("service-list"): [str],
+            Optional("service-tagging"): [str],
+            Optional("service-permissions-management"): [str],
+        },
     }
 )
 
 ACTIONS_SCHEMA = Schema(
-    {
-        "mode": "actions",
-        Optional("name"): And(Use(str)),
-        Optional("description"): And(Use(str)),
-        Optional("role_arn"): And(Use(str)),
-        "actions": And([str]),
-    }
+    {"mode": "actions", Optional("name"): And(Use(str)), "actions": And([str]),}
 )
 
 

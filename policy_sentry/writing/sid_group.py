@@ -9,6 +9,7 @@ from policy_sentry.querying.actions import (
     get_actions_with_arn_type_and_access_level,
     get_dependent_actions,
     get_actions_that_support_wildcard_arns_only,
+    get_actions_at_access_level_that_support_wildcard_arns_only,
 )
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
@@ -281,65 +282,136 @@ class SidGroup:
         :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
         :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
         """
-        try:
-            if "mode" in cfg.keys():
-                if cfg["mode"] == "crud":
-                    check_crud_schema(cfg)
-                    if "wildcard" in cfg.keys():
-                        provided_wildcard_actions = cfg["wildcard"]
-                        if isinstance(provided_wildcard_actions, list):
-                            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                                db_session, provided_wildcard_actions
-                            )
-                            if len(verified_wildcard_actions) > 0:
-                                self.add_by_list_of_actions(
-                                    db_session, verified_wildcard_actions
+        # try:
+        if "mode" in cfg.keys():
+            if cfg["mode"] == "crud":
+                check_crud_schema(cfg)
+                if "wildcard-only" in cfg.keys():
+                    if "single-actions" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["single-actions"]:
+                            if cfg["wildcard-only"]["single-actions"][0] != "":
+                                provided_wildcard_actions = cfg["wildcard-only"][
+                                    "single-actions"
+                                ]
+                                self.add_wildcard_only_actions(
+                                    db_session, provided_wildcard_actions
                                 )
-                    if "read" in cfg.keys():
-                        if cfg["read"] is not None and cfg["read"][0] != "":
-                            self.add_by_arn_and_access_level(
-                                db_session, cfg["read"], "Read"
-                            )
-                    if "write" in cfg.keys():
-                        if cfg["write"] is not None and cfg["write"][0] != "":
-                            self.add_by_arn_and_access_level(
-                                db_session, cfg["write"], "Write"
-                            )
-                    if "list" in cfg.keys():
-                        if cfg["list"] is not None and cfg["list"][0] != "":
-                            self.add_by_arn_and_access_level(
-                                db_session, cfg["list"], "List"
-                            )
-                    if "permissions-management" in cfg.keys():
-                        if (
-                            cfg["permissions-management"] is not None
-                            and cfg["permissions-management"][0] != ""
-                        ):
-                            self.add_by_arn_and_access_level(
-                                db_session,
-                                cfg["permissions-management"],
-                                "Permissions management",
-                            )
-                    if "tagging" in cfg.keys():
-                        if cfg["tagging"] is not None and cfg["tagging"][0] != "":
-                            self.add_by_arn_and_access_level(
-                                db_session, cfg["tagging"], "Tagging"
-                            )
+                    if "service-read" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["service-read"]:
+                            if cfg["wildcard-only"]["service-read"][0] != "":
+                                service_read = cfg["wildcard-only"]["service-read"]
+                                self.add_wildcard_only_actions_matching_services_and_access_level(
+                                    db_session, service_read, "Read"
+                                )
+                    if "service-write" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["service-write"]:
+                            if cfg["wildcard-only"]["service-write"][0] != "":
+                                service_write = cfg["wildcard-only"]["service-write"]
+                                self.add_wildcard_only_actions_matching_services_and_access_level(
+                                    db_session, service_write, "Write"
+                                )
+                    if "service-list" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["service-list"]:
+                            if cfg["wildcard-only"]["service-list"][0] != "":
+                                service_list = cfg["wildcard-only"]["service-list"]
+                                self.add_wildcard_only_actions_matching_services_and_access_level(
+                                    db_session, service_list, "List"
+                                )
+                    if "service-tagging" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["service-tagging"]:
+                            if cfg["wildcard-only"]["service-tagging"][0] != "":
+                                service_tagging = cfg["wildcard-only"][
+                                    "service-tagging"
+                                ]
+                                self.add_wildcard_only_actions_matching_services_and_access_level(
+                                    db_session, service_tagging, "Tagging"
+                                )
+                    if "service-permissions-management" in cfg["wildcard-only"]:
+                        if cfg["wildcard-only"]["service-permissions-management"]:
+                            if (
+                                cfg["wildcard-only"]["service-permissions-management"][
+                                    0
+                                ]
+                                != ""
+                            ):
+                                service_permissions_management = cfg["wildcard-only"][
+                                    "service-permissions-management"
+                                ]
+                                self.add_wildcard_only_actions_matching_services_and_access_level(
+                                    db_session,
+                                    service_permissions_management,
+                                    "Permissions management",
+                                )
+                if "read" in cfg.keys():
+                    if cfg["read"] is not None and cfg["read"][0] != "":
+                        self.add_by_arn_and_access_level(
+                            db_session, cfg["read"], "Read"
+                        )
+                if "write" in cfg.keys():
+                    if cfg["write"] is not None and cfg["write"][0] != "":
+                        self.add_by_arn_and_access_level(
+                            db_session, cfg["write"], "Write"
+                        )
+                if "list" in cfg.keys():
+                    if cfg["list"] is not None and cfg["list"][0] != "":
+                        self.add_by_arn_and_access_level(
+                            db_session, cfg["list"], "List"
+                        )
+                if "permissions-management" in cfg.keys():
+                    if (
+                        cfg["permissions-management"] is not None
+                        and cfg["permissions-management"][0] != ""
+                    ):
+                        self.add_by_arn_and_access_level(
+                            db_session,
+                            cfg["permissions-management"],
+                            "Permissions management",
+                        )
+                if "tagging" in cfg.keys():
+                    if cfg["tagging"] is not None and cfg["tagging"][0] != "":
+                        self.add_by_arn_and_access_level(
+                            db_session, cfg["tagging"], "Tagging"
+                        )
 
-                if cfg["mode"] == "actions":
-                    check_actions_schema(cfg)
-                    # for policy in cfg[template]:
-                    if "actions" in cfg.keys():
-                        if cfg["actions"] is not None:
-                            self.add_by_list_of_actions(db_session, cfg["actions"])
+            if cfg["mode"] == "actions":
+                check_actions_schema(cfg)
+                if "actions" in cfg.keys():
+                    if cfg["actions"] is not None and cfg["actions"][0] != "":
+                        self.add_by_list_of_actions(db_session, cfg["actions"])
 
-        except IndexError:
-            raise Exception(
-                "IndexError: list index out of range. This is likely due to an ARN in your list "
-                "equaling ''. Please evaluate your YML file and try again."
-            )
         rendered_policy = self.get_rendered_policy(db_session, minimize)
         return rendered_policy
+
+    def add_wildcard_only_actions(self, db_session, provided_wildcard_actions):
+        """
+        Given a list of IAM actions, add individual IAM Actions that do not support resource constraints to the MultMultNone SID
+
+        :param db_session: SQLAlchemy database session
+        :param provided_wildcard_actions: list actions provided by the user.
+        """
+        if isinstance(provided_wildcard_actions, list):
+            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
+                db_session, provided_wildcard_actions
+            )
+            if len(verified_wildcard_actions) > 0:
+                self.add_by_list_of_actions(db_session, verified_wildcard_actions)
+                # logger.debug("Added the following wildcard-only actions to the policy: %s", verified_wildcard_actions)
+
+    def add_wildcard_only_actions_matching_services_and_access_level(
+        self, db_session, services, access_level
+    ):
+        """
+        :param db_session: SQLAlchemy database session
+        :param services: A list of AWS services
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
+        """
+        wildcard_only_actions_to_add = []
+        for service in services:
+            actions = get_actions_at_access_level_that_support_wildcard_arns_only(
+                db_session, service, access_level
+            )
+            wildcard_only_actions_to_add.extend(actions)
+        self.add_wildcard_only_actions(db_session, wildcard_only_actions_to_add)
 
     def remove_actions_not_matching_these(self, actions_to_keep):
         """

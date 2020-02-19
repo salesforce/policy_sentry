@@ -15,21 +15,21 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "description": "Why I need these privs",
-            "role_arn": "arn:aws:iam::123456789012:role/RiskyEC2",
             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-            "wildcard": [
-                # The first three are legitimately wildcard only.
-                # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                "ram:EnableSharingWithAwsOrganization",
-                "ram:GetResourcePolicies",
-                "secretsmanager:CreateSecret",
-                # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                # bypassing this mechanism, while allowing them to explicitly
-                # request specific privs that require wildcard mode. This next value -
-                # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                "secretsmanager:PutSecretValue",
-            ],
+            "wildcard-only": {
+                "single-actions": [
+                    # The first three are legitimately wildcard only.
+                    # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+                    "ram:EnableSharingWithAwsOrganization",
+                    "ram:GetResourcePolicies",
+                    "secretsmanager:CreateSecret",
+                    # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+                    # bypassing this mechanism, while allowing them to explicitly
+                    # request specific privs that require wildcard mode. This next value -
+                    # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+                    "secretsmanager:PutSecretValue",
+                ],
+            }
         }
         db_session = connect_db("bundled")
         output = write_policy_with_template(db_session, cfg)
@@ -78,4 +78,48 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 #         policy = write_policy_with_template(db_session, cfg)
 #         print(policy)
 
+class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
+    def test_add_wildcard_only_actions_matching_services_and_access_level(self):
+        """test_add_wildcard_only_actions_matching_services_and_access_level: We'd never write a policy like this
+        IRL but doing this as a quality check against how it handles the database """
+        policy_file_path = abspath(
+            join(
+                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-with-wildcard-service-level.yml",
+            )
+        )
+        cfg = read_yaml_file(policy_file_path)
 
+        output = write_policy_with_template(db_session, cfg)
+        print(json.dumps(output, indent=4))
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ecr:GetAuthorizationToken",
+                        "s3:GetAccessPoint",
+                        "s3:GetAccountPublicAccessBlock",
+                        "s3:ListAccessPoints"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(output, desired_output)

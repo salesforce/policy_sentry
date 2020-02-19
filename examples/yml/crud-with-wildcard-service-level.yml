@@ -7,4 +7,6 @@ wildcard-only:
     - ram:enablesharingwithawsorganization
     - ram:getresourcepolicies
     - secretsmanager:createsecret
-    - secretsmanager:putsecretvalue # attempting bypass
+    service-read:
+    - ecr # GetAuthorizationToken
+    - s3 # GetAccessPoint, GetAccountPublicAccessBlock, ListAccessPoints

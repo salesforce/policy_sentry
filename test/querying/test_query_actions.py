@@ -298,5 +298,24 @@ class QueryActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
-# TODO: Test it when we give actions with wEiRd cases, and it should feed us back the cleaned up version.
-# # TODO: Because above, it actually would fail when they were lowercase, and it would pass when they were UpperCamelCase
+    def test_weird_lowercase_uppercase(self):
+        """test_weird_lowercase_uppercase: Same as test_remove_actions_that_are_not_wildcard_arn_only, but with wEiRd cases"""
+        provided_actions_list = [
+            # 3 wildcard only actions
+            "secretsmanager:cReAtEsEcReT",
+            "secretsmanager:gEtRaNdOmPasSwOrD",
+            "secretsmanager:LIstsEcretS",
+            # This one is wildcard OR "secret"
+            "secretsmanager:pUtSeCrEtVaLuE",
+        ]
+        desired_output = [
+            # 3 wildcard only actions
+            "secretsmanager:CreateSecret",
+            "secretsmanager:GetRandomPassword",
+            "secretsmanager:ListSecrets",
+        ]
+        output = remove_actions_that_are_not_wildcard_arn_only(
+            db_session, provided_actions_list
+        )
+        self.maxDiff = None
+        self.assertListEqual(desired_output, output)

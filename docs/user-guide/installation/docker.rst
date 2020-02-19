@@ -1,5 +1,5 @@
-Docker
-##################
+Building the Docker Image
+##########################
 
 If you prefer using Docker instead of installing the script with Python, we support that as well.
 
@@ -9,6 +9,8 @@ Use this to build the docker image:
 
     docker build -t kmcquade/policy_sentry .
 
+Using the Docker Image
+######################
 
 Use this to run some basic commands:
 

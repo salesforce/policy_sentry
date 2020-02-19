@@ -1,5 +1,5 @@
-Comparison to other tools
--------------------------
+Comparison to related tools
+---------------------------
 
 Policy Revocation Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
