@@ -65,6 +65,10 @@ elasticfilesystem:
     # AWS documentation lists this as "Tagging"
     Write:
         - createfilesystem
+    # AWS docs list these as "Write"
+    Permissions management:
+        - putfilesystempolicy
+        - deletefilesystempolicy
 
 elasticmapreduce:
     # AWS documentation lists these as "Tagging"
@@ -175,6 +179,26 @@ mobiletargeting:
     Write:
         - puteventstream
         - putevents
+quicksight:
+    Permissions management:
+        - createadmin
+        - creategroupmembership
+        - creategroup
+        - createiampolicyassignment
+        - createuser
+        - deleteiampolicyassignment
+        - deletegroupmembership
+        - deletegroup
+        - deleteuser
+        - deleteuserbyprincipalid
+        - registeruser
+        - updateuser
+        - updategroup
+        - updateiampolicyassignment
+        - updatedashboardpermissions
+        - updatetemplatepermissions
+        - updatedashboardpermissions
+
 ram:
     Tagging:
         - tagresource
@@ -253,3 +277,5 @@ waf-regional:
 worklink:
     Permissions management:
         - updatedevicepolicyconfiguration
+        - putmailboxpermissions
+        - deletemailboxpermissions
