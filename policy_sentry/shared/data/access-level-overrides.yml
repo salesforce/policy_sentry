@@ -90,10 +90,15 @@ es:
     Permissions management:
         - createelasticsearchdomain
         - updateelasticsearchdomainconfig
+
 elasticfilesystem:
     # AWS documentation lists this as "Tagging"
     Write:
         - createfilesystem
+    # AWS docs list these as "Write"
+    Permissions management:
+        - putfilesystempolicy
+        - deletefilesystempolicy
 
 elasticmapreduce:
     # AWS documentation lists these as "Tagging"
@@ -109,9 +114,6 @@ fsx:
         - createbackup
         - createfilesystem
         - createfilesystemfrombackup
-gamelift:
-    Permissions management:
-        - requestuploadcredentials  # Credentials exposure
 glue:
     # AWS documentation lists this as "Write"
     Permissions management:
@@ -209,7 +211,7 @@ license-manager:
         - createlicenseconfiguration
 lightsail:
     Permissions management:
-        - getinstanceaccessdetails # Returns temporary keys you can use to authenticate and connect to an instance.
+#        - getinstanceaccessdetails # Returns temporary keys you can use to authenticate and connect to an instance.
         - getrelationaldatabasemasteruserpassword # Returns the master user password of a relational database.
     Write:
         - createcloudformationstack
@@ -262,9 +264,6 @@ rds:
         - createeventsubscription
         - createoptiongroup
 redshift:
-    # AWS documentation lists this as "Write"
-    Permissions management:
-        - getclustercredentials
     # AWS documentation lists this as "Permissions management"
     Write:
         - rotateencryptionkey
@@ -390,6 +389,9 @@ xray:
 worklink:
     Permissions management:
         - updatedevicepolicyconfiguration
+        - putmailboxpermissions
+        - deletemailboxpermissions
+
 workmail:
     Permissions management:
         - resetpassword

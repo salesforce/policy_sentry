@@ -3210,7 +3210,7 @@ elasticfilesystem;CreateTags;Creates or overwrites tags associated with a file s
 elasticfilesystem;CreateTags;Creates or overwrites tags associated with a file system.;Tagging;None;False;*
 elasticfilesystem;DeleteAccessPoint;Deletes the specified access point.;Write;access-point;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:access-point/${AccessPointId}
 elasticfilesystem;DeleteFileSystem;Deletes a file system, permanently severing access to its contents.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
-elasticfilesystem;DeleteFileSystemPolicy;Clears the resource-level policy for a given file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
+elasticfilesystem;DeleteFileSystemPolicy;Clears the resource-level policy for a given file system.;Permissions management;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;DeleteMountTarget;Deletes the specified mount target.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;DeleteTags;Deletes the specified tags from a file system.;Tagging;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;DeleteTags;Deletes the specified tags from a file system.;Tagging;None;False;*
@@ -3223,7 +3223,7 @@ elasticfilesystem;DescribeMountTargets;Returns the descriptions of all the curre
 elasticfilesystem;DescribeTags;Returns the tags associated with a file system.;Read;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;ListTagsForResource;Returns the tags associated with the specified Amazon EFS resource.;Read;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;ModifyMountTargetSecurityGroups;Modifies the set of security groups in effect for a mount target.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
-elasticfilesystem;PutFileSystemPolicy;Apply a resource-level policy granting and/or restricting actions from given actors  for the specified file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
+elasticfilesystem;PutFileSystemPolicy;Apply a resource-level policy granting and/or restricting actions from given actors  for the specified file system.;Permissions management;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;PutLifecycleConfiguration;Enables lifecycle management by creating a new LifecycleConfiguration object.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;Restore;Starts a restore job for an existing file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;TagResource;Creates or overwrites tags associated with the specified Amazon EFS resource.;Tagging;None;False;*
@@ -3629,7 +3629,7 @@ gamelift;ListTagsForResource;List Tags for GameLift Resource;List;matchmakingCon
 gamelift;ListTagsForResource;List Tags for GameLift Resource;List;matchmakingRuleSet;False;arn:${Partition}:gamelift:${Region}:${Account}:matchmakingruleset/${MatchmakingRuleSetName}
 gamelift;ListTagsForResource;List Tags for GameLift Resource;List;script;False;arn:${Partition}:gamelift:${Region}:${AccountId}:script/${ScriptId}
 gamelift;PutScalingPolicy;Creates or updates a fleet auto-scaling policy.;Write;fleet;True;arn:${Partition}:gamelift:${Region}:${Account}:fleet/${FleetId}
-gamelift;RequestUploadCredentials;Retrieves fresh upload credentials to use when uploading a new game build.;Permissions management;build;True;arn:${Partition}:gamelift:${Region}:${AccountId}:build/${BuildId}
+gamelift;RequestUploadCredentials;Retrieves fresh upload credentials to use when uploading a new game build.;Read;build;True;arn:${Partition}:gamelift:${Region}:${AccountId}:build/${BuildId}
 gamelift;ResolveAlias;Retrieves the fleet ID associated with an alias.;Read;alias;True;arn:${Partition}:gamelift:${Region}::alias/${AliasId}
 gamelift;SearchGameSessions;Retrieves game sessions that match a set of search criteria.;Read;None;False;*
 gamelift;StartFleetActions;Resumes auto-scaling activity on a fleet after it was suspended with StopFleetActions().;Write;fleet;True;arn:${Partition}:gamelift:${Region}:${Account}:fleet/${FleetId}
@@ -5305,7 +5305,7 @@ lightsail;GetDomain;Returns DNS records for a domain resource.;Read;Domain;True;
 lightsail;GetDomains;Returns DNS records for all domain resources.;Read;Domain;True;arn:${Partition}:lightsail:${Region}:${Account}:Domain/${Id}
 lightsail;GetExportSnapshotRecords;Returns information about all records to export Amazon Lightsail snapshots to Amazon  EC2.;List;ExportSnapshotRecord;True;arn:${Partition}:lightsail:${Region}:${Account}:ExportSnapshotRecord/${Id}
 lightsail;GetInstance;Returns information about an instance.;Read;Instance;True;arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
-lightsail;GetInstanceAccessDetails;Returns temporary keys you can use to authenticate and connect to an instance.;Permissions management;Instance;True;arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
+lightsail;GetInstanceAccessDetails;Returns temporary keys you can use to authenticate and connect to an instance.;Write;Instance;True;arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
 lightsail;GetInstanceMetricData;Returns the data points for the specified metric of an instance.;Read;Instance;True;arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
 lightsail;GetInstancePortStates;Returns the port states of an instance.;Read;Instance;True;arn:${Partition}:lightsail:${Region}:${Account}:Instance/${Id}
 lightsail;GetInstanceSnapshot;Returns information about an instance snapshot.;Read;InstanceSnapshot;True;arn:${Partition}:lightsail:${Region}:${Account}:InstanceSnapshot/${Id}
@@ -6551,10 +6551,10 @@ redshift;EnableLogging;Grants permission to enable logging information, such as 
 redshift;EnableSnapshotCopy;Grants permission to enable the automatic copy of snapshots for a cluster;Write;cluster;True;arn:${Partition}:redshift:${Region}:${Account}:cluster:${ClusterName}
 redshift;ExecuteQuery;Grants permission to execute a query through the Amazon Redshift console;Write;None;False;*
 redshift;FetchResults;Grants permission to fetch query results through the Amazon Redshift console;Read;None;False;*
-redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Permissions management;dbuser;True;arn:${Partition}:redshift:${Region}:${Account}:dbuser:${ClusterName}/${DbUser}
-redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Permissions management;dbgroup;False;arn:${Partition}:redshift:${Region}:${Account}:dbgroup:${ClusterName}/${DbGroup}
-redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Permissions management;dbname;False;arn:${Partition}:redshift:${Region}:${Account}:dbname:${ClusterName}/${DbName}
-redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Permissions management;None;False;*
+redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Write;dbuser;True;arn:${Partition}:redshift:${Region}:${Account}:dbuser:${ClusterName}/${DbUser}
+redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Write;dbgroup;False;arn:${Partition}:redshift:${Region}:${Account}:dbgroup:${ClusterName}/${DbGroup}
+redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Write;dbname;False;arn:${Partition}:redshift:${Region}:${Account}:dbname:${ClusterName}/${DbName}
+redshift;GetClusterCredentials;Grants permission to get temporary credentials to access an Amazon Redshift database  by the specified AWS account;Write;None;False;*
 redshift;GetReservedNodeExchangeOfferings;Grants permission to get an array of DC2 ReservedNodeOfferings that matches the payment  type, term, and usage price of the given DC1 reserved node;Read;None;False;*
 redshift;JoinGroup;Grants permission to join the specified Amazon Redshift group;Permissions management;dbgroup;True;arn:${Partition}:redshift:${Region}:${Account}:dbgroup:${ClusterName}/${DbGroup}
 redshift;ListDatabases;Grants permission to list databases through the Amazon Redshift console;List;None;False;*
