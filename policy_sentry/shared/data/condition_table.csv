@@ -54,6 +54,9 @@ backup;aws:TagKeys;aws;Filters actions based on the presence of mandatory tags i
 batch;batch:Image;batch;The image used to start a container.;string
 batch;batch:Privileged;batch;When this parameter is true, the container is given elevated privileges on the host  container instance (similar to the root user).;boolean
 batch;batch:User;batch;The user name or numeric uid to use inside the container.;string
+cloud9;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
+cloud9;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
+cloud9;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
 cloud9;cloud9:EnvironmentId;cloud9;Filters access by the AWS Cloud9 environment ID;string
 cloud9;cloud9:EnvironmentName;cloud9;Filters access by the AWS Cloud9 environment name;string
 cloud9;cloud9:InstanceType;cloud9;Filters access by the instance type of the AWS Cloud9 environment's Amazon EC2 instance;string
@@ -243,6 +246,7 @@ elasticbeanstalk;elasticbeanstalk:InApplication;elasticbeanstalk;Filters access 
 elasticfilesystem;aws:RequestTag/${TagKey};aws;Filters actions based on the allowed set of values for each of the tags;string
 elasticfilesystem;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
 elasticfilesystem;aws:TagKeys;aws;Filters actions based on the presence of mandatory tags in the request;string
+elasticfilesystem;elasticfilesystem:AccessPointArn;elasticfilesystem;The ARN of the access point used to mount the file system;string
 elasticloadbalancing;aws:RequestTag/tag-key;aws;A key that is present in the request the user makes to the ELB service.;string
 elasticloadbalancing;aws:TagKeys;aws;The list of all the tag key names associated with the resource in the request.;string
 elasticloadbalancing;elasticloadbalancing:ResourceTag/;elasticloadbalancing;The preface string for a tag key and value pair attached to a resource.;string
@@ -415,6 +419,9 @@ organizations;organizations:ServicePrincipal;organizations;Enables you to filter
 qldb;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
 qldb;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
 qldb;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
+quicksight;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
+quicksight;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
+quicksight;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
 quicksight;quicksight:IamArn;quicksight;IAM user ARN or role ARN.;string
 quicksight;quicksight:SessionName;quicksight;The session name.;string
 quicksight;quicksight:UserName;quicksight;The user name.;string
@@ -676,3 +683,6 @@ waf-regional;aws:TagKeys;aws;Filters actions based on the presence of mandatory 
 wafv2;aws:RequestTag/${TagKey};aws;Filters actions based on the allowed set of values for each of the tags;string
 wafv2;aws:ResourceTag/${TagKey};aws;Filters actions based on tag-value assoicated with the resource;string
 wafv2;aws:TagKeys;aws;Filters actions based on the presence of mandatory tags in the request;string
+workmail;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
+workmail;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
+workmail;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string

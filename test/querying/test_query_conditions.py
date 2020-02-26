@@ -15,6 +15,9 @@ class QueryConditionsTestCase(unittest.TestCase):
     def test_get_condition_keys_for_service(self):
         """querying.conditions.get_condition_keys_for_service test"""
         desired_output = [
+            "aws:RequestTag/${TagKey}",
+            "aws:ResourceTag/${TagKey}",
+            "aws:TagKeys",
             "cloud9:EnvironmentId",
             "cloud9:EnvironmentName",
             "cloud9:InstanceType",

@@ -1,4 +1,5 @@
 import unittest
+import json
 from policy_sentry.querying.arns import (
     get_raw_arns_for_service,
     get_arn_type_details,
@@ -41,7 +42,7 @@ class QueryArnsTestCase(unittest.TestCase):
         desired_output = {
             "resource_type_name": "environment",
             "raw_arn": "arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}",
-            "condition_keys": None,
+            "condition_keys": ['aws:ResourceTag/${TagKey}'],
         }
         output = get_arn_type_details(db_session, "cloud9", "environment")
         self.assertEqual(desired_output, output)
