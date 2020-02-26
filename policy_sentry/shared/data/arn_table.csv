@@ -54,7 +54,7 @@ budget;arn:${Partition}:budgets::${Account}:budget/${BudgetName};arn;${Partition
 keyspace;arn:${Partition}:cassandra:${Region}:${Account}:keyspace/${KeyspaceName};arn;${Partition};cassandra;${Region};${Account};${KeyspaceName};
 table;arn:${Partition}:cassandra:${Region}:${Account}:keyspace/${KeyspaceName}/table/${tableName};arn;${Partition};cassandra;${Region};${Account};${KeyspaceName}/table/${tableName};
 ChatbotConfiguration;arn:${Partition}:chatbot::${account}:${resourceType}/${resourceName};arn;${Partition};chatbot;;${account};${resourceName};
-environment;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId};arn;${Partition};cloud9;${Region};${Account};${ResourceId};
+environment;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId};arn;${Partition};cloud9;${Region};${Account};${ResourceId};aws:ResourceTag/${TagKey}
 appliedSchema;arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}/schema/${SchemaName}/${Version};arn;${Partition};clouddirectory;${Region};${Account};${DirectoryId}/schema/${SchemaName}/${Version};
 developmentSchema;arn:${Partition}:clouddirectory:${Region}:${Account}:schema/development/${SchemaName};arn;${Partition};clouddirectory;${Region};${Account};development/${SchemaName};
 directory;arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId};arn;${Partition};clouddirectory;${Region};${Account};${DirectoryId};
@@ -209,7 +209,7 @@ container-instance;arn:${Partition}:ecs:${Region}:${Account}:container-instance/
 service;arn:${Partition}:ecs:${Region}:${Account}:service/${ServiceName};arn;${Partition};ecs;${Region};${Account};${ServiceName};aws:ResourceTag/${TagKey},ecs:ResourceTag/${TagKey}
 task;arn:${Partition}:ecs:${Region}:${Account}:task/${TaskId};arn;${Partition};ecs;${Region};${Account};${TaskId};aws:ResourceTag/${TagKey},ecs:ResourceTag/${TagKey}
 task-definition;arn:${Partition}:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber};arn;${Partition};ecs;${Region};${Account};${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber};aws:ResourceTag/${TagKey},ecs:ResourceTag/${TagKey}
-task-set;arn:${Partition}:ecs:${region}:${Account}:task-set/${ClusterName}/${ServiceName}/${TaskSetId};arn;${Partition};ecs;${region};${Account};${ClusterName}/${ServiceName}/${TaskSetId};
+task-set;arn:${Partition}:ecs:${region}:${Account}:task-set/${ClusterName}/${ServiceName}/${TaskSetId};arn;${Partition};ecs;${region};${Account};${ClusterName}/${ServiceName}/${TaskSetId};aws:ResourceTag/${TagKey},ecs:ResourceTag/${TagKey}
 cluster;arn:${Partition}:eks:${Region}:${Account}:cluster/${ClusterName};arn;${Partition};eks;${Region};${Account};${ClusterName};aws:ResourceTag/${TagKey}
 nodegroup;arn:${Partition}:eks:${Region}:${Account}:nodegroup/${ClusterName}/${NodegroupName}/${UUID};arn;${Partition};eks;${Region};${Account};${ClusterName}/${NodegroupName}/${UUID};aws:ResourceTag/${TagKey}
 fargateprofile;arn:${Partition}:eks:${Region}:${Account}:fargateprofile/${ClusterName}/${FargateProfileName}/${UUID};arn;${Partition};eks;${Region};${Account};${ClusterName}/${FargateProfileName}/${UUID};aws:ResourceTag/${TagKey}
@@ -238,7 +238,7 @@ pipeline;arn:${Partition}:elastictranscoder:${Region}:${Account}:pipeline/${Pipe
 preset;arn:${Partition}:elastictranscoder:${Region}:${Account}:preset/${PresetId};arn;${Partition};elastictranscoder;${Region};${Account};${PresetId};
 domain;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName};arn;${Partition};es;${Region};${Account};${DomainName};
 event-source;arn:${Partition}:events:${Region}::event-source/${EventSourceName};arn;${Partition};events;${Region};;${EventSourceName};
-event-bus;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName};arn;${Partition};events;${Region};${Account};${EventBusName};
+event-bus;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName};arn;${Partition};events;${Region};${Account};${EventBusName};aws:ResourceTag/${TagKey}
 rule;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName};arn;${Partition};events;${Region};${Account};[${EventBusName}/]${RuleName};aws:ResourceTag/${TagKey}
 execute-api-general;arn:${Partition}:execute-api:${Region}:${Account}:${ApiId}/${Stage}/${Method}/${ApiSpecificResourcePath};arn;${Partition};execute-api;${Region};${Account};${Stage}/${Method}/${ApiSpecificResourcePath};
 deliverystream;arn:${Partition}:firehose:${Region}:${Account}:deliverystream/${DeliveryStreamName};arn;${Partition};firehose;${Region};${Account};${DeliveryStreamName};aws:ResourceTag/${TagKey}
@@ -393,6 +393,8 @@ channel;arn:${Partition}:kinesisvideo:${Region}:${Account}:channel/${ChannelName
 alias;arn:${Partition}:kms:${Region}:${Account}:alias/${Alias};arn;${Partition};kms;${Region};${Account};${Alias};
 key;arn:${Partition}:kms:${Region}:${Account}:key/${KeyId};arn;${Partition};kms;${Region};${Account};${KeyId};
 function;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName};arn;${Partition};lambda;${Region};${Account};${FunctionName};
+function version;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version};arn;${Partition};lambda;${Region};${Account};${FunctionName}:${Version};
+function alias;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias};arn;${Partition};lambda;${Region};${Account};${FunctionName}:${Alias};
 layer;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName};arn;${Partition};lambda;${Region};${Account};${LayerName};
 layerVersion;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion};arn;${Partition};lambda;${Region};${Account};${LayerName}:${LayerVersion};
 eventSourceMapping;arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID};arn;${Partition};lambda;${Region};${Account};${UUID};
@@ -489,7 +491,9 @@ lexicon;arn:${Partition}:polly:${Region}:${Account}:lexicon/${LexiconName};arn;$
 ledger;arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName};arn;${Partition};qldb;${Region};${Account};${LedgerName};aws:ResourceTag/${TagKey}
 user;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId};arn;${Partition};quicksight;${Region};${Account};${ResourceId};
 group;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId};arn;${Partition};quicksight;${Region};${Account};${ResourceId};
-dashboard;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId};arn;${Partition};quicksight;${Region};${Account};${ResourceId};
+dashboard;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId};arn;${Partition};quicksight;${Region};${Account};${ResourceId};aws:ResourceTag/${TagKey}
+template;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId};arn;${Partition};quicksight;${Region};${Account};${ResourceId};aws:ResourceTag/${TagKey}
+assignment;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId};arn;${Partition};quicksight;;${Account};${ResourceId};
 resource-share;arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath};arn;${Partition};ram;${Region};${Account};${ResourcePath};aws:ResourceTag/${TagKey},ram:AllowsExternalPrincipals,ram:ResourceShareName
 resource-share-invitation;arn:${Partition}:ram:${Region}:${Account}:resource-share-invitation/${ResourcePath};arn;${Partition};ram;${Region};${Account};${ResourcePath};
 permission;arn:${Partition}:ram::${Account}:permission/${ResourcePath};arn;${Partition};ram;;${Account};${ResourcePath};ram:PermissionArn
@@ -533,6 +537,7 @@ group;arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName};a
 robotApplication;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch};arn;${Partition};robomaker;${Region};${Account};${ApplicationName}/${CreatedOnEpoch};aws:ResourceTag/${TagKey}
 simulationApplication;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch};arn;${Partition};robomaker;${Region};${Account};${ApplicationName}/${CreatedOnEpoch};aws:ResourceTag/${TagKey}
 simulationJob;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId};arn;${Partition};robomaker;${Region};${Account};${SimulationJobId};aws:ResourceTag/${TagKey}
+simulationJobBatch;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId};arn;${Partition};robomaker;${Region};${Account};${SimulationJobBatchId};aws:ResourceTag/${TagKey}
 deploymentJob;arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId};arn;${Partition};robomaker;${Region};${Account};${DeploymentJobId};aws:ResourceTag/${TagKey}
 robot;arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch};arn;${Partition};robomaker;${Region};${Account};${RobotName}/${CreatedOnEpoch};aws:ResourceTag/${TagKey}
 deploymentFleet;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch};arn;${Partition};robomaker;${Region};${Account};${FleetName}/${CreatedOnEpoch};aws:ResourceTag/${TagKey}
@@ -635,7 +640,7 @@ statemachine;arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMa
 device;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/device/${Vtldevice};arn;${Partition};storagegateway;${Region};${Account};${GatewayId}/device/${Vtldevice};
 gateway;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId};arn;${Partition};storagegateway;${Region};${Account};${GatewayId};aws:ResourceTag/${TagKey}
 share;arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId};arn;${Partition};storagegateway;${Region};${Account};${ShareId};aws:ResourceTag/${TagKey}
-tape;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode};arn;${Partition};storagegateway;${Region};${Account};${TapeBarcode};aws:ResourceTag/${TagKey}
+tape;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode};arn;${Partition};storagegateway;${Region};${Account};${TapeBarcode};aws:ResourceTag/${TagKey}
 target;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/target/${IscsiTarget};arn;${Partition};storagegateway;${Region};${Account};${GatewayId}/target/${IscsiTarget};
 volume;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId};arn;${Partition};storagegateway;${Region};${Account};${GatewayId}/volume/${VolumeId};aws:ResourceTag/${TagKey}
 role;arn:${Partition}:iam::${Account}:role/${RoleNameWithPath};arn;${Partition};iam;;${Account};${RoleNameWithPath};aws:ResourceTag/${TagKey}
@@ -679,6 +684,7 @@ loadbalancer/app/;arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loa
 apigateway;arn:${Partition}:apigateway:${Region}::/restapis/${ApiId}/stages/prod;arn;${Partition};apigateway;${Region};;restapis/${ApiId}/stages/prod;
 workload;arn:${Partition}:wellarchitected:${Region}:${Account}:workload/${ResourceId};arn;${Partition};wellarchitected;${Region};${Account};${ResourceId};
 fleet;arn:${Partition}:worklink::${Account}:fleet/${fleetName};arn;${Partition};worklink;;${Account};${fleetName};
+organization;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId};arn;${Partition};workmail;${Region};${Account};${ResourceId};aws:ResourceTag/${TagKey}
 RawMessage;arn:${Partition}:workmailmessageflow:${Region}:${Account}:message/${OrganizationId}/${Context}/${MessageId};arn;${Partition};workmailmessageflow;${Region};${Account};${OrganizationId}/${Context}/${MessageId};
 workspacebundle;arn:${Partition}:workspaces:${Region}:${Account}:workspacebundle/${BundleId};arn;${Partition};workspaces;${Region};${Account};${BundleId};
 workspaceipgroup;arn:${Partition}:workspaces:${Region}:${Account}:workspaceipgroup/${GroupId};arn;${Partition};workspaces;${Region};${Account};${GroupId};

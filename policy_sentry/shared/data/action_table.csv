@@ -737,6 +737,7 @@ chime;AddOrUpdateGroups;Grants permission to add new or update existing Active D
 chime;AssociatePhoneNumberWithUser;Grants permission to associate a phone number with an Amazon Chime user;Write;None;False;*
 chime;AssociatePhoneNumbersWithVoiceConnector;Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector;Write;None;False;*
 chime;AssociatePhoneNumbersWithVoiceConnectorGroup;Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector  Group;Write;None;False;*
+chime;AssociateSigninDelegateGroupsWithAccount;Grants permission to associate the specified sign-in delegate groups with the specified  Amazon Chime account.;Write;None;False;*
 chime;AuthorizeDirectory;Grants permission to authorize an Active Directory for your Amazon Chime Enterprise  account;Write;None;False;*
 chime;BatchCreateAttendee;Grants permission to create new attendees for an active Amazon Chime SDK meeting;Write;None;False;*
 chime;BatchCreateRoomMembership;Grants permission to batch add room members;Write;None;False;*
@@ -756,6 +757,7 @@ chime;CreateMeeting;Grants permission to create a new Amazon Chime SDK meeting i
 chime;CreatePhoneNumberOrder;Grants permission to create a phone number order with the Carriers;Write;None;False;*
 chime;CreateRoom;Grants permission to create a room;Write;None;False;*
 chime;CreateRoomMembership;Grants permission to add a room member;Write;None;False;*
+chime;CreateUser;Grants permission to create a user under the specified Amazon Chime account.;Write;None;False;*
 chime;CreateVoiceConnector;Grants permission to create a Amazon Chime Voice Connector under the administrator's  AWS account;Write;None;False;*
 chime;CreateVoiceConnectorGroup;Grants permission to create a Amazon Chime Voice Connector Group under the administrator's  AWS account;Write;None;False;*
 chime;DeleteAccount;Grants permission to delete the specified Amazon Chime account;Write;None;False;*
@@ -780,6 +782,7 @@ chime;DeleteVoiceConnectorTerminationCredentials;Grants permission to delete SIP
 chime;DisassociatePhoneNumberFromUser;Grants permission to disassociate the primary provisioned number from the specified  Amazon Chime user;Write;None;False;*
 chime;DisassociatePhoneNumbersFromVoiceConnector;Grants permission to disassociate multiple phone numbers from the specified Amazon  Chime Voice Connector;Write;None;False;*
 chime;DisassociatePhoneNumbersFromVoiceConnectorGroup;Grants permission to disassociate multiple phone numbers from the specified Amazon  Chime Voice Connector Group;Write;None;False;*
+chime;DisassociateSigninDelegateGroupsFromAccount;Grants permission to disassociate the specified sign-in delegate groups from the specified  Amazon Chime account.;Write;None;False;*
 chime;DisconnectDirectory;Grants permission to disconnect the Active Directory from your Amazon Chime Enterprise  account;Write;None;False;*
 chime;GetAccount;Grants permission to get details for the specified Amazon Chime account;Read;None;False;*
 chime;GetAccountResource;Grants permission to get details for the account resource associated with your Amazon  Chime account;Read;None;False;*
@@ -872,15 +875,23 @@ chime;UpdateVoiceConnector;Grants permission to update Amazon Chime Voice Connec
 chime;UpdateVoiceConnectorGroup;Grants permission to update Amazon Chime Voice Connector Group details for the specified  Amazon Chime Voice Connector Group;Write;None;False;*
 chime;ValidateAccountResource;Grants permission to validate the account resource in your Amazon Chime account;Read;None;False;*
 cloud9;CreateEnvironmentEC2;Grants permission to create an AWS Cloud9 development environment, launches an Amazon  Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the  instance.;Write;None;False;*
+cloud9;CreateEnvironmentMembership;Grants permission to add an environment member to an AWS Cloud9 development environment.;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
 cloud9;CreateEnvironmentMembership;Grants permission to add an environment member to an AWS Cloud9 development environment.;Write;None;False;*
 cloud9;DeleteEnvironment;Grants permission to delete an AWS Cloud9 development environment. If the environment  is hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance, also terminates  the instance.;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
-cloud9;DeleteEnvironmentMembership;Grants permission to delete an environment member from an AWS Cloud9 development environment.;Write;None;False;*
+cloud9;DeleteEnvironmentMembership;Grants permission to delete an environment member from an AWS Cloud9 development environment.;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
+cloud9;DescribeEnvironmentMemberships;Grants permission to get information about environment members for an AWS Cloud9 development  environment.;Read;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
 cloud9;DescribeEnvironmentMemberships;Grants permission to get information about environment members for an AWS Cloud9 development  environment.;Read;None;False;*
-cloud9;DescribeEnvironmentStatus;Grants permission to get status information for an AWS Cloud9 development environment.;Read;None;False;*
+cloud9;DescribeEnvironmentStatus;Grants permission to get status information for an AWS Cloud9 development environment.;Read;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
 cloud9;DescribeEnvironments;Grants permission to get information about AWS Cloud9 development environments.;Read;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
 cloud9;GetUserSettings;Grants permission to get IDE-specific settings of an AWS Cloud9 user.;Read;None;False;*
 cloud9;ListEnvironments;Grants permission to get a list of AWS Cloud9 development environment identifiers.;Read;None;False;*
+cloud9;ListTagsForResource;Lists tags for a cloud9 environment;Read;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
+cloud9;TagResource;Adds tags to a cloud9 environment;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
+cloud9;TagResource;Adds tags to a cloud9 environment;Write;None;False;*
+cloud9;UntagResource;Removes tags from a cloud9 environment;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
+cloud9;UntagResource;Removes tags from a cloud9 environment;Write;None;False;*
 cloud9;UpdateEnvironment;Grants permission to change the settings of an existing AWS Cloud9 development environment.;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
+cloud9;UpdateEnvironmentMembership;Grants permission to change the settings of an existing environment member for an  AWS Cloud9 development environment.;Write;environment;True;arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}
 cloud9;UpdateEnvironmentMembership;Grants permission to change the settings of an existing environment member for an  AWS Cloud9 development environment.;Write;None;False;*
 cloud9;UpdateUserSettings;Grants permission to update IDE-specific settings of an AWS Cloud9 user.;Write;None;False;*
 clouddirectory;AddFacetToObject;Adds a new Facet to an object.;Write;directory;True;arn:${Partition}:clouddirectory:${Region}:${Account}:directory/${DirectoryId}
@@ -1841,8 +1852,9 @@ connect;ListTagsForResource;Grants permissions to list tags for an Amazon Connec
 connect;ListUserHierarchyGroups;Grants permissions to list the hierarchy group resources in an Amazon Connect instance.;List;instance;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}
 connect;ListUsers;Grants permissions to list user resources in an Amazon Connect instance.;List;instance;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}
 connect;ModifyInstance;Grants permissions to modify configuration settings for an existing Amazon Connect  instance. The associated required actions grant permission modify the settings for  the instance.;Write;instance;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}
+connect;StartChatContact;Grants permissions to initiate a chat using the Amazon Connect API.;Write;contact-flow;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/contact-flow/${ContactFlowId}
 connect;StartOutboundVoiceContact;Grants permissions to initiate outbound calls using the Amazon Connect API.;Write;contact;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/contact/${ContactId}
-connect;StopContact;Grants permissions to stop contacts that were initiated using the Amazon Connect API.  If you use this operation on an active contact the contact ends, even if an agent  is active on a call with a customer.;Write;contact;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/contact/${ContactId}
+connect;StopContact;Grants permissions to stop contacts that were initiated using the Amazon Connect API.  If you use this operation on an active contact the contact ends, even if the agent  is active on a call with a customer.;Write;contact;True;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/contact/${ContactId}
 connect;TagResource;Grants permissions to tag an Amazon Connect resource.;Tagging;user;False;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/agent/${UserId}
 connect;TagResource;Grants permissions to tag an Amazon Connect resource.;Tagging;None;False;*
 connect;UntagResource;Grants permissions to untag an Amazon Connect resource.;Tagging;user;False;arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/agent/${UserId}
@@ -2376,26 +2388,33 @@ ds;DeleteDirectory;Deletes an AWS Directory Service directory.;Write;directory;T
 ds;DeleteLogSubscription;Deletes the specified log subscription.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DeleteSnapshot;Deletes a directory snapshot.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DeleteTrust;Deletes an existing trust relationship between your Microsoft AD in the AWS cloud  and an external domain.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;DeregisterCertificate;Deletes from the system the certificate that was registered for a secured LDAP connection.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DeregisterEventTopic;Removes the specified directory as a publisher to the specified SNS topic.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;DescribeCertificate;Displays information about the certificate registered for a secured LDAP connection.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DescribeConditionalForwarders;Obtains information about the conditional forwarders for this account.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DescribeDirectories;Obtains information about the directories that belong to this account.;List;None;False;*
 ds;DescribeDomainControllers;Provides information about any domain controllers in your directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DescribeEventTopics;Obtains information about which SNS topics receive status messages from the specified  directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;DescribeLDAPSSettings;Describes the status of LDAP security for the specified directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DescribeSharedDirectories;Returns the shared directories in your account.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DescribeSnapshots;Obtains information about the directory snapshots that belong to this account.;Read;None;False;*
 ds;DescribeTrusts;Obtains information about the trust relationships for this account.;Read;None;False;*
+ds;DisableLDAPS;Deactivates LDAP secure calls for the specified directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DisableRadius;Disables multi-factor authentication (MFA) with the Remote Authentication Dial In  User Service (RADIUS) server for an AD Connector directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;DisableSso;Disables single-sign on for a directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;EnableLDAPS;Activates the switch for the specific directory to always use LDAP secure calls.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;EnableRadius;Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User  Service (RADIUS) server for an AD Connector directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;EnableSso;Enables single-sign on for a directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;GetAuthorizedApplicationDetails;;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;GetDirectoryLimits;Obtains directory limit information for the current region.;Read;None;False;*
 ds;GetSnapshotLimits;Obtains the manual snapshot limits for a directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;ListAuthorizedApplications;Obtains the aws applications authorized for a directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;ListCertificates;For the specified directory, lists all the certificates registered for a secured LDAP  connection.;List;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;ListIpRoutes;Lists the address blocks that you have added to a directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;ListLogSubscriptions;Lists the active log subscriptions for the AWS account.;Read;None;False;*
 ds;ListSchemaExtensions;Lists all schema extensions applied to a Microsoft AD Directory.;List;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;ListTagsForResource;Lists all tags on an Amazon Directory Services directory.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;RegisterCertificate;Registers a certificate for secured LDAP connection.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;RegisterEventTopic;Associates a directory with an SNS topic.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;RejectSharedDirectory;Rejects a directory sharing request that was sent from the directory owner account.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;RemoveIpRoutes;Removes IP address blocks from a directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
@@ -2410,6 +2429,7 @@ ds;UnshareDirectory;Stops the directory sharing between the directory owner and 
 ds;UpdateConditionalForwarder;Updates a conditional forwarder that has been set up for your AWS directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;UpdateNumberOfDomainControllers;Adds or removes domain controllers to or from the directory. Based on the difference  between current value and new value (provided through this API call), domain controllers  will be added or removed. It may take up to 45 minutes for any new domain controllers  to become fully active once the requested number of domain controllers is updated.  During this time, you cannot make another update request.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;UpdateRadius;Updates the Remote Authentication Dial In User Service (RADIUS) server information  for an AD Connector directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
+ds;UpdateTrust;Updates the trust that has been set up between your AWS Managed Microsoft AD directory  and an on-premises Active Directory.;Write;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 ds;VerifyTrust;Verifies a trust relationship between your Microsoft AD in the AWS cloud and an external  domain.;Read;directory;True;arn:${Partition}:ds:${Region}:${Account}:directory/${DirectoryId}
 dynamodb;BatchGetItem;Returns the attributes of one or more items from one or more tables;Read;table;True;arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}
 dynamodb;BatchGetItem;Returns the attributes of one or more items from one or more tables;Read;None;False;*
@@ -2445,7 +2465,7 @@ dynamodb;GetItem;The GetItem operation returns a set of attributes for the item 
 dynamodb;GetRecords;Retrieves the stream records from a given shard;Read;stream;True;arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/stream/${StreamLabel}
 dynamodb;GetShardIterator;Returns a shard iterator;Read;stream;True;arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/stream/${StreamLabel}
 dynamodb;ListBackups;List backups associated with the account and endpoint;List;None;False;*
-dynamodb;ListContributorInsights;Lists the ContributorInsightsSummary for all tables and global secondary indexes associated  with the current account and endpoint;List;table;False;arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}
+dynamodb;ListContributorInsights;Lists the ContributorInsightsSummary for all tables and global secondary indexes associated  with the current account and endpoint;List;None;False;*
 dynamodb;ListGlobalTables;Lists all global tables that have a replica in the specified region;List;None;False;*
 dynamodb;ListStreams;Returns an array of stream ARNs associated with the current account and endpoint;Read;None;False;*
 dynamodb;ListTables;Returns an array of table names associated with the current account and endpoint;List;None;False;*
@@ -3202,7 +3222,9 @@ elasticbeanstalk;ValidateConfigurationSettings;Grants permission to check the va
 elasticfilesystem;Backup;Starts a backup job for an existing file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;ClientMount;Permission for allowing read-access to a file system.;Read;None;False;*
 elasticfilesystem;ClientRootAccess;Permission for allowing root-access to a file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
+elasticfilesystem;ClientRootAccess;Permission for allowing root-access to a file system.;Write;None;False;*
 elasticfilesystem;ClientWrite;Permission for allowing write-access to a file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
+elasticfilesystem;ClientWrite;Permission for allowing write-access to a file system.;Write;None;False;*
 elasticfilesystem;CreateAccessPoint;Creates an access point for the specified file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
 elasticfilesystem;CreateFileSystem;Creates a new, empty file system.;Write;None;False;*
 elasticfilesystem;CreateMountTarget;Creates a mount target for a file system.;Write;file-system;True;arn:${Partition}:elasticfilesystem:${Region}:${Account}:file-system/${FileSystemId}
@@ -3384,6 +3406,7 @@ es;DescribeReservedElasticsearchInstances;Grants permission to fetch ES reserved
 es;ESHttpDelete;Grants permission to send HTTP DELETE requests to the Elasticsearch APIs.;Write;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 es;ESHttpGet;Grants permission to send HTTP GET requests to the Elasticsearch APIs.;Read;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 es;ESHttpHead;Grants permission to send HTTP HEAD requests to the Elasticsearch APIs.;Read;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
+es;ESHttpPatch;Grants permission to send HTTP PATCH requests to the Elasticsearch APIs.;Write;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 es;ESHttpPost;Grants permission to send HTTP POST requests to the Elasticsearch APIs.;Write;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 es;ESHttpPut;Grants permission to send HTTP PUT requests to the Elasticsearch APIs.;Write;domain;False;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 es;GetCompatibleElasticsearchVersions;Grants permission to fetch list of compatible elastic search versions to which Amazon  ES domain can be upgraded;List;domain;True;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
@@ -3399,6 +3422,7 @@ es;UpdateElasticsearchDomainConfig;Grants permission to modify the configuration
 es;UpgradeElasticsearchDomain;Grants permission to initiate upgrade of elastic search domain to given version;Write;domain;True;arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}
 events;ActivateEventSource;Activates a partner event source that has been deactivated. Once activated, your matching  event bus will start receiving events from the event source.;Write;event-source;True;arn:${Partition}:events:${Region}::event-source/${EventSourceName}
 events;CreateEventBus;Creates a new event bus within your account. This can be a custom event bus which  you can use to receive events from your own custom applications and services, or it  can be a partner event bus which can be matched to a partner event source.;Write;event-bus;True;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}
+events;CreateEventBus;Creates a new event bus within your account. This can be a custom event bus which  you can use to receive events from your own custom applications and services, or it  can be a partner event bus which can be matched to a partner event source.;Write;None;False;*
 events;CreatePartnerEventSource;Called by an AWS partner to create a partner event source.;Write;event-source;True;arn:${Partition}:events:${Region}::event-source/${EventSourceName}
 events;DeactivateEventSource;Called by an AWS partner to create a partner event source.;Write;event-source;True;arn:${Partition}:events:${Region}::event-source/${EventSourceName}
 events;DeleteEventBus;Deletes the specified custom event bus or partner event bus. All rules associated  with this event bus are also deleted. You can't delete your account's default event  bus.;Write;event-bus;True;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}
@@ -3416,7 +3440,8 @@ events;ListPartnerEventSourceAccounts;Called by an AWS partner to display the AW
 events;ListPartnerEventSources;Called by an AWS partner to list all the partner event sources that they have created.;List;event-source;True;arn:${Partition}:events:${Region}::event-source/${EventSourceName}
 events;ListRuleNamesByTarget;Lists the names of the rules that the given target is put to.;List;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
 events;ListRules;Lists the Amazon EventBridge rules in your account.;List;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
-events;ListTagsForResource;This action lists tags for an Amazon EventBridge resource.;List;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
+events;ListTagsForResource;This action lists tags for an Amazon EventBridge resource.;List;event-bus;False;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}
+events;ListTagsForResource;This action lists tags for an Amazon EventBridge resource.;List;rule;False;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
 events;ListTargetsByRule;Lists of targets assigned to the rule.;List;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
 events;PutEvents;Sends custom events to Amazon EventBridge so that they can be matched to rules.;Write;None;False;*
 events;PutPartnerEvents;Sends custom events to Amazon EventBridge so that they can be matched to rules.;Write;None;False;*
@@ -3427,10 +3452,12 @@ events;PutTargets;Adds target(s) to a rule. Targets are the resources that can b
 events;PutTargets;Adds target(s) to a rule. Targets are the resources that can be invoked when a rule  is triggered.;Write;None;False;*
 events;RemovePermission;Revokes the permission of another AWS account to be able to put events to your default  event bus.;Write;None;False;*
 events;RemoveTargets;Removes target(s) from a rule so that when the rule is triggered, those targets will  no longer be invoked.;Write;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
-events;TagResource;This action tags an Amazon EventBridge resource.;Tagging;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
+events;TagResource;This action tags an Amazon EventBridge resource.;Tagging;event-bus;False;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}
+events;TagResource;This action tags an Amazon EventBridge resource.;Tagging;rule;False;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
 events;TagResource;This action tags an Amazon EventBridge resource.;Tagging;None;False;*
 events;TestEventPattern;Tests whether an event pattern matches the provided event.;Read;None;False;*
-events;UntagResource;This action removes a tag from an Amazon EventBridge resource.;Tagging;rule;True;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
+events;UntagResource;This action removes a tag from an Amazon EventBridge resource.;Tagging;event-bus;False;arn:${Partition}:events:${Region}:${Account}:event-bus/${EventBusName}
+events;UntagResource;This action removes a tag from an Amazon EventBridge resource.;Tagging;rule;False;arn:${Partition}:events:${Region}:${Account}:rule/[${EventBusName}/]${RuleName}
 events;UntagResource;This action removes a tag from an Amazon EventBridge resource.;Tagging;None;False;*
 execute-api;InvalidateCache;Used to invalidate API cache upon a client request;Write;execute-api-general;True;arn:${Partition}:execute-api:${Region}:${Account}:${ApiId}/${Stage}/${Method}/${ApiSpecificResourcePath}
 execute-api;Invoke;Used to invoke an API upon a client request;Write;execute-api-general;True;arn:${Partition}:execute-api:${Region}:${Account}:${ApiId}/${Stage}/${Method}/${ApiSpecificResourcePath}
@@ -5141,7 +5168,10 @@ lambda;DeleteEventSourceMapping;Removes an event source mapping.;Write;eventSour
 lambda;DeleteEventSourceMapping;Removes an event source mapping.;Write;None;False;*
 lambda;DeleteFunction;Deletes the specified Lambda function code and configuration.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;DeleteFunctionConcurrency;Remove concurrency limit set on a Lambda function.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;DeleteFunctionEventInvokeConfig;Deletes the event invoke configuration parameters for the specified Lambda function.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;DeleteLayerVersion;Deletes a version of a function layer.;Write;layerVersion;True;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}
+lambda;DeleteProvisionedConcurrencyConfig;Deletes the provisioned concurrency configuration for a function.;Write;function alias;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias}
+lambda;DeleteProvisionedConcurrencyConfig;Deletes the provisioned concurrency configuration for a function.;Write;function version;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}
 lambda;DisableReplication;Removes resource policy permission that allows Lambda replication service to retrieve  function code and configuration.;Permissions management;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;EnableReplication;Adds a permission to resource policy that gives Lambda replication service permission  to get function code and configuration.;Permissions management;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;GetAccountSettings;Returns account limits and usage statistics, such as concurrency and code storage.;Read;None;False;*
@@ -5149,22 +5179,31 @@ lambda;GetAlias;Returns the specified alias information such as the alias ARN, d
 lambda;GetEventSourceMapping;Returns configuration information for the specified event source mapping.;Read;eventSourceMapping;True;arn:${Partition}:lambda:${Region}:${Account}:event-source-mapping:${UUID}
 lambda;GetEventSourceMapping;Returns configuration information for the specified event source mapping.;Read;None;False;*
 lambda;GetFunction;Returns the configuration information of the Lambda function and a presigned URL link  to the .zip file you uploaded with CreateFunction so you can download the .zip file.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;GetFunctionConcurrency;Returns details about the concurrency configuration for a function.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;GetFunctionConfiguration;Returns the configuration information of the Lambda function.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;GetFunctionEventInvokeConfig;Returns the event invoke configuration parameters for the specified Lambda function.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;GetLayerVersion;Returns information about a version of a function layer, with a link to download the  layer archive that is valid for 10 minutes.;Read;layerVersion;True;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}
 lambda;GetLayerVersionPolicy;Returns the permissions policy for a layer version.;Read;layerVersion;True;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}
 lambda;GetPolicy;Returns the resource policy associated with the specified Lambda function.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;GetProvisionedConcurrencyConfig;Retrieves the provisioned concurrency configuration for a function's alias or version.;Read;function alias;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias}
+lambda;GetProvisionedConcurrencyConfig;Retrieves the provisioned concurrency configuration for a function's alias or version.;Read;function version;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}
 lambda;InvokeAsync;Submits an invocation request to AWS Lambda. Is deprecated;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;InvokeFunction;Invokes a specific Lambda function.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;ListAliases;Returns list of aliases created for a Lambda function.;List;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;ListEventSourceMappings;Returns a list of event source mappings you created using the CreateEventSourceMapping.;List;None;False;*
+lambda;ListFunctionEventInvokeConfigs;Returns a list of all event invoke configuration parameters for the Lambda function,  its alias and versions;List;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;ListFunctions;Returns a list of your Lambda functions.;List;None;False;*
 lambda;ListLayerVersions;Returns a list of your Lambda layer versions.;List;None;False;*
 lambda;ListLayers;Lists function layers and shows information about the latest version of each.;List;None;False;*
+lambda;ListProvisionedConcurrencyConfigs;Retrieves a list of provisioned concurrency configurations for a function.;List;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;ListTags;Lists tags for a Lambda function.;Read;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;ListVersionsByFunction;List all versions of a function.;List;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;PublishLayerVersion;Creates a function layer from a ZIP archive. Each time you call PublishLayerVersion  with the same version name, a new version is created.;Write;layer;True;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}
 lambda;PublishVersion;Publishes a version of your function from the current snapshot of $LATEST.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;PutFunctionConcurrency;Adds concurrency limit to a Lambda function.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;PutFunctionEventInvokeConfig;Adds the event invoke configuration parameters for the specified Lambda function by  using the values provided in the request.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
+lambda;PutProvisionedConcurrencyConfig;Adds a provisioned concurrency configuration to a function's alias or version.;Write;function alias;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Alias}
+lambda;PutProvisionedConcurrencyConfig;Adds a provisioned concurrency configuration to a function's alias or version.;Write;function version;False;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}:${Version}
 lambda;RemoveLayerVersionPermission;Removes a statement from the permissions policy for a layer version.;Permissions management;layerVersion;True;arn:${Partition}:lambda:${Region}:${Account}:layer:${LayerName}:${LayerVersion}
 lambda;RemovePermission;You can remove individual permissions from an resource policy associated with a Lambda  function by providing a statement ID that you provided when you added the permission.;Permissions management;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;RemovePermission;You can remove individual permissions from an resource policy associated with a Lambda  function by providing a statement ID that you provided when you added the permission.;Permissions management;None;False;*
@@ -5176,6 +5215,7 @@ lambda;UpdateEventSourceMapping;You can update an event source mapping.;Write;No
 lambda;UpdateFunctionCode;Updates the code for the specified Lambda function.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;UpdateFunctionConfiguration;Updates the configuration parameters for the specified Lambda function by using the  values provided in the request.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 lambda;UpdateFunctionConfiguration;Updates the configuration parameters for the specified Lambda function by using the  values provided in the request.;Write;None;False;*
+lambda;UpdateFunctionEventInvokeConfig;Updates the event invoke configuration parameters for the specified Lambda function  by using the values provided in the request.;Write;function;True;arn:${Partition}:lambda:${Region}:${Account}:function:${FunctionName}
 launchwizard;DeleteApp;Delete an application;Write;None;False;*
 launchwizard;DescribeProvisionedApp;Describe provisioning applications;Read;None;False;*
 launchwizard;DescribeProvisioningEvents;Describe provisioning events;Read;None;False;*
@@ -6207,28 +6247,67 @@ qldb;UntagResource;Grants permission to remove one or more tags to a resource;Ta
 qldb;UntagResource;Grants permission to remove one or more tags to a resource;Tagging;None;False;*
 qldb;UpdateLedger;Grants permission to update properties on a ledger;Write;ledger;True;arn:${Partition}:qldb:${Region}:${Account}:ledger/${LedgerName}
 quicksight;CreateAdmin;CreateAdmin enables the user to provision Amazon QuickSight administrators, authors,  and readers.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
+quicksight;CreateDashboard;Creates a dashboard from a template;Write;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;CreateDashboard;Creates a dashboard from a template;Write;None;False;*
 quicksight;CreateGroup;Create a QuickSight group.;Write;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
 quicksight;CreateGroupMembership;Add a QuickSight user to a QuickSight group.;Write;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
+quicksight;CreateIAMPolicyAssignment;Creates an assignment with one specified IAM Policy ARN that will be assigned to specified  groups or users of QuickSight.;Write;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
 quicksight;CreateReader;CreateReader enables the user to provision Amazon QuickSight readers.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
+quicksight;CreateTemplate;Creates a template from an existing QuickSight analysis or template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;CreateTemplate;Creates a template from an existing QuickSight analysis or template;Write;None;False;*
+quicksight;CreateTemplateAlias;Creates a template alias for a template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
 quicksight;CreateUser;CreateUser enables the user to provision Amazon QuickSight authors and readers.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
+quicksight;DeleteDashboard;Deletes a dashboard;Write;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
 quicksight;DeleteGroup;Remove a user group from QuickSight.;Write;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
 quicksight;DeleteGroupMembership;Remove a user from a group so that he/she is no longer a member of the group.;Write;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
+quicksight;DeleteIAMPolicyAssignment;Update an existing assignment.;Write;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
+quicksight;DeleteTemplate;Deletes a template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;DeleteTemplateAlias;Deletes the item that the specified template alias points to;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
 quicksight;DeleteUser;Delete the QuickSight user that is associated with the identity of the IAM user/role  making the call. The IAM user is not deleted as a result of this call.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 quicksight;DeleteUserByPrincipalId;Deletes a user identified by its principal ID.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
+quicksight;DescribeDashboard;Provides a summary for a dashboard;Read;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;DescribeDashboardPermissions;Describes read and write permissions for a dashboard;Read;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
 quicksight;DescribeGroup;Return a QuickSight group’s description and ARN.;Read;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
+quicksight;DescribeIAMPolicyAssignment;Describe an existing assignment.;Read;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
+quicksight;DescribeTemplate;Describes a template's metadata;Read;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;DescribeTemplateAlias;Describes the template alias for a template;Read;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;DescribeTemplatePermissions;Describes read and write permissions on a template;Read;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
 quicksight;DescribeUser;Return information about a user, given the user name.;Read;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
+quicksight;GetAuthCode;Return an auth code representing a QuickSight user.;Read;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 quicksight;GetDashboardEmbedUrl;Return a QuickSight dashboard embedding URL.;Read;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
 quicksight;GetGroupMapping;GetGroupMapping is used only in Amazon QuickSight Enterprise edition accounts. It  enables the user to use Amazon QuickSight to identify and display the Microsoft Active  Directory (Microsoft Active Directory) directory groups that are mapped to roles in  Amazon QuickSight.;Read;None;False;*
+quicksight;ListDashboardVersions;Lists all the versions of the dashboards in the QuickSight subscription;List;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;ListDashboards;Lists dashboards in an AWS account;List;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
 quicksight;ListGroupMemberships;Return a list of member users in a group.;List;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
 quicksight;ListGroups;Get a list of all user groups in QuickSight.;List;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
+quicksight;ListIAMPolicyAssignments;List all assignments in the current Amazon QuickSight account.;List;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
+quicksight;ListIAMPolicyAssignmentsForUser;List all assignments assigned to a user and the groups it belongs;List;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
+quicksight;ListTagsForResource;List tags of a QuickSight resource.;List;dashboard;False;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;ListTagsForResource;List tags of a QuickSight resource.;List;template;False;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;ListTemplateAliases;Lists all the aliases of a template;List;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;ListTemplateVersions;Lists all the versions of the templates in the current Amazon QuickSight account;List;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;ListTemplates;Lists all the templates in the current Amazon QuickSight account;List;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
 quicksight;ListUserGroups;Return a list of groups that a given user is a member of.;List;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 quicksight;ListUsers;Return a list of all of the QuickSight users belonging to this account.;List;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 quicksight;RegisterUser;Create a QuickSight user, whose identity is associated with the IAM identity/role  specified in the request.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 quicksight;SearchDirectoryGroups;SearchDirectoryGroups is used only in Amazon QuickSight Enterprise edition accounts.  It enables the user to use Amazon QuickSight to display your Microsoft Active Directory  directory groups so that you can choose which ones to map to roles in Amazon QuickSight.;Write;None;False;*
 quicksight;SetGroupMapping;SearchDirectoryGroups is used only in Amazon QuickSight Enterprise edition accounts.  It enables the user to use Amazon QuickSight to display your Microsoft Active Directory  directory groups so that you can choose which ones to map to roles in Amazon QuickSight.;Write;None;False;*
 quicksight;Subscribe;Subscribe enables the user to subscribe to Amazon QuickSight. Enabling this action  also allows the user to upgrade the subscription to Enterprise edition.;Write;None;False;*
+quicksight;TagResource;Add tags to a QuickSight resource;Tagging;dashboard;False;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;TagResource;Add tags to a QuickSight resource;Tagging;template;False;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;TagResource;Add tags to a QuickSight resource;Tagging;None;False;*
 quicksight;Unsubscribe;Unsubscribe enables the user to unsubscribe from Amazon QuickSight, which permanently  deletes all users and their resources from Amazon QuickSight.;Write;None;False;*
+quicksight;UntagResource;Remove tags from a QuickSight resource.;Tagging;dashboard;False;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;UntagResource;Remove tags from a QuickSight resource.;Tagging;template;False;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;UntagResource;Remove tags from a QuickSight resource.;Tagging;None;False;*
+quicksight;UpdateDashboard;Updates a dashboard in an AWS account;Write;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;UpdateDashboardPermissions;Updates read and write permissions on a dashboard;Write;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
+quicksight;UpdateDashboardPublishedVersion;Updates the published version of a dashboard;Write;dashboard;True;arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId}
 quicksight;UpdateGroup;Change group description.;Write;group;True;arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}
+quicksight;UpdateIAMPolicyAssignment;Update an existing assignment.;Write;assignment;True;arn:${Partition}:quicksight::${Account}:assignment/${ResourceId}
+quicksight;UpdateTemplate;Updates a template from an existing Amazon QuickSight analysis or another template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;UpdateTemplateAlias;Updates the template alias of a template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
+quicksight;UpdateTemplatePermissions;Updates the resource permissions for a template;Write;template;True;arn:${Partition}:quicksight:${Region}:${Account}:template/${ResourceId}
 quicksight;UpdateUser;Updates an Amazon QuickSight user.;Write;user;True;arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}
 ram;AcceptResourceShareInvitation;Accept the specified resource share invitation;Permissions management;resource-share-invitation;True;arn:${Partition}:ram:${Region}:${Account}:resource-share-invitation/${ResourcePath}
 ram;AcceptResourceShareInvitation;Accept the specified resource share invitation;Permissions management;None;False;*
@@ -6613,6 +6692,7 @@ rekognition;GetFaceDetection;Gets face detection results for a Rekognition Video
 rekognition;GetFaceSearch;Gets the face search results for Rekognition Video face search started by StartFaceSearch.;Read;None;False;*
 rekognition;GetLabelDetection;Gets the label detection results of a Rekognition Video analysis started by StartLabelDetection.;Read;None;False;*
 rekognition;GetPersonTracking;Gets information about people detected within a video.;Read;None;False;*
+rekognition;GetTextDetection;Gets text detection results for a Rekognition Video analysis started by StartTextDetection.;Read;None;False;*
 rekognition;IndexFaces;Detects faces in the input image and adds them to the specified collection.;Write;collection;True;arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId}
 rekognition;ListCollections;Returns a list of collection IDs in your account.;Read;collection;True;arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId}
 rekognition;ListFaces;Returns metadata for faces in the specified collection.;Read;collection;True;arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId}
@@ -6628,6 +6708,7 @@ rekognition;StartLabelDetection;Starts asynchronous detection of labels in a vid
 rekognition;StartPersonTracking;Starts the asynchronous tracking of persons in a video.;Write;None;False;*
 rekognition;StartProjectVersion;Starts the deployment of a model version.;Write;projectversion;True;arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/version/${VersionName}/${CreationTimestamp}
 rekognition;StartStreamProcessor;Starts processing a stream processor.;Write;streamprocessor;True;arn:${Partition}:rekognition:${Region}:${Account}:streamprocessor/${StreamprocessorId}
+rekognition;StartTextDetection;Starts asynchronous detection of text in a video.;Write;None;False;*
 rekognition;StopProjectVersion;Stops a deployed model version.;Write;projectversion;True;arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/version/${VersionName}/${CreationTimestamp}
 rekognition;StopStreamProcessor;Stops a running stream processor that was created by CreateStreamProcessor.;Write;streamprocessor;True;arn:${Partition}:rekognition:${Region}:${Account}:streamprocessor/${StreamprocessorId}
 resource-groups;CreateGroup;Creates a group with a specified name, description, and resource query.;Write;group;True;arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName}
@@ -6648,6 +6729,7 @@ resource-groups;UpdateGroupQuery;Updates the query associated with a specified r
 robomaker;BatchDescribeSimulationJob;Describe multiple simulation jobs;Read;None;False;*
 robomaker;CancelDeploymentJob;Cancel a deployment job;Write;deploymentJob;True;arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}
 robomaker;CancelSimulationJob;Cancel a simulation job;Write;simulationJob;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;CancelSimulationJobBatch;Cancel a simulation job batch;Write;simulationJobBatch;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
 robomaker;CreateDeploymentJob;Create a deployment job;Write;None;False;*
 robomaker;CreateFleet;Create a deployment fleet that represents a logical group of robots running the same  robot application;Write;None;False;*
 robomaker;CreateRobot;Create a robot that can be registered to a fleet;Write;None;False;*
@@ -6668,11 +6750,13 @@ robomaker;DescribeRobot;Describe a robot;Read;robot;True;arn:${Partition}:roboma
 robomaker;DescribeRobotApplication;Describe a robot application;Read;robotApplication;True;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;DescribeSimulationApplication;Describe a simulation application;Read;simulationApplication;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;DescribeSimulationJob;Describe a simulation job;Read;simulationJob;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;DescribeSimulationJobBatch;Describe a simulation job batch;Read;simulationJobBatch;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
 robomaker;ListDeploymentJobs;List deployment jobs;List;None;False;*
 robomaker;ListFleets;List fleets;List;None;False;*
 robomaker;ListRobotApplications;List robot applications;List;None;False;*
 robomaker;ListRobots;List robots;List;None;False;*
 robomaker;ListSimulationApplications;List simulation applications;List;None;False;*
+robomaker;ListSimulationJobBatches;List simulation job batches;List;None;False;*
 robomaker;ListSimulationJobs;List simulation jobs;List;None;False;*
 robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;deploymentFleet;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
 robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;deploymentJob;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}
@@ -6680,9 +6764,11 @@ robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;robot;Fal
 robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;robotApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;simulationApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;simulationJob;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;ListTagsForResource;List tags for a RoboMaker resource.;List;simulationJobBatch;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
 robomaker;RegisterRobot;Register a robot to a fleet;Write;deploymentFleet;True;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
 robomaker;RegisterRobot;Register a robot to a fleet;Write;robot;True;arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch}
 robomaker;RestartSimulationJob;Restart a running simulation job;Write;simulationJob;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;StartSimulationJobBatch;Create a simulation job batch;Write;None;False;*
 robomaker;SyncDeploymentJob;Ensures the most recently deployed robot application is deployed to all robots in  the fleet;Write;deploymentFleet;True;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;deploymentFleet;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;deploymentJob;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}
@@ -6690,6 +6776,7 @@ robomaker;TagResource;Add tags to a RoboMaker resource;Write;robot;False;arn:${P
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;robotApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;simulationApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;simulationJob;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;TagResource;Add tags to a RoboMaker resource;Write;simulationJobBatch;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
 robomaker;TagResource;Add tags to a RoboMaker resource;Write;None;False;*
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;deploymentFleet;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;deploymentJob;False;arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}
@@ -6697,6 +6784,7 @@ robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;robot;False;
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;robotApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;simulationApplication;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;simulationJob;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}
+robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;simulationJobBatch;False;arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}
 robomaker;UntagResource;Remove tags from a RoboMaker resource;Write;None;False;*
 robomaker;UpdateRobotApplication;Update a robot application;Write;robotApplication;True;arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}
 robomaker;UpdateSimulationApplication;Update a simulation application;Write;simulationApplication;True;arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch}
@@ -7312,6 +7400,7 @@ securityhub;DeleteMembers;Grants permission to delete Security Hub member accoun
 securityhub;DescribeActionTargets;Grants permission to retrieve a list of custom actions using the API.;Read;None;False;*
 securityhub;DescribeHub;Grants permission to retrieve information about the hub resource in your account.;Read;None;False;*
 securityhub;DescribeProducts;Grants permission to retrieve information about the available Security Hub product  integrations.;Read;None;False;*
+securityhub;DescribeStandards;Grants permission to retrieve information about Security Hub standards.;Read;hub;True;arn:${Partition}:securityhub:${Region}:${Account}:hub/default
 securityhub;DescribeStandardsControls;Grants permission to retrieve information about Security Hub standards controls.;Read;hub;True;arn:${Partition}:securityhub:${Region}:${Account}:hub/default
 securityhub;DisableImportFindingsForProduct;Grants permission to disable the findings importing for a Security Hub integrated  product.;Write;product;True;arn:${Partition}:securityhub:${Region}:${Account}:product/${Company}/${ProductId}
 securityhub;DisableSecurityHub;Grants permission to disable Security Hub.;Write;None;False;*
@@ -7992,7 +8081,7 @@ storagegateway;ActivateGateway;This operation activates the gateway you previous
 storagegateway;AddCache;This operation configures one or more gateway local disks as cache for a cached-volume  gateway.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;gateway;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;share;False;arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId}
-storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;volume;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;AddTagsToResource;This operation adds one or more tags to the specified resource.;Tagging;None;False;*
 storagegateway;AddUploadBuffer;This operation configures one or more gateway local disks as upload buffer for a specified  gateway.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
@@ -8000,9 +8089,9 @@ storagegateway;AddWorkingStorage;This operation configures one or more gateway l
 storagegateway;AttachVolume;This operation connects a volume to an iSCSI connection and then attaches the volume  to the specified gateway.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;AttachVolume;This operation connects a volume to an iSCSI connection and then attaches the volume  to the specified gateway.;Write;volume;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;CancelArchival;Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving  process is initiated.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
-storagegateway;CancelArchival;Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving  process is initiated.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;CancelArchival;Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving  process is initiated.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;CancelRetrieval;Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway  after the retrieval process is initiated.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
-storagegateway;CancelRetrieval;Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway  after the retrieval process is initiated.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;CancelRetrieval;Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway  after the retrieval process is initiated.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;CreateCachediSCSIVolume;This operation creates a cached volume on a specified cached gateway. This operation  is supported only for the gateway-cached volume architecture.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;CreateCachediSCSIVolume;This operation creates a cached volume on a specified cached gateway. This operation  is supported only for the gateway-cached volume architecture.;Write;volume;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;CreateCachediSCSIVolume;This operation creates a cached volume on a specified cached gateway. This operation  is supported only for the gateway-cached volume architecture.;Write;None;False;*
@@ -8024,7 +8113,7 @@ storagegateway;DeleteFileShare;This operation deletes a file share from a file g
 storagegateway;DeleteGateway;This operation deletes a gateway.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;DeleteSnapshotSchedule;This operation deletes a snapshot of a volume.;Write;volume;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;DeleteTape;Deletes the specified virtual tape.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
-storagegateway;DeleteTape;Deletes the specified virtual tape.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;DeleteTape;Deletes the specified virtual tape.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;DeleteTapeArchive;Deletes the specified virtual tape from the virtual tape shelf (VTS).;Write;None;False;*
 storagegateway;DeleteVolume;This operation deletes the specified gateway volume that you previously created using  the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.;Write;volume;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;DescribeBandwidthRateLimit;This operation returns the bandwidth rate limits of a gateway.;Read;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
@@ -8052,9 +8141,9 @@ storagegateway;ListGateways;This operation lists gateways owned by an AWS accoun
 storagegateway;ListLocalDisks;This operation returns a list of the gateway's local disks.;List;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;ListTagsForResource;This operation lists the tags that have been added to the specified resource.;Read;gateway;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;ListTagsForResource;This operation lists the tags that have been added to the specified resource.;Read;share;False;arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId}
-storagegateway;ListTagsForResource;This operation lists the tags that have been added to the specified resource.;Read;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;ListTagsForResource;This operation lists the tags that have been added to the specified resource.;Read;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;ListTagsForResource;This operation lists the tags that have been added to the specified resource.;Read;volume;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
-storagegateway;ListTapes;Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf  (VTS).;Read;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;ListTapes;Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf  (VTS).;Read;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;ListVolumeInitiators;This operation lists iSCSI initiators that are connected to a volume.;Read;volume;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;ListVolumeRecoveryPoints;This operation lists the recovery points for a specified gateway.;List;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;ListVolumes;This operation lists the iSCSI stored volumes of a gateway.;List;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
@@ -8062,14 +8151,14 @@ storagegateway;NotifyWhenUploaded;This action sends you a notification through C
 storagegateway;RefreshCache;This operation refreshes the cache for the specified file share.;Write;share;True;arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId}
 storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;gateway;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;share;False;arn:${Partition}:storagegateway:${Region}:${Account}:share/${ShareId}
-storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;tape;False;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;volume;False;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}/volume/${VolumeId}
 storagegateway;RemoveTagsFromResource;This operation removes one or more tags from the specified resource.;Tagging;None;False;*
 storagegateway;ResetCache;This operation resets all cache disks that have encountered a error and makes the  disks available for reconfiguration as cache storage.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;RetrieveTapeArchive;Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
-storagegateway;RetrieveTapeArchive;Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;RetrieveTapeArchive;Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;RetrieveTapeRecoveryPoint;Retrieves the recovery point for the specified virtual tape.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
-storagegateway;RetrieveTapeRecoveryPoint;Retrieves the recovery point for the specified virtual tape.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${TapeBarcode}
+storagegateway;RetrieveTapeRecoveryPoint;Retrieves the recovery point for the specified virtual tape.;Write;tape;True;arn:${Partition}:storagegateway:${Region}:${Account}:tape/${TapeBarcode}
 storagegateway;SetLocalConsolePassword;Sets the password for your VM local console.;Permissions management;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;SetSMBGuestPassword;Sets the password for SMB Guest user.;Permissions management;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
 storagegateway;ShutdownGateway;This operation shuts down a gateway.;Write;gateway;True;arn:${Partition}:storagegateway:${Region}:${Account}:gateway/${GatewayId}
@@ -8597,92 +8686,99 @@ worklink;UpdateDevicePolicyConfiguration;Grants permission to update the device 
 worklink;UpdateDomainMetadata;Grants permission to update the metadata for a domain associated with an Amazon WorkLink  fleet;Write;fleet;True;arn:${Partition}:worklink::${Account}:fleet/${fleetName}
 worklink;UpdateFleetMetadata;Grants permission to update the metadata of an Amazon WorkLink fleet;Write;fleet;True;arn:${Partition}:worklink::${Account}:fleet/${fleetName}
 worklink;UpdateIdentityProviderConfiguration;Grants permission to update the identity provider configuration for an Amazon WorkLink  fleet;Write;fleet;True;arn:${Partition}:worklink::${Account}:fleet/${fleetName}
-workmail;AddMembersToGroup;Adds a list of members (users or groups) to a group.;Write;None;False;*
-workmail;AssociateDelegateToResource;Adds a member (user or group) to the resource's set of delegates.;Write;None;False;*
-workmail;AssociateMemberToGroup;Adds a member (user or group) to the group's set.;Write;None;False;*
-workmail;CreateAlias;Adds an alias to the set of a given member (user or group) of WorkMail.;Write;None;False;*
-workmail;CreateGroup;Creates a group that can be used in WorkMail by calling the RegisterToWorkMail operation.;Write;None;False;*
-workmail;CreateInboundMailFlowRule;Create an inbound email flow rule which will apply to all email sent to an organization;Write;None;False;*
-workmail;CreateMailDomain;Creates a mail domain.;Write;None;False;*
-workmail;CreateMailUser;Creates a user in the directory and the WorkMail storage but does not enable the user  for mail.;Write;None;False;*
+workmail;AddMembersToGroup;Adds a list of members (users or groups) to a group.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;AssociateDelegateToResource;Adds a member (user or group) to the resource's set of delegates.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;AssociateMemberToGroup;Adds a member (user or group) to the group's set.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateAlias;Adds an alias to the set of a given member (user or group) of WorkMail.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateGroup;Creates a group that can be used in WorkMail by calling the RegisterToWorkMail operation.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateInboundMailFlowRule;Create an inbound email flow rule which will apply to all email sent to an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateMailDomain;Creates a mail domain.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateMailUser;Creates a user in the directory and the WorkMail storage but does not enable the user  for mail.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmail;CreateOrganization;Creates an organization, either using an existing directory or creates a new directory  on-the-fly. Also creates and enables the complementary mail domain. Optionally creates  KMS key;Write;None;False;*
-workmail;CreateOutboundMailFlowRule;Create an outbound email flow rule which will apply to all email sent from an organization;Write;None;False;*
-workmail;CreateResource;Creates a new WorkMail resource.;Write;None;False;*
-workmail;CreateSmtpGateway;Register an SMTP device against a WorkMail organization;Write;None;False;*
-workmail;CreateUser;Creates a user who can be used in WorkMail by calling the RegisterToWorkMail operation.;Write;None;False;*
-workmail;DeleteAlias;Remove one or more specified aliases from a set of aliases for a given user.;Write;None;False;*
-workmail;DeleteGroup;Deletes a group from WorkMail.;Write;None;False;*
-workmail;DeleteInboundMailFlowRule;Remove an inbound email flow rule to no longer apply to emails sent to an organization;Write;None;False;*
-workmail;DeleteMailDomain;Removes an unused mail domain from an organization;Write;None;False;*
-workmail;DeleteMailboxPermissions;Deletes permissions granted to a member (user or group).;Write;None;False;*
-workmail;DeleteMobileDevice;Removes a mobile device from a user;Write;None;False;*
-workmail;DeleteOrganization;Removes an organization from an account, either removing the directory from directory  services or leaving it available for re-use;Write;None;False;*
-workmail;DeleteOutboundMailFlowRule;Remove an outbound email flow rule to no longer apply to emails sent from an organization;Write;None;False;*
-workmail;DeleteResource;Deletes the specified resource.;Write;None;False;*
-workmail;DeleteSmtpGateway;Remove an SMTP device from an organization;Write;None;False;*
-workmail;DeleteUser;Deletes a user from WorkMail and all subsequent systems. The action cannot be undone.;Write;None;False;*
-workmail;DeregisterFromWorkMail;Mark a user, group, or resource as no longer used in WorkMail.;Write;None;False;*
+workmail;CreateOutboundMailFlowRule;Create an outbound email flow rule which will apply to all email sent from an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateResource;Creates a new WorkMail resource.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateSmtpGateway;Register an SMTP device against a WorkMail organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;CreateUser;Creates a user who can be used in WorkMail by calling the RegisterToWorkMail operation.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteAccessControlRule;Deletes an access control rule for the specified WorkMail organization.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteAlias;Remove one or more specified aliases from a set of aliases for a given user.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteGroup;Deletes a group from WorkMail.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteInboundMailFlowRule;Remove an inbound email flow rule to no longer apply to emails sent to an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteMailDomain;Removes an unused mail domain from an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteMailboxPermissions;Deletes permissions granted to a member (user or group).;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteMobileDevice;Removes a mobile device from a user;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteOrganization;Removes an organization from an account, either removing the directory from directory  services or leaving it available for re-use;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteOutboundMailFlowRule;Remove an outbound email flow rule to no longer apply to emails sent from an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteResource;Deletes the specified resource.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteSmtpGateway;Remove an SMTP device from an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeleteUser;Deletes a user from WorkMail and all subsequent systems. The action cannot be undone.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DeregisterFromWorkMail;Mark a user, group, or resource as no longer used in WorkMail.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmail;DescribeDirectories;Shows a list of directories available for use in creating an organization;List;None;False;*
-workmail;DescribeGroup;Returns the data available for the group.;List;None;False;*
-workmail;DescribeInboundMailFlowRule;Returns the details of an inbound mail flow rule configured for an organization;Read;None;False;*
+workmail;DescribeGroup;Returns the data available for the group.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeInboundMailFlowRule;Returns the details of an inbound mail flow rule configured for an organization;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmail;DescribeKmsKeys;Shows a list of KMS Keys available for use in creating an organization;List;None;False;*
-workmail;DescribeMailDomains;Shows the details of all mail domains associated with the organization;List;None;False;*
-workmail;DescribeMailGroups;Shows the details of all groups associated with the organization;List;None;False;*
-workmail;DescribeMailUsers;Shows the details of all users associated with the orgaization;List;None;False;*
-workmail;DescribeOrganization;Provides more information regarding a given organization based on its identifier.;List;None;False;*
+workmail;DescribeMailDomains;Shows the details of all mail domains associated with the organization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeMailGroups;Shows the details of all groups associated with the organization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeMailUsers;Shows the details of all users associated with the orgaization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeOrganization;Provides more information regarding a given organization based on its identifier.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmail;DescribeOrganizations;Shows a summary of all organizations associated with the account;List;None;False;*
-workmail;DescribeOutboundMailFlowRule;Returns the details of an outbound mail flow rule configured for an organization;Read;None;False;*
-workmail;DescribeResource;Returns the data available for the resource.;List;None;False;*
-workmail;DescribeSmtpGateway;Returns the details of an SMTP device registered against an organization;Read;None;False;*
-workmail;DescribeUser;Provides information regarding the user.;List;None;False;*
-workmail;DisableMailGroups;Disable a mail group when it is not being used and, to allow it to be deleted;Write;None;False;*
-workmail;DisableMailUsers;Disable a user mailbox when it is no longer being used, and to allow it to be deleted;Write;None;False;*
-workmail;DisassociateDelegateFromResource;Removes a member from the resource's set of delegates.;Write;None;False;*
-workmail;DisassociateMemberFromGroup;Removes a member from a group.;Write;None;False;*
-workmail;EnableMailDomain;Enable a mail domain in the organization;Write;None;False;*
-workmail;EnableMailGroups;Enable a mail group after it has been created to allow it to receive mail;Write;None;False;*
-workmail;EnableMailUsers;Enable a user's mailbox after it has been created to allow it to receive mail;Write;None;False;*
-workmail;GetJournalingRules;Returns journaling and fallback email addresses configured for email journaling;Read;None;False;*
-workmail;GetMailDomainDetails;Get the details of the mail domain;Read;None;False;*
-workmail;GetMailGroupDetails;Get the details of the mail group;Read;None;False;*
-workmail;GetMailUserDetails;Get the details of the user's mailbox and account;Read;None;False;*
-workmail;GetMailboxDetails;Returns the details of the user's mailbox.;Read;None;False;*
-workmail;GetMobileDeviceDetails;Get the details of the mobile device;Read;None;False;*
-workmail;GetMobileDevicesForUser;Get a list of the mobile devices associated with the user;Read;None;False;*
-workmail;GetMobilePolicyDetails;Get the details of the mobile device policy associated with the organization;Read;None;False;*
-workmail;ListAliases;Creates a paginated call to list the aliases associated with a given entity.;List;None;False;*
-workmail;ListGroupMembers;Returns an overview of the members of a group. Users and groups can be members of  a group.;List;None;False;*
-workmail;ListGroups;Returns summaries of the organization's groups.;List;None;False;*
-workmail;ListInboundMailFlowRules;Returns a list of inbound mail flow rules configured for an organization;List;None;False;*
-workmail;ListMailboxPermissions;Lists the mailbox permissions associated with a user, group, or resource mailbox.;List;None;False;*
-workmail;ListMembersInMailGroup;Get a list of all the members in a mail group;Read;None;False;*
+workmail;DescribeOutboundMailFlowRule;Returns the details of an outbound mail flow rule configured for an organization;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeResource;Returns the data available for the resource.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeSmtpGateway;Returns the details of an SMTP device registered against an organization;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DescribeUser;Provides information regarding the user.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DisableMailGroups;Disable a mail group when it is not being used and, to allow it to be deleted;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DisableMailUsers;Disable a user mailbox when it is no longer being used, and to allow it to be deleted;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DisassociateDelegateFromResource;Removes a member from the resource's set of delegates.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;DisassociateMemberFromGroup;Removes a member from a group.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;EnableMailDomain;Enable a mail domain in the organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;EnableMailGroups;Enable a mail group after it has been created to allow it to receive mail;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;EnableMailUsers;Enable a user's mailbox after it has been created to allow it to receive mail;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetAccessControlEffect;Gets the effects of an organization's access control rules as they apply to a specified  IPv4 address, access protocol action, or user ID.;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetJournalingRules;Returns journaling and fallback email addresses configured for email journaling;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMailDomainDetails;Get the details of the mail domain;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMailGroupDetails;Get the details of the mail group;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMailUserDetails;Get the details of the user's mailbox and account;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMailboxDetails;Returns the details of the user's mailbox.;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMobileDeviceDetails;Get the details of the mobile device;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMobileDevicesForUser;Get a list of the mobile devices associated with the user;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;GetMobilePolicyDetails;Get the details of the mobile device policy associated with the organization;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListAccessControlRules;Lists the access control rules for the specified organization.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListAliases;Creates a paginated call to list the aliases associated with a given entity.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListGroupMembers;Returns an overview of the members of a group. Users and groups can be members of  a group.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListGroups;Returns summaries of the organization's groups.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListInboundMailFlowRules;Returns a list of inbound mail flow rules configured for an organization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListMailboxPermissions;Lists the mailbox permissions associated with a user, group, or resource mailbox.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListMembersInMailGroup;Get a list of all the members in a mail group;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmail;ListOrganizations;Returns summaries of the customer's non-deleted organizations.;List;None;False;*
-workmail;ListOutboundMailFlowRules;Returns a list of outbound mail flow rules configured for an organization;List;None;False;*
-workmail;ListResourceDelegates;Lists the delegates associated with a resource.;List;None;False;*
-workmail;ListResources;Returns summaries of the organization's resources.;List;None;False;*
-workmail;ListSmtpGateways;Returns a list of SMTP devices registered against the organization;List;None;False;*
-workmail;ListUsers;Returns summaries of the organization's users.;List;None;False;*
-workmail;PutMailboxPermissions;Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.;Write;None;False;*
-workmail;RegisterToWorkMail;Registers an existing and disabled user, group, or resource for use by associating  a mailbox and calendaring capabilities.;Write;None;False;*
-workmail;RemoveMembersFromGroup;Remove members from a mail group;Write;None;False;*
-workmail;ResetPassword;Allows the administrator to reset the password for a user.;Permissions management;None;False;*
-workmail;ResetUserPassword;Reset the password for a user's account;Permissions management;None;False;*
-workmail;SearchMembers;Prefix search to find a specific user in a mail group;Read;None;False;*
-workmail;SetAdmin;Mark a user as being an administrator;Write;None;False;*
-workmail;SetDefaultMailDomain;Set the default mail domain for the organization;Write;None;False;*
-workmail;SetJournalingRules;Set journaling and fallback email addresses for email journaling;Write;None;False;*
-workmail;SetMailGroupDetails;Set the details of the mail group which has just been created;Write;None;False;*
-workmail;SetMailUserDetails;Set the details for the user account which has just been created;Write;None;False;*
-workmail;SetMobilePolicyDetails;Set the details of a mobile policy associated with the organization;Write;None;False;*
-workmail;TestInboundMailFlowRules;Test what inbound rules will apply to an email with a given sender and recipient;Write;None;False;*
-workmail;TestOutboundMailFlowRules;Test what outbound rules will apply to an email with a given sender and recipient;Write;None;False;*
-workmail;UpdateInboundMailFlowRule;Update the details of an inbound email flow rule which will apply to all email sent  to an organization;Write;None;False;*
-workmail;UpdateMailboxQuota;Updates the maximum size (in MB) of the user's mailbox.;Write;None;False;*
-workmail;UpdateOutboundMailFlowRule;Update the details of an outbound email flow rule which will apply to all email sent  from an organization;Write;None;False;*
-workmail;UpdatePrimaryEmailAddress;Updates the primary email for a user, group, or resource.;Write;None;False;*
-workmail;UpdateResource;Updates data for the resource. To retrieve the latest information, it must be preceded  by a DescribeResource call.;Write;None;False;*
-workmail;UpdateSmtpGateway;Update the details of an existing SMTP device registered against an organization;Write;None;False;*
-workmail;WipeMobileDevice;Remotely wipe the mobile device associated with a user's account;Write;None;False;*
+workmail;ListOutboundMailFlowRules;Returns a list of outbound mail flow rules configured for an organization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListResourceDelegates;Lists the delegates associated with a resource.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListResources;Returns summaries of the organization's resources.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListSmtpGateways;Returns a list of SMTP devices registered against the organization;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListTagsForResource;Grants permission to list the tags applied to an Amazon WorkMail organization resource.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ListUsers;Returns summaries of the organization's users.;List;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;PutAccessControlRule;Adds a new access control rule for the specified organization. The rule allows or  denies access to the organization for the specified IPv4 addresses, access protocol  actions, and user IDs. Adding a new rule with the same name as an existing rule replaces  the older rule.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;PutMailboxPermissions;Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;RegisterToWorkMail;Registers an existing and disabled user, group, or resource for use by associating  a mailbox and calendaring capabilities.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;RemoveMembersFromGroup;Remove members from a mail group;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ResetPassword;Allows the administrator to reset the password for a user.;Permissions management;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;ResetUserPassword;Reset the password for a user's account;Permissions management;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SearchMembers;Prefix search to find a specific user in a mail group;Read;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetAdmin;Mark a user as being an administrator;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetDefaultMailDomain;Set the default mail domain for the organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetJournalingRules;Set journaling and fallback email addresses for email journaling;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetMailGroupDetails;Set the details of the mail group which has just been created;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetMailUserDetails;Set the details for the user account which has just been created;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;SetMobilePolicyDetails;Set the details of a mobile policy associated with the organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;TagResource;Grants permission to tag the specified Amazon WorkMail organization resource.;Tagging;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;TestInboundMailFlowRules;Test what inbound rules will apply to an email with a given sender and recipient;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;TestOutboundMailFlowRules;Test what outbound rules will apply to an email with a given sender and recipient;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UntagResource;Grants permission to untag the specified Amazon WorkMail organization resource.;Tagging;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdateInboundMailFlowRule;Update the details of an inbound email flow rule which will apply to all email sent  to an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdateMailboxQuota;Updates the maximum size (in MB) of the user's mailbox.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdateOutboundMailFlowRule;Update the details of an outbound email flow rule which will apply to all email sent  from an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdatePrimaryEmailAddress;Updates the primary email for a user, group, or resource.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdateResource;Updates data for the resource. To retrieve the latest information, it must be preceded  by a DescribeResource call.;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;UpdateSmtpGateway;Update the details of an existing SMTP device registered against an organization;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
+workmail;WipeMobileDevice;Remotely wipe the mobile device associated with a user's account;Write;organization;True;arn:${Partition}:workmail:${Region}:${Account}:organization/${ResourceId}
 workmailmessageflow;GetRawMessageContent;Grants permission to read the content of email messages with the specified message  ID;Read;RawMessage;True;arn:${Partition}:workmailmessageflow:${Region}:${Account}:message/${OrganizationId}/${Context}/${MessageId}
 workspaces;AssociateIpGroups;Associates the specified IP access control group with the specified directory.;Write;None;False;*
 workspaces;AuthorizeIpRules;Adds one or more rules to the specified IP access control group.;Write;workspaceipgroup;True;arn:${Partition}:workspaces:${Region}:${Account}:workspaceipgroup/${GroupId}
