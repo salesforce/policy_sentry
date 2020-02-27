@@ -2,13 +2,13 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.7.1.1 (Unreleased)
+## 0.7.1.1 (2020-02-10)
 * Fix redshift:getclustercredentials override (#132)
 * Update overrides to include new resource based policies (EFS is new and worklink was not previously included)
 * Docs refresh
 * Fixed logging - now just specify `-v debug` instead of `--log-level DEBUG`
 
-## 0.7.1
+## 0.7.1 (2020-02-19)
 * **Breaking change** and **new**: Template is modified again. This allows easy additions of wildcard-only actions with access levels specific to services (such as "S3 actions at read access level that do not support resource constraints"), so you never have to look at individual IAM actions again.
 * **New**: Output will be in UpperCamelCase rather than all lowercase, for human readability. Note that if `--minimize` is specified for `write-policy`, it will give me lowercase. Otherwise, it will be UpperCamelCase. Fixes #124.
 * **New**: Terraform module - #112
