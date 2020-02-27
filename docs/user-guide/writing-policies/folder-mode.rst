@@ -16,5 +16,5 @@ See the Terraform demo for more details.
      --input-dir TEXT    Relative path to Input directory that contains policy_sentry .yml files (CRUD mode only)  [required]
      --output-dir TEXT   Relative path to directory to store AWS JSON policies [required]
      --minimize INTEGER  Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 4
-     --log-level         Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+     --v LVL             Set the logging level. Choices are critical, error, warning, info, or debug. Defaults to INFO
      --help              Show this message and exit.

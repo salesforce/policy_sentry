@@ -10,7 +10,7 @@ Command options
 
 * ``--input-file``\ : YAML file containing the list of actions
 * ``--minimize``\ : Whether or not to minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character lengh you want - for example, 4
-* ``--log-level``\: Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+* ``-v``\: Set the logging level. Choices are critical, error, warning, info, or debug. Defaults to info
 
 Example:
 

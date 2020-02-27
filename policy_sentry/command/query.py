@@ -5,7 +5,7 @@ import json
 import logging
 import click
 import yaml
-from policy_sentry.util.logging import set_log_level
+import click_log
 from policy_sentry.util.access_levels import transform_access_level_text
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
@@ -27,8 +27,8 @@ from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
     get_condition_key_details,
 )
-
 logger = logging.getLogger()
+click_log.basic_config(logger)
 
 
 @click.group()
@@ -76,16 +76,9 @@ def query():
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click.option(
-    "--log-level",
-    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
-    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
-    default=False,
-    is_flag=True,
-)
-def action_table(name, service, access_level, condition, wildcard_only, fmt, log_level):
+@click_log.simple_verbosity_option(logger)
+def action_table(name, service, access_level, condition, wildcard_only, fmt):
     """Query the Action Table from the Policy Sentry database"""
-    set_log_level(logger, log_level)
 
     db_session = connect_db(DATABASE_FILE_PATH)
     # Actions on all services
@@ -185,15 +178,9 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt, log
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click.option(
-    "--log-level",
-    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
-    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
-    default="INFO",
-)
-def arn_table(name, service, list_arn_types, fmt, log_level):
+@click_log.simple_verbosity_option(logger)
+def arn_table(name, service, list_arn_types, fmt):
     """Query the ARN Table from the Policy Sentry database"""
-    set_log_level(logger, log_level)
 
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
@@ -235,15 +222,8 @@ def arn_table(name, service, list_arn_types, fmt, log_level):
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click.option(
-    "--log-level",
-    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
-    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
-    default="INFO",
-)
-def condition_table(name, service, fmt, log_level):
+def condition_table(name, service, fmt):
     """Query the condition keys table from the Policy Sentry database"""
-    set_log_level(logger, log_level)
 
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service

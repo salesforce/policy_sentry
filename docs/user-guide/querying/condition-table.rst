@@ -26,5 +26,5 @@ Options
                          service.
       --service TEXT     Filter according to AWS service.  [required]
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-      --log-level        Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+        -v, LVL          Either CRITICAL, ERROR, WARNING, INFO or DEBUG
       --help             Show this message and exit.
