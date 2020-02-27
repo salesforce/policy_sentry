@@ -81,7 +81,6 @@ def query():
     help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
     type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
     default=False,
-    is_flag=True,
 )
 def action_table(name, service, access_level, condition, wildcard_only, fmt, log_level):
     """Query the Action Table from the Policy Sentry database"""
