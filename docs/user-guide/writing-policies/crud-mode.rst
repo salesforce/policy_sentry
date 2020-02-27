@@ -13,7 +13,7 @@ Command options
 
 * ``--input-file``\ : YAML file containing the CRUD levels + Resource ARNs. Required.
 * ``--minimize``\ : Whether or not to minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want. This can be extended for readability. I suggest setting it to ``0``.
-* ``--log-level``\: Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+* ``-v``\: Set the logging level. Choices are critical, error, warning, info, or debug. Defaults to info
 
 
 Example:

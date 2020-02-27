@@ -35,8 +35,7 @@ click_log.basic_config(logger)
 @click_log.simple_verbosity_option(logger)
 def write_policy(input_file, minimize):
     """
-    Write a least-privilege IAM Policy by supplying either a list of actions or
-    access levels specific to resource ARNs!
+    Write least-privilege IAM policies, restricting all actions to resource ARNs.
     """
 
     db_session = connect_db(DATABASE_FILE_PATH)

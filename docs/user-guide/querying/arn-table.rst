@@ -29,6 +29,6 @@ Options
       --list-arn-types   Show the short names of ARN Types. If empty, this will
                          show RAW ARNs only.
       --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-      --log-level        Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+        -v, LVL          Either CRITICAL, ERROR, WARNING, INFO or DEBUG
       --help             Show this message and exit.
 
