@@ -6,6 +6,7 @@ import os.path
 import logging
 import glob
 import click
+import click_log
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import (
@@ -14,7 +15,6 @@ from policy_sentry.util.file import (
     check_valid_file_path,
 )
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-import click_log
 logger = logging.getLogger()
 click_log.basic_config(logger)
 

@@ -5,8 +5,8 @@ Users don't have to remember exactly how to phrase the yaml files, so this comma
 from pathlib import Path
 import logging
 import click
-from policy_sentry.writing.template import create_actions_template, create_crud_template
 import click_log
+from policy_sentry.writing.template import create_actions_template, create_crud_template
 logger = logging.getLogger()
 click_log.basic_config(logger)
 

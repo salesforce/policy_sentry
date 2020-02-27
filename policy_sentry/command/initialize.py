@@ -5,6 +5,7 @@ Create the SQLite database and fill it with the tables scraped from the AWS Docs
 import shutil
 import logging
 import click
+import click_log
 from policy_sentry.configuration.access_level_overrides import (
     create_default_overrides_file,
 )
@@ -26,7 +27,6 @@ from policy_sentry.shared.constants import (
     LINKS_YML_FILE_LOCAL,
     BUNDLED_DATABASE_FILE_PATH,
 )
-import click_log
 
 logger = logging.getLogger(__name__)
 click_log.basic_config(logger)

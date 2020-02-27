@@ -5,6 +5,7 @@ import json
 import logging
 import click
 import yaml
+import click_log
 from policy_sentry.util.access_levels import transform_access_level_text
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
@@ -26,7 +27,6 @@ from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
     get_condition_key_details,
 )
-import click_log
 logger = logging.getLogger()
 click_log.basic_config(logger)
 
