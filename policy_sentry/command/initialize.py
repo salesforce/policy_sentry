@@ -18,7 +18,6 @@ from policy_sentry.scraping.awsdocs import (
     get_list_of_service_prefixes_from_links_file,
     create_service_links_mapping_file,
 )
-from policy_sentry.util.logging import set_log_level
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import (
     HOME,
@@ -27,8 +26,10 @@ from policy_sentry.shared.constants import (
     LINKS_YML_FILE_LOCAL,
     BUNDLED_DATABASE_FILE_PATH,
 )
+import click_log
 
 logger = logging.getLogger(__name__)
+click_log.basic_config(logger)
 
 
 @click.command(short_help="Create a local database to store AWS IAM information.")
@@ -55,18 +56,12 @@ logger = logging.getLogger(__name__)
     help="Build the SQLite database from the HTML files rather than copying the SQLite database file from "
     "the python package. Defaults to false",
 )
-@click.option(
-    "--log-level",
-    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO.",
-    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
-    default="INFO",
-)
-def initialize(access_level_overrides_file, fetch, build, log_level):
+@click_log.simple_verbosity_option(logger)
+def initialize(access_level_overrides_file, fetch, build):
     """
     Initialize the local database to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
-    set_log_level(logger, log_level)
 
     if not access_level_overrides_file:
         overrides_file = HOME + CONFIG_DIRECTORY + "access-level-overrides.yml"

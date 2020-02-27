@@ -6,9 +6,9 @@ from pathlib import Path
 import logging
 import click
 from policy_sentry.writing.template import create_actions_template, create_crud_template
-from policy_sentry.util.logging import set_log_level
-
+import click_log
 logger = logging.getLogger()
+click_log.basic_config(logger)
 
 
 @click.command(
@@ -33,19 +33,13 @@ logger = logging.getLogger()
     required=True,
     help="Name of the IAM role. This will be inside the resulting YML file.",
 )
-@click.option(
-    "--log-level",
-    help="Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO",
-    type=click.Choice(["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"]),
-    default="INFO",
-)
-def create_template(output_file, template_type, name, log_level):
+@click_log.simple_verbosity_option(logger)
+def create_template(output_file, template_type, name):
     """
     Writes YML file templates for use in the write-policy
     command, so users can fill out the fields
     without needing to look up the required format.
     """
-    set_log_level(logger, log_level)
 
     filename = Path(output_file).resolve()
     if template_type == "actions":

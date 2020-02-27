@@ -395,7 +395,7 @@ class SidGroup:
             )
             if len(verified_wildcard_actions) > 0:
                 self.add_by_list_of_actions(db_session, verified_wildcard_actions)
-                # logger.debug("Added the following wildcard-only actions to the policy: %s", verified_wildcard_actions)
+                logger.debug("Added the following wildcard-only actions to the policy: %s", verified_wildcard_actions)
 
     def add_wildcard_only_actions_matching_services_and_access_level(
         self, db_session, services, access_level

@@ -43,6 +43,7 @@ setuptools.setup(
         'jinja2',
         'requests',
         'schema',
+        'click_log'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

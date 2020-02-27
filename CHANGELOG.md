@@ -6,6 +6,7 @@
 * Fix redshift:getclustercredentials override (#132)
 * Update overrides to include new resource based policies (EFS is new and worklink was not previously included)
 * Docs refresh
+* Fixed logging - now just specify `-v debug` instead of `--log-level DEBUG`
 
 ## 0.7.1
 * **Breaking change** and **new**: Template is modified again. This allows easy additions of wildcard-only actions with access levels specific to services (such as "S3 actions at read access level that do not support resource constraints"), so you never have to look at individual IAM actions again.
