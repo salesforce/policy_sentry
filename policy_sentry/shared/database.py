@@ -73,6 +73,7 @@ class ArnTable(Base):
     id = Column(Integer, primary_key=True)
     resource_type_name = Column(String(50))
     raw_arn = Column(String(50))
+    originating_service = Column(String(50))
     arn = Column(String(50))
     partition = Column(String(50))
     service = Column(String(50))
@@ -84,10 +85,11 @@ class ArnTable(Base):
 
     def __repr__(self):
         return (
-            "<Arn(resource_type_name='%s', raw_arn='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s', condition_keys='%s')>"
+            "<Arn(resource_type_name='%s', raw_arn='%s', originating_service='%s', arn='%s', partition='%s', service='%s', region='%s', account='%s', resource='%s', resource_path='%s', condition_keys='%s')>"
             % (
                 self.resource_type_name,
                 self.raw_arn,
+                self.originating_service,
                 self.arn,
                 self.partition,
                 self.service,
@@ -376,11 +378,18 @@ def build_arn_table(db_session, service):
                         ArnTable(
                             resource_type_name=table["data"][i][0],
                             raw_arn=str(temp_raw_arn),
+                            # Fix for https://github.com/salesforce/policy_sentry/issues/114
+                            # For example, the EC2 image builder's ARN table has a Raw ARN format of
+                            # arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}
+                            # with a resource arn type of "kmsKey", whereas the KMS service's ARN table has
+                            # the same raw ARN format, but with a resource arn type of "key"
+                            originating_service=service,  # Ex: imagebuilder service prefix, or kms service prefix
                             arn="arn",
                             partition=get_partition_from_arn(temp_raw_arn),
                             service=get_service_from_arn(temp_raw_arn),
                             region=get_region_from_arn(temp_raw_arn),
                             account=get_account_from_arn(temp_raw_arn),
+                            # Ex: kmsKey for imagebuilder service, key for KMS service
                             resource=get_resource_from_arn(temp_raw_arn),
                             resource_path=resource_path,
                             condition_keys=condition_keys,
