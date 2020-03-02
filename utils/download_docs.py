@@ -13,8 +13,7 @@ sys.path.append(str(Path(os.path.dirname(__file__)).parent))
 from policy_sentry.scraping.awsdocs import update_html_docs_directory, create_service_links_mapping_file, \
     get_list_of_service_prefixes_from_links_file
 from policy_sentry.shared.constants import LINKS_YML_FILE_IN_PACKAGE, DEFAULT_ACCESS_OVERRIDES_FILE
-from policy_sentry.shared.database import connect_db, create_database
-from policy_sentry.shared.database import connect_db, ActionTable, ArnTable, ConditionTable
+from policy_sentry.shared.database import connect_db, ActionTable, ArnTable, ConditionTable, create_database
 
 BUNDLED_DATABASE_FILE_PATH = str(Path(
     os.path.dirname(__file__)).parent) + '/policy_sentry/shared/data/' + 'aws.sqlite3'
@@ -22,10 +21,13 @@ BASE_DIR = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.p
 
 
 def build_database():
-    print(BUNDLED_DATABASE_FILE_PATH)
-    if os.path.exists(BUNDLED_DATABASE_FILE_PATH):
-        os.remove(BUNDLED_DATABASE_FILE_PATH)
-    db_session = connect_db(BUNDLED_DATABASE_FILE_PATH, initialization=True)
+    db_path = os.path.join(BASE_DIR, BUNDLED_DATABASE_FILE_PATH)
+    print(db_path)
+
+    if os.path.exists(db_path):
+        os.remove(db_path)
+        print(f"Pre-existing bundled database at {db_path} removed; it will be replaced now.")
+    db_session = connect_db(db_path, initialization=True)
     all_aws_services = get_list_of_service_prefixes_from_links_file(
         LINKS_YML_FILE_IN_PACKAGE)
     create_database(db_session, all_aws_services, DEFAULT_ACCESS_OVERRIDES_FILE)
@@ -41,7 +43,6 @@ def update_docs():
     create_service_links_mapping_file(html_directory_path, links_yml_file)
 
 
-# TODO: look for any commas, especially in the conditions list.
 def write_action_table_csv(db_session):
 
     rows = db_session.query(ActionTable)
@@ -78,6 +79,7 @@ def write_arn_table_csv(db_session):
     out.writerow([
         'resource_type_name',
         'raw_arn',
+        'originating_service',
         'arn',
         'partition',
         'service',
@@ -90,6 +92,7 @@ def write_arn_table_csv(db_session):
         out.writerow([
             row.resource_type_name,
             row.raw_arn,
+            row.originating_service,
             row.arn,
             row.partition,
             row.service,

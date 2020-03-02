@@ -2,6 +2,10 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.7.1.2 (Unreleased)
+* Minor fix for `kmsKey` ARN type under `imagebuilder` service. Fixes #114
+* Added PyInvoke command for updating the aws documentation.
+
 ## 0.7.1.1 (2020-02-10)
 * Fix redshift:getclustercredentials override (#132)
 * Update overrides to include new resource based policies (EFS is new and worklink was not previously included)

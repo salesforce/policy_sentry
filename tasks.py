@@ -46,6 +46,11 @@ def open_html_docs(c):
     c.run('open -a "Google Chrome" docs/_build/html/index.html')
 
 
+@task
+def download_latest_aws_docs(c):
+    """Download the latest AWS docs, and update the bundled IAM database."""
+    c.run('./utils/download_docs.py')
+
 # BUILD
 @task
 def build_package(c):
@@ -262,6 +267,7 @@ unit.add_task(run_pytest, 'pytest')
 docs.add_task(remove_html_files, 'clean-html')
 docs.add_task(make_html, 'make-html')
 docs.add_task(open_html_docs, 'open-html')
+docs.add_task(download_latest_aws_docs, 'download_latest_aws_docs')
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(run_linter, 'lint')
