@@ -27,6 +27,7 @@ from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
     get_condition_key_details,
 )
+
 logger = logging.getLogger()
 click_log.basic_config(logger)
 
@@ -79,7 +80,13 @@ def query():
 @click_log.simple_verbosity_option(logger)
 def action_table(name, service, access_level, condition, wildcard_only, fmt):
     """Query the Action Table from the Policy Sentry database"""
+    query_action_table(name, service, access_level, condition, wildcard_only, fmt)
 
+
+def query_action_table(
+    name, service, access_level, condition, wildcard_only, fmt="json"
+):
+    """Query the Action Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Actions on all services
     if service == "all":
@@ -87,18 +94,19 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt):
         if access_level:
             level = transform_access_level_text(access_level)
             print(f"{access_level} actions across ALL services:\n")
-            results = []
+            output = []
             for serv in all_services:
-                output = get_actions_with_access_level(db_session, serv, level)
-                results.extend(output)
-            print(yaml.dump(results)) if fmt == "yaml" else [
-                print(result) for result in results
+                result = get_actions_with_access_level(db_session, serv, level)
+                output.extend(result)
+            print(yaml.dump(output)) if fmt == "yaml" else [
+                print(result) for result in output
             ]
         # Get a list of all services in the database
         else:
             print("All services in the database:\n")
-            print(yaml.dump(all_services)) if fmt == "yaml" else [
-                print(item) for item in all_services
+            output = all_services
+            print(yaml.dump(output)) if fmt == "yaml" else [
+                print(item) for item in output
             ]
     elif name is None and access_level and not wildcard_only:
         print(
@@ -145,11 +153,10 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt):
         ]
     else:
         # Get a list of all IAM Actions available to the service
-        action_list = get_actions_for_service(db_session, service)
+        output = get_actions_for_service(db_session, service)
         print(f"ALL {service} actions:")
-        print(yaml.dump(action_list)) if fmt == "yaml" else [
-            print(item) for item in action_list
-        ]
+        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
+    return output
 
 
 @query.command(
@@ -179,16 +186,18 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt):
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
 @click_log.simple_verbosity_option(logger)
-def arn_table(name, service, list_arn_types, fmt):
+def arn_table(name, service, list_arn_types, fmt="json"):
     """Query the ARN Table from the Policy Sentry database"""
+    query_arn_table(name, service, list_arn_types, fmt)
 
+
+def query_arn_table(name, service, list_arn_types, fmt):
+    """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
-        raw_arns = get_raw_arns_for_service(db_session, service)
-        print(yaml.dump(raw_arns)) if fmt == "yaml" else [
-            print(item) for item in raw_arns
-        ]
+        output = get_raw_arns_for_service(db_session, service)
+        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
     # Get a list of all the ARN types per service, paired with the RAW ARNs
     elif name is None and list_arn_types:
         output = get_arn_types_for_service(db_session, service)
@@ -202,6 +211,7 @@ def arn_table(name, service, list_arn_types, fmt):
         print(yaml.dump(output)) if fmt == "yaml" else [
             print(json.dumps(output, indent=4))
         ]
+    return output
 
 
 @query.command(short_help="Query the condition table.")
@@ -223,18 +233,21 @@ def arn_table(name, service, list_arn_types, fmt):
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
 def condition_table(name, service, fmt):
-    """Query the condition keys table from the Policy Sentry database"""
+    """Query the condition table from the Policy Sentry database"""
+    query_condition_table(name, service, fmt)
 
+
+def query_condition_table(name, service, fmt="json"):
+    """Query the condition table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     db_session = connect_db(DATABASE_FILE_PATH)
     # Get a list of all condition keys available to the service
     if name is None:
-        results = get_condition_keys_for_service(db_session, service)
-        print(yaml.dump(results)) if fmt == "yaml" else [
-            print(item) for item in results
-        ]
+        output = get_condition_keys_for_service(db_session, service)
+        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
     # Get details on the specific condition key
     else:
         output = get_condition_key_details(db_session, service, name)
         print(yaml.dump(output)) if fmt == "yaml" else [
             print(json.dumps(output, indent=4))
         ]
+    return output

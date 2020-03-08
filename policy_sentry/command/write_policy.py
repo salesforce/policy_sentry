@@ -11,6 +11,7 @@ from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
+
 logger = logging.getLogger()
 click_log.basic_config(logger)
 
