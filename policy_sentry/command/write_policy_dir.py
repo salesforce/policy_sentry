@@ -15,6 +15,7 @@ from policy_sentry.util.file import (
     check_valid_file_path,
 )
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
+
 logger = logging.getLogger()
 click_log.basic_config(logger)
 

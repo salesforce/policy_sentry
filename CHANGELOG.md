@@ -2,9 +2,10 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.7.1.2 (Unreleased)
+## 0.7.1.2 (2020-03-08)
 * Minor fix for `kmsKey` ARN type under `imagebuilder` service. Fixes #114
 * Added PyInvoke command for updating the aws documentation.
+* The query commands can be called directly (query.query_action_table) to avoid Click-related errors
 
 ## 0.7.1.1 (2020-02-10)
 * Fix redshift:getclustercredentials override (#132)

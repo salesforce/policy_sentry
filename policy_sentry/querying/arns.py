@@ -106,11 +106,14 @@ def get_resource_type_name_with_raw_arn(db_session, raw_arn):
     :return: The resource type name, like bucket
     """
     from policy_sentry.util.arns import get_service_from_arn
+
     service_prefix = get_service_from_arn(raw_arn)
-    query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(and_(
-        ArnTable.raw_arn.startswith(raw_arn),
-        ArnTable.originating_service.ilike(service_prefix)
-    ))
+    query_resource_type_name = db_session.query(ArnTable.resource_type_name).filter(
+        and_(
+            ArnTable.raw_arn.startswith(raw_arn),
+            ArnTable.originating_service.ilike(service_prefix),
+        )
+    )
     # TODO: Figure out the imagebuilder and kmsKey use case
     result = query_resource_type_name.first()
     resource_type_name = str(result.resource_type_name)
