@@ -123,3 +123,110 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
             ]
         }
         self.assertDictEqual(output, desired_output)
+
+
+class RdsWritingTestCase(unittest.TestCase):
+    def test_rds_policy_read_only(self):
+        """test_rds_policy_read_only: Make sure that the RDS Policies work properly"""
+        policy_file_path = abspath(
+            join(
+                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-rds-read.yml",
+            )
+        )
+        cfg = read_yaml_file(policy_file_path)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "RdsReadDb",
+                    "Effect": "Allow",
+                    "Action": [
+                        "rds:DownloadDBLogFilePortion",
+                        "rds:ListTagsForResource"
+                    ],
+                    "Resource": [
+                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
+                    ]
+                }
+            ]
+        }
+        policy = write_policy_with_template(db_session, cfg)
+        print(json.dumps(policy, indent=4))
+        self.assertDictEqual(desired_output, policy)
+
+    def test_rds_policy_read_write_list(self):
+        """test_rds_policy_read_write_list: Make sure that the RDS Policies work properly for multiple levels"""
+        policy_file_path = abspath(
+            join(
+                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-rds-mult.yml",
+            )
+        )
+        cfg = read_yaml_file(policy_file_path)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "RdsReadDb",
+                    "Effect": "Allow",
+                    "Action": [
+                        "rds:DownloadDBLogFilePortion",
+                        "rds:ListTagsForResource"
+                    ],
+                    "Resource": [
+                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
+                    ]
+                },
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:PassRole"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "RdsWriteDb",
+                    "Effect": "Allow",
+                    "Action": [
+                        "rds:AddRoleToDBInstance",
+                        "rds:ApplyPendingMaintenanceAction",
+                        "rds:CreateDBInstance",
+                        "rds:CreateDBInstanceReadReplica",
+                        "rds:CreateDBSnapshot",
+                        "rds:DeleteDBInstance",
+                        "rds:DeregisterDBProxyTargets",
+                        "rds:ModifyDBInstance",
+                        "rds:PromoteReadReplica",
+                        "rds:RebootDBInstance",
+                        "rds:RemoveRoleFromDBInstance",
+                        "rds:RestoreDBInstanceFromDBSnapshot",
+                        "rds:RestoreDBInstanceFromS3",
+                        "rds:RestoreDBInstanceToPointInTime",
+                        "rds:StartDBInstance",
+                        "rds:StopDBInstance"
+                    ],
+                    "Resource": [
+                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
+                    ]
+                },
+                {
+                    "Sid": "RdsListDb",
+                    "Effect": "Allow",
+                    "Action": [
+                        "rds:DescribeDBLogFiles",
+                        "rds:DescribeDBProxyTargets",
+                        "rds:DescribeDBSnapshots",
+                        "rds:DescribePendingMaintenanceActions",
+                        "rds:DescribeValidDBInstanceModifications"
+                    ],
+                    "Resource": [
+                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
+                    ]
+                }
+            ]
+        }
+        policy = write_policy_with_template(db_session, cfg)
+        print(json.dumps(policy, indent=4))
+        self.assertDictEqual(desired_output, policy)

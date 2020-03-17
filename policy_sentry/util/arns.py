@@ -1,6 +1,9 @@
 """
 Functions to use for parsing ARNs, matching ARN types, and getting the right fragment/component from an ARN string,
 """
+import logging
+import re
+logger = logging.getLogger(__name__)
 
 
 def parse_arn(arn):
@@ -101,24 +104,57 @@ def arn_has_colons(arn):
         return False
 
 
+def get_resource_string(arn):
+    """
+    Given an ARN, return the string after the account ID, no matter the ARN format.
+
+    :param arn: arn:partition:service:region:account-id:resourcetype/resource
+    :return: resourcetype/resource
+    """
+    split_arn = arn.split(":")
+    resource_string = (":".join(split_arn[5:]))
+    return resource_string
+
+
+# TODO: query all arns in the service then find the ARN that matches the pattern here. This will match for buckets, for example.
+# In the meantime, we have to skip this pylint check (consider this as tech debt)
+# pylint: disable=inconsistent-return-statements
+def parse_arn_for_resource_type(arn):
+    """
+    Parses the resource string (resourcetype/resource and other variants) and grab the resource type.
+
+    :param arn:
+    :return:
+    """
+    split_arn = arn.split(":")
+    # Resource string will equal:
+    #     Case 1: resource
+    #     Case 2: resourcetype/resource
+    #     Case 3: resourcetype/resource/qualifier
+    #     Case 4: resourcetype/resource:qualifier
+    #     Case 5: resourcetype:resource
+    #     Case 6: resourcetype:resource:qualifier
+    resource_string = (":".join(split_arn[5:]))
+    split_resource = re.split('/|:', resource_string)
+    if len(split_resource) == 1:
+        # logger.debug(f"split_resource length is 1: {str(split_resource)}")
+        pass
+    elif len(split_resource) > 1:
+        return split_resource[0]
+
+
+#     Case 1: arn:partition:service:region:account-id:resource
+#     Case 2: arn:partition:service:region:account-id:resourcetype/resource
+#     Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier
+#     Case 4: arn:partition:service:region:account-id:resourcetype/resource:qualifier
+#     Case 5: arn:partition:service:region:account-id:resourcetype:resource
+#     Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
+#     Source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
 def does_arn_match(arn_to_test, arn_in_database):
-    """Given two ARNs, determine if they match. The cases supported are outlined below.
-
-    Case 1: arn:partition:service:region:account-id:resource
-
-    Case 2: arn:partition:service:region:account-id:resourcetype/resource
-
-    Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier
-
-    Case 4: arn:partition:service:region:account-id:resourcetype/resource:qualifier
-
-    Case 5: arn:partition:service:region:account-id:resourcetype:resource
-
-    Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
-
-    Source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
-
-    :param arn: ARN to parse
+    """
+    Given two ARNs, determine if they have the same resource type.
+    :param arn_to_test: ARN provided by user
+    :param arn_in_database: Raw ARN that exists in the policy sentry database
     :return: result of whether or not the ARNs match
     """
     score = 0
@@ -126,26 +162,27 @@ def does_arn_match(arn_to_test, arn_in_database):
     # arn_to_test = 'arn:aws:ssm:us-east-1:123456789012:parameter/test'
     exclusion_list = ["${ObjectName}"]
     if arn_in_database == "*":
-        score += 10  # Exit in this scenario
+        return False
     else:
+        resource_string_arn_in_database = get_resource_string(arn_in_database)
+        resource_string_arn_to_test = get_resource_string(arn_to_test)
+        resource_type_arn_in_database = parse_arn_for_resource_type(arn_in_database)
+        resource_type_arn_to_test = parse_arn_for_resource_type(arn_to_test)
         if get_service_from_arn(arn_in_database) != get_service_from_arn(arn_to_test):
+            score += 10
+            return False
+        if resource_type_arn_in_database == resource_type_arn_to_test:
+            return True
+        else:
             score += 1
-        if arn_has_colons(arn_in_database) != arn_has_colons(arn_to_test):
-            score += 1
-        if arn_has_slash(arn_in_database) != arn_has_slash(arn_to_test):
-            score += 1
-        if arn_has_slash(arn_in_database) and arn_has_slash(arn_to_test):
+        if resource_string_arn_in_database.count("/") > 0 and resource_string_arn_to_test.count("/") > 0:
             # Example: SSM `parameter/`
             if get_resource_from_arn(arn_in_database) != get_resource_from_arn(
                 arn_to_test
             ):
-
                 # Some exclusions, like ObjectId for S3 buckets
                 if get_resource_path_from_arn(arn_in_database) in exclusion_list:
-                    pass
+                    return True
                 else:
-                    score += 1
-
-    # logger.debug("Score is " + str(score))
-    # It passes if the alarm does not ring
+                    return False
     return score < 1

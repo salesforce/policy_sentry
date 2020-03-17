@@ -97,6 +97,12 @@ We use `Nose <https://nose.readthedocs.io/en/latest/>`_ for unit testing. All te
 
     nosetests -v
 
+    # This will output the print() statements in your test code
+    nosetests -v --nocapture
+
+    # This will include the debug logging statements in the test output
+    nosetests -v --logging-level=DEBUG
+
 
 * Alternatively, you can use `invoke`, as mentioned above:
 
