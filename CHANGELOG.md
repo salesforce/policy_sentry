@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.7.1.3 (Unreleased)
+* Better logging for the write-policy command
+
 ## 0.7.1.2 (2020-03-08)
 * Minor fix for `kmsKey` ARN type under `imagebuilder` service. Fixes #114
 * Added PyInvoke command for updating the aws documentation.

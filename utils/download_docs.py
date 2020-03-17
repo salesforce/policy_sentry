@@ -106,7 +106,6 @@ def write_arn_table_csv(db_session):
 
 
 def write_condition_table_csv(db_session):
-    print()
     rows = db_session.query(ConditionTable)
     f = open(os.path.join(BASE_DIR, 'policy_sentry/shared/data', 'condition_table.csv'), 'w')
     out = csv.writer(f, delimiter=';')
