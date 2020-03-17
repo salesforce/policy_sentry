@@ -2,8 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.7.1.3 (Unreleased)
-* Better logging for the write-policy command
+## 0.7.2
+* Removed `write-policy-dir` command.
+* Better logging for the `write-policy` command
 * Fixes #142 - the issue with validating matching resource ARN types
 
 ## 0.7.1.2 (2020-03-08)

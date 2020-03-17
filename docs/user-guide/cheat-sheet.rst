@@ -14,9 +14,6 @@ Commands
   * Option 1: CRUD Mode. Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the documentation for more details.
   * Option 2: Actions Mode. Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the documentation for more details.
 
-*
-  ``write-policy-dir``\ : This can be helpful in writing batches of JSON policy files at a time.
-
 
 * ``query``: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
 
@@ -50,9 +47,6 @@ Policy Writing Commands
 
     # Write policy based on resource-specific access levels
     policy_sentry write-policy --input-file examples/yml/crud.yml
-
-    # Write policy_sentry YML files based on resource-specific access levels on a directory basis
-    policy_sentry write-policy-dir --input-dir examples/input-dir --output-dir examples/output-dir
 
     # Write policy based on a list of actions
     policy_sentry write-policy --input-file examples/yml/actions.yml

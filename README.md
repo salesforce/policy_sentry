@@ -260,9 +260,6 @@ policy_sentry create-template --name myRole --output-file tmp.yml --template-typ
 # Write policy based on resource-specific access levels
 policy_sentry write-policy --input-file examples/yml/crud.yml
 
-# Write policy_sentry YML files based on resource-specific access levels on a directory basis
-policy_sentry write-policy-dir --input-dir examples/input-dir --output-dir examples/output-dir
-
 # Write policy based on a list of actions
 policy_sentry write-policy --input-file examples/yml/actions.yml
 ```
@@ -345,8 +342,6 @@ policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-l
 * `write-policy`: Leverage a YAML file to write policies for you
   - Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the [documentation][13]
   - Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation][14].
-
-* `write-policy-dir`: This can be helpful in writing batches of JSON Policy files at the same time. For more information, see the [documentation][15].
 
 * `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
   - Option 1: Query the Actions Table (`action-table`)
