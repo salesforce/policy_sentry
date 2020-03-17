@@ -65,11 +65,11 @@ class ArnsTestCase(unittest.TestCase):
         arn_in_database = "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}"
         self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
 
-    # def test_does_arn_match_case_greengrass(self):
-    #     # Undocumented case: AWS Greengrass: arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}
-    #     arn_to_test = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/1234567}/versions/1"
-    #     arn_in_database = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}"
-    #     self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
+    def test_does_arn_match_case_greengrass(self):
+        # Undocumented case: AWS Greengrass: arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}
+        arn_to_test = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/1234567}/versions/1"
+        arn_in_database = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}"
+        self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
 
     def test_does_arn_match_rds(self):
         arns_to_test = [
@@ -92,14 +92,13 @@ class ArnsTestCase(unittest.TestCase):
         arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
         for arn in arns_to_test:
             decision = does_arn_match(arn, arn_in_database)
-            # print(decision)
-            print(arn)
-            print(arn_in_database)
-            print(decision)
             self.assertFalse(decision)
 
-        arn_to_test = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}",
+        arn_to_test = "arn:${Partition}:rds:${Region}:${Account}:cluster:${DbClusterInstanceName}"
+        decision = does_arn_match(arn_to_test, arn_in_database)
+        self.assertFalse(decision)
+
+        arn_to_test = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
         arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
         decision = does_arn_match(arn_to_test, arn_in_database)
         self.assertTrue(decision)
-

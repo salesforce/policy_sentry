@@ -12,7 +12,6 @@ from policy_sentry.querying.actions import (
     get_actions_at_access_level_that_support_wildcard_arns_only,
 )
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
-from parliament import is_arn_match
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 from policy_sentry.util.text import capitalize_first_character
 from policy_sentry.writing.minimize import minimize_statement_actions
