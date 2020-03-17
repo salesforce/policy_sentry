@@ -8,5 +8,4 @@ Writing IAM Policies
 
    crud-mode
    actions-mode
-   folder-mode
 

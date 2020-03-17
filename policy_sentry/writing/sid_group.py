@@ -105,7 +105,6 @@ class SidGroup:
             logger.debug(f"{sid} SID has the actions: {actions}")
             logger.debug(f"{sid} SID has the resources: {self.sids[sid]['arn']}")
 
-
             statements.append(
                 {
                     "Sid": sid,
@@ -276,14 +275,20 @@ class SidGroup:
                 # self.add_action_without_resource_constraint(str.lower(dep_action))
         # Now, because add_by_arn_and_access_level() adds all actions under an access level, we have to
         # remove all actions that do not match the supplied_actions. This is done in-place.
-        logger.debug("Purging actions that do not match the requested actions and dependent actions")
+        logger.debug(
+            "Purging actions that do not match the requested actions and dependent actions"
+        )
         logger.debug(f"Supplied actions: {str(supplied_actions)}")
         logger.debug(f"Dependent actions: {str(dependent_actions)}")
         self.remove_actions_not_matching_these(supplied_actions + dependent_actions)
         for action in actions_without_resource_constraints:
-            logger.debug(f"Deliberately adding the action {action} without resource constraints")
+            logger.debug(
+                f"Deliberately adding the action {action} without resource constraints"
+            )
             self.add_action_without_resource_constraint(action)
-        logger.debug("Removing actions that are in the wildcard arn (Resources = '*') as well as other statements that have resource constraints")
+        logger.debug(
+            "Removing actions that are in the wildcard arn (Resources = '*') as well as other statements that have resource constraints"
+        )
         self.remove_actions_duplicated_in_wildcard_arn()
         logger.debug("Getting the rendered policy")
         rendered_policy = self.get_rendered_policy(db_session)
@@ -309,7 +314,9 @@ class SidGroup:
                                 provided_wildcard_actions = cfg["wildcard-only"][
                                     "single-actions"
                                 ]
-                                logger.debug(f"Requested wildcard-only actions: {str(provided_wildcard_actions)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(provided_wildcard_actions)}"
+                                )
                                 self.add_wildcard_only_actions(
                                     db_session, provided_wildcard_actions
                                 )
@@ -317,7 +324,9 @@ class SidGroup:
                         if cfg["wildcard-only"]["service-read"]:
                             if cfg["wildcard-only"]["service-read"][0] != "":
                                 service_read = cfg["wildcard-only"]["service-read"]
-                                logger.debug(f"Requested wildcard-only actions: {str(service_read)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(service_read)}"
+                                )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
                                     db_session, service_read, "Read"
                                 )
@@ -325,7 +334,9 @@ class SidGroup:
                         if cfg["wildcard-only"]["service-write"]:
                             if cfg["wildcard-only"]["service-write"][0] != "":
                                 service_write = cfg["wildcard-only"]["service-write"]
-                                logger.debug(f"Requested wildcard-only actions: {str(service_write)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(service_write)}"
+                                )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
                                     db_session, service_write, "Write"
                                 )
@@ -333,7 +344,9 @@ class SidGroup:
                         if cfg["wildcard-only"]["service-list"]:
                             if cfg["wildcard-only"]["service-list"][0] != "":
                                 service_list = cfg["wildcard-only"]["service-list"]
-                                logger.debug(f"Requested wildcard-only actions: {str(service_list)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(service_list)}"
+                                )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
                                     db_session, service_list, "List"
                                 )
@@ -343,7 +356,9 @@ class SidGroup:
                                 service_tagging = cfg["wildcard-only"][
                                     "service-tagging"
                                 ]
-                                logger.debug(f"Requested wildcard-only actions: {str(service_tagging)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(service_tagging)}"
+                                )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
                                     db_session, service_tagging, "Tagging"
                                 )
@@ -359,7 +374,9 @@ class SidGroup:
                                 service_permissions_management = cfg["wildcard-only"][
                                     "service-permissions-management"
                                 ]
-                                logger.debug(f"Requested wildcard-only actions: {str(service_permissions_management)}")
+                                logger.debug(
+                                    f"Requested wildcard-only actions: {str(service_permissions_management)}"
+                                )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
                                     db_session,
                                     service_permissions_management,
@@ -388,7 +405,9 @@ class SidGroup:
                         cfg["permissions-management"] is not None
                         and cfg["permissions-management"][0] != ""
                     ):
-                        logger.debug(f"Requested access to arns: {str(cfg['permissions-management'])}")
+                        logger.debug(
+                            f"Requested access to arns: {str(cfg['permissions-management'])}"
+                        )
                         self.add_by_arn_and_access_level(
                             db_session,
                             cfg["permissions-management"],
@@ -422,9 +441,15 @@ class SidGroup:
                 db_session, provided_wildcard_actions
             )
             if len(verified_wildcard_actions) > 0:
-                logger.debug("Attempting to add the following actions to the policy: %s", verified_wildcard_actions)
+                logger.debug(
+                    "Attempting to add the following actions to the policy: %s",
+                    verified_wildcard_actions,
+                )
                 self.add_by_list_of_actions(db_session, verified_wildcard_actions)
-                logger.debug("Added the following wildcard-only actions to the policy: %s", verified_wildcard_actions)
+                logger.debug(
+                    "Added the following wildcard-only actions to the policy: %s",
+                    verified_wildcard_actions,
+                )
 
     def add_wildcard_only_actions_matching_services_and_access_level(
         self, db_session, services, access_level

@@ -3,6 +3,7 @@ Functions to use for parsing ARNs, matching ARN types, and getting the right fra
 """
 import logging
 import re
+
 logger = logging.getLogger(__name__)
 
 
@@ -112,7 +113,7 @@ def get_resource_string(arn):
     :return: resourcetype/resource
     """
     split_arn = arn.split(":")
-    resource_string = (":".join(split_arn[5:]))
+    resource_string = ":".join(split_arn[5:])
     return resource_string
 
 
@@ -134,8 +135,8 @@ def parse_arn_for_resource_type(arn):
     #     Case 4: resourcetype/resource:qualifier
     #     Case 5: resourcetype:resource
     #     Case 6: resourcetype:resource:qualifier
-    resource_string = (":".join(split_arn[5:]))
-    split_resource = re.split('/|:', resource_string)
+    resource_string = ":".join(split_arn[5:])
+    split_resource = re.split("/|:", resource_string)
     if len(split_resource) == 1:
         # logger.debug(f"split_resource length is 1: {str(split_resource)}")
         pass
@@ -175,7 +176,10 @@ def does_arn_match(arn_to_test, arn_in_database):
             return True
         else:
             score += 1
-        if resource_string_arn_in_database.count("/") > 0 and resource_string_arn_to_test.count("/") > 0:
+        if (
+            resource_string_arn_in_database.count("/") > 0
+            and resource_string_arn_to_test.count("/") > 0
+        ):
             # Example: SSM `parameter/`
             if get_resource_from_arn(arn_in_database) != get_resource_from_arn(
                 arn_to_test
