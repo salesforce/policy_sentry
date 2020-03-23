@@ -77,23 +77,36 @@ def get_action_data(db_session, service, name):
 def get_actions_that_support_wildcard_arns_only(db_session, service):
     """
     Get a list of actions that do not support restricting the action to resource ARNs.
+    Set service to "all" to get a list of actions across all services.
 
     :param db_session: SQLAlchemy database session object
     :param service: A single AWS service prefix, like `s3` or `kms`
     :return: A list of actions
     """
     actions_list = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-        and_(
-            ActionTable.service.ilike(service),
-            ActionTable.resource_arn_format.like("*"),
-            ActionTable.name.notin_(
-                db_session.query(ActionTable.name).filter(
-                    ActionTable.resource_arn_format.notlike("*")
-                )
-            ),
+    if service == "all":
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+            and_(
+                ActionTable.resource_arn_format.like("*"),
+                ActionTable.name.notin_(
+                    db_session.query(ActionTable.name).filter(
+                        ActionTable.resource_arn_format.notlike("*")
+                    )
+                ),
+            )
         )
-    )
+    else:
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.resource_arn_format.like("*"),
+                ActionTable.name.notin_(
+                    db_session.query(ActionTable.name).filter(
+                        ActionTable.resource_arn_format.notlike("*")
+                    )
+                ),
+            )
+        )
     for row in rows:
         actions_list.append(get_full_action_name(row.service, row.name))
     return actions_list
@@ -104,6 +117,7 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
 ):
     """
     Get a list of actions at an access level that do not support restricting the action to resource ARNs.
+    Set service to "all" to get a list of actions across all services.
 
     :param db_session: SQLAlchemy database session object
     :param service: A single AWS service prefix, like `s3` or `kms`
@@ -111,18 +125,31 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
     :return: A list of actions
     """
     actions_list = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-        and_(
-            ActionTable.service.ilike(service),
-            ActionTable.resource_arn_format.like("*"),
-            ActionTable.access_level.ilike(access_level),
-            ActionTable.name.notin_(
-                db_session.query(ActionTable.name).filter(
-                    ActionTable.resource_arn_format.notlike("*")
-                )
-            ),
+    if service == "all":
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+            and_(
+                ActionTable.resource_arn_format.like("*"),
+                ActionTable.access_level.ilike(access_level),
+                ActionTable.name.notin_(
+                    db_session.query(ActionTable.name).filter(
+                        ActionTable.resource_arn_format.notlike("*")
+                    )
+                ),
+            )
         )
-    )
+    else:
+        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+            and_(
+                ActionTable.service.ilike(service),
+                ActionTable.resource_arn_format.like("*"),
+                ActionTable.access_level.ilike(access_level),
+                ActionTable.name.notin_(
+                    db_session.query(ActionTable.name).filter(
+                        ActionTable.resource_arn_format.notlike("*")
+                    )
+                ),
+            )
+        )
     for row in rows:
         actions_list.append(get_full_action_name(row.service, row.name))
     return actions_list
@@ -355,21 +382,3 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
             ):
                 actions_list_placeholder.append(f"{row.service}:{row.name}")
     return actions_list_placeholder
-
-
-def get_all_actions_without_resource_constraints(db_session):
-    actions_list = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-        and_(
-            # ActionTable.service.ilike(service),
-            ActionTable.resource_arn_format.like("*"),
-            ActionTable.name.notin_(
-                db_session.query(ActionTable.name).filter(
-                    ActionTable.resource_arn_format.notlike("*")
-                )
-            ),
-        )
-    )
-    for row in rows:
-        actions_list.append(get_full_action_name(row.service, row.name))
-    return actions_list
