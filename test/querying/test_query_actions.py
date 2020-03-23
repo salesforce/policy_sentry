@@ -14,6 +14,7 @@ from policy_sentry.querying.actions import (
     remove_actions_that_are_not_wildcard_arn_only,
     get_dependent_actions,
     remove_actions_not_matching_access_level,
+    get_all_actions_without_resource_constraints
 )
 
 db_session = connect_db(DATABASE_FILE_PATH)
@@ -319,3 +320,9 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    # def test_get_all_actions_without_resource_constraints(self):
+    #     """query.actions.get_all_actions_without_resource_constraints"""
+    #     output = get_all_actions_without_resource_constraints(db_session)
+    #     print(json.dumps(output, indent=4))
+    #     print()

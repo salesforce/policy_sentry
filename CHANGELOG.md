@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.7.2.1
+* Add `query.actions.get_all_actions_without_resource_constraints`
+
 ## 0.7.2
 * Removed `write-policy-dir` command.
 * Better logging for the `write-policy` command

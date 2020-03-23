@@ -355,3 +355,21 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
             ):
                 actions_list_placeholder.append(f"{row.service}:{row.name}")
     return actions_list_placeholder
+
+
+def get_all_actions_without_resource_constraints(db_session):
+    actions_list = []
+    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
+        and_(
+            # ActionTable.service.ilike(service),
+            ActionTable.resource_arn_format.like("*"),
+            ActionTable.name.notin_(
+                db_session.query(ActionTable.name).filter(
+                    ActionTable.resource_arn_format.notlike("*")
+                )
+            ),
+        )
+    )
+    for row in rows:
+        actions_list.append(get_full_action_name(row.service, row.name))
+    return actions_list
