@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.7.2.1
+* Change `get_actions_that_support_wildcard_arns_only` and `get_actions_at_access_level_that_support_wildcard_arns_only` to accept "all" as input to the `service` parameter. This allows you to get results across all AWS service prefixes.
+
 ## 0.7.2
 * Removed `write-policy-dir` command.
 * Better logging for the `write-policy` command
