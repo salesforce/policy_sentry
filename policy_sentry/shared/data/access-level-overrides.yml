@@ -13,6 +13,10 @@ appmesh:
     Tagging:
         - tagresource
         - untagresource
+apigateway:
+    # AWS documentation lists this as Write
+    Permissions management:
+        - updaterestapipolicy
 appsync:
     # AWS documentation lists this as Tagging
     Write:
@@ -101,6 +105,10 @@ ec2:
         - createnetworkinterfacepermission
         - deletenetworkinterfacepermission
         - modifyvpcendpointservicepermissions
+ecr:
+    # AWS documentation lists this as Write
+    Permissions management:
+        - deleterepositorypolicy
 es:
     Permissions management:
         - createelasticsearchdomain
@@ -292,6 +300,25 @@ opsworks:
     Tagging:
         - untagresource
         - tagresource
+quicksight:
+    Permissions management:
+        - createadmin
+        - creategroupmembership
+        - creategroup
+        - createiampolicyassignment
+        - createuser
+        - deleteiampolicyassignment
+        - deletegroupmembership
+        - deletegroup
+        - deleteuser
+        - deleteuserbyprincipalid
+        - registeruser
+        - updateuser
+        - updategroup
+        - updateiampolicyassignment
+        - updatedashboardpermissions
+        - updatetemplatepermissions
+        - updatedashboardpermissions
 ram:
     # AWS documentation lists these as "Write"
     Permissions management:
@@ -329,6 +356,10 @@ redshift:
 resource-groups:
     Write:
         - creategroup
+route53resolver:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresolverrulepolicy
 secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:

@@ -53,14 +53,16 @@ devicefarm:
     # AWS documentation lists this as "Tagging"
     Write:
         - createproject
-
 ec2:
     Permissions management:
         - resetsnapshotattribute
         - createnetworkinterfacepermission
         - deletenetworkinterfacepermission
         - modifyvpcendpointservicepermissions
-
+ecr:
+    # AWS documentation lists this as Write
+    Permissions management:
+        - deleterepositorypolicy
 elasticfilesystem:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -69,7 +71,6 @@ elasticfilesystem:
     Permissions management:
         - putfilesystempolicy
         - deletefilesystempolicy
-
 elasticmapreduce:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -227,6 +228,10 @@ rds-db:
 resource-groups:
     Write:
         - creategroup
+route53resolver:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresolverrulepolicy
 secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:

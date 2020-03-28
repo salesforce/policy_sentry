@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<div id="awsdocs-content" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -50,7 +49,6 @@
      Condition Keys
     </a>
    </div>
-   <!--option.hide-feedback-links = 0-->
    <div id="quick-feedback-yes" style="display: none;">
     <div class="title">
      Did this page help you? - Yes
@@ -208,9 +206,25 @@
       </a>
       .
      </p>
+     <div class="awsdocs-note">
+      <div class="awsdocs-note-title">
+       <awsui-icon name="status-info" variant="link">
+       </awsui-icon>
+       <span>
+        Note
+       </span>
+      </div>
+      <div class="awsdocs-note-text">
+       <p>
+        The DescribeJobFlows API is deprecated and will eventually be removed. We recommend
+                        you use ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapActions
+                        instead.
+       </p>
+      </div>
+     </div>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d346c11b9">
+       <table class="awsui-util-container" id="w790aac29c13c26d354c11c11">
         <p class="title">
          <b>
          </b>
@@ -414,7 +428,7 @@
           Grants permission to create an EMR notebook.
          </td>
          <td rowspan="2">
-          Tagging
+          Write
          </td>
          <td>
           <p>
@@ -574,6 +588,33 @@
         </tr>
         <tr>
          <td>
+          <a id="amazonelasticmapreduce-DescribeJobFlows">
+          </a>
+          <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html">
+           DescribeJobFlows
+          </a>
+         </td>
+         <td>
+          This API is deprecated and will eventually be removed. We recommend you use ListClusters,
+                              DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapActions instead.
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticmapreduce-cluster">
+            cluster*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
           <a id="amazonelasticmapreduce-DescribeSecurityConfiguration">
           </a>
           <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeSecurityConfiguration.html">
@@ -653,7 +694,7 @@
           Grants permission to get details about the bootstrap actions associated with a cluster.
          </td>
          <td>
-          List
+          Read
          </td>
          <td>
           <p>
@@ -745,7 +786,7 @@
           Grants permission to get details of instance groups in a cluster.
          </td>
          <td>
-          List
+          Read
          </td>
          <td>
           <p>
@@ -771,7 +812,7 @@
           Grants permission to get details about the Amazon EC2 instances in a cluster.
          </td>
          <td>
-          List
+          Read
          </td>
          <td>
           <p>
@@ -819,7 +860,34 @@
           Grants permission to list steps associated with a cluster.
          </td>
          <td>
-          List
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#amazonelasticmapreduce-cluster">
+            cluster*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="amazonelasticmapreduce-ModifyCluster">
+          </a>
+          <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_ModifyCluster.html">
+           ModifyCluster
+          </a>
+         </td>
+         <td>
+          Grants permission to change cluster settings such as number of steps that can be executed
+                              concurrently for a cluster.
+         </td>
+         <td>
+          Write
          </td>
          <td>
           <p>
@@ -1067,7 +1135,7 @@
           Grants permission to create and launch a cluster (job flow).
          </td>
          <td>
-          Tagging
+          Write
          </td>
          <td>
          </td>
@@ -1257,7 +1325,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d346c13b5">
+       <table class="awsui-util-container" id="w790aac29c13c26d354c13b5">
         <p class="title">
          <b>
          </b>
@@ -1392,7 +1460,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d346c15b7">
+       <table class="awsui-util-container" id="w790aac29c13c26d354c15b7">
         <p class="title">
          <b>
          </b>
@@ -1514,7 +1582,7 @@
        <div>
         <div id="js_error_message">
          <p>
-          <img alt="Warning" src="%0A                              https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png%0A                            "/>
+          <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
           <strong>
            Javascript is disabled or is unavailable in your
                                  browser.
@@ -1549,4 +1617,4 @@
    </div>
   </div>
  </body>
-</html>
+</div>

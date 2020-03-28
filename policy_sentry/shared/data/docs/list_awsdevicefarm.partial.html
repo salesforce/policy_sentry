@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<div id="awsdocs-content" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -50,7 +49,6 @@
      Condition Keys
     </a>
    </div>
-   <!--option.hide-feedback-links = 0-->
    <div id="quick-feedback-yes" style="display: none;">
     <div class="title">
      Did this page help you? - Yes
@@ -210,7 +208,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d274c11b9">
+       <table class="awsui-util-container" id="w790aac29c13c26d282c11b9">
         <p class="title">
          <b>
          </b>
@@ -317,7 +315,7 @@
           </a>
          </td>
          <td>
-          Grants permission to create a project
+          Grants permission to create a project for mobile testing
          </td>
          <td>
           Tagging
@@ -396,6 +394,53 @@
           <p>
            <a href="#awsdevicefarm-upload">
             upload
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-CreateTestGridProject">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateTestGridProject.html">
+           CreateTestGridProject
+          </a>
+         </td>
+         <td>
+          Grants permission to create a project for desktop testing
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-CreateTestGridUrl">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateTestGridUrl.html">
+           CreateTestGridUrl
+          </a>
+         </td>
+         <td>
+          Grants permission to generate a new pre-signed url used to access our test grid service
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project*
            </a>
           </p>
          </td>
@@ -538,7 +583,7 @@
           </a>
          </td>
          <td>
-          Grants permission to delete a project
+          Grants permission to delete a mobile testing project
          </td>
          <td>
           Write
@@ -599,6 +644,32 @@
           <p>
            <a href="#awsdevicefarm-run">
             run*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-DeleteTestGridProject">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteTestGridProject.html">
+           DeleteTestGridProject
+          </a>
+         </td>
+         <td>
+          Grants permission to delete a desktop testing project
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project*
            </a>
           </p>
          </td>
@@ -908,7 +979,7 @@
           </a>
          </td>
          <td>
-          Grants permission to retrieve information about a project
+          Grants permission to retrieve information about a mobile testing project
          </td>
          <td>
           Read
@@ -1021,6 +1092,71 @@
           <p>
            <a href="#awsdevicefarm-test">
             test*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-GetTestGridProject">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTestGridProject.html">
+           GetTestGridProject
+          </a>
+         </td>
+         <td>
+          Grants permission to retrieve information about a desktop testing project
+         </td>
+         <td>
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td rowspan="2">
+          <a id="awsdevicefarm-GetTestGridSession">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTestGridSession.html">
+           GetTestGridSession
+          </a>
+         </td>
+         <td rowspan="2">
+          Grants permission to retireve the information of a test grid session
+         </td>
+         <td rowspan="2">
+          Read
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session
            </a>
           </p>
          </td>
@@ -1401,7 +1537,7 @@
           </a>
          </td>
          <td>
-          Grants permission to list the information of projects for an AWS account
+          Grants permission to list the information of mobile testing projects for an AWS account
          </td>
          <td>
           List
@@ -1518,17 +1654,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="9">
+         <td rowspan="11">
           <a id="awsdevicefarm-ListTagsForResource">
           </a>
           <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTagsForResource.html">
            ListTagsForResource
           </a>
          </td>
-         <td rowspan="9">
+         <td rowspan="11">
           Grants permission to list the tags of a resource
          </td>
-         <td rowspan="9">
+         <td rowspan="11">
           List
          </td>
          <td>
@@ -1637,8 +1773,133 @@
         <tr>
          <td>
           <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
            <a href="#awsdevicefarm-vpceconfiguration">
             vpceconfiguration
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-ListTestGridProjects">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridProjects.html">
+           ListTestGridProjects
+          </a>
+         </td>
+         <td>
+          Grants permission to list the information of desktop testing projects for an AWS account
+         </td>
+         <td>
+          List
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-ListTestGridSessionActions">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessionActions.html">
+           ListTestGridSessionActions
+          </a>
+         </td>
+         <td>
+          Grants permission to list the session actions performed during a test grid session
+         </td>
+         <td>
+          List
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-ListTestGridSessionArtifacts">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessionArtifacts.html">
+           ListTestGridSessionArtifacts
+          </a>
+         </td>
+         <td>
+          Grants permission to list the artifacts generated by a test grid session
+         </td>
+         <td>
+          List
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-ListTestGridSessions">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessions.html">
+           ListTestGridSessions
+          </a>
+         </td>
+         <td>
+          Grants permission to list the sessions within a test grid project
+         </td>
+         <td>
+          List
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project*
            </a>
           </p>
          </td>
@@ -1981,17 +2242,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="10">
+         <td rowspan="12">
           <a id="awsdevicefarm-TagResource">
           </a>
           <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_TagResource.html">
            TagResource
           </a>
          </td>
-         <td rowspan="10">
+         <td rowspan="12">
           Grants permission to add tags to a resource
          </td>
-         <td rowspan="10">
+         <td rowspan="12">
           Tagging
          </td>
          <td>
@@ -2089,6 +2350,32 @@
           <p>
            <a href="#awsdevicefarm-session">
             session
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session
            </a>
           </p>
          </td>
@@ -2129,17 +2416,17 @@
          </td>
         </tr>
         <tr>
-         <td rowspan="10">
+         <td rowspan="12">
           <a id="awsdevicefarm-UntagResource">
           </a>
           <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UntagResource.html">
            UntagResource
           </a>
          </td>
-         <td rowspan="10">
+         <td rowspan="12">
           Grants permission to remove tags from a resource
          </td>
-         <td rowspan="10">
+         <td rowspan="12">
           Tagging
          </td>
          <td>
@@ -2237,6 +2524,32 @@
           <p>
            <a href="#awsdevicefarm-session">
             session
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-session">
+            testgrid-session
            </a>
           </p>
          </td>
@@ -2397,7 +2710,7 @@
           </a>
          </td>
          <td>
-          Grants permission to modify an existing project
+          Grants permission to modify an existing mobile testing project
          </td>
          <td>
           Write
@@ -2406,6 +2719,32 @@
           <p>
            <a href="#awsdevicefarm-project">
             project*
+           </a>
+          </p>
+         </td>
+         <td>
+         </td>
+         <td>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-UpdateTestGridProject">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateTestGridProject.html">
+           UpdateTestGridProject
+          </a>
+         </td>
+         <td>
+          Grants permission to modify an existing desktop testing project
+         </td>
+         <td>
+          Write
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-testgrid-project">
+            testgrid-project*
            </a>
           </p>
          </td>
@@ -2495,7 +2834,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d274c13b5">
+       <table class="awsui-util-container" id="w790aac29c13c26d282c13b5">
         <p class="title">
          <b>
          </b>
@@ -3028,6 +3367,80 @@
           </p>
          </td>
         </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-testgrid-project">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_TestGridProject.html">
+           testgrid-project
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:devicefarm:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:testgrid-project:$
+           <span>
+            {
+           </span>
+           ResourceId}
+          </code>
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-aws_ResourceTag___TagKey_">
+            aws:ResourceTag/${TagKey}
+           </a>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a id="awsdevicefarm-testgrid-session">
+          </a>
+          <a href="https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_TestGridSession.html">
+           testgrid-session
+          </a>
+         </td>
+         <td>
+          <code class="code">
+           arn:$
+           <span>
+            {
+           </span>
+           Partition}:devicefarm:$
+           <span>
+            {
+           </span>
+           Region}:$
+           <span>
+            {
+           </span>
+           Account}:testgrid-session:$
+           <span>
+            {
+           </span>
+           ResourceId}
+          </code>
+         </td>
+         <td>
+          <p>
+           <a href="#awsdevicefarm-aws_ResourceTag___TagKey_">
+            aws:ResourceTag/${TagKey}
+           </a>
+          </p>
+         </td>
+        </tr>
        </table>
       </div>
       <awsdocs-table-expander>
@@ -3062,7 +3475,7 @@
      </p>
      <div class="table-container">
       <div class="table-contents">
-       <table class="awsui-util-container" id="w476aac29c13c27d274c15b7">
+       <table class="awsui-util-container" id="w790aac29c13c26d282c15b7">
         <p class="title">
          <b>
          </b>
@@ -3145,7 +3558,7 @@
        <div>
         <div id="js_error_message">
          <p>
-          <img alt="Warning" src="%0A                              https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png%0A                            "/>
+          <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
           <strong>
            Javascript is disabled or is unavailable in your
                                  browser.
@@ -3180,4 +3593,4 @@
    </div>
   </div>
  </body>
-</html>
+</div>
