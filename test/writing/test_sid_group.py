@@ -29,32 +29,39 @@ class SidGroupActionsTestCase(unittest.TestCase):
                 {
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
-                    "Action": ["kms:CreateGrant"],
+                    "Action": [
+                        "kms:CreateGrant"
+                    ],
                     "Resource": [
                         "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
+                    ]
+                },
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudhsm:DescribeClusters",
+                        "kms:CreateCustomKeyStore"
                     ],
+                    "Resource": [
+                        "*"
+                    ]
                 },
                 {
                     "Sid": "Ec2WriteSecuritygroup",
                     "Effect": "Allow",
                     "Action": [
                         "ec2:AuthorizeSecurityGroupEgress",
-                        "ec2:AuthorizeSecurityGroupIngress",
+                        "ec2:AuthorizeSecurityGroupIngress"
                     ],
                     "Resource": [
                         "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
-                    ],
-                },
-                {
-                    "Sid": "MultMultNone",
-                    "Effect": "Allow",
-                    "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
-                    "Resource": ["*"],
-                },
-            ],
+                    ]
+                }
+            ]
         }
         self.maxDiff = None
-        print(output)
+        print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
 

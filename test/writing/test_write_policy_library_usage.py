@@ -72,27 +72,36 @@ desired_actions_policy = {
         {
             "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
-            "Action": ["kms:CreateGrant"],
-            "Resource": ["arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"],
+            "Action": [
+                "kms:CreateGrant"
+            ],
+            "Resource": [
+                "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
+            ]
+        },
+        {
+            "Sid": "MultMultNone",
+            "Effect": "Allow",
+            "Action": [
+                "cloudhsm:DescribeClusters",
+                "kms:CreateCustomKeyStore"
+            ],
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "Ec2WriteSecuritygroup",
             "Effect": "Allow",
             "Action": [
                 "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupIngress"
             ],
             "Resource": [
                 "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
-            ],
-        },
-        {
-            "Sid": "MultMultNone",
-            "Effect": "Allow",
-            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
-            "Resource": ["*"],
-        },
-    ],
+            ]
+        }
+    ]
 }
 
 
@@ -117,11 +126,8 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             db_session, actions_template, minimize=minimize
         )
         self.maxDiff = None
-        # print("desired_actions_policy")
-        # print(json.dumps(desired_actions_policy, indent=4))
-        # print("policy")
         print(json.dumps(policy, indent=4))
-        self.assertDictEqual(desired_actions_policy, policy)
+        self.assertDictEqual(policy, desired_actions_policy)
 
     def test_write_crud_policy_with_library_only(self):
         """test_write_crud_policy_with_library_only: Write a policy in CRUD mode without using the command line at all (library only)"""

@@ -21,6 +21,9 @@ amplify;aws:TagKeys;aws;None;string
 apigateway;aws:RequestTag/${TagKey};aws;None;string
 apigateway;aws:ResourceTag/${TagKey};aws;None;string
 apigateway;aws:TagKeys;aws;None;string
+appconfig;aws:RequestTag/${TagKey};aws;Filters 'Create' requests based on the allowed set of values for a specified tags;string
+appconfig;aws:ResourceTag/${TagKey};aws;Filters access based on a tag key-value pair assigned to the AWS resource;string
+appconfig;aws:TagKeys;aws;Filters 'Create' requests based on whether mandatory tags are included in the request;string
 appmesh;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request.;string
 appmesh;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource.;string
 appmesh;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request.;string
@@ -38,6 +41,7 @@ autoscaling;autoscaling:ImageId;autoscaling;The AMI used to create the instance.
 autoscaling;autoscaling:InstanceType;autoscaling;The type of instance, in terms of the hardware resources available.;string
 autoscaling;autoscaling:InstanceTypes;autoscaling;The types of instances, in terms of the hardware resources available.;string
 autoscaling;autoscaling:LaunchConfigurationName;autoscaling;The name of a launch configuration.;string
+autoscaling;autoscaling:LaunchTemplateVersionSpecified;autoscaling;Filters access by whether users can specify any version of a launch template or only  the Latest or Default version;bool
 autoscaling;autoscaling:LoadBalancerNames;autoscaling;The name of the load balancer.;string
 autoscaling;autoscaling:MaxSize;autoscaling;The maximum scaling size.;numeric
 autoscaling;autoscaling:MinSize;autoscaling;The minimum scaling size.;numeric
@@ -67,7 +71,8 @@ cloudformation;aws:RequestTag/${TagKey};aws;None;string
 cloudformation;aws:ResourceTag/${TagKey};aws;None;string
 cloudformation;aws:TagKeys;aws;None;string
 cloudformation;cloudformation:ChangeSetName;cloudformation;An AWS CloudFormation change set name. Use to control which change sets IAM users  can execute or delete.;string
-cloudformation;cloudformation:ResourceTypes;cloudformation;The template resource types, such as <code>AWS::EC2::Instance</code>. Use to control  which resource types IAM users can work with when they create or update a stack;string
+cloudformation;cloudformation:ImportResourceTypes;cloudformation;The template resource types, such as <code>AWS::EC2::Instance</code>. Use to control  which resource types IAM users can work with when they want to import a resource into  a stack.;string
+cloudformation;cloudformation:ResourceTypes;cloudformation;The template resource types, such as <code>AWS::EC2::Instance</code>. Use to control  which resource types IAM users can work with when they create or update a stack.;string
 cloudformation;cloudformation:RoleArn;cloudformation;The ARN of an IAM service role. Use to control which service role IAM users can use  to work with stacks or change sets.;arn
 cloudformation;cloudformation:StackPolicyUrl;cloudformation;An Amazon S3 stack policy URL. Use to control which stack policies IAM users can associate  with a stack during a create or update stack action.;string
 cloudformation;cloudformation:TemplateUrl;cloudformation;An Amazon S3 template URL. Use to control which templates IAM users can use when they  create or update stacks.;string
@@ -158,65 +163,71 @@ dynamodb;dynamodb:ReturnConsumedCapacity;dynamodb;"Filter based on the ReturnCon
 dynamodb;dynamodb:ReturnValues;dynamodb;"Filter based on the ReturnValues parameter of request. Contains one of the following:  ""ALL_OLD"", ""UPDATED_OLD"",""ALL_NEW"",""UPDATED_NEW"", or ""NONE"".";string
 dynamodb;dynamodb:Select;dynamodb;Filter based on the Select parameter of a Query or Scan request.;string
 ebs;aws:ResourceTag/${TagKey};aws;Filters access based on tag key-value pairs assigned to the AWS resource;string
-ec2;aws:RequestTag/${TagKey};aws;A key that is present in the request the user makes to the EC2 service.;string
-ec2;aws:TagKeys;aws;The list of all the tag key names associated with the resource in the request.;string
-ec2;ec2:AccepterVpc;ec2;The ARN of an accepter VPC in a VPC peering connection.;arn
-ec2;ec2:AuthenticationType;ec2;The authentication type for the VPN tunnel endpoints.;string
-ec2;ec2:AuthorizedService;ec2;The AWS service that has permission to use a resource.;string
-ec2;ec2:AuthorizedUser;ec2;The IAM principal that has permission to use a resource.;string
-ec2;ec2:AvailabilityZone;ec2;The name of an Availability Zone in a region.;string
-ec2;ec2:CreateAction;ec2;The name of a resource-creating API action.;string
-ec2;ec2:DPDTimeoutSeconds;ec2;The duration after which DPD timeout occur.;numeric
-ec2;ec2:EbsOptimized;ec2;Whether the instance is enabled for EBS-optimization.;bool
-ec2;ec2:ElasticGpuType;ec2;The name of the type of ElasticGpu.;string
-ec2;ec2:Encrypted;ec2;Whether the volume is encrypted.;bool
-ec2;ec2:GatewayType;ec2;The gateway type for the VPN endpoint on the AWS side of the VPN connection.;string
-ec2;ec2:IKEVersions;ec2;The internet key exchange (IKE) versions that are permitted for the VPN tunnel.;string
-ec2;ec2:ImageType;ec2;The name of the type of image.;string
-ec2;ec2:InsideTunnelCidr;ec2;The range of inside IP addresses for the VPN tunnel.;string
-ec2;ec2:InstanceMarketType;ec2;The name of the market type.;string
-ec2;ec2:InstanceProfile;ec2;The ARN of the instance profile.;arn
-ec2;ec2:InstanceType;ec2;The name of the instance type.;string
-ec2;ec2:IsLaunchTemplateResource;ec2;Launch template resource flag.;bool
-ec2;ec2:LaunchTemplate;ec2;The ARN of the launch template.;arn
-ec2;ec2:MetadataHttpEndpoint;ec2;Whether the http endpoint is enabled in instance metadata service.;string
-ec2;ec2:MetadataHttpPutResponseHopLimit;ec2;Allowed number of hops when calling instance metadata service.;numeric
-ec2;ec2:MetadataHttpTokens;ec2;Whether tokens are required when calling instance metadata service.;string
-ec2;ec2:Owner;ec2;The name or account ID of the owner.;string
-ec2;ec2:ParentSnapshot;ec2;The ARN of the parent snapshot.;arn
-ec2;ec2:ParentVolume;ec2;The ARN of the parent volume.;arn
-ec2;ec2:Permission;ec2;The type of permission for a resource.;string
-ec2;ec2:Phase1DHGroupNumbers;ec2;The Diffie-Hellman groups that are permitted for the VPN tunnel for the phase 1 IKE  negotiations.;numeric
-ec2;ec2:Phase1EncryptionAlgorithms;ec2;The encryption algorithms that are permitted for the VPN tunnel for the phase 1 IKE  negotiations.;string
-ec2;ec2:Phase1IntegrityAlgorithms;ec2;The integrity algorithms that are permitted for the VPN tunnel for the phase 1 IKE  negotiations.;string
-ec2;ec2:Phase1LifetimeSeconds;ec2;The lifetime in seconds for phase 1 of the IKE negotiation.;numeric
-ec2;ec2:Phase2DHGroupNumbers;ec2;The Diffie-Hellman groups that are permitted for the VPN tunnel for the phase 2 IKE  negotiations.;numeric
-ec2;ec2:Phase2EncryptionAlgorithms;ec2;The encryption algorithms that are permitted for the VPN tunnel for the phase 2 IKE  negotiations.;string
-ec2;ec2:Phase2IntegrityAlgorithms;ec2;The integrity algorithms that are permitted for the VPN tunnel for the phase 2 IKE  negotiations.;string
-ec2;ec2:Phase2LifetimeSeconds;ec2;The lifetime in seconds for phase 2 of the IKE negotiation.;numeric
-ec2;ec2:PlacementGroup;ec2;The ARN of the placement group.;arn
-ec2;ec2:PlacementGroupStrategy;ec2;The name of the placement group strategy.;string
-ec2;ec2:PresharedKeys;ec2;The pre-shared key (PSK) to establish the initial IKE security association between  the virtual private gateway and customer gateway.;string
-ec2;ec2:ProductCode;ec2;The product code of the product.;string
-ec2;ec2:Public;ec2;Whether the image is public.;bool
-ec2;ec2:Region;ec2;The name of the region.;string
-ec2;ec2:RekeyFuzzPercentage;ec2;The percentage of the rekey window (determined by the rekey margin time) within which  the rekey time is randomly selected.;numeric
-ec2;ec2:RekeyMarginTimeSeconds;ec2;The margin time before the phase 2 lifetime expires, during which AWS performs an  IKE rekey.;numeric
-ec2;ec2:RequesterVpc;ec2;The ARN of a requester VPC in a VPC peering connection.;arn
-ec2;ec2:ReservedInstancesOfferingType;ec2;The payment option for a Reserved Instance.;string
-ec2;ec2:ResourceTag/;ec2;The preface string for a tag key and value pair attached to a resource.;string
-ec2;ec2:ResourceTag/${TagKey};ec2;A tag key and value pair.;string
-ec2;ec2:RoleDelivery;ec2;The IMDS version of IAM role credential for EC2.;numeric
-ec2;ec2:RootDeviceType;ec2;The root device type: ebs or instance-store.;string
-ec2;ec2:RoutingType;ec2;The routing type for the VPN connection.;string
-ec2;ec2:SnapshotTime;ec2;The snapshot creation time.;string
-ec2;ec2:SourceInstanceARN;ec2;The ARN of the instance from which the request originated.;arn
-ec2;ec2:Subnet;ec2;The ARN of the subnet.;arn
-ec2;ec2:Tenancy;ec2;The tenancy of the instance or VPC.;string
-ec2;ec2:VolumeIops;ec2;The number of input/output operations per second.;numeric
-ec2;ec2:VolumeSize;ec2;The size of the volume, in GiB.;numeric
-ec2;ec2:VolumeType;ec2;The name of the type of volume.;string
-ec2;ec2:Vpc;ec2;The ARN of the VPC.;arn
+ec2;aws:RequestTag/${TagKey};aws;Filters access by a tag key and value pair that is allowed in the request;string
+ec2;aws:TagKeys;aws;Filters access by a list of tag keys that are allowed in the request;string
+ec2;ec2:AccepterVpc;ec2;Filters access by the ARN of an accepter VPC in a VPC peering connection;arn
+ec2;ec2:AuthenticationType;ec2;Filters access by the authentication type for the VPN tunnel endpoints;string
+ec2;ec2:AuthorizedService;ec2;Filters access by the AWS service that has permission to use a resource;string
+ec2;ec2:AuthorizedUser;ec2;Filters access by an IAM principal that has permission to use a resource;string
+ec2;ec2:AutoPlacement;ec2;Filters access by the Auto Placement properties of a Dedicated Host;string
+ec2;ec2:AvailabilityZone;ec2;Filters access by the name of an Availability Zone in an AWS Region;string
+ec2;ec2:CreateAction;ec2;Filters access by the name of a resource-creating API action;string
+ec2;ec2:DPDTimeoutSeconds;ec2;Filters access by the duration after which DPD timeout occurs on a VPN tunnel;numeric
+ec2;ec2:EbsOptimized;ec2;Filters access by whether the instance is enabled for EBS optimization;bool
+ec2;ec2:ElasticGpuType;ec2;Filters access by the type of Elastic Graphics accelerator;string
+ec2;ec2:Encrypted;ec2;Filters access by whether the EBS volume is encrypted;bool
+ec2;ec2:GatewayType;ec2;Filters access by the gateway type for a VPN endpoint on the AWS side of a VPN connection;string
+ec2;ec2:HostRecovery;ec2;Filters access by whether host recovery is enabled for a Dedicated Host;string
+ec2;ec2:IKEVersions;ec2;Filters access by the internet key exchange (IKE) versions that are permitted for  a VPN tunnel;string
+ec2;ec2:ImageType;ec2;Filters access by the type of image (machine, aki, or ari);string
+ec2;ec2:InsideTunnelCidr;ec2;Filters access by the range of inside IP addresses for a VPN tunnel;string
+ec2;ec2:InstanceMarketType;ec2;Filters access by the market or purchasing option of an instance (on-demand or spot);string
+ec2;ec2:InstanceProfile;ec2;Filters access by the ARN of an instance profile;arn
+ec2;ec2:InstanceType;ec2;Filters access by the type of instance;string
+ec2;ec2:IsLaunchTemplateResource;ec2;Filters access by whether users are able to override resources that are specified  in the launch template;bool
+ec2;ec2:LaunchTemplate;ec2;Filters access by the ARN of a launch template;arn
+ec2;ec2:MetadataHttpEndpoint;ec2;Filters access by whether the HTTP endpoint is enabled for the instance metadata service;string
+ec2;ec2:MetadataHttpPutResponseHopLimit;ec2;Filters access by the allowed number of hops when calling the instance metadata service;numeric
+ec2;ec2:MetadataHttpTokens;ec2;Filters access by whether tokens are required when calling the instance metadata service  (optional or required);string
+ec2;ec2:Owner;ec2;Filters access by the owner of the resource (amazon, aws-marketplace, or an AWS account  ID);string
+ec2;ec2:ParentSnapshot;ec2;Filters access by the ARN of the parent snapshot;arn
+ec2;ec2:ParentVolume;ec2;Filters access by the ARN of the parent volume from which the snapshot was created;arn
+ec2;ec2:Permission;ec2;Filters access by the type of permission for a resource (INSTANCE-ATTACH or EIP-ASSOCIATE);string
+ec2;ec2:Phase1DHGroupNumbers;ec2;Filters access by the Diffie-Hellman group numbers that are permitted for a VPN tunnel  for the phase 1 IKE negotiations;numeric
+ec2;ec2:Phase1EncryptionAlgorithms;ec2;Filters access by the encryption algorithms that are permitted for a VPN tunnel for  the phase 1 IKE negotiations;string
+ec2;ec2:Phase1IntegrityAlgorithms;ec2;Filters access by the integrity algorithms that are permitted for a VPN tunnel for  the phase 1 IKE negotiations;string
+ec2;ec2:Phase1LifetimeSeconds;ec2;Filters access by the lifetime in seconds for phase 1 of the IKE negotiations for  a VPN tunnel;numeric
+ec2;ec2:Phase2DHGroupNumbers;ec2;Filters access by the Diffie-Hellman group numbers that are permitted for a VPN tunnel  for the phase 2 IKE negotiations;numeric
+ec2;ec2:Phase2EncryptionAlgorithms;ec2;Filters access by the encryption algorithms that are permitted for a VPN tunnel for  the phase 2 IKE negotiations;string
+ec2;ec2:Phase2IntegrityAlgorithms;ec2;Filters access by the integrity algorithms that are permitted for a VPN tunnel for  the phase 2 IKE negotiations;string
+ec2;ec2:Phase2LifetimeSeconds;ec2;Filters access by the lifetime in seconds for phase 2 of the IKE negotiations for  a VPN tunnel;numeric
+ec2;ec2:PlacementGroup;ec2;Filters access by the ARN of the placement group;arn
+ec2;ec2:PlacementGroupStrategy;ec2;Filters access by the instance placement strategy used by the placement group (cluster,  spread, or partition);string
+ec2;ec2:PresharedKeys;ec2;Filters access by the pre-shared key (PSK) used to establish the initial IKE security  association between a virtual private gateway and a customer gateway;string
+ec2;ec2:ProductCode;ec2;Filters access by the product code that is associated with the AMI;string
+ec2;ec2:Public;ec2;Filters access by whether the image has public launch permissions;bool
+ec2;ec2:Quantity;ec2;Filters access by the number of Dedicated Hosts in a request;numeric
+ec2;ec2:Region;ec2;Filters access by the name of the AWS Region;string
+ec2;ec2:RekeyFuzzPercentage;ec2;Filters access by the percentage of increase of the rekey window (determined by the  rekey margin time) within which the rekey time is randomly selected for a VPN tunnel;numeric
+ec2;ec2:RekeyMarginTimeSeconds;ec2;Filters access by the margin time before the phase 2 lifetime expires for a VPN tunnel;numeric
+ec2;ec2:RequesterVpc;ec2;Filters access by the ARN of a requester VPC in a VPC peering connection;arn
+ec2;ec2:ReservedInstancesOfferingType;ec2;Filters access by the payment option of the Reserved Instance offering (No Upfront,  Partial Upfront, or All Upfront);string
+ec2;ec2:ResourceTag/;ec2;Filters access by the preface string for a tag key and value pair that are attached  to a resource;string
+ec2;ec2:ResourceTag/${TagKey};ec2;Filters access by a tag key and value pair of a resource;string
+ec2;ec2:RoleDelivery;ec2;Filters access by the version of the instance metadata service for retrieving IAM  role credentials for EC2;numeric
+ec2;ec2:RootDeviceType;ec2;Filters access by the root device type of the instance (ebs or instance-store);string
+ec2;ec2:RoutingType;ec2;Filters access by the routing type for the VPN connection;string
+ec2;ec2:SnapshotTime;ec2;Filters access by the initiation time of a snapshot;string
+ec2;ec2:SourceInstanceARN;ec2;Filters access by the ARN of the instance from which the request originated;arn
+ec2;ec2:Subnet;ec2;Filters access by the ARN of the subnet;arn
+ec2;ec2:Tenancy;ec2;Filters access by the tenancy of the VPC or instance (default, dedicated, or host);string
+ec2;ec2:VolumeIops;ec2;Filters access by the the number of input/output operations per second (IOPS) provisioned  for the volume;numeric
+ec2;ec2:VolumeSize;ec2;Filters access by the size of the volume, in GiB.;numeric
+ec2;ec2:VolumeType;ec2;Filters access by the type of volume (gp2, io1, st1, sc1, or standard);string
+ec2;ec2:Vpc;ec2;Filters access by the ARN of the VPC;arn
+ec2;ec2:VpceServiceName;ec2;Filters access by the name of the VPC endpoint service;string
+ec2;ec2:VpceServiceOwner;ec2;Filters access by the service owner of the VPC endpoint service;string
+ec2;ec2:VpceServicePrivateDnsName;ec2;Filters access by the private DNS name of the VPC endpoint service;string
 ec2-instance-connect;ec2:osuser;ec2;Filters access by specifying the default user name for the AMI that you used to launch  your instance;string
 ecr;aws:RequestTag/${TagKey};aws;Filters create requests based on the allowed set of values for each of the tags.;string
 ecr;aws:ResourceTag/${TagKey};aws;Filters actions based on tag-value associated with the resource.;string
@@ -285,6 +296,9 @@ gamelift;aws:ResourceTag/${TagKey};aws;Filters actions based on the tags associa
 gamelift;aws:TagKeys;aws;Filters actions based on the tag keys that are passed in the request;string
 glacier;glacier:ArchiveAgeInDays;glacier;How long an archive has been stored in the vault, in days.;string
 glacier;glacier:ResourceTag/;glacier;A customer-defined tag.;string
+globalaccelerator;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
+globalaccelerator;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
+globalaccelerator;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
 glue;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
 glue;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
 glue;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
@@ -313,6 +327,7 @@ guardduty;aws:TagKeys;aws;Filters actions based on the presence of tag keys in t
 health;health:eventTypeCode;health;The type of event.;string
 health;health:service;health;The service of the event.;string
 iam;iam:AWSServiceName;iam;Filters access by the AWS service to which this role is attached;string
+iam;iam:AssociatedResourceArn;iam;Filters by the resource that the role will be used on behalf of;arn
 iam;iam:OrganizationsPolicyId;iam;Filters access by the ID of an AWS Organizations policy;string
 iam;iam:PassedToService;iam;Filters access by the AWS service to which this role is passed;string
 iam;iam:PermissionsBoundary;iam;Filters access if the specified policy is set as the permissions boundary on the IAM  entity (user or role);string
@@ -559,6 +574,7 @@ securityhub;aws:RequestTag/${TagKey};aws;Filters actions based on the presence o
 securityhub;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
 securityhub;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string
 securityhub;securityhub:TargetAccount;securityhub;The ID of the AWS account into which you want to import findings. In the AWS Security  Finding format, this field is called AwsAccountId;string
+serverlessrepo;serverlessrepo:applicationType;serverlessrepo;Application type;string
 servicecatalog;aws:RequestTag/${TagKey};aws;Filters actions based on the presence of tag key-value pairs in the request;string
 servicecatalog;aws:ResourceTag/${TagKey};aws;Filters actions based on tag key-value pairs attached to the resource;string
 servicecatalog;aws:TagKeys;aws;Filters actions based on the presence of tag keys in the request;string

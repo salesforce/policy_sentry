@@ -13,6 +13,10 @@ appmesh:
     Tagging:
         - tagresource
         - untagresource
+apigateway:
+    # AWS documentation lists this as Write
+    Permissions management:
+        - updaterestapipolicy
 appsync:
     # AWS documentation lists this as Tagging
     Write:
@@ -26,11 +30,21 @@ backup:
     Permissions management:
         - deletebackupvaultaccesspolicy
         - putbackupvaultaccesspolicy
+cloud9:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 cloudfront:
     # AWS documentation lists this as Tagging
     Write:
         - createdistributionwithtags
         - createstreamingdistributionwithtags
+codecommit:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 chime:
     Permissions management:
         - deletevoiceconnectorterminationcredentials
@@ -65,6 +79,11 @@ connect:
     Permissions management:
         - getfederationtoken # Allows federation into an instance when using SAML-based authentication for identity management.
         - getfederationtokens # Grants permissions to federate in to an Amazon Connect instance (Log in as administrator functionality in the AWS console).
+datasync:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 devicefarm:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -86,6 +105,10 @@ ec2:
         - createnetworkinterfacepermission
         - deletenetworkinterfacepermission
         - modifyvpcendpointservicepermissions
+ecr:
+    # AWS documentation lists this as Write
+    Permissions management:
+        - deleterepositorypolicy
 es:
     Permissions management:
         - createelasticsearchdomain
@@ -114,11 +137,21 @@ fsx:
         - createbackup
         - createfilesystem
         - createfilesystemfrombackup
+firehose:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagdeliverystream
+        - tagdeliverystream
 glue:
     # AWS documentation lists this as "Write"
     Permissions management:
         - putresourcepolicy
         - deleteresourcepolicy
+guardduty:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 # We treat IAM, RAM, and DS as Permissions Management
 iam:
     Permissions management:
@@ -198,6 +231,11 @@ iotthingsgraph:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsysteminstance
+iot1click:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 iotsitewise:
     # AWS documentation lists this as "Permissions management"
     Read:
@@ -205,6 +243,11 @@ iotsitewise:
 kms:
     Permissions management:
         - createkey
+lambda:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 license-manager:
     # AWS documentation lists this as "Tagging"
     Write:
@@ -215,7 +258,15 @@ lightsail:
         - getrelationaldatabasemasteruserpassword # Returns the master user password of a relational database.
     Write:
         - createcloudformationstack
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 logs:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - tagloggroup
+        - untagloggroup
     # AWS documentation lists this as "Write"
     Permissions management:
         - putresourcepolicy
@@ -230,11 +281,44 @@ medialive:
 mediapackage:
     Permissions management:
         - rotateingestendpointcredentials
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 mobiletargeting:
     # AWS Documentation lists these as "Tagging"
     Write:
         - puteventstream
         - putevents
+mq:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - createtags
+        - deletetags
+opsworks:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
+quicksight:
+    Permissions management:
+        - createadmin
+        - creategroupmembership
+        - creategroup
+        - createiampolicyassignment
+        - createuser
+        - deleteiampolicyassignment
+        - deletegroupmembership
+        - deletegroup
+        - deleteuser
+        - deleteuserbyprincipalid
+        - registeruser
+        - updateuser
+        - updategroup
+        - updateiampolicyassignment
+        - updatedashboardpermissions
+        - updatetemplatepermissions
+        - updatedashboardpermissions
 ram:
     # AWS documentation lists these as "Write"
     Permissions management:
@@ -272,10 +356,19 @@ redshift:
 resource-groups:
     Write:
         - creategroup
+route53resolver:
+    # AWS documentation lists this as "Write"
+    Permissions management:
+        - putresolverrulepolicy
 secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:
         - createsecret
+securityhub:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - untagresource
+        - tagresource
 sns:
     Permissions management:
         - settopicattributes
@@ -381,8 +474,8 @@ waf-regional:
         - deletewebacl
         - updatewebacl
     # AWS documentation lists these as "Read"
-    Permissions management:
-        - getchangetoken
+#    Permissions management:
+#        - getchangetoken
 xray:
     Read:
         - getencryptionconfig
@@ -396,3 +489,7 @@ workmail:
     Permissions management:
         - resetpassword
         - resetuserpassword
+workspaces:
+    # AWS documentation lists these as "Write"
+    Tagging:
+        - deletetags
