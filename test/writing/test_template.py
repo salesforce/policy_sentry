@@ -25,6 +25,9 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -41,4 +44,5 @@ wildcard-only:
   service-permissions-management:
   - ''"""
         crud_template = create_crud_template("myrole")
+        self.maxDiff = None
         self.assertEqual(desired_msg, crud_template)

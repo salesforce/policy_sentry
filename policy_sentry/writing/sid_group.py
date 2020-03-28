@@ -48,6 +48,7 @@ class SidGroup:
         # sids instead of ARN
         self.sids = {}
         self.universal_conditions = {}
+        self.overrides = []
 
     def get_sid_group(self):
         """
@@ -77,6 +78,18 @@ class SidGroup:
         :rtype: dict
         """
         return self.universal_conditions
+
+    def add_overrides(self, overrides):
+        """
+        To override resource constraint requirements - i.e., instead of restricting s3:PutObject to a path and
+        allowing s3:PutObject to * resources, put s3:GetObject here.
+        """
+        if isinstance(overrides, list):
+            self.overrides.extend(overrides)
+        elif isinstance(overrides, str):
+            self.overrides.append([overrides])
+        else:
+            raise Exception("Please provide 'overrides' as a list of IAM actions.")
 
     def get_rendered_policy(self, db_session, minimize=None):
         """
@@ -121,8 +134,8 @@ class SidGroup:
         self, db_session, arn_list, access_level, conditions_block=None
     ):
         """
-        This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given by the user.
-        It derives the list of IAM actions based on the user's requested ARNs and access levels.
+        This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given
+        by the user. It derives the list of IAM actions based on the user's requested ARNs and access levels.
 
         :param db_session: SQLAlchemy database session
         :param arn_list: Just a list of resource ARNs.
@@ -181,25 +194,45 @@ class SidGroup:
                         else:
                             self.sids[sid_namespace] = temp_sid_dict
 
-    def add_action_without_resource_constraint(self, action):
+    def add_action_without_resource_constraint(
+        self, action, sid_namespace="MultMultNone"
+    ):
         """
-        This handles the cases where certain actions do not handle resource constraints - either by AWS, or for flexibility when adding dependent actions.
+        This handles the cases where certain actions do not handle resource constraints - either by AWS, or for
+        flexibility when adding dependent actions.
 
-        :param action: The single action to add to the MultMultNone SID namespace. For instance, s3:ListAllMyBuckets
+        :param action: The single action to add to the SID namespace. For instance, s3:ListAllMyBuckets
+        :param sid_namespace: MultMultNone by default. Other valid option is "SkipResourceConstraints"
         """
-        sid_namespace = "MultMultNone"
-        temp_sid_dict = {
-            "arn": ["*"],
-            "service": "Mult",
-            "access_level": "Mult",
-            "arn_format": "*",
-            "actions": [action],
-        }
-        if sid_namespace in self.sids.keys():
-            if action not in self.sids[sid_namespace]["actions"]:
-                self.sids[sid_namespace]["actions"].append(action)
+        if sid_namespace == "SkipResourceConstraints":
+            temp_sid_dict = {
+                "arn": ["*"],
+                "service": "Skip",
+                "access_level": "ResourceConstraints",
+                "arn_format": "*",
+                "actions": [action],
+            }
+        elif sid_namespace == "MultMultNone":
+            temp_sid_dict = {
+                "arn": ["*"],
+                "service": "Mult",
+                "access_level": "Mult",
+                "arn_format": "*",
+                "actions": [action],
+            }
         else:
-            self.sids[sid_namespace] = temp_sid_dict
+            raise Exception(
+                "Please specify the sid_namespace as either 'SkipResourceConstraints' or "
+                "'MultMultNone'."
+            )
+        if isinstance(action, str):
+            if sid_namespace in self.sids.keys():
+                if action not in self.sids[sid_namespace]["actions"]:
+                    self.sids[sid_namespace]["actions"].append(action)
+            else:
+                self.sids[sid_namespace] = temp_sid_dict
+        else:
+            raise Exception("Please provide the action as a string, not a list.")
         return self.sids
 
     def add_by_list_of_actions(self, db_session, supplied_actions):
@@ -209,11 +242,8 @@ class SidGroup:
         :param db_session: SQLAlchemy database session object
         :param supplied_actions: A list of supplied actions
         """
-        # Make supplied actions lowercase
-        # supplied_actions = [x.lower() for x in supplied_actions]
         # actions_list = get_dependent_actions(db_session, supplied_actions)
         dependent_actions = get_dependent_actions(db_session, supplied_actions)
-        # List comprehension to get all dependent actions that are not in the supplied actions.
         dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
         logger.debug("Adding by list of actions")
         logger.debug(f"Supplied actions: {str(supplied_actions)}")
@@ -287,7 +317,8 @@ class SidGroup:
             )
             self.add_action_without_resource_constraint(action)
         logger.debug(
-            "Removing actions that are in the wildcard arn (Resources = '*') as well as other statements that have resource constraints"
+            "Removing actions that are in the wildcard arn (Resources = '*') as well as other statements that have "
+            "resource constraints "
         )
         self.remove_actions_duplicated_in_wildcard_arn()
         logger.debug("Getting the rendered policy")
@@ -296,13 +327,14 @@ class SidGroup:
 
     def process_template(self, db_session, cfg, minimize=None):
         """
-        Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or Actions mode.
+        Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or
+        Actions mode.
 
         :param db_session: SQLAlchemy database session object
         :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
-        :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
+        :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set
+        this to the character length you want - for example, 0, or 4. Defaults to none.
         """
-        # try:
         if "mode" in cfg.keys():
             if cfg["mode"] == "crud":
                 logger.debug("CRUD mode selected")
@@ -419,7 +451,18 @@ class SidGroup:
                         self.add_by_arn_and_access_level(
                             db_session, cfg["tagging"], "Tagging"
                         )
-
+                if "skip-resource-constraints" in cfg.keys():
+                    if cfg["skip-resource-constraints"]:
+                        if cfg["skip-resource-constraints"][0] != "":
+                            logger.debug(
+                                f"Requested override: the actions {str(cfg['skip-resource-constraints'])} will "
+                                f"skip resource constraints."
+                            )
+                            self.add_overrides(cfg["skip-resource-constraints"])
+                            for override_action in self.overrides:
+                                self.add_action_without_resource_constraint(
+                                    override_action, "SkipResourceConstraints"
+                                )
             if cfg["mode"] == "actions":
                 check_actions_schema(cfg)
                 if "actions" in cfg.keys():
@@ -457,7 +500,8 @@ class SidGroup:
         """
         :param db_session: SQLAlchemy database session
         :param services: A list of AWS services
-    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
+        :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List',
+        'Permissions management', or 'Tagging'
         """
         wildcard_only_actions_to_add = []
         for service in services:
@@ -524,8 +568,9 @@ class SidGroup:
                 if "*" not in self.sids[sid]["arn_format"]:
                     for action in actions_under_wildcard_resources:
                         if action in self.sids[sid]["actions"]:
-                            # add it to a list of actions to nuke when they are under other SIDs
-                            actions_under_wildcard_resources_to_nuke.append(action)
+                            if action not in self.overrides:
+                                # add it to a list of actions to nuke when they are under other SIDs
+                                actions_under_wildcard_resources_to_nuke.append(action)
 
         # If there are actions that we need to remove from SIDs outside of MultMultNone SID
         if len(actions_under_wildcard_resources_to_nuke) > 0:
@@ -574,12 +619,14 @@ def create_policy_sid_namespace(
     """
     Simply generates the SID name. The SID groups ARN types that share an access level.
 
-    For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we choose to group them.
+    For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we
+    choose to group them.
 
     :param service: "ssm"
     :param access_level: "Read"
     :param resource_type_name: "parameter"
-    :param condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string": "StringEquals", "condition_value": "test"}
+    :param condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string":
+    "StringEquals", "condition_value": "test"}
     :return: SsmReadParameter
     :rtype: str
     """

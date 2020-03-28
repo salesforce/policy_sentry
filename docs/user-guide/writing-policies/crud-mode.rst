@@ -25,7 +25,6 @@ Example:
 Instructions
 ------------
 
-
 * To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 .. code-block:: bash

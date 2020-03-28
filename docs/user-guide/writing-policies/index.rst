@@ -8,4 +8,5 @@ Writing IAM Policies
 
    crud-mode
    actions-mode
+   crud-examples
 
