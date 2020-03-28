@@ -26,6 +26,8 @@ ns.add_collection(unit)
 build = Collection('build')
 ns.add_collection(build)
 
+docker = Collection('docker')
+ns.add_collection(docker)
 
 @task
 def make_html(c):
@@ -85,6 +87,12 @@ def upload_to_pypi_prod_server(c):
     c.run('python -m pip install --upgrade twine')
     c.run('python -m twine upload dist/*')
     c.run('python -m pip install policy_sentry')
+
+
+@task
+def update_requirements_txt_file(c):
+    """Update the requirements.txt file in the utils folder for use in Docker"""
+    c.run('python -m pipenv lock --clear --requirements > utils/requirements.txt')
 
 
 # INTEGRATION TESTS
@@ -253,6 +261,13 @@ def run_pytest(c):
         sys.exit(1)
 
 
+# DOCKER
+@task
+def build_docker(c):
+    """Open HTML docs in Google Chrome locally on your computer"""
+    c.run('docker build -t kmcquade/policy_sentry .')
+
+
 # Add all testing tasks to the test collection
 integration.add_task(clean_config_directory, 'clean')
 integration.add_task(version_check, 'version')
@@ -278,3 +293,7 @@ build.add_task(install_package, 'install-package')
 build.add_task(uninstall_package, 'uninstall-package')
 build.add_task(upload_to_pypi_test_server, 'upload-test')
 build.add_task(upload_to_pypi_prod_server, 'upload-prod')
+build.add_task(upload_to_pypi_prod_server, 'upload-prod')
+build.add_task(update_requirements_txt_file, 'update-requirements-file')
+
+docker.add_task(build_docker, 'build-docker')
