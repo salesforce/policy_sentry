@@ -1,68 +1,26 @@
 import unittest
 import json
+import os
+import yaml
 from policy_sentry.shared.database import connect_db
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry.querying.actions import get_action_data
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 db_session = connect_db(DATABASE_FILE_PATH)
 
+crud_with_override_template = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        os.path.pardir,
+        os.path.pardir,
+        "examples",
+        "yml",
+        "crud-with-override.yml",
+    )
+)
 
-class SidGroupActionsTestCase(unittest.TestCase):
-    def test_actions_test_case(self):
-        cfg = {
-            "mode": "actions",
-            "name": "RoleNameWithCRUD",
-            "actions": [
-                "kms:CreateGrant",
-                "kms:CreateCustomKeyStore",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-            ],
-        }
-        sid_group = SidGroup()
-        output = sid_group.process_template(db_session, cfg)
-        print(json.dumps(output, indent=4))
-        desired_output = {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "KmsPermissionsmanagementKey",
-                    "Effect": "Allow",
-                    "Action": [
-                        "kms:CreateGrant"
-                    ],
-                    "Resource": [
-                        "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
-                    ]
-                },
-                {
-                    "Sid": "MultMultNone",
-                    "Effect": "Allow",
-                    "Action": [
-                        "cloudhsm:DescribeClusters",
-                        "kms:CreateCustomKeyStore"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
-                },
-                {
-                    "Sid": "Ec2WriteSecuritygroup",
-                    "Effect": "Allow",
-                    "Action": [
-                        "ec2:AuthorizeSecurityGroupEgress",
-                        "ec2:AuthorizeSecurityGroupIngress"
-                    ],
-                    "Resource": [
-                        "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
-                    ]
-                }
-            ]
-        }
-        self.maxDiff = None
-        print(json.dumps(output, indent=4))
-        self.assertDictEqual(output, desired_output)
+with open(crud_with_override_template, "r") as yaml_file:
+    crud_with_override_template_cfg = yaml.safe_load(yaml_file)
 
 
 class SidGroupCrudTestCase(unittest.TestCase):
@@ -475,6 +433,52 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         self.maxDiff = None
-        print("Yolo")
+        print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)
+
+    def test_sid_group_override(self):
+        sid_group = SidGroup()
+        output = sid_group.process_template(db_session, crud_with_override_template_cfg)
+        self.maxDiff = None
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:CreateSecret"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                },
+                {
+                    "Sid": "SkipResourceConstraints",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:GetParameter",
+                        "ssm:GetParameters",
+                        "ssm:GetParametersByPath"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
         print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)

@@ -22,6 +22,9 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -47,6 +50,7 @@ CRUD_TEMPLATE_DICT = {
     "list": [],
     "tagging": [],
     "permissions-management": [],
+    "skip-resource-constraints": [],
     "wildcard-only": {
         "single-actions": [],
         "service-read": [],
@@ -57,11 +61,7 @@ CRUD_TEMPLATE_DICT = {
     },
 }
 
-ACTIONS_TEMPLATE_DICT = {
-    "mode": "actions",
-    "name": "",
-    "actions": [],
-}
+ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}
 
 
 def create_crud_template(name):

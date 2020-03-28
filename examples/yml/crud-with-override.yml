@@ -1,0 +1,11 @@
+mode: crud
+name: 'RoleNameWithCRUD'
+permissions-management:
+- arn:aws:s3:::example-org-s3-access-logs
+wildcard-only:
+    single-actions:
+    - secretsmanager:CreateSecret
+skip-resource-constraints:
+- ssm:GetParameter
+- ssm:GetParameters
+- ssm:GetParametersByPath

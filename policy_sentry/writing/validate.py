@@ -45,6 +45,7 @@ CRUD_SCHEMA = Schema(
             Optional("service-tagging"): [str],
             Optional("service-permissions-management"): [str],
         },
+        Optional("skip-resource-constraints"): [str],
     }
 )
 
