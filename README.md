@@ -44,7 +44,7 @@ Such a process is not ideal for security or for Infrastructure as Code developer
 
 Policy Sentry allows users to create least-privilege IAM policies in a matter of seconds, rather than tediously writing IAM policies by hand. These policies are scoped down according to access levels and resources. In the case of a breach, this helps to limit the blast radius of compromised credentials by only giving IAM principals access to what they need.
 
-**Before this tool, it could take hours to craft the perfect IAM Policy — but now it can take a matter of seconds**. This way, developers only have to determine the resources that they need to access, and **Policy Sentry abstracts the complexity of IAM policies** away from their development processes.
+**Before this tool, it could take hours to craft an IAM Policy with resource ARN constraints — but now it can take a matter of seconds**. This way, developers only have to determine the resources that they need to access, and **Policy Sentry abstracts the complexity of IAM policies** away from their development processes.
 
 ### Writing Secure Policies based on Resource Constraints and Access Levels
 
