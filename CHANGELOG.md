@@ -2,15 +2,15 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.7.3 (Unreleased)
+## 0.7.3 (2020-04-01)
 * Add skip-resource-constraints feature for CRUD mode (Fixes #145)
 * Reduced the example Docker image size
 * Path management fixes for windows (#152)
 
-## 0.7.2.1
+## 0.7.2.1 (2020-03-23)
 * Change `get_actions_that_support_wildcard_arns_only` and `get_actions_at_access_level_that_support_wildcard_arns_only` to accept "all" as input to the `service` parameter. This allows you to get results across all AWS service prefixes.
 
-## 0.7.2
+## 0.7.2 (2020-03-17)
 * Removed `write-policy-dir` command.
 * Better logging for the `write-policy` command
 * Fixes #142 - the issue with validating matching resource ARN types

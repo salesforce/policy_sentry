@@ -2,7 +2,7 @@
 """
     Policy Sentry is a tool for generating least-privilege IAM Policies.
 """
-__version__ = '0.7.3'
+__version__ = "0.7.3"
 import click
 from policy_sentry import command
 
@@ -21,5 +21,10 @@ policy_sentry.add_command(command.create_template.create_template)
 policy_sentry.add_command(command.query.query)
 
 
-if __name__ == '__main__':
+def main():
+    """Policy Sentry is a tool for generating least-privilege IAM Policies."""
     policy_sentry()
+
+
+if __name__ == "__main__":
+    main()
