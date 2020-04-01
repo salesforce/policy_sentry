@@ -76,10 +76,11 @@ class PolicyFilesTestCase(unittest.TestCase):
         policy_file_path = os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                os.path.pardir
-                + "/"
-                + os.path.pardir
-                + "/examples/analyze/explicit-actions.json",
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "analyze",
+                "explicit-actions.json",
             )
         )
         requested_actions = get_actions_from_json_policy_file(db_session, policy_file_path)

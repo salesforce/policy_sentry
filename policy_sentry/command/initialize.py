@@ -21,11 +21,10 @@ from policy_sentry.scraping.awsdocs import (
 )
 from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import (
-    HOME,
-    CONFIG_DIRECTORY,
-    HTML_DIRECTORY_PATH,
-    LINKS_YML_FILE_LOCAL,
+    LOCAL_HTML_DIRECTORY_PATH,
+    LOCAL_LINKS_YML_FILE,
     BUNDLED_DATABASE_FILE_PATH,
+    LOCAL_ACCESS_OVERRIDES_FILE,
 )
 
 logger = logging.getLogger(__name__)
@@ -64,7 +63,7 @@ def initialize(access_level_overrides_file, fetch, build):
     """
 
     if not access_level_overrides_file:
-        overrides_file = HOME + CONFIG_DIRECTORY + "access-level-overrides.yml"
+        overrides_file = LOCAL_ACCESS_OVERRIDES_FILE
     else:
         overrides_file = access_level_overrides_file
     # Create the config directory
@@ -90,10 +89,10 @@ def initialize(access_level_overrides_file, fetch, build):
     # if --build and --fetch are both supplied, just do --fetch
     if fetch:
         # `wget` the html docs to the local directory
-        update_html_docs_directory(HTML_DIRECTORY_PATH)
+        update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
         # Update the links.yml file
         prefix_list = create_service_links_mapping_file(
-            HTML_DIRECTORY_PATH, LINKS_YML_FILE_LOCAL
+            LOCAL_HTML_DIRECTORY_PATH, LOCAL_LINKS_YML_FILE
         )
         print(f"Services: {prefix_list}")
 
@@ -101,9 +100,9 @@ def initialize(access_level_overrides_file, fetch, build):
     if build or access_level_overrides_file or fetch:
         # Use the list of services that were listed in the links.yml file
         all_aws_services = get_list_of_service_prefixes_from_links_file(
-            LINKS_YML_FILE_LOCAL
+            LOCAL_LINKS_YML_FILE
         )
-        logger.debug("Services to build are stored in: %s", LINKS_YML_FILE_LOCAL)
+        logger.debug("Services to build are stored in: %s", LOCAL_LINKS_YML_FILE)
         # Fill in the database with data on the AWS services
         create_database(db_session, all_aws_services, overrides_file)
         print("Created tables for all services!")

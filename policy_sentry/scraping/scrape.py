@@ -1,10 +1,11 @@
 """
 At policy_sentry initialize time, this function is used to scrape the AWS HTML docs to build the sqlite database.
 """
+import os
 import logging
 import yaml
 import pandas
-from policy_sentry.shared.constants import LINKS_YML_FILE_LOCAL
+from policy_sentry.shared.constants import LOCAL_LINKS_YML_FILE
 
 logger = logging.getLogger(__name__)
 
@@ -12,9 +13,7 @@ logger = logging.getLogger(__name__)
 def get_html(directory, requested_service):
     """Get the tables from each HTML file from the AWS docs.."""
     links = []
-    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/data/links.yml'
-    # with open(links_yml_file, 'r') as yaml_file:
-    with open(LINKS_YML_FILE_LOCAL, "r") as yaml_file:
+    with open(LOCAL_LINKS_YML_FILE, "r") as yaml_file:
         try:
             cfg = yaml.safe_load(yaml_file)
         except yaml.YAMLError as exc:
@@ -26,7 +25,7 @@ def get_html(directory, requested_service):
     html_list = []
     for link in links:
         try:
-            parsed_html = pandas.read_html(directory + "/" + link)
+            parsed_html = pandas.read_html(os.path.join(directory, link))
             html_list.append(parsed_html)
         except ValueError as v_e:
             if "No tables found" in str(v_e):

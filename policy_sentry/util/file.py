@@ -3,8 +3,7 @@ Functions that relate to manipulating files, loading files, and managing filepat
 """
 import json
 import logging
-from os import listdir, makedirs
-from os.path import isfile, join, exists
+import os
 import yaml
 
 logger = logging.getLogger(__name__)
@@ -44,7 +43,7 @@ def check_valid_file_path(file):
     :rtype: bool
     """
 
-    if exists(file):
+    if os.path.exists(file):
         return True
     else:
         logger.critical(
@@ -70,13 +69,15 @@ def write_json_file(filename, json_contents):
 
 def list_files_in_directory(directory):
     """Equivalent of ls command, and return the list of files"""
-    only_files = [f for f in listdir(directory) if isfile(join(directory, f))]
+    only_files = [
+        f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))
+    ]
     return only_files
 
 
 def create_directory_if_it_doesnt_exist(directory):
     """Equivalent of mkdir -p"""
-    if exists(directory):
+    if os.path.exists(directory):
         pass
     else:
-        makedirs(directory)
+        os.makedirs(directory)

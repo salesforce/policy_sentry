@@ -4,7 +4,14 @@ import os
 import logging
 from invoke import task, Collection, UnexpectedExit, Failure
 sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            os.path.pardir,
+            'policy_sentry'
+        )
+    )
+)
 from policy_sentry.command import initialize
 
 logger = logging.getLogger(__name__)

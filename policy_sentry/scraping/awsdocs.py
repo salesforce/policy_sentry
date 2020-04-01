@@ -9,8 +9,7 @@ that it has not been altered in any way. The user can reproduce our steps with t
 or update the HTML files on their own.
 """
 
-from os import listdir
-from os.path import isfile, join
+import os
 import logging
 import re
 from bs4 import BeautifulSoup
@@ -82,8 +81,8 @@ def create_service_links_mapping_file(html_docs_destination, links_yml_file):
     links_shortened = {}
     for filename in [
         f
-        for f in listdir(html_docs_destination)
-        if isfile(join(html_docs_destination, f))
+        for f in os.listdir(html_docs_destination)
+        if os.path.isfile(os.path.join(html_docs_destination, f))
     ]:
         if not filename.startswith("list_"):
             continue
@@ -131,7 +130,6 @@ def get_list_of_service_prefixes_from_links_file(links_yml_file):
     Gets a list of service prefixes from the links file. Used for unit tests.
     :return:
     """
-    # links_yml_file = os.path.abspath(os.path.dirname(__file__)) + '/data/links.yml'
     service_prefixes = []
     with open(links_yml_file, "r") as yaml_file:
         try:

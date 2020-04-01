@@ -15,7 +15,11 @@ from policy_sentry.configuration.access_level_overrides import (
     get_action_access_level_overrides_from_yml,
 )
 from policy_sentry.scraping.scrape import get_html
-from policy_sentry.shared.constants import HTML_DIRECTORY_PATH
+from policy_sentry.shared.constants import (
+    LOCAL_HTML_DIRECTORY_PATH,
+    LOCAL_DATABASE_FILE_PATH,
+    BUNDLED_HTML_DIRECTORY_PATH,
+)
 from policy_sentry.util.access_levels import determine_access_level_override
 from policy_sentry.util.arns import (
     get_resource_path_from_arn,
@@ -139,8 +143,9 @@ def create_database(db_session, services, access_level_overrides_file):
     :param access_level_overrides_file: A file we can use to override the Access levels per action
     :return: the SQLAlchemy database session.
     """
-    directory = HTML_DIRECTORY_PATH + "/"
-    logger.info("Reading the html docs from this directory: %s", directory)
+    logger.info(
+        "Reading the html docs from this directory: %s", LOCAL_HTML_DIRECTORY_PATH
+    )
     logger.info("Using access level overrides file %s", access_level_overrides_file)
     print("Building tables...")
     for service in services:
@@ -167,7 +172,7 @@ def connect_db(db_file, initialization=False):
     #  sqlite:////absolute/path/to/file.db # Using this one. db_file is
     # prefixed with another / so it works out to 4
     if db_file == "bundled":
-        database_path = str(os.path.dirname(__file__)) + "/data/aws.sqlite3"
+        database_path = LOCAL_DATABASE_FILE_PATH
     else:
         database_path = db_file
 
@@ -199,8 +204,7 @@ def build_action_table(db_session, service, access_level_overrides_file):
     :param service: AWS Service to query. This can be called in a loop or for a single service (see connect_db function above).
     :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
     """
-    directory = os.path.abspath(os.path.dirname(__file__)) + "/data/docs/"
-    html_list = get_html(directory, service)
+    html_list = get_html(BUNDLED_HTML_DIRECTORY_PATH, service)
     access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
         service, access_level_overrides_file
     )
@@ -347,8 +351,7 @@ def build_arn_table(db_session, service):
     :param db_session: SQLAlchemy database session.
     :param service: The AWS service prefix
     """
-    directory = os.path.abspath(os.path.dirname(__file__)) + "/data/docs/"
-    html_list = get_html(directory, service)
+    html_list = get_html(BUNDLED_HTML_DIRECTORY_PATH, service)
     for df_list in html_list:
         for df in df_list:  # pylint: disable=invalid-name
             table = json.loads(df.to_json(orient="split"))
@@ -405,8 +408,7 @@ def build_condition_table(db_session, service):
     :param db_session: SQLAlchemy database session
     :param service: AWS Service Prefix
     """
-    directory = os.path.abspath(os.path.dirname(__file__)) + "/data/docs/"
-    html_list = get_html(directory, service)
+    html_list = get_html(BUNDLED_HTML_DIRECTORY_PATH, service)
     for df_list in html_list:
         for df in df_list:  # pylint: disable=invalid-name
             table = json.loads(df.to_json(orient="split"))

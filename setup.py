@@ -2,7 +2,7 @@ import setuptools
 import os
 import re
 
-HERE = os.path.dirname(__file__)
+HERE = os.path.abspath(os.path.dirname(__file__))
 VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
 TESTS_REQUIRE = [
     'coverage',
@@ -12,7 +12,14 @@ TESTS_REQUIRE = [
 
 
 def get_version():
-    init = open(os.path.join(HERE, 'policy_sentry/bin/', 'policy_sentry')).read()
+    init = open(
+        os.path.join(
+            HERE,
+            "policy_sentry",
+            "bin",
+            "policy_sentry"
+        )
+    ).read()
     return VERSION_RE.search(init).group(1)
 
 
@@ -50,6 +57,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    # entry_points={"console_scripts": "policy_sentry=policy_sentry.bin:policy_sentry"},
     # entry_points='''
     #     [console_scripts]
     #     policy_sentry=policy_sentry.bin:policy_sentry
