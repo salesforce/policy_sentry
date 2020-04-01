@@ -4,7 +4,14 @@ import os
 import logging
 from invoke import task, Collection, UnexpectedExit, Failure
 sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir + '/policy_sentry/')))
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            os.path.pardir,
+            'policy_sentry'
+        )
+    )
+)
 from policy_sentry.command import initialize
 
 logger = logging.getLogger(__name__)
@@ -126,7 +133,7 @@ def create_db(c):
 def version_check(c):
     """Print the version"""
     try:
-        c.run('./policy_sentry/bin/policy_sentry --version', pty=True)
+        c.run('./policy_sentry/bin/cli.py --version', pty=True)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
@@ -141,9 +148,9 @@ def write_policy(c):
     Integration testing: Tests the `write-policy` function.
     """
     try:
-        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/crud.yml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/crud.yml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry write-policy --input-file examples/yml/actions.yml', pty=True)
+        c.run('./policy_sentry/bin/cli.py write-policy --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/cli.py write-policy --input-file examples/yml/crud.yml', pty=True)
+        c.run('./policy_sentry/bin/cli.py write-policy --input-file examples/yml/actions.yml', pty=True)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
@@ -157,18 +164,18 @@ def query(c):
     """Integration testing: Tests the `query` functionality (querying the IAM database)"""
     try:
         c.run('echo "Querying the action table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table '
+        c.run('./policy_sentry/bin/cli.py query action-table --service ram', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ram --name tagresource', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table '
               '--service ram --access-level permissions-management', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ses --condition ses:FeedbackAddress', pty=True)
         c.run('echo "Querying the ARN table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service ssm', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service ssm', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service cloud9 --name environment', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service cloud9 --list-arn-types', pty=True)
         c.run('echo "Querying the condition keys table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
+        c.run('./policy_sentry/bin/cli.py query condition-table --service cloud9', pty=True)
+        c.run('./policy_sentry/bin/cli.py query condition-table --service cloud9 --name cloud9:Permissions', pty=True)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)
@@ -183,17 +190,17 @@ def query_with_yaml(c):
     try:
         c.run('echo "Querying the action table with yaml option"')
         c.run('echo "Querying the action table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ram --name tagresource --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table ''--service ram --access-level permissions-management --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query action-table --service ses --condition ses:FeedbackAddress --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ram --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ram --name tagresource --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table ''--service ram --access-level permissions-management --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ses --condition ses:FeedbackAddress --fmt yaml', pty=True)
         c.run('echo "Querying the ARN table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service ssm --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --name environment --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query arn-table --service cloud9 --list-arn-types --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service ssm --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service cloud9 --name environment --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query arn-table --service cloud9 --list-arn-types --fmt yaml', pty=True)
         c.run('echo "Querying the condition keys table"', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/policy_sentry query condition-table --service cloud9 --name cloud9:Permissions --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query condition-table --service cloud9 --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query condition-table --service cloud9 --name cloud9:Permissions --fmt yaml', pty=True)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)

@@ -1,9 +1,12 @@
 """Methods related to overriding the AWS-provided Access Levels for the database."""
-from os.path import dirname, join
+import os
 import shutil
 import logging
-from pathlib import Path
-from policy_sentry.shared.constants import HOME, CONFIG_DIRECTORY
+from policy_sentry.shared.constants import (
+    CONFIG_DIRECTORY,
+    BUNDLED_DATA_FILES,
+    BUNDLED_ACCESS_OVERRIDES_FILE,
+)
 from policy_sentry.util.file import read_yaml_file, list_files_in_directory
 
 logger = logging.getLogger(__name__)
@@ -16,19 +19,12 @@ def create_default_overrides_file():
     Essentially:
     cp $MODULE_DIR/policy_sentry/shared/data/access-level-overrides.yml ~/policy_sentry/access-level-overrides.yml
     """
-    # existing_overrides_file_directory = os.path.abspath(
-    #     dirname(__file__)) + '/data/'
-    existing_overrides_file_directory = join(
-        str(Path(dirname(__file__)).parent) + "/shared/data/"
-    )
-    file_list = list_files_in_directory(existing_overrides_file_directory)
+    file_list = list_files_in_directory(BUNDLED_DATA_FILES)
 
-    source = existing_overrides_file_directory
-    destination = HOME + CONFIG_DIRECTORY + "/"
     for file in file_list:
         if file.endswith(".yml"):
-            shutil.copy(source + "/" + file, destination)
-            logger.debug("copying overrides file %s to %s", file, destination)
+            shutil.copy(os.path.join(BUNDLED_DATA_FILES, file), CONFIG_DIRECTORY)
+            logger.debug("copying overrides file %s to %s", file, CONFIG_DIRECTORY)
 
 
 def get_action_access_level_overrides_from_yml(
@@ -41,10 +37,7 @@ def get_action_access_level_overrides_from_yml(
     override whatever they provide in their documentation.
     """
     if not access_level_overrides_file_path:
-        access_level_overrides_file_path = (
-            join(Path(dirname(__file__)).parent)
-            + "/shared/data/access-level-overrides.yml"
-        )
+        access_level_overrides_file_path = BUNDLED_ACCESS_OVERRIDES_FILE
     cfg = read_yaml_file(access_level_overrides_file_path)
     if service in cfg:
         return cfg[service]

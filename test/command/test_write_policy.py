@@ -1,6 +1,6 @@
 import unittest
 import json
-from os.path import abspath, pardir, dirname, join
+import os
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_template
@@ -82,9 +82,14 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
     def test_add_wildcard_only_actions_matching_services_and_access_level(self):
         """test_add_wildcard_only_actions_matching_services_and_access_level: We'd never write a policy like this
         IRL but doing this as a quality check against how it handles the database """
-        policy_file_path = abspath(
-            join(
-                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-with-wildcard-service-level.yml",
+        policy_file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "yml",
+                "crud-with-wildcard-service-level.yml",
             )
         )
         cfg = read_yaml_file(policy_file_path)
@@ -128,9 +133,14 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
 class RdsWritingTestCase(unittest.TestCase):
     def test_rds_policy_read_only(self):
         """test_rds_policy_read_only: Make sure that the RDS Policies work properly"""
-        policy_file_path = abspath(
-            join(
-                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-rds-read.yml",
+        policy_file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "yml",
+                "crud-rds-read.yml",
             )
         )
         cfg = read_yaml_file(policy_file_path)
@@ -156,9 +166,14 @@ class RdsWritingTestCase(unittest.TestCase):
 
     def test_rds_policy_read_write_list(self):
         """test_rds_policy_read_write_list: Make sure that the RDS Policies work properly for multiple levels"""
-        policy_file_path = abspath(
-            join(
-                dirname(__file__), pardir + "/" + pardir + "/examples/yml/crud-rds-mult.yml",
+        policy_file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "yml",
+                "crud-rds-mult.yml",
             )
         )
         cfg = read_yaml_file(policy_file_path)
