@@ -43,16 +43,15 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=['test*']),
     tests_require=TESTS_REQUIRE,
     install_requires=[
-        'click',
-        'policyuniverse',
+        'requests',
+        'schema',
         'PyYAML',
+        'click',
+        'click_log',
         'beautifulsoup4',
         'html5lib',
         'lxml',
         'jinja2',
-        'requests',
-        'schema',
-        'click_log'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
