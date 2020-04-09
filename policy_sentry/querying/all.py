@@ -9,15 +9,18 @@ def get_all_service_prefixes():
 
 
 def get_all_actions(lowercase=False):
-    results = []
     all_actions = set()
 
     for service_info in iam_definition:
         for privilege_info in service_info["privileges"]:
             if lowercase:
-                all_actions.add(f"{service_info['prefix']}:{privilege_info['privilege'].lower()}")
+                all_actions.add(
+                    f"{service_info['prefix']}:{privilege_info['privilege'].lower()}"
+                )
             else:
-                all_actions.add(f"{service_info['prefix']}:{privilege_info['privilege']}")
+                all_actions.add(
+                    f"{service_info['prefix']}:{privilege_info['privilege']}"
+                )
 
     # results = list(set(results))
     # results.sort()

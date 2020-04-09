@@ -23,7 +23,7 @@ if __name__ == '__main__':
             }
         ]
     }
-    permissions_management_actions = analyze_by_access_level(permissions_management_policy, "permissions-management")
+    permissions_management_actions = analyze_by_access_level(permissions_management_policy, "Permissions management")
     print(json.dumps(permissions_management_actions, indent=4))
 
 """

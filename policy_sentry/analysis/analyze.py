@@ -185,7 +185,7 @@ def analyze_statement_by_access_level(statement_json, access_level):
     Determine if a statement has any actions with a given access level.
 
     :param statement_json: a dictionary representing a statement from an AWS JSON policy
-    :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
+    :param access_level: The access level - either 'Read', 'List', 'Write', 'Tagging', or 'Permissions management'
     """
     requested_actions = get_actions_from_statement(statement_json)
     expanded_actions = determine_actions_to_expand(requested_actions)

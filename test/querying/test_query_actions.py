@@ -82,9 +82,7 @@ class QueryActionsTestCase(unittest.TestCase):
                 {
                     "action": "ram:TagResource",
                     "description": "Tag the specified resources share",
-                    "access_level": "Write",
-                    # TODO: Fix access level; Parliament just takes it as-is. This should be "Tagging", not "Write"
-                    # "access_level": "Tagging",
+                    "access_level": "Tagging",
                     "resource_arn_format": "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}",
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
@@ -96,7 +94,7 @@ class QueryActionsTestCase(unittest.TestCase):
                 {
                     "action": "ram:TagResource",
                     "description": "Tag the specified resources share",
-                    "access_level": "Write",
+                    "access_level": "Tagging",
                     "resource_arn_format": "*",
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
@@ -140,7 +138,7 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
-        desired_output = ['workspaces:CreateTags']
+        desired_output = ['workspaces:CreateTags', 'workspaces:DeleteTags']
         output = get_actions_with_access_level(
             "workspaces", "Tagging"
         )

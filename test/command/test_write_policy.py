@@ -103,7 +103,8 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
-                        "s3:ListAccessPoints"
+                        "s3:ListAccessPoints",
+                        "s3:ListJobs"
                     ],
                     "Resource": [
                         "*"
@@ -124,6 +125,8 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                 }
             ]
         }
+        print(json.dumps(output, indent=4))
+        self.maxDiff = None
         self.assertDictEqual(output, desired_output)
 
 

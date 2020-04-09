@@ -18,6 +18,7 @@ from policy_sentry.shared.constants import (
     BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_HTML_DIRECTORY_PATH,
     BUNDLED_DATASTORE_FILE_PATH,
+    BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_DATA_DIRECTORY
 )
 # , ActionTable, ArnTable, ConditionTable, create_database
@@ -155,7 +156,7 @@ if __name__ == '__main__':
     print("Downloading the latest AWS documentation from the Actions, Resources, and Condition Keys page")
     # update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
     print("Building the IAM database")
-    create_database(BUNDLED_DATA_DIRECTORY)
+    create_database(BUNDLED_DATA_DIRECTORY, BUNDLED_ACCESS_OVERRIDES_FILE)
     # print("Exporting the IAM database to CSV")
     # write_iam_database_to_csv()
 

@@ -16,10 +16,14 @@ from bs4 import BeautifulSoup
 import json
 from pathlib import Path
 import requests
+from policy_sentry.configuration.access_level_overrides import (
+    get_action_access_level_overrides_from_yml,
+)
 from policy_sentry.shared.constants import (
     BASE_DOCUMENTATION_URL,
     BUNDLED_HTML_DIRECTORY_PATH,
 )
+from policy_sentry.util.access_levels import determine_access_level_override
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -96,7 +100,17 @@ def no_white_space(string):
     return response
 
 
-def create_database(destination_directory, update_html=False):
+def create_database(
+    destination_directory, access_level_overrides_file, update_html=False
+):
+    """
+
+    :param destination_directory:
+    :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
+    :param update_html:
+    :return:
+    """
+
     # Create the docs directory
     Path(BUNDLED_HTML_DIRECTORY_PATH).mkdir(parents=True, exist_ok=True)
     if update_html:
@@ -142,6 +156,10 @@ def create_database(destination_directory, update_html=False):
                 "conditions": [],
             }
 
+            access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
+                prefix, access_level_overrides_file
+            )
+
             tables = main_content.find_all("div", class_="table-contents")
 
             for table in tables:
@@ -185,10 +203,33 @@ def create_database(destination_directory, update_html=False):
                         priv = chomp(link.text)
                     if priv == "":
                         priv = chomp(cells[0].text)
-
+                    service_prefix = prefix
+                    action_name = priv
                     description = chomp(cells[1].text)
+                    # TODO: Access level overrides
                     access_level = chomp(cells[2].text)
-
+                    # Access Level #####
+                    # access_level_overrides_cfg will only be true if the service in question is present
+                    # in the overrides YML file
+                    if access_level_overrides_cfg:
+                        override_result = determine_access_level_override(
+                            service_prefix,
+                            action_name,
+                            access_level,
+                            access_level_overrides_cfg,
+                        )
+                        if override_result:
+                            access_level = override_result
+                            logger.debug(
+                                "Override: Setting access level for %s:%s to %s",
+                                service_prefix,
+                                action_name,
+                                access_level,
+                            )
+                    #     else:
+                    #         access_level = access_level
+                    # else:
+                    #     access_level = access_level
                     resource_types = []
                     resource_cell = 3
 

@@ -108,7 +108,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             ],
         }
         permissions_management_actions = analyze_by_access_level(
-            permissions_management_policy, "permissions-management"
+            permissions_management_policy, "Permissions management"
         )
         # print(permissions_management_actions)
         desired_actions_list = [
@@ -137,16 +137,16 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             ],
             "Resource": "*",
         }
-        permissions_management_actions = analyze_statement_by_access_level(
-            permissions_management_statement, "permissions-management"
+        result = analyze_statement_by_access_level(
+            permissions_management_statement, "Permissions management"
         )
         # print(permissions_management_actions)
-        desired_actions_list = [
+        desired_result = [
             "ecr:SetRepositoryPolicy",
             "secretsmanager:DeleteResourcePolicy",
         ]
         self.maxDiff = None
-        self.assertListEqual(permissions_management_actions, desired_actions_list)
+        self.assertListEqual(result, desired_result)
 
     def test_determine_risky_actions_from_list(self):
         """test_determine_risky_actions_from_list: Test comparing requested actions to a list of risky actions"""
