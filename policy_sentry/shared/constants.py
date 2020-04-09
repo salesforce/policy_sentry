@@ -13,6 +13,8 @@ CONFIG_DIRECTORY = os.path.join(HOME, ".policy_sentry")
 BUNDLED_HTML_DIRECTORY_PATH = os.path.join(
     str(Path(os.path.dirname(__file__))), "data", "docs"
 )
+BUNDLED_DATA_DIRECTORY = os.path.join(str(Path(os.path.dirname(__file__))))
+
 # LOCAL_HTML_DIRECTORY_PATH = HOME + CONFIG_DIRECTORY + HTML_DATA_DIRECTORY_SUBFOLDER
 LOCAL_HTML_DIRECTORY_PATH = os.path.join(CONFIG_DIRECTORY, "data", "docs")
 
@@ -40,6 +42,17 @@ if os.path.exists(LOCAL_DATABASE_FILE_PATH):
 else:
     DATABASE_FILE_PATH = BUNDLED_DATABASE_FILE_PATH
 
+# Data json file
+BUNDLED_DATASTORE_FILE_PATH = os.path.join(
+    str(Path(os.path.dirname(__file__))), "data", "iam_definition.json"
+)
+LOCAL_DATASTORE_FILE_PATH = os.path.join(CONFIG_DIRECTORY, "iam_definition.json")
+if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    DATASTORE_FILE_PATH = LOCAL_DATASTORE_FILE_PATH
+else:
+    DATASTORE_FILE_PATH = BUNDLED_DATASTORE_FILE_PATH
+
+### Overrides
 BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
     os.path.abspath(os.path.dirname(__file__)), "data", "access-level-overrides.yml"
 )

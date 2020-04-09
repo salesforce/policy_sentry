@@ -14,12 +14,10 @@ from policy_sentry.configuration.config_directory import (
     create_html_docs_directory,
 )
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.scraping.awsdocs import (
+from policy_sentry.shared.awsdocs import (
     update_html_docs_directory,
-    get_list_of_service_prefixes_from_links_file,
-    create_service_links_mapping_file,
+    create_database,
 )
-from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import (
     LOCAL_HTML_DIRECTORY_PATH,
     LOCAL_LINKS_YML_FILE,
@@ -82,33 +80,30 @@ def initialize(access_level_overrides_file, fetch, build):
         # copy from the bundled database location to the destination path
         shutil.copy(BUNDLED_DATABASE_FILE_PATH, database_path)
 
-    # Connect to the database at that path with SQLAlchemy
-    db_session = connect_db(database_path, initialization=True)
-
     # --fetch: wget the AWS IAM Actions, Resources and Condition Keys pages and store them locally.
     # if --build and --fetch are both supplied, just do --fetch
-    if fetch:
-        # `wget` the html docs to the local directory
-        update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
-        # Update the links.yml file
-        prefix_list = create_service_links_mapping_file(
-            LOCAL_HTML_DIRECTORY_PATH, LOCAL_LINKS_YML_FILE
-        )
-        print(f"Services: {prefix_list}")
+    # if fetch:
+    #     # `wget` the html docs to the local directory
+    #     update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
+    #     # Update the links.yml file
+    #     prefix_list = create_service_links_mapping_file(
+    #         LOCAL_HTML_DIRECTORY_PATH, LOCAL_LINKS_YML_FILE
+    #     )
+    #     print(f"Services: {prefix_list}")
 
     # initialize --build
-    if build or access_level_overrides_file or fetch:
-        # Use the list of services that were listed in the links.yml file
-        all_aws_services = get_list_of_service_prefixes_from_links_file(
-            LOCAL_LINKS_YML_FILE
-        )
-        logger.debug("Services to build are stored in: %s", LOCAL_LINKS_YML_FILE)
-        # Fill in the database with data on the AWS services
-        create_database(db_session, all_aws_services, overrides_file)
-        print("Created tables for all services!")
+    # if build or access_level_overrides_file or fetch:
+    #     # Use the list of services that were listed in the links.yml file
+    #     all_aws_services = get_list_of_service_prefixes_from_links_file(
+    #         LOCAL_LINKS_YML_FILE
+    #     )
+    #     logger.debug("Services to build are stored in: %s", LOCAL_LINKS_YML_FILE)
+    #     # Fill in the database with data on the AWS services
+    #     create_database(all_aws_services, overrides_file)
+    #     print("Created tables for all services!")
 
     # Query the database for all the services that are now in the database.
-    all_aws_service_prefixes = get_all_service_prefixes(db_session)
+    all_aws_service_prefixes = get_all_service_prefixes()
     total_count_of_services = str(len(all_aws_service_prefixes))
     print("Initialization complete!")
     print(f"Total AWS services in the IAM database: {total_count_of_services}")

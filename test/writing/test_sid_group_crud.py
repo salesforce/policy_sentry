@@ -2,11 +2,9 @@ import unittest
 import json
 import os
 import yaml
-from policy_sentry.shared.database import connect_db
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-db_session = connect_db(DATABASE_FILE_PATH)
 
 crud_with_override_template = os.path.abspath(
     os.path.join(
@@ -32,7 +30,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         ]
         access_level = "Permissions management"
         sid_group.add_by_arn_and_access_level(
-            db_session, arn_list_from_user, access_level
+            arn_list_from_user, access_level
         )
         output = sid_group.get_sid_group()
         print(json.dumps(output, indent=4))
@@ -93,7 +91,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 },
             ],
         }
-        rendered_policy = sid_group.get_rendered_policy(db_session)
+        rendered_policy = sid_group.get_rendered_policy()
         self.assertDictEqual(desired_policy, rendered_policy)
         # print(json.dumps(rendered_policy, indent=4))
 
@@ -117,13 +115,13 @@ class SidGroupCrudTestCase(unittest.TestCase):
         arn_list_from_user = ["arn:aws:s3:::example-org-s3-access-logs"]
         access_level = "Permissions management"
         sid_group.add_by_arn_and_access_level(
-            db_session, arn_list_from_user, access_level
+            arn_list_from_user, access_level
         )
         status = sid_group.get_sid_group()
         self.maxDiff = None
         # print(json.dumps(status, indent=4))
         self.assertEqual(status, desired_output)
-        rendered_policy = sid_group.get_rendered_policy(db_session)
+        rendered_policy = sid_group.get_rendered_policy()
         desired_policy = {
             "Version": "2012-10-17",
             "Statement": [
@@ -145,40 +143,36 @@ class SidGroupCrudTestCase(unittest.TestCase):
         self.assertDictEqual(desired_policy, rendered_policy)
 
     # def test_get_actions_data_service_wide(self):
-    #     data = get_action_data(db_session, "s3", "*")
+    #     data = get_action_data("s3", "*")
     #     # print(data)
 
     def test_refactored_crud_policy(self):
         """test_refactored_crud_policy"""
         sid_group = SidGroup()
         sid_group.add_by_arn_and_access_level(
-            db_session,
             ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
             "Read",
         )
         sid_group.add_by_arn_and_access_level(
-            db_session, ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging"
+            ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging"
         )
         sid_group.add_by_arn_and_access_level(
-            db_session,
             ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
             "Write",
         )
         sid_group.add_by_arn_and_access_level(
-            db_session,
             ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"],
             "Write",
         )
         sid_group.add_by_arn_and_access_level(
-            db_session,
             ["arn:aws:kms:us-east-1:123456789012:key/123456"],
             "Permissions management",
         )
         sid_group.add_by_arn_and_access_level(
-            db_session, ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List"
+            ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List"
         )
 
-        output = sid_group.get_rendered_policy(db_session)
+        output = sid_group.get_rendered_policy()
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -251,7 +245,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         sid_group = SidGroup()
-        rendered_policy = sid_group.process_template(db_session, cfg)
+        rendered_policy = sid_group.process_template(cfg)
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -280,8 +274,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
         #  organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
         actions_test_data_1 = ["iam:generateorganizationsaccessreport"]
         sid_group = SidGroup()
-        sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
-        output = sid_group.get_rendered_policy(db_session)
+        sid_group.add_by_list_of_actions(actions_test_data_1)
+        output = sid_group.get_rendered_policy()
         # print(json.dumps(rendered_policy, indent=4))
         desired_output = {
             "Version": "2012-10-17",
@@ -323,9 +317,9 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
         sid_group = SidGroup()
         sid_group.add_by_arn_and_access_level(
-            db_session, ["arn:aws:iam::000000000000:access-report/somepath"], "Read"
+            ["arn:aws:iam::000000000000:access-report/somepath"], "Read"
         )
-        output = sid_group.get_rendered_policy(db_session)
+        output = sid_group.get_rendered_policy()
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -356,8 +350,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
     def test_add_by_list_of_actions(self):
         actions_test_data_1 = ["kms:CreateCustomKeyStore", "kms:CreateGrant"]
         sid_group = SidGroup()
-        sid_group.add_by_list_of_actions(db_session, actions_test_data_1)
-        output = sid_group.get_rendered_policy(db_session)
+        sid_group.add_by_list_of_actions(actions_test_data_1)
+        output = sid_group.get_rendered_policy()
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -405,7 +399,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             }
         }
         sid_group = SidGroup()
-        output = sid_group.process_template(db_session, cfg)
+        output = sid_group.process_template(cfg)
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -438,7 +432,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
     def test_sid_group_override(self):
         sid_group = SidGroup()
-        output = sid_group.process_template(db_session, crud_with_override_template_cfg)
+        output = sid_group.process_template(crud_with_override_template_cfg)
         self.maxDiff = None
         desired_output = {
             "Version": "2012-10-17",

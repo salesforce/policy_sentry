@@ -1,10 +1,8 @@
 import unittest
 import json
-from policy_sentry.shared.database import connect_db
+
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
-db_session = connect_db(DATABASE_FILE_PATH)
 
 
 valid_cfg_for_crud = {
@@ -61,7 +59,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
             ],
         }
         #  This should NOT raise an exception so leaving it as-is.
-        policy = write_policy_with_template(db_session, cfg_with_missing_name)
+        policy = write_policy_with_template(cfg_with_missing_name)
 
     def test_allow_missing_arn(self):
         """
@@ -79,7 +77,7 @@ class YamlValidationOverallTestCase(unittest.TestCase):
             ],
         }
         #  This should NOT raise an exception so leaving it as-is.
-        policy = write_policy_with_template(db_session, cfg_with_missing_actions)
+        policy = write_policy_with_template(cfg_with_missing_actions)
 
 
 class YamlValidationCrudTestCase(unittest.TestCase):
@@ -97,7 +95,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         }
         self.maxDiff = None
 
-        result = write_policy_with_template(db_session, crud_file_input)
+        result = write_policy_with_template(crud_file_input)
         print(json.dumps(result, indent=4))
 
     def test_empty_strings_in_access_level_categories(self):
@@ -147,7 +145,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             ]
         }
         # with self.assertRaises(Exception):
-        result = write_policy_with_template(db_session, crud_file_input)
+        result = write_policy_with_template(crud_file_input)
         self.assertDictEqual(desired_output, result)
 
 
@@ -162,4 +160,4 @@ class YamlValidationActionsTestCase(unittest.TestCase):
             "name": "RoleNameWithActions",
         }
         with self.assertRaises(Exception):
-            policy = write_policy_with_template(db_session, cfg_with_missing_actions)
+            policy = write_policy_with_template(cfg_with_missing_actions)

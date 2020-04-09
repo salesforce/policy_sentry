@@ -17,7 +17,7 @@ Subfolders
 
 **Files**:
 
-* ``shared/data/aws.sqlite3``\ : This is the pre-bundled IAM database. Third party packages can easily query the pre-bundled IAM database by connecting to the database like this: `db_session = connect_db('bundled')`
+* ``shared/data/aws.sqlite3``\ : This is the pre-bundled IAM database. Third party packages can easily query the pre-bundled IAM database by connecting to the database like this: ``
 * ``shared/data/audit/*.txt``\ : These text files are the pre-bundled audit files that you can use with the ``analyze-iam-policy`` command. Currently they are limited to privilege escalation and resource exposure. For more information, see the page on `Analyzing IAM Policies <Analyzing-IAM-Policies>`_.
 * ``shared/data/docs/*.html``\ : These are HTML files wget'd from the `Actions, Resources, and Condition Keys <2>`_ AWS documentation. This is used to build our database.
 * `shared/data/access-level-overrides.yml`: This is created to override the access levels that AWS incorrectly states in their documentation. For instance, quite often, their service teams will say that an IAM action is "Tagging" when it really should be "Write" - for example, `secretsmanager:CreateSecret`.

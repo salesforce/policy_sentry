@@ -1,10 +1,9 @@
 import unittest
-from policy_sentry.shared.database import connect_db
+
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
-db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class MinimizeWildcardActionsTestCase(unittest.TestCase):
@@ -16,7 +15,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             "ec2:AuthorizeSecurityGroupIngress",
         ]
         desired_result = ["ec2:authorizes*", "kms:createc*", "kms:createg*"]
-        all_actions = get_all_actions(db_session, lowercase=True)
+        all_actions = get_all_actions(lowercase=True)
         minchars = None
         self.maxDiff = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)
@@ -35,7 +34,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             "ec2:authorizesecuritygroupingress",
         ]
         desired_result = ["ec2:authorizes*", "kms:createc*", "kms:createg*"]
-        all_actions = get_all_actions(db_session, lowercase=True)
+        all_actions = get_all_actions(lowercase=True)
         minchars = None
         self.maxDiff = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)

@@ -1,6 +1,6 @@
 import unittest
 import json
-from policy_sentry.shared.database import connect_db
+
 from policy_sentry.command.write_policy import write_policy
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.template import (
@@ -108,7 +108,6 @@ desired_actions_policy = {
 class WritePolicyWithLibraryOnly(unittest.TestCase):
     def test_write_actions_policy_with_library_only(self):
         """test_write_actions_policy_with_library_only: Write an actions mode policy without using the command line at all (library only)"""
-        db_session = connect_db("bundled")
         actions_template = get_actions_template_dict()
         # print(actions_template)
         actions_to_add = [
@@ -123,7 +122,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         sid_group = SidGroup()
         minimize = None
         policy = sid_group.process_template(
-            db_session, actions_template, minimize=minimize
+            actions_template, minimize=minimize
         )
         self.maxDiff = None
         print(json.dumps(policy, indent=4))
@@ -131,7 +130,6 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
 
     def test_write_crud_policy_with_library_only(self):
         """test_write_crud_policy_with_library_only: Write a policy in CRUD mode without using the command line at all (library only)"""
-        db_session = connect_db("bundled")
         crud_template = get_crud_template_dict()
         wildcard_actions_to_add = [
             "kms:CreateCustomKeyStore",
@@ -156,7 +154,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         sid_group = SidGroup()
         minimize = None
         policy = sid_group.process_template(
-            db_session, crud_template, minimize=minimize
+            crud_template, minimize=minimize
         )
         # print("desired_crud_policy")
         # print(json.dumps(desired_crud_policy, indent=4))

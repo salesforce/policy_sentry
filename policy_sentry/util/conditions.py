@@ -42,3 +42,32 @@ def get_comma_separated_condition_keys(condition_keys):
 
     result = condition_keys.replace("  ", ",")  # replace the double spaces with a comma
     return result
+
+
+def is_condition_key_match(document_key, str):
+    """ Given a documented condition key and one from a policy, determine if they match
+    Examples:
+    - s3:prefix and s3:prefix obviously match
+    - s3:ExistingObjectTag/<key> and s3:ExistingObjectTag/backup match
+    """
+
+    # Normalize both
+    document_key = document_key.lower()
+    str = str.lower()
+
+    # Check if the document key has a pattern match in it
+    if "$" in document_key:
+        # Some services use a format like license-manager:ResourceTag/${TagKey}
+        if str.startswith(document_key.split("$")[0]):
+            return True
+    elif "<" in document_key:
+        # Some services use a format like s3:ExistingObjectTag/<key>
+        if str.startswith(document_key.split("<")[0]):
+            return True
+    elif "tag-key" in document_key:
+        # Some services use a format like secretsmanager:ResourceTag/tag-key
+        if str.startswith(document_key.split("tag-key")[0]):
+            return True
+
+    # Just return whether they match exactly
+    return document_key == str

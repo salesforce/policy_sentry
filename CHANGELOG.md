@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.7.4 (Unreleased)
+* Breaking changes: Not using SQLite Database anymore.
+
 ## 0.7.3 (2020-04-01)
 * Add skip-resource-constraints feature for CRUD mode (Fixes #145)
 * Reduced the example Docker image size
@@ -105,7 +108,7 @@ Developer library changes:
 
 ## 0.6.4 (2020-01-03)
 ### Added
-* Developers can now easily leverage Policy Sentry as a python package without needing to build the database from the docs. Just use `db_session = connect_db('bundled')` before passing in commands that require the `db_session` and you're ready to go. Fixes #74
+* Developers can now easily leverage Policy Sentry as a python package without needing to build the database from the docs. Just use `` before passing in commands that require the `db_session` and you're ready to go. Fixes #74
 * `utils/run_tests.sh` to make local testing easier before having TravisCI do all the work. Updated this in the documentation. Fixed an issue with the tasks.py for the uninstall-package invoke command.
 * `--version` flag. Fixes #48
 * Renamed write-policy template's `roles_with_crud_levels` and `roles_with_actions` to `policy_with_crud_levels` and `policy_with_actions` since this makes way more sense. Discussion is in #65. Version bump to 0.7.0 because this creates breaking changes.
