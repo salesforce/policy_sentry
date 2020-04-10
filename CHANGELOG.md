@@ -2,7 +2,7 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.8.0 (Unreleased)
+## 0.8.0 (2020-04-09)
 * Policy Sentry is now 10x faster!!
 * Refactored database approach - not using SQLite Database anymore.
 
