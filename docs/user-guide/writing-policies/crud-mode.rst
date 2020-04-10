@@ -29,7 +29,7 @@ Instructions
 
 .. code-block:: bash
 
-    policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
+    policy_sentry create-template --output-file crud.yml --template-type crud
 
 * It will generate a file like this:
 

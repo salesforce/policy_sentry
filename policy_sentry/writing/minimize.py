@@ -22,9 +22,26 @@ Q: How many policies can I attach to an IAM role?
 * The size of each managed policy cannot exceed 6,144 characters.
 """
 import logging
-from policyuniverse.expander_minimizer import _get_prefixes_for_action
+
+# from policyuniverse.expander_minimizer import _get_prefixes_for_action
 
 logger = logging.getLogger(__name__)
+
+# Borrowed from policyuniverse to reduce size
+# https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L45
+def _get_prefixes_for_action(action):
+    """
+    :param action: iam:cat
+    :return: [ "iam:", "iam:c", "iam:ca", "iam:cat" ]
+    """
+    (technology, permission) = action.split(":")
+    retval = ["{}:".format(technology)]
+    phrase = ""
+    for char in permission:
+        newphrase = "{}{}".format(phrase, char)
+        retval.append("{}:{}".format(technology, newphrase))
+        phrase = newphrase
+    return retval
 
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:

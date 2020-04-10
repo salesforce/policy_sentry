@@ -1,8 +1,5 @@
 import unittest
 from policy_sentry.util.arns import does_arn_match
-from policy_sentry.shared.database import connect_db
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-db_session = connect_db(DATABASE_FILE_PATH)
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns

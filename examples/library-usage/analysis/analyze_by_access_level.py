@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-from policy_sentry.shared.database import connect_db
 from policy_sentry.analysis.analyze import analyze_by_access_level
 import json
 
 if __name__ == '__main__':
-    db_session = connect_db('bundled')
     permissions_management_policy = {
         "Version": "2012-10-17",
         "Statement": [
@@ -25,7 +23,7 @@ if __name__ == '__main__':
             }
         ]
     }
-    permissions_management_actions = analyze_by_access_level(db_session, permissions_management_policy, "permissions-management")
+    permissions_management_actions = analyze_by_access_level(permissions_management_policy, "Permissions management")
     print(json.dumps(permissions_management_actions, indent=4))
 
 """

@@ -91,17 +91,16 @@ class SidGroup:
         else:
             raise Exception("Please provide 'overrides' as a list of IAM actions.")
 
-    def get_rendered_policy(self, db_session, minimize=None):
+    def get_rendered_policy(self, minimize=None):
         """
         Get the JSON rendered policy
 
-        :param db_session: SQLAlchemy database session
         :param minimize: Reduce the character count of policies without creating overlap with other action names
         :rtype: dict
         """
         statements = []
         # Only set the actions to lowercase if minimize is provided
-        all_actions = get_all_actions(db_session, lowercase=True)
+        all_actions = get_all_actions(lowercase=True)
 
         # render the policy
         for sid in self.sids:
@@ -131,20 +130,19 @@ class SidGroup:
 
     # pylint: disable=unused-argument
     def add_by_arn_and_access_level(
-        self, db_session, arn_list, access_level, conditions_block=None
+        self, arn_list, access_level, conditions_block=None
     ):
         """
         This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given
         by the user. It derives the list of IAM actions based on the user's requested ARNs and access levels.
 
-        :param db_session: SQLAlchemy database session
         :param arn_list: Just a list of resource ARNs.
         :param access_level: "Read", "List", "Tagging", "Write", or "Permissions management"
         :param conditions_block: Optionally, a condition block with one or more conditions
         """
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
-            service_action_data = get_action_data(db_session, service_prefix, "*")
+            service_action_data = get_action_data(service_prefix, "*")
             for service_prefix in service_action_data:
                 for row in service_action_data[service_prefix]:
                     if (
@@ -153,20 +151,18 @@ class SidGroup:
                     ):
                         raw_arn_format = row["resource_arn_format"]
                         resource_type_name = get_resource_type_name_with_raw_arn(
-                            db_session, raw_arn_format
+                            raw_arn_format
                         )
                         sid_namespace = create_policy_sid_namespace(
                             service_prefix, access_level, resource_type_name
                         )
                         actions = get_actions_with_arn_type_and_access_level(
-                            db_session, service_prefix, resource_type_name, access_level
+                            service_prefix, resource_type_name, access_level
                         )
                         # Make supplied actions lowercase
                         # supplied_actions = [x.lower() for x in actions]
                         supplied_actions = actions.copy()
-                        dependent_actions = get_dependent_actions(
-                            db_session, supplied_actions
-                        )
+                        dependent_actions = get_dependent_actions(supplied_actions)
                         # List comprehension to get all dependent actions that are not in the supplied actions.
                         dependent_actions = [
                             x for x in dependent_actions if x not in supplied_actions
@@ -235,15 +231,14 @@ class SidGroup:
             raise Exception("Please provide the action as a string, not a list.")
         return self.sids
 
-    def add_by_list_of_actions(self, db_session, supplied_actions):
+    def add_by_list_of_actions(self, supplied_actions):
         """
         Takes a list of actions, queries the database for corresponding arns, adds them to the object.
 
-        :param db_session: SQLAlchemy database session object
         :param supplied_actions: A list of supplied actions
         """
-        # actions_list = get_dependent_actions(db_session, supplied_actions)
-        dependent_actions = get_dependent_actions(db_session, supplied_actions)
+        # actions_list = get_dependent_actions(supplied_actions)
+        dependent_actions = get_dependent_actions(supplied_actions)
         dependent_actions = [x for x in dependent_actions if x not in supplied_actions]
         logger.debug("Adding by list of actions")
         logger.debug(f"Supplied actions: {str(supplied_actions)}")
@@ -257,7 +252,7 @@ class SidGroup:
 
         for action in supplied_actions:
             service_name, action_name = action.split(":")
-            action_data = get_action_data(db_session, service_name, action_name)
+            action_data = get_action_data(service_name, action_name)
             for row in action_data[service_name]:
                 if row["resource_arn_format"] not in arns_matching_supplied_actions:
                     arns_matching_supplied_actions.append(
@@ -290,7 +285,7 @@ class SidGroup:
         for item in arns_matching_supplied_actions:
             if item["resource_arn_format"] != "*":
                 self.add_by_arn_and_access_level(
-                    db_session, [item["resource_arn_format"]], item["access_level"]
+                    [item["resource_arn_format"]], item["access_level"]
                 )
             else:
                 actions_without_resource_constraints.append(item["action"])
@@ -322,15 +317,14 @@ class SidGroup:
         )
         self.remove_actions_duplicated_in_wildcard_arn()
         logger.debug("Getting the rendered policy")
-        rendered_policy = self.get_rendered_policy(db_session)
+        rendered_policy = self.get_rendered_policy()
         return rendered_policy
 
-    def process_template(self, db_session, cfg, minimize=None):
+    def process_template(self, cfg, minimize=None):
         """
         Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or
         Actions mode.
 
-        :param db_session: SQLAlchemy database session object
         :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
         :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set
         this to the character length you want - for example, 0, or 4. Defaults to none.
@@ -350,7 +344,7 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(provided_wildcard_actions)}"
                                 )
                                 self.add_wildcard_only_actions(
-                                    db_session, provided_wildcard_actions
+                                    provided_wildcard_actions
                                 )
                     if "service-read" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-read"]:
@@ -360,7 +354,7 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(service_read)}"
                                 )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    db_session, service_read, "Read"
+                                    service_read, "Read"
                                 )
                     if "service-write" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-write"]:
@@ -370,7 +364,7 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(service_write)}"
                                 )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    db_session, service_write, "Write"
+                                    service_write, "Write"
                                 )
                     if "service-list" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-list"]:
@@ -380,7 +374,7 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(service_list)}"
                                 )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    db_session, service_list, "List"
+                                    service_list, "List"
                                 )
                     if "service-tagging" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-tagging"]:
@@ -392,7 +386,7 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(service_tagging)}"
                                 )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    db_session, service_tagging, "Tagging"
+                                    service_tagging, "Tagging"
                                 )
                     if "service-permissions-management" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-permissions-management"]:
@@ -410,28 +404,21 @@ class SidGroup:
                                     f"Requested wildcard-only actions: {str(service_permissions_management)}"
                                 )
                                 self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    db_session,
                                     service_permissions_management,
                                     "Permissions management",
                                 )
                 if "read" in cfg.keys():
                     if cfg["read"] is not None and cfg["read"][0] != "":
                         logger.debug(f"Requested access to arns: {str(cfg['read'])}")
-                        self.add_by_arn_and_access_level(
-                            db_session, cfg["read"], "Read"
-                        )
+                        self.add_by_arn_and_access_level(cfg["read"], "Read")
                 if "write" in cfg.keys():
                     if cfg["write"] is not None and cfg["write"][0] != "":
                         logger.debug(f"Requested access to arns: {str(cfg['write'])}")
-                        self.add_by_arn_and_access_level(
-                            db_session, cfg["write"], "Write"
-                        )
+                        self.add_by_arn_and_access_level(cfg["write"], "Write")
                 if "list" in cfg.keys():
                     if cfg["list"] is not None and cfg["list"][0] != "":
                         logger.debug(f"Requested access to arns: {str(cfg['list'])}")
-                        self.add_by_arn_and_access_level(
-                            db_session, cfg["list"], "List"
-                        )
+                        self.add_by_arn_and_access_level(cfg["list"], "List")
                 if "permissions-management" in cfg.keys():
                     if (
                         cfg["permissions-management"] is not None
@@ -441,16 +428,12 @@ class SidGroup:
                             f"Requested access to arns: {str(cfg['permissions-management'])}"
                         )
                         self.add_by_arn_and_access_level(
-                            db_session,
-                            cfg["permissions-management"],
-                            "Permissions management",
+                            cfg["permissions-management"], "Permissions management",
                         )
                 if "tagging" in cfg.keys():
                     if cfg["tagging"] is not None and cfg["tagging"][0] != "":
                         logger.debug(f"Requested access to arns: {str(cfg['tagging'])}")
-                        self.add_by_arn_and_access_level(
-                            db_session, cfg["tagging"], "Tagging"
-                        )
+                        self.add_by_arn_and_access_level(cfg["tagging"], "Tagging")
                 if "skip-resource-constraints" in cfg.keys():
                     if cfg["skip-resource-constraints"]:
                         if cfg["skip-resource-constraints"][0] != "":
@@ -467,38 +450,36 @@ class SidGroup:
                 check_actions_schema(cfg)
                 if "actions" in cfg.keys():
                     if cfg["actions"] is not None and cfg["actions"][0] != "":
-                        self.add_by_list_of_actions(db_session, cfg["actions"])
+                        self.add_by_list_of_actions(cfg["actions"])
 
-        rendered_policy = self.get_rendered_policy(db_session, minimize)
+        rendered_policy = self.get_rendered_policy(minimize)
         return rendered_policy
 
-    def add_wildcard_only_actions(self, db_session, provided_wildcard_actions):
+    def add_wildcard_only_actions(self, provided_wildcard_actions):
         """
         Given a list of IAM actions, add individual IAM Actions that do not support resource constraints to the MultMultNone SID
 
-        :param db_session: SQLAlchemy database session
         :param provided_wildcard_actions: list actions provided by the user.
         """
         if isinstance(provided_wildcard_actions, list):
             verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                db_session, provided_wildcard_actions
+                provided_wildcard_actions
             )
             if len(verified_wildcard_actions) > 0:
                 logger.debug(
                     "Attempting to add the following actions to the policy: %s",
                     verified_wildcard_actions,
                 )
-                self.add_by_list_of_actions(db_session, verified_wildcard_actions)
+                self.add_by_list_of_actions(verified_wildcard_actions)
                 logger.debug(
                     "Added the following wildcard-only actions to the policy: %s",
                     verified_wildcard_actions,
                 )
 
     def add_wildcard_only_actions_matching_services_and_access_level(
-        self, db_session, services, access_level
+        self, services, access_level
     ):
         """
-        :param db_session: SQLAlchemy database session
         :param services: A list of AWS services
         :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List',
         'Permissions management', or 'Tagging'
@@ -506,10 +487,10 @@ class SidGroup:
         wildcard_only_actions_to_add = []
         for service in services:
             actions = get_actions_at_access_level_that_support_wildcard_arns_only(
-                db_session, service, access_level
+                service, access_level
             )
             wildcard_only_actions_to_add.extend(actions)
-        self.add_wildcard_only_actions(db_session, wildcard_only_actions_to_add)
+        self.add_wildcard_only_actions(wildcard_only_actions_to_add)
 
     def remove_actions_not_matching_these(self, actions_to_keep):
         """
@@ -583,11 +564,10 @@ class SidGroup:
                             logger.debug("Removal not successful")
 
 
-def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
+def remove_actions_that_are_not_wildcard_arn_only(actions_list):
     """
     Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
 
-    :param db_session: SQL Alchemy database session object
     :param actions_list: A list of actions
     :return: An updated list of actions
     :rtype: list
@@ -606,7 +586,7 @@ def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
                 "The value provided in wildcard-only section is not formatted properly."
             )
             continue
-        rows = get_actions_that_support_wildcard_arns_only(db_session, service_name)
+        rows = get_actions_that_support_wildcard_arns_only(service_name)
         for row in rows:
             if row.lower() == action.lower():
                 actions_list_placeholder.append(f"{service_name}:{action_name}")

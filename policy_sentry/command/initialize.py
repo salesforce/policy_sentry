@@ -1,37 +1,33 @@
 """
 Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
-Create the SQLite database and fill it with the tables scraped from the AWS Docs
+Create the SQLite datastore and fill it with the tables scraped from the AWS Docs
 """
+import os
 import shutil
 import logging
 import click
 import click_log
-from policy_sentry.configuration.access_level_overrides import (
-    create_default_overrides_file,
-)
-from policy_sentry.configuration.config_directory import (
-    create_policy_sentry_config_directory,
-    create_html_docs_directory,
-)
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.scraping.awsdocs import (
+from policy_sentry.shared.awsdocs import (
     update_html_docs_directory,
-    get_list_of_service_prefixes_from_links_file,
-    create_service_links_mapping_file,
+    create_database,
 )
-from policy_sentry.shared.database import connect_db, create_database
 from policy_sentry.shared.constants import (
     LOCAL_HTML_DIRECTORY_PATH,
-    LOCAL_LINKS_YML_FILE,
-    BUNDLED_DATABASE_FILE_PATH,
+    CONFIG_DIRECTORY,
+    LOCAL_DATASTORE_FILE_PATH,
+    DATASTORE_FILE_PATH,
     LOCAL_ACCESS_OVERRIDES_FILE,
+    BUNDLED_HTML_DIRECTORY_PATH,
+    BUNDLED_DATASTORE_FILE_PATH,
+    BUNDLED_DATA_DIRECTORY,
 )
 
 logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
-@click.command(short_help="Create a local database to store AWS IAM information.")
+@click.command(short_help="Create a local datastore to store AWS IAM information.")
 @click.option(
     "--access-level-overrides-file",
     type=str,
@@ -52,13 +48,13 @@ click_log.basic_config(logger)
     is_flag=True,
     required=False,
     default=False,
-    help="Build the SQLite database from the HTML files rather than copying the SQLite database file from "
+    help="Build the IAM data file from the HTML files rather than copying the data file from "
     "the python package. Defaults to false",
 )
 @click_log.simple_verbosity_option(logger)
 def initialize(access_level_overrides_file, fetch, build):
     """
-    Initialize the local database to store AWS IAM information, which can be used to generate IAM policies, and for
+    Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
 
@@ -74,43 +70,77 @@ def initialize(access_level_overrides_file, fetch, build):
 
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
-    create_default_overrides_file()
+    file_list = [
+        f
+        for f in os.listdir(BUNDLED_DATA_DIRECTORY)
+        if os.path.isfile(os.path.join(BUNDLED_DATA_DIRECTORY, f))
+    ]
 
-    print("Database will be stored here: %s", database_path)
+    for file in file_list:
+        if file.endswith(".yml"):
+            shutil.copy(os.path.join(BUNDLED_DATA_DIRECTORY, file), CONFIG_DIRECTORY)
+            logger.debug("copying overrides file %s to %s", file, CONFIG_DIRECTORY)
+    print("Database will be stored here: " + database_path)
 
     if not build and not fetch:
         # copy from the bundled database location to the destination path
-        shutil.copy(BUNDLED_DATABASE_FILE_PATH, database_path)
-
-    # Connect to the database at that path with SQLAlchemy
-    db_session = connect_db(database_path, initialization=True)
+        shutil.copy(BUNDLED_DATASTORE_FILE_PATH, database_path)
 
     # --fetch: wget the AWS IAM Actions, Resources and Condition Keys pages and store them locally.
     # if --build and --fetch are both supplied, just do --fetch
     if fetch:
         # `wget` the html docs to the local directory
         update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
-        # Update the links.yml file
-        prefix_list = create_service_links_mapping_file(
-            LOCAL_HTML_DIRECTORY_PATH, LOCAL_LINKS_YML_FILE
-        )
-        print(f"Services: {prefix_list}")
+        create_database(CONFIG_DIRECTORY, overrides_file)
 
     # initialize --build
     if build or access_level_overrides_file or fetch:
-        # Use the list of services that were listed in the links.yml file
-        all_aws_services = get_list_of_service_prefixes_from_links_file(
-            LOCAL_LINKS_YML_FILE
-        )
-        logger.debug("Services to build are stored in: %s", LOCAL_LINKS_YML_FILE)
-        # Fill in the database with data on the AWS services
-        create_database(db_session, all_aws_services, overrides_file)
-        print("Created tables for all services!")
+        create_database(CONFIG_DIRECTORY, overrides_file)
+        print("Created the database!")
 
     # Query the database for all the services that are now in the database.
-    all_aws_service_prefixes = get_all_service_prefixes(db_session)
+    all_aws_service_prefixes = get_all_service_prefixes()
     total_count_of_services = str(len(all_aws_service_prefixes))
     print("Initialization complete!")
     print(f"Total AWS services in the IAM database: {total_count_of_services}")
     logger.debug("\nService prefixes:")
     logger.debug(", ".join(all_aws_service_prefixes))
+
+
+def create_policy_sentry_config_directory():
+    """
+    Creates a config directory at $HOME/.policy_sentry/
+    :return: the path of the database file
+    """
+    print("Creating the database...")
+    logger.debug(f"We will store the new database here: {DATASTORE_FILE_PATH}")
+    # If the database file already exists
+
+    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+        os.remove(LOCAL_DATASTORE_FILE_PATH)
+    elif os.path.exists(CONFIG_DIRECTORY):
+        pass
+    # If the config directory does not exist
+    else:
+        os.mkdir(CONFIG_DIRECTORY)
+    return LOCAL_DATASTORE_FILE_PATH
+
+
+def create_html_docs_directory():
+    """
+    Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
+    Also copies over the links.yml file, which is a mapping of services and relevant HTML links in the AWS docs.
+    Essentially:
+    mkdir -p ~/.policy_sentry/data/docs
+    cp -r $MODULE_DIR/policy_sentry/shared/data/docs ~/.policy_sentry/data/docs
+    :return:
+    """
+    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
+        pass
+    else:
+        os.makedirs(LOCAL_HTML_DIRECTORY_PATH)
+    # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
+    logger.debug(BUNDLED_HTML_DIRECTORY_PATH)
+    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
+        shutil.rmtree(LOCAL_HTML_DIRECTORY_PATH)
+    shutil.copytree(BUNDLED_HTML_DIRECTORY_PATH, LOCAL_HTML_DIRECTORY_PATH)

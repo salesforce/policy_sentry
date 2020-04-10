@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-from policy_sentry.shared.database import connect_db
+
 from policy_sentry.writing.template import get_crud_template_dict
 from policy_sentry.command.write_policy import write_policy_with_template
 import json
 
 
 if __name__ == '__main__':
-    db_session = connect_db('bundled')
+
     crud_template = get_crud_template_dict()
     wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
     crud_template['mode'] = 'crud'

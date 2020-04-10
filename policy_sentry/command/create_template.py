@@ -28,14 +28,8 @@ click_log.basic_config(logger)
     required=True,
     help="Type of write_policy template to create - actions or CRUD. Case insensitive.",
 )
-@click.option(
-    "--name",
-    type=str,
-    required=True,
-    help="Name of the IAM role. This will be inside the resulting YML file.",
-)
 @click_log.simple_verbosity_option(logger)
-def create_template(output_file, template_type, name):
+def create_template(output_file, template_type):
     """
     Writes YML file templates for use in the write-policy
     command, so users can fill out the fields
@@ -44,13 +38,13 @@ def create_template(output_file, template_type, name):
 
     filename = Path(output_file).resolve()
     if template_type == "actions":
-        actions_template = create_actions_template(name)
+        actions_template = create_actions_template()
         with open(filename, "a") as file_obj:
             for line in actions_template:
                 file_obj.write(line)
 
     if template_type == "crud":
-        crud_template = create_crud_template(name)
+        crud_template = create_crud_template()
         with open(filename, "a") as file_obj:
             for line in crud_template:
                 file_obj.write(line)

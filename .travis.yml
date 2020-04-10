@@ -15,9 +15,9 @@ script:
 - invoke integration.version
 - invoke integration.initialize
 - invoke unit.pytest
+- invoke test.security
 - invoke integration.query
 - invoke integration.write-policy
-- invoke test.security
 deploy:
   provider: pypi
   user: __token__

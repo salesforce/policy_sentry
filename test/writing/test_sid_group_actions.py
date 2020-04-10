@@ -1,11 +1,7 @@
 import unittest
 import json
 import os
-from policy_sentry.shared.database import connect_db
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
-db_session = connect_db(DATABASE_FILE_PATH)
 
 crud_with_override_template = os.path.abspath(
     os.path.join(
@@ -31,7 +27,7 @@ class SidGroupActionsTestCase(unittest.TestCase):
             ],
         }
         sid_group = SidGroup()
-        output = sid_group.process_template(db_session, cfg)
+        output = sid_group.process_template(cfg)
         print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",

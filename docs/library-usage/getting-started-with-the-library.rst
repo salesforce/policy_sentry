@@ -13,12 +13,12 @@ We've built a trick into the `connect_db` function that developers can specify t
 
 .. code-block:: python
 
-    from policy_sentry.shared.database import connect_db
+
     from policy_sentry.querying.actions import get_actions_for_service
 
 
     def example():
-        db_session = connect_db('bundled')  # This is the critical line. You just need to specify `'bundled'` as the parameter.
+          # This is the critical line. You just need to specify `'bundled'` as the parameter.
         actions = get_actions_for_service(db_session, 'cloud9')  # Then you can leverage any method that requires access to the database.
         for action in actions:
             print(action)

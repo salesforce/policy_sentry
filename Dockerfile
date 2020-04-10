@@ -10,7 +10,6 @@ RUN pip install -r /tmp/requirements.txt --no-cache-dir && \
 COPY . /tmp/policy_sentry
 RUN pip install /tmp/policy_sentry --no-cache-dir && \
     rm -rf /root/.cache/
-#RUN /usr/local/bin/policy_sentry initialize
 
 # Allow the container to accept arguments
 COPY ./utils/entrypoint.sh /usr/bin/entrypoint.sh

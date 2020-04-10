@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-from policy_sentry.shared.database import connect_db
+
 from policy_sentry.writing.template import get_actions_template_dict
 from policy_sentry.command.write_policy import write_policy_with_template
 import json
 
 
 if __name__ == '__main__':
-    db_session = connect_db('bundled')
+
     actions_template = get_actions_template_dict()
     actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress',
                       'ec2:AuthorizeSecurityGroupIngress']

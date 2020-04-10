@@ -2,324 +2,262 @@
 Methods that execute specific queries against the SQLite database for the ACTIONS table.
 This supports the policy_sentry query functionality
 """
-import logging
-from sqlalchemy import and_
-from policy_sentry.shared.database import ActionTable
+from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.util.actions import get_full_action_name
-from policy_sentry.util.arns import get_service_from_arn
-from policy_sentry.util.access_levels import transform_access_level_text
 
-logger = logging.getLogger(__name__)
+all_service_prefixes = get_all_service_prefixes()
 
 
-def get_actions_for_service(db_session, service):
+def get_actions_for_service(service_prefix):
     """
     Get a list of available actions per AWS service
 
-    :param db_session: SQLAlchemy database session object
-    :param service: An AWS service prefix, like `s3` or `kms`
+    :param service_prefix: An AWS service prefix, like `s3` or `kms`
     :return: A list of actions
     """
+    service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
-    rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-        ActionTable.service.like(service)
-    )
-    for row in rows:
-        action = row.service + ":" + row.name
-        if action not in results:
-            results.append(action)
+    for item in service_prefix_data["privileges"]:
+        results.append(f"{service_prefix}:{item['privilege']}")
     return results
 
 
-def get_action_data(db_session, service, name):
+def get_action_data(service, action_name):
     """
     Get details about an IAM Action in JSON format.
 
-    :param db_session: SQLAlchemy database session object
     :param service: An AWS service prefix, like `s3` or `kms`. Case insensitive.
-    :param name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*". Case insensitive.
+    :param action_name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*". Case insensitive.
     :return: A dictionary containing metadata about an IAM Action.
     """
-    if name == "*":
-        rows = db_session.query(ActionTable).filter(ActionTable.service.ilike(service))
-    else:
-        rows = db_session.query(ActionTable).filter(
-            and_(ActionTable.service.ilike(service), ActionTable.name.ilike(name))
-        )
-    action_table_results = {}
     results = []
-
-    for row in rows:
-        action = row.service + ":" + row.name
-        if row.condition_keys:
-            condition_keys = row.condition_keys.split(",")
+    action_data_results = {}
+    service_info = get_service_prefix_data(service)
+    for privilege_info in service_info["privileges"]:
+        # Get the baseline conditions and dependent actions
+        condition_keys = []
+        dependent_actions = []
+        rows = []
+        if action_name == "*":
+            rows = privilege_info["resource_types"]
         else:
-            condition_keys = None
-        if row.dependent_actions:
-            dependent_actions = row.dependent_actions.split(",")
-        else:
-            dependent_actions = None
-        temp_dict = {
-            "action": action,
-            "description": row.description,
-            "access_level": row.access_level,
-            "resource_arn_format": row.resource_arn_format,
-            "condition_keys": condition_keys,
-            "dependent_actions": dependent_actions,
-        }
-        results.append(temp_dict)
+            for resource_type_entry in privilege_info["resource_types"]:
+                if privilege_info["privilege"].lower() == action_name.lower():
+                    rows.append(resource_type_entry)
+        # for resource_type_entry in privilege_info["resource_types"]:
+        for row in rows:
+            # Set default value for if no other matches are found
+            resource_arn_format = "*"
+            # Get the dependent actions
+            if row["dependent_actions"]:
+                dependent_actions.extend(row["dependent_actions"])
+            # Get the condition keys
+            for service_resource in service_info["resources"]:
+                if row["resource_type"] == "":
+                    continue
+                if row["resource_type"].strip("*") == service_resource["resource"]:
+                    resource_arn_format = service_resource.get("arn", "*")
+                    condition_keys = service_resource.get("condition_keys")
+                    break
+            temp_dict = {
+                "action": f"{service_info['prefix']}:{privilege_info['privilege']}",
+                "description": privilege_info["description"],
+                "access_level": privilege_info["access_level"],
+                "resource_arn_format": resource_arn_format,
+                "condition_keys": condition_keys,
+                "dependent_actions": dependent_actions,
+            }
+            results.append(temp_dict)
+    action_data_results[service] = results
+    # if results:
+    return action_data_results
+    # else:
+    #     return False
+    # raise Exception("Unknown action {}:{}".format(service, action_name))
 
-    action_table_results[service] = results
-    return action_table_results
 
-
-def get_actions_that_support_wildcard_arns_only(db_session, service):
+def get_actions_that_support_wildcard_arns_only(service_prefix):
     """
     Get a list of actions that do not support restricting the action to resource ARNs.
     Set service to "all" to get a list of actions across all services.
 
-    :param db_session: SQLAlchemy database session object
-    :param service: A single AWS service prefix, like `s3` or `kms`
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
     :return: A list of actions
     """
-    actions_list = []
-    if service == "all":
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-            and_(
-                ActionTable.resource_arn_format.like("*"),
-                ActionTable.name.notin_(
-                    db_session.query(ActionTable.name).filter(
-                        ActionTable.resource_arn_format.notlike("*")
-                    )
-                ),
-            )
-        )
+    results = []
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
     else:
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-            and_(
-                ActionTable.service.ilike(service),
-                ActionTable.resource_arn_format.like("*"),
-                ActionTable.name.notin_(
-                    db_session.query(ActionTable.name).filter(
-                        ActionTable.resource_arn_format.notlike("*")
-                    )
-                ),
-            )
-        )
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
     for row in rows:
-        actions_list.append(get_full_action_name(row.service, row.name))
-    return actions_list
+        if len(row["resource_types"]) == 1:
+            if row["resource_types"][0]["resource_type"] == "":
+                results.append(f"{service_prefix}:{row['privilege']}")
+    return results
 
 
 def get_actions_at_access_level_that_support_wildcard_arns_only(
-    db_session, service, access_level
+    service_prefix, access_level
 ):
     """
     Get a list of actions at an access level that do not support restricting the action to resource ARNs.
     Set service to "all" to get a list of actions across all services.
 
-    :param db_session: SQLAlchemy database session object
-    :param service: A single AWS service prefix, like `s3` or `kms`
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
     :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
     :return: A list of actions
     """
-    actions_list = []
-    if service == "all":
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-            and_(
-                ActionTable.resource_arn_format.like("*"),
-                ActionTable.access_level.ilike(access_level),
-                ActionTable.name.notin_(
-                    db_session.query(ActionTable.name).filter(
-                        ActionTable.resource_arn_format.notlike("*")
-                    )
-                ),
-            )
-        )
+    results = []
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
     else:
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-            and_(
-                ActionTable.service.ilike(service),
-                ActionTable.resource_arn_format.like("*"),
-                ActionTable.access_level.ilike(access_level),
-                ActionTable.name.notin_(
-                    db_session.query(ActionTable.name).filter(
-                        ActionTable.resource_arn_format.notlike("*")
-                    )
-                ),
-            )
-        )
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
     for row in rows:
-        actions_list.append(get_full_action_name(row.service, row.name))
-    return actions_list
+        if len(row["resource_types"]) == 1:
+            if (
+                row["access_level"] == access_level
+                and row["resource_types"][0]["resource_type"] == ""
+            ):
+                results.append(f"{service_prefix}:{row['privilege']}")
+    return results
 
 
-def get_actions_with_access_level(db_session, service, access_level):
+def get_actions_with_access_level(service_prefix, access_level):
     """
     Get a list of actions in a service under different access levels.
 
-    :param db_session: SQLAlchemy database session object
-    :param service: A single AWS service prefix, like `s3` or `kms`
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
     :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
-
     :return: A list of actions
     """
-    actions_list = []
-    all_services = get_all_service_prefixes(db_session)
-    if service == "all":
-        for serv in all_services:
-            output = get_actions_with_access_level(db_session, serv, access_level)
-            actions_list.extend(output)
-    rows = db_session.query(ActionTable).filter(
-        and_(
-            ActionTable.service.like(service),
-            ActionTable.access_level.ilike(access_level),
-        )
-    )
-    # Create a list of actions under each service. Use this list to pass in to the remove_actions_not_matching_access_level function
-    # which will give you the list of actions you want.
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    results = []
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
     for row in rows:
-        action = get_full_action_name(row.service, row.name)
-        if action not in actions_list:
-            actions_list.append(action)
-    return actions_list
+        if row["access_level"] == access_level:
+            results.append(f"{service_prefix}:{row['privilege']}")
+    return results
 
 
 def get_actions_with_arn_type_and_access_level(
-    db_session, service, resource_type_name, access_level
+    service_prefix, resource_type_name, access_level
 ):
     """
     Get a list of actions in a service under different access levels, specific to an ARN format.
 
-    :param db_session: SQLAlchemy database session object
-    :param service: A single AWS service prefix, like `s3` or `kms`
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
     :param resource_type_name: The ARN type name, like `bucket` or `key`
+    :param access_level: Access level like "Read" or "List" or "Permissions management"
     :return: A list of actions
     """
-    actions_list = []
-    rows = db_session.query(ActionTable).filter(
-        and_(
-            ActionTable.service.ilike(service),
-            ActionTable.resource_type_name.ilike(resource_type_name),
-            ActionTable.access_level.ilike(access_level),
-        )
-    )
-    for row in rows:
-        action = get_full_action_name(row.service, row.name)
-        if action not in actions_list:
-            actions_list.append(action)
-    return actions_list
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    results = []
+
+    for some_action in service_prefix_data["privileges"]:
+        if some_action["access_level"] == access_level:
+            for some_resource_type in some_action["resource_types"]:
+                this_resource_type = some_resource_type["resource_type"].strip("*")
+                if this_resource_type.lower() == resource_type_name.lower():
+                    results.append(f"{service_prefix}:{some_action['privilege']}")
+                    break
+    return results
 
 
-def get_actions_matching_condition_key(db_session, service, condition_key):
+def get_actions_matching_condition_key(service_prefix, condition_key):
     """
     Get a list of actions under a service that allow the use of a specified condition key
 
-    :param db_session: SQLAlchemy database session
-    :param service: A single AWS service prefix
+    :param service_prefix: A single AWS service prefix
     :param condition_key: The condition key to look for.
     :return: A list of actions
     """
-    actions_list = []
-    looking_for = "%{0}%".format(condition_key)
-    if service:
-        rows = db_session.query(ActionTable).filter(
-            and_(
-                ActionTable.service.ilike(service),
-                ActionTable.condition_keys.ilike(looking_for),
-            )
-        )
-        for row in rows:
-            action = get_full_action_name(row.service, row.name)
-            actions_list.append(action)
+    results = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                for some_resource_type in some_action["resource_types"]:
+                    if condition_key in some_resource_type["condition_keys"]:
+                        results.append(f"{service_prefix}:{some_action['privilege']}")
     else:
-        rows = db_session.query(ActionTable).filter(
-            and_(ActionTable.condition_keys.ilike(looking_for))
-        )
-        for row in rows:
-            action = get_full_action_name(row.service, row.name)
-            actions_list.append(action)
-
-    return actions_list
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            for some_resource_type in some_action["resource_types"]:
+                if condition_key in some_resource_type["condition_keys"]:
+                    results.append(f"{service_prefix}:{some_action['privilege']}")
+    return results
 
 
-def get_actions_matching_condition_crud_and_arn(
-    db_session, condition_key, access_level, raw_arn
-):
-    """
-    Get a list of IAM Actions matching a condition key, CRUD level, and raw ARN format.
-
-    :param db_session: SQL Alchemy database session
-    :param condition_key: A condition key, like aws:TagKeys
-    :param access_level: Access level that matches the database value. "Read", "Write", "List", "Tagging", or "Permissions management"
-    :param raw_arn: The raw ARN format in the database, like arn:${Partition}:s3:::${BucketName}
-    :return: List of IAM Actions
-    """
-    actions_list = []
-    looking_for = "%{0}%".format(condition_key)
-    if raw_arn == "*":
-        rows = db_session.query(ActionTable).filter(
-            and_(
-                # ActionTable.service.ilike(service),
-                ActionTable.access_level.ilike(access_level),
-                ActionTable.resource_arn_format.is_(raw_arn),
-                ActionTable.condition_keys.ilike(looking_for),
-            )
-        )
-    else:
-        service = get_service_from_arn(raw_arn)
-        rows = db_session.query(ActionTable).filter(
-            and_(
-                ActionTable.service.ilike(service),
-                ActionTable.access_level.ilike(access_level),
-                ActionTable.resource_arn_format.ilike(raw_arn),
-                ActionTable.condition_keys.ilike(looking_for),
-            )
-        )
-
-    for row in rows:
-        action = get_full_action_name(row.service, row.name)
-        actions_list.append(action)
-    return actions_list
+# def get_actions_matching_condition_crud_and_arn(
+#     condition_key, access_level, raw_arn
+# ):
+#     """
+#     Get a list of IAM Actions matching a condition key, CRUD level, and raw ARN format.
+#
+#     :param condition_key: A condition key, like aws:TagKeys
+#     :param access_level: Access level that matches the database value. "Read", "Write", "List", "Tagging", or "Permissions management"
+#     :param raw_arn: The raw ARN format in the database, like arn:${Partition}:s3:::${BucketName}
+#     :return: List of IAM Actions
+#     """
+#     print()
+#     # TODO: This one is non-essential right now.
+#
 
 
-def remove_actions_not_matching_access_level(db_session, actions_list, access_level):
+def remove_actions_not_matching_access_level(actions_list, access_level):
     """
     Given a list of actions, return a list of actions that match an access level
 
-    :param db_session: The SQLAlchemy database session
     :param actions_list: A list of actions
     :param access_level: 'read', 'write', 'list', 'tagging', or 'permissions-management'
     :return: Updated list of actions, where the actions not matching the requested access level are removed.
     """
-
     new_actions_list = []
+
+    def is_access_level(some_service_prefix, some_action):
+        service_prefix_data = get_service_prefix_data(some_service_prefix.lower())
+        result = None
+        for action_instance in service_prefix_data["privileges"]:
+            if action_instance.get("access_level") == access_level:
+                if action_instance.get("privilege").lower() == some_action.lower():
+                    result = f"{some_service_prefix}:{action_instance.get('privilege')}"
+                    break
+        if not result:
+            return False
+        else:
+            return result
+
     for action in actions_list:
-        try:
-            service, action_name = action.split(":")
-            first_result = None  # Just to appease nosetests
-            level = transform_access_level_text(access_level)
-            query_actions_access_level = db_session.query(ActionTable).filter(
-                and_(
-                    ActionTable.service.ilike(service),
-                    ActionTable.name.ilike(action_name),
-                    ActionTable.access_level.ilike(level),
-                )
-            )
-            first_result = query_actions_access_level.first()
-            if first_result is None:
-                pass
-            else:
-                # Just take the first result
-                new_actions_list.append(f"{first_result.service}:{first_result.name}")
-        except ValueError as v_e:
-            logger.debug("ValueError: %s for the action %s", v_e, action)
-            continue
+        service_prefix, action_name = action.split(":")
+        result = is_access_level(service_prefix, action_name)
+        if result:
+            new_actions_list.append(result)
+            # new_actions_list.append(f"{service_prefix}:{action_name['privilege']}")
     return new_actions_list
 
 
-def get_dependent_actions(db_session, actions_list):
+def get_dependent_actions(actions_list):
     """
     Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
     fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
@@ -330,17 +268,17 @@ def get_dependent_actions(db_session, actions_list):
     To get dependent actions for a single given IAM action, just provide the action as a list with one item, like this:
     get_dependent_actions(db_session, ['kms:CreateCustomKeystore'])
 
-    :param db_session: SQLAlchemy database session object
     :param actions_list: A list of actions to use in querying the database for dependent actions
     :return: Updated list of actions, including dependent actions if applicable.
     """
     new_actions_list = []
     for action in actions_list:
         service, action_name = action.split(":")
-        rows = get_action_data(db_session, service, action_name)
+        rows = get_action_data(service, action_name)
         for row in rows[service]:
             if row["dependent_actions"] is not None:
                 # new_actions_list.append(action)
+                # dependent_actions = [x.lower() for x in row["dependent_actions"]]
                 # dependent_actions = [x.lower() for x in row["dependent_actions"]]
                 new_actions_list.extend(row["dependent_actions"])
 
@@ -348,37 +286,38 @@ def get_dependent_actions(db_session, actions_list):
     return new_actions_list
 
 
-def remove_actions_that_are_not_wildcard_arn_only(db_session, actions_list):
+def remove_actions_that_are_not_wildcard_arn_only(actions_list):
     """
     Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
 
-    :param db_session: SQL Alchemy database session object
     :param actions_list: A list of actions
     :return: An updated list of actions
     :rtype: list
     """
     # remove duplicates, if there are any
     actions_list_unique = list(dict.fromkeys(actions_list))
-    actions_list_placeholder = []
+    results = []
     for action in actions_list_unique:
-        service_name, action_name = action.split(":")
+        service_prefix, action_name = action.split(":")
+        action_data = get_action_data(service_prefix, action_name)
+        if len(action_data[service_prefix]) == 1:
+            if action_data[service_prefix][0]["resource_arn_format"] == "*":
+                # Let's return the CamelCase action name format
+                results.append(action_data[service_prefix][0]["action"])
+    return results
 
-        rows = db_session.query(ActionTable.service, ActionTable.name).filter(
-            and_(
-                ActionTable.service.ilike(service_name),
-                ActionTable.name.ilike(action_name),
-                ActionTable.resource_arn_format.like("*"),
-                ActionTable.name.notin_(
-                    db_session.query(ActionTable.name).filter(
-                        ActionTable.resource_arn_format.notlike("*")
-                    )
-                ),
-            )
-        )
-        for row in rows:
-            if (
-                row.service.lower() == service_name.lower()
-                and row.name.lower() == action_name.lower()
-            ):
-                actions_list_placeholder.append(f"{row.service}:{row.name}")
-    return actions_list_placeholder
+
+def get_privilege_info(service, action):
+    """
+    Given a service, like "s3"
+    and an action, like "ListBucket"
+    return the info from the docs about that action, along with some of the info from the docs
+    """
+    for service_info in iam_definition:
+        if service_info["prefix"] == service:
+            for privilege_info in service_info["privileges"]:
+                if privilege_info["privilege"] == action:
+                    privilege_info["service_resources"] = service_info["resources"]
+                    privilege_info["service_conditions"] = service_info["conditions"]
+                    return privilege_info
+    raise Exception("Unknown action {}:{}".format(service, action))

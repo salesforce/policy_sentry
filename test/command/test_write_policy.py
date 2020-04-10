@@ -1,12 +1,8 @@
 import unittest
 import json
 import os
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-from policy_sentry.shared.database import connect_db
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import read_yaml_file
-
-db_session = connect_db(DATABASE_FILE_PATH)
 
 
 class WritePolicyPreventWildcardEscalation(unittest.TestCase):
@@ -31,8 +27,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                 ],
             }
         }
-        db_session = connect_db("bundled")
-        output = write_policy_with_template(db_session, cfg)
+        output = write_policy_with_template(cfg)
         # print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
@@ -75,7 +70,7 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 #         )
 #         cfg = read_yaml_file(policy_file_path)
 #
-#         policy = write_policy_with_template(db_session, cfg)
+#         policy = write_policy_with_template(cfg)
 #         print(policy)
 
 class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
@@ -94,7 +89,7 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         )
         cfg = read_yaml_file(policy_file_path)
 
-        output = write_policy_with_template(db_session, cfg)
+        output = write_policy_with_template(cfg)
         print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
@@ -106,7 +101,8 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
-                        "s3:ListAccessPoints"
+                        "s3:ListAccessPoints",
+                        "s3:ListJobs"
                     ],
                     "Resource": [
                         "*"
@@ -127,6 +123,8 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                 }
             ]
         }
+        print(json.dumps(output, indent=4))
+        self.maxDiff = None
         self.assertDictEqual(output, desired_output)
 
 
@@ -160,7 +158,7 @@ class RdsWritingTestCase(unittest.TestCase):
                 }
             ]
         }
-        policy = write_policy_with_template(db_session, cfg)
+        policy = write_policy_with_template(cfg)
         print(json.dumps(policy, indent=4))
         self.assertDictEqual(desired_output, policy)
 
@@ -242,6 +240,6 @@ class RdsWritingTestCase(unittest.TestCase):
                 }
             ]
         }
-        policy = write_policy_with_template(db_session, cfg)
+        policy = write_policy_with_template(cfg)
         print(json.dumps(policy, indent=4))
         self.assertDictEqual(desired_output, policy)

@@ -5,15 +5,16 @@ from policy_sentry.writing.template import create_actions_template, create_crud_
 class TemplateTestCase(unittest.TestCase):
     def test_actions_template(self):
         desired_msg = """mode: actions
-name: myrole
+name: ''
 actions:
-- ''"""
-        actions_template = create_actions_template("myrole")
+- ''
+"""
+        actions_template = create_actions_template()
         self.assertEqual(desired_msg, actions_template)
 
     def test_crud_template(self):
         desired_msg = """mode: crud
-name: myrole
+name: ''
 # Specify resource ARNs
 read:
 - ''
@@ -42,7 +43,8 @@ wildcard-only:
   service-tagging:
   - ''
   service-permissions-management:
-  - ''"""
-        crud_template = create_crud_template("myrole")
+  - ''
+"""
+        crud_template = create_crud_template()
         self.maxDiff = None
         self.assertEqual(desired_msg, crud_template)

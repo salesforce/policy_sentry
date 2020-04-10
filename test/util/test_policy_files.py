@@ -5,9 +5,7 @@ from policy_sentry.util.policy_files import (
     get_actions_from_json_policy_file,
     get_actions_from_policy,
 )
-from policy_sentry.shared.database import connect_db
 
-db_session = connect_db('bundled')
 
 
 class PolicyFilesTestCase(unittest.TestCase):
@@ -47,7 +45,7 @@ class PolicyFilesTestCase(unittest.TestCase):
                 },
             ],
         }
-        actions_list = get_actions_from_policy(db_session, policy)
+        actions_list = get_actions_from_policy(policy)
         desired_actions_list = [
             "ecr:BatchCheckLayerAvailability",
             "ecr:BatchGetImage",
@@ -83,7 +81,7 @@ class PolicyFilesTestCase(unittest.TestCase):
                 "explicit-actions.json",
             )
         )
-        requested_actions = get_actions_from_json_policy_file(db_session, policy_file_path)
+        requested_actions = get_actions_from_json_policy_file(policy_file_path)
         # print(requested_actions)
         self.maxDiff = None
         print(json.dumps(requested_actions, indent=4))

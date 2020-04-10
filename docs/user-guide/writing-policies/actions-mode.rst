@@ -25,7 +25,7 @@ Instructions
 
 .. code-block:: bash
 
-    policy_sentry create-template --name myRole --output-file actions.yml --template-type actions
+    policy_sentry create-template --output-file actions.yml --template-type actions
 
 * It will generate a file with contents like this:
 

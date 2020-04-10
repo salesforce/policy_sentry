@@ -102,7 +102,7 @@ pip3 install --user policy_sentry
 To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
-policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
+policy_sentry create-template --output-file crud.yml --template-type crud
 ```
 
 It will generate a file like this:
@@ -171,11 +171,11 @@ It will generate these results:
             "Sid": "SsmReadParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:getparameter",
-                "ssm:getparameterhistory",
-                "ssm:getparameters",
-                "ssm:getparametersbypath",
-                "ssm:listtagsforresource"
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:ListTagsForResource"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -185,10 +185,10 @@ It will generate these results:
             "Sid": "SsmWriteParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:deleteparameter",
-                "ssm:deleteparameters",
-                "ssm:putparameter",
-                "ssm:labelparameterversion"
+                "ssm:DeleteParameter",
+                "ssm:DeleteParameters",
+                "ssm:LabelParameterVersion",
+                "ssm:PutParameter"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -198,8 +198,8 @@ It will generate these results:
             "Sid": "SecretsmanagerPermissionsmanagementSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:deleteresourcepolicy",
-                "secretsmanager:putresourcepolicy"
+                "secretsmanager:DeleteResourcePolicy",
+                "secretsmanager:PutResourcePolicy"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -209,8 +209,8 @@ It will generate these results:
             "Sid": "SecretsmanagerTaggingSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:tagresource",
-                "secretsmanager:untagresource"
+                "secretsmanager:TagResource",
+                "secretsmanager:UntagResource"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -253,9 +253,9 @@ eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 ```bash
 # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
 # CRUD mode
-policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
+policy_sentry create-template --output-file tmp.yml --template-type crud
 # Actions mode
-policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+policy_sentry create-template --output-file tmp.yml --template-type actions
 
 # Write policy based on resource-specific access levels
 policy_sentry write-policy --input-file examples/yml/crud.yml
@@ -360,15 +360,13 @@ This is especially useful for developers who wish to leverage Policy Sentry’s 
 
 The code example is located [here](https://github.com/salesforce/policy_sentry/blob/master/examples/library-usage/example.py). It is also shown below.
 
-We’ve built a trick into the `connect_db` function that developers can specify to leverage the local database. The trick is to just use `bundled` as the single parameter for the `connect_db` method. See the example.
-
 ```python
 from policy_sentry.querying.actions import get_actions_for_service
-from policy_sentry.shared.database import connect_db
+
 
 def example():
-    db_session = connect_db('bundled')  # This is the critical line. You just need to specify `'bundled'` as the parameter.
-    actions = get_actions_for_service(db_session, 'cloud9')  # Then you can leverage any method that requires access to the database.
+      # This is the critical line. You just need to specify `'bundled'` as the parameter.
+    actions = get_actions_for_service('cloud9')  # Then you can leverage any method that requires access to the database.
     for action in actions:
         print(action)
 
@@ -379,18 +377,21 @@ if __name__ == '__main__':
 The results will look like:
 
 ```
-cloud9:createenvironmentec2
-cloud9:createenvironmentmembership
-cloud9:deleteenvironment
-cloud9:deleteenvironmentmembership
-cloud9:describeenvironmentmemberships
-cloud9:describeenvironmentstatus
-cloud9:describeenvironments
-cloud9:getusersettings
-cloud9:listenvironments
-cloud9:updateenvironment
-cloud9:updateenvironmentmembership
-cloud9:updateusersettings
+cloud9:CreateEnvironmentEC2
+cloud9:CreateEnvironmentMembership
+cloud9:DeleteEnvironment
+cloud9:DeleteEnvironmentMembership
+cloud9:DescribeEnvironmentMemberships
+cloud9:DescribeEnvironmentStatus
+cloud9:DescribeEnvironments
+cloud9:GetUserSettings
+cloud9:ListEnvironments
+cloud9:ListTagsForResource
+cloud9:TagResource
+cloud9:UntagResource
+cloud9:UpdateEnvironment
+cloud9:UpdateEnvironmentMembership
+cloud9:UpdateUserSettings
 ```
 
 ### Docker
