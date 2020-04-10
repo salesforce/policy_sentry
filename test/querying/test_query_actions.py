@@ -124,8 +124,11 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertListEqual(desired_output, output)
 
         output = get_actions_that_support_wildcard_arns_only("ecr")
-        # print(json.dumps(output, indent=4))
         self.assertEqual(output, ["ecr:GetAuthorizationToken"])
+        # print(json.dumps(output, indent=4))
+        output = get_actions_that_support_wildcard_arns_only("all")
+        print(len(output))
+
 
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
@@ -158,7 +161,15 @@ class QueryActionsTestCase(unittest.TestCase):
         all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Permissions management"
         )
-        print(json.dumps(all_permissions_output, indent=4))
+        all_write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "all", "Write"
+        )
+        print("yolo")
+
+        print(len(all_permissions_output) + len(all_write_output))
+        # print(len(all_write_output))
+        print(json.dumps(all_write_output, indent=4))
+        # print(json.dumps(all_permissions_output, indent=4))
 
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
@@ -287,6 +298,14 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.assertListEqual(result, ["ecr:SetRepositoryPolicy"])
 
+        bad_actions_list = [
+            "codecommit:CreatePullRequest",
+            "codecommit:CreatePullRequestApprovalRule",
+            "codecommit:CreateRepository",
+            "codecommit:CreateUnreferencedMergeCommit",
+            "codecommit:DeleteBranch",
+            "codecommit:DeleteFile",
+        ]
 
     def test_get_dependent_actions(self):
         """querying.actions.get_dependent_actions"""
