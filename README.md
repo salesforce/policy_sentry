@@ -171,11 +171,11 @@ It will generate these results:
             "Sid": "SsmReadParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:getparameter",
-                "ssm:getparameterhistory",
-                "ssm:getparameters",
-                "ssm:getparametersbypath",
-                "ssm:listtagsforresource"
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:ListTagsForResource"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -185,10 +185,10 @@ It will generate these results:
             "Sid": "SsmWriteParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:deleteparameter",
-                "ssm:deleteparameters",
-                "ssm:putparameter",
-                "ssm:labelparameterversion"
+                "ssm:DeleteParameter",
+                "ssm:DeleteParameters",
+                "ssm:LabelParameterVersion",
+                "ssm:PutParameter"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -198,8 +198,8 @@ It will generate these results:
             "Sid": "SecretsmanagerPermissionsmanagementSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:deleteresourcepolicy",
-                "secretsmanager:putresourcepolicy"
+                "secretsmanager:DeleteResourcePolicy",
+                "secretsmanager:PutResourcePolicy"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -209,8 +209,8 @@ It will generate these results:
             "Sid": "SecretsmanagerTaggingSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:tagresource",
-                "secretsmanager:untagresource"
+                "secretsmanager:TagResource",
+                "secretsmanager:UntagResource"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -377,18 +377,21 @@ if __name__ == '__main__':
 The results will look like:
 
 ```
-cloud9:createenvironmentec2
-cloud9:createenvironmentmembership
-cloud9:deleteenvironment
-cloud9:deleteenvironmentmembership
-cloud9:describeenvironmentmemberships
-cloud9:describeenvironmentstatus
-cloud9:describeenvironments
-cloud9:getusersettings
-cloud9:listenvironments
-cloud9:updateenvironment
-cloud9:updateenvironmentmembership
-cloud9:updateusersettings
+cloud9:CreateEnvironmentEC2
+cloud9:CreateEnvironmentMembership
+cloud9:DeleteEnvironment
+cloud9:DeleteEnvironmentMembership
+cloud9:DescribeEnvironmentMemberships
+cloud9:DescribeEnvironmentStatus
+cloud9:DescribeEnvironments
+cloud9:GetUserSettings
+cloud9:ListEnvironments
+cloud9:ListTagsForResource
+cloud9:TagResource
+cloud9:UntagResource
+cloud9:UpdateEnvironment
+cloud9:UpdateEnvironmentMembership
+cloud9:UpdateUserSettings
 ```
 
 ### Docker

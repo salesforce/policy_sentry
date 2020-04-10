@@ -11,11 +11,11 @@ install:
 script:
 - invoke build.install-package
 - invoke test.lint
-- invoke test.security
 - invoke integration.clean
 - invoke integration.version
 - invoke integration.initialize
 - invoke unit.pytest
+- invoke test.security
 - invoke integration.query
 - invoke integration.write-policy
 deploy:
