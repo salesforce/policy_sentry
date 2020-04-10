@@ -11,13 +11,13 @@ install:
 script:
 - invoke build.install-package
 - invoke test.lint
+- invoke test.security
 - invoke integration.clean
 - invoke integration.version
 - invoke integration.initialize
 - invoke unit.pytest
 - invoke integration.query
 - invoke integration.write-policy
-- invoke test.security
 deploy:
   provider: pypi
   user: __token__
