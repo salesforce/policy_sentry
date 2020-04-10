@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.8.0.1 (Unreleased)
+* The original 0.8.0 release had some issues with the query functions that used to accept 'all' as the service_prefix parameter. This release fixes that issue and brings it back to its previous working status.
+
 ## 0.8.0 (2020-04-09)
 * Policy Sentry is now 10x faster!!
 * Refactored database approach - not using SQLite Database anymore.
