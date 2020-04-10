@@ -119,18 +119,21 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
             for some_action in service_prefix_data["privileges"]:
-                rows.append(some_action)
+                if len(some_action["resource_types"]) == 1:
+                    if (
+                        some_action["access_level"] == access_level
+                        and some_action["resource_types"][0]["resource_type"] == ""
+                    ):
+                        results.append(f"{some_prefix}:{some_action['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for some_action in service_prefix_data["privileges"]:
-            rows.append(some_action)
-    for row in rows:
-        if len(row["resource_types"]) == 1:
-            if (
-                row["access_level"] == access_level
-                and row["resource_types"][0]["resource_type"] == ""
-            ):
-                results.append(f"{service_prefix}:{row['privilege']}")
+            if len(some_action["resource_types"]) == 1:
+                if (
+                    some_action["access_level"] == access_level
+                    and some_action["resource_types"][0]["resource_type"] == ""
+                ):
+                    results.append(f"{service_prefix}:{some_action['privilege']}")
     return results
 
 
@@ -142,21 +145,18 @@ def get_actions_with_access_level(service_prefix, access_level):
     :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
     :return: A list of actions
     """
-    service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
-    rows = []
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
             for some_action in service_prefix_data["privileges"]:
-                rows.append(some_action)
+                if some_action["access_level"] == access_level:
+                    results.append(f"{some_prefix}:{some_action['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for some_action in service_prefix_data["privileges"]:
-            rows.append(some_action)
-    for row in rows:
-        if row["access_level"] == access_level:
-            results.append(f"{service_prefix}:{row['privilege']}")
+            if some_action["access_level"] == access_level:
+                results.append(f"{service_prefix}:{some_action['privilege']}")
     return results
 
 
@@ -199,7 +199,7 @@ def get_actions_matching_condition_key(service_prefix, condition_key):
             for some_action in service_prefix_data["privileges"]:
                 for some_resource_type in some_action["resource_types"]:
                     if condition_key in some_resource_type["condition_keys"]:
-                        results.append(f"{service_prefix}:{some_action['privilege']}")
+                        results.append(f"{some_prefix}:{some_action['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for some_action in service_prefix_data["privileges"]:

@@ -90,7 +90,6 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         cfg = read_yaml_file(policy_file_path)
 
         output = write_policy_with_template(cfg)
-        print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [

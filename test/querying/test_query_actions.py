@@ -138,6 +138,11 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
         self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
 
+        all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "all", "Permissions management"
+        )
+        print(json.dumps(all_permissions_output, indent=4))
+
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
         desired_output = ['workspaces:CreateTags', 'workspaces:DeleteTags']
@@ -146,6 +151,10 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+        # output = get_actions_with_access_level(
+        #     "all", "Tagging"
+        # )
+        # print(output)
 
     def test_get_actions_with_arn_type_and_access_level(self):
         """querying.actions.get_actions_with_arn_type_and_access_level"""
