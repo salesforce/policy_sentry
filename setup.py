@@ -49,9 +49,8 @@ setuptools.setup(
         'click',
         'click_log',
         'beautifulsoup4',
-        'html5lib',
-        'lxml',
-        'jinja2',
+        # 'html5lib',
+        # 'lxml',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -13,7 +13,6 @@ from policy_sentry.util.policy_files import (
     get_actions_from_policy,
     get_actions_from_statement,
 )
-from policy_sentry.util.file import read_this_file
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,10 @@ def read_risky_iam_permissions_text_file(audit_file):
     :return risky_actions: A list of actions from the file
     """
 
-    risky_actions = read_this_file(audit_file)
+    risky_actions = []
+    with open(audit_file, "r") as file_obj:
+        for row in file_obj:
+            risky_actions.append(row.rstrip("\n"))
     return risky_actions
 
 

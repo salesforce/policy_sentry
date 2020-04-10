@@ -2,8 +2,6 @@ import unittest
 
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.querying.all import get_all_actions
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
 
 
 class MinimizeWildcardActionsTestCase(unittest.TestCase):

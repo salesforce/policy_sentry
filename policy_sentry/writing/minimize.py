@@ -22,6 +22,7 @@ Q: How many policies can I attach to an IAM role?
 * The size of each managed policy cannot exceed 6,144 characters.
 """
 import logging
+
 # from policyuniverse.expander_minimizer import _get_prefixes_for_action
 
 logger = logging.getLogger(__name__)

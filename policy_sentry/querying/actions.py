@@ -1,8 +1,20 @@
+"""
+Methods that execute specific queries against the SQLite database for the ACTIONS table.
+This supports the policy_sentry query functionality
+"""
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
+from policy_sentry.querying.all import get_all_service_prefixes
+
+all_service_prefixes = get_all_service_prefixes()
 
 
 def get_actions_for_service(service_prefix):
-    """Similar to get_privilege_info"""
+    """
+    Get a list of available actions per AWS service
+
+    :param service_prefix: An AWS service prefix, like `s3` or `kms`
+    :return: A list of actions
+    """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
     for item in service_prefix_data["privileges"]:
@@ -11,7 +23,13 @@ def get_actions_for_service(service_prefix):
 
 
 def get_action_data(service, action_name):
-    """Similar to get_privilege info but for backwards compatibility"""
+    """
+    Get details about an IAM Action in JSON format.
+
+    :param service: An AWS service prefix, like `s3` or `kms`. Case insensitive.
+    :param action_name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*". Case insensitive.
+    :return: A dictionary containing metadata about an IAM Action.
+    """
     results = []
     action_data_results = {}
     service_info = get_service_prefix_data(service)
@@ -59,45 +77,100 @@ def get_action_data(service, action_name):
 
 
 def get_actions_that_support_wildcard_arns_only(service_prefix):
-    service_prefix_data = get_service_prefix_data(service_prefix)
-    results = []
+    """
+    Get a list of actions that do not support restricting the action to resource ARNs.
+    Set service to "all" to get a list of actions across all services.
 
-    for some_action in service_prefix_data["privileges"]:
-        if len(some_action["resource_types"]) == 1:
-            if some_action["resource_types"][0]["resource_type"] == "":
-                results.append(f"{service_prefix}:{some_action['privilege']}")
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
+    :return: A list of actions
+    """
+    results = []
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
+    for row in rows:
+        if len(row["resource_types"]) == 1:
+            if row["resource_types"][0]["resource_type"] == "":
+                results.append(f"{service_prefix}:{row['privilege']}")
     return results
 
 
 def get_actions_at_access_level_that_support_wildcard_arns_only(
     service_prefix, access_level
 ):
-    service_prefix_data = get_service_prefix_data(service_prefix)
-    results = []
+    """
+    Get a list of actions at an access level that do not support restricting the action to resource ARNs.
+    Set service to "all" to get a list of actions across all services.
 
-    for some_action in service_prefix_data["privileges"]:
-        if len(some_action["resource_types"]) == 1:
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
+    :return: A list of actions
+    """
+    results = []
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
+    for row in rows:
+        if len(row["resource_types"]) == 1:
             if (
-                some_action["access_level"] == access_level
-                and some_action["resource_types"][0]["resource_type"] == ""
+                row["access_level"] == access_level
+                and row["resource_types"][0]["resource_type"] == ""
             ):
-                results.append(f"{service_prefix}:{some_action['privilege']}")
+                results.append(f"{service_prefix}:{row['privilege']}")
     return results
 
 
 def get_actions_with_access_level(service_prefix, access_level):
+    """
+    Get a list of actions in a service under different access levels.
+
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
+    :return: A list of actions
+    """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
-
-    for some_action in service_prefix_data["privileges"]:
-        if some_action["access_level"] == access_level:
-            results.append(f"{service_prefix}:{some_action['privilege']}")
+    rows = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                rows.append(some_action)
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            rows.append(some_action)
+    for row in rows:
+        if row["access_level"] == access_level:
+            results.append(f"{service_prefix}:{row['privilege']}")
     return results
 
 
 def get_actions_with_arn_type_and_access_level(
     service_prefix, resource_type_name, access_level
 ):
+    """
+    Get a list of actions in a service under different access levels, specific to an ARN format.
+
+    :param service_prefix: A single AWS service prefix, like `s3` or `kms`
+    :param resource_type_name: The ARN type name, like `bucket` or `key`
+    :param access_level: Access level like "Read" or "List" or "Permissions management"
+    :return: A list of actions
+    """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
 
@@ -111,21 +184,55 @@ def get_actions_with_arn_type_and_access_level(
     return results
 
 
-def get_actions_matching_condition_key(service, condition_key):
-    print()
-    # TODO: This one is non-essential right now.
+def get_actions_matching_condition_key(service_prefix, condition_key):
+    """
+    Get a list of actions under a service that allow the use of a specified condition key
+
+    :param service_prefix: A single AWS service prefix
+    :param condition_key: The condition key to look for.
+    :return: A list of actions
+    """
+    results = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                for some_resource_type in some_action["resource_types"]:
+                    if condition_key in some_resource_type["condition_keys"]:
+                        results.append(f"{service_prefix}:{some_action['privilege']}")
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            for some_resource_type in some_action["resource_types"]:
+                if condition_key in some_resource_type["condition_keys"]:
+                    results.append(f"{service_prefix}:{some_action['privilege']}")
+    return results
 
 
 # def get_actions_matching_condition_crud_and_arn(
 #     condition_key, access_level, raw_arn
 # ):
+#     """
+#     Get a list of IAM Actions matching a condition key, CRUD level, and raw ARN format.
+#
+#     :param condition_key: A condition key, like aws:TagKeys
+#     :param access_level: Access level that matches the database value. "Read", "Write", "List", "Tagging", or "Permissions management"
+#     :param raw_arn: The raw ARN format in the database, like arn:${Partition}:s3:::${BucketName}
+#     :return: List of IAM Actions
+#     """
 #     print()
 #     # TODO: This one is non-essential right now.
 #
 
 
 def remove_actions_not_matching_access_level(actions_list, access_level):
-    # TODO: This method normalized the access level unnecessarily. Make sure to change that in the final iteration
+    """
+    Given a list of actions, return a list of actions that match an access level
+
+    :param actions_list: A list of actions
+    :param access_level: 'read', 'write', 'list', 'tagging', or 'permissions-management'
+    :return: Updated list of actions, where the actions not matching the requested access level are removed.
+    """
     new_actions_list = []
 
     def is_access_level(some_service_prefix, some_action):
@@ -151,6 +258,19 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
 
 
 def get_dependent_actions(actions_list):
+    """
+    Given a list of IAM Actions, query the database to determine if the action has dependent actions in the
+    fifth column of the Resources, Actions, and Condition keys tables. If it does, add the dependent actions
+    to the list, and return the updated list.
+
+    It includes the original action in there as well. So, if you supply kms:CreateCustomKeyStore, it will give you kms:CreateCustomKeyStore as well as cloudhsm:DescribeClusters
+
+    To get dependent actions for a single given IAM action, just provide the action as a list with one item, like this:
+    get_dependent_actions(db_session, ['kms:CreateCustomKeystore'])
+
+    :param actions_list: A list of actions to use in querying the database for dependent actions
+    :return: Updated list of actions, including dependent actions if applicable.
+    """
     new_actions_list = []
     for action in actions_list:
         service, action_name = action.split(":")
@@ -167,6 +287,13 @@ def get_dependent_actions(actions_list):
 
 
 def remove_actions_that_are_not_wildcard_arn_only(actions_list):
+    """
+    Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
+
+    :param actions_list: A list of actions
+    :return: An updated list of actions
+    :rtype: list
+    """
     # remove duplicates, if there are any
     actions_list_unique = list(dict.fromkeys(actions_list))
     results = []

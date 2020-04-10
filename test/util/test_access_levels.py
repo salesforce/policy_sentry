@@ -1,8 +1,6 @@
 import unittest
 from policy_sentry.util.access_levels import determine_access_level_override
-from policy_sentry.configuration.access_level_overrides import (
-    get_action_access_level_overrides_from_yml,
-)
+from policy_sentry.shared.awsdocs import get_action_access_level_overrides_from_yml
 
 
 class AccessLevelOverride(unittest.TestCase):

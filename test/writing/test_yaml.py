@@ -2,7 +2,6 @@ import unittest
 import json
 
 from policy_sentry.command.write_policy import write_policy_with_template
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 
 valid_cfg_for_crud = {

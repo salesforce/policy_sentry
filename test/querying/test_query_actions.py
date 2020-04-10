@@ -12,7 +12,9 @@ from policy_sentry.querying.actions import (
     get_actions_with_arn_type_and_access_level,
     remove_actions_not_matching_access_level,
     get_dependent_actions,
-    remove_actions_that_are_not_wildcard_arn_only
+    remove_actions_that_are_not_wildcard_arn_only,
+    get_actions_matching_condition_key,
+    # get_actions_matching_condition_crud_and_arn
 )
 
 
@@ -159,6 +161,67 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    def test_get_actions_matching_condition_key(self):
+        """querying.actions.get_actions_matching_condition_key"""
+        desired_results = [
+            'ses:SendEmail'
+        ]
+
+        results = get_actions_matching_condition_key(
+            "ses", "ses:FeedbackAddress"
+        )
+        # print(output)
+        self.maxDiff = None
+        print(results)
+        self.assertListEqual(results, desired_results)
+
+    # def test_get_actions_matching_condition_crud_and_arn(self):
+    #     """querying.actions.get_actions_matching_condition_crud_and_arn"""
+    #     results = get_actions_matching_condition_crud_and_arn(
+    #         "elasticbeanstalk:InApplication",
+    #         "List",
+    #         "arn:${Partition}:elasticbeanstalk:${Region}:${Account}:environment/${ApplicationName}/${EnvironmentName}",
+    #     )
+    #     desired_results = [
+    #         "elasticbeanstalk:DescribeEnvironments",
+    #     ]
+    #     print(results)
+    #     self.assertListEqual(results, desired_results)
+    #
+    # def test_get_actions_matching_condition_crud_and_wildcard_arn(self):
+    #     """querying.actions.get_actions_matching_condition_crud_and_wildcard_arn"""
+    #     desired_results = [
+    #         "swf:PollForActivityTask",
+    #         "swf:PollForDecisionTask",
+    #         "swf:RespondActivityTaskCompleted",
+    #         "swf:StartWorkflowExecution",
+    #     ]
+    #     results = get_actions_matching_condition_crud_and_arn(
+    #         "swf:taskList.name", "Write", "*"
+    #     )
+    #     print(results)
+    #     self.assertListEqual(desired_results, results)
+    #
+    #     # This one leverages a condition key that is partway through a string in the database
+    #     # - luckily, SQLAlchemy's ilike function allows us to find it anyway because it's a substring
+    #     # kms:CallerAccount,kms:EncryptionAlgorithm,kms:EncryptionContextKeys,kms:ViaService
+    #     desired_results = [
+    #         "kms:Decrypt",
+    #         "kms:Encrypt",
+    #         "kms:GenerateDataKey",
+    #         "kms:GenerateDataKeyPair",
+    #         "kms:GenerateDataKeyPairWithoutPlaintext",
+    #         "kms:GenerateDataKeyWithoutPlaintext",
+    #         "kms:ReEncryptFrom",
+    #         "kms:ReEncryptTo",
+    #     ]
+    #     print(results)
+    #     results = get_actions_matching_condition_crud_and_arn(
+    #         "kms:EncryptionAlgorithm", "Write", "*"
+    #     )
+    #     self.assertListEqual(desired_results, results)
+
 
     def test_remove_actions_not_matching_access_level(self):
         # TODO: This method normalized the access level unnecessarily. Make sure to change that in the final iteration

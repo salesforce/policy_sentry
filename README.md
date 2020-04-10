@@ -102,7 +102,7 @@ pip3 install --user policy_sentry
 To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
 
 ```bash
-policy_sentry create-template --name myRole --output-file crud.yml --template-type crud
+policy_sentry create-template --output-file crud.yml --template-type crud
 ```
 
 It will generate a file like this:
@@ -253,9 +253,9 @@ eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
 ```bash
 # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
 # CRUD mode
-policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
+policy_sentry create-template --output-file tmp.yml --template-type crud
 # Actions mode
-policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+policy_sentry create-template --output-file tmp.yml --template-type actions
 
 # Write policy based on resource-specific access levels
 policy_sentry write-policy --input-file examples/yml/crud.yml
@@ -360,15 +360,13 @@ This is especially useful for developers who wish to leverage Policy Sentry’s 
 
 The code example is located [here](https://github.com/salesforce/policy_sentry/blob/master/examples/library-usage/example.py). It is also shown below.
 
-We’ve built a trick into the `connect_db` function that developers can specify to leverage the local database. The trick is to just use `bundled` as the single parameter for the `connect_db` method. See the example.
-
 ```python
 from policy_sentry.querying.actions import get_actions_for_service
 
 
 def example():
       # This is the critical line. You just need to specify `'bundled'` as the parameter.
-    actions = get_actions_for_service(db_session, 'cloud9')  # Then you can leverage any method that requires access to the database.
+    actions = get_actions_for_service('cloud9')  # Then you can leverage any method that requires access to the database.
     for action in actions:
         print(action)
 

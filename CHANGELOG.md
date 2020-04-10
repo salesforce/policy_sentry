@@ -2,8 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.7.4 (Unreleased)
-* Breaking changes: Not using SQLite Database anymore.
+## 0.8.0 (Unreleased)
+* Policy Sentry is now 10x faster!!
+* Refactored database approach - not using SQLite Database anymore.
 
 ## 0.7.3 (2020-04-01)
 * Add skip-resource-constraints feature for CRUD mode (Fixes #145)

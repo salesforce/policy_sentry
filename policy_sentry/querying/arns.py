@@ -1,3 +1,7 @@
+"""
+Methods that execute specific queries against the SQLite database for the ARN table.
+This supports the policy_sentry query functionality
+"""
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 
 
@@ -24,6 +28,12 @@ def get_arn_data(service_prefix, resource_type_name):
 
 
 def get_raw_arns_for_service(service_prefix):
+    """
+    Get a list of available raw ARNs per AWS service
+
+    :param service_prefix: An AWS service prefix, like `s3` or `kms`
+    :return: A list of raw ARNs
+    """
     results = []
     for service_data in iam_definition:
         if service_data["prefix"] == service_prefix:
@@ -33,6 +43,12 @@ def get_raw_arns_for_service(service_prefix):
 
 
 def get_arn_types_for_service(service_prefix):
+    """
+    Get a list of available ARN short names per AWS service.
+
+    :param service_prefix: An AWS service prefix, like `s3` or `kms`
+    :return: A list of ARN types, like `bucket` or `object`
+    """
     results = {}
     for service_data in iam_definition:
         if service_data["prefix"] == service_prefix:
@@ -62,6 +78,7 @@ def get_arn_type_details(service_prefix, resource_type_name):
     return output
 
 
+# pylint: disable=inconsistent-return-statements
 def get_resource_type_name_with_raw_arn(raw_arn):
     """
     Given a raw ARN, return the resource type name as shown in the database.

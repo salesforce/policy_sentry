@@ -1,9 +1,7 @@
 import unittest
 import json
 import os
-
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
 
 crud_with_override_template = os.path.abspath(
     os.path.join(

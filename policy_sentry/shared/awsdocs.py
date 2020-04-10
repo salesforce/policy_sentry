@@ -12,18 +12,17 @@ or update the HTML files on their own.
 import os
 import logging
 import re
-from bs4 import BeautifulSoup
 import json
 from pathlib import Path
 import requests
-from policy_sentry.configuration.access_level_overrides import (
-    get_action_access_level_overrides_from_yml,
-)
+from bs4 import BeautifulSoup
 from policy_sentry.shared.constants import (
     BASE_DOCUMENTATION_URL,
     BUNDLED_HTML_DIRECTORY_PATH,
+    BUNDLED_ACCESS_OVERRIDES_FILE,
 )
 from policy_sentry.util.access_levels import determine_access_level_override
+from policy_sentry.util.file import read_yaml_file
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -36,6 +35,24 @@ def get_links_from_base_actions_resources_conditions_page():
     for i in soup.find("div", {"class": "highlights"}).findAll("a"):
         html_filenames.append(i["href"])
     return html_filenames
+
+
+def get_action_access_level_overrides_from_yml(
+    service, access_level_overrides_file_path=None
+):
+    """
+    Read the YML overrides file, which is formatted like:
+    ['ec2']['permissions-management'][action_name].
+    Since the AWS Documentation is sometimes outdated, we can use this YML file to
+    override whatever they provide in their documentation.
+    """
+    if not access_level_overrides_file_path:
+        access_level_overrides_file_path = BUNDLED_ACCESS_OVERRIDES_FILE
+    cfg = read_yaml_file(access_level_overrides_file_path)
+    if service in cfg:
+        return cfg[service]
+    else:
+        return False
 
 
 def update_html_docs_directory(html_docs_destination):
@@ -94,27 +111,26 @@ def chomp(string):
 
 
 def no_white_space(string):
+    """Remove all whitespaces"""
     string = str(string)
     response = string.replace("\n", "")  # Convert line ends to spaces
     response = re.sub("[ ]*", "", response)
     return response
 
 
-def create_database(
-    destination_directory, access_level_overrides_file, update_html=False
-):
+def create_database(destination_directory, access_level_overrides_file):
     """
+    Create the JSON Data source that holds the IAM data.
 
     :param destination_directory:
     :param access_level_overrides_file: The path to the file that we use for overriding access levels that are incorrect in the AWS documentation
-    :param update_html:
     :return:
     """
 
-    # Create the docs directory
-    Path(BUNDLED_HTML_DIRECTORY_PATH).mkdir(parents=True, exist_ok=True)
-    if update_html:
-        update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
+    # Create the docs directory if it doesn't exist
+    Path(os.path.join(destination_directory, "data", "docs")).mkdir(
+        parents=True, exist_ok=True
+    )
 
     schema = []
 
@@ -206,7 +222,6 @@ def create_database(
                     service_prefix = prefix
                     action_name = priv
                     description = chomp(cells[1].text)
-                    # TODO: Access level overrides
                     access_level = chomp(cells[2].text)
                     # Access Level #####
                     # access_level_overrides_cfg will only be true if the service in question is present
@@ -354,10 +369,7 @@ def create_database(
             schema.append(service_schema)
 
     schema.sort(key=lambda x: x["prefix"])
-    # print(json.dumps(schema, indent=2, sort_keys=True))
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
-    if os.path.exists(iam_definition_file):
-        os.remove(iam_definition_file)
     with open(iam_definition_file, "w") as file:
         json.dump(schema, file, indent=4)
     logger.info("Wrote IAM definition file to path: ", iam_definition_file)

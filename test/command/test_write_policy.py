@@ -1,8 +1,6 @@
 import unittest
 import json
 import os
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import read_yaml_file
 

@@ -32,9 +32,9 @@ Policy Writing Commands
 
     # Create templates first!!! This way you can just paste the values you need rather than remembering the YAML format
     # CRUD mode
-    policy_sentry create-template --name myRole --output-file tmp.yml --template-type crud
+    policy_sentry create-template --output-file tmp.yml --template-type crud
     # Actions mode
-    policy_sentry create-template --name myRole --output-file tmp.yml --template-type actions
+    policy_sentry create-template --output-file tmp.yml --template-type actions
 
     # Get a list of actions that do not support resource constraints
     policy_sentry query action-table --service s3 --wildcard-only --fmt yaml

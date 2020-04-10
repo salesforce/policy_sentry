@@ -8,8 +8,6 @@ import yaml
 import click_log
 from policy_sentry.util.access_levels import transform_access_level_text
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
-
 from policy_sentry.querying.arns import (
     get_arn_type_details,
     get_arn_types_for_service,

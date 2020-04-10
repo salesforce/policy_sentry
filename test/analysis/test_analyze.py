@@ -4,8 +4,6 @@ from policy_sentry.analysis.analyze import (
     determine_risky_actions_from_list,
     analyze_statement_by_access_level,
 )
-
-from policy_sentry.shared.constants import DATABASE_FILE_PATH
 import unittest
 
 

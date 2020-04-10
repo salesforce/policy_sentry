@@ -1,4 +1,8 @@
-from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
+"""
+Methods that execute specific queries against the SQLite database for the CONDITIONS table.
+This supports the policy_sentry query functionality
+"""
+from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.util.conditions import is_condition_key_match
 from policy_sentry.querying.actions import get_action_data
 
@@ -19,11 +23,12 @@ def get_condition_keys_for_service(service_prefix):
 
 
 # Per condition key name
+# pylint: disable=inconsistent-return-statements
 def get_condition_key_details(service_prefix, condition_key_name):
     """
     Get details about a specific condition key in JSON format
 
-    :param service: An AWS service prefix, like `ec2` or `kms`
+    :param service_prefix: An AWS service prefix, like `ec2` or `kms`
     :param condition_key_name: The name of a condition key, like `ec2:Vpc`
     :return: Metadata about the condition key
     """
@@ -72,6 +77,7 @@ def get_condition_keys_available_to_raw_arn(raw_arn):
     return results
 
 
+# pylint: disable=inconsistent-return-statements,unused-variable
 def get_condition_value_type(condition_key):
     """
     Get the data type of the condition key - like Date, String, etc.

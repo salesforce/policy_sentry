@@ -1,16 +1,15 @@
 """Templates for the policy_sentry YML files.
 These can be used for generating policies
 """
-from jinja2 import Template
 
 ACTIONS_TEMPLATE = """mode: actions
-name: {{ name }}
+name: ''
 actions:
 - ''
 """
 
 CRUD_TEMPLATE = """mode: crud
-name: {{ name }}
+name: ''
 # Specify resource ARNs
 read:
 - ''
@@ -64,18 +63,14 @@ CRUD_TEMPLATE_DICT = {
 ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}
 
 
-def create_crud_template(name):
-    """Generate the CRUD YML Template with Jinja2"""
-    template = Template(CRUD_TEMPLATE)
-    msg = template.render(name=name)
-    return msg
+def create_crud_template():
+    """Generate the CRUD YML Template """
+    return CRUD_TEMPLATE
 
 
-def create_actions_template(name):
-    """Generate the Actions YML template with Jinja2"""
-    template = Template(ACTIONS_TEMPLATE)
-    msg = template.render(name=name)
-    return msg
+def create_actions_template():
+    """Generate the Actions YML template"""
+    return ACTIONS_TEMPLATE
 
 
 def get_crud_template_dict():

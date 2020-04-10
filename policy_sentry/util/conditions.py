@@ -44,7 +44,7 @@ def get_comma_separated_condition_keys(condition_keys):
     return result
 
 
-def is_condition_key_match(document_key, str):
+def is_condition_key_match(document_key, some_str):
     """ Given a documented condition key and one from a policy, determine if they match
     Examples:
     - s3:prefix and s3:prefix obviously match
@@ -53,21 +53,21 @@ def is_condition_key_match(document_key, str):
 
     # Normalize both
     document_key = document_key.lower()
-    str = str.lower()
+    some_str = some_str.lower()
 
     # Check if the document key has a pattern match in it
     if "$" in document_key:
         # Some services use a format like license-manager:ResourceTag/${TagKey}
-        if str.startswith(document_key.split("$")[0]):
+        if some_str.startswith(document_key.split("$")[0]):
             return True
     elif "<" in document_key:
         # Some services use a format like s3:ExistingObjectTag/<key>
-        if str.startswith(document_key.split("<")[0]):
+        if some_str.startswith(document_key.split("<")[0]):
             return True
     elif "tag-key" in document_key:
         # Some services use a format like secretsmanager:ResourceTag/tag-key
-        if str.startswith(document_key.split("tag-key")[0]):
+        if some_str.startswith(document_key.split("tag-key")[0]):
             return True
 
     # Just return whether they match exactly
-    return document_key == str
+    return document_key == some_str
