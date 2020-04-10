@@ -85,20 +85,20 @@ def get_actions_that_support_wildcard_arns_only(service_prefix):
     :return: A list of actions
     """
     results = []
-    rows = []
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
             for some_action in service_prefix_data["privileges"]:
-                rows.append(some_action)
+                if len(some_action["resource_types"]) == 1:
+                    if some_action["resource_types"][0]["resource_type"] == "":
+                        results.append(f"{some_prefix}:{some_action['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for some_action in service_prefix_data["privileges"]:
-            rows.append(some_action)
-    for row in rows:
-        if len(row["resource_types"]) == 1:
-            if row["resource_types"][0]["resource_type"] == "":
-                results.append(f"{service_prefix}:{row['privilege']}")
+            if len(some_action["resource_types"]) == 1:
+                for resource_type in some_action["resource_types"]:
+                    if resource_type["resource_type"] == "":
+                        results.append(f"{service_prefix}:{some_action['privilege']}")
     return results
 
 
@@ -114,7 +114,6 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
     :return: A list of actions
     """
     results = []
-    rows = []
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)

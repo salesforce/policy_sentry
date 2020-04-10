@@ -123,6 +123,10 @@ class QueryActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
+        output = get_actions_that_support_wildcard_arns_only("ecr")
+        # print(json.dumps(output, indent=4))
+        self.assertEqual(output, ["ecr:GetAuthorizationToken"])
+
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
         read_output = get_actions_at_access_level_that_support_wildcard_arns_only(
@@ -131,12 +135,25 @@ class QueryActionsTestCase(unittest.TestCase):
         list_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "secretsmanager", "List"
         )
+        write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "secretsmanager", "Write"
+        )
+        tagging_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "secretsmanager", "Tagging"
+        )
         permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "s3", "Permissions management"
         )
-        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
-        self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
+        # print(json.dumps(read_output, indent=4))
+        # print(json.dumps(list_output, indent=4))
+        # print(json.dumps(write_output, indent=4))
+        # print(json.dumps(tagging_output, indent=4))
+        # print(json.dumps(permissions_output, indent=4))
         self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
+        self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
+        self.assertListEqual(write_output, ['secretsmanager:CreateSecret'])
+        self.assertListEqual(tagging_output, [])
+        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
 
         all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Permissions management"
