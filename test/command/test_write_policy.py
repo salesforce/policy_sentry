@@ -97,6 +97,9 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
+                        "ram:EnableSharingWithAwsOrganization",
+                        "ram:GetResourcePolicies",
+                        "secretsmanager:CreateSecret",
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
@@ -125,6 +128,37 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(output, desired_output)
+
+    def test_eks_gh_155(self):
+        """test_eks_gh_155: Test EKS issue raised in GH-155"""
+        template_file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                "files",
+                "eks-service-wide.yml",
+            )
+        )
+        cfg = read_yaml_file(template_file_path)
+        result = write_policy_with_template(cfg)
+        print(json.dumps(result, indent=4))
+        expected_results = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "eks:ListClusters",
+                        "eks:CreateCluster"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(result, expected_results)
 
 
 class RdsWritingTestCase(unittest.TestCase):
