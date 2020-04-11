@@ -2,7 +2,8 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.8.0.1 (Unreleased)
+## 0.8.0.1 (2020-04-11)
+* The original 0.8.0 release had some issues with the query functions that used to accept 'all' as the service_prefix parameter. This release fixes that issue and brings it back to its previous working status.
 * Fix issue where service-wide wildcard-only actions were overwriting each other (#155)
 
 ## 0.8.0 (2020-04-09)

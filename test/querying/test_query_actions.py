@@ -1,6 +1,7 @@
 import unittest
 import os
 import json
+from schema import Optional, Schema, And, Use, SchemaError
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.querying.actions import (
     get_actions_for_service,
@@ -16,12 +17,24 @@ from policy_sentry.querying.actions import (
     get_actions_matching_condition_key,
     # get_actions_matching_condition_crud_and_arn
 )
+from policy_sentry.writing.validate import check
 
 
 class QueryActionsTestCase(unittest.TestCase):
     def test_get_service_prefix_data(self):
         result = get_service_prefix_data("cloud9")
-        # print(json.dumps(result, indent=4))
+        desired_output_schema = Schema(
+            {
+                "service_name": "AWS Cloud9",
+                "prefix": "cloud9",
+                "privileges": [dict],
+                "resources": [dict],
+                "conditions": [dict]
+            }
+        )
+        valid_output = check(desired_output_schema, result)
+        print(json.dumps(result, indent=4))
+        self.assertTrue(valid_output)
 
     def test_get_actions_for_service(self):
         """querying.actions.get_actions_for_service"""
@@ -123,6 +136,13 @@ class QueryActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 
+        output = get_actions_that_support_wildcard_arns_only("ecr")
+        self.assertEqual(output, ["ecr:GetAuthorizationToken"])
+        # print(json.dumps(output, indent=4))
+        output = get_actions_that_support_wildcard_arns_only("all")
+        print(len(output))
+
+
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
         read_output = get_actions_at_access_level_that_support_wildcard_arns_only(
@@ -131,12 +151,37 @@ class QueryActionsTestCase(unittest.TestCase):
         list_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "secretsmanager", "List"
         )
+        write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "secretsmanager", "Write"
+        )
+        tagging_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "secretsmanager", "Tagging"
+        )
         permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "s3", "Permissions management"
         )
-        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
-        self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
+        # print(json.dumps(read_output, indent=4))
+        # print(json.dumps(list_output, indent=4))
+        # print(json.dumps(write_output, indent=4))
+        # print(json.dumps(tagging_output, indent=4))
+        # print(json.dumps(permissions_output, indent=4))
         self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
+        self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
+        self.assertListEqual(write_output, ['secretsmanager:CreateSecret'])
+        self.assertListEqual(tagging_output, [])
+        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
+
+        all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "all", "Permissions management"
+        )
+        all_write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
+            "all", "Write"
+        )
+
+        print(len(all_permissions_output) + len(all_write_output))
+        # print(len(all_write_output))
+        print(json.dumps(all_write_output, indent=4))
+        # print(json.dumps(all_permissions_output, indent=4))
 
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
@@ -146,6 +191,10 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+        # output = get_actions_with_access_level(
+        #     "all", "Tagging"
+        # )
+        # print(output)
 
     def test_get_actions_with_arn_type_and_access_level(self):
         """querying.actions.get_actions_with_arn_type_and_access_level"""
@@ -261,6 +310,14 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.assertListEqual(result, ["ecr:SetRepositoryPolicy"])
 
+        bad_actions_list = [
+            "codecommit:CreatePullRequest",
+            "codecommit:CreatePullRequestApprovalRule",
+            "codecommit:CreateRepository",
+            "codecommit:CreateUnreferencedMergeCommit",
+            "codecommit:DeleteBranch",
+            "codecommit:DeleteFile",
+        ]
 
     def test_get_dependent_actions(self):
         """querying.actions.get_dependent_actions"""
