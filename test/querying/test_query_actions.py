@@ -1,6 +1,7 @@
 import unittest
 import os
 import json
+from schema import Optional, Schema, And, Use, SchemaError
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.querying.actions import (
     get_actions_for_service,
@@ -16,12 +17,24 @@ from policy_sentry.querying.actions import (
     get_actions_matching_condition_key,
     # get_actions_matching_condition_crud_and_arn
 )
+from policy_sentry.writing.validate import check
 
 
 class QueryActionsTestCase(unittest.TestCase):
     def test_get_service_prefix_data(self):
         result = get_service_prefix_data("cloud9")
-        # print(json.dumps(result, indent=4))
+        desired_output_schema = Schema(
+            {
+                "service_name": "AWS Cloud9",
+                "prefix": "cloud9",
+                "privileges": [dict],
+                "resources": [dict],
+                "conditions": [dict]
+            }
+        )
+        valid_output = check(desired_output_schema, result)
+        print(json.dumps(result, indent=4))
+        self.assertTrue(valid_output)
 
     def test_get_actions_for_service(self):
         """querying.actions.get_actions_for_service"""
@@ -164,7 +177,6 @@ class QueryActionsTestCase(unittest.TestCase):
         all_write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Write"
         )
-        print("yolo")
 
         print(len(all_permissions_output) + len(all_write_output))
         # print(len(all_write_output))
