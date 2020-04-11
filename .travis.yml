@@ -10,6 +10,7 @@ install:
 - pipenv install --dev
 script:
 - invoke build.install-package
+- invoke test.format
 - invoke test.lint
 - invoke integration.clean
 - invoke integration.version

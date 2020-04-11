@@ -22,6 +22,7 @@ from policy_sentry.util.actions import get_lowercase_action_list
 logger = logging.getLogger(__name__)
 
 
+# pylint: disable=too-many-instance-attributes
 class SidGroup:
     """
     This class is critical to the creation of least privilege policies.

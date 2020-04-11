@@ -224,12 +224,25 @@ def security_scan(c):
         sys.exit(1)
 
 
+# TEST - format
+@task
+def format(c):
+    """Auto format code with Python `black`"""
+    try:
+        c.run("black policy_sentry/")
+    except UnexpectedExit as u_e:
+        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
+        sys.exit(1)
+    except Failure as f_e:
+        logger.critical(f"FAIL: Failure: {f_e}")
+        sys.exit(1)
+
+
 # TEST - LINT
 @task
 def run_linter(c):
     """Linting with `pylint` and `black`"""
     try:
-        c.run('black policy_sentry/')
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
@@ -292,6 +305,7 @@ docs.add_task(open_html_docs, 'open-html')
 docs.add_task(download_latest_aws_docs, 'download_latest_aws_docs')
 
 # test.add_task(run_full_test_suite, 'all')
+test.add_task(format, 'format')
 test.add_task(run_linter, 'lint')
 test.add_task(security_scan, 'security')
 
