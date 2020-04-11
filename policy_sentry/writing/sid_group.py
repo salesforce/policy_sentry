@@ -22,6 +22,7 @@ from policy_sentry.util.actions import get_lowercase_action_list
 logger = logging.getLogger(__name__)
 
 
+# pylint: disable=too-many-instance-attributes
 class SidGroup:
     """
     This class is critical to the creation of least privilege policies.
@@ -49,6 +50,13 @@ class SidGroup:
         self.sids = {}
         self.universal_conditions = {}
         self.overrides = []
+        self.wildcard_only_single_actions = []
+        # When a user requests all wildcard-only actions available under a service at a specific access level
+        self.wildcard_only_service_read = []
+        self.wildcard_only_service_write = []
+        self.wildcard_only_service_list = []
+        self.wildcard_only_service_tagging = []
+        self.wildcard_only_service_permissions_management = []
 
     def get_sid_group(self):
         """
@@ -90,6 +98,42 @@ class SidGroup:
             self.overrides.append([overrides])
         else:
             raise Exception("Please provide 'overrides' as a list of IAM actions.")
+
+    def add_requested_service_wide(self, service_prefixes, access_level):
+        """
+        When a user requests all wildcard-only actions available under a service at a specific access level
+
+        :param service_prefixes: A list of service prefixes
+        :param access_level: The requested access level
+        """
+        if access_level == "Read":
+            self.wildcard_only_service_read = service_prefixes
+        elif access_level == "Write":
+            self.wildcard_only_service_write = service_prefixes
+        elif access_level == "List":
+            self.wildcard_only_service_list = service_prefixes
+        elif access_level == "Tagging":
+            self.wildcard_only_service_tagging = service_prefixes
+        elif access_level == "Permissions management":
+            self.wildcard_only_service_permissions_management = service_prefixes
+
+    def process_wildcard_only_actions(self):
+        """
+        After (1) the list of wildcard-only single actions have been added and (2) the list of wildcard-only service-wide actions have been added, process them and store them under the proper SID.
+        :return:
+        """
+        provided_wildcard_actions = []
+        provided_wildcard_actions = (
+            self.wildcard_only_single_actions
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_read, "Read")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_list, "List")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_write, "Write")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_tagging, "Tagging")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_permissions_management, "Permissions management")
+        )
+        self.add_wildcard_only_actions(
+            provided_wildcard_actions
+        )
 
     def get_rendered_policy(self, minimize=None):
         """
@@ -261,22 +305,7 @@ class SidGroup:
                             "access_level": row["access_level"],
                             "action": row["action"],
                         }
-                        # [row["resource_arn_format"], row["access_level"], row["action"]])
                     )
-
-        # arns_matching_supplied_actions = [{
-        #         "resource_arn_format": "*",
-        #         "access_level": "Write",
-        #         "action": "kms:createcustomkeystore"
-        #     },{
-        #         "resource_arn_format": "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}",
-        #         "access_level": "Permissions management",
-        #         "action": "kms:creategrant"
-        #     },{
-        #         "resource_arn_format": "*",
-        #         "access_level": "Permissions management",
-        #         "action": "kms:creategrant"
-        # }]
 
         # Identify the actions that do not support resource constraints
         # If that's the case, add it to the wildcard namespace. Otherwise, don't add it.
@@ -343,9 +372,7 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(provided_wildcard_actions)}"
                                 )
-                                self.add_wildcard_only_actions(
-                                    provided_wildcard_actions
-                                )
+                                self.wildcard_only_single_actions = provided_wildcard_actions
                     if "service-read" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-read"]:
                             if cfg["wildcard-only"]["service-read"][0] != "":
@@ -353,9 +380,7 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(service_read)}"
                                 )
-                                self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    service_read, "Read"
-                                )
+                                self.wildcard_only_service_read = service_read
                     if "service-write" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-write"]:
                             if cfg["wildcard-only"]["service-write"][0] != "":
@@ -363,9 +388,7 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(service_write)}"
                                 )
-                                self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    service_write, "Write"
-                                )
+                                self.wildcard_only_service_write = service_write
                     if "service-list" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-list"]:
                             if cfg["wildcard-only"]["service-list"][0] != "":
@@ -373,9 +396,7 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(service_list)}"
                                 )
-                                self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    service_list, "List"
-                                )
+                                self.wildcard_only_service_list = service_list
                     if "service-tagging" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-tagging"]:
                             if cfg["wildcard-only"]["service-tagging"][0] != "":
@@ -385,9 +406,7 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(service_tagging)}"
                                 )
-                                self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    service_tagging, "Tagging"
-                                )
+                                self.wildcard_only_service_tagging = service_tagging
                     if "service-permissions-management" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["service-permissions-management"]:
                             if (
@@ -403,10 +422,8 @@ class SidGroup:
                                 logger.debug(
                                     f"Requested wildcard-only actions: {str(service_permissions_management)}"
                                 )
-                                self.add_wildcard_only_actions_matching_services_and_access_level(
-                                    service_permissions_management,
-                                    "Permissions management",
-                                )
+                                self.wildcard_only_service_permissions_management = service_permissions_management
+                    self.process_wildcard_only_actions()
                 if "read" in cfg.keys():
                     if cfg["read"] is not None and cfg["read"][0] != "":
                         logger.debug(f"Requested access to arns: {str(cfg['read'])}")
@@ -497,16 +514,21 @@ class SidGroup:
         :param actions_to_keep: A list of actions to leave in the policy. All actions not in this list are removed.
         """
         actions_to_keep = get_lowercase_action_list(actions_to_keep)
+        actions_deleted = []
         for sid in self.sids:
             placeholder_actions_list = []
             for action in self.sids[sid]["actions"]:
                 # if the action is not in the list of selected actions, don't copy it to the placeholder list
                 if action.lower() in actions_to_keep:
                     placeholder_actions_list.append(action)
+                elif action.lower() not in actions_to_keep:
+                    logger.debug("%s not found in list of actions to keep: %s", action.lower(), actions_to_keep)
+                    actions_deleted.append(action)
             # Clear the list and then extend it to include the updated actions only
             self.sids[sid]["actions"].clear()
             self.sids[sid]["actions"].extend(placeholder_actions_list.copy())
-
+        # Highlight the actions that you remove
+        logger.debug("Actions deleted: %s", str(actions_deleted))
         # Now that we've removed a bunch of actions, if there are SID groups without any actions,
         # remove them so we don't get SIDs with empty action lists
         self.remove_sids_with_empty_action_lists()
@@ -591,6 +613,21 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list):
             if row.lower() == action.lower():
                 actions_list_placeholder.append(f"{service_name}:{action_name}")
     return actions_list_placeholder
+
+
+def get_wildcard_only_actions_matching_services_and_access_level(services, access_level):
+    """
+    :param services: A list of AWS services
+    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List',
+    'Permissions management', or 'Tagging'
+    """
+    wildcard_only_actions_to_add = []
+    for service in services:
+        actions = get_actions_at_access_level_that_support_wildcard_arns_only(
+            service, access_level
+        )
+        wildcard_only_actions_to_add.extend(actions)
+    return wildcard_only_actions_to_add
 
 
 def create_policy_sid_namespace(
