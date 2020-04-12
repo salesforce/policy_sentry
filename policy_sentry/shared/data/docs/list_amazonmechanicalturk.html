@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      Amazon Mechanical Turk - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_amazonmechanicalturk" name="target_state"/>
+  <meta content="list_amazonmechanicalturk" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonmechanicalturk.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon Mechanical Turk." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      Amazon Mechanical Turk - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_amazonmechanicalturk" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonmechanicalturk.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonmechanicalturk.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonmechanicalturk.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonmechanicalturk.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_amazonmechanicalturk" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonmechanicalturk.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#amazonmechanicalturk-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#amazonmechanicalturk-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#amazonmechanicalturk-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonmechanicalturk.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonmechanicalturk.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_amazonmechanicalturk">
+            Actions, Resources, and Condition Keys for      Amazon Mechanical Turk
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            Amazon Mechanical Turk (service prefix:
+            <code class="code">
+             mechanicalturk
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/">
+                API operations available for this        service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/SetUp.html#create-iam-user-or-role">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#amazonmechanicalturk-actions-as-permissions">
+               Actions Defined by        Amazon Mechanical Turk
+              </a>
+             </li>
+             <li>
+              <a href="#amazonmechanicalturk-resources-for-iam-policies">
+               Resource Types Defined by        Amazon Mechanical Turk
+              </a>
+             </li>
+             <li>
+              <a href="#amazonmechanicalturk-policy-keys">
+               Condition Keys for        Amazon Mechanical Turk
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="amazonmechanicalturk-actions-as-permissions">
+            Actions Defined by        Amazon Mechanical Turk
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d626c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-AcceptQualificationRequest">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_AcceptQualificationRequestOperation.html">
+                 AcceptQualificationRequest
+                </a>
+               </td>
+               <td>
+                The AcceptQualificationRequest operation grants a Worker's request for a Qualification
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ApproveAssignment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ApproveAssignmentOperation.html">
+                 ApproveAssignment
+                </a>
+               </td>
+               <td>
+                The ApproveAssignment operation approves the results of a completed assignment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-AssociateQualificationWithWorker">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_AssociateQualificationWithWorkerOperation.html">
+                 AssociateQualificationWithWorker
+                </a>
+               </td>
+               <td>
+                The AssociateQualificationWithWorker operation gives a Worker a Qualification
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateAdditionalAssignmentsForHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateAdditionalAssignmentsForHITOperation.html">
+                 CreateAdditionalAssignmentsForHIT
+                </a>
+               </td>
+               <td>
+                The CreateAdditionalAssignmentsForHIT operation increases the maximum number of assignments
+                                                of an existing HIT
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateHITOperation.html">
+                 CreateHIT
+                </a>
+               </td>
+               <td>
+                The CreateHIT operation creates a new HIT (Human Intelligence Task)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateHITType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateHITTypeOperation.html">
+                 CreateHITType
+                </a>
+               </td>
+               <td>
+                The CreateHITType operation creates a new HIT type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateHITWithHITType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateHITWithHITTypeOperation.html">
+                 CreateHITWithHITType
+                </a>
+               </td>
+               <td>
+                The CreateHITWithHITType operation creates a new Human Intelligence Task (HIT) using
+                                                an existing HITTypeID generated by the CreateHITType operation
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateQualificationTypeOperation.html">
+                 CreateQualificationType
+                </a>
+               </td>
+               <td>
+                The CreateQualificationType operation creates a new Qualification type, which is represented
+                                                by a QualificationType data structure
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-CreateWorkerBlock">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateWorkerBlockOperation.html">
+                 CreateWorkerBlock
+                </a>
+               </td>
+               <td>
+                The CreateWorkerBlock operation allows you to prevent a Worker from working on your
+                                                HITs
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-DeleteHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_DeleteHITOperation.html">
+                 DeleteHIT
+                </a>
+               </td>
+               <td>
+                The DeleteHIT operation disposes of a HIT that is no longer needed
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-DeleteQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_DeleteQualificationTypeOperation.html">
+                 DeleteQualificationType
+                </a>
+               </td>
+               <td>
+                The DeleteQualificationType disposes a Qualification type and disposes any HIT types
+                                                that are associated with the Qualification type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-DeleteWorkerBlock">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_DeleteWorkerBlockOperation.html">
+                 DeleteWorkerBlock
+                </a>
+               </td>
+               <td>
+                The DeleteWorkerBlock operation allows you to reinstate a blocked Worker to work on
+                                                your HITs
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-DisassociateQualificationFromWorker">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_DisassociateQualificationFromWorkerOperation.html">
+                 DisassociateQualificationFromWorker
+                </a>
+               </td>
+               <td>
+                The DisassociateQualificationFromWorker revokes a previously granted Qualification
+                                                from a user
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetAccountBalance">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetAccountBalanceOperation.html">
+                 GetAccountBalance
+                </a>
+               </td>
+               <td>
+                The GetAccountBalance operation retrieves the amount of money in your Amazon Mechanical
+                                                Turk account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetAssignment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetAssignmentOperation.html">
+                 GetAssignment
+                </a>
+               </td>
+               <td>
+                The GetAssignment retrieves an assignment with an AssignmentStatus value of Submitted,
+                                                Approved, or Rejected, using the assignment's ID
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetFileUploadURL">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetFileUploadURLOperation.html">
+                 GetFileUploadURL
+                </a>
+               </td>
+               <td>
+                The GetFileUploadURL operation generates and returns a temporary URL
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetHITOperation.html">
+                 GetHIT
+                </a>
+               </td>
+               <td>
+                The GetHIT operation retrieves the details of the specified HIT
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetQualificationScore">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetQualificationScoreOperation.html">
+                 GetQualificationScore
+                </a>
+               </td>
+               <td>
+                The GetQualificationScore operation returns the value of a Worker's Qualification
+                                                for a given Qualification type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-GetQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_GetQualificationTypeOperation.html">
+                 GetQualificationType
+                </a>
+               </td>
+               <td>
+                The GetQualificationType operation retrieves information about a Qualification type
+                                                using its ID
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListAssignmentsForHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListAssignmentsForHITOperation.html">
+                 ListAssignmentsForHIT
+                </a>
+               </td>
+               <td>
+                The ListAssignmentsForHIT operation retrieves completed assignments for a HIT
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListBonusPayments">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListBonusPaymentsOperation.html">
+                 ListBonusPayments
+                </a>
+               </td>
+               <td>
+                The ListBonusPayments operation retrieves the amounts of bonuses you have paid to
+                                                Workers for a given HIT or assignment
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListHITs">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListHITsOperation.html">
+                 ListHITs
+                </a>
+               </td>
+               <td>
+                The ListHITs operation returns all of a Requester's HITs
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListHITsForQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListHITsForQualificationTypeOperation.html">
+                 ListHITsForQualificationType
+                </a>
+               </td>
+               <td>
+                The ListHITsForQualificationType operation returns the HITs that use the given QualififcationType
+                                                for a QualificationRequirement
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListQualificationRequests">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListQualificationRequestsOperation.html">
+                 ListQualificationRequests
+                </a>
+               </td>
+               <td>
+                The ListQualificationRequests operation retrieves requests for Qualifications of a
+                                                particular Qualification type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListQualificationTypes">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListQualificationTypesOperation.html">
+                 ListQualificationTypes
+                </a>
+               </td>
+               <td>
+                The ListQualificationTypes operation searches for Qualification types using the specified
+                                                search query, and returns a list of Qualification types
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListReviewPolicyResultsForHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListReviewPolicyResultsForHITOperation.html">
+                 ListReviewPolicyResultsForHIT
+                </a>
+               </td>
+               <td>
+                The ListReviewPolicyResultsForHIT operation retrieves the computed results and the
+                                                actions taken in the course of executing your Review Policies during a CreateHIT operation
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListReviewableHITs">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListReviewableHITsOperation.html">
+                 ListReviewableHITs
+                </a>
+               </td>
+               <td>
+                The ListReviewableHITs operation returns all of a Requester's HITs that have not been
+                                                approved or rejected
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListWorkerBlocks">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListWorkerBlocksOperation.html">
+                 ListWorkerBlocks
+                </a>
+               </td>
+               <td>
+                The ListWorkersBlocks operation retrieves a list of Workers who are blocked from working
+                                                on your HITs
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-ListWorkersWithQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_ListWorkersWithQualificationTypeOperation.html">
+                 ListWorkersWithQualificationType
+                </a>
+               </td>
+               <td>
+                The ListWorkersWithQualificationType operation returns all of the Workers with a given
+                                                Qualification type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-NotifyWorkers">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_NotifyWorkersOperation.html">
+                 NotifyWorkers
+                </a>
+               </td>
+               <td>
+                The NotifyWorkers operation sends an email to one or more Workers that you specify
+                                                with the Worker ID
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-RejectAssignment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_RejectAssignmentOperation.html">
+                 RejectAssignment
+                </a>
+               </td>
+               <td>
+                The RejectAssignment operation rejects the results of a completed assignment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-RejectQualificationRequest">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_RejectQualificationRequestOperation.html">
+                 RejectQualificationRequest
+                </a>
+               </td>
+               <td>
+                The RejectQualificationRequest operation rejects a user's request for a Qualification
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-SendBonus">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_SendBonusOperation.html">
+                 SendBonus
+                </a>
+               </td>
+               <td>
+                The SendBonus operation issues a payment of money from your account to a Worker
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-SendTestEventNotification">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_SendTestEventNotificationOperation.html">
+                 SendTestEventNotification
+                </a>
+               </td>
+               <td>
+                The SendTestEventNotification operation causes Amazon Mechanical Turk to send a notification
+                                                message as if a HIT event occurred, according to the provided notification specification
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-UpdateExpirationForHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_UpdateExpirationForHITOperation.html">
+                 UpdateExpirationForHIT
+                </a>
+               </td>
+               <td>
+                The UpdateExpirationForHIT operation allows you extend the expiration time of a HIT
+                                                beyond is current expiration or expire a HIT immediately
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-UpdateHITReviewStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_UpdateHITReviewStatusOperation.html">
+                 UpdateHITReviewStatus
+                </a>
+               </td>
+               <td>
+                The UpdateHITReviewStatus operation toggles the status of a HIT
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-UpdateHITTypeOfHIT">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_UpdateHITTypeOfHITOperation.html">
+                 UpdateHITTypeOfHIT
+                </a>
+               </td>
+               <td>
+                The UpdateHITTypeOfHIT operation allows you to change the HITType properties of a
+                                                HIT
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-UpdateNotificationSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_UpdateNotificationSettingsOperation.html">
+                 UpdateNotificationSettings
+                </a>
+               </td>
+               <td>
+                The UpdateNotificationSettings operation creates, updates, disables or re-enables
+                                                notifications for a HIT type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmechanicalturk-UpdateQualificationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_UpdateQualificationTypeOperation.html">
+                 UpdateQualificationType
+                </a>
+               </td>
+               <td>
+                The UpdateQualificationType operation modifies the attributes of an existing Qualification
+                                                type, which is represented by a QualificationType data structure
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonmechanicalturk-resources-for-iam-policies">
+            Resource Types Defined by        Amazon Mechanical Turk
+           </h2>
+           <p>
+            Amazon Mechanical Turk does not support specifying a resource ARN in the
+            <code class="code">
+             Resource
+            </code>
+            element of an IAM policy statement. To allow access to      Amazon Mechanical Turk,
+                                    specify
+            <code class="code">
+             “Resource”: “*”
+            </code>
+            in your policy.
+           </p>
+           <h2 id="amazonmechanicalturk-policy-keys">
+            Condition Keys for        Amazon Mechanical Turk
+           </h2>
+           <p>
+            MechanicalTurk has no service-specific context keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of policy statements. For the list of the global context keys      that are
+                                    available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Keys for        Conditions
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awsmarketplaceprocurementsystemsintegration.html" id="previous">
+             AWS Marketplace Procurement Systems Integration
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazonmessagedeliveryservice.html" id="next">
+             Amazon Message Delivery Service
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>

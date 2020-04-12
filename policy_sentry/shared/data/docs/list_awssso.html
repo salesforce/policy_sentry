@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      AWS SSO - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awssso" name="target_state"/>
+  <meta content="list_awssso" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssso.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS SSO." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      AWS SSO - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_awssso" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awssso.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssso.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssso.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssso.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_awssso" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awssso.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awssso-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awssso-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#awssso-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssso.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssso.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awssso">
+            Actions, Resources, and Condition Keys for      AWS SSO
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS SSO (service prefix:
+            <code class="code">
+             sso
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/">
+                API operations available for this             service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access.html">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awssso-actions-as-permissions">
+               Actions Defined by        AWS SSO
+              </a>
+             </li>
+             <li>
+              <a href="#awssso-resources-for-iam-policies">
+               Resource Types Defined by        AWS SSO
+              </a>
+             </li>
+             <li>
+              <a href="#awssso-policy-keys">
+               Condition Keys for        AWS SSO
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awssso-actions-as-permissions">
+            Actions Defined by        AWS SSO
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d834c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-AssociateDirectory">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 AssociateDirectory
+                </a>
+               </td>
+               <td>
+                Connect a directory to be used by AWS Single Sign-On
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-AssociateProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 AssociateProfile
+                </a>
+               </td>
+               <td>
+                Create an association between a directory user or group and a profile
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreateApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateApplicationInstance
+                </a>
+               </td>
+               <td>
+                Add an application instance to AWS Single Sign-On
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreateApplicationInstanceCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateApplicationInstanceCertificate
+                </a>
+               </td>
+               <td>
+                Add a new certificate for an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreateManagedApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateManagedApplicationInstance
+                </a>
+               </td>
+               <td>
+                Add a managed application instance to AWS Single Sign-On
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreatePermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreatePermissionSet
+                </a>
+               </td>
+               <td>
+                Create a permission set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreateProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateProfile
+                </a>
+               </td>
+               <td>
+                Create a profile for an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-CreateTrust">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateTrust
+                </a>
+               </td>
+               <td>
+                Create a federation trust in a target account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeleteApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteApplicationInstance
+                </a>
+               </td>
+               <td>
+                Delete the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeleteApplicationInstanceCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteApplicationInstanceCertificate
+                </a>
+               </td>
+               <td>
+                Delete an inactive or expired certificate from the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeleteManagedApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteManagedApplicationInstance
+                </a>
+               </td>
+               <td>
+                Delete the managed application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeletePermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeletePermissionSet
+                </a>
+               </td>
+               <td>
+                Delete a permission set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeletePermissionsPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeletePermissionsPolicy
+                </a>
+               </td>
+               <td>
+                Delete the permission policy associated with a permission set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DeleteProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteProfile
+                </a>
+               </td>
+               <td>
+                Delete the profile for an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DescribePermissionsPolicies">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DescribePermissionsPolicies
+                </a>
+               </td>
+               <td>
+                Retrieve all the permissions policies associated with a permission set
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DisassociateDirectory">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DisassociateDirectory
+                </a>
+               </td>
+               <td>
+                Disassociate a directory to be used by AWS Single Sign-On
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DisassociateProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DisassociateProfile
+                </a>
+               </td>
+               <td>
+                Disassociate a directory user or group from a profile
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetApplicationInstance
+                </a>
+               </td>
+               <td>
+                Retrieve details for an application instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetApplicationTemplate">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetApplicationTemplate
+                </a>
+               </td>
+               <td>
+                Retrieve application template details
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetManagedApplicationInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetManagedApplicationInstance
+                </a>
+               </td>
+               <td>
+                Retrieve details for an application instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetMfaDeviceManagementForDirectory">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetMfaDeviceManagementForDirectory
+                </a>
+               </td>
+               <td>
+                Retrieve Mfa Device Management settings for the directory
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetPermissionSet
+                </a>
+               </td>
+               <td>
+                Retrieve details of a permission set
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetPermissionsPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetPermissionsPolicy
+                </a>
+               </td>
+               <td>
+                Retrieve all permission policies associated with a permission set
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 sso:DescribePermissionsPolicies
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetProfile
+                </a>
+               </td>
+               <td>
+                Retrieve a profile for an application instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetSSOStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetSSOStatus
+                </a>
+               </td>
+               <td>
+                Check if AWS Single Sign-On is enabled
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetSharedSsoConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetSharedSsoConfiguration
+                </a>
+               </td>
+               <td>
+                Retrieve shared configuration for the current SSO instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetSsoConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetSsoConfiguration
+                </a>
+               </td>
+               <td>
+                Retrieve configuration for the current SSO instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-GetTrust">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetTrust
+                </a>
+               </td>
+               <td>
+                Retrieve the federation trust in a target account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ImportApplicationInstanceServiceProviderMetadata">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ImportApplicationInstanceServiceProviderMetadata
+                </a>
+               </td>
+               <td>
+                Update the application instance by uploading an application SAML metadata file provided
+                                                by the service provider
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListApplicationInstanceCertificates">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListApplicationInstanceCertificates
+                </a>
+               </td>
+               <td>
+                Retrieve all of the certificates for a given application instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListApplicationInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListApplicationInstances
+                </a>
+               </td>
+               <td>
+                Retrieve all application instances
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 sso:GetApplicationInstance
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListApplicationTemplates">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListApplicationTemplates
+                </a>
+               </td>
+               <td>
+                Retrieve all supported application templates
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 sso:GetApplicationTemplate
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListApplications">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListApplications
+                </a>
+               </td>
+               <td>
+                Retrieve all supported applications
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListDirectoryAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListDirectoryAssociations
+                </a>
+               </td>
+               <td>
+                Retrieve details about the directory connected to AWS Single Sign-On
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListPermissionSets">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListPermissionSets
+                </a>
+               </td>
+               <td>
+                Retrieve all permission sets
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListProfileAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListProfileAssociations
+                </a>
+               </td>
+               <td>
+                Retrieve the directory user or group associated with the profile
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListProfiles">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListProfiles
+                </a>
+               </td>
+               <td>
+                Retrieve all profiles for an application instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 sso:GetProfile
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-PutMfaDeviceManagementForDirectory">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 PutMfaDeviceManagementForDirectory
+                </a>
+               </td>
+               <td>
+                Put Mfa Device Management settings for the directory
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-PutPermissionsPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 PutPermissionsPolicy
+                </a>
+               </td>
+               <td>
+                Add a policy to a permission set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-StartSSO">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 StartSSO
+                </a>
+               </td>
+               <td>
+                Initialize AWS Single Sign-On
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceActiveCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceActiveCertificate
+                </a>
+               </td>
+               <td>
+                Set a certificate as the active one for this application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceDisplayData">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceDisplayData
+                </a>
+               </td>
+               <td>
+                Update display data of an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceResponseConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceResponseConfiguration
+                </a>
+               </td>
+               <td>
+                Update federation response configuration for the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceResponseSchemaConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceResponseSchemaConfiguration
+                </a>
+               </td>
+               <td>
+                Update federation response schema configuration for the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceSecurityConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceSecurityConfiguration
+                </a>
+               </td>
+               <td>
+                Update security details for the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceServiceProviderConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceServiceProviderConfiguration
+                </a>
+               </td>
+               <td>
+                Update service provider related configuration for the application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateApplicationInstanceStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateApplicationInstanceStatus
+                </a>
+               </td>
+               <td>
+                Update the status of an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateDirectoryAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateDirectoryAssociation
+                </a>
+               </td>
+               <td>
+                Update the user attribute mappings for your connected directory
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateManagedApplicationInstanceStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateManagedApplicationInstanceStatus
+                </a>
+               </td>
+               <td>
+                Update the status of a managed application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdatePermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdatePermissionSet
+                </a>
+               </td>
+               <td>
+                Update the permission set.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateProfile">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateProfile
+                </a>
+               </td>
+               <td>
+                Update the profile for an application instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateSSOConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateSSOConfiguration
+                </a>
+               </td>
+               <td>
+                Update the configuration for the current SSO instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-UpdateTrust">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UpdateTrust
+                </a>
+               </td>
+               <td>
+                Update the federation trust in a target account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awssso-resources-for-iam-policies">
+            Resource Types Defined by        AWS SSO
+           </h2>
+           <p>
+            AWS SSO does not support specifying a resource ARN in the
+            <code class="code">
+             Resource
+            </code>
+            element of an IAM policy statement. To allow access to      AWS SSO, specify
+            <code class="code">
+             “Resource”: “*”
+            </code>
+            in your policy.
+           </p>
+           <h2 id="awssso-policy-keys">
+            Condition Keys for        AWS SSO
+           </h2>
+           <p>
+            SSO has no service-specific context keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of policy statements. For the list of the global context keys      that are
+                                    available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Keys for        Conditions
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_amazonsqs.html" id="previous">
+             Amazon SQS
+            </div>
+            <div accesskey="n" class="next-link" href="./list_awsssodirectory.html" id="next">
+             AWS SSO Directory
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>
