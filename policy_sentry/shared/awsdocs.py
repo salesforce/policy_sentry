@@ -68,7 +68,7 @@ def update_html_docs_directory(html_docs_destination):
     # Remove the relative path so we can download it
     html_filenames = [sub.replace("./", "") for sub in initial_html_filenames_list]
     # Replace '.html' with '.partial.html' because that's where the current docs live
-    html_filenames = [sub.replace(".html", ".partial.html") for sub in html_filenames]
+    # html_filenames = [sub.replace(".html", ".partial.html") for sub in html_filenames]
 
     for page in html_filenames:
         response = requests.get(link_url_prefix + page, allow_redirects=False)
@@ -89,6 +89,21 @@ def update_html_docs_directory(html_docs_destination):
                 link.attrs["href"] = link.attrs["href"].replace(
                     temp, f"https://docs.aws.amazon.com{temp}"
                 )
+
+        for script in soup.find_all("script"):
+            try:
+                if "src" in script.attrs:
+                    if script.get("src").startswith("/"):
+                        temp = script.attrs["src"]
+                        script.attrs["src"] = script.attrs["src"].replace(
+                            temp, f"https://docs.aws.amazon.com{temp}"
+                        )
+            except TypeError as t_e:
+                logger.warning(t_e)
+                logger.warning(script)
+            except AttributeError as a_e:
+                logger.warning(a_e)
+                logger.warning(script)
 
         with open(os.path.join(html_docs_destination, page), "w") as file:
             # file.write(str(soup.html))

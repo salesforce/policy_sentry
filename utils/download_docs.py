@@ -13,7 +13,8 @@ from policy_sentry.shared.awsdocs import create_database, update_html_docs_direc
 from policy_sentry.shared.constants import (
     BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_DATA_DIRECTORY,
-    BUNDLED_DATASTORE_FILE_PATH
+    # BUNDLED_DATASTORE_FILE_PATH,
+    BUNDLED_HTML_DIRECTORY_PATH
 )
 
 BASE_DIR = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
@@ -21,10 +22,17 @@ BASE_DIR = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.p
 
 if __name__ == '__main__':
     print("Downloading the latest AWS documentation from the Actions, Resources, and Condition Keys page")
-    # update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
-    print("Building the IAM database")
+    test = BUNDLED_HTML_DIRECTORY_PATH
+    update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
+    # Can't use the version of the same variable from the policy_sentry/shares/constants.py
+    # file because of some syspath nonsense.
+    BUNDLED_DATASTORE_FILE_PATH = os.path.join(
+        str(Path(os.path.dirname(__file__))), "policy_sentry", "shared", "data", "iam-definition.json"
+    )
     if os.path.exists(BUNDLED_DATASTORE_FILE_PATH):
+        print("Datastore exists. Deleting then rebuilding...")
         os.remove(BUNDLED_DATASTORE_FILE_PATH)
+    print("Building the IAM database")
     create_database(BUNDLED_DATA_DIRECTORY, BUNDLED_ACCESS_OVERRIDES_FILE)
     # print("Exporting the IAM database to CSV")
     # write_iam_database_to_csv()

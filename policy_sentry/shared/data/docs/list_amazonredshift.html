@@ -1,0 +1,3654 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      Amazon Redshift - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_amazonredshift" name="target_state"/>
+  <meta content="list_amazonredshift" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshift.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon Redshift." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      Amazon Redshift - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_amazonredshift" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonredshift.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonredshift.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonredshift.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonredshift.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_amazonredshift" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonredshift.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#amazonredshift-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#amazonredshift-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#amazonredshift-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonredshift.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonredshift.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_amazonredshift">
+            Actions, Resources, and Condition Keys for      Amazon Redshift
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            Amazon Redshift (service prefix:
+            <code class="code">
+             redshift
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/redshift/latest/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/">
+                API operations available for this        service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-authentication-access-control.html">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#amazonredshift-actions-as-permissions">
+               Actions Defined by        Amazon Redshift
+              </a>
+             </li>
+             <li>
+              <a href="#amazonredshift-resources-for-iam-policies">
+               Resource Types Defined by        Amazon Redshift
+              </a>
+             </li>
+             <li>
+              <a href="#amazonredshift-policy-keys">
+               Condition Keys for        Amazon Redshift
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="amazonredshift-actions-as-permissions">
+            Actions Defined by        Amazon Redshift
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d726c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-AcceptReservedNodeExchange">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_AcceptReservedNodeExchange.html">
+                 AcceptReservedNodeExchange
+                </a>
+               </td>
+               <td>
+                Grants permission to exchange a DC1 reserved node for a DC2 reserved node with no
+                                                changes to the configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-AuthorizeClusterSecurityGroupIngress">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html">
+                 AuthorizeClusterSecurityGroupIngress
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to add an inbound (ingress) rule to an Amazon Redshift security
+                                                group
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroup">
+                  securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroupingress-ec2securitygroup">
+                  securitygroupingress-ec2securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-AuthorizeSnapshotAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html">
+                 AuthorizeSnapshotAccess
+                </a>
+               </td>
+               <td>
+                Grants permission to the specified AWS account to restore a snapshot
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-BatchDeleteClusterSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_BatchDeleteClusterSnapshots.html">
+                 BatchDeleteClusterSnapshots
+                </a>
+               </td>
+               <td>
+                Grants permission to delete snapshots in a batch of size upto 100
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-BatchModifyClusterSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_BatchModifyClusterSnapshots.html">
+                 BatchModifyClusterSnapshots
+                </a>
+               </td>
+               <td>
+                Grants permission to modify settings for a list of snapshots
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CancelQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 CancelQuery
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to cancel a query through the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CancelQuerySession">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 CancelQuerySession
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to see queries in the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CancelResize">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CancelResize.html">
+                 CancelResize
+                </a>
+               </td>
+               <td>
+                Grants permission to cancel a resize operation
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CopyClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html">
+                 CopyClusterSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to copy a cluster snapshot
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html">
+                 CreateCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to create a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateClusterParameterGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html">
+                 CreateClusterParameterGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon Redshift parameter group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-parametergroup">
+                  parametergroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateClusterSecurityGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html">
+                 CreateClusterSecurityGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon Redshift security group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroup">
+                  securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html">
+                 CreateClusterSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to create a manual snapshot of the specified cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateClusterSubnetGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html">
+                 CreateClusterSubnetGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon Redshift subnet group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-subnetgroup">
+                  subnetgroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-CreateClusterUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-role-permissions.html">
+                 CreateClusterUser
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to automatically create the specified Amazon Redshift user if it
+                                                does not exist
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-dbuser">
+                  dbuser*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-redshift_DbUser">
+                  redshift:DbUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateEventSubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html">
+                 CreateEventSubscription
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon Redshift event notification subscription
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-eventsubscription">
+                  eventsubscription*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateHsmClientCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmClientCertificate.html">
+                 CreateHsmClientCertificate
+                </a>
+               </td>
+               <td>
+                Grants permission to create an HSM client certificate that a cluster uses to connect
+                                                to an HSM
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-hsmclientcertificate">
+                  hsmclientcertificate*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateHsmConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmConfiguration.html">
+                 CreateHsmConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to create an HSM configuration that contains information required
+                                                by a cluster to store and use database encryption keys in a hardware security module
+                                                (HSM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-hsmconfiguration">
+                  hsmconfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateSavedQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 CreateSavedQuery
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create saved SQL queries through the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateScheduledAction">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateScheduledAction.html">
+                 CreateScheduledAction
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon Redshift scheduled action
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateSnapshotCopyGrant">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotCopyGrant.html">
+                 CreateSnapshotCopyGrant
+                </a>
+               </td>
+               <td>
+                Grants permission to create a snapshot copy grant and encrypt copied snapshots in
+                                                a destination AWS Region
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotcopygrant">
+                  snapshotcopygrant*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateSnapshotSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotSchedule.html">
+                 CreateSnapshotSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to create a snapshot schedule
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotschedule">
+                  snapshotschedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-CreateTags">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html">
+                 CreateTags
+                </a>
+               </td>
+               <td>
+                Grants permission to add one or more tags to a specified resource
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html">
+                 DeleteCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a previously provisioned cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteClusterParameterGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html">
+                 DeleteClusterParameterGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Redshift parameter group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-parametergroup">
+                  parametergroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteClusterSecurityGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html">
+                 DeleteClusterSecurityGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Redshift security group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroup">
+                  securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html">
+                 DeleteClusterSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a manual snapshot
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteClusterSubnetGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html">
+                 DeleteClusterSubnetGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a cluster subnet group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-subnetgroup">
+                  subnetgroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteEventSubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html">
+                 DeleteEventSubscription
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Redshift event notification subscription
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-eventsubscription">
+                  eventsubscription*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteHsmClientCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmClientCertificate.html">
+                 DeleteHsmClientCertificate
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an HSM client certificate
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-hsmclientcertificate">
+                  hsmclientcertificate*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteHsmConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmConfiguration.html">
+                 DeleteHsmConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Redshift HSM configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-hsmconfiguration">
+                  hsmconfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteSavedQueries">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 DeleteSavedQueries
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to delete saved SQL queries through the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteScheduledAction">
+                </a>
+                <a href="API_DeleteScheduledAction.html" target="_blank">
+                 DeleteScheduledAction
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Redshift scheduled action
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteSnapshotCopyGrant">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html">
+                 DeleteSnapshotCopyGrant
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a snapshot copy grant
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotcopygrant">
+                  snapshotcopygrant*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteSnapshotSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotSchedule.html">
+                 DeleteSnapshotSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a snapshot schedule
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotschedule">
+                  snapshotschedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DeleteTags">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html">
+                 DeleteTags
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a tag or tags from a resource
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeAccountAttributes">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeAccountAttributes.html">
+                 DescribeAccountAttributes
+                </a>
+               </td>
+               <td>
+                Grants permission to describe attributes attached to the specified AWS account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterDbRevisions">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterDbRevisions.html">
+                 DescribeClusterDbRevisions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe database revisions for a cluster
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterParameterGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html">
+                 DescribeClusterParameterGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon Redshift parameter groups, including parameter
+                                                groups you created and the default parameter group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html">
+                 DescribeClusterParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to describe parameters contained within an Amazon Redshift parameter
+                                                group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-parametergroup">
+                  parametergroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterSecurityGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html">
+                 DescribeClusterSecurityGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon Redshift security groups
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html">
+                 DescribeClusterSnapshots
+                </a>
+               </td>
+               <td>
+                Grants permission to describe one or more snapshot objects, which contain metadata
+                                                about your cluster snapshots
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterSubnetGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html">
+                 DescribeClusterSubnetGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to describe one or more cluster subnet group objects, which contain
+                                                metadata about your cluster subnet groups
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterTracks">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterTracks.html">
+                 DescribeClusterTracks
+                </a>
+               </td>
+               <td>
+                Grants permission to describe available maintenance tracks
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusterVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html">
+                 DescribeClusterVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe available Amazon Redshift cluster versions
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeClusters">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html">
+                 DescribeClusters
+                </a>
+               </td>
+               <td>
+                Grants permission to describe properties of provisioned clusters
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeDefaultClusterParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html">
+                 DescribeDefaultClusterParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to describe parameter settings for a parameter group family
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeEventCategories">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html">
+                 DescribeEventCategories
+                </a>
+               </td>
+               <td>
+                Grants permission to describe event categories for all event source types, or for
+                                                a specified source type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeEventSubscriptions">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html">
+                 DescribeEventSubscriptions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon Redshift event notification subscriptions for
+                                                the specified AWS account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html">
+                 DescribeEvents
+                </a>
+               </td>
+               <td>
+                Grants permission to describe events related to clusters, security groups, snapshots,
+                                                and parameter groups for the past 14 days
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeHsmClientCertificates">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmClientCertificates.html">
+                 DescribeHsmClientCertificates
+                </a>
+               </td>
+               <td>
+                Grants permission to describe HSM client certificates
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeHsmConfigurations">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmConfigurations.html">
+                 DescribeHsmConfigurations
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon Redshift HSM configurations
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeLoggingStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html">
+                 DescribeLoggingStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to describe whether information, such as queries and connection
+                                                attempts, is being logged for a cluster
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeNodeConfigurationOptions">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeNodeConfigurationOptions.html">
+                 DescribeNodeConfigurationOptions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe properties of possible node configurations such as node
+                                                type, number of nodes, and disk usage for the specified action type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeOrderableClusterOptions">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html">
+                 DescribeOrderableClusterOptions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe orderable cluster options
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 DescribeQuery
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to describe a query through the Amazon Redshift console
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeReservedNodeOfferings">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html">
+                 DescribeReservedNodeOfferings
+                </a>
+               </td>
+               <td>
+                Grants permission to describe available reserved node offerings by Amazon Redshift
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeReservedNodes">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html">
+                 DescribeReservedNodes
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the reserved nodes
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeResize">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html">
+                 DescribeResize
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the last resize operation for a cluster
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeSavedQueries">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 DescribeSavedQueries
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to describe saved queries through the Amazon Redshift console
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeScheduledActions">
+                </a>
+                <a href="API_DescribeScheduledActions.html" target="_blank">
+                 DescribeScheduledActions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe created Amazon Redshift scheduled actions
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeSnapshotCopyGrants">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html">
+                 DescribeSnapshotCopyGrants
+                </a>
+               </td>
+               <td>
+                Grants permission to describe snapshot copy grants owned by the specified AWS account
+                                                in the destination AWS Region
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeSnapshotSchedules">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotSchedules.html">
+                 DescribeSnapshotSchedules
+                </a>
+               </td>
+               <td>
+                Grants permission to describe snapshot schedules
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotschedule">
+                  snapshotschedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeStorage">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeStorage.html">
+                 DescribeStorage
+                </a>
+               </td>
+               <td>
+                Grants permission to describe account level backups storage size and provisional storage
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeTable">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 DescribeTable
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to describe a table through the Amazon Redshift console
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeTableRestoreStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTableRestoreStatus.html">
+                 DescribeTableRestoreStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to describe status of one or more table restore requests made using
+                                                the RestoreTableFromClusterSnapshot API action
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeTags">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html">
+                 DescribeTags
+                </a>
+               </td>
+               <td>
+                Grants permission to describe tags
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DisableLogging">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html">
+                 DisableLogging
+                </a>
+               </td>
+               <td>
+                Grants permission to disable logging information, such as queries and connection attempts,
+                                                for a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DisableSnapshotCopy">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html">
+                 DisableSnapshotCopy
+                </a>
+               </td>
+               <td>
+                Grants permission to disable the automatic copy of snapshots for a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-EnableLogging">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html">
+                 EnableLogging
+                </a>
+               </td>
+               <td>
+                Grants permission to enable logging information, such as queries and connection attempts,
+                                                for a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-EnableSnapshotCopy">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html">
+                 EnableSnapshotCopy
+                </a>
+               </td>
+               <td>
+                Grants permission to enable the automatic copy of snapshots for a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ExecuteQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ExecuteQuery
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to execute a query through the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-FetchResults">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 FetchResults
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to fetch query results through the Amazon Redshift console
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="amazonredshift-GetClusterCredentials">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+                 GetClusterCredentials
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to get temporary credentials to access an Amazon Redshift database
+                                                by the specified AWS account
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-dbuser">
+                  dbuser*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonredshift-dbgroup">
+                  dbgroup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonredshift-dbname">
+                  dbname
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-redshift_DbName">
+                  redshift:DbName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-redshift_DbUser">
+                  redshift:DbUser
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-redshift_DurationSeconds">
+                  redshift:DurationSeconds
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-GetReservedNodeExchangeOfferings">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetReservedNodeExchangeOfferings.html">
+                 GetReservedNodeExchangeOfferings
+                </a>
+               </td>
+               <td>
+                Grants permission to get an array of DC2 ReservedNodeOfferings that matches the payment
+                                                type, term, and usage price of the given DC1 reserved node
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-JoinGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+                 JoinGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to join the specified Amazon Redshift group
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-dbgroup">
+                  dbgroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ListDatabases">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ListDatabases
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list databases through the Amazon Redshift console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ListSavedQueries">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ListSavedQueries
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list saved queries through the Amazon Redshift console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ListSchemas">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ListSchemas
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list schemas through the Amazon Redshift console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ListTables">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ListTables
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list tables through the Amazon Redshift console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html">
+                 ModifyCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the settings of a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterDbRevision">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterDbRevision.html">
+                 ModifyClusterDbRevision
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the database revision of a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterIamRoles">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterIamRoles.html">
+                 ModifyClusterIamRoles
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the list of AWS Identity and Access Management (IAM) roles
+                                                that can be used by a cluster to access other AWS services
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterMaintenance">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterMaintenance.html">
+                 ModifyClusterMaintenance
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the maintenance settings of a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterParameterGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html">
+                 ModifyClusterParameterGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the parameters of a parameter group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-parametergroup">
+                  parametergroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSnapshot.html">
+                 ModifyClusterSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the settings of a snapshot
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterSnapshotSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSnapshotSchedule.html">
+                 ModifyClusterSnapshotSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to modify a snapshot schedule for a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyClusterSubnetGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html">
+                 ModifyClusterSubnetGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to modify a cluster subnet group to include the specified list of
+                                                VPC subnets
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-subnetgroup">
+                  subnetgroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyEventSubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html">
+                 ModifyEventSubscription
+                </a>
+               </td>
+               <td>
+                Grants permission to modify an existing Amazon Redshift event notification subscription
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-eventsubscription">
+                  eventsubscription*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifySavedQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ModifySavedQuery
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to modify an existing saved query through the Amazon Redshift console
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifyScheduledAction">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyScheduledAction.html">
+                 ModifyScheduledAction
+                </a>
+               </td>
+               <td>
+                Grants permission to modify an existing Amazon Redshift scheduled action
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifySnapshotCopyRetentionPeriod">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html">
+                 ModifySnapshotCopyRetentionPeriod
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the number of days to retain snapshots in the destination
+                                                AWS Region after they are copied from the source AWS Region
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ModifySnapshotSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotSchedule.html">
+                 ModifySnapshotSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to modify a snapshot schedule
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshotschedule">
+                  snapshotschedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-PauseCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_PauseCluster.html">
+                 PauseCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to pause a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-PurchaseReservedNodeOffering">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html">
+                 PurchaseReservedNodeOffering
+                </a>
+               </td>
+               <td>
+                Grants permission to purchase a reserved node
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-RebootCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html">
+                 RebootCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to reboot a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ResetClusterParameterGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html">
+                 ResetClusterParameterGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to set one or more parameters of a parameter group to their default
+                                                values and set the source values of the parameters to "engine-default"
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-parametergroup">
+                  parametergroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ResizeCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResizeCluster.html">
+                 ResizeCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to change the size of a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-RestoreFromClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html">
+                 RestoreFromClusterSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to create a cluster from a snapshot
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-RestoreTableFromClusterSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreTableFromClusterSnapshot.html">
+                 RestoreTableFromClusterSnapshot
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a table from a table in an Amazon Redshift cluster snapshot
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ResumeCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResumeCluster.html">
+                 ResumeCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to resume a cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-RevokeClusterSecurityGroupIngress">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html">
+                 RevokeClusterSecurityGroupIngress
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to revoke an ingress rule in an Amazon Redshift security group for
+                                                a previously authorized IP range or Amazon EC2 security group
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroup">
+                  securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonredshift-securitygroupingress-ec2securitygroup">
+                  securitygroupingress-ec2securitygroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-RevokeSnapshotAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html">
+                 RevokeSnapshotAccess
+                </a>
+               </td>
+               <td>
+                Grants permission to revoke access from the specified AWS account to restore a snapshot
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-RotateEncryptionKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html">
+                 RotateEncryptionKey
+                </a>
+               </td>
+               <td>
+                Grants permission to rotate an encryption key for a cluster
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ViewQueriesFromConsole">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ViewQueriesFromConsole
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view query results through the Amazon Redshift console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-ViewQueriesInConsole">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
+                 ViewQueriesInConsole
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to terminate running queries and loads through the Amazon Redshift
+                                                console
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonredshift-resources-for-iam-policies">
+            Resource Types Defined by        Amazon Redshift
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#amazonredshift-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The Resource Types Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d726c13b5">
+              <tr>
+               <th>
+                Resource Types
+               </th>
+               <th>
+                ARN
+               </th>
+               <th>
+                Condition Keys
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-cluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">
+                 cluster
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:cluster:$
+                 <span>
+                  {
+                 </span>
+                 ClusterName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-dbgroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_GROUP.html">
+                 dbgroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dbgroup:$
+                 <span>
+                  {
+                 </span>
+                 ClusterName}/$
+                 <span>
+                  {
+                 </span>
+                 DbGroup}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-dbname">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">
+                 dbname
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dbname:$
+                 <span>
+                  {
+                 </span>
+                 ClusterName}/$
+                 <span>
+                  {
+                 </span>
+                 DbName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-dbuser">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_Users.html">
+                 dbuser
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dbuser:$
+                 <span>
+                  {
+                 </span>
+                 ClusterName}/$
+                 <span>
+                  {
+                 </span>
+                 DbUser}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-eventsubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-events.html">
+                 eventsubscription
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:eventsubscription:$
+                 <span>
+                  {
+                 </span>
+                 EventSubscriptionName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-hsmclientcertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">
+                 hsmclientcertificate
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:hsmclientcertificate:$
+                 <span>
+                  {
+                 </span>
+                 HSMClientCertificateId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-hsmconfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">
+                 hsmconfiguration
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:hsmconfiguration:$
+                 <span>
+                  {
+                 </span>
+                 HSMConfigurationId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-parametergroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">
+                 parametergroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:parametergroup:$
+                 <span>
+                  {
+                 </span>
+                 ParameterGroupName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-securitygroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">
+                 securitygroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:securitygroup:$
+                 <span>
+                  {
+                 </span>
+                 SecurityGroupName}/ec2securitygroup/$
+                 <span>
+                  {
+                 </span>
+                 Owner}/$
+                 <span>
+                  {
+                 </span>
+                 Ec2SecurityGroupId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-securitygroupingress-cidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">
+                 securitygroupingress-cidr
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:securitygroupingress:$
+                 <span>
+                  {
+                 </span>
+                 SecurityGroupName}/cidrip/$
+                 <span>
+                  {
+                 </span>
+                 IpRange}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-securitygroupingress-ec2securitygroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">
+                 securitygroupingress-ec2securitygroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:securitygroupingress:$
+                 <span>
+                  {
+                 </span>
+                 SecurityGroupName}/ec2securitygroup/$
+                 <span>
+                  {
+                 </span>
+                 Owner}/$
+                 <span>
+                  {
+                 </span>
+                 Ece2SecuritygroupId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-snapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">
+                 snapshot
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:snapshot:$
+                 <span>
+                  {
+                 </span>
+                 ClusterName}/$
+                 <span>
+                  {
+                 </span>
+                 SnapshotName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-snapshotcopygrant">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#configure-snapshot-copy-grant">
+                 snapshotcopygrant
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:snapshotcopygrant:$
+                 <span>
+                  {
+                 </span>
+                 SnapshotCopyGrantName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-snapshotschedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">
+                 snapshotschedule
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:snapshotschedule:$
+                 <span>
+                  {
+                 </span>
+                 ParameterGroupName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-subnetgroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">
+                 subnetgroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:subnetgroup:$
+                 <span>
+                  {
+                 </span>
+                 SubnetGroupName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonredshift-policy-keys">
+            Condition Keys for        Amazon Redshift
+           </h2>
+           <p>
+            Amazon Redshift defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Global        Condition Keys
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d726c15b7">
+              <tr>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Type
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-redshift_DbName">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:DbName
+                </a>
+               </td>
+               <td>
+                Filters access by the database name
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-redshift_DbUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:DbUser
+                </a>
+               </td>
+               <td>
+                Filters access by the database user name
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-redshift_DurationSeconds">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:DurationSeconds
+                </a>
+               </td>
+               <td>
+                Filters access by the number of seconds until a temporary credential set expires
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_amazonrdsiamauthentication.html" id="previous">
+             Amazon RDS IAM Authentication
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazonrekognition.html" id="next">
+             Amazon Rekognition
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>

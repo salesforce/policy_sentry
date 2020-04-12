@@ -1,0 +1,4483 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      AWS Systems Manager - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awssystemsmanager" name="target_state"/>
+  <meta content="list_awssystemsmanager" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssystemsmanager.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS Systems Manager." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      AWS Systems Manager - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_awssystemsmanager" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awssystemsmanager.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssystemsmanager.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssystemsmanager.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssystemsmanager.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_awssystemsmanager" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awssystemsmanager.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awssystemsmanager-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awssystemsmanager-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#awssystemsmanager-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssystemsmanager.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awssystemsmanager.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awssystemsmanager">
+            Actions, Resources, and Condition Keys for      AWS Systems Manager
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS Systems Manager (service prefix:
+            <code class="code">
+             ssm
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/Welcome.html">
+                API operations available for this        service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control.html">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awssystemsmanager-actions-as-permissions">
+               Actions Defined by        AWS Systems Manager
+              </a>
+             </li>
+             <li>
+              <a href="#awssystemsmanager-resources-for-iam-policies">
+               Resource Types Defined by        AWS Systems Manager
+              </a>
+             </li>
+             <li>
+              <a href="#awssystemsmanager-policy-keys">
+               Condition Keys for        AWS Systems Manager
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awssystemsmanager-actions-as-permissions">
+            Actions Defined by        AWS Systems Manager
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d858c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="awssystemsmanager-AddTagsToResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html">
+                 AddTagsToResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permission to add or overwrite one or more tags for a specified AWS resource
+               </td>
+               <td rowspan="5">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CancelCommand">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CancelCommand.html">
+                 CancelCommand
+                </a>
+               </td>
+               <td>
+                Grants permission to cancel a specified Run Command command
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CancelMaintenanceWindowExecution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CancelMaintenanceWindowExecution.html">
+                 CancelMaintenanceWindowExecution
+                </a>
+               </td>
+               <td>
+                Grants permission to cancel an in-progress maintenance window execution
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateActivation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateActivation.html">
+                 CreateActivation
+                </a>
+               </td>
+               <td>
+                Grants permission to create an activation that is used to register on-premises servers
+                                                and virtual machines (VMs) with Systems Manager
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html">
+                 CreateAssociation
+                </a>
+               </td>
+               <td>
+                Grants permission to associate a specified Systems Manager document with specified
+                                                instances or other targets
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateAssociationBatch">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociationBatch.html">
+                 CreateAssociationBatch
+                </a>
+               </td>
+               <td>
+                Grants permission to combine entries for multiple CreateAssociation operations in
+                                                a single command
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateDocument">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html">
+                 CreateDocument
+                </a>
+               </td>
+               <td>
+                Grants permission to create a Systems Manager SSM document
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateMaintenanceWindow.html">
+                 CreateMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to create a maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreateOpsItem">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html">
+                 CreateOpsItem
+                </a>
+               </td>
+               <td>
+                Grants permission to create an OpsItem in OpsCenter
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-CreatePatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html">
+                 CreatePatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to create a patch baseline
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanager-CreateResourceDataSync">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateResourceDataSync.html">
+                 CreateResourceDataSync
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a resource data sync configuration, which regularly collects
+                                                inventory data from managed instances and updates the data in an Amazon S3 bucket
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-resourcedatasync">
+                  resourcedatasync*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-ssm_SyncType">
+                  ssm:SyncType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteActivation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteActivation.html">
+                 DeleteActivation
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified activation for managed instances
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteAssociation.html">
+                 DeleteAssociation
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate a specified SSM document from a specified instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteDocument">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteDocument.html">
+                 DeleteDocument
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified SSM document and its instance associations
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteInventory">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html">
+                 DeleteInventory
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified custom inventory type, or the data associated
+                                                with a custom inventory type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteMaintenanceWindow.html">
+                 DeleteMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteParameter">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html">
+                 DeleteParameter
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified SSM parameter
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeleteParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html">
+                 DeleteParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to delete multiple specified SSM parameters
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeletePatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeletePatchBaseline.html">
+                 DeletePatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specified patch baseline
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanager-DeleteResourceDataSync">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteResourceDataSync.html">
+                 DeleteResourceDataSync
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a specified resource data sync
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-resourcedatasync">
+                  resourcedatasync*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-ssm_SyncType">
+                  ssm:SyncType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeregisterManagedInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html">
+                 DeregisterManagedInstance
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister a specified on-premises server or virtual machine
+                                                (VM) from Systems Manager
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeregisterPatchBaselineForPatchGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterPatchBaselineForPatchGroup.html">
+                 DeregisterPatchBaselineForPatchGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister a specified patch baseline from being the default
+                                                patch baseline for a specified patch group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeregisterTargetFromMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterTargetFromMaintenanceWindow.html">
+                 DeregisterTargetFromMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister a specified target from a maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DeregisterTaskFromMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterTaskFromMaintenanceWindow.html">
+                 DeregisterTaskFromMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister a specified task from a maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeActivations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeActivations.html">
+                 DescribeActivations
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified managed instance activation, such
+                                                as when it was created and the number of instances registered using the activation
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociation.html">
+                 DescribeAssociation
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about the specified association for a specified
+                                                instance or target
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAssociationExecutionTargets">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html">
+                 DescribeAssociationExecutionTargets
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about a specified association execution
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAssociationExecutions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html">
+                 DescribeAssociationExecutions
+                </a>
+               </td>
+               <td>
+                Grants permission to view all executions for a specified association
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAutomationExecutions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html">
+                 DescribeAutomationExecutions
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about all active and terminated Automation executions
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAutomationStepExecutions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html">
+                 DescribeAutomationStepExecutions
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about all active and terminated step executions
+                                                in an Automation workflow
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeAvailablePatches">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAvailablePatches.html">
+                 DescribeAvailablePatches
+                </a>
+               </td>
+               <td>
+                Grants permission to view all patches eligible to include in a patch baseline
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeDocument">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html">
+                 DescribeDocument
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified SSM document
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeDocumentParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
+                 DescribeDocumentParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to display information about SSM document parameters in the Systems
+                                                Manager console (internal Systems Manager action)
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeDocumentPermission">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocumentPermission.html">
+                 DescribeDocumentPermission
+                </a>
+               </td>
+               <td>
+                Grants permission to view the permissions for a specified SSM document
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeEffectiveInstanceAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeEffectiveInstanceAssociations.html">
+                 DescribeEffectiveInstanceAssociations
+                </a>
+               </td>
+               <td>
+                Grants permission to view all current associations for a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeEffectivePatchesForPatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeEffectivePatchesForPatchBaseline.html">
+                 DescribeEffectivePatchesForPatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about the patches currently associated with the
+                                                specified patch baseline (Windows only)
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstanceAssociationsStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceAssociationsStatus.html">
+                 DescribeInstanceAssociationsStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to view the status of the associations for a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstanceInformation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceInformation.html">
+                 DescribeInstanceInformation
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstancePatchStates">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStates.html">
+                 DescribeInstancePatchStates
+                </a>
+               </td>
+               <td>
+                Grants permission to view status details about patches on a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstancePatchStatesForPatchGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html">
+                 DescribeInstancePatchStatesForPatchGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the high-level patch state for the instances in the
+                                                specified patch group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstancePatches">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatches.html">
+                 DescribeInstancePatches
+                </a>
+               </td>
+               <td>
+                Grants permission to view general details about the patches on a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInstanceProperties">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
+                 DescribeInstanceProperties
+                </a>
+               </td>
+               <td>
+                Grants permission to user's Amazon EC2 console to render managed instances' nodes
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeInventoryDeletions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInventoryDeletions.html">
+                 DescribeInventoryDeletions
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified inventory deletion
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowExecutionTaskInvocations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowExecutionTaskInvocations.html">
+                 DescribeMaintenanceWindowExecutionTaskInvocations
+                </a>
+               </td>
+               <td>
+                Grants permission to view details of a specified task execution for a maintenance
+                                                window
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowExecutionTasks">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowExecutionTasks.html">
+                 DescribeMaintenanceWindowExecutionTasks
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about the tasks that ran during a specified maintenance
+                                                window execution
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowExecutions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowExecutions.html">
+                 DescribeMaintenanceWindowExecutions
+                </a>
+               </td>
+               <td>
+                Grants permission to view the executions of a specified maintenance window
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowSchedule.html">
+                 DescribeMaintenanceWindowSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about upcoming executions of a specified maintenance
+                                                window
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowTargets">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowTargets.html">
+                 DescribeMaintenanceWindowTargets
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of the targets associated with a specified maintenance
+                                                window
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowTasks">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowTasks.html">
+                 DescribeMaintenanceWindowTasks
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of the tasks associated with a specified maintenance
+                                                window
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindows">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html">
+                 DescribeMaintenanceWindows
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about all or specified maintenance windows
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeMaintenanceWindowsForTarget">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowsForTarget.html">
+                 DescribeMaintenanceWindowsForTarget
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about the maintenance window targets and tasks
+                                                associated with a specified instance
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeOpsItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html">
+                 DescribeOpsItems
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about specified OpsItems
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html">
+                 DescribeParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified SSM parameter
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribePatchBaselines">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html">
+                 DescribePatchBaselines
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about patch baselines that meet the specified
+                                                criteria
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribePatchGroupState">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroupState.html">
+                 DescribePatchGroupState
+                </a>
+               </td>
+               <td>
+                Grants permission to view aggregated status details for patches for a specified patch
+                                                group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribePatchGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroups.html">
+                 DescribePatchGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about the patch baseline for a specified patch
+                                                group
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribePatchProperties">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">
+                 DescribePatchProperties
+                </a>
+               </td>
+               <td>
+                Grants permission to view details of available patches for a specified operating system
+                                                and patch property
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-DescribeSessions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeSessions.html">
+                 DescribeSessions
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of recent Session Manager sessions that meet the
+                                                specified search criteria
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetAutomationExecution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AutomationExecution.html">
+                 GetAutomationExecution
+                </a>
+               </td>
+               <td>
+                Grants permission to view details of a specified Automation execution
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetCommandInvocation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetCommandInvocation.html">
+                 GetCommandInvocation
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about the command execution of a specified invocation
+                                                or plugin
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetConnectionStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetConnectionStatus.html">
+                 GetConnectionStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to view the Session Manager connection status for a specified managed
+                                                instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetDefaultPatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetDefaultPatchBaseline.html">
+                 GetDefaultPatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to view the current default patch baseline for a specified operating
+                                                system type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetDeployablePatchSnapshotForInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetDeployablePatchSnapshotForInstance.html">
+                 GetDeployablePatchSnapshotForInstance
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the current patch baseline snapshot for a specified
+                                                instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetDocument">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetDocument.html">
+                 GetDocument
+                </a>
+               </td>
+               <td>
+                Grants permission to view the contents of a specified SSM document
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetInventory">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html">
+                 GetInventory
+                </a>
+               </td>
+               <td>
+                Grants permission to view instance inventory details per the specified criteria
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetInventorySchema">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventorySchema.html">
+                 GetInventorySchema
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of inventory types or attribute names for a specified
+                                                inventory item type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetMaintenanceWindow.html">
+                 GetMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified maintenance window
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetMaintenanceWindowExecution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetMaintenanceWindowExecution.html">
+                 GetMaintenanceWindowExecution
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified maintenance window execution
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetMaintenanceWindowExecutionTask">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetMaintenanceWindowExecutionTask.html">
+                 GetMaintenanceWindowExecutionTask
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specified maintenance window execution task
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetMaintenanceWindowExecutionTaskInvocation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetMaintenanceWindowExecutionTaskInvocation.html">
+                 GetMaintenanceWindowExecutionTaskInvocation
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about a specific maintenance window task running
+                                                on a specific target
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetMaintenanceWindowTask">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetMaintenanceWindowTask.html">
+                 GetMaintenanceWindowTask
+                </a>
+               </td>
+               <td>
+                Grants permission to view details about tasks registered with a specified maintenance
+                                                window
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetManifest">
+                </a>
+                GetManifest
+               </td>
+               <td>
+                Used by Systems Manager and SSM Agent to determine package installation requirements
+                                                for an instance (internal Systems Manager call)
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetOpsItem">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html">
+                 GetOpsItem
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about a specified OpsItem
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetOpsSummary">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html">
+                 GetOpsSummary
+                </a>
+               </td>
+               <td>
+                Grants permission to view summary information about OpsItems based on specified filters
+                                                and aggregators
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-resourcedatasync">
+                  resourcedatasync*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetParameter">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html">
+                 GetParameter
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about a specified parameter
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetParameterHistory">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html">
+                 GetParameterHistory
+                </a>
+               </td>
+               <td>
+                Grants permission to view details and changes for a specified parameter
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html">
+                 GetParameters
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about multiple specified parameters
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetParametersByPath">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html">
+                 GetParametersByPath
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about parameters in a specified hierarchy
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetPatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetPatchBaseline.html">
+                 GetPatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about a specified patch baseline
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetPatchBaselineForPatchGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetPatchBaselineForPatchGroup.html">
+                 GetPatchBaselineForPatchGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to view the ID of the current patch baseline for a specified patch
+                                                group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-GetServiceSetting">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html">
+                 GetServiceSetting
+                </a>
+               </td>
+               <td>
+                Grants permission to view the account-level setting for an AWS service
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-servicesetting">
+                  servicesetting*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-LabelParameterVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_LabelParameterVersion.html">
+                 LabelParameterVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to apply an identifying label to a specified version of a parameter
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListAssociationVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListAssociationVersions.html">
+                 ListAssociationVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list versions of the specified association
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListAssociations.html">
+                 ListAssociations
+                </a>
+               </td>
+               <td>
+                Grants permission to list the associations for a specified SSM document or managed
+                                                instance
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListCommandInvocations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCommandInvocations.html">
+                 ListCommandInvocations
+                </a>
+               </td>
+               <td>
+                Grants permission to list information about command invocations sent to a specified
+                                                instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListCommands">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCommands.html">
+                 ListCommands
+                </a>
+               </td>
+               <td>
+                Grants permission to list the commands sent to a specified instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListComplianceItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListComplianceItems.html">
+                 ListComplianceItems
+                </a>
+               </td>
+               <td>
+                Grants permission to list compliance status for specified resource types on a specified
+                                                resource
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListComplianceSummaries">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListComplianceSummaries.html">
+                 ListComplianceSummaries
+                </a>
+               </td>
+               <td>
+                Grants permission to list a summary count of compliant and noncompliant resources
+                                                for a specified compliance type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListDocumentVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListDocumentVersions.html">
+                 ListDocumentVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list all versions of a specified document
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListDocuments">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListDocuments.html">
+                 ListDocuments
+                </a>
+               </td>
+               <td>
+                Grants permission to view information about a specified SSM document
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListInstanceAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
+                 ListInstanceAssociations
+                </a>
+               </td>
+               <td>
+                Used by SSM Agent to check for new State Manager associations (internal Systems Manager
+                                                call)
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListInventoryEntries">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListInventoryEntries.html">
+                 ListInventoryEntries
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of specified inventory types for a specified instance
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListResourceComplianceSummaries">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListResourceComplianceSummaries.html">
+                 ListResourceComplianceSummaries
+                </a>
+               </td>
+               <td>
+                Grants permission to list resource-level summary count
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ListResourceDataSync">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListResourceDataSync.html">
+                 ListResourceDataSync
+                </a>
+               </td>
+               <td>
+                Grants permission to list information about resource data sync configurations in an
+                                                account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-ssm_SyncType">
+                  ssm:SyncType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="awssystemsmanager-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permission to view a list of resource tags for a specified resource
+               </td>
+               <td rowspan="5">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ModifyDocumentPermission">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ModifyDocumentPermission.html">
+                 ModifyDocumentPermission
+                </a>
+               </td>
+               <td>
+                Grants permission to share a custom SSM document publicly or privately with specified
+                                                AWS accounts
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-PutComplianceItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html">
+                 PutComplianceItems
+                </a>
+               </td>
+               <td>
+                Grants permission to register a compliance type and other compliance details on a
+                                                specified resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-PutConfigurePackageResult">
+                </a>
+                PutConfigurePackageResult
+               </td>
+               <td>
+                Used by SSM Agent to generate a report of the results of specific agent requests (internal
+                                                Systems Manager call)
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-PutInventory">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html">
+                 PutInventory
+                </a>
+               </td>
+               <td>
+                Grants permission to add or update inventory items on multiple specified managed instances
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanager-PutParameter">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html">
+                 PutParameter
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an SSM parameter
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-RegisterDefaultPatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterDefaultPatchBaseline.html">
+                 RegisterDefaultPatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to specify the default patch baseline for an operating system type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-RegisterPatchBaselineForPatchGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterPatchBaselineForPatchGroup.html">
+                 RegisterPatchBaselineForPatchGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to specify the default patch baseline for a specified patch group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-RegisterTargetWithMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTargetWithMaintenanceWindow.html">
+                 RegisterTargetWithMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to register a target with a specified maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-RegisterTaskWithMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html">
+                 RegisterTaskWithMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to register a task with a specified maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="awssystemsmanager-RemoveTagsFromResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RemoveTagsFromResource.html">
+                 RemoveTagsFromResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permission to remove a specified tag key from a specified resource
+               </td>
+               <td rowspan="5">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-parameter">
+                  parameter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ResetServiceSetting">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html">
+                 ResetServiceSetting
+                </a>
+               </td>
+               <td>
+                Grants permission to reset the service setting for an AWS account to the default value
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-servicesetting">
+                  servicesetting*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ResumeSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResumeSession.html">
+                 ResumeSession
+                </a>
+               </td>
+               <td>
+                Grants permission to reconnect a Session Manager session to a managed instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-SendAutomationSignal">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html">
+                 SendAutomationSignal
+                </a>
+               </td>
+               <td>
+                Grants permission to send a signal to change the current behavior or status of a specified
+                                                Automation execution
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="awssystemsmanager-SendCommand">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html">
+                 SendCommand
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to run commands on one or more specified managed instances
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-instance">
+                  instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-StartAssociationsOnce">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html">
+                 StartAssociationsOnce
+                </a>
+               </td>
+               <td>
+                Grants permission to run a specified association manually
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-StartAutomationExecution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAutomationExecution.html">
+                 StartAutomationExecution
+                </a>
+               </td>
+               <td>
+                Grants permission to initiate the execution of an Automation document
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssystemsmanager-StartSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartSession.html">
+                 StartSession
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to initiate a connection to a specified target for a Session Manager
+                                                session
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-ssm_SessionDocumentAccessCheck">
+                  ssm:SessionDocumentAccessCheck
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-StopAutomationExecution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StopAutomationExecution.html">
+                 StopAutomationExecution
+                </a>
+               </td>
+               <td>
+                Grants permission to stop a specified Automation execution that is already in progress
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-TerminateSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_TerminateSession.html">
+                 TerminateSession
+                </a>
+               </td>
+               <td>
+                Grants permission to permanently end a Session Manager connection to an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateAssociation.html">
+                 UpdateAssociation
+                </a>
+               </td>
+               <td>
+                Grants permission to update an association and immediately run the association on
+                                                the specified targets
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateAssociationStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateAssociationStatus.html">
+                 UpdateAssociationStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to update the status of the SSM document associated with a specified
+                                                instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateDocument">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocument.html">
+                 UpdateDocument
+                </a>
+               </td>
+               <td>
+                Grants permission to update one or more values for an SSM document
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateDocumentDefaultVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocumentDefaultVersion.html">
+                 UpdateDocumentDefaultVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to change the default version of an SSM document
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateInstanceAssociationStatus">
+                </a>
+                UpdateInstanceAssociationStatus
+               </td>
+               <td>
+                Used by SSM Agent to update the status of the association that it is currently running
+                                                (internal Systems Manager call)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateInstanceInformation">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
+                 UpdateInstanceInformation
+                </a>
+               </td>
+               <td>
+                Used by SSM Agent to send a heartbeat signal to the Systems Manager service in the
+                                                cloud
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateMaintenanceWindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindow.html">
+                 UpdateMaintenanceWindow
+                </a>
+               </td>
+               <td>
+                Grants permission to update a specified maintenance window
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateMaintenanceWindowTarget">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindowTarget.html">
+                 UpdateMaintenanceWindowTarget
+                </a>
+               </td>
+               <td>
+                Grants permission to update a specified maintenance window target
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateMaintenanceWindowTask">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindowTask.html">
+                 UpdateMaintenanceWindowTask
+                </a>
+               </td>
+               <td>
+                Grants permission to update a specified maintenance window task
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-maintenancewindow">
+                  maintenancewindow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateManagedInstanceRole">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateManagedInstanceRole.html">
+                 UpdateManagedInstanceRole
+                </a>
+               </td>
+               <td>
+                Grants permission to assign or change the IAM role assigned to a specified managed
+                                                instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-managed-instance">
+                  managed-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateOpsItem">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateOpsItem.html">
+                 UpdateOpsItem
+                </a>
+               </td>
+               <td>
+                Grants permission to edit or change an OpsItem
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdatePatchBaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdatePatchBaseline.html">
+                 UpdatePatchBaseline
+                </a>
+               </td>
+               <td>
+                Grants permission to update a specified patch baseline
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-patchbaseline">
+                  patchbaseline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanager-UpdateResourceDataSync">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateResourceDataSync.html">
+                 UpdateResourceDataSync
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a resource data sync
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-resourcedatasync">
+                  resourcedatasync*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-ssm_SyncType">
+                  ssm:SyncType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-UpdateServiceSetting">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html">
+                 UpdateServiceSetting
+                </a>
+               </td>
+               <td>
+                Grants permission to update the service setting for an AWS account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-servicesetting">
+                  servicesetting*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awssystemsmanager-resources-for-iam-policies">
+            Resource Types Defined by        AWS Systems Manager
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#awssystemsmanager-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The Resource Types Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d858c13b5">
+              <tr>
+               <th>
+                Resource Types
+               </th>
+               <th>
+                ARN
+               </th>
+               <th>
+                Condition Keys
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-association">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html">
+                 association
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:association/$
+                 <span>
+                  {
+                 </span>
+                 AssociationId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-automation-execution">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-working.html">
+                 automation-execution
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:automation-execution/$
+                 <span>
+                  {
+                 </span>
+                 AutomationExecutionId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-automation-definition">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html">
+                 automation-definition
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:automation-definition/$
+                 <span>
+                  {
+                 </span>
+                 AutomationDefinitionName:VersionId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-document">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">
+                 document
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:document/$
+                 <span>
+                  {
+                 </span>
+                 DocumentName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-instance">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/iam-policy-structure.html#EC2_ARN_Format">
+                 instance
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-maintenancewindow">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html">
+                 maintenancewindow
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:maintenancewindow/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-managed-instance">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html">
+                 managed-instance
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:managed-instance/$
+                 <span>
+                  {
+                 </span>
+                 ManagedInstanceName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-managed-instance-inventory">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html">
+                 managed-instance-inventory
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:managed-instance-inventory/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-opsitem">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html">
+                 opsitem
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:opsitem/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-parameter">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html">
+                 parameter
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:parameter/$
+                 <span>
+                  {
+                 </span>
+                 FullyQualifiedParameterName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-patchbaseline">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html">
+                 patchbaseline
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:patchbaseline/$
+                 <span>
+                  {
+                 </span>
+                 PatchBaselineIdResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_resourceTag_tag-key">
+                  ssm:resourceTag/tag-key
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-session">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html">
+                 session
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:session/$
+                 <span>
+                  {
+                 </span>
+                 SessionId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-resourcedatasync">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">
+                 resourcedatasync
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:resource-data-sync/$
+                 <span>
+                  {
+                 </span>
+                 SyncName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-servicesetting">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/API_ServiceSetting.html">
+                 servicesetting
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:servicesetting/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-windowtarget">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-assign-targets.html">
+                 windowtarget
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:windowtarget/$
+                 <span>
+                  {
+                 </span>
+                 WindowTargetId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-windowtask">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-assign-tasks.html">
+                 windowtask
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:windowtask/$
+                 <span>
+                  {
+                 </span>
+                 WindowTaskId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awssystemsmanager-policy-keys">
+            Condition Keys for        AWS Systems Manager
+           </h2>
+           <p>
+            AWS Systems Manager defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Global        Condition Keys
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d858c15b7">
+              <tr>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Type
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-aws_RequestTag___TagKey_">
+                </a>
+                aws:RequestTag/$
+                <span>
+                 {
+                </span>
+                TagKey}
+               </td>
+               <td>
+                Filters 'Create' requests based on the allowed set of values for a specified tags
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 aws:ResourceTag/$
+                 <span>
+                  {
+                 </span>
+                 TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on a tag key-value pair assigned to the AWS resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters 'Create' requests based on whether mandatory tags are included in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ssm_Overwrite">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 ssm:Overwrite
+                </a>
+               </td>
+               <td>
+                Filters access by controlling whether the values for specified resources can be overwritten.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ssm_Recursive">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 ssm:Recursive
+                </a>
+               </td>
+               <td>
+                Filters access for resources created in a hierarchical structure.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ssm_SessionDocumentAccessCheck">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-sessiondocumentaccesscheck.html">
+                 ssm:SessionDocumentAccessCheck
+                </a>
+               </td>
+               <td>
+                Filters access by verifying that a user also has access to the default Session Manager
+                                                configuration document.
+               </td>
+               <td>
+                Boolean
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ssm_SyncType">
+                </a>
+                ssm:SyncType
+               </td>
+               <td>
+                Filters access by verifying that a user also has access to the ResourceDataSync SyncType
+                                                specified in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ssm_resourceTag_tag-key">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 ssm:resourceTag/tag-key
+                </a>
+               </td>
+               <td>
+                Filters access based on a tag key-value pair assigned to the Systems Manager resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awssupport.html" id="previous">
+             AWS Support
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazontextract.html" id="next">
+             Amazon Textract
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>

@@ -1,0 +1,4169 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      Amazon Lightsail - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_amazonlightsail" name="target_state"/>
+  <meta content="list_amazonlightsail" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonlightsail.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon Lightsail." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      Amazon Lightsail - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_amazonlightsail" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonlightsail.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonlightsail.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonlightsail.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonlightsail.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_amazonlightsail" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_amazonlightsail.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#amazonlightsail-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#amazonlightsail-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#amazonlightsail-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonlightsail.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_amazonlightsail.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_amazonlightsail">
+            Actions, Resources, and Condition Keys for      Amazon Lightsail
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            Amazon Lightsail (service prefix:
+            <code class="code">
+             lightsail
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://lightsail.aws.amazon.com/ls/docs/" target="_blank">
+                <span>
+                 configure this service
+                </span>
+                <awsui-icon class="awsdocs-link-icon" name="external">
+                </awsui-icon>
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/">
+                API operations available for this        service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://lightsail.aws.amazon.com/ls/docs/how-to/article/create-policy-that-grants-access-to-amazon-lightsail" target="_blank">
+                <span>
+                 using IAM
+                </span>
+                <awsui-icon class="awsdocs-link-icon" name="external">
+                </awsui-icon>
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#amazonlightsail-actions-as-permissions">
+               Actions Defined by        Amazon Lightsail
+              </a>
+             </li>
+             <li>
+              <a href="#amazonlightsail-resources-for-iam-policies">
+               Resource Types Defined by        Amazon Lightsail
+              </a>
+             </li>
+             <li>
+              <a href="#amazonlightsail-policy-keys">
+               Condition Keys for        Amazon Lightsail
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="amazonlightsail-actions-as-permissions">
+            Actions Defined by        Amazon Lightsail
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d570c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-AllocateStaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AllocateStaticIp.html">
+                 AllocateStaticIp
+                </a>
+               </td>
+               <td>
+                Creates a static IP address that can be attached to an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-AttachDisk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AttachDisk.html">
+                 AttachDisk
+                </a>
+               </td>
+               <td rowspan="2">
+                Attaches a disk to an instance.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-AttachInstancesToLoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AttachInstancesToLoadBalancer.html">
+                 AttachInstancesToLoadBalancer
+                </a>
+               </td>
+               <td rowspan="2">
+                Attaches one or more instances to a load balancer.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-AttachLoadBalancerTlsCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AttachLoadBalancerTlsCertificate.html">
+                 AttachLoadBalancerTlsCertificate
+                </a>
+               </td>
+               <td>
+                Attaches a TLS certificate to a load balancer.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-AttachStaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AttachStaticIp.html">
+                 AttachStaticIp
+                </a>
+               </td>
+               <td rowspan="2">
+                Attaches a static IP address to an instance.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CloseInstancePublicPorts">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CloseInstancePublicPorts.html">
+                 CloseInstancePublicPorts
+                </a>
+               </td>
+               <td>
+                Closes a public port of an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CopySnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CopySnapshot.html">
+                 CopySnapshot
+                </a>
+               </td>
+               <td>
+                Copies a snapshot from one AWS Region to another in Amazon Lightsail.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CreateCloudFormationStack">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html">
+                 CreateCloudFormationStack
+                </a>
+               </td>
+               <td>
+                Creates a new Amazon EC2 instance from an exported Amazon Lightsail snapshot.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-ExportSnapshotRecord">
+                  ExportSnapshotRecord*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateDisk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDisk.html">
+                 CreateDisk
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a disk.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateDiskFromSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDiskFromSnapshot.html">
+                 CreateDiskFromSnapshot
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a disk from snapshot.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateDiskSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDiskSnapshot.html">
+                 CreateDiskSnapshot
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a disk snapshot.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDomain.html">
+                 CreateDomain
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a domain resource for the specified domain name.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CreateDomainEntry">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDomainEntry.html">
+                 CreateDomainEntry
+                </a>
+               </td>
+               <td>
+                Creates one or more DNS record entries for a domain resource: Address (A), canonical
+                                                name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service
+                                                locator (SRV), or text (TXT).
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonlightsail-CreateInstanceSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateInstanceSnapshot.html">
+                 CreateInstanceSnapshot
+                </a>
+               </td>
+               <td rowspan="3">
+                Creates an instance snapshot.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateInstances.html">
+                 CreateInstances
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates one or more instances.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonlightsail-CreateInstancesFromSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateInstancesFromSnapshot.html">
+                 CreateInstancesFromSnapshot
+                </a>
+               </td>
+               <td rowspan="3">
+                Creates one or more instances based on an instance snapshot.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateKeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">
+                 CreateKeyPair
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a key pair used to authenticate and connect to an instance.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateLoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateLoadBalancer.html">
+                 CreateLoadBalancer
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a load balancer.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CreateLoadBalancerTlsCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateLoadBalancerTlsCertificate.html">
+                 CreateLoadBalancerTlsCertificate
+                </a>
+               </td>
+               <td>
+                Creates a load balancer TLS certificate.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateRelationalDatabase.html">
+                 CreateRelationalDatabase
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a new relational database.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateRelationalDatabaseFromSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateRelationalDatabaseFromSnapshot.html">
+                 CreateRelationalDatabaseFromSnapshot
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a new relational database from a snapshot.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateRelationalDatabaseSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateRelationalDatabaseSnapshot.html">
+                 CreateRelationalDatabaseSnapshot
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates a relational database snapshot.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabaseSnapshot">
+                  RelationalDatabaseSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteDisk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteDisk.html">
+                 DeleteDisk
+                </a>
+               </td>
+               <td>
+                Deletes a disk.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteDiskSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteDiskSnapshot.html">
+                 DeleteDiskSnapshot
+                </a>
+               </td>
+               <td>
+                Deletes a disk snapshot.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteDomain.html">
+                 DeleteDomain
+                </a>
+               </td>
+               <td>
+                Deletes a domain resource and all of its DNS records.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteDomainEntry">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteDomainEntry.html">
+                 DeleteDomainEntry
+                </a>
+               </td>
+               <td>
+                Deletes a DNS record entry for a domain resource.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteInstance.html">
+                 DeleteInstance
+                </a>
+               </td>
+               <td>
+                Deletes an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteInstanceSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteInstanceSnapshot.html">
+                 DeleteInstanceSnapshot
+                </a>
+               </td>
+               <td>
+                Deletes an instance snapshot.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteKeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteKeyPair.html">
+                 DeleteKeyPair
+                </a>
+               </td>
+               <td>
+                Deletes a key pair used to authenticate and connect to an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteKnownHostKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteKnownHostKeys.html">
+                 DeleteKnownHostKeys
+                </a>
+               </td>
+               <td>
+                Deletes the known host key or certificate used by the Amazon Lightsail browser-based
+                                                SSH or RDP clients to authenticate an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteLoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteLoadBalancer.html">
+                 DeleteLoadBalancer
+                </a>
+               </td>
+               <td>
+                Deletes a load balancer.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteLoadBalancerTlsCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteLoadBalancerTlsCertificate.html">
+                 DeleteLoadBalancerTlsCertificate
+                </a>
+               </td>
+               <td>
+                Deletes a load balancer TLS certificate.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteRelationalDatabase.html">
+                 DeleteRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Deletes a relational database.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteRelationalDatabaseSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteRelationalDatabaseSnapshot.html">
+                 DeleteRelationalDatabaseSnapshot
+                </a>
+               </td>
+               <td>
+                Deletes relational database snapshot.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabaseSnapshot">
+                  RelationalDatabaseSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DetachDisk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DetachDisk.html">
+                 DetachDisk
+                </a>
+               </td>
+               <td>
+                Detaches a disk from an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-DetachInstancesFromLoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DetachInstancesFromLoadBalancer.html">
+                 DetachInstancesFromLoadBalancer
+                </a>
+               </td>
+               <td rowspan="2">
+                Detaches one or more instances from a load balancer.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-DetachStaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DetachStaticIp.html">
+                 DetachStaticIp
+                </a>
+               </td>
+               <td rowspan="2">
+                Detaches a static IP from an instance to which it is attached.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DownloadDefaultKeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">
+                 DownloadDefaultKeyPair
+                </a>
+               </td>
+               <td>
+                Downloads the default key pair used to authenticate and connect to instances in a
+                                                specific AWS Region.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-ExportSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ExportSnapshot.html">
+                 ExportSnapshot
+                </a>
+               </td>
+               <td>
+                Exports an Amazon Lightsail snapshot to Amazon EC2.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetActiveNames">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetActiveNames.html">
+                 GetActiveNames
+                </a>
+               </td>
+               <td>
+                Returns the names of all active (not deleted) resources.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBlueprints">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBlueprints.html">
+                 GetBlueprints
+                </a>
+               </td>
+               <td>
+                Returns a list of instance images, or blueprints. You can use a blueprint to create
+                                                a new instance already running a specific operating system, as well as a pre-installed
+                                                application or development stack. The software that runs on your instance depends
+                                                on the blueprint you define when creating the instance.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBundles">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBundles.html">
+                 GetBundles
+                </a>
+               </td>
+               <td>
+                Returns a list of instance bundles. You can use a bundle to create a new instance
+                                                with a set of performance specifications, such as CPU count, disk size, RAM size,
+                                                and network transfer allowance. The cost of your instance depends on the bundle you
+                                                define when creating the instance.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetCloudFormationStackRecords">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCloudFormationStackRecords.html">
+                 GetCloudFormationStackRecords
+                </a>
+               </td>
+               <td>
+                Returns information about all CloudFormation stacks used to create Amazon EC2 resources
+                                                from exported Amazon Lightsail snapshots.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-CloudFormationStackRecord">
+                  CloudFormationStackRecord*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDisk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDisk.html">
+                 GetDisk
+                </a>
+               </td>
+               <td>
+                Returns information about a disk.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDiskSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDiskSnapshot.html">
+                 GetDiskSnapshot
+                </a>
+               </td>
+               <td>
+                Returns information about a disk snapshot.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDiskSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDiskSnapshots.html">
+                 GetDiskSnapshots
+                </a>
+               </td>
+               <td>
+                Returns information about all disk snapshots.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDisks">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDisks.html">
+                 GetDisks
+                </a>
+               </td>
+               <td>
+                Returns information about all disks.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDomain.html">
+                 GetDomain
+                </a>
+               </td>
+               <td>
+                Returns DNS records for a domain resource.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetDomains">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDomains.html">
+                 GetDomains
+                </a>
+               </td>
+               <td>
+                Returns DNS records for all domain resources.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetExportSnapshotRecords">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetExportSnapshotRecords.html">
+                 GetExportSnapshotRecords
+                </a>
+               </td>
+               <td>
+                Returns information about all records to export Amazon Lightsail snapshots to Amazon
+                                                EC2.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-ExportSnapshotRecord">
+                  ExportSnapshotRecord*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstance.html">
+                 GetInstance
+                </a>
+               </td>
+               <td>
+                Returns information about an instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstanceAccessDetails">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceAccessDetails.html">
+                 GetInstanceAccessDetails
+                </a>
+               </td>
+               <td>
+                Returns temporary keys you can use to authenticate and connect to an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstanceMetricData">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceMetricData.html">
+                 GetInstanceMetricData
+                </a>
+               </td>
+               <td>
+                Returns the data points for the specified metric of an instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstancePortStates">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstancePortStates.html">
+                 GetInstancePortStates
+                </a>
+               </td>
+               <td>
+                Returns the port states of an instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstanceSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceSnapshot.html">
+                 GetInstanceSnapshot
+                </a>
+               </td>
+               <td>
+                Returns information about an instance snapshot.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstanceSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceSnapshots.html">
+                 GetInstanceSnapshots
+                </a>
+               </td>
+               <td>
+                Returns information about all instance snapshots.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstanceState">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceState.html">
+                 GetInstanceState
+                </a>
+               </td>
+               <td>
+                Returns the state of an instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstances.html">
+                 GetInstances
+                </a>
+               </td>
+               <td>
+                Returns information about all instances.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetKeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetKeyPair.html">
+                 GetKeyPair
+                </a>
+               </td>
+               <td>
+                Returns information about a key pair.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetKeyPairs">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetKeyPairs.html">
+                 GetKeyPairs
+                </a>
+               </td>
+               <td>
+                Returns information about all key pairs.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetLoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancer.html">
+                 GetLoadBalancer
+                </a>
+               </td>
+               <td>
+                Returns information about a load balancer.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetLoadBalancerMetricData">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerMetricData.html">
+                 GetLoadBalancerMetricData
+                </a>
+               </td>
+               <td>
+                Returns the data points for the specified metric of a load balancer.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetLoadBalancerTlsCertificates">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteLoadBalancerTlsCertificate.html">
+                 GetLoadBalancerTlsCertificates
+                </a>
+               </td>
+               <td>
+                Returns information about a load balancer TLS certificate.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetLoadBalancers">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancers.html">
+                 GetLoadBalancers
+                </a>
+               </td>
+               <td>
+                Returns information about load balancers.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetOperation.html">
+                 GetOperation
+                </a>
+               </td>
+               <td>
+                Returns information about an operation. Operations include events such as when you
+                                                create an instance, allocate a static IP, attach a static IP, and so on.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetOperations">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetOperations.html">
+                 GetOperations
+                </a>
+               </td>
+               <td>
+                Returns information about all operations. Operations include events such as when you
+                                                create an instance, allocate a static IP, attach a static IP, and so on.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="amazonlightsail-GetOperationsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetOperationsForResource.html">
+                 GetOperationsForResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Returns operations for a resource.
+               </td>
+               <td rowspan="5">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRegions">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">
+                 GetRegions
+                </a>
+               </td>
+               <td>
+                Returns a list of all valid AWS Regions for Amazon Lightsail.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabase.html">
+                 GetRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Returns information about a relational database.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseBlueprints">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseBlueprints.html">
+                 GetRelationalDatabaseBlueprints
+                </a>
+               </td>
+               <td>
+                Returns a list of relational database images, or blueprints. You can use a blueprint
+                                                to create a new database running a specific database engine. The database engine that
+                                                runs on your database depends on the blueprint you define when creating the relational
+                                                database.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseBundles">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseBundles.html">
+                 GetRelationalDatabaseBundles
+                </a>
+               </td>
+               <td>
+                Returns a list of relational database bundles. You can use a bundle to create a new
+                                                database with a set of performance specifications, such as CPU count, disk size, RAM
+                                                size, network transfer allowance, and standard of high availability. The cost of your
+                                                database depends on the bundle you define when creating the relational database.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseEvents.html">
+                 GetRelationalDatabaseEvents
+                </a>
+               </td>
+               <td>
+                Returns events for a relational database.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseLogEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseLogEvents.html">
+                 GetRelationalDatabaseLogEvents
+                </a>
+               </td>
+               <td>
+                Returns events for the specified log stream of a relational database.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseLogStreams">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseLogStreams.html">
+                 GetRelationalDatabaseLogStreams
+                </a>
+               </td>
+               <td>
+                Returns the log streams available for a relational database.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseMasterUserPassword">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseMasterUserPassword.html">
+                 GetRelationalDatabaseMasterUserPassword
+                </a>
+               </td>
+               <td>
+                Returns the master user password of a relational database.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseMetricData">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseMetricData.html">
+                 GetRelationalDatabaseMetricData
+                </a>
+               </td>
+               <td>
+                Returns the data points for the specified metric of a relational database.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseParameters.html">
+                 GetRelationalDatabaseParameters
+                </a>
+               </td>
+               <td>
+                Returns the parameters of a relational database.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseSnapshot.html">
+                 GetRelationalDatabaseSnapshot
+                </a>
+               </td>
+               <td>
+                Returns information about a relational database snapshot.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabaseSnapshots">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseSnapshots.html">
+                 GetRelationalDatabaseSnapshots
+                </a>
+               </td>
+               <td>
+                Returns information about all relational database snapshots.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetRelationalDatabases">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabases.html">
+                 GetRelationalDatabases
+                </a>
+               </td>
+               <td>
+                Return information about all relational databases.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetStaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetStaticIp.html">
+                 GetStaticIp
+                </a>
+               </td>
+               <td>
+                Returns information about a static IP.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetStaticIps">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetStaticIps.html">
+                 GetStaticIps
+                </a>
+               </td>
+               <td>
+                Returns information about all static IPs.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-ImportKeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">
+                 ImportKeyPair
+                </a>
+               </td>
+               <td>
+                Imports a public key from a key pair.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-IsVpcPeered">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_IsVpcPeered.html">
+                 IsVpcPeered
+                </a>
+               </td>
+               <td>
+                Returns a boolean value indicating whether the Amazon Lightsail virtual private cloud
+                                                (VPC) is peered.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-OpenInstancePublicPorts">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_OpenInstancePublicPorts.html">
+                 OpenInstancePublicPorts
+                </a>
+               </td>
+               <td>
+                Adds, or opens a public port of an instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-PeerVpc">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PeerVpc.html">
+                 PeerVpc
+                </a>
+               </td>
+               <td>
+                Tries to peer the Amazon Lightsail virtual private cloud (VPC) with the default VPC.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-PutInstancePublicPorts">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PutInstancePublicPorts.html">
+                 PutInstancePublicPorts
+                </a>
+               </td>
+               <td>
+                Sets the specified open ports for an instance, and closes all ports for every protocol
+                                                not included in the request.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-RebootInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_RebootInstance.html">
+                 RebootInstance
+                </a>
+               </td>
+               <td>
+                Reboots an instance that is in a running state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-RebootRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_RebootRelationalDatabase.html">
+                 RebootRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Reboots a relational database that is in a running state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-ReleaseStaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ReleaseStaticIp.html">
+                 ReleaseStaticIp
+                </a>
+               </td>
+               <td>
+                Deletes a static IP.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-StartInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StartInstance.html">
+                 StartInstance
+                </a>
+               </td>
+               <td>
+                Starts an instance that is in a stopped state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-StartRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StartRelationalDatabase.html">
+                 StartRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Starts a relational database that is in a stopped state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-StopInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StopInstance.html">
+                 StopInstance
+                </a>
+               </td>
+               <td>
+                Stops an instance that is in a running state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-StopRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StopRelationalDatabase.html">
+                 StopRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Stops a relational database that is in a running state.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="11">
+                <a id="amazonlightsail-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="11">
+                Tags a resource.
+               </td>
+               <td rowspan="11">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-DiskSnapshot">
+                  DiskSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabaseSnapshot">
+                  RelationalDatabaseSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UnpeerVpc">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UnpeerVpc.html">
+                 UnpeerVpc
+                </a>
+               </td>
+               <td>
+                Attempts to unpeer the Amazon Lightsail virtual private cloud (VPC) from the default
+                                                VPC.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="11">
+                <a id="amazonlightsail-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="11">
+                Untags a resource.
+               </td>
+               <td rowspan="11">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Disk">
+                  Disk
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-DiskSnapshot">
+                  DiskSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-InstanceSnapshot">
+                  InstanceSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-KeyPair">
+                  KeyPair
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabaseSnapshot">
+                  RelationalDatabaseSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-StaticIp">
+                  StaticIp
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UpdateDomainEntry">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateDomainEntry.html">
+                 UpdateDomainEntry
+                </a>
+               </td>
+               <td>
+                Updates a domain recordset after it is created.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UpdateLoadBalancerAttribute">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DetachInstancesFromLoadBalancer.html">
+                 UpdateLoadBalancerAttribute
+                </a>
+               </td>
+               <td>
+                Updates a load balancer attribute, such as the health check path and session stickiness.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-LoadBalancer">
+                  LoadBalancer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UpdateRelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateRelationalDatabase.html">
+                 UpdateRelationalDatabase
+                </a>
+               </td>
+               <td>
+                Updates a relational database.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-RelationalDatabase">
+                  RelationalDatabase*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UpdateRelationalDatabaseParameters">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateRelationalDatabaseParameters.html">
+                 UpdateRelationalDatabaseParameters
+                </a>
+               </td>
+               <td>
+                Updates the parameters of a relational database.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonlightsail-resources-for-iam-policies">
+            Resource Types Defined by        Amazon Lightsail
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#amazonlightsail-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The Resource Types Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d570c13b5">
+              <tr>
+               <th>
+                Resource Types
+               </th>
+               <th>
+                ARN
+               </th>
+               <th>
+                Condition Keys
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-Domain">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_Domain.html">
+                 Domain
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:Domain/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-Instance">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_Instance.html">
+                 Instance
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:Instance/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-InstanceSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_InstanceSnapshot.html">
+                 InstanceSnapshot
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:InstanceSnapshot/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-KeyPair">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_KeyPair.html">
+                 KeyPair
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:KeyPair/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-StaticIp">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StaticIp.html">
+                 StaticIp
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:StaticIp/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-Disk">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_Disk.html">
+                 Disk
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:Disk/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DiskSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DiskSnapshot.html">
+                 DiskSnapshot
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:DiskSnapshot/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-LoadBalancer">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_LoadBalancer.html">
+                 LoadBalancer
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:LoadBalancer/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-PeeredVpc">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/PeeredVpc.html">
+                 PeeredVpc
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:PeeredVpc/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-LoadBalancerTlsCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/LoadBalancerTlsCertificate.html">
+                 LoadBalancerTlsCertificate
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:LoadBalancerTlsCertificate/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-ExportSnapshotRecord">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ExportSnapshotRecord.html">
+                 ExportSnapshotRecord
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:ExportSnapshotRecord/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CloudFormationStackRecord">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CloudFormationStackRecord.html">
+                 CloudFormationStackRecord
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:CloudFormationStackRecord/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-RelationalDatabase">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_RelationalDatabase.html">
+                 RelationalDatabase
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:RelationalDatabase/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-RelationalDatabaseSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_RelationalDatabaseSnapshot.html">
+                 RelationalDatabaseSnapshot
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:RelationalDatabaseSnapshot/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonlightsail-policy-keys">
+            Condition Keys for        Amazon Lightsail
+           </h2>
+           <p>
+            Amazon Lightsail defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Global        Condition Keys
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d570c15b7">
+              <tr>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Type
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/$
+                 <span>
+                  {
+                 </span>
+                 TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/$
+                 <span>
+                  {
+                 </span>
+                 TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awslicensemanager.html" id="previous">
+             AWS License Manager
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazonmachinelearning.html" id="next">
+             Amazon Machine Learning
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>

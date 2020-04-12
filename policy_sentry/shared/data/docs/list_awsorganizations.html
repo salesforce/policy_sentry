@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, Resources, and Condition Keys for      AWS Organizations - AWS Identity and Access Management
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awsorganizations" name="target_state"/>
+  <meta content="list_awsorganizations" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS Organizations." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="User Guide" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Control access to your AWS resources with user identity (authentication) and with policies that define specific permissions (authorization)." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="IAM" name="feedback-item"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="User Guide" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=02.06" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=02.06" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=02.06" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=02.06" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, Resources, and Condition Keys for      AWS Organizations - AWS Identity and Access Management
+        </title>
+        <meta content="iam-ug.pdf#list_awsorganizations" name="pdf"/>
+        <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
+        <meta content="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awsorganizations.md" name="github"/>
+        <meta content="aws-iam-release-notes.rss" name="rss"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awsorganizations.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awsorganizations.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awsorganizations.html" name="feedback-no"/>
+        <meta content="IAM,AWS Identity and Access Management,IAM user,user,IAM group,group,IAM role,role,permission policy,trust policy,policy,access key,password" name="keywords"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="iam-ug.pdf#list_awsorganizations" target="_blank" title="Open PDF">
+          </a>
+          <a href="https://www.amazon.com/dp/B07642VLTV" target="_blank" title="Open Kindle">
+          </a>
+          <a href="https://github.com/awsdocs/iam-user-guide/tree/master/doc_source/list_awsorganizations.md" target="_blank" title="Edit on GitHub">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           AWS Identity and Access Management
+          </a>
+          <a href="introduction.html">
+           User Guide
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awsorganizations-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awsorganizations-resources-for-iam-policies">
+           Resource Types
+          </a>
+          <a href="#awsorganizations-policy-keys">
+           Condition Keys
+          </a>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awsorganizations.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/list_awsorganizations.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awsorganizations">
+            Actions, Resources, and Condition Keys for      AWS Organizations
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS Organizations (service prefix:
+            <code class="code">
+             organizations
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/organizations/latest/userguide/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/">
+                API operations available for this        service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awsorganizations-actions-as-permissions">
+               Actions Defined by        AWS Organizations
+              </a>
+             </li>
+             <li>
+              <a href="#awsorganizations-resources-for-iam-policies">
+               Resource Types Defined by        AWS Organizations
+              </a>
+             </li>
+             <li>
+              <a href="#awsorganizations-policy-keys">
+               Condition Keys for        AWS Organizations
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awsorganizations-actions-as-permissions">
+            Actions Defined by        AWS Organizations
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d666c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-AcceptHandshake">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html">
+                 AcceptHandshake
+                </a>
+               </td>
+               <td>
+                Grants permission to send a response to the originator of a handshake agreeing to
+                                                the action proposed by the handshake request.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-handshake">
+                  handshake*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="awsorganizations-AttachPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html">
+                 AttachPolicy
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to attach a policy to a root, an organizational unit, or an individual
+                                                account.
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-CancelHandshake">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html">
+                 CancelHandshake
+                </a>
+               </td>
+               <td>
+                Grants permission to cancel a handshake.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-handshake">
+                  handshake*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-CreateAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html">
+                 CreateAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to create an AWS account that is automatically a member of the organization
+                                                with the credentials that made the request.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-CreateGovCloudAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateGovCloudAccount.html">
+                 CreateGovCloudAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to create an AWS GovCloud (US) account.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-CreateOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html">
+                 CreateOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to create an organization. The account with the credentials that
+                                                calls the CreateOrganization operation automatically becomes the master account of
+                                                the new organization.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsorganizations-CreateOrganizationalUnit">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganizationalUnit.html">
+                 CreateOrganizationalUnit
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an organizational unit (OU) within a root or parent OU.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-CreatePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html">
+                 CreatePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to create a policy that you can attach to a root, an organizational
+                                                unit (OU), or an individual AWS account.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DeclineHandshake">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html">
+                 DeclineHandshake
+                </a>
+               </td>
+               <td>
+                Grants permission to decline a handshake request. This sets the handshake state to
+                                                DECLINED and effectively deactivates the request.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-handshake">
+                  handshake*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DeleteOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html">
+                 DeleteOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to delete the organization.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DeleteOrganizationalUnit">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganizationalUnit.html">
+                 DeleteOrganizationalUnit
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an organizational unit from a root or another OU.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DeletePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html">
+                 DeletePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a policy from your organization.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html">
+                 DescribeAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve Organizations-related details about the specified account.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeCreateAccountStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeCreateAccountStatus.html">
+                 DescribeCreateAccountStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the current status of an asynchronous request to create
+                                                an account.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeEffectivePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html">
+                 DescribeEffectivePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the effective policy for an account.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeHandshake">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeHandshake.html">
+                 DescribeHandshake
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve details about a previously requested handshake.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-handshake">
+                  handshake*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html">
+                 DescribeOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieves details about the organization that the calling credentials
+                                                belong to.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribeOrganizationalUnit">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html">
+                 DescribeOrganizationalUnit
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve details about an organizational unit (OU).
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DescribePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html">
+                 DescribePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieves details about a policy.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="awsorganizations-DetachPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html">
+                 DetachPolicy
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to detach a policy from a target root, organizational unit, or account.
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DisableAWSServiceAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html">
+                 DisableAWSServiceAccess
+                </a>
+               </td>
+               <td>
+                Grants permission to disable integration of an AWS service (the service that is specified
+                                                by ServicePrincipal) with AWS Organizations.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizations_ServicePrincipal">
+                  organizations:ServicePrincipal
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-DisablePolicyType">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html">
+                 DisablePolicyType
+                </a>
+               </td>
+               <td>
+                Grants permission to disable an organization policy type in a root.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-EnableAWSServiceAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html">
+                 EnableAWSServiceAccess
+                </a>
+               </td>
+               <td>
+                Grants permission to enable integration of an AWS service (the service that is specified
+                                                by ServicePrincipal) with AWS Organizations.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizations_ServicePrincipal">
+                  organizations:ServicePrincipal
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-EnableAllFeatures">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">
+                 EnableAllFeatures
+                </a>
+               </td>
+               <td>
+                Grants permission to start the process to enable all features in an organization,
+                                                upgrading it from supporting only Consolidated Billing features.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-EnablePolicyType">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html">
+                 EnablePolicyType
+                </a>
+               </td>
+               <td>
+                Grants permission to enable a policy type in a root.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-InviteAccountToOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html">
+                 InviteAccountToOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to send an invitation to another AWS account, asking it to join
+                                                your organization as a member account.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-LeaveOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_LeaveOrganization.html">
+                 LeaveOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to remove a member account from its parent organization.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListAWSServiceAccessForOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAWSServiceAccessForOrganization.html">
+                 ListAWSServiceAccessForOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the list of the AWS services for which you enabled integration
+                                                with your organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListAccounts">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html">
+                 ListAccounts
+                </a>
+               </td>
+               <td>
+                Grants permission to list all of the the accounts in the organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsorganizations-ListAccountsForParent">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccountsForParent.html">
+                 ListAccountsForParent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the accounts in an organization that are contained by a
+                                                root or organizational unit (OU).
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsorganizations-ListChildren">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListChildren.html">
+                 ListChildren
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list all of the OUs or accounts that are contained in a parent
+                                                OU or root.
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListCreateAccountStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListCreateAccountStatus.html">
+                 ListCreateAccountStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to list the asynchronous account creation requests that are currently
+                                                being tracked for the organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListHandshakesForAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForAccount.html">
+                 ListHandshakesForAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to list all of the handshakes that are associated with an account.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListHandshakesForOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html">
+                 ListHandshakesForOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to list the handshakes that are associated with the organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsorganizations-ListOrganizationalUnitsForParent">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html">
+                 ListOrganizationalUnitsForParent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to lists all of the organizational units (OUs) in a parent organizational
+                                                unit or root.
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsorganizations-ListParents">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListParents.html">
+                 ListParents
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the root or organizational units (OUs) that serve as the
+                                                immediate parent of a child OU or account.
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListPolicies">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html">
+                 ListPolicies
+                </a>
+               </td>
+               <td>
+                Grants permission to list all of the policies in an organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsorganizations-ListPoliciesForTarget">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html">
+                 ListPoliciesForTarget
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to list all of the policies that are directly attached to a root,
+                                                organizational unit (OU), or account.
+               </td>
+               <td rowspan="3">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListRoots">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">
+                 ListRoots
+                </a>
+               </td>
+               <td>
+                Grants permission to list all of the roots that are defined in the organization.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to list all tags for the specified resource.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-ListTargetsForPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html">
+                 ListTargetsForPolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the roots, OUs, and accounts to which a policy is attached.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsorganizations-MoveAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_MoveAccount.html">
+                 MoveAccount
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to move an account from its current root or OU to another parent
+                                                root or OU.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsorganizations-root">
+                  root
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-RemoveAccountFromOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html">
+                 RemoveAccountFromOrganization
+                </a>
+               </td>
+               <td>
+                Grants permission to removes the specified account from the organization.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-account">
+                  account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to add one or more tags to the specified resource.
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to remove one or more tags from the specified resource.
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-UpdateOrganizationalUnit">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdateOrganizationalUnit.html">
+                 UpdateOrganizationalUnit
+                </a>
+               </td>
+               <td>
+                Grants permission to rename an organizational unit (OU).
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-organizationalunit">
+                  organizationalunit*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-UpdatePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html">
+                 UpdatePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to update an existing policy with a new name, description, or content.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsorganizations-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsorganizations-resources-for-iam-policies">
+            Resource Types Defined by        AWS Organizations
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsorganizations-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The Resource Types Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d666c13b5">
+              <tr>
+               <th>
+                Resource Types
+               </th>
+               <th>
+                ARN
+               </th>
+               <th>
+                Condition Keys
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-account">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 account
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:account/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}/$
+                 <span>
+                  {
+                 </span>
+                 AccountId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-handshake">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 handshake
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:handshake/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}/$
+                 <span>
+                  {
+                 </span>
+                 HandshakeType}/h-$
+                 <span>
+                  {
+                 </span>
+                 HandshakeId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-organization">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 organization
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:organization/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-organizationalunit">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 organizationalunit
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:ou/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}/ou-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationalUnitId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-policy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 policy
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:policy/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}/$
+                 <span>
+                  {
+                 </span>
+                 PolicyType}/p-$
+                 <span>
+                  {
+                 </span>
+                 PolicyId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-awspolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 awspolicy
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::aws:policy/$
+                 <span>
+                  {
+                 </span>
+                 PolicyType}/p-$
+                 <span>
+                  {
+                 </span>
+                 PolicyId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-root">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_arn-formats.html">
+                 root
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:organizations::$
+                 <span>
+                  {
+                 </span>
+                 MasterAccountId}:root/o-$
+                 <span>
+                  {
+                 </span>
+                 OrganizationId}/r-$
+                 <span>
+                  {
+                 </span>
+                 RootId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsorganizations-policy-keys">
+            Condition Keys for        AWS Organizations
+           </h2>
+           <p>
+            AWS Organizations defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available Global        Condition Keys
+            </a>
+            in the
+            <em>
+             IAM Policy Reference
+            </em>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d666c15b7">
+              <tr>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Type
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsorganizations-organizations_ServicePrincipal">
+                </a>
+                <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions_overview.html#orgs_permissions_conditionkeys">
+                 organizations:ServicePrincipal
+                </a>
+               </td>
+               <td>
+                Enables you to filter the request to only the specified service principal names.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awsopsworksconfigurationmanagement.html" id="previous">
+             AWS OpsWorks Configuration Management
+            </div>
+            <div accesskey="n" class="next-link" href="./list_awsoutposts.html" id="next">
+             AWS Outposts
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <script language="JavaScript" type="text/javascript">
+    <!--
+                    if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                    //
+                -->
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>
