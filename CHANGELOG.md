@@ -4,6 +4,8 @@
 
 ## 0.8.0.3 (Unreleased)
 * Added logging for Query functions (#161)
+* Added `get_expanded_policy` function and moved some of the `analysis.analyze` functions to `analysis.expand` (Fixes #164)
+* Fixed `analyze_by_access_level` function (Fixes #162)
 
 ## 0.8.0.2 (2020-04-12)
 * AWS IAM Data refresh
