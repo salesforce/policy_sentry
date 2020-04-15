@@ -2,7 +2,10 @@
 Methods that execute specific queries against the SQLite database for the ARN table.
 This supports the policy_sentry query functionality
 """
+import logging
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
+
+logger = logging.getLogger(__name__)
 
 
 def get_arn_data(service_prefix, resource_type_name):

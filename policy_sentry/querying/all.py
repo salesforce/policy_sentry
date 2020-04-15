@@ -1,5 +1,8 @@
 """IAM Database queries that are not specific to either the Actions, ARNs, or Condition Keys tables."""
+import logging
 from policy_sentry.shared.iam_data import iam_definition
+
+logger = logging.getLogger(__name__)
 
 
 def get_all_service_prefixes():

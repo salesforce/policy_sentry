@@ -228,6 +228,7 @@ def query_arn_table(name, service, list_arn_types, fmt):
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
+@click_log.simple_verbosity_option(logger)
 def condition_table(name, service, fmt):
     """Query the condition table from the Policy Sentry database"""
     query_condition_table(name, service, fmt)
