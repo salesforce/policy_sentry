@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.8.0.3 (Unreleased)
+* Added logging for Query functions (#161)
+
 ## 0.8.0.2 (2020-04-12)
 * AWS IAM Data refresh
 * Fixes to scraping given AWS restructuring of Actions Resources and Condition Keys page

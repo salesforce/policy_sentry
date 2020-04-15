@@ -245,6 +245,7 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
         result = None
         for action_instance in service_prefix_data["privileges"]:
             if action_instance.get("access_level") == access_level:
+                logger.debug(f"remove_actions_not_matching_access_level: Provided access level is {access_level}, matches {action_instance.get('access_level')}")
                 if action_instance.get("privilege").lower() == some_action.lower():
                     result = f"{some_service_prefix}:{action_instance.get('privilege')}"
                     break
