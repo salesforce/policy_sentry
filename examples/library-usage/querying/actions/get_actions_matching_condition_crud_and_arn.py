@@ -6,7 +6,6 @@ import json
 if __name__ == '__main__':
 
     results = get_actions_matching_condition_crud_and_arn(
-        db_session,
         "ram:ResourceArn",
         "Permissions management",
         "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}"

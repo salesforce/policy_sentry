@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_actions_with_access_level(db_session, 's3', 'Permissions management')
+    output = get_actions_with_access_level('s3', 'Permissions management')
     print(json.dumps(output, indent=4))
 
 """

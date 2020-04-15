@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_actions_that_support_wildcard_arns_only(db_session, "secretsmanager")
+    output = get_actions_that_support_wildcard_arns_only("secretsmanager")
     print(json.dumps(output, indent=4))
 
 """

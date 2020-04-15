@@ -11,7 +11,7 @@ if __name__ == '__main__':
     actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress',
                       'ec2:AuthorizeSecurityGroupIngress']
     actions_template['actions'].extend(actions_to_add)
-    policy = write_policy_with_template(db_session, actions_template)
+    policy = write_policy_with_template(actions_template)
     print(json.dumps(policy, indent=4))
 
 """

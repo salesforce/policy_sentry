@@ -1,10 +1,10 @@
 from policy_sentry.analysis.analyze import (
     determine_actions_to_expand,
     analyze_by_access_level,
-    determine_risky_actions_from_list,
     analyze_statement_by_access_level,
 )
 import unittest
+import json
 
 
 class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
@@ -146,23 +146,44 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertListEqual(result, desired_result)
 
-    def test_determine_risky_actions_from_list(self):
-        """test_determine_risky_actions_from_list: Test comparing requested actions to a list of risky actions"""
-        requested_actions = [
-            "ecr:putimage",
-            "ecr:uploadlayerpart",
-            "iam:createaccesskey",
-            "iam:deleteaccesskey",
-        ]
-        risky_actions = [
-            "iam:createaccesskey",
-            "iam:deleteaccesskey",
-            "iam:listaccesskeys",
-            "iam:updateaccesskey",
-        ]
-        actions_to_triage = determine_risky_actions_from_list(
-            requested_actions, risky_actions
-        )
-        expected = ["iam:createaccesskey", "iam:deleteaccesskey"]
-        self.maxDiff = None
-        self.assertListEqual(actions_to_triage, expected)
+    def test_gh_162(self):
+        """test_gh_162: Addressing the concern in the Github issue
+        https://github.com/salesforce/policy_sentry/issues/162"""
+        permissions_management_policy = {
+            "Statement": [
+                {
+                    "Action": [
+                        "s3:GetObject*",
+                        "s3:PutObject*"
+                    ],
+                    "Effect": "Allow",
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ],
+            "Version": "2012-10-17"
+        }
+        print('********* READ ***********')
+        results = analyze_by_access_level(permissions_management_policy, "Read")
+        print(json.dumps(results, indent=4))
+        # Rather than maintaining a large list as AWS keeps adding new actions,
+        # just verify that an expanded action exists in the list
+        self.assertTrue("s3:GetObjectAcl" in results)
+        print('********* LIST ***********')
+        results = analyze_by_access_level(permissions_management_policy, "List")
+        print(json.dumps(results, indent=4))
+        self.assertListEqual(results, [])
+        print('********* WRITE ***********')
+        results = analyze_by_access_level(permissions_management_policy, "Write")
+        print(json.dumps(results, indent=4))
+        self.assertTrue("s3:PutObjectLegalHold" in results)
+        print('********* TAGGING ***********')
+        results = analyze_by_access_level(permissions_management_policy, "Tagging")
+        print(json.dumps(results, indent=4))
+        self.assertTrue("s3:PutObjectTagging" in results)
+        print('********* PERMISSIONS-MANAGEMENT ***********')
+        results = analyze_by_access_level(permissions_management_policy, "Permissions management")
+        print(json.dumps(results, indent=4))
+        self.assertTrue("s3:PutObjectAcl" in results)
+

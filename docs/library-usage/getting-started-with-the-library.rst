@@ -9,8 +9,6 @@ This is especially useful for developers who wish to leverage Policy Sentry's ca
 
 The code example is  located `here <https://github.com/salesforce/policy_sentry/blob/master/examples/library-usage/example.py>`_. It is also shown below.
 
-We've built a trick into the `connect_db` function that developers can specify to leverage the local database. The trick is to just use `'bundled'` as the single parameter for the `connect_db` method. See the example.
-
 .. code-block:: python
 
 
@@ -18,8 +16,7 @@ We've built a trick into the `connect_db` function that developers can specify t
 
 
     def example():
-          # This is the critical line. You just need to specify `'bundled'` as the parameter.
-        actions = get_actions_for_service(db_session, 'cloud9')  # Then you can leverage any method that requires access to the database.
+        actions = get_actions_for_service('cloud9')  # Then you can leverage any method that requires access to the database.
         for action in actions:
             print(action)
 
