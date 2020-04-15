@@ -1,3 +1,4 @@
+"""Functions to expand wilcard actions into a full list of actions."""
 import logging
 import copy
 import fnmatch
@@ -43,6 +44,7 @@ def expand(action):
 
         return expanded
     return [action]
+
 
 def determine_actions_to_expand(action_list):
     """

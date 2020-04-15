@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_condition_key_details(db_session, "cloud9", "cloud9:Permissions")
+    output = get_condition_key_details("cloud9", "cloud9:Permissions")
     print(json.dumps(output, indent=4))
 
 """

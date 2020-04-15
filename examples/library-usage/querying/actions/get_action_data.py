@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_action_data(db_session, 'ram', 'createresourceshare')
+    output = get_action_data('ram', 'createresourceshare')
     print(json.dumps(output, indent=4))
 
 """

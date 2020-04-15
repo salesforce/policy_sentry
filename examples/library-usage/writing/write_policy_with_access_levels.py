@@ -17,7 +17,7 @@ if __name__ == '__main__':
     crud_template['wildcard'].extend(wildcard_actions_to_add)
     crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
     # Modify it
-    policy = write_policy_with_template(db_session, crud_template)
+    policy = write_policy_with_template(crud_template)
     print(json.dumps(policy, indent=4))
 
 

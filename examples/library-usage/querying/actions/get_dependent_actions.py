@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_dependent_actions(db_session, ["ec2:associateiaminstanceprofile"])
+    output = get_dependent_actions(["ec2:associateiaminstanceprofile"])
     print(json.dumps(output, indent=4))
 
 """

@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_raw_arns_for_service(db_session, "s3")
+    output = get_raw_arns_for_service("s3")
     print(json.dumps(output, indent=4))
 
 """

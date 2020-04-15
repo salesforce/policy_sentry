@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_actions_matching_condition_key(db_session, "ses", "ses:FeedbackAddress")
+    output = get_actions_matching_condition_key("ses", "ses:FeedbackAddress")
     print(json.dumps(output, indent=4))
 
 """

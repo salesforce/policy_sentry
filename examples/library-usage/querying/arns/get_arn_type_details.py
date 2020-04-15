@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
 
-    output = get_arn_type_details(db_session, "cloud9", "environment")
+    output = get_arn_type_details("cloud9", "environment")
     print(json.dumps(output, indent=4))
 
 """

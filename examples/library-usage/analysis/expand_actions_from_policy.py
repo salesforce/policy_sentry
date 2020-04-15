@@ -21,7 +21,7 @@ POLICY_JSON_TO_EXPAND = {
 if __name__ == '__main__':
 
     requested_actions = get_actions_from_policy(POLICY_JSON_TO_EXPAND)
-    expanded_actions = determine_actions_to_expand(db_session, requested_actions)
+    expanded_actions = determine_actions_to_expand(requested_actions)
     print(json.dumps(expanded_actions, indent=4))
 
 
