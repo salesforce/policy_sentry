@@ -242,17 +242,20 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
 
     def is_access_level(some_service_prefix, some_action):
         service_prefix_data = get_service_prefix_data(some_service_prefix.lower())
-        result = None
-        for action_instance in service_prefix_data["privileges"]:
-            if action_instance.get("access_level") == access_level:
-                logger.debug(f"remove_actions_not_matching_access_level: Provided access level is {access_level}, matches {action_instance.get('access_level')}")
-                if action_instance.get("privilege").lower() == some_action.lower():
-                    result = f"{some_service_prefix}:{action_instance.get('privilege')}"
-                    break
-        if not result:
+        this_result = None
+        if service_prefix_data:
+            if "privileges" in service_prefix_data:
+                for action_instance in service_prefix_data["privileges"]:
+                    if action_instance.get("access_level") == access_level:
+                        logger.debug(f"remove_actions_not_matching_access_level: Provided access level is {access_level}, "
+                                     f"matches {action_instance.get('access_level')}")
+                        if action_instance.get("privilege").lower() == some_action.lower():
+                            this_result = f"{some_service_prefix}:{action_instance.get('privilege')}"
+                            break
+        if not this_result:
             return False
         else:
-            return result
+            return this_result
 
     for action in actions_list:
         service_prefix, action_name = action.split(":")

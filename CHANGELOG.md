@@ -2,7 +2,7 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.8.0.3 (Unreleased)
+## 0.8.0.3 (2020-04-16)
 * Added logging for Query functions (#161)
 * Added `get_expanded_policy` function and moved some of the `analysis.analyze` functions to `analysis.expand` (Fixes #164)
 * Fixed `analyze_by_access_level` function (Fixes #162)
