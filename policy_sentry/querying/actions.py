@@ -1,6 +1,6 @@
 """
 Methods that execute specific queries against the SQLite database for the ACTIONS table.
-This supports the policy_sentry query functionality
+This supports the Policy Sentry query functionality
 """
 import logging
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
@@ -256,9 +256,19 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
             return False
         else:
             return this_result
-
+    if actions_list == ["*"]:
+        actions_list.clear()
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for some_action in service_prefix_data["privileges"]:
+                if some_action["access_level"] == access_level:
+                    actions_list.append(f"{some_prefix}:{some_action['privilege']}")
     for action in actions_list:
-        service_prefix, action_name = action.split(":")
+        try:
+            service_prefix, action_name = action.split(":")
+        except ValueError as v_e:
+            logger.debug(f"{v_e} - for action {action}")
+            continue
         result = is_access_level(service_prefix, action_name)
         if result:
             new_actions_list.append(result)
