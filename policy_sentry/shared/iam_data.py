@@ -22,4 +22,4 @@ def get_service_prefix_data(service_prefix):
     try:
         return result[0]
     except IndexError as i_e:
-        logger.info("Service prefix not %s found - See error: %s", service_prefix, str(i_e))
+        logger.debug("Service prefix not %s found - See error: %s", service_prefix, str(i_e))
