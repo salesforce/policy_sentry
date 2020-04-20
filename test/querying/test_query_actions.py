@@ -15,6 +15,7 @@ from policy_sentry.querying.actions import (
     get_dependent_actions,
     remove_actions_that_are_not_wildcard_arn_only,
     get_actions_matching_condition_key,
+    get_actions_matching_arn
     # get_actions_matching_condition_crud_and_arn
 )
 from policy_sentry.writing.validate import check
@@ -388,3 +389,14 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    def test_get_actions_matching_arn(self):
+        """querying.actions.get_actions_matching_arn"""
+        arn = "arn:aws:cloud9:us-east-1:account-id:environment:123456"
+        results = get_actions_matching_arn(arn)
+        # print(json.dumps(results, indent=4))
+        # Don't want to keep an updated list of actions in these tests,
+        # so let's just test the lengths and look for some contents that should or should not be in there.
+        self.assertTrue(len(results) > 10)
+        self.assertTrue("cloud9:ListEnvironments" not in results)
+        self.assertTrue("cloud9:DeleteEnvironment" in results)

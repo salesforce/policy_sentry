@@ -64,7 +64,7 @@ class ArnsTestCase(unittest.TestCase):
 
     def test_does_arn_match_case_greengrass(self):
         # Undocumented case: AWS Greengrass: arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}
-        arn_to_test = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/1234567}/versions/1"
+        arn_to_test = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/1234567/versions/1"
         arn_in_database = "arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}"
         self.assertTrue(does_arn_match(arn_to_test, arn_in_database))
 
