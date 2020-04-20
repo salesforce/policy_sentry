@@ -4,6 +4,7 @@ This supports the policy_sentry query functionality
 """
 import logging
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
+from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 
 logger = logging.getLogger(__name__)
 
@@ -96,3 +97,21 @@ def get_resource_type_name_with_raw_arn(raw_arn):
     for resource in service_data["resources"]:
         if resource["arn"].lower() == raw_arn.lower():
             return resource["resource"]
+
+
+def get_matching_raw_arn(arn):
+    """
+    Given a user-supplied ARN, return the raw_arn since that is used as a unique identifier throughout this library
+
+    :param arn: The user-supplied arn, like arn:aws:s3:::mybucket
+    :return: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
+    """
+    result = None
+    service_in_scope = get_service_from_arn(arn)
+    # Determine which resource it applies to
+    all_raw_arns_for_service = get_raw_arns_for_service(service_in_scope)
+    # Get the raw ARN specific to the provided one
+    for raw_arn in all_raw_arns_for_service:
+        if does_arn_match(arn, raw_arn):
+            result = raw_arn
+    return result
