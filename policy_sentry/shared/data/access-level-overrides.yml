@@ -74,11 +74,11 @@ cognito-identity:
         - unlinkdeveloperidentity
         - unlinkidentity
         - updateidentitypool
-connect:
+#connect:
     # AWS documentation has these as "Read"
-    Permissions management:
-        - getfederationtoken # Allows federation into an instance when using SAML-based authentication for identity management.
-        - getfederationtokens # Grants permissions to federate in to an Amazon Connect instance (Log in as administrator functionality in the AWS console).
+#    Permissions management:
+#        - getfederationtoken # Allows federation into an instance when using SAML-based authentication for identity management.
+#        - getfederationtokens # Grants permissions to federate in to an Amazon Connect instance (Log in as administrator functionality in the AWS console).
 datasync:
     # AWS documentation lists these as "Write"
     Tagging:
@@ -132,6 +132,10 @@ events:
     # AWS documentation lists this as "Tagging"
     Write:
         - putrule
+health:
+    # AWS documentation lists this as "Permissions management"
+    Read:
+        - describehealthservicestatusfororganization
 fsx:
     Write:
         - createbackup
@@ -216,6 +220,7 @@ imagebuilder:
     Read:
         - getimagepolicy
         - getimagerecipepolicy
+        - getcomponentpolicy
 iot:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -240,9 +245,14 @@ iotsitewise:
     # AWS documentation lists this as "Permissions management"
     Read:
         - describeaccesspolicy
+    # AWS documentation lists this as "Permissions management"
+    List:
+        - listaccesspolicies
 kms:
-    Permissions management:
+    Write:
         - createkey
+#    Permissions management:
+#        - createkey
 lambda:
     # AWS documentation lists these as "Write"
     Tagging:
@@ -347,6 +357,7 @@ rds:
         - createdbsubnetgroup
         - createeventsubscription
         - createoptiongroup
+        # AWS documentation lists this as "Permissions management"
 redshift:
     # AWS documentation lists this as "Permissions management"
     Write:
@@ -464,18 +475,12 @@ waf:
         - createwebacl
         - deletewebacl
         - updatewebacl
-    # AWS documentation lists these as "Read"
-    Permissions management:
-        - getchangetoken
 waf-regional:
     # AWS documentation lists this one as "Permissions management"
     Write:
         - createwebacl
         - deletewebacl
         - updatewebacl
-    # AWS documentation lists these as "Read"
-#    Permissions management:
-#        - getchangetoken
 xray:
     Read:
         - getencryptionconfig

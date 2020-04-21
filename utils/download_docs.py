@@ -22,7 +22,6 @@ BASE_DIR = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.p
 
 if __name__ == '__main__':
     print("Downloading the latest AWS documentation from the Actions, Resources, and Condition Keys page")
-    test = BUNDLED_HTML_DIRECTORY_PATH
     update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
     # Can't use the version of the same variable from the policy_sentry/shares/constants.py
     # file because of some syspath nonsense.
