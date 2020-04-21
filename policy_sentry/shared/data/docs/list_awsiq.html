@@ -170,6 +170,24 @@
                .
               </p>
              </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/aws-iq/latest/user-guide/">
+                API operations available for this             service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/aws-iq/latest/user-guide/security.html">
+                using IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
             </ul>
            </div>
            <div class="highlights" id="inline-topiclist">
@@ -200,16 +218,92 @@
             Actions Defined by        AWS IQ
            </h2>
            <p>
-            AWS IQ has no API operations that can be used in the
+            You can specify the following actions in the
             <code class="code">
-             Actions
+             Action
             </code>
-            element of an IAM policy statement. To allow access to AWS IQ, specify
-            <code class="code">
-             “Action”: “iq:*”
-            </code>
-            in your policy.
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
            </p>
+           <p>
+            The
+            <b>
+             Resource Types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The Actions Table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w476aac29c13c26d514c11b9">
+              <tr>
+               <th>
+                Actions
+               </th>
+               <th>
+                Description
+               </th>
+               <th>
+                Access Level
+               </th>
+               <th>
+                Resource Types (*required)
+               </th>
+               <th>
+                Condition Keys
+               </th>
+               <th>
+                Dependent Actions
+               </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiq-CreateProject">
+                </a>
+                <a href="https://aws.amazon.com/iq/" target="_blank">
+                 <span>
+                  CreateProject
+                 </span>
+                 <awsui-icon class="awsdocs-link-icon" name="external">
+                 </awsui-icon>
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to submit new project requests
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awsiq-resources-for-iam-policies">
             Resource Types Defined by        AWS IQ
            </h2>
