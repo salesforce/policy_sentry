@@ -36,7 +36,7 @@ def expand(action):
         # if we get a wildcard for a tech we've never heard of, just return the
         # wildcard
         if not expanded:
-            logger.warning(
+            logger.debug(
                 "ERROR: The action %s references a wildcard for an unknown resource.",
                 action,
             )
