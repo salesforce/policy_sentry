@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.8.0.5 (2020-04-23)
+* Adjusted logging level to some functions to reduce noise when leveraging as a library.
+
 ## 0.8.0.4 (2020-04-20)
 * Added `get_matching_raw_arn` query function (#169)
 * Added `get_actions_matching_arn` query function
