@@ -3,6 +3,7 @@ Methods that execute specific queries against the SQLite database for the ARN ta
 This supports the policy_sentry query functionality
 """
 import logging
+import functools
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 
@@ -31,6 +32,7 @@ def get_arn_data(service_prefix, resource_type_name):
     return results
 
 
+@functools.lru_cache(maxsize=1024)
 def get_raw_arns_for_service(service_prefix):
     """
     Get a list of available raw ARNs per AWS service
@@ -46,6 +48,7 @@ def get_raw_arns_for_service(service_prefix):
     return results
 
 
+@functools.lru_cache(maxsize=1024)
 def get_arn_types_for_service(service_prefix):
     """
     Get a list of available ARN short names per AWS service.

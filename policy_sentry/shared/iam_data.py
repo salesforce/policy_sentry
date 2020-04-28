@@ -2,6 +2,7 @@
 import os
 import json
 import logging
+import functools
 
 # On initialization, load the IAM data
 iam_definition_path = os.path.join(
@@ -11,6 +12,7 @@ iam_definition = json.load(open(iam_definition_path, "r"))
 logger = logging.getLogger(__name__)
 
 
+@functools.lru_cache(maxsize=1024)
 def get_service_prefix_data(service_prefix):
     """
     Given an AWS service prefix, return a large dictionary of IAM privilege data for processing and analysis.
