@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.8.0.6 (Unreleased)
+* Homebrew support
+
 ## 0.8.0.5 (2020-04-23)
 * Adjusted logging level to some functions to reduce noise when leveraging as a library.
 
