@@ -95,6 +95,15 @@ Policy Sentry aggregates all of that documentation into a single database and us
 
 To get started, install Policy Sentry:
 
+* Homebrew
+
+```bash
+brew tap salesforce/policy_sentry https://github.com/salesforce/policy_sentry
+brew install policy_sentry
+```
+
+* Pip
+
 ```bash
 pip3 install --user policy_sentry
 ```
@@ -228,7 +237,14 @@ This rapidly speeds up the time to develop IAM policies, and ensures that all po
 
 #### Installation
 
-* Policy Sentry is available via pip. To install, run:
+* Homebrew
+
+```bash
+brew tap salesforce/policy_sentry https://github.com/salesforce/policy_sentry
+brew install policy_sentry
+```
+
+* Pip
 
 ```bash
 pip3 install --user policy_sentry

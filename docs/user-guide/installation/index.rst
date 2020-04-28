@@ -1,7 +1,14 @@
 Installation
 --------------
 
-* ``policy_sentry`` is available via pip (Python 3 only). To install, run:
+* Homebrew
+
+.. code-block:: bash
+   brew tap salesforce/policy_sentry https://github.com/salesforce/policy_sentry
+   brew install policy_sentry
+
+
+* pip (Python 3 only)
 
 .. code-block:: bash
 
