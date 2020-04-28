@@ -3,6 +3,7 @@ Methods that execute specific queries against the SQLite database for the CONDIT
 This supports the policy_sentry query functionality
 """
 import logging
+import functools
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.util.conditions import is_condition_key_match
 from policy_sentry.querying.actions import get_action_data
@@ -10,6 +11,7 @@ from policy_sentry.querying.actions import get_action_data
 logger = logging.getLogger(__name__)
 
 
+@functools.lru_cache(maxsize=1024)
 def get_condition_keys_for_service(service_prefix):
     """
     Get a list of available conditions per AWS service

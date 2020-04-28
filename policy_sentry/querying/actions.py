@@ -3,6 +3,7 @@ Methods that execute specific queries against the SQLite database for the ACTION
 This supports the Policy Sentry query functionality
 """
 import logging
+import functools
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.querying.arns import get_matching_raw_arn, get_resource_type_name_with_raw_arn
@@ -12,6 +13,7 @@ all_service_prefixes = get_all_service_prefixes()
 logger = logging.getLogger(__name__)
 
 
+@functools.lru_cache(maxsize=1024)
 def get_actions_for_service(service_prefix):
     """
     Get a list of available actions per AWS service
@@ -26,6 +28,7 @@ def get_actions_for_service(service_prefix):
     return results
 
 
+@functools.lru_cache(maxsize=1024)
 def get_action_data(service, action_name):
     """
     Get details about an IAM Action in JSON format.

@@ -1,10 +1,12 @@
 """IAM Database queries that are not specific to either the Actions, ARNs, or Condition Keys tables."""
 import logging
+import functools
 from policy_sentry.shared.iam_data import iam_definition
 
 logger = logging.getLogger(__name__)
 
 
+@functools.lru_cache(maxsize=1024)
 def get_all_service_prefixes():
     """
     Gets all the AWS service prefixes from the actions table.
@@ -20,6 +22,7 @@ def get_all_service_prefixes():
     return results
 
 
+@functools.lru_cache(maxsize=1024)
 def get_all_actions(lowercase=False):
     """
     Gets a huge list of all IAM actions. This is used as part of the policyuniverse approach to minimizing
