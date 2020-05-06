@@ -2,7 +2,8 @@
 ## Future release (Unreleased)
 * Add conditions support
 
-## 0.8.0.6 (Unreleased)
+## 0.8.0.6 (2020-05-06)
+* Fixes overly verbose logging issue for `remove_actions_not_matching_access_level` (Fixes #178)
 * Homebrew support
 
 ## 0.8.0.5 (2020-04-23)
