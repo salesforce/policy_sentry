@@ -6,7 +6,3 @@ Policy Sentry relies on a JSON file that contains all of the data from the [Acti
 Policy Sentry supports querying that database through the CLI. This can
 help with writing policies and generally knowing what values to supply
 in your policies.
-
-::: {.toctree maxdepth="2" caption="Querying the IAM Database"}
-action-table arn-table condition-table
-:::
