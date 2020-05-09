@@ -1,7 +1,7 @@
 
 ### Basic support for Wildcard-only Actions
 
-As you can see from the previous example, there are definitely valid use cases for providing access to IAM Actions that do not support resource constraints (i.e., where the Action must be set to Resource=*).
+As you can see from the previous example, there are definitely valid use cases for providing access to IAM Actions that do not support resource constraints (i.e., where the Action must be set to `"Resource": "*"`).
 
 **Single IAM Actions**
 
@@ -35,7 +35,7 @@ The resulting policy would look like this:
 }
 ```
 
-And what's really cool about that - if the user tries to bypass it by supplying an action that supports resource constraints (like secretsmanager:DeleteSecret), Policy Sentry will ignore the user's request. Consider a file titled crud.yml with the contents below:
+And what's really cool about that - if the user tries to bypass it by supplying an action that supports resource constraints (like `secretsmanager:DeleteSecret`), Policy Sentry will ignore the user's request. Consider a file titled crud.yml with the contents below:
 
 ```yaml
 mode: crud
@@ -49,7 +49,7 @@ wildcard-only:
 Now run the command:
 
 ```bash
-policy_sentry write-policy crud.yml
+policy_sentry write-policy --input-file crud.yml
 ```
 
 Notice how the output does not include `secretsmanager:DeleteSecret`:

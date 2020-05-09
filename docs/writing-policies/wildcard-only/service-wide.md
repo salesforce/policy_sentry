@@ -12,12 +12,12 @@ wildcard-only:
     - s3            # This adds s3:GetAccessPoint, s3:GetAccountPublicAccessBlock, s3:ListAccessPoints
 ```
 
-As shown above, the input only required the user to supply s3 and ecr under the service-read array in the wildcard-only map.
+As shown above, the input only required the user to supply `s3` and `ecr` under the service-read array in the wildcard-only map.
 
 Now run the command:
 
 ```bash
-policy_sentry write-policy crud.yml
+policy_sentry write-policy --input-file crud.yml
 ```
 
 Notice how the output includes *wildcard-only* actions at the *read* access level for the ecr and s3 services:

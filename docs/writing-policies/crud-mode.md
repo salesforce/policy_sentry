@@ -31,7 +31,7 @@ policy_sentry create-template --output-file crud.yml --template-type crud
 
 ```yaml
 mode: crud
-name: myRole
+name: ''
 # Specify resource ARNs
 read:
 - ''
@@ -43,11 +43,14 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
   - ''
-  # Service-wide, per access level - like 's3' or 'ec2'
+  # Service-wide - like 's3' or 'ec2'
   service-read:
   - ''
   service-write:
@@ -64,9 +67,7 @@ wildcard-only:
 
 ```yaml
 mode: crud
-name: myRole
-description: 'Justification for privileges'
-role_arn: 'arn:aws:iam::123456789102:role/myRole'
+name: ''
 read:
 - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
 write:
@@ -77,6 +78,20 @@ tagging:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 permissions-management:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide - like 's3' or 'ec2'
+  service-read:
+  - ''
+  service-write:
+  - ''
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
 ```
 
 -   Run the command:
@@ -96,11 +111,11 @@ policy_sentry write-policy --input-file crud.yml
             "Sid": "SsmReadParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:getparameter",
-                "ssm:getparameterhistory",
-                "ssm:getparameters",
-                "ssm:getparametersbypath",
-                "ssm:listtagsforresource"
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:ListTagsForResource"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -110,10 +125,10 @@ policy_sentry write-policy --input-file crud.yml
             "Sid": "SsmWriteParameter",
             "Effect": "Allow",
             "Action": [
-                "ssm:deleteparameter",
-                "ssm:deleteparameters",
-                "ssm:putparameter",
-                "ssm:labelparameterversion"
+                "ssm:DeleteParameter",
+                "ssm:DeleteParameters",
+                "ssm:LabelParameterVersion",
+                "ssm:PutParameter"
             ],
             "Resource": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
@@ -123,8 +138,8 @@ policy_sentry write-policy --input-file crud.yml
             "Sid": "SecretsmanagerPermissionsmanagementSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:deleteresourcepolicy",
-                "secretsmanager:putresourcepolicy"
+                "secretsmanager:DeleteResourcePolicy",
+                "secretsmanager:PutResourcePolicy"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -134,8 +149,8 @@ policy_sentry write-policy --input-file crud.yml
             "Sid": "SecretsmanagerTaggingSecret",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:tagresource",
-                "secretsmanager:untagresource"
+                "secretsmanager:TagResource",
+                "secretsmanager:UntagResource"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"

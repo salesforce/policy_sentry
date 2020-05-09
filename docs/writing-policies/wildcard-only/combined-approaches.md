@@ -17,7 +17,7 @@ wildcard-only:
 After running the command:
 
 ```bash
-policy_sentry write-policy crud.yml
+policy_sentry write-policy --input-file crud.yml
 ```
 
 ```json
