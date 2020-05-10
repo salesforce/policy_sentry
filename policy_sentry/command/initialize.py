@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
-@click.command(short_help="Create a local datastore to store AWS IAM information.")
+@click.command(name="initialize", short_help="Create a local datastore to store AWS IAM information.")
 @click.option(
     "--access-level-overrides-file",
     type=str,
@@ -52,12 +52,18 @@ click_log.basic_config(logger)
     "the python package. Defaults to false",
 )
 @click_log.simple_verbosity_option(logger)
-def initialize(access_level_overrides_file, fetch, build):
+def initialize_command(access_level_overrides_file, fetch, build):
+    """
+    CLI command for initializing the local data file
+    """
+    initialize(access_level_overrides_file, fetch, build)
+
+
+def initialize(access_level_overrides_file=None, fetch=False, build=False):
     """
     Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
-
     if not access_level_overrides_file:
         overrides_file = LOCAL_ACCESS_OVERRIDES_FILE
     else:
