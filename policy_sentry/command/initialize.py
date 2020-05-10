@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
-@click.command(short_help="Create a local datastore to store AWS IAM information.")
+@click.command(name="initialize", short_help="Create a local datastore to store AWS IAM information.")
 @click.option(
     "--access-level-overrides-file",
     type=str,
@@ -52,12 +52,18 @@ click_log.basic_config(logger)
     "the python package. Defaults to false",
 )
 @click_log.simple_verbosity_option(logger)
+def initialize_command(access_level_overrides_file, fetch, build):
+    """
+    CLI command for initializing the local data file
+    """
+    initialize(access_level_overrides_file, fetch, build)
+
+
 def initialize(access_level_overrides_file, fetch, build):
     """
     Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
-
     if not access_level_overrides_file:
         overrides_file = LOCAL_ACCESS_OVERRIDES_FILE
     else:
@@ -105,7 +111,6 @@ def initialize(access_level_overrides_file, fetch, build):
     print(f"Total AWS services in the IAM database: {total_count_of_services}")
     logger.debug("\nService prefixes:")
     logger.debug(", ".join(all_aws_service_prefixes))
-
 
 def create_policy_sentry_config_directory():
     """
