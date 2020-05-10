@@ -59,7 +59,7 @@ def initialize_command(access_level_overrides_file, fetch, build):
     initialize(access_level_overrides_file, fetch, build)
 
 
-def initialize(access_level_overrides_file, fetch, build):
+def initialize(access_level_overrides_file=None, fetch=False, build=False):
     """
     Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
