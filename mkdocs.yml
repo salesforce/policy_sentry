@@ -1,0 +1,85 @@
+site_name: Policy Sentry
+site_url: https://policy-sentry.readthedocs.io/
+repo_url: https://github.com/salesforce/policy_sentry/
+theme: material
+use_directory_urls: true
+markdown_extensions:
+    - codehilite
+    - tables
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
+      watch:
+        - cloudsplaining/
+extra_css:
+  - custom.css
+nav:
+  - Home: 'index.md'
+  - Introduction: 'introduction.md'
+  - Installation: 'installation.md'
+  - Tutorial: 'tutorial.md'
+  - Cheat Sheet: 'cheat-sheet.md'
+
+  - "<b>Writing Policies</b>":
+    - CRUD Mode: 'writing-policies/crud-mode.md'
+    - "<i>Example</i>: Basic CRUD": 'writing-policies/access-levels-example.md'
+    - "<b>Wildcard-only</b>":
+      - Introduction: 'writing-policies/wildcard-only/introduction.md'
+      - Single actions: 'writing-policies/wildcard-only/single-actions.md'
+      - "<i>Example</i>: Single actions": 'writing-policies/wildcard-only/example-single-actions.md'
+      - Service-wide: 'writing-policies/wildcard-only/service-wide.md'
+      - "<i>Example</i>: Service-wide": 'writing-policies/wildcard-only/example-service-wide.md'
+      - "<i>Example</i>: Combining approaches": 'writing-policies/wildcard-only/combined-approaches.md'
+    - "<i>Example</i>: Skipping Resource Constraints": 'writing-policies/overrides.md'
+    - Minimizing characters: 'writing-policies/minimization.md'
+    - Actions Mode: 'writing-policies/actions-mode.md'
+
+  - "<b>Querying the IAM Database</b>":
+    - Overview: 'querying/querying.md'
+    - Action Table: 'querying/action-table.md'
+    - ARN Table: 'querying/arn-table.md'
+    - Condition Table: 'querying/condition-table.md'
+
+  - "<b>Other Topics</b>":
+    - Terraform: 'other/terraform.md'
+    - Fetching the latest IAM Database: 'other/initialize.md'
+    - Docker: 'other/docker.md'
+
+  - "<b>Library Reference</b>":
+    - Overview: 'library-usage/index.md'
+    - "<b>Writing Policies</b>":
+      - writing.sid_group: 'library-usage/writing/sid_group.md'
+      - writing.validate: 'library-usage/writing/validate.md'
+      - command.write_policy: 'library-usage/writing/write_policy.md'
+    - "<b>Querying the Database</b>":
+      - querying.all: 'library-usage/querying/all.md'
+      - querying.actions: 'library-usage/querying/actions.md'
+      - querying.arns: 'library-usage/querying/arns.md'
+      - querying.conditions: 'library-usage/querying/conditions.md'
+      - shared.iam_data: 'library-usage/querying/iam_data.md'
+    - "<b>Analysis</b>":
+      - analyze.analysis: 'library-usage/analyzing.md'
+      - analyze.expand: 'library-usage/expanding.md'
+    - "<b>Utilities</b>":
+      - util.arns: 'library-usage/util/arns.md'
+      - util.policy_files: 'library-usage/util/policy_files.md'
+
+
+  - "<b>Contributing</b>":
+    - Contributing: 'contributing/contributing.md'
+    - Documentation: 'contributing/documentation.md'
+    - Testing: 'contributing/testing.md'
+    - IAM database: 'contributing/iam-database.md'
+    - Versioning: 'contributing/versioning.md'
+    - Roadmap: 'contributing/roadmap.md'
+
+  - "<b>Appendices</b>":
+    - Comparison to other tools: 'appendices/comparison-to-related-tools.md'
+    - Implementation Strategy: 'appendices/implementation-strategy.md'
+    - Minimization: 'appendices/minimization.md'
+    - IAM Policies: 'appendices/iam-policies.md'

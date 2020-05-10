@@ -67,8 +67,11 @@ def write_policy_with_template(cfg, minimize=None):
     """
     This function is called by write-policy so the config can be passed in as a dict without running into a Click-related error. Use this function, rather than the write-policy function, if you are using Policy Sentry as a python library.
 
-    :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
-    :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
+    Arguments:
+        cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
+        minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
+    Returns:
+        Dictionary: The JSON policy
     """
     sid_group = SidGroup()
     policy = sid_group.process_template(cfg, minimize)

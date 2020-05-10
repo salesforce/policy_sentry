@@ -9,7 +9,7 @@ To have granular control of specific IAM policies, we must use wildcards on IAM 
 
 This is typically performed by humans by reducing policies to s3:Get*, ec2:Describe*, and other approaches of the sort.
 
-Netflix's PolicyUniverse has address
+Netflix's PolicyUniverse has addressed this in their minimization code. We borrowed this logic from their code and modified it a bit to fit our needs.
 
 https://aws.amazon.com/iam/faqs/
 Q: How many policies can I attach to an IAM role?

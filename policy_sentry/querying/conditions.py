@@ -16,8 +16,10 @@ def get_condition_keys_for_service(service_prefix):
     """
     Get a list of available conditions per AWS service
 
-    :param service_prefix: An AWS service prefix, like `s3` or `kms`
-    :return: A list of condition keys
+    Arguments:
+        service_prefix: An AWS service prefix, like `s3` or `kms`
+    Returns:
+        List: A list of condition keys
     """
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
@@ -33,9 +35,11 @@ def get_condition_key_details(service_prefix, condition_key_name):
     """
     Get details about a specific condition key in JSON format
 
-    :param service_prefix: An AWS service prefix, like `ec2` or `kms`
-    :param condition_key_name: The name of a condition key, like `ec2:Vpc`
-    :return: Metadata about the condition key
+    Arguments:
+        service_prefix: An AWS service prefix, like `ec2` or `kms`
+        condition_key_name: The name of a condition key, like `ec2:Vpc`
+    Returns:
+        Dictionary: Metadata about the condition key
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     for condition_key_entry in service_prefix_data["conditions"]:
@@ -52,9 +56,11 @@ def get_conditions_for_action_and_raw_arn(action, raw_arn):
     """
     Get a list of conditions available to an action.
 
-    :param action: The IAM action, like s3:GetObject
-    :param raw_arn: The raw ARN format specific to the action
-    :return:
+    Arguments:
+        action: The IAM action, like s3:GetObject
+        raw_arn: The raw ARN format specific to the action
+    Returns:
+        List: A list of condition keys
     """
     service_prefix, action_name = action.split(":")
     action_data = get_action_data(service_prefix, action_name)
@@ -69,7 +75,10 @@ def get_condition_keys_available_to_raw_arn(raw_arn):
     """
     Get a list of condition keys available to a RAW ARN
 
-    :param raw_arn: The value in the database, like arn:${Partition}:s3:::${BucketName}/${ObjectName}
+    Arguments:
+        raw_arn: The value in the database, like arn:${Partition}:s3:::${BucketName}/${ObjectName}
+    Returns:
+        List: A list of condition keys
     """
     results = []
     elements = raw_arn.split(":", 5)
@@ -86,8 +95,11 @@ def get_condition_keys_available_to_raw_arn(raw_arn):
 def get_condition_value_type(condition_key):
     """
     Get the data type of the condition key - like Date, String, etc.
-    :param condition_key: A condition key, like a4b:filters_deviceType
-    :return:
+
+    Arguments:
+        condition_key: A condition key, like a4b:filters_deviceType
+    Returns:
+        String: type of the condition key, like Bool, Date, String, etc.
     """
     service_prefix, condition_name = condition_key.split(":")
     service_prefix_data = get_service_prefix_data(service_prefix)

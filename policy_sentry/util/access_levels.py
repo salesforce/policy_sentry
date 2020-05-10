@@ -12,10 +12,10 @@ def override_access_level(service_override_config, action_name, provided_access_
     Given the service-specific override config, determine whether or not the
     override config tells us to override the access level in the documentation.
 
-    :param service_override_config: Given that the name
-    :param action_name: The name of the action
-    :param provided_access_level: Read, Write, List, Tagging, or 'Permissions management'.
-    :return:
+    Arguments:
+        service_override_config: Given that the name
+        action_name: The name of the action
+        provided_access_level: Read, Write, List, Tagging, or 'Permissions management'.
     """
     real_access_level = []  # This will hold the real access level in index 0
     try:
@@ -76,12 +76,11 @@ def determine_access_level_override(
     service, action_name, provided_access_level, service_override_config
 ):
     """
-    override_config
-    :param service: service, like iam
-    :param action_name: action name, like ListUsers
-    :param provided_access_level: The access level provided in the scraping process
-    :param service_override_config: Specific to each service. returned by get_action_overrides_from_yml
-    :return:
+    Arguments:
+        service: service, like iam
+        action_name: action name, like ListUsers
+        provided_access_level: The access level provided in the scraping process
+        service_override_config: Specific to each service. returned by get_action_overrides_from_yml
     """
     # overrides = get_action_overrides_from_yml(service)
     # To reduce memory, this should be used in the table building,

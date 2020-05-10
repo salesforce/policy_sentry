@@ -42,9 +42,9 @@ def get_action_access_level_overrides_from_yml(
 ):
     """
     Read the YML overrides file, which is formatted like:
-    ['ec2']['permissions-management'][action_name].
-    Since the AWS Documentation is sometimes outdated, we can use this YML file to
-    override whatever they provide in their documentation.
+        ['ec2']['permissions-management'][action_name].
+
+    Since the AWS Documentation is sometimes outdated, we can use this YML file to     override whatever they provide in their documentation.
     """
     if not access_level_overrides_file_path:
         access_level_overrides_file_path = BUNDLED_ACCESS_OVERRIDES_FILE
@@ -57,8 +57,9 @@ def get_action_access_level_overrides_from_yml(
 
 def update_html_docs_directory(html_docs_destination):
     """
-    Updates the HTML docs from remote location to either (1) local directory
-    (i.e., this repository, or (2) the config directory
+    Updates the HTML docs from remote location to either:
+    (1) local directory (i.e., this repository, or
+    (2) the config directory
     :return:
     """
     link_url_prefix = "https://docs.aws.amazon.com/IAM/latest/UserGuide/"

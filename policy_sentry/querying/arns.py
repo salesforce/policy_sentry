@@ -14,9 +14,11 @@ def get_arn_data(service_prefix, resource_type_name):
     """
     Get details about ARNs in JSON format.
 
-    :param service_prefix: An AWS service prefix, like `s3` or `kms`
-    :param resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
-    :return: Metadata about an ARN type
+    Arguments:
+        service_prefix: An AWS service prefix, like `s3` or `kms`
+        resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
+    Returns:
+        Dictionary: Metadata about an ARN type
     """
     results = []
     for service_data in iam_definition:
@@ -37,8 +39,10 @@ def get_raw_arns_for_service(service_prefix):
     """
     Get a list of available raw ARNs per AWS service
 
-    :param service_prefix: An AWS service prefix, like `s3` or `kms`
-    :return: A list of raw ARNs
+    Arguments:
+        service_prefix: An AWS service prefix, like `s3` or `kms`
+    Returns:
+        List: A list of raw ARNs
     """
     results = []
     for service_data in iam_definition:
@@ -53,8 +57,10 @@ def get_arn_types_for_service(service_prefix):
     """
     Get a list of available ARN short names per AWS service.
 
-    :param service_prefix: An AWS service prefix, like `s3` or `kms`
-    :return: A list of ARN types, like `bucket` or `object`
+    Arguments:
+        service_prefix: An AWS service prefix, like `s3` or `kms`
+    Returns:
+        List: A list of ARN types, like `bucket` or `object`
     """
     results = {}
     for service_data in iam_definition:
@@ -68,9 +74,11 @@ def get_arn_type_details(service_prefix, resource_type_name):
     """
     Get details about ARNs in JSON format.
 
-    :param service_prefix: An AWS service prefix, like `s3` or `kms`
-    :param resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
-    :return: Metadata about an ARN type
+    Arguments:
+        service_prefix: An AWS service prefix, like `s3` or `kms`
+        resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
+    Returns:
+        Dictionary: Metadata about an ARN type
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     output = {}
@@ -90,8 +98,10 @@ def get_resource_type_name_with_raw_arn(raw_arn):
     """
     Given a raw ARN, return the resource type name as shown in the database.
 
-    :param raw_arn: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
-    :return: The resource type name, like bucket
+    Arguments:
+        raw_arn: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
+    Returns:
+        String: The resource type name, like bucket
     """
     elements = raw_arn.split(":", 5)
     service_prefix = elements[2]
@@ -106,8 +116,10 @@ def get_matching_raw_arn(arn):
     """
     Given a user-supplied ARN, return the raw_arn since that is used as a unique identifier throughout this library
 
-    :param arn: The user-supplied arn, like arn:aws:s3:::mybucket
-    :return: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
+    Arguments:
+        arn: The user-supplied arn, like arn:aws:s3:::mybucket
+    Returns:
+        String: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
     """
     result = None
     service_in_scope = get_service_from_arn(arn)

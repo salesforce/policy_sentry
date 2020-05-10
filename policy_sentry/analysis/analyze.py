@@ -17,8 +17,11 @@ def analyze_by_access_level(policy_json, access_level):
     Determine if a policy has any actions with a given access level. This is particularly useful when determining who
     has 'Permissions management' level access
 
-    :param policy_json: a dictionary representing the AWS JSON policy
-    :param access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
+    Arguments:
+        policy_json: a dictionary representing the AWS JSON policy
+        access_level: The normalized access level - either 'read', 'list', 'write', 'tagging', or 'permissions-management'
+    Return:
+        List: A list of actions
     """
     expanded_policy = get_expanded_policy(policy_json)
     requested_actions = get_actions_from_policy(expanded_policy)
@@ -33,8 +36,11 @@ def analyze_statement_by_access_level(statement_json, access_level):
     """
     Determine if a statement has any actions with a given access level.
 
-    :param statement_json: a dictionary representing a statement from an AWS JSON policy
-    :param access_level: The access level - either 'Read', 'List', 'Write', 'Tagging', or 'Permissions management'
+    Arguments:
+        statement_json: a dictionary representing a statement from an AWS JSON policy
+        access_level: The access level - either 'Read', 'List', 'Write', 'Tagging', or 'Permissions management'
+    Returns:
+        List: A list of actions
     """
     requested_actions = get_actions_from_statement(statement_json)
     expanded_actions = determine_actions_to_expand(requested_actions)

@@ -36,24 +36,16 @@ ns.add_collection(build)
 docker = Collection('docker')
 ns.add_collection(docker)
 
-@task
-def make_html(c):
-    """Make the HTML docs locally"""
-    c.run('make -C ./docs html')
-
 
 @task
-def remove_html_files(c):
-    """Remove the html files"""
-    c.run('rm -rf ./docs/_build/*')
-    c.run('rmdir ./docs/_build/')
-
+def build_docs(c):
+    """Create the documentation files and open them locally"""
+    c.run('mkdocs build')
 
 @task
-def open_html_docs(c):
-    """Open HTML docs in Google Chrome locally on your computer"""
-    c.run('open -a "Google Chrome" docs/_build/html/index.html')
-
+def serve_docs(c):
+    """Create the documentation files and open them locally"""
+    c.run('mkdocs serve --dev-addr "127.0.0.1:8001"')
 
 @task
 def download_latest_aws_docs(c):
@@ -300,9 +292,8 @@ integration.add_task(query_with_yaml, 'query-yaml')
 unit.add_task(run_nosetests, 'nose')
 unit.add_task(run_pytest, 'pytest')
 
-docs.add_task(remove_html_files, 'clean-html')
-docs.add_task(make_html, 'make-html')
-docs.add_task(open_html_docs, 'open-html')
+docs.add_task(build_docs, "build-docs")
+docs.add_task(serve_docs, "serve-docs")
 docs.add_task(download_latest_aws_docs, 'download_latest_aws_docs')
 
 # test.add_task(run_full_test_suite, 'all')

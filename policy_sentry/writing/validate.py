@@ -10,8 +10,12 @@ logger = logging.getLogger("__main__." + __name__)
 def check(conf_schema, conf):
     """
     Validates a user-supplied JSON vs a defined schema.
-    :param conf_schema: The Schema object that defines the required structure.
-    :param conf: The user-supplied schema to validate against the required structure.
+
+    Arguments:
+        conf_schema: The Schema object that defines the required structure.
+        conf: The user-supplied schema to validate against the required structure.
+    Returns:
+        Boolean: The decision about whether the JSON meets expected Schema requirements
     """
     try:
         conf_schema.validate(conf)
@@ -86,8 +90,12 @@ def check_crud_schema(cfg):
 
 def validate_condition_block(condition_block):
     """
-    :param condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string": "StringEquals", "condition_value": "test"}
-    :return:
+    Validates the format of the condition block that should be supplied in the template.
+
+    Arguments:
+        condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string": "StringEquals", "condition_value": "test"}
+    Returns:
+        Boolean: The decision
     """
 
     # TODO: Validate that the values are legit somehow

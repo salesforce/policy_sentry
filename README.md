@@ -9,15 +9,18 @@ IAM Least Privilege Policy Generator and analysis database.
 
 ![](https://raw.githubusercontent.com/salesforce/policy_sentry/master/examples/asciinema/policy_sentry.gif)
 
-- [Documentation](#documentation)
-- [Overview](#overview)
-  * [Writing Secure Policies based on Resource Constraints and Access Levels](#writing-secure-policies-based-on-resource-constraints-and-access-levels)
-- [Quickstart](#quickstart)
-    + [Installation](#installation)
+- [Tutorial](#tutorial)
+  * [Installation](#installation)
+    + [Package managers](#package-managers)
     + [Shell completion](#shell-completion)
+  * [Step 1: Create the Template](#step-1--create-the-template)
+  * [Step 2: Copy/paste ARNs](#step-2--copy-paste-arns)
+  * [Step 3: Write-policy command](#step-3--write-policy-command)
+- [Cheat Sheets](#cheat-sheets)
   * [Policy Writing cheat sheet](#policy-writing-cheat-sheet)
   * [IAM Database Query Cheat Sheet](#iam-database-query-cheat-sheet)
-- [Usage](#usage)
+  * [Local Initialization (Optional)](#local-initialization--optional-)
+- [Other Usage](#other-usage)
   * [Commands](#commands)
   * [Python Library usage](#python-library-usage)
   * [Docker](#docker)
@@ -93,7 +96,12 @@ How do we accomplish this? Well, Policy Sentry leverages the AWS documentation o
 
 Policy Sentry aggregates all of that documentation into a single database and uses that database to generate policies according to actions, resources, and access levels.
 
-To get started, install Policy Sentry:
+## Tutorial
+
+
+### Installation
+
+#### Package managers
 
 * Homebrew
 
@@ -108,17 +116,34 @@ brew install policy_sentry
 pip3 install --user policy_sentry
 ```
 
-To generate a policy according to resources and access levels, start by creating a template with this command so you can just fill out the ARNs:
+#### Shell completion
+
+To enable Bash completion, put this in your `.bashrc`:
+
+```bash
+eval "$(_POLICY_SENTRY_COMPLETE=source policy_sentry)"
+```
+
+To enable ZSH completion, put this in your `.zshrc`:
+
+```
+eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
+```
+
+### Step 1: Create the Template
+
+* To generate a policy according to resources and access levels, start by
+creating a template with this command so you can just fill out the ARNs:
 
 ```bash
 policy_sentry create-template --output-file crud.yml --template-type crud
 ```
 
-It will generate a file like this:
+* It will generate a file like this:
 
 ```yaml
 mode: crud
-name: myRole
+name: ''
 # Specify resource ARNs
 read:
 - ''
@@ -130,11 +155,14 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
   - ''
-  # Service-wide, per access level - like 's3' or 'ec2'
+  # Service-wide - like 's3' or 'ec2'
   service-read:
   - ''
   service-write:
@@ -147,11 +175,13 @@ wildcard-only:
   - ''
 ```
 
-Then just fill it out:
+### Step 2: Copy/paste ARNs
+
+* Copy/paste the ARNs you want to include in your policy. You can delete lines that you don't use, or just leave them there.
 
 ```yaml
 mode: crud
-name: myRole
+name: ''
 read:
 - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
 write:
@@ -162,15 +192,31 @@ tagging:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 permissions-management:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide - like 's3' or 'ec2'
+  service-read:
+  - ''
+  service-write:
+  - ''
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
 ```
 
-Then run this command:
+### Step 3: Write-policy command
+
+* Then run this command:
 
 ```bash
 policy_sentry write-policy --input-file crud.yml
 ```
 
-It will generate these results:
+* It will generate these results:
 
 ```json
 {
@@ -229,40 +275,23 @@ It will generate these results:
 }
 ```
 
-Notice how the policy above recognizes the ARNs that the user supplies, along with the requested access level. For instance, the SID “SecretsmanagerTaggingSecret” contains Tagging actions that are assigned to the secret resource type only.
+Notice how the policy above recognizes the ARNs that the user supplies,
+along with the requested access level. For instance, the SID
+`SecretsmanagerTaggingSecret` contains Tagging actions that are assigned
+to the secret resource type only.
+
+This rapidly speeds up the time to develop IAM policies, and ensures
+that all policies created limit access to exactly what your role needs
+access to. This way, developers only have to determine the resources
+that they need to access, and we abstract the complexity of IAM policies
+away from their development processes.
+
+
+Notice how the policy above recognizes the ARNs that the user supplies, along with the requested access level. For instance, the SID `SecretsmanagerTaggingSecret` contains Tagging actions that are assigned to the secret resource type only.
 
 This rapidly speeds up the time to develop IAM policies, and ensures that all policies created limit access to exactly what your role needs access to. This way, developers only have to determine the resources that they need to access, and we abstract the complexity of IAM policies away from their development processes.
 
-## Quickstart
-
-#### Installation
-
-* Homebrew
-
-```bash
-brew tap salesforce/policy_sentry https://github.com/salesforce/policy_sentry
-brew install policy_sentry
-```
-
-* Pip
-
-```bash
-pip3 install --user policy_sentry
-```
-
-#### Shell completion
-
-To enable Bash completion, put this in your `.bashrc`:
-
-```bash
-eval "$(_POLICY_SENTRY_COMPLETE=source policy_sentry)"
-```
-
-To enable ZSH completion, put this in your `.zshrc`:
-
-```
-eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
-```
+## Cheat sheets
 
 ### Policy Writing cheat sheet
 
@@ -349,7 +378,7 @@ policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/override
 policy_sentry initialize --access-level-overrides-file ~/.policy_sentry/access-level-overrides.yml
 ```
 
-## Usage
+## Other Usage
 
 ### Commands
 

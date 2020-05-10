@@ -27,21 +27,27 @@ class SidGroup:
     """
     This class is critical to the creation of least privilege policies.
     It uses the SIDs as namespaces. The namespaces follow this format:
-        {Servicename}{Accesslevel}{Resourcetypename}
+        `{Servicename}{Accesslevel}{Resourcetypename}`
 
     So, a resulting statement's SID might look like 'S3ListBucket'
 
-    If a condition key is supplied (like s3:RequestJob), the SID string will be significantly longer.
+    If a condition key is supplied (like `s3:RequestJob`), the SID string will be significantly longer.
+
     It will resemble this format:
-            {Servicename}{Accesslevel}{Resourcetypename}{Conditionkeystring}{Conditiontypestring}{Conditionkeyvalue}
+            `{Servicename}{Accesslevel}{Resourcetypename}{Conditionkeystring}{Conditiontypestring}{Conditionkeyvalue}`
+
     For example: EC2 write actions on the security-group resource, using the following condition map:
+    ```
         "Condition": {
             "StringEquals": {"ec2:ResourceTag/Owner": "${aws:username}"}
         }
+    ```
+
     The resulting SID would be:
-        Ec2WriteSecuritygroupResourcetagownerStringequalsAwsusername
+        `Ec2WriteSecuritygroupResourcetagownerStringequalsAwsusername`
+
     Or, for actions that support wildcard ARNs only, an example could be:
-        Ec2WriteMultResourcetagownerStringequalsAwsusername
+        `Ec2WriteMultResourcetagownerStringequalsAwsusername`
     """
 
     def __init__(self):
@@ -73,9 +79,10 @@ class SidGroup:
 
     def list_sids(self):
         """
-        Get a list of all of them by their identifiers
+        Get a list of all of the SIDs by their identifiers
 
-        :rtype: list
+        Returns:
+            List: A list of SIDs in the SID group
         """
         return self.sids.keys()
 
@@ -83,14 +90,15 @@ class SidGroup:
         """
         Get the universal conditions maps back as a dict
 
-        :rtype: dict
+        Returns:
+            Dictionary: The universal condtiion maps
         """
         return self.universal_conditions
 
     def add_overrides(self, overrides):
         """
-        To override resource constraint requirements - i.e., instead of restricting s3:PutObject to a path and
-        allowing s3:PutObject to * resources, put s3:GetObject here.
+        To override resource constraint requirements - i.e., instead of restricting `s3:PutObject` to a path and
+        allowing `s3:PutObject` to `*` resources, put `s3:GetObject` here.
         """
         if isinstance(overrides, list):
             self.overrides.extend(overrides)
@@ -103,8 +111,9 @@ class SidGroup:
         """
         When a user requests all wildcard-only actions available under a service at a specific access level
 
-        :param service_prefixes: A list of service prefixes
-        :param access_level: The requested access level
+        Arguments:
+            service_prefixes: A list of service prefixes
+            access_level: The requested access level
         """
         if access_level == "Read":
             self.wildcard_only_service_read = service_prefixes
@@ -120,7 +129,6 @@ class SidGroup:
     def process_wildcard_only_actions(self):
         """
         After (1) the list of wildcard-only single actions have been added and (2) the list of wildcard-only service-wide actions have been added, process them and store them under the proper SID.
-        :return:
         """
         provided_wildcard_actions = []
         provided_wildcard_actions = (
@@ -139,8 +147,10 @@ class SidGroup:
         """
         Get the JSON rendered policy
 
-        :param minimize: Reduce the character count of policies without creating overlap with other action names
-        :rtype: dict
+        Arguments:
+            minimize: Reduce the character count of policies without creating overlap with other action names
+        Returns:
+            Dictionary: The IAM Policy JSON
         """
         statements = []
         # Only set the actions to lowercase if minimize is provided
@@ -180,9 +190,10 @@ class SidGroup:
         This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given
         by the user. It derives the list of IAM actions based on the user's requested ARNs and access levels.
 
-        :param arn_list: Just a list of resource ARNs.
-        :param access_level: "Read", "List", "Tagging", "Write", or "Permissions management"
-        :param conditions_block: Optionally, a condition block with one or more conditions
+        Arguments:
+            arn_list: Just a list of resource ARNs.
+            access_level: "Read", "List", "Tagging", "Write", or "Permissions management"
+            conditions_block: Optionally, a condition block with one or more conditions
         """
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
@@ -241,8 +252,9 @@ class SidGroup:
         This handles the cases where certain actions do not handle resource constraints - either by AWS, or for
         flexibility when adding dependent actions.
 
-        :param action: The single action to add to the SID namespace. For instance, s3:ListAllMyBuckets
-        :param sid_namespace: MultMultNone by default. Other valid option is "SkipResourceConstraints"
+        Arguments:
+            action: The single action to add to the SID namespace. For instance, s3:ListAllMyBuckets
+            sid_namespace: MultMultNone by default. Other valid option is "SkipResourceConstraints"
         """
         if sid_namespace == "SkipResourceConstraints":
             temp_sid_dict = {
@@ -279,7 +291,8 @@ class SidGroup:
         """
         Takes a list of actions, queries the database for corresponding arns, adds them to the object.
 
-        :param supplied_actions: A list of supplied actions
+        Arguments:
+            supplied_actions: A list of supplied actions
         """
         # actions_list = get_dependent_actions(supplied_actions)
         dependent_actions = get_dependent_actions(supplied_actions)
@@ -354,9 +367,11 @@ class SidGroup:
         Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or
         Actions mode.
 
-        :param cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
-        :param minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set
-        this to the character length you want - for example, 0, or 4. Defaults to none.
+        Arguments:
+            cfg: The loaded YAML as a dict. Must follow Policy Sentry dictated format.
+            minimize: Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. Set this to the character length you want - for example, 0, or 4. Defaults to none.
+        Returns:
+            Dictionary: The rendered IAM JSON Policy
         """
         if "mode" in cfg.keys():
             if cfg["mode"] == "crud":
@@ -476,7 +491,8 @@ class SidGroup:
         """
         Given a list of IAM actions, add individual IAM Actions that do not support resource constraints to the MultMultNone SID
 
-        :param provided_wildcard_actions: list actions provided by the user.
+        Arguments:
+            provided_wildcard_actions: list actions provided by the user.
         """
         if isinstance(provided_wildcard_actions, list):
             verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
@@ -497,9 +513,9 @@ class SidGroup:
         self, services, access_level
     ):
         """
-        :param services: A list of AWS services
-        :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List',
-        'Permissions management', or 'Tagging'
+        Arguments:
+            services: A list of AWS services
+            access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permissions management', or 'Tagging'
         """
         wildcard_only_actions_to_add = []
         for service in services:
@@ -511,7 +527,8 @@ class SidGroup:
 
     def remove_actions_not_matching_these(self, actions_to_keep):
         """
-        :param actions_to_keep: A list of actions to leave in the policy. All actions not in this list are removed.
+        Arguments:
+            actions_to_keep: A list of actions to leave in the policy. All actions not in this list are removed.
         """
         actions_to_keep = get_lowercase_action_list(actions_to_keep)
         actions_deleted = []
@@ -535,8 +552,7 @@ class SidGroup:
 
     def remove_sids_with_empty_action_lists(self):
         """
-        Now that we've removed a bunch of actions, if there are SID groups without any actions,
-            remove them so we don't get SIDs with empty action lists
+        Now that we've removed a bunch of actions, if there are SID groups without any actions, remove them so we don't get SIDs with empty action lists
         """
         sid_namespaces_to_delete = []
         for sid in self.sids:
@@ -554,7 +570,7 @@ class SidGroup:
     def remove_actions_duplicated_in_wildcard_arn(self):
         """
         Removes actions from the object that are in a resource-specific ARN, as well as the `*` resource.
-        For example, if ssm:GetParameter is restricted to a specific parameter path, as well as `*`, then we want to
+        For example, if `ssm:GetParameter` is restricted to a specific parameter path, as well as `*`, then we want to
         remove the `*` option to force least privilege.
         """
         actions_under_wildcard_resources = []
@@ -590,9 +606,10 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list):
     """
     Given a list of actions, remove the ones that CAN be restricted to ARNs, leaving only the ones that cannot.
 
-    :param actions_list: A list of actions
-    :return: An updated list of actions
-    :rtype: list
+    Arguments:
+        actions_list: A list of actions
+    Returns:
+        List: An updated list of actions
     """
     # remove duplicates, if there are any
     actions_list = list(dict.fromkeys(actions_list))
@@ -617,9 +634,13 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list):
 
 def get_wildcard_only_actions_matching_services_and_access_level(services, access_level):
     """
-    :param services: A list of AWS services
-    :param access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List',
-    'Permissions management', or 'Tagging'
+    Get a list of wildcard-only actions matching the services and access level
+
+    Arguments:
+        services: A list of AWS services
+        access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permissions management', or 'Tagging'
+    Returns:
+        List: A list of wildcard-only actions matching the services and access level
     """
     wildcard_only_actions_to_add = []
     for service in services:
@@ -639,13 +660,14 @@ def create_policy_sid_namespace(
     For example, S3 objects vs. SSM Parameter have different ARN types - as do S3 objects vs S3 buckets. That's how we
     choose to group them.
 
-    :param service: "ssm"
-    :param access_level: "Read"
-    :param resource_type_name: "parameter"
-    :param condition_block: {"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string":
-    "StringEquals", "condition_value": "test"}
-    :return: SsmReadParameter
-    :rtype: str
+    Arguments:
+        service: `ssm`
+        access_level: `Read`
+        resource_type_name: `parameter`
+        condition_block: `{"condition_key_string": "ec2:ResourceTag/purpose", "condition_type_string": "StringEquals", "condition_value": "test"}`
+
+    Returns:
+        String: A string like `SsmReadParameter`
     """
     # Sanitize the resource_type_name; otherwise we hit some list conversion
     # errors
