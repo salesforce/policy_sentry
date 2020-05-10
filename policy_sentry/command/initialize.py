@@ -112,6 +112,7 @@ def initialize(access_level_overrides_file, fetch, build):
     logger.debug("\nService prefixes:")
     logger.debug(", ".join(all_aws_service_prefixes))
 
+
 def create_policy_sentry_config_directory():
     """
     Creates a config directory at $HOME/.policy_sentry/
