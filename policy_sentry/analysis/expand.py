@@ -12,9 +12,10 @@ def expand(action):
     """
     expand the action wildcards into a full action
 
-    :param action: An action in the form with a wildcard - like s3:Get*, or s3:L*
-    :return: A list of all the expanded actions (like actions matching s3:Get*)
-    :rtype: list
+    Arguments:
+        action: An action in the form with a wildcard - like s3:Get*, or s3:L*
+    Returns:
+        List: A list of all the expanded actions (like actions matching s3:Get*)
     """
 
     all_actions = get_all_actions()
@@ -50,9 +51,10 @@ def determine_actions_to_expand(action_list):
     """
     Determine if an action needs to get expanded from its wildcard
 
-    :param action_list: A list of actions
-    :return: A list of actions
-    :rtype: list
+    Arguments:
+        action_list: A list of actions
+    Returns:
+        List: A list of actions
     """
     new_action_list = []
     for action in range(len(action_list)):
@@ -70,8 +72,10 @@ def get_expanded_policy(policy):
     """
     Given a policy, expand the * Actions in IAM policy files to improve readability
 
-    :param policy: dictionary containing valid AWS IAM Policy
-    :return:
+    Arguments:
+        policy: dictionary containing valid AWS IAM Policy
+    Returns:
+        Dictionary: the policy that has the `*` expanded
     """
     modified_policy = copy.deepcopy(policy)
 

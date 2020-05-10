@@ -109,8 +109,10 @@ def get_resource_string(arn):
     """
     Given an ARN, return the string after the account ID, no matter the ARN format.
 
-    :param arn: arn:partition:service:region:account-id:resourcetype/resource
-    :return: resourcetype/resource
+    Arguments:
+        arn: An ARN, like `arn:partition:service:region:account-id:resourcetype/resource`
+    Return:
+        String: The resource string, like `resourcetype/resource`
     """
     split_arn = arn.split(":")
     resource_string = ":".join(split_arn[5:])
@@ -124,8 +126,10 @@ def parse_arn_for_resource_type(arn):
     """
     Parses the resource string (resourcetype/resource and other variants) and grab the resource type.
 
-    :param arn:
-    :return:
+    Arguments:
+        arn: The resource string to parse, like `resourcetype/resource`
+    Return:
+        String: The resource type, like `bucket` or `object`
     """
     split_arn = arn.split(":")
     # Resource string will equal:
@@ -154,9 +158,13 @@ def parse_arn_for_resource_type(arn):
 def does_arn_match(arn_to_test, arn_in_database):
     """
     Given two ARNs, determine if they have the same resource type.
-    :param arn_to_test: ARN provided by user
-    :param arn_in_database: Raw ARN that exists in the policy sentry database
-    :return: result of whether or not the ARNs match
+
+    Arguments:
+        arn_to_test: ARN provided by user
+        arn_in_database: Raw ARN that exists in the policy sentry database
+
+    Returns:
+        Boolean: result of whether or not the ARNs match
     """
     score = 0
     # arn_in_database = 'arn:aws:ssm:${Region}:${Account}:parameter/${FullyQualifiedParameterName}'

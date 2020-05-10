@@ -14,7 +14,8 @@ def get_all_service_prefixes():
     If the action table does NOT have specific IAM actions (and therefore only supports * actions),
     then it will not be included in the response.
 
-    :return: A list of all AWS service prefixes present in the table.
+    Returns:
+        A list of all AWS service prefixes present in the table.
     """
     results = [d["prefix"] for d in iam_definition]
     results = list(set(results))
