@@ -21,9 +21,6 @@ tagging:
 - ''
 permissions-management:
 - ''
-# Skip resource constraint requirements by listing actions here.
-skip-resource-constraints:
-- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -39,6 +36,12 @@ wildcard-only:
   - ''
   service-permissions-management:
   - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''
 """
 
 CRUD_TEMPLATE_DICT = {
@@ -49,7 +52,6 @@ CRUD_TEMPLATE_DICT = {
     "list": [],
     "tagging": [],
     "permissions-management": [],
-    "skip-resource-constraints": [],
     "wildcard-only": {
         "single-actions": [],
         "service-read": [],
@@ -58,6 +60,8 @@ CRUD_TEMPLATE_DICT = {
         "service-tagging": [],
         "service-permissions-management": [],
     },
+    "skip-resource-constraints": [],
+    "exclude-actions": []
 }
 
 ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}

@@ -3,6 +3,7 @@ sid_group indicates that this is a collection of policy-related data organized b
 """
 import logging
 import re
+from policy_sentry.analysis.expand import determine_actions_to_expand
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import (
     get_action_data,
@@ -55,7 +56,8 @@ class SidGroup:
         # sids instead of ARN
         self.sids = {}
         self.universal_conditions = {}
-        self.overrides = []
+        self.skip_resource_constraints = []
+        self.exclude_actions = []
         self.wildcard_only_single_actions = []
         # When a user requests all wildcard-only actions available under a service at a specific access level
         self.wildcard_only_service_read = []
@@ -86,26 +88,25 @@ class SidGroup:
         """
         return self.sids.keys()
 
-    def get_universal_conditions(self):
-        """
-        Get the universal conditions maps back as a dict
+    def add_exclude_actions(self, exclude_actions):
+        """To exclude actions from the output"""
+        if exclude_actions:
+            expanded_actions = determine_actions_to_expand(exclude_actions)
+            self.exclude_actions = [x.lower() for x in expanded_actions]
+        else:
+            self.exclude_actions = []
 
-        Returns:
-            Dictionary: The universal condtiion maps
-        """
-        return self.universal_conditions
-
-    def add_overrides(self, overrides):
+    def add_skip_resource_constraints(self, skip_resource_constraints_actions):
         """
         To override resource constraint requirements - i.e., instead of restricting `s3:PutObject` to a path and
         allowing `s3:PutObject` to `*` resources, put `s3:GetObject` here.
         """
-        if isinstance(overrides, list):
-            self.overrides.extend(overrides)
-        elif isinstance(overrides, str):
-            self.overrides.append([overrides])
+        if isinstance(skip_resource_constraints_actions, list):
+            self.skip_resource_constraints.extend(skip_resource_constraints_actions)
+        elif isinstance(skip_resource_constraints_actions, str):
+            self.skip_resource_constraints.append([skip_resource_constraints_actions])
         else:
-            raise Exception("Please provide 'overrides' as a list of IAM actions.")
+            raise Exception("Please provide 'skip_resource_constraints' as a list of IAM actions.")
 
     def add_requested_service_wide(self, service_prefixes, access_level):
         """
@@ -130,7 +131,6 @@ class SidGroup:
         """
         After (1) the list of wildcard-only single actions have been added and (2) the list of wildcard-only service-wide actions have been added, process them and store them under the proper SID.
         """
-        provided_wildcard_actions = []
         provided_wildcard_actions = (
             self.wildcard_only_single_actions
             + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_read, "Read")
@@ -158,10 +158,21 @@ class SidGroup:
 
         # render the policy
         for sid in self.sids:
-            actions = self.sids[sid]["actions"]
-            if len(actions) == 0:
+            temp_actions = self.sids[sid]["actions"]
+            if len(temp_actions) == 0:
                 logger.debug(f"No actions for sid {sid}")
                 continue
+            actions = []
+            if self.exclude_actions:
+                for temp_action in temp_actions:
+                    if temp_action.lower() in self.exclude_actions:
+                        logger.debug(f"\tExcluded action: {temp_action}")
+                    else:
+                        if temp_action not in actions:
+                            actions.append(temp_action)
+            else:
+                actions = temp_actions
+            # temp_actions.clear()
             if minimize is not None and isinstance(minimize, int):
                 logger.debug("Minimizing statements...")
                 actions = minimize_statement_actions(
@@ -377,6 +388,10 @@ class SidGroup:
             if cfg["mode"] == "crud":
                 logger.debug("CRUD mode selected")
                 check_crud_schema(cfg)
+                if "exclude-actions" in cfg:
+                    if cfg["exclude-actions"]:
+                        if cfg["exclude-actions"][0] != "":
+                            self.add_exclude_actions(cfg["exclude-actions"])
                 if "wildcard-only" in cfg.keys():
                     if "single-actions" in cfg["wildcard-only"]:
                         if cfg["wildcard-only"]["single-actions"]:
@@ -473,10 +488,10 @@ class SidGroup:
                                 f"Requested override: the actions {str(cfg['skip-resource-constraints'])} will "
                                 f"skip resource constraints."
                             )
-                            self.add_overrides(cfg["skip-resource-constraints"])
-                            for override_action in self.overrides:
+                            self.add_skip_resource_constraints(cfg["skip-resource-constraints"])
+                            for skip_resource_constraints_action in self.skip_resource_constraints:
                                 self.add_action_without_resource_constraint(
-                                    override_action, "SkipResourceConstraints"
+                                    skip_resource_constraints_action, "SkipResourceConstraints"
                                 )
             if cfg["mode"] == "actions":
                 check_actions_schema(cfg)
@@ -587,7 +602,7 @@ class SidGroup:
                 if "*" not in self.sids[sid]["arn_format"]:
                     for action in actions_under_wildcard_resources:
                         if action in self.sids[sid]["actions"]:
-                            if action not in self.overrides:
+                            if action not in self.skip_resource_constraints:
                                 # add it to a list of actions to nuke when they are under other SIDs
                                 actions_under_wildcard_resources_to_nuke.append(action)
 

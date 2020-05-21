@@ -26,9 +26,6 @@ tagging:
 - ''
 permissions-management:
 - ''
-# Skip resource constraint requirements by listing actions here.
-skip-resource-constraints:
-- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -44,6 +41,12 @@ wildcard-only:
   - ''
   service-permissions-management:
   - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''
 """
         crud_template = create_crud_template()
         self.maxDiff = None

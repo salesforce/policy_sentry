@@ -155,9 +155,6 @@ tagging:
 - ''
 permissions-management:
 - ''
-# Skip resource constraint requirements by listing actions here.
-skip-resource-constraints:
-- ''
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -173,6 +170,12 @@ wildcard-only:
   - ''
   service-permissions-management:
   - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''
 ```
 
 ### Step 2: Copy/paste ARNs
@@ -181,7 +184,6 @@ wildcard-only:
 
 ```yaml
 mode: crud
-name: ''
 read:
 - 'arn:aws:ssm:us-east-1:123456789012:parameter/myparameter'
 write:
@@ -192,20 +194,6 @@ tagging:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
 permissions-management:
 - 'arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret'
-wildcard-only:
-  single-actions: # standalone actions
-  - ''
-  # Service-wide - like 's3' or 'ec2'
-  service-read:
-  - ''
-  service-write:
-  - ''
-  service-list:
-  - ''
-  service-tagging:
-  - ''
-  service-permissions-management:
-  - ''
 ```
 
 ### Step 3: Write-policy command
