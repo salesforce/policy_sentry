@@ -475,3 +475,107 @@ class SidGroupCrudTestCase(unittest.TestCase):
         }
         print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
+
+    def test_exclude_actions_from_crud_output(self):
+        sid_group = SidGroup()
+        crud_with_exclude_actions = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "yml",
+                "crud-with-exclude-actions.yml",
+            )
+        )
+
+        with open(crud_with_exclude_actions, "r") as this_yaml_file:
+            crud_with_exclude_actions_cfg = yaml.safe_load(this_yaml_file)
+        # crud_with_exclude_actions_cfg = {
+        #     "mode": "crud",
+        #     "write": [
+        #         "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
+        #     ],
+        #     "exclude-actions": [
+        #         "kms:Delete*"
+        #     ]
+        # }
+
+        # print(json.dumps(crud_with_exclude_actions_cfg, indent=4))
+        sid_group.process_template(crud_with_exclude_actions_cfg)
+        result = sid_group.get_rendered_policy(crud_with_exclude_actions_cfg)
+        print(json.dumps(result, indent=4))
+        expected_result = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "KmsWriteKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:CancelKeyDeletion",
+                        "kms:CreateAlias",
+                        "kms:Decrypt",
+                        "kms:EnableKey",
+                        "kms:EnableKeyRotation",
+                        "kms:Encrypt",
+                        "kms:GenerateDataKey",
+                        "kms:GenerateDataKeyPair",
+                        "kms:GenerateDataKeyPairWithoutPlaintext",
+                        "kms:GenerateDataKeyWithoutPlaintext",
+                        "kms:ImportKeyMaterial",
+                        "kms:ReEncryptFrom",
+                        "kms:ReEncryptTo",
+                        "kms:Sign",
+                        "kms:UpdateAlias",
+                        "kms:UpdateKeyDescription",
+                        "kms:Verify"
+                    ],
+                    "Resource": [
+                        "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(result, expected_result)
+
+        crud_with_exclude_actions_cfg = {
+            "mode": "crud",
+            "write": [
+                "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
+            ],
+            # This is really only because KMS is a special case.
+            "exclude-actions": [
+                "kms:Delete*",
+                "kms:Disable*",
+                "kms:Enable*",
+                "kms:Generate*",
+                "kms:Cancel*",
+                "kms:Create*",
+                "kms:Import*",
+                "kms:ReEncrypt*",
+                "kms:Sign*",
+                "kms:Schedule*",
+                "kms:Update*",
+                "kms:Verify*"
+            ]
+        }
+        sid_group.process_template(crud_with_exclude_actions_cfg)
+        results = sid_group.get_rendered_policy()
+        print(json.dumps(results, indent=4))
+        expected_result = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "KmsWriteKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:Decrypt",
+                        "kms:Encrypt"
+                    ],
+                    "Resource": [
+                        "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(results, expected_result)

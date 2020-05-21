@@ -233,7 +233,7 @@ def format(c):
 # TEST - LINT
 @task
 def run_linter(c):
-    """Linting with `pylint` and `black`"""
+    """Linting with `pylint`"""
     try:
         c.run('pylint policy_sentry/', warn=False)
     except UnexpectedExit as u_e:

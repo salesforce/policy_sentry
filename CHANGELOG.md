@@ -2,6 +2,9 @@
 ## Future release (Unreleased)
 * Add conditions support
 
+## 0.8.0.7 (2020-05-20)
+* Fixes #182 - adding the ability to exclude some actions from the resulting policy.
+
 ## 0.8.0.6 (2020-05-06)
 * Fixes overly verbose logging issue for `remove_actions_not_matching_access_level` (Fixes #178)
 * Homebrew support
