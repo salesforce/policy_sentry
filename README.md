@@ -511,7 +511,7 @@ For the full example, including GIFs depicting real output, see the README for t
 
 [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html
 [2]: https://nose.readthedocs.io/en/latest/
-[3]: https://github.com/ansible/ansible/blob/devel/hacking/aws_config/build_iam_policy_framework.py
+[3]: https://github.com/ansible/ansible/blob/stable-2.9/hacking/aws_config/build_iam_policy_framework.py
 [4]: https://github.com/evilpete/aws_access_adviser
 [5]: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
 [6]: https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html
