@@ -1,0 +1,35 @@
+name: Update
+
+on:
+  push:
+    branches:
+      - auto-update
+  schedule:
+  # once a week on Sunday
+    - cron:  '0 0 * * 0'
+
+jobs:
+  update-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: install deps
+        run: pip install requests schema PyYAML click click_log beautifulsoup4
+      - name: install policy_sentry
+        run: echo "::set-env name=PYTHONPATH::$(pwd)"
+      - name: Run initialize
+        run: |
+          python .github/scripts/update_data.py
+          cp -f /tmp/.policy_sentry/iam-definition.json $(pwd)/policy_sentry/shared/data/iam-definition.json
+          cp -rf /tmp/.policy_sentry/data/docs $(pwd)/policy_sentry/shared/data/
+      - name: PR if files were updated
+        uses: peter-evans/create-pull-request@v2
+        with:
+          commit-message: Update database
+          title: 'Updates database'
+          body: This is an automated PR created because AWS IAM definitions have changed.
