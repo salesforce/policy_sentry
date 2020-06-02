@@ -22,6 +22,10 @@ jobs:
       - name: Run initialize
         run: |
           python .github/scripts/update_data.py
+          if [[ $(du -m /tmp/.policy_sentry/iam-definition.json | cut -f1) -lt 3 ]]; then
+            echo "File size is less than 3 MB, something is wrong with this update"
+            exit 1
+          fi
           cp -f /tmp/.policy_sentry/iam-definition.json $(pwd)/policy_sentry/shared/data/iam-definition.json
           cp -rf /tmp/.policy_sentry/data/docs $(pwd)/policy_sentry/shared/data/
       - name: PR if files were updated
