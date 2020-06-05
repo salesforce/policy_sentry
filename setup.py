@@ -43,14 +43,12 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=['test*']),
     tests_require=TESTS_REQUIRE,
     install_requires=[
+        'beautifulsoup4',
+        'click',
+        'click_log',
         'requests',
         'schema',
         'PyYAML',
-        'click',
-        'click_log',
-        'beautifulsoup4',
-        # 'html5lib',
-        # 'lxml',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

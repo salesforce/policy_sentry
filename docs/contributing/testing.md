@@ -5,9 +5,8 @@ Pipenv
 ------
 
 ```bash
-pipenv --python 3.7  # create the environment
-pipenv shell         # start the environment
-pipenv install       # install both development and production dependencies
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 Invoke

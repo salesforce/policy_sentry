@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -x
-pipenv install --dev
-pipenv run invoke build.build-package
-pipenv uninstall --all
-pipenv run pip install homebrew-pypi-poet
-pipenv run pip install policy_sentry -U
-pipenv run poet -f policy_sentry > HomebrewFormula/policy_sentry.rb
+python3 -m venv ./venv && source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install -r requirements-dev.txt
+invoke build.build-package
+pip uninstall -r requirements.txt -y
+pip uninstall -r requirements-dev.txt -y
+pip install homebrew-pypi-poet
+pip install policy_sentry -U
+poet -f policy_sentry > HomebrewFormula/policy_sentry.rb
