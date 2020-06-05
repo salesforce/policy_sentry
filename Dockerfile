@@ -3,7 +3,7 @@ FROM python:${FROM_TAG}
 MAINTAINER Kinnaird McQuade "kinnairdm@gmail.com"
 
 # Install python dependencies
-COPY ./utils/requirements.txt /tmp/
+COPY requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt --no-cache-dir && \
     rm -rf /root/.cache/
 

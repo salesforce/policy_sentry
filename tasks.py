@@ -88,12 +88,6 @@ def upload_to_pypi_prod_server(c):
     c.run('python -m pip install policy_sentry')
 
 
-@task
-def update_requirements_txt_file(c):
-    """Update the requirements.txt file in the utils folder for use in Docker"""
-    c.run('python -m pipenv lock --clear --requirements > utils/requirements.txt')
-
-
 # INTEGRATION TESTS
 @task
 def clean_config_directory(c):
@@ -307,6 +301,5 @@ build.add_task(uninstall_package, 'uninstall-package')
 build.add_task(upload_to_pypi_test_server, 'upload-test')
 build.add_task(upload_to_pypi_prod_server, 'upload-prod')
 build.add_task(upload_to_pypi_prod_server, 'upload-prod')
-build.add_task(update_requirements_txt_file, 'update-requirements-file')
 
 docker.add_task(build_docker, 'build-docker')

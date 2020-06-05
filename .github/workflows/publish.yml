@@ -17,23 +17,23 @@ jobs:
         with:
           python-version: 3.7
 
-      - name: Install dependencies with pipenv
+      - name: Install dependencies
         run: |
           sleep 4m
-          pip install pipenv
-          pipenv install --dev --skip-lock
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
 
-      - run: pipenv run invoke build.install-package
-      - run: pipenv run invoke test.format
-      - run: pipenv run invoke test.lint
-      - run: pipenv run invoke integration.clean
-      - run: pipenv run invoke integration.version
-      - run: pipenv run invoke integration.initialize
-      - run: pipenv run invoke unit.pytest
-      - run: pipenv run invoke test.security
-      - run: pipenv run invoke integration.query
-      - run: pipenv run invoke integration.write-policy
-      - run: pipenv run invoke build.uninstall-package
+      - run: invoke build.install-package
+      - run: invoke test.format
+      - run: invoke test.lint
+      - run: invoke integration.clean
+      - run: invoke integration.version
+      - run: invoke integration.initialize
+      - run: invoke unit.pytest
+      - run: invoke test.security
+      - run: invoke integration.query
+      - run: invoke integration.write-policy
+      - run: invoke build.uninstall-package
 
   publish-package:
     needs: test
@@ -44,17 +44,18 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
-      - uses: dschep/install-pipenv-action@v1
+
       - name: Install dependencies
         run: |
-          pipenv install --dev
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
       - name: create python package
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git fetch --tags
           git pull origin master
-          pipenv run python setup.py sdist bdist_wheel
+          python setup.py sdist bdist_wheel
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@master
         with:
@@ -70,19 +71,18 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.7
-      - uses: dschep/install-pipenv-action@v1
       - name: publish brew
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          pipenv run pip install homebrew-pypi-poet
-          pipenv run pip install policy_sentry -U
+          pip install homebrew-pypi-poet
+          pip install policy_sentry -U
           git fetch origin
           git checkout --track origin/master
           latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "latest tag: $latest_tag"
           git pull origin $latest_tag
-          pipenv run poet -f policy_sentry > HomebrewFormula/policy_sentry.rb
+          poet -f policy_sentry > HomebrewFormula/policy_sentry.rb
           git add .
           git commit -m "update brew formula" policy_sentry/bin/cli.py HomebrewFormula/policy_sentry.rb || echo "No brew changes to commit"
           git push -u origin master

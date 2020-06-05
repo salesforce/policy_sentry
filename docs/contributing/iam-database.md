@@ -76,7 +76,8 @@ This will update the HTML files stored in
 `policy_sentry/shared/data/docs/[list]()*.html`:
 
 ```bash
-pipenv shell
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python3 ./utils/download_docs.py
 ```
 
