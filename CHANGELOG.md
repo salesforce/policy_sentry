@@ -1,11 +1,14 @@
 # Changelog
-## Future release (Unreleased)
-* Add conditions support
 
-## 0.8.0.8 (Unreleased)
+## 0.8.2 (2020-06-26)
+* IAM Data refresh
+* Fix a few access levels
+
+## 0.8.1 (2020-06-08)
 * Delivery related:
   - Automatic Python dependency updates via PyUp.io
   - Automatic AWS Documentation updates thanks to @zscholl
+* Docs refresh
 
 ## 0.8.0.7 (2020-05-20)
 * Fixes #182 - adding the ability to exclude some actions from the resulting policy.

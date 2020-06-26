@@ -14,8 +14,13 @@ desired_crud_policy = {
         {
             "Sid": "MultMultNone",
             "Effect": "Allow",
-            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
-            "Resource": ["*"],
+            "Action": [
+                "cloudhsm:DescribeClusters",
+                "kms:CreateCustomKeyStore"
+            ],
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "SecretsmanagerReadSecret",
@@ -24,11 +29,11 @@ desired_crud_policy = {
                 "secretsmanager:DescribeSecret",
                 "secretsmanager:GetResourcePolicy",
                 "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecretVersionIds",
+                "secretsmanager:ListSecretVersionIds"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-            ],
+            ]
         },
         {
             "Sid": "SecretsmanagerWriteSecret",
@@ -40,11 +45,21 @@ desired_crud_policy = {
                 "secretsmanager:RestoreSecret",
                 "secretsmanager:RotateSecret",
                 "secretsmanager:UpdateSecret",
-                "secretsmanager:UpdateSecretVersionStage",
+                "secretsmanager:UpdateSecretVersionStage"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+            ]
+        },
+        {
+            "Sid": "S3ListObject",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListMultipartUploadParts"
             ],
+            "Resource": [
+                "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+            ]
         },
         {
             "Sid": "KmsPermissionsmanagementKey",
@@ -53,17 +68,24 @@ desired_crud_policy = {
                 "kms:CreateGrant",
                 "kms:PutKeyPolicy",
                 "kms:RetireGrant",
-                "kms:RevokeGrant",
+                "kms:RevokeGrant"
             ],
-            "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
+            "Resource": [
+                "arn:aws:kms:us-east-1:123456789012:key/123456"
+            ]
         },
         {
             "Sid": "SsmTaggingParameter",
             "Effect": "Allow",
-            "Action": ["ssm:AddTagsToResource", "ssm:RemoveTagsFromResource"],
-            "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
-        },
-    ],
+            "Action": [
+                "ssm:AddTagsToResource",
+                "ssm:RemoveTagsFromResource"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+            ]
+        }
+    ]
 }
 
 desired_actions_policy = {
@@ -158,7 +180,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         )
         # print("desired_crud_policy")
         # print(json.dumps(desired_crud_policy, indent=4))
-        print("policy")
+        # print("policy")
         print(json.dumps(policy, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_crud_policy, policy)

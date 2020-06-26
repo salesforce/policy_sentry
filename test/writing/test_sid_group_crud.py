@@ -182,11 +182,11 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "secretsmanager:DescribeSecret",
                         "secretsmanager:GetResourcePolicy",
                         "secretsmanager:GetSecretValue",
-                        "secretsmanager:ListSecretVersionIds",
+                        "secretsmanager:ListSecretVersionIds"
                     ],
                     "Resource": [
                         "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-                    ],
+                    ]
                 },
                 {
                     "Sid": "S3TaggingObject",
@@ -196,9 +196,11 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "s3:DeleteObjectVersionTagging",
                         "s3:PutObjectTagging",
                         "s3:PutObjectVersionTagging",
-                        "s3:ReplicateTags",
+                        "s3:ReplicateTags"
                     ],
-                    "Resource": ["arn:aws:s3:::example-org-sbx-vmimport/stuff"],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+                    ]
                 },
                 {
                     "Sid": "SecretsmanagerWriteSecret",
@@ -210,12 +212,12 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "secretsmanager:RestoreSecret",
                         "secretsmanager:RotateSecret",
                         "secretsmanager:UpdateSecret",
-                        "secretsmanager:UpdateSecretVersionStage",
+                        "secretsmanager:UpdateSecretVersionStage"
                     ],
                     "Resource": [
                         "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret",
-                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret",
-                    ],
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
+                    ]
                 },
                 {
                     "Sid": "KmsPermissionsmanagementKey",
@@ -224,11 +226,23 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "kms:CreateGrant",
                         "kms:PutKeyPolicy",
                         "kms:RetireGrant",
-                        "kms:RevokeGrant",
+                        "kms:RevokeGrant"
                     ],
-                    "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
+                    "Resource": [
+                        "arn:aws:kms:us-east-1:123456789012:key/123456"
+                    ]
                 },
-            ],
+                {
+                    "Sid": "SsmListParameter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:ListTagsForResource"
+                    ],
+                    "Resource": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                    ]
+                }
+            ]
         }
         print(json.dumps(output, indent=4))
         self.maxDiff = None

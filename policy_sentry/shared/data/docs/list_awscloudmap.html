@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w468aac34c13c27d126c11b9">
+             <table id="w469aac34c14c27d126c11b9">
               <tr>
                <th>
                 Actions
@@ -254,6 +254,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -276,6 +286,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -297,30 +317,63 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awscloudmap-CreateService">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">
                  CreateService
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Creates a service.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
                 <p>
                  <a href="#awscloudmap-servicediscovery_NamespaceArn">
                   servicediscovery:NamespaceArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -380,20 +433,33 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awscloudmap-DeregisterInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DeregisterInstance.html">
                  DeregisterInstance
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Deletes the records and the health check, if any, that Amazon Route 53 created for
                                                 the specified instance.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -654,24 +720,120 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudmap-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Lists tags for the specified resource.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awscloudmap-RegisterInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">
                  RegisterInstance
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Registers an instance based on the settings in a specified service.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
                 <p>
                  <a href="#awscloudmap-servicediscovery_ServiceArn">
                   servicediscovery:ServiceArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudmap-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td>
+                Adds one or more tags to the specified resource.
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudmap-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td>
+                Removes one or more tags from the specified resource.
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudmap-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -756,7 +918,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w468aac34c13c27d126c13b5">
+             <table id="w469aac34c14c27d126c13b5">
               <tr>
                <th>
                 Resource Types
@@ -798,6 +960,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudmap-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -830,6 +997,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudmap-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -864,7 +1036,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w468aac34c13c27d126c15b7">
+             <table id="w469aac34c14c27d126c15b7">
               <tr>
                <th>
                 Condition Keys
@@ -875,6 +1047,59 @@
                <th>
                 Type
                </th>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudmap-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/$
+                 <span>
+                  {
+                 </span>
+                 TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudmap-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/$
+                 <span>
+                  {
+                 </span>
+                 TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudmap-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
               </tr>
               <tr>
                <td>
