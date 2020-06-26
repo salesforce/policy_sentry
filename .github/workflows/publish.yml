@@ -55,7 +55,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git fetch --tags
           git pull origin master
-          python setup.py sdist bdist_wheel
+          pip install setuptools wheel twine
+          python -m setup.py sdist bdist_wheel
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@master
         with:
