@@ -371,6 +371,9 @@ route53resolver:
     # AWS documentation lists this as "Write"
     Permissions management:
         - putresolverrulepolicy
+s3:
+    List:
+      - listmultipartuploadparts
 secretsmanager:
     # AWS documentation lists these as "Tagging"
     Write:
@@ -400,6 +403,8 @@ ssm:
     # AWS documentation lists this as "Write"
     Permissions management:
         - modifydocumentpermission
+    List:
+        - listtagsforresource
 sso:
     # These were listed as "Write", but should be "Permissions management due to the nature of this service
     Permissions management:
