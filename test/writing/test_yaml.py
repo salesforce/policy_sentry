@@ -121,8 +121,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                         "ssm:GetParameter",
                         "ssm:GetParameterHistory",
                         "ssm:GetParameters",
-                        "ssm:GetParametersByPath",
-                        "ssm:ListTagsForResource"
+                        "ssm:GetParametersByPath"
                     ],
                     "Resource": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test"
@@ -140,11 +139,22 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                     "Resource": [
                         "arn:aws:ssm:us-east-1:123456789012:parameter/test"
                     ]
+                },
+                {
+                    "Sid": "SsmListParameter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:ListTagsForResource"
+                    ],
+                    "Resource": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                    ]
                 }
             ]
         }
         # with self.assertRaises(Exception):
         result = write_policy_with_template(crud_file_input)
+        # print(json.dumps(result, indent=4))
         self.assertDictEqual(desired_output, result)
 
 
