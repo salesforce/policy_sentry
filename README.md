@@ -263,18 +263,6 @@ policy_sentry write-policy --input-file crud.yml
 }
 ```
 
-Notice how the policy above recognizes the ARNs that the user supplies,
-along with the requested access level. For instance, the SID
-`SecretsmanagerTaggingSecret` contains Tagging actions that are assigned
-to the secret resource type only.
-
-This rapidly speeds up the time to develop IAM policies, and ensures
-that all policies created limit access to exactly what your role needs
-access to. This way, developers only have to determine the resources
-that they need to access, and we abstract the complexity of IAM policies
-away from their development processes.
-
-
 Notice how the policy above recognizes the ARNs that the user supplies, along with the requested access level. For instance, the SID `SecretsmanagerTaggingSecret` contains Tagging actions that are assigned to the secret resource type only.
 
 This rapidly speeds up the time to develop IAM policies, and ensures that all policies created limit access to exactly what your role needs access to. This way, developers only have to determine the resources that they need to access, and we abstract the complexity of IAM policies away from their development processes.
