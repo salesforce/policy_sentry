@@ -1,6 +1,6 @@
 # Policy Sentry
 
-IAM Least Privilege Policy Generator and analysis database.
+IAM Least Privilege Policy Generator.
 
 [![Build Status](https://travis-ci.org/salesforce/policy_sentry.svg?branch=master)](https://travis-ci.org/salesforce/policy_sentry)
 [![Documentation Status](https://readthedocs.org/projects/policy-sentry/badge/?version=latest)](https://policy-sentry.readthedocs.io/en/latest/?badge=latest)
