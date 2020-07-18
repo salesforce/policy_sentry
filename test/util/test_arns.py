@@ -99,3 +99,15 @@ class ArnsTestCase(unittest.TestCase):
         arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
         decision = does_arn_match(arn_to_test, arn_in_database)
         self.assertTrue(decision)
+
+    def test_does_arn_match_resource_wildcard(self):
+        arn_to_test = "arn:${Partition}:rds:${Region}:${Account}:*:*"
+        arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
+        decision = does_arn_match(arn_to_test, arn_in_database)
+        self.assertTrue(decision)
+
+        # Make sure wrong service yields False
+        arn_to_test = "arn:${Partition}:s3:${Region}:${Account}:*:*"
+        arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
+        decision = does_arn_match(arn_to_test, arn_in_database)
+        self.assertFalse(decision)

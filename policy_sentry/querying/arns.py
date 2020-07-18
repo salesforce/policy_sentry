@@ -112,21 +112,21 @@ def get_resource_type_name_with_raw_arn(raw_arn):
             return resource["resource"]
 
 
-def get_matching_raw_arn(arn):
+def get_matching_raw_arns(arn):
     """
-    Given a user-supplied ARN, return the raw_arn since that is used as a unique identifier throughout this library
+    Given a user-supplied ARN, return the list of raw_arns since that is used as a unique identifier throughout this library
 
     Arguments:
         arn: The user-supplied arn, like arn:aws:s3:::mybucket
     Returns:
-        String: The raw ARN stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
+        list(str): The list of raw ARNs stored in the database, like 'arn:${Partition}:s3:::${BucketName}'
     """
-    result = None
+    result = []
     service_in_scope = get_service_from_arn(arn)
     # Determine which resource it applies to
     all_raw_arns_for_service = get_raw_arns_for_service(service_in_scope)
     # Get the raw ARN specific to the provided one
     for raw_arn in all_raw_arns_for_service:
-        if does_arn_match(arn, raw_arn):
-            result = raw_arn
+        if does_arn_match(arn, raw_arn) and raw_arn not in result:
+            result.append(raw_arn)
     return result

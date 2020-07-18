@@ -6,7 +6,7 @@ import logging
 import functools
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.querying.arns import get_matching_raw_arn, get_resource_type_name_with_raw_arn
+from policy_sentry.querying.arns import get_matching_raw_arns, get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import get_service_from_arn
 
 all_service_prefixes = get_all_service_prefixes()
@@ -218,16 +218,17 @@ def get_actions_matching_arn(arn):
     Returns:
         List: A list of all actions that can match it.
     """
-    raw_arn = get_matching_raw_arn(arn)
-    resource_type_name = get_resource_type_name_with_raw_arn(raw_arn)
-    service_prefix = get_service_from_arn(raw_arn)
-    service_prefix_data = get_service_prefix_data(service_prefix)
+    raw_arns = get_matching_raw_arns(arn)
     results = []
-    for some_action in service_prefix_data["privileges"]:
-        for some_resource_type in some_action["resource_types"]:
-            this_resource_type = some_resource_type["resource_type"].strip("*")
-            if this_resource_type.lower() == resource_type_name.lower():
-                results.append(f"{service_prefix}:{some_action['privilege']}")
+    for raw_arn in raw_arns:
+        resource_type_name = get_resource_type_name_with_raw_arn(raw_arn)
+        service_prefix = get_service_from_arn(raw_arn)
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for some_action in service_prefix_data["privileges"]:
+            for some_resource_type in some_action["resource_types"]:
+                this_resource_type = some_resource_type["resource_type"].strip("*")
+                if this_resource_type.lower() == resource_type_name.lower():
+                    results.append(f"{service_prefix}:{some_action['privilege']}")
     results = list(dict.fromkeys(results))
     results.sort()
     return results
