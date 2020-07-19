@@ -22,11 +22,11 @@ jobs:
 
       - run: invoke build.install-package
       - run: invoke test.format
-      - run: invoke test.lint
       - run: invoke integration.clean
       - run: invoke integration.version
       - run: invoke integration.initialize
       - run: invoke unit.pytest
+      - run: invoke test.lint
       - run: invoke test.security
       - run: invoke integration.query
       - run: invoke integration.write-policy
