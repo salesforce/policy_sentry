@@ -180,7 +180,7 @@ def does_arn_match(arn_to_test, arn_in_database):
         if get_service_from_arn(arn_in_database) != get_service_from_arn(arn_to_test):
             score += 10
             return False
-        if resource_type_arn_in_database == resource_type_arn_to_test:
+        if resource_type_arn_to_test in (resource_type_arn_in_database, '*'):
             return True
         else:
             score += 1

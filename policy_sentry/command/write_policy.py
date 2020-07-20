@@ -4,9 +4,9 @@ Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD m
 import sys
 import json
 import logging
-import yaml
 import click
 import click_log
+import yaml
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
 
