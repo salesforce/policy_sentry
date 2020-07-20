@@ -4,8 +4,8 @@ Allow users to use specific pre-compiled queries against the action, arn, and co
 import json
 import logging
 import click
-import yaml
 import click_log
+import yaml
 from policy_sentry.util.access_levels import transform_access_level_text
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.querying.arns import (
