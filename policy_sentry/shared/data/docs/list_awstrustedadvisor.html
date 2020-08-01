@@ -126,7 +126,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#trusted-advisor">
+               <a href="https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html">
                 configure this service
                </a>
                .
@@ -136,7 +136,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/">
-                API operations available for this             service
+                API operations available for this        service
                </a>
                .
               </p>
@@ -144,7 +144,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#trusted-advisoraccess_permissions.html">
+               <a href="https://docs.aws.amazon.com/awssupport/latest/user/security.html">
                 using IAM
                </a>
                permission policies.
@@ -214,9 +214,25 @@
             </a>
             .
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <span>
+              Note
+             </span>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Note: The IAM Trusted Advisor policy description details apply only to the Trusted
+                                          Advisor console. If you want to manage programmatic access to Trusted Advisor, use
+                                          the Trusted Advisor operations in the AWS Support API.
+             </p>
+            </div>
+           </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d906c11b9">
+             <table id="w470aac34c14c27d914c11c11">
               <thead>
                <tr>
                 <th>
@@ -243,10 +259,13 @@
                <td>
                 <a id="awstrustedadvisor-DescribeAccount">
                 </a>
-                DescribeAccount
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeAccount
+                </a>
+                [permission only]
                </td>
                <td>
-                View support plan and various TA preferences.
+                Grants permission to view the AWS Support plan and various AWS Trusted Advisor preferences
                </td>
                <td>
                 Read
@@ -262,10 +281,13 @@
                <td>
                 <a id="awstrustedadvisor-DescribeAccountAccess">
                 </a>
-                DescribeAccountAccess
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeAccountAccess
+                </a>
+                [permission only]
                </td>
                <td>
-                Resolve whether Account has disabled Trusted Advisor
+                Grants permission to view if the AWS account has enabled or disabled AWS Trusted Advisor
                </td>
                <td>
                 Read
@@ -281,10 +303,12 @@
                <td>
                 <a id="awstrustedadvisor-DescribeCheckItems">
                 </a>
-                DescribeCheckItems
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeCheckItems
+                </a>
                </td>
                <td>
-                View details for the check items
+                Grants permission to view details for the check items
                </td>
                <td>
                 Read
@@ -305,10 +329,12 @@
                <td>
                 <a id="awstrustedadvisor-DescribeCheckRefreshStatuses">
                 </a>
-                DescribeCheckRefreshStatuses
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeCheckRefreshStatuses
+                </a>
                </td>
                <td>
-                Describe check refresh statuses
+                Grants permission to view the refresh statuses for AWS Trusted Advisor checks
                </td>
                <td>
                 Read
@@ -329,10 +355,12 @@
                <td>
                 <a id="awstrustedadvisor-DescribeCheckSummaries">
                 </a>
-                DescribeCheckSummaries
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeCheckSummaries
+                </a>
                </td>
                <td>
-                Describes the check's summaries
+                Grants permission to view AWS Trusted Advisor check summaries
                </td>
                <td>
                 Read
@@ -353,10 +381,12 @@
                <td>
                 <a id="awstrustedadvisor-DescribeChecks">
                 </a>
-                DescribeChecks
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeChecks
+                </a>
                </td>
                <td>
-                List valid Trusted Advisor checks and details.
+                Grants permission to view details for AWS Trusted Advisor checks
                </td>
                <td>
                 Read
@@ -372,10 +402,104 @@
                <td>
                 <a id="awstrustedadvisor-DescribeNotificationPreferences">
                 </a>
-                DescribeNotificationPreferences
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeNotificationPreferences
+                </a>
+                [permission only]
                </td>
                <td>
-                Describes the notification preferences for the account
+                Grants permission to view the notification preferences for the AWS account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-DescribeOrganization">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeOrganization
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view if the AWS account meets the requirements to enable the
+                                                organizational view feature
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-DescribeOrganizationAccounts">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeOrganizationAccounts
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view the linked AWS accounts that are in the organization
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-DescribeReports">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeReports
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view details for organizational view reports, such as the report
+                                                name, runtime, date created, status, and format
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-DescribeServiceMetadata">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 DescribeServiceMetadata
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view information about organizational view reports, such as the
+                                                AWS Regions, check categories, check names, and resource statuses
                </td>
                <td>
                 Read
@@ -391,10 +515,13 @@
                <td>
                 <a id="awstrustedadvisor-ExcludeCheckItems">
                 </a>
-                ExcludeCheckItems
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 ExcludeCheckItems
+                </a>
+                [permission only]
                </td>
                <td>
-                Exclude recommendations for checks for a given customer
+                Grants permission to exclude recommendations for AWS Trusted Advisor checks
                </td>
                <td>
                 Write
@@ -413,12 +540,37 @@
               </tr>
               <tr>
                <td>
-                <a id="awstrustedadvisor-IncludeCheckItems">
+                <a id="awstrustedadvisor-GenerateReport">
                 </a>
-                IncludeCheckItems
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 GenerateReport
+                </a>
+                [permission only]
                </td>
                <td>
-                Include recommendations for checks for a given customer
+                Grants permission to create a report for AWS Trusted Advisor checks in your organization
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-IncludeCheckItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 IncludeCheckItems
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to include recommendations for AWS Trusted Advisor checks
                </td>
                <td>
                 Write
@@ -439,10 +591,12 @@
                <td>
                 <a id="awstrustedadvisor-RefreshCheck">
                 </a>
-                RefreshCheck
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 RefreshCheck
+                </a>
                </td>
                <td>
-                Enqueue a refresh for the specified check
+                Grants permission to refresh an AWS Trusted Advisor check
                </td>
                <td>
                 Write
@@ -463,10 +617,35 @@
                <td>
                 <a id="awstrustedadvisor-SetAccountAccess">
                 </a>
-                SetAccountAccess
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 SetAccountAccess
+                </a>
+                [permission only]
                </td>
                <td>
-                Toggle whether TrustedAdvisor is enabled/disabled for the account
+                Grants permission to enable or disable AWS Trusted Advisor for the account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awstrustedadvisor-SetOrganizationAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 SetOrganizationAccess
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to enable the organizational view feature for AWS Trusted Advisor
                </td>
                <td>
                 Write
@@ -482,10 +661,13 @@
                <td>
                 <a id="awstrustedadvisor-UpdateNotificationPreferences">
                 </a>
-                UpdateNotificationPreferences
+                <a href="https://docs.aws.amazon.com/awssupport/latest/user/security-trusted-advisor.html#trusted-advisor-operations">
+                 UpdateNotificationPreferences
+                </a>
+                [permission only]
                </td>
                <td>
-                Update notification preferences
+                Grants permission to update notification preferences for AWS Trusted Advisor
                </td>
                <td>
                 Write
@@ -523,7 +705,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d906c13b5">
+             <table id="w470aac34c14c27d914c13b5">
               <thead>
                <tr>
                 <th>

@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d326c11b9">
+             <table id="w470aac34c14c27d326c11b9">
               <thead>
                <tr>
                 <th>
@@ -655,6 +655,21 @@
                 <p>
                  <a href="#amazonec2autoscaling-autoscaling_SpotPrice">
                   autoscaling:SpotPrice
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2autoscaling-autoscaling_MetadataHttpTokens">
+                  autoscaling:MetadataHttpTokens
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2autoscaling-autoscaling_MetadataHttpPutResponseHopLimit">
+                  autoscaling:MetadataHttpPutResponseHopLimit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2autoscaling-autoscaling_MetadataHttpEndpoint">
+                  autoscaling:MetadataHttpEndpoint
                  </a>
                 </p>
                </td>
@@ -2245,7 +2260,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d326c13b5">
+             <table id="w470aac34c14c27d326c13b5">
               <thead>
                <tr>
                 <th>
@@ -2373,7 +2388,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d326c15b7">
+             <table id="w470aac34c14c27d326c15b7">
               <thead>
                <tr>
                 <th>
@@ -2495,6 +2510,52 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2autoscaling-autoscaling_MetadataHttpEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
+                 autoscaling:MetadataHttpEndpoint
+                </a>
+               </td>
+               <td>
+                Filters access by whether the HTTP endpoint is enabled for the instance metadata service.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2autoscaling-autoscaling_MetadataHttpPutResponseHopLimit">
+                </a>
+                <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
+                 autoscaling:MetadataHttpPutResponseHopLimit
+                </a>
+               </td>
+               <td>
+                Filters access by the allowed number of hops when calling the instance metadata service.
+               </td>
+               <td>
+                Numeric
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2autoscaling-autoscaling_MetadataHttpTokens">
+                </a>
+                <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
+                 autoscaling:MetadataHttpTokens
+                </a>
+               </td>
+               <td>
+                Filters access by whether tokens are required when calling the instance metadata service
+                                                (optional or required)
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2autoscaling-autoscaling_MinSize">
                 </a>
                 <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
@@ -2513,11 +2574,7 @@
                 <a id="amazonec2autoscaling-autoscaling_ResourceTag___TagKey_">
                 </a>
                 <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
-                 autoscaling:ResourceTag/$
-                 <span>
-                  {
-                 </span>
-                 TagKey}
+                 autoscaling:ResourceTag/${TagKey}
                 </a>
                </td>
                <td>
@@ -2577,11 +2634,7 @@
                 <a id="amazonec2autoscaling-aws_RequestTag___TagKey_">
                 </a>
                 <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
-                 aws:RequestTag/$
-                 <span>
-                  {
-                 </span>
-                 TagKey}
+                 aws:RequestTag/${TagKey}
                 </a>
                </td>
                <td>
@@ -2595,11 +2648,7 @@
                <td>
                 <a id="amazonec2autoscaling-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/$
-                <span>
-                 {
-                </span>
-                TagKey}
+                aws:ResourceTag/${TagKey}
                </td>
                <td>
                 Filters actions based on tag-value associated with the resource.

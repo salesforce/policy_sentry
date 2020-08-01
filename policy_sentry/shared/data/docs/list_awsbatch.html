@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27c91c11b9">
+             <table id="w470aac34c14c27c91c11b9">
               <thead>
                <tr>
                 <th>
@@ -248,7 +248,7 @@
                 </a>
                </td>
                <td>
-                Cancels jobs in an AWS Batch job queue.
+                Cancels a job in an AWS Batch job queue.
                </td>
                <td>
                 Write
@@ -275,6 +275,37 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsbatch-CreateJobQueue">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html">
+                 CreateJobQueue
+                </a>
+               </td>
+               <td rowspan="2">
+                Creates an AWS Batch job queue.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -283,19 +314,11 @@
               </tr>
               <tr>
                <td>
-                <a id="awsbatch-CreateJobQueue">
-                </a>
-                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html">
-                 CreateJobQueue
-                </a>
-               </td>
-               <td>
-                Creates an AWS Batch job queue.
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -317,6 +340,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -338,6 +366,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -599,6 +632,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -620,6 +658,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -652,7 +695,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27c91c13b5">
+             <table id="w470aac34c14c27c91c13b5">
               <thead>
                <tr>
                 <th>
@@ -668,9 +711,43 @@
               </thead>
               <tr>
                <td>
+                <a id="awsbatch-compute-environment">
+                </a>
+                <a href="${AuthZDocPage}compute_environments.html" target="_blank">
+                 compute-environment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:batch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:compute-environment/$
+                 <span>
+                  {
+                 </span>
+                 ComputeEnvironmentName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbatch-job-queue">
                 </a>
-                job-queue
+                <a href="${AuthZDocPage}job_queues.html" target="_blank">
+                 job-queue
+                </a>
                </td>
                <td>
                 <code class="code">
@@ -700,7 +777,9 @@
                <td>
                 <a id="awsbatch-job-definition">
                 </a>
-                job-definition
+                <a href="${AuthZDocPage}job_definitions.html" target="_blank">
+                 job-definition
+                </a>
                </td>
                <td>
                 <code class="code">
@@ -762,7 +841,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27c91c15b7">
+             <table id="w470aac34c14c27c91c15b7">
               <thead>
                <tr>
                 <th>
@@ -780,7 +859,9 @@
                <td>
                 <a id="awsbatch-batch_Image">
                 </a>
-                batch:Image
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:Image
+                </a>
                </td>
                <td>
                 The image used to start a container.
@@ -793,7 +874,9 @@
                <td>
                 <a id="awsbatch-batch_Privileged">
                 </a>
-                batch:Privileged
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:Privileged
+                </a>
                </td>
                <td>
                 When this parameter is true, the container is given elevated privileges on the host
@@ -807,7 +890,9 @@
                <td>
                 <a id="awsbatch-batch_User">
                 </a>
-                batch:User
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:User
+                </a>
                </td>
                <td>
                 The user name or numeric uid to use inside the container.
