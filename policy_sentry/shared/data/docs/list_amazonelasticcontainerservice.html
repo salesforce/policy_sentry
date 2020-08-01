@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d350c11b9">
+             <table id="w470aac34c14c27d350c11b9">
               <thead>
                <tr>
                 <th>
@@ -241,6 +241,39 @@
               </thead>
               <tr>
                <td>
+                <a id="amazonelasticcontainerservice-CreateCapacityProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">
+                 CreateCapacityProvider
+                </a>
+               </td>
+               <td>
+                Creates a new capacity provider. Capacity providers are associated with an Amazon
+                                                ECS cluster and are used in capacity provider strategies to facilitate cluster auto
+                                                scaling.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticcontainerservice-CreateCluster">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html">
@@ -256,6 +289,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_capacity-provider">
+                  ecs:capacity-provider
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonelasticcontainerservice-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -303,6 +341,11 @@
                 <p>
                  <a href="#amazonelasticcontainerservice-ecs_cluster">
                   ecs:cluster
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_capacity-provider">
+                  ecs:capacity-provider
                  </a>
                 </p>
                 <p>
@@ -418,6 +461,32 @@
                   ecs:cluster
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerservice-DeleteCapacityProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCapacityProvider.html">
+                 DeleteCapacityProvider
+                </a>
+               </td>
+               <td>
+                Deletes the specified capacity provider.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-capacity-provider">
+                  capacity-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -572,6 +641,32 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerservice-DescribeCapacityProviders">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeCapacityProviders.html">
+                 DescribeCapacityProviders
+                </a>
+               </td>
+               <td>
+                Describes one or more Amazon ECS capacity providers.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-capacity-provider">
+                  capacity-provider*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1205,6 +1300,46 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonelasticcontainerservice-PutClusterCapacityProviders">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">
+                 PutClusterCapacityProviders
+                </a>
+               </td>
+               <td rowspan="2">
+                Modifies the available capacity providers and the default capacity provider strategy
+                                                for a cluster.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-capacity-provider">
+                  capacity-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_capacity-provider">
+                  ecs:capacity-provider
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonelasticcontainerservice-RegisterContainerInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html">
@@ -1311,6 +1446,11 @@
                 <p>
                  <a href="#amazonelasticcontainerservice-ecs_cluster">
                   ecs:cluster
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_capacity-provider">
+                  ecs:capacity-provider
                  </a>
                 </p>
                 <p>
@@ -1726,6 +1866,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonelasticcontainerservice-UpdateClusterSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateClusterSettings.html">
+                 UpdateClusterSettings
+                </a>
+               </td>
+               <td>
+                Modifies the settings to use for a cluster.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonelasticcontainerservice-UpdateContainerAgent">
                 </a>
@@ -1812,8 +1978,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Modifies the desired count, deployment configuration, or task definition used in a
-                                                service.
+                Modifies the parameters of a service.
                </td>
                <td rowspan="2">
                 Write
@@ -1837,6 +2002,11 @@
                 <p>
                  <a href="#amazonelasticcontainerservice-ecs_cluster">
                   ecs:cluster
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_capacity-provider">
+                  ecs:capacity-provider
                  </a>
                 </p>
                 <p>
@@ -1957,7 +2127,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d350c13b5">
+             <table id="w470aac34c14c27d350c13b5">
               <thead>
                <tr>
                 <th>
@@ -2187,6 +2357,48 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticcontainerservice-capacity-provider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/capacity_provider_definitions.html">
+                 capacity-provider
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ecs:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:capacity-provider/$
+                 <span>
+                  {
+                 </span>
+                 CapacityProviderName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerservice-ecs_ResourceTag___TagKey_">
+                  ecs:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticcontainerservice-task-set">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_sets.html">
@@ -2268,7 +2480,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d350c15b7">
+             <table id="w470aac34c14c27d350c15b7">
               <thead>
                <tr>
                 <th>
@@ -2286,13 +2498,10 @@
                <td>
                 <a id="amazonelasticcontainerservice-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/$
-                <span>
-                 {
-                </span>
-                TagKey}
+                aws:RequestTag/${TagKey}
                </td>
                <td>
+                Filters actions based on the presence of tag key-value pairs in the request.
                </td>
                <td>
                 String
@@ -2302,13 +2511,10 @@
                <td>
                 <a id="amazonelasticcontainerservice-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/$
-                <span>
-                 {
-                </span>
-                TagKey}
+                aws:ResourceTag/${TagKey}
                </td>
                <td>
+                Filters actions based on tag key-value pairs attached to the resource.
                </td>
                <td>
                 String
@@ -2321,6 +2527,7 @@
                 aws:TagKeys
                </td>
                <td>
+                Filters actions based on the presence of tag keys in the request.
                </td>
                <td>
                 String
@@ -2330,16 +2537,28 @@
                <td>
                 <a id="amazonelasticcontainerservice-ecs_ResourceTag___TagKey_">
                 </a>
-                ecs:ResourceTag/$
-                <span>
-                 {
-                </span>
-                TagKey}
+                ecs:ResourceTag/${TagKey}
                </td>
                <td>
+                Filters actions based on tag key-value pairs attached to the resource.
                </td>
                <td>
                 String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerservice-ecs_capacity-provider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/iam-policy-structure.html#amazon-ecs-keys">
+                 ecs:capacity-provider
+                </a>
+               </td>
+               <td>
+                The ARN of an Amazon ECS capacity provider.
+               </td>
+               <td>
+                ARN
                </td>
               </tr>
               <tr>
@@ -2351,7 +2570,7 @@
                 </a>
                </td>
                <td>
-                The ARN of an ECS cluster.
+                The ARN of an Amazon ECS cluster.
                </td>
                <td>
                 ARN
@@ -2366,7 +2585,7 @@
                 </a>
                </td>
                <td>
-                The ARN of an ECS container instance.
+                The ARN of an Amazon ECS container instance.
                </td>
                <td>
                 ARN
@@ -2381,7 +2600,7 @@
                 </a>
                </td>
                <td>
-                The ARN of an ECS service.
+                The ARN of an Amazon ECS service.
                </td>
                <td>
                 ARN
@@ -2396,7 +2615,7 @@
                 </a>
                </td>
                <td>
-                The ARN of an ECS task definition.
+                The ARN of an Amazon ECS task definition.
                </td>
                <td>
                 ARN

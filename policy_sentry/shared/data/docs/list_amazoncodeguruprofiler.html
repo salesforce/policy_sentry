@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d194c11b9">
+             <table id="w470aac34c14c27d194c11b9">
               <thead>
                <tr>
                 <th>
@@ -335,13 +335,18 @@
                 Write
                </td>
                <td>
-                <p>
-                 <a href="#amazoncodeguruprofiler-ProfilingGroup">
-                  ProfilingGroup*
-                 </a>
-                </p>
                </td>
                <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -602,6 +607,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazoncodeguruprofiler-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to list tags for a Profiling Group
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-ProfilingGroup">
+                  ProfilingGroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazoncodeguruprofiler-PostAgentProfile">
                 </a>
                 <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html">
@@ -736,6 +767,94 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazoncodeguruprofiler-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to add or overwrite tags to a Profiling Group
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-ProfilingGroup">
+                  ProfilingGroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazoncodeguruprofiler-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to remove tags from a Profiling Group
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-ProfilingGroup">
+                  ProfilingGroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazoncodeguruprofiler-UpdateProfilingGroup">
                 </a>
@@ -787,7 +906,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac34c14c27d194c13b5">
+             <table id="w470aac34c14c27d194c13b5">
               <thead>
                <tr>
                 <th>
@@ -831,6 +950,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazoncodeguruprofiler-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -840,14 +964,23 @@
             Condition Keys for        Amazon CodeGuru Profiler
            </h2>
            <p>
-            CodeGuru Profiler has no service-specific context keys that can be used in the
+            Amazon CodeGuru Profiler defines the following condition keys that can be used in
+                                    the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
             <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-             Available Keys for        Conditions
+             Available Global        Condition Keys
             </a>
             in the
             <em>
@@ -855,6 +988,70 @@
             </em>
             .
            </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w470aac34c14c27d194c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition Keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazoncodeguruprofiler-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodeguruprofiler-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodeguruprofiler-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
           </div>
