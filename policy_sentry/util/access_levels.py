@@ -55,7 +55,7 @@ def override_access_level(service_override_config, action_name, provided_access_
 
 def transform_access_level_text(access_level):
     """This takes the Click choices for access levels, like permissions-management, and
-    returns the text format matching that access level, but in the format that SQLite database expects"""
+    returns the text format matching that access level, but in the format that the database expects"""
     if access_level == "read":
         level = "Read"
     elif access_level == "write":

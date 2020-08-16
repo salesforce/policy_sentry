@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.3 (2020-08-16)
+* IAM Data refresh
+* Updated docs for query actions (#208)
+* Fixed query command for `query action-table --service s3 --access-level read --wildcard-only --fmt yaml` - previously was not transforming user input properly.
+
 ## 0.8.2 (2020-06-26)
 * IAM Data refresh
 * Fix a few access levels

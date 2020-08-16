@@ -21,7 +21,7 @@ def get_actions_for_service(service_prefix):
     Arguments:
         service_prefix: List: An AWS service prefix, like `s3` or `kms`
     Returns:
-        A list of actions
+        List: A list of actions
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
