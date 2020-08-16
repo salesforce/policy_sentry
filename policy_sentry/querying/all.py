@@ -15,7 +15,7 @@ def get_all_service_prefixes():
     then it will not be included in the response.
 
     Returns:
-        A list of all AWS service prefixes present in the table.
+        List: A list of all AWS service prefixes present in the table.
     """
     results = [d["prefix"] for d in iam_definition]
     results = list(set(results))

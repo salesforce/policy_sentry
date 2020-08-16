@@ -118,6 +118,7 @@ def query_action_table(
         print(
             f"{service} {access_level.upper()} actions that must use wildcards in the resources block:"
         )
+        access_level = transform_access_level_text(access_level)
         output = get_actions_at_access_level_that_support_wildcard_arns_only(
             service, access_level
         )

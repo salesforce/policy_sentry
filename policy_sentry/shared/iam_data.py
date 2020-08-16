@@ -20,7 +20,7 @@ def get_service_prefix_data(service_prefix):
     Arguments:
         service_prefix: An AWS service prefix, like s3 or ssm
     Returns:
-        A list of metadata about that service
+        List: A list of metadata about that service
     """
     result = list(filter(lambda item: item["prefix"] == service_prefix, iam_definition))
     try:
