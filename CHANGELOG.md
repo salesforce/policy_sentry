@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.5 (2020-08-17)
+* Fixes `write_policy_with_template` issue when used as a library (#211)
+
 ## 0.8.4 (2020-08-16)
 * IAM Data refresh
 * Updated docs for query actions (#208)
