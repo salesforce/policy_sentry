@@ -7,14 +7,13 @@ import json
 
 if __name__ == '__main__':
     crud_template = get_crud_template_dict()
-    wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
     crud_template['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
     crud_template['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-    crud_template['list'].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
+    crud_template['list'].append("arn:aws:s3:::mybucket/stuff")
     crud_template['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+    wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
     crud_template['wildcard-only']['single-actions'].extend(wildcard_actions_to_add)
     crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
-    # Modify it
     policy = write_policy_with_template(crud_template)
     print(json.dumps(policy, indent=4))
 

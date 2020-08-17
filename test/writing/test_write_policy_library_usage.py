@@ -1,7 +1,7 @@
 import unittest
 import json
 
-from policy_sentry.command.write_policy import write_policy
+from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.template import (
     get_crud_template_dict,
@@ -62,6 +62,17 @@ desired_crud_policy = {
             ]
         },
         {
+            "Sid": "SsmTaggingParameter",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:AddTagsToResource",
+                "ssm:RemoveTagsFromResource"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+            ]
+        },
+        {
             "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
             "Action": [
@@ -72,17 +83,6 @@ desired_crud_policy = {
             ],
             "Resource": [
                 "arn:aws:kms:us-east-1:123456789012:key/123456"
-            ]
-        },
-        {
-            "Sid": "SsmTaggingParameter",
-            "Effect": "Allow",
-            "Action": [
-                "ssm:AddTagsToResource",
-                "ssm:RemoveTagsFromResource"
-            ],
-            "Resource": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
             ]
         }
     ]
@@ -181,6 +181,66 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print("desired_crud_policy")
         # print(json.dumps(desired_crud_policy, indent=4))
         # print("policy")
-        print(json.dumps(policy, indent=4))
+        # print(json.dumps(policy, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_crud_policy, policy)
+
+    def test_gh_211_write_with_empty_access_level_lists(self):
+        expected_results = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudhsm:DescribeClusters",
+                        "kms:CreateCustomKeyStore"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "SecretsmanagerReadSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:DescribeSecret",
+                        "secretsmanager:GetResourcePolicy",
+                        "secretsmanager:GetSecretValue",
+                        "secretsmanager:ListSecretVersionIds"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+                    ]
+                },
+                {
+                    "Sid": "SecretsmanagerWriteSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:CancelRotateSecret",
+                        "secretsmanager:DeleteSecret",
+                        "secretsmanager:PutSecretValue",
+                        "secretsmanager:RestoreSecret",
+                        "secretsmanager:RotateSecret",
+                        "secretsmanager:UpdateSecret",
+                        "secretsmanager:UpdateSecretVersionStage"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+                    ]
+                }
+            ]
+        }
+        crud_template = get_crud_template_dict()
+        crud_template['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        # crud_template['list'].append("arn:aws:s3:::mybucket/stuff")
+        # by commenting out the line below, you should not get an IndexError
+        # crud_template['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+        # crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
+        wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
+        crud_template['wildcard-only']['single-actions'].extend(wildcard_actions_to_add)
+        result = write_policy_with_template(crud_template)
+        # print(json.dumps(result, indent=4))
+        self.assertDictEqual(result, expected_results)
+
