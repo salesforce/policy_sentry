@@ -1,6 +1,7 @@
 import unittest
 from policy_sentry.util.arns import does_arn_match, ARN
-
+import os
+import yaml
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
@@ -138,3 +139,10 @@ class ArnsTestCase(unittest.TestCase):
         self.assertFalse(result)
         result = this_arn.same_resource_type(global_table)
         self.assertFalse(result)
+
+        this_arn = "arn:aws:dynamodb:us-east-1:123456789123:table/mytable"
+        self.assertTrue(does_arn_match(this_arn, table))
+        self.assertFalse(does_arn_match(this_arn, index))
+        self.assertFalse(does_arn_match(this_arn, stream))
+        self.assertFalse(does_arn_match(this_arn, backup))
+        self.assertFalse(does_arn_match(this_arn, global_table))
