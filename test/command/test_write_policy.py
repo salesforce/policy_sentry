@@ -160,6 +160,91 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         }
         self.assertDictEqual(result, expected_results)
 
+    def test_dynamodb_arn_policy_gh_215(self):
+        """test_dynamodb_arn_matching_gh_215: Test writing a policy with DynamoDB"""
+        template_file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                "files",
+                "dynamodb_gh_215.yml",
+            )
+        )
+        cfg = read_yaml_file(template_file_path)
+        results = write_policy_with_template(cfg)
+        print(json.dumps(results, indent=4))
+        expected_results = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "dynamodb:DescribeLimits",
+                        "dynamodb:DescribeReservedCapacity",
+                        "dynamodb:DescribeReservedCapacityOfferings",
+                        "dynamodb:ListStreams",
+                        "dynamodb:ListBackups",
+                        "dynamodb:ListContributorInsights",
+                        "dynamodb:ListGlobalTables",
+                        "dynamodb:ListTables"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "DynamodbReadTable",
+                    "Effect": "Allow",
+                    "Action": [
+                        "dynamodb:BatchGetItem",
+                        "dynamodb:ConditionCheckItem",
+                        "dynamodb:DescribeContinuousBackups",
+                        "dynamodb:DescribeContributorInsights",
+                        "dynamodb:DescribeTable",
+                        "dynamodb:DescribeTableReplicaAutoScaling",
+                        "dynamodb:DescribeTimeToLive",
+                        "dynamodb:GetItem",
+                        "dynamodb:ListTagsOfResource",
+                        "dynamodb:Query",
+                        "dynamodb:Scan"
+                    ],
+                    "Resource": [
+                        "arn:aws:dynamodb:us-east-1:123456789123:table/mytable"
+                    ]
+                },
+                {
+                    "Sid": "DynamodbWriteTable",
+                    "Effect": "Allow",
+                    "Action": [
+                        "dynamodb:BatchWriteItem",
+                        "dynamodb:CreateBackup",
+                        "dynamodb:CreateGlobalTable",
+                        "dynamodb:CreateTable",
+                        "dynamodb:CreateTableReplica",
+                        "dynamodb:DeleteItem",
+                        "dynamodb:DeleteTable",
+                        "dynamodb:DeleteTableReplica",
+                        "dynamodb:PutItem",
+                        "dynamodb:RestoreTableFromBackup",
+                        "dynamodb:RestoreTableToPointInTime",
+                        "dynamodb:UpdateContinuousBackups",
+                        "dynamodb:UpdateContributorInsights",
+                        "dynamodb:UpdateGlobalTable",
+                        "dynamodb:UpdateGlobalTableSettings",
+                        "dynamodb:UpdateItem",
+                        "dynamodb:UpdateTable",
+                        "dynamodb:UpdateTableReplicaAutoScaling",
+                        "dynamodb:UpdateTimeToLive"
+                    ],
+                    "Resource": [
+                        "arn:aws:dynamodb:us-east-1:123456789123:table/mytable"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(results, expected_results)
+
 
 class RdsWritingTestCase(unittest.TestCase):
     def test_rds_policy_read_only(self):
