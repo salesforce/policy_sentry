@@ -215,11 +215,7 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
         desired_results = [
-            'ses:SendBulkTemplatedEmail',
-            'ses:SendCustomVerificationEmail',
             'ses:SendEmail',
-            'ses:SendRawEmail',
-            'ses:SendTemplatedEmail'
         ]
 
         results = get_actions_matching_condition_key(
@@ -227,7 +223,7 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         # print(output)
         self.maxDiff = None
-        # print(results)
+        print(results)
         self.assertListEqual(results, desired_results)
 
     # def test_get_actions_matching_condition_crud_and_arn(self):
