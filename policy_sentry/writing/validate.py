@@ -4,7 +4,7 @@ Validation for the Policy Sentry YML Templates.
 import logging
 from schema import Optional, Schema, And, Use, SchemaError
 
-logger = logging.getLogger("__main__." + __name__)
+logger = logging.getLogger(__name__)
 
 
 def check(conf_schema, conf):

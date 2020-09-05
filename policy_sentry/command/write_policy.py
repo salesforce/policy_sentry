@@ -10,7 +10,7 @@ import yaml
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
