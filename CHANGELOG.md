@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.6 (2020-09-05)
+* Fix issue with ARN matching (#215)
+* Fixed issue where query command was not leveraging local database (#220)
+* IAM data refresh
+
 ## 0.8.5 (2020-08-17)
 * Fixes `write_policy_with_template` issue when used as a library (#211)
 
