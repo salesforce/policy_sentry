@@ -120,9 +120,9 @@ def create_policy_sentry_config_directory():
     """
     print("Creating the database...")
     logger.debug(f"We will store the new database here: {DATASTORE_FILE_PATH}")
-    # If the database file already exists
-
+    # If the database file already exists, remove it
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+        logger.debug(f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it.")
         os.remove(LOCAL_DATASTORE_FILE_PATH)
     elif os.path.exists(CONFIG_DIRECTORY):
         pass

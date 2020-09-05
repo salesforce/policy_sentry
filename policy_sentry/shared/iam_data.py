@@ -1,15 +1,14 @@
 """Used for loading the IAM data"""
-import os
 import json
 import logging
 import functools
+from policy_sentry.shared.constants import DATASTORE_FILE_PATH
 
+logger = logging.getLogger()
 # On initialization, load the IAM data
-iam_definition_path = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), "data", "iam-definition.json"
-)
+iam_definition_path = DATASTORE_FILE_PATH
+logger.info(f"Leveraging the IAM definition at {iam_definition_path}")
 iam_definition = json.load(open(iam_definition_path, "r"))
-logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=1024)

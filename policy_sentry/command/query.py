@@ -26,7 +26,7 @@ from policy_sentry.querying.conditions import (
     get_condition_key_details,
 )
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 

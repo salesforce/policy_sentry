@@ -8,7 +8,7 @@ import click
 import click_log
 from policy_sentry.writing.template import create_actions_template, create_crud_template
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
 
 
