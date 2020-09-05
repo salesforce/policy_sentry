@@ -3,8 +3,8 @@ class PolicySentry < Formula
 
   desc "Shiny new formula"
   homepage "https://github.com/salesforce/policy_sentry"
-  url "https://files.pythonhosted.org/packages/32/1c/17af57435a783d844bfa21cd9fa12931fa526e19e70e92a2aaabe0343516/policy_sentry-0.8.4.tar.gz"
-  sha256 "bbcfa1ac1f246085eb692270e2939e9216fe3dea831d275f6a6588ebcfb12b73"
+  url "https://files.pythonhosted.org/packages/95/3f/ba27c85e4139ebf1e39b032dd078670691949d7fba209da547b580741a12/policy_sentry-0.8.6.tar.gz"
+  sha256 "8648b4961f852ea55fb1f5c0bbe620af3b8bf0cc78aafc5ea22f5898af2f7d50"
 
   depends_on "python3"
 
