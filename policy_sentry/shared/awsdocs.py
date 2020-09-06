@@ -151,11 +151,14 @@ def create_database(destination_directory, access_level_overrides_file):
     schema = []
 
     # for filename in ['list_amazonathena.partial.html']:
-    for filename in [
-        f
-        for f in os.listdir(BUNDLED_HTML_DIRECTORY_PATH)
-        if os.path.isfile(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, f))
-    ]:
+    file_list = []
+    for filename in os.listdir(BUNDLED_HTML_DIRECTORY_PATH):
+        if os.path.isfile(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename)):
+            if filename not in file_list:
+                file_list.append(filename)
+
+    file_list.sort()
+    for filename in file_list:
         if not filename.startswith("list_"):
             continue
 
@@ -316,9 +319,8 @@ def create_database(destination_directory, access_level_overrides_file):
 
             # Get resource table
             for table in tables:
-                if "<th> Resource Types </th>" not in [
-                    chomp(str(x)) for x in table.find_all("th")
-                ]:
+                header_cells = [chomp(str(x)) for x in table.find_all("th")]
+                if "<th> Resource Types </th>" not in header_cells:
                     continue
 
                 rows = table.find_all("tr")

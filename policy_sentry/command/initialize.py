@@ -93,13 +93,11 @@ def initialize(access_level_overrides_file=None, fetch=False, build=False):
         shutil.copy(BUNDLED_DATASTORE_FILE_PATH, database_path)
 
     # --fetch: wget the AWS IAM Actions, Resources and Condition Keys pages and store them locally.
-    # if --build and --fetch are both supplied, just do --fetch
     if fetch:
         # `wget` the html docs to the local directory
         update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
-        create_database(CONFIG_DIRECTORY, overrides_file)
 
-    # initialize --build
+    # --build
     if build or access_level_overrides_file or fetch:
         create_database(CONFIG_DIRECTORY, overrides_file)
         print("Created the database!")
@@ -135,7 +133,6 @@ def create_policy_sentry_config_directory():
 def create_html_docs_directory():
     """
     Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
-    Also copies over the links.yml file, which is a mapping of services and relevant HTML links in the AWS docs.
     Essentially:
     mkdir -p ~/.policy_sentry/data/docs
     cp -r $MODULE_DIR/policy_sentry/shared/data/docs ~/.policy_sentry/data/docs

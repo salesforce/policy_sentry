@@ -1,6 +1,7 @@
 """
 Allow users to use specific pre-compiled queries against the action, arn, and condition tables from command line.
 """
+import os
 import json
 import logging
 import click
@@ -25,9 +26,11 @@ from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
     get_condition_key_details,
 )
+from policy_sentry.shared.constants import DATASTORE_FILE_PATH, LOCAL_DATASTORE_FILE_PATH
 
 logger = logging.getLogger(__name__)
 click_log.basic_config(logger)
+iam_definition_path = DATASTORE_FILE_PATH
 
 
 @click.group()
@@ -84,7 +87,13 @@ def action_table(name, service, access_level, condition, wildcard_only, fmt):
 def query_action_table(
     name, service, access_level, condition, wildcard_only, fmt="json"
 ):
-    """Query the Action Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
+    """Query the Action Table from the Policy Sentry database.
+    Use this one when leveraging Policy Sentry as a library."""
+    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+    else:
+        # Otherwise, leverage the datastore inside the python package
+        logger.debug("Leveraging the bundled IAM Definition.")
     # Actions on all services
     if service == "all":
         all_services = get_all_service_prefixes()
@@ -191,6 +200,11 @@ def arn_table(name, service, list_arn_types, fmt="json"):
 
 def query_arn_table(name, service, list_arn_types, fmt):
     """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
+    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+    else:
+        # Otherwise, leverage the datastore inside the python package
+        logger.debug("Leveraging the bundled IAM Definition.")
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
         output = get_raw_arns_for_service(service)
@@ -236,7 +250,13 @@ def condition_table(name, service, fmt):
 
 
 def query_condition_table(name, service, fmt="json"):
-    """Query the condition table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
+    """Query the condition table from the Policy Sentry database.
+    Use this one when leveraging Policy Sentry as a library."""
+    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+    else:
+        # Otherwise, leverage the datastore inside the python package
+        logger.debug("Leveraging the bundled IAM Definition.")
     # Get a list of all condition keys available to the service
     if name is None:
         output = get_condition_keys_for_service(service)

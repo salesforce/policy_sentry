@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.7 (2020-09-06)
+* Fixes elasticache query issue #223
+
 ## 0.8.6 (2020-09-05)
 * Fix issue with ARN matching (#215)
 * Fixed issue where query command was not leveraging local database (#220)

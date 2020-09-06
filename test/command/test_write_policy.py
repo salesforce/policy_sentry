@@ -38,7 +38,6 @@ class WritePolicyPreventWildcardEscalation(unittest.TestCase):
                     "Action": [
                         "ram:EnableSharingWithAwsOrganization",
                         "ram:GetResourcePolicies",
-                        "secretsmanager:CreateSecret",
                     ],
                     "Resource": ["*"],
                 },
@@ -99,7 +98,6 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                     "Action": [
                         "ram:EnableSharingWithAwsOrganization",
                         "ram:GetResourcePolicies",
-                        "secretsmanager:CreateSecret",
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
