@@ -129,7 +129,6 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_that_support_wildcard_arns_only"""
         desired_output = [
-            "secretsmanager:CreateSecret",
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
@@ -142,7 +141,6 @@ class QueryActionsTestCase(unittest.TestCase):
         # print(json.dumps(output, indent=4))
         output = get_actions_that_support_wildcard_arns_only("all")
         print(len(output))
-
 
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
@@ -168,7 +166,7 @@ class QueryActionsTestCase(unittest.TestCase):
         # print(json.dumps(permissions_output, indent=4))
         self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
         self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
-        self.assertListEqual(write_output, ['secretsmanager:CreateSecret'])
+        self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
         self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
 
@@ -344,20 +342,18 @@ class QueryActionsTestCase(unittest.TestCase):
             ],
         )
 
-
     def test_remove_actions_that_are_not_wildcard_arn_only(self):
         """querying.actions.remove_actions_that_are_not_wildcard_arn_only"""
         provided_actions_list = [
             # 3 wildcard only actions
-            "secretsmanager:createsecret",
             "secretsmanager:getrandompassword",
             "secretsmanager:listsecrets",
-            # This one is wildcard OR "secret"
+            # These ones are wildcard OR "secret"
+            "secretsmanager:createsecret",
             "secretsmanager:putsecretvalue",
         ]
         desired_output = [
-            # 3 wildcard only actions
-            "secretsmanager:CreateSecret",
+            # 2 wildcard only actions
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
@@ -371,22 +367,22 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_weird_lowercase_uppercase(self):
         """test_weird_lowercase_uppercase: Same as test_remove_actions_that_are_not_wildcard_arn_only, but with wEiRd cases"""
         provided_actions_list = [
-            # 3 wildcard only actions
-            "secretsmanager:cReAtEsEcReT",
+            # 2 wildcard only actions
             "secretsmanager:gEtRaNdOmPasSwOrD",
             "secretsmanager:LIstsEcretS",
             # This one is wildcard OR "secret"
+            "secretsmanager:cReAtEsEcReT",
             "secretsmanager:pUtSeCrEtVaLuE",
         ]
         desired_output = [
-            # 3 wildcard only actions
-            "secretsmanager:CreateSecret",
+            # 2 wildcard only actions
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
         output = remove_actions_that_are_not_wildcard_arn_only(
             provided_actions_list
         )
+        print(json.dumps(output))
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
 

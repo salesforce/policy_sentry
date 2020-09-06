@@ -207,6 +207,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "secretsmanager:CancelRotateSecret",
+                        "secretsmanager:CreateSecret",
                         "secretsmanager:DeleteSecret",
                         "secretsmanager:PutSecretValue",
                         "secretsmanager:RestoreSecret",
@@ -422,7 +423,6 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "ram:EnableSharingWithAwsOrganization",
                         "ram:GetResourcePolicies",
-                        "secretsmanager:CreateSecret",
                     ],
                     "Resource": ["*"],
                 },
@@ -454,7 +454,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
                     "Action": [
-                        "secretsmanager:CreateSecret"
+                        "ram:GetResourcePolicies"
                     ],
                     "Resource": [
                         "*"

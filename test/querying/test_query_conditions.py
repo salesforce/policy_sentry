@@ -24,6 +24,7 @@ class QueryConditionsTestCase(unittest.TestCase):
     def test_get_condition_keys_available_to_raw_arn(self):
         expected_results = [
             'aws:RequestTag/${TagKey}',
+            'aws:ResourceTag/${TagKey}',
             'aws:TagKeys',
             'ec2:Region',
             'ec2:ResourceTag/${TagKey}',
@@ -48,6 +49,7 @@ class QueryConditionsTestCase(unittest.TestCase):
         """querying.conditions.get_conditions_for_action_and_raw_arn"""
         desired_condition_keys_list = [
             'aws:RequestTag/${TagKey}',
+            'aws:ResourceTag/${TagKey}',
             'aws:TagKeys',
             'ec2:Region',
             'ec2:ResourceTag/${TagKey}',

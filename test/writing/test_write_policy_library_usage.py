@@ -40,6 +40,7 @@ desired_crud_policy = {
             "Effect": "Allow",
             "Action": [
                 "secretsmanager:CancelRotateSecret",
+                "secretsmanager:CreateSecret",
                 "secretsmanager:DeleteSecret",
                 "secretsmanager:PutSecretValue",
                 "secretsmanager:RestoreSecret",
@@ -181,7 +182,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print("desired_crud_policy")
         # print(json.dumps(desired_crud_policy, indent=4))
         # print("policy")
-        # print(json.dumps(policy, indent=4))
+        print(json.dumps(policy, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_crud_policy, policy)
 
@@ -218,6 +219,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "secretsmanager:CancelRotateSecret",
+                        "secretsmanager:CreateSecret",
                         "secretsmanager:DeleteSecret",
                         "secretsmanager:PutSecretValue",
                         "secretsmanager:RestoreSecret",
