@@ -248,12 +248,12 @@
                 </a>
                </td>
                <td>
-                Retrieves a list of traces specified by ID. Each trace is a collection of segment
-                                                documents that originates from a single request. Use GetTraceSummaries to get a list
-                                                of trace IDs.
+                Grants permission to retrieve a list of traces specified by ID. Each trace is a collection
+                                                of segment documents that originates from a single request. Use GetTraceSummaries
+                                                to get a list of trace IDs
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                </td>
@@ -263,17 +263,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsx-ray-CreateGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_CreateGroup.html">
                  CreateGroup
                 </a>
                </td>
-               <td>
-                Creates a group resource with a name and a filter expression.
+               <td rowspan="2">
+                Grants permission to create a group resource with a name and a filter expression
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -290,16 +290,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsx-ray-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsx-ray-CreateSamplingRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_CreateSamplingRule.html">
                  CreateSamplingRule
                 </a>
                </td>
-               <td>
-                Creates a rule to control sampling behavior for instrumented applications.
+               <td rowspan="2">
+                Grants permission to create a rule to control sampling behavior for instrumented applications
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -316,16 +334,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsx-ray-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsx-ray-DeleteGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_DeleteGroup.html">
                  DeleteGroup
                 </a>
                </td>
-               <td>
-                Deletes a group resource.
+               <td rowspan="2">
+                Grants permission to delete a group resource
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -342,16 +378,29 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsx-ray-DeleteSamplingRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_DeleteSamplingRule.html">
                  DeleteSamplingRule
                 </a>
                </td>
-               <td>
-                Deletes a sampling rule.
+               <td rowspan="2">
+                Grants permission to delete a sampling rule
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -362,6 +411,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -375,7 +437,7 @@
                 </a>
                </td>
                <td>
-                Retrieves the current encryption configuration for X-Ray data.
+                Grants permission to retrieve the current encryption configuration for X-Ray data
                </td>
                <td>
                 Permissions management
@@ -388,17 +450,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsx-ray-GetGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetGroup.html">
                  GetGroup
                 </a>
                </td>
-               <td>
-                Retrieves group resource details.
+               <td rowspan="2">
+                Grants permission to retrieve group resource details
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -415,6 +477,19 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsx-ray-GetGroups">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetGroups.html">
@@ -422,7 +497,93 @@
                 </a>
                </td>
                <td>
-                Retrieves all active group details.
+                Grants permission to retrieve all active group details
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-GetInsight">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetInsight.html">
+                 GetInsight
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the details of a specific insight
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-GetInsightEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetInsightEvents.html">
+                 GetInsightEvents
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the events of a specific insight
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-GetInsightImpactGraph">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetInsightImpactGraph.html">
+                 GetInsightImpactGraph
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the part of the service graph which is impacted for
+                                                a specific insight
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-GetInsightSummaries">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetInsightSummaries.html">
+                 GetInsightSummaries
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the summary of all insights for a group and time range
+                                                with optional filters
                </td>
                <td>
                 Read
@@ -443,7 +604,7 @@
                 </a>
                </td>
                <td>
-                Retrieves all sampling rules.
+                Grants permission to retrieve all sampling rules
                </td>
                <td>
                 Read
@@ -464,7 +625,8 @@
                 </a>
                </td>
                <td>
-                Retrieves information about recent sampling results for all sampling rules.
+                Grants permission to retrieve information about recent sampling results for all sampling
+                                                rules
                </td>
                <td>
                 Read
@@ -485,7 +647,8 @@
                 </a>
                </td>
                <td>
-                Requests a sampling quota for rules that the service is using to sample requests.
+                Grants permission to request a sampling quota for rules that the service is using
+                                                to sample requests
                </td>
                <td>
                 Read
@@ -506,8 +669,8 @@
                 </a>
                </td>
                <td>
-                Retrieves a document that describes services that process incoming requests, and downstream
-                                                services that they call as a result.
+                Grants permission to retrieve a document that describes services that process incoming
+                                                requests, and downstream services that they call as a result
                </td>
                <td>
                 Read
@@ -528,8 +691,8 @@
                 </a>
                </td>
                <td>
-                Get an aggregation of service statistics defined by a specific time range bucketed
-                                                into time intervals.
+                Grants permission to retrieve an aggregation of service statistics defined by a specific
+                                                time range bucketed into time intervals
                </td>
                <td>
                 Read
@@ -550,7 +713,7 @@
                 </a>
                </td>
                <td>
-                Retrieves a service graph for one or more specific trace IDs.
+                Grants permission to retrieve a service graph for one or more specific trace IDs
                </td>
                <td>
                 Read
@@ -571,13 +734,53 @@
                 </a>
                </td>
                <td>
-                Retrieves IDs and metadata for traces available for a specified time frame using an
-                                                optional filter. To get the full traces, pass the trace IDs to BatchGetTraces.
+                Grants permission to retrieve IDs and metadata for traces available for a specified
+                                                time frame using an optional filter. To get the full traces, pass the trace IDs to
+                                                BatchGetTraces
                </td>
                <td>
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsx-ray-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list tags for an X-Ray resource
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-group">
+                  group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsx-ray-sampling-rule">
+                  sampling-rule
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -593,7 +796,7 @@
                 </a>
                </td>
                <td>
-                Updates the encryption configuration for X-Ray data.
+                Grants permission to update the encryption configuration for X-Ray data
                </td>
                <td>
                 Permissions management
@@ -614,7 +817,7 @@
                 </a>
                </td>
                <td>
-                Used by the AWS X-Ray daemon to send telemetry to the service.
+                Grants permission to send AWS X-Ray daemon telemetry to the service
                </td>
                <td>
                 Write
@@ -635,8 +838,8 @@
                 </a>
                </td>
                <td>
-                Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents
-                                                and sends them to the X-Ray daemon, which uploads them in batches.
+                Grants permission to upload segment documents to AWS X-Ray. The X-Ray SDK generates
+                                                segment documents and sends them to the X-Ray daemon, which uploads them in batches
                </td>
                <td>
                 Write
@@ -649,17 +852,126 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="awsx-ray-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to add tags to an X-Ray resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
                <td>
+                <p>
+                 <a href="#awsx-ray-group">
+                  group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsx-ray-sampling-rule">
+                  sampling-rule
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsx-ray-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsx-ray-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/xray/latest/api/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to remove tags from an X-Ray resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-group">
+                  group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsx-ray-sampling-rule">
+                  sampling-rule
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsx-ray-UpdateGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_UpdateGroup.html">
                  UpdateGroup
                 </a>
                </td>
-               <td>
-                Updates a group resource.
+               <td rowspan="2">
+                Grants permission to update a group resource
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -676,16 +988,29 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsx-ray-UpdateSamplingRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html">
                  UpdateSamplingRule
                 </a>
                </td>
-               <td>
-                Modifies a sampling rule's configuration.
+               <td rowspan="2">
+                Grants permission to modify a sampling rule's configuration
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -696,6 +1021,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -774,6 +1112,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -806,6 +1149,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsx-ray-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -815,14 +1163,22 @@
             Condition Keys for        AWS X-Ray
            </h2>
            <p>
-            X-Ray has no service-specific context keys that can be used in the
+            AWS X-Ray defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The Condition Keys Table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
             <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-             Available Keys for        Conditions
+             Available Global        Condition Keys
             </a>
             in the
             <em>
@@ -830,6 +1186,64 @@
             </em>
             .
            </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w468aac34c14c29d970c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition Keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsx-ray-aws_RequestTag___TagKey_">
+                </a>
+                aws:RequestTag/${TagKey}
+               </td>
+               <td>
+                Filters actions based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-aws_ResourceTag___TagKey_">
+                </a>
+                aws:ResourceTag/${TagKey}
+               </td>
+               <td>
+                Filters actions based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsx-ray-aws_TagKeys">
+                </a>
+                aws:TagKeys
+               </td>
+               <td>
+                Filters actions based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
           </div>

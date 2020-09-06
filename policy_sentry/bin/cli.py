@@ -2,7 +2,7 @@
 """
     Policy Sentry is a tool for generating least-privilege IAM Policies.
 """
-__version__ = "0.8.6"
+__version__ = "0.8.7"
 import click
 from policy_sentry import command
 

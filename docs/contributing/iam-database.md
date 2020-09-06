@@ -67,8 +67,6 @@ Keys pages per-service to the `policy_sentry/shared/data/docs` folder.
 
 -   The HTML files will be stored in
     `policy_sentry/shared/data/docs/list_*.html`
--   It also add a file titled `policy_sentry/shared/data/links.yml` as
-    well.
 -   It also builds a JSON file that serves as the IAM data source to include as part of the PyPi
     package.
 
@@ -82,8 +80,7 @@ python3 ./utils/download_docs.py
 ```
 
 This downloads the Actions, Resources, and Condition Keys pages
-per-service to the `policy_sentry/shared/data/docs` folder. It also add
-a file titled `policy_sentry/shared/data/links.yml` as well.
+per-service to the `policy_sentry/shared/data/docs` folder.
 
 When a user runs `policy_sentry initialize`, these files are copied over
 to the config folder (`~/.policy_sentry/`).

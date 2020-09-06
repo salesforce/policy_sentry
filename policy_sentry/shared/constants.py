@@ -30,9 +30,8 @@ LOCAL_DATASTORE_FILE_PATH = os.path.join(CONFIG_DIRECTORY, "iam-definition.json"
 # Check for the existence of the local datastore first.
 if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
     # If it exists, leverage that datastore instead of the one bundled with the python package
-    logger.info(f"The IAM definition at {LOCAL_DATASTORE_FILE_PATH} exists. "
-                f"Leveraging that IAM definition instead of the definition bundled with the python package. "
-                f"To leverage the bundled definition, remove the folder $HOME/.policy_sentry/")
+    logger.info(f"Leveraging the local IAM definition at the path: {LOCAL_DATASTORE_FILE_PATH} "
+                f"To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
     DATASTORE_FILE_PATH = LOCAL_DATASTORE_FILE_PATH
 else:
     # Otherwise, leverage the datastore inside the python package
