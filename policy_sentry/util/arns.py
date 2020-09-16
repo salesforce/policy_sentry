@@ -163,6 +163,17 @@ def get_service_from_arn(arn):
     return result["service"]
 
 
+def get_region_from_arn(arn):
+    """Given an ARN, return the region in the ARN, if it is available. In certain cases like S3 it is not"""
+    result = parse_arn(arn)
+    # Support S3 buckets with no values under region
+    if result["region"] is None:
+        result = ""
+    else:
+        result = result["region"]
+    return result
+
+
 def get_account_from_arn(arn):
     """Given an ARN, return the account ID in the ARN, if it is available. In certain cases like S3 it is not"""
     result = parse_arn(arn)
