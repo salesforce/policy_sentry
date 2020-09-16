@@ -23,8 +23,8 @@ def get_condition_keys_for_service(service_prefix):
     """
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource in service_prefix_data["resources"]:
-        results.extend(resource["condition_keys"])
+    for condition_key_entry in service_prefix_data["conditions"]:
+        results.append(condition_key_entry["condition"])
     results = list(dict.fromkeys(results))
     return results
 

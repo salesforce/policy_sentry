@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.8 (2020-09-15)
+* Fixes issue with querying condition keys (#225)
+* Adds get_region_from_arn back for our friends at Netflix :)
+
 ## 0.8.7 (2020-09-06)
 * Fixes elasticache query issue #223
 
