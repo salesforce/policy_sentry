@@ -92,10 +92,9 @@ class YamlValidationCrudTestCase(unittest.TestCase):
             "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
             "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
         }
-        self.maxDiff = None
-
         result = write_policy_with_template(crud_file_input)
         print(json.dumps(result, indent=4))
+        self.maxDiff = None
 
     def test_empty_strings_in_access_level_categories(self):
         """
@@ -154,7 +153,7 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         }
         # with self.assertRaises(Exception):
         result = write_policy_with_template(crud_file_input)
-        # print(json.dumps(result, indent=4))
+        print(json.dumps(result, indent=4))
         self.assertDictEqual(desired_output, result)
 
 
