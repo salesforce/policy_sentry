@@ -1,7 +1,7 @@
 """IAM Database queries that are not specific to either the Actions, ARNs, or Condition Keys tables."""
 import logging
 import functools
-from policy_sentry.shared.iam_data import iam_definition
+from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
 
 logger = logging.getLogger(__name__)
 
@@ -17,8 +17,8 @@ def get_all_service_prefixes():
     Returns:
         List: A list of all AWS service prefixes present in the table.
     """
-    results = [d["prefix"] for d in iam_definition]
-    results = list(set(results))
+    # results = [d["prefix"] for d in iam_definition]
+    results = list(set(iam_definition.keys()))
     results.sort()
     return results
 
@@ -34,15 +34,17 @@ def get_all_actions(lowercase=False):
     """
     all_actions = set()
 
-    for service_info in iam_definition:
-        for privilege_info in service_info["privileges"]:
+    all_service_prefixes = get_all_service_prefixes()
+    for service_prefix in all_service_prefixes:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for privilege_info in service_prefix_data["privileges"]:
             if lowercase:
                 all_actions.add(
-                    f"{service_info['prefix']}:{privilege_info['privilege'].lower()}"
+                    f"{service_prefix_data['prefix']}:{privilege_info['privilege'].lower()}"
                 )
             else:
                 all_actions.add(
-                    f"{service_info['prefix']}:{privilege_info['privilege']}"
+                    f"{service_prefix_data['prefix']}:{privilege_info['privilege']}"
                 )
 
     # results = list(set(results))

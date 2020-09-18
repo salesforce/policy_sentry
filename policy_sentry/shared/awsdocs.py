@@ -148,7 +148,7 @@ def create_database(destination_directory, access_level_overrides_file):
         parents=True, exist_ok=True
     )
 
-    schema = []
+    schema = {}
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
@@ -171,8 +171,10 @@ def create_database(destination_directory, access_level_overrides_file):
             # Get service name
             title = main_content.find("h1", class_="topictitle").text
             title = re.sub(
-                ".*Actions, Resources, and Condition Keys for *", "", str(title)
+                ".*Actions, Resources, and Condition Keys for *", "", str(title),
+                flags=re.IGNORECASE
             )
+
             title = title.replace("</h1>", "")
             service_name = chomp(title)
 
@@ -290,9 +292,16 @@ def create_database(destination_directory, access_level_overrides_file):
                                     action_element
                                 ) in dependent_actions_element.find_all("p"):
                                     dependent_actions.append(chomp(action_element.text))
+                            if "*" in resource_type:
+                                required = True
+                                resource_type = resource_type.strip("*")
+                            else:
+                                required = False
+
                             resource_types.append(
                                 {
                                     "resource_type": resource_type,
+                                    "required": required,
                                     "condition_keys": condition_keys,
                                     "dependent_actions": dependent_actions,
                                 }
@@ -320,7 +329,7 @@ def create_database(destination_directory, access_level_overrides_file):
             # Get resource table
             for table in tables:
                 header_cells = [chomp(str(x)) for x in table.find_all("th")]
-                if "<th> Resource Types </th>" not in header_cells:
+                if "<th> Resource Types </th>".lower() not in (cell.lower() for cell in header_cells):
                     continue
 
                 rows = table.find_all("tr")
@@ -346,15 +355,19 @@ def create_database(destination_directory, access_level_overrides_file):
                         conditions.append(chomp(condition.text))
 
                     service_schema["resources"].append(
-                        {"resource": resource, "arn": arn, "condition_keys": conditions}
+                        {
+                            "resource": resource,
+                            "arn": arn,
+                            "condition_keys": conditions
+                        }
                     )
 
             # Get condition keys table
             for table in tables:
-                if "<th> Condition Keys </th>" not in [
-                    chomp(str(x)) for x in table.find_all("th")
-                ] or "<th> Type </th>" not in [
-                    chomp(str(x)) for x in table.find_all("th")
+                if "<th> Condition Keys </th>".lower() not in [
+                    chomp(str(x)).lower() for x in table.find_all("th")
+                ] or "<th> Type </th>".lower() not in [
+                    chomp(str(x)).lower() for x in table.find_all("th")
                 ]:
                     continue
 
@@ -384,9 +397,13 @@ def create_database(destination_directory, access_level_overrides_file):
                             "type": value_type,
                         }
                     )
-            schema.append(service_schema)
+            this_service_schema = {
+                service_prefix: service_schema
+            }
+            schema.update(this_service_schema)
+            # schema.append(service_schema)
 
-    schema.sort(key=lambda x: x["prefix"])
+    # schema.sort(key=lambda x: x["prefix"])
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
     with open(iam_definition_file, "w") as file:
         json.dump(schema, file, indent=4)

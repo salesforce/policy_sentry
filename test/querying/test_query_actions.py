@@ -34,7 +34,7 @@ class QueryActionsTestCase(unittest.TestCase):
             }
         )
         valid_output = check(desired_output_schema, result)
-        print(json.dumps(result, indent=4))
+        # print(json.dumps(result, indent=4))
         self.assertTrue(valid_output)
 
     def test_get_actions_for_service(self):
@@ -212,13 +212,17 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
-        desired_results = [
-            'ses:SendEmail',
-        ]
 
         results = get_actions_matching_condition_key(
             "ses", "ses:FeedbackAddress"
         )
+        desired_results = [
+            'ses:SendBulkTemplatedEmail',
+            'ses:SendCustomVerificationEmail',
+            'ses:SendEmail',
+            'ses:SendRawEmail',
+            'ses:SendTemplatedEmail'
+        ]
         # print(output)
         self.maxDiff = None
         print(results)
@@ -396,3 +400,13 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertTrue(len(results) > 10)
         self.assertTrue("cloud9:ListEnvironments" not in results)
         self.assertTrue("cloud9:DeleteEnvironment" in results)
+
+    def test_gh_226_elasticloadbalancing_v1_and_v2(self):
+        """Test that elasticloadbalancing combines v1 and v2"""
+        results = get_actions_for_service("elasticloadbalancing")
+        # print(json.dumps(results, indent=4))
+        lb_v1_only_action = "elasticloadbalancing:CreateTargetGroup"
+        lb_v2_only_action = "elasticloadbalancing:SetSecurityGroups"
+        self.assertTrue(lb_v1_only_action in results)
+        self.assertTrue(lb_v2_only_action in results)
+

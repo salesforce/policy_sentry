@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   Actions, Resources, and Condition Keys for      Amazon Managed Streaming for Apache
+   Actions, resources, and condition keys for      Amazon Managed Streaming for Apache
          Kafka - AWS Identity and Access Management
   </title>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
@@ -51,7 +51,7 @@
       <div id="awsdocs-content">
        <head>
         <title>
-         Actions, Resources, and Condition Keys for      Amazon Managed Streaming for Apache
+         Actions, resources, and condition keys for      Amazon Managed Streaming for Apache
                            Kafka - AWS Identity and Access Management
         </title>
         <meta content="iam-ug.pdf#list_amazonmanagedstreamingforapachekafka" name="pdf"/>
@@ -93,10 +93,10 @@
            Actions
           </a>
           <a href="#amazonmanagedstreamingforapachekafka-resources-for-iam-policies">
-           Resource Types
+           Resource types
           </a>
           <a href="#amazonmanagedstreamingforapachekafka-policy-keys">
-           Condition Keys
+           Condition keys
           </a>
          </div>
          <div class="awsui-util-container" id="main-content">
@@ -104,7 +104,7 @@
            <awsdocs-language-banner data-service="$ctrl.pageService">
            </awsdocs-language-banner>
            <h1 class="topictitle" id="list_amazonmanagedstreamingforapachekafka">
-            Actions, Resources, and Condition Keys for      Amazon Managed Streaming for Apache
+            Actions, resources, and condition keys for      Amazon Managed Streaming for Apache
                                     Kafka
            </h1>
            <div class="awsdocs-page-header-container">
@@ -155,23 +155,23 @@
             <ul>
              <li>
               <a href="#amazonmanagedstreamingforapachekafka-actions-as-permissions">
-               Actions Defined by        Amazon Managed Streaming for Apache Kafka
+               Actions defined by        Amazon Managed Streaming for Apache Kafka
               </a>
              </li>
              <li>
               <a href="#amazonmanagedstreamingforapachekafka-resources-for-iam-policies">
-               Resource Types Defined by        Amazon Managed Streaming for Apache Kafka
+               Resource types defined by        Amazon Managed Streaming for Apache Kafka
               </a>
              </li>
              <li>
               <a href="#amazonmanagedstreamingforapachekafka-policy-keys">
-               Condition Keys for        Amazon Managed Streaming for Apache Kafka
+               Condition keys for        Amazon Managed Streaming for Apache Kafka
               </a>
              </li>
             </ul>
            </div>
            <h2 id="amazonmanagedstreamingforapachekafka-actions-as-permissions">
-            Actions Defined by        Amazon Managed Streaming for Apache Kafka
+            Actions defined by        Amazon Managed Streaming for Apache Kafka
            </h2>
            <p>
             You can specify the following actions in the
@@ -187,7 +187,7 @@
            <p>
             The
             <b>
-             Resource Types
+             Resource types
             </b>
             column indicates whether each action supports      resource-level permissions. If
                                     there is no value for this column, you must specify all      resources ("*") in the
@@ -204,7 +204,7 @@
            <p>
             For details about the columns in the following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The Actions Table
+             The actions table
             </a>
             .
            </p>
@@ -220,19 +220,70 @@
                  Description
                 </th>
                 <th>
-                 Access Level
+                 Access level
                 </th>
                 <th>
-                 Resource Types (*required)
+                 Resource types (*required)
                 </th>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                 <th>
-                 Dependent Actions
+                 Dependent actions
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="amazonmanagedstreamingforapachekafka-BatchAssociateScramSecret">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchAssociateScramSecret">
+                 BatchAssociateScramSecret
+                </a>
+               </td>
+               <td>
+                Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:RetireGrant
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmanagedstreamingforapachekafka-BatchDisassociateScramSecret">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchDisassociateScramSecret">
+                 BatchDisassociateScramSecret
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 kms:RetireGrant
+                </p>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="amazonmanagedstreamingforapachekafka-CreateCluster">
@@ -242,7 +293,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a cluster.
+                Grants permission to create a cluster
                </td>
                <td>
                 Write
@@ -490,7 +541,7 @@
                                                 cluster.
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                </td>
@@ -564,6 +615,28 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonmanagedstreamingforapachekafka-ListScramSecrets">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#ListScramSecrets">
+                 ListScramSecrets
+                </a>
+               </td>
+               <td>
+                Grants permission to return a list of the Scram Secrets associated with an Amazon
+                                                MSK cluster.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonmanagedstreamingforapachekafka-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#ListTagsForResource">
@@ -574,7 +647,7 @@
                 Grants permission to list tags of a MSK resource.
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -801,7 +874,7 @@
             </div>
            </div>
            <h2 id="amazonmanagedstreamingforapachekafka-resources-for-iam-policies">
-            Resource Types Defined by        Amazon Managed Streaming for Apache Kafka
+            Resource types defined by        Amazon Managed Streaming for Apache Kafka
            </h2>
            <p>
             The following resource types are defined by this service and can be used in the
@@ -817,7 +890,7 @@
                                     keys are displayed in the last column of the      table. For details about the columns
                                     in the following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The Resource Types Table
+             The resource types table
             </a>
             .
            </p>
@@ -827,13 +900,13 @@
               <thead>
                <tr>
                 <th>
-                 Resource Types
+                 Resource types
                 </th>
                 <th>
                  ARN
                 </th>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                </tr>
               </thead>
@@ -880,7 +953,7 @@
             </div>
            </div>
            <h2 id="amazonmanagedstreamingforapachekafka-policy-keys">
-            Condition Keys for        Amazon Managed Streaming for Apache Kafka
+            Condition keys for        Amazon Managed Streaming for Apache Kafka
            </h2>
            <p>
             Amazon Managed Streaming for Apache Kafka defines the following condition keys that
@@ -892,19 +965,15 @@
                                     under which the policy statement applies. For details about the columns in the   
                                     following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The Condition Keys Table
+             The condition keys table
             </a>
             .
            </p>
            <p>
             To view the global condition keys that are available to all services, see
             <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-             Available Global        Condition Keys
+             Available global        condition keys
             </a>
-            in the
-            <em>
-             IAM Policy Reference
-            </em>
             .
            </p>
            <div class="table-container">
@@ -913,7 +982,7 @@
               <thead>
                <tr>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                 <th>
                  Description
@@ -930,7 +999,7 @@
                 aws:RequestTag/${TagKey}
                </td>
                <td>
-                Filter requests based on the allowed set of values for each of the tags
+                Filters access based on the allowed set of values for each of the tags
                </td>
                <td>
                 String
@@ -943,7 +1012,7 @@
                 aws:ResourceTag/${TagKey}
                </td>
                <td>
-                Filter actions based on tag-value associated with a MSK resource.
+                Filters access based on tag-value associated with a MSK resource
                </td>
                <td>
                 String
@@ -956,7 +1025,7 @@
                 aws:TagKeys
                </td>
                <td>
-                Filter requests based on the presence of mandatory tag keys in the request
+                Filters access based on the presence of mandatory tag keys in the request
                </td>
                <td>
                 String
