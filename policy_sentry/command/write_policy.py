@@ -21,7 +21,6 @@ click_log.basic_config(logger)
 @click.option(
     "--input-file",
     type=str,
-    # required=True,
     help="Path of the YAML File used for generating policies",
 )
 @click.option(
@@ -31,8 +30,15 @@ click_log.basic_config(logger)
     help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. "
     "Set this to the character length you want - for example, 4",
 )
+@click.option(
+    "--fmt",
+    type=click.Choice(["yaml", "json"]),
+    default="json",
+    required=False,
+    help='Format output as YAML or JSON. Defaults to "json"',
+)
 @click_log.simple_verbosity_option(logger)
-def write_policy(input_file, minimize):
+def write_policy(input_file, minimize, fmt):
     """
     Write least-privilege IAM policies, restricting all actions to resource ARNs.
     """
@@ -46,21 +52,10 @@ def write_policy(input_file, minimize):
             logger.critical(exc)
             sys.exit()
     policy = write_policy_with_template(cfg, minimize)
-    print(json.dumps(policy, indent=4))
-    #
-    # if input_file:
-    #     cfg = read_yaml_file(input_file)
-    # else:
-    #     try:
-    #         cfg = yaml.safe_load(sys.stdin)
-    #     except yaml.YAMLError as exc:
-    #         logger.critical(exc)
-    #         sys.exit()
-    #
-    # # User supplies file containing resource-specific access levels
-    # sid_group = SidGroup()
-    # policy = sid_group.process_template(cfg, minimize)
-    # print(json.dumps(policy, indent=4))
+    if fmt == "yaml":
+        print(yaml.dump(policy, sort_keys=False))
+    else:
+        print(json.dumps(policy, indent=4))
 
 
 def write_policy_with_template(cfg, minimize=None):
