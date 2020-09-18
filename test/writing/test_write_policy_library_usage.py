@@ -1,6 +1,6 @@
 import unittest
 import json
-
+import os
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.template import (
@@ -148,43 +148,123 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             actions_template, minimize=minimize
         )
         self.maxDiff = None
-        print(json.dumps(policy, indent=4))
+        # print(json.dumps(policy, indent=4))
         self.assertDictEqual(policy, desired_actions_policy)
 
     def test_write_crud_policy_with_library_only(self):
         """test_write_crud_policy_with_library_only: Write a policy in CRUD mode without using the command line at all (library only)"""
-        crud_template = get_crud_template_dict()
+        another_crud_template = get_crud_template_dict()
         wildcard_actions_to_add = [
             "kms:CreateCustomKeyStore",
             # "cloudhsm:describeclusters",
         ]
-        crud_template["mode"] = "crud"
-        crud_template["read"].append(
+        another_crud_template["mode"] = "crud"
+        another_crud_template["read"].append(
             "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
         )
-        crud_template["write"].append(
+        another_crud_template["write"].append(
             "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
         )
-        crud_template["list"].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
-        crud_template["permissions-management"].append(
+        another_crud_template["list"].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
+        another_crud_template["permissions-management"].append(
             "arn:aws:kms:us-east-1:123456789012:key/123456"
         )
-        crud_template["tagging"].append(
+        another_crud_template["tagging"].append(
             "arn:aws:ssm:us-east-1:123456789012:parameter/test"
         )
-        crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
+        another_crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
         # Modify it
         sid_group = SidGroup()
-        minimize = None
-        policy = sid_group.process_template(
-            crud_template, minimize=minimize
+        # minimize = None
+        result = sid_group.process_template(
+            another_crud_template
         )
         # print("desired_crud_policy")
         # print(json.dumps(desired_crud_policy, indent=4))
         # print("policy")
-        print(json.dumps(policy, indent=4))
+        expected_result = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "cloudhsm:DescribeClusters",
+                        "kms:CreateCustomKeyStore"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "SecretsmanagerReadSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:DescribeSecret",
+                        "secretsmanager:GetResourcePolicy",
+                        "secretsmanager:GetSecretValue",
+                        "secretsmanager:ListSecretVersionIds"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+                    ]
+                },
+                {
+                    "Sid": "SecretsmanagerWriteSecret",
+                    "Effect": "Allow",
+                    "Action": [
+                        "secretsmanager:CancelRotateSecret",
+                        "secretsmanager:CreateSecret",
+                        "secretsmanager:DeleteSecret",
+                        "secretsmanager:PutSecretValue",
+                        "secretsmanager:RestoreSecret",
+                        "secretsmanager:RotateSecret",
+                        "secretsmanager:UpdateSecret",
+                        "secretsmanager:UpdateSecretVersionStage"
+                    ],
+                    "Resource": [
+                        "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
+                    ]
+                },
+                {
+                    "Sid": "S3ListObject",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:ListMultipartUploadParts"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-sbx-vmimport/stuff"
+                    ]
+                },
+                {
+                    "Sid": "SsmTaggingParameter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:AddTagsToResource",
+                        "ssm:RemoveTagsFromResource"
+                    ],
+                    "Resource": [
+                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
+                    ]
+                },
+                {
+                    "Sid": "KmsPermissionsmanagementKey",
+                    "Effect": "Allow",
+                    "Action": [
+                        "kms:CreateGrant",
+                        "kms:PutKeyPolicy",
+                        "kms:RetireGrant",
+                        "kms:RevokeGrant"
+                    ],
+                    "Resource": [
+                        "arn:aws:kms:us-east-1:123456789012:key/123456"
+                    ]
+                }
+            ]
+        }
+        print(json.dumps(result, indent=4))
         self.maxDiff = None
-        self.assertDictEqual(desired_crud_policy, policy)
+        self.assertDictEqual(result, desired_crud_policy)
 
     def test_gh_211_write_with_empty_access_level_lists(self):
         expected_results = {
@@ -246,3 +326,26 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print(json.dumps(result, indent=4))
         self.assertDictEqual(result, expected_results)
 
+    def test_gh_204_multiple_resource_types_wildcards(self):
+        """test_gh_204_multiple_resource_types_wildcards: Address github issue #204 not having unit tests"""
+        crud_template = {
+            "mode": "crud",
+            'read': ["arn:aws:rds:us-east-1:123456789012:*:*"],
+            'write': ["arn:aws:rds:us-east-1:123456789012:*:*"],
+            'list': ["arn:aws:rds:us-east-1:123456789012:*:*"]
+        }
+
+        expected_results_file = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                "files",
+                "test_gh_204_multiple_resource_types_wildcards.json",
+            )
+        )
+
+        with open(expected_results_file, "r") as yaml_file:
+            expected_results = json.load(yaml_file)
+        result = write_policy_with_template(crud_template)
+        # print(json.dumps(result, indent=4))
+        self.assertDictEqual(result, expected_results)

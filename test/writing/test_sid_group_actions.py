@@ -28,7 +28,7 @@ class SidGroupActionsTestCase(unittest.TestCase):
         }
         sid_group = SidGroup()
         output = sid_group.process_template(cfg)
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
@@ -67,6 +67,6 @@ class SidGroupActionsTestCase(unittest.TestCase):
             ]
         }
         self.maxDiff = None
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 

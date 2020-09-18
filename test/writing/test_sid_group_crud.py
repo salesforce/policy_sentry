@@ -32,7 +32,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             arn_list_from_user, access_level
         )
         output = sid_group.get_sid_group()
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         desired_output = {
             "S3PermissionsmanagementBucket": {
                 "arn": ["arn:aws:s3:::example-org-s3-access-logs"],
@@ -245,7 +245,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 }
             ]
         }
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertEqual(output, desired_output)
 
@@ -318,7 +318,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         self.maxDiff = None
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
     def test_resource_restriction_plus_dependent_action_simple_2(self):
@@ -358,7 +358,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 },
             ],
         }
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
     def test_add_by_list_of_actions(self):
@@ -388,7 +388,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 },
             ],
         }
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(output, desired_output)
 
@@ -440,7 +440,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ],
         }
         self.maxDiff = None
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
     def test_sid_group_override(self):
@@ -487,7 +487,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 }
             ]
         }
-        print(json.dumps(output, indent=4))
+        # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
     def test_exclude_actions_from_crud_output(self):
@@ -518,7 +518,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         # print(json.dumps(crud_with_exclude_actions_cfg, indent=4))
         sid_group.process_template(crud_with_exclude_actions_cfg)
         result = sid_group.get_rendered_policy(crud_with_exclude_actions_cfg)
-        print(json.dumps(result, indent=4))
+        # print(json.dumps(result, indent=4))
         expected_result = {
             "Version": "2012-10-17",
             "Statement": [
@@ -575,7 +575,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         }
         sid_group.process_template(crud_with_exclude_actions_cfg)
         results = sid_group.get_rendered_policy()
-        print(json.dumps(results, indent=4))
+        # print(json.dumps(results, indent=4))
         expected_result = {
             "Version": "2012-10-17",
             "Statement": [
