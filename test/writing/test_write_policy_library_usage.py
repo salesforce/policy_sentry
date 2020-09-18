@@ -1,6 +1,6 @@
 import unittest
 import json
-
+import os
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.template import (
@@ -246,3 +246,24 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print(json.dumps(result, indent=4))
         self.assertDictEqual(result, expected_results)
 
+    def test_gh_204_multiple_resource_types_wildcards(self):
+        """test_gh_204_multiple_resource_types_wildcards: Address github issue #204 not having unit tests"""
+        crud_template = get_crud_template_dict()
+        crud_template['read'].append("arn:aws:rds:us-east-1:123456789012:*:*")
+        crud_template['write'].append("arn:aws:rds:us-east-1:123456789012:*:*")
+        crud_template['list'].append("arn:aws:rds:us-east-1:123456789012:*:*")
+
+        expected_results_file = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                "files",
+                "test_gh_204_multiple_resource_types_wildcards.json",
+            )
+        )
+
+        with open(expected_results_file, "r") as yaml_file:
+            expected_results = json.load(yaml_file)
+        result = write_policy_with_template(crud_template)
+        print(json.dumps(result, indent=4))
+        self.assertDictEqual(result, expected_results)
