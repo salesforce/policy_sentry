@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   Actions, Resources, and Condition Keys for      Amazon EC2 - AWS Identity and Access Management
+   Actions, resources, and condition keys for      Amazon EC2 - AWS Identity and Access Management
   </title>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="/assets" name="assets_root"/>
@@ -50,7 +50,7 @@
       <div id="awsdocs-content">
        <head>
         <title>
-         Actions, Resources, and Condition Keys for      Amazon EC2 - AWS Identity and Access Management
+         Actions, resources, and condition keys for      Amazon EC2 - AWS Identity and Access Management
         </title>
         <meta content="iam-ug.pdf#list_amazonec2" name="pdf"/>
         <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
@@ -91,10 +91,10 @@
            Actions
           </a>
           <a href="#amazonec2-resources-for-iam-policies">
-           Resource Types
+           Resource types
           </a>
           <a href="#amazonec2-policy-keys">
-           Condition Keys
+           Condition keys
           </a>
          </div>
          <div class="awsui-util-container" id="main-content">
@@ -102,7 +102,7 @@
            <awsdocs-language-banner data-service="$ctrl.pageService">
            </awsdocs-language-banner>
            <h1 class="topictitle" id="list_amazonec2">
-            Actions, Resources, and Condition Keys for      Amazon EC2
+            Actions, resources, and condition keys for      Amazon EC2
            </h1>
            <div class="awsdocs-page-header-container">
             <awsdocs-page-header>
@@ -161,23 +161,23 @@
             <ul>
              <li>
               <a href="#amazonec2-actions-as-permissions">
-               Actions Defined by        Amazon EC2
+               Actions defined by        Amazon EC2
               </a>
              </li>
              <li>
               <a href="#amazonec2-resources-for-iam-policies">
-               Resource Types Defined by        Amazon EC2
+               Resource types defined by        Amazon EC2
               </a>
              </li>
              <li>
               <a href="#amazonec2-policy-keys">
-               Condition Keys for        Amazon EC2
+               Condition keys for        Amazon EC2
               </a>
              </li>
             </ul>
            </div>
            <h2 id="amazonec2-actions-as-permissions">
-            Actions Defined by        Amazon EC2
+            Actions defined by        Amazon EC2
            </h2>
            <p>
             You can specify the following actions in the
@@ -193,7 +193,7 @@
            <p>
             The
             <b>
-             Resource Types
+             Resource types
             </b>
             column indicates whether each action supports      resource-level permissions. If
                                     there is no value for this column, you must specify all      resources ("*") in the
@@ -210,7 +210,7 @@
            <p>
             For details about the columns in the following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The Actions Table
+             The actions table
             </a>
             .
            </p>
@@ -226,16 +226,16 @@
                  Description
                 </th>
                 <th>
-                 Access Level
+                 Access level
                 </th>
                 <th>
-                 Resource Types (*required)
+                 Resource types (*required)
                 </th>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                 <th>
-                 Dependent Actions
+                 Dependent actions
                 </th>
                </tr>
               </thead>
@@ -5544,6 +5544,103 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonec2-CreateTransitGatewayPrefixListReference">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTransitGatewayPrefixListReference.html">
+                 CreateTransitGatewayPrefixListReference
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a transit gateway prefix list reference
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-prefix-list">
+                  prefix-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-route-table">
+                  transit-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-attachment">
+                  transit-gateway-attachment
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonec2-CreateTransitGatewayRoute">
                 </a>
@@ -8834,6 +8931,75 @@
                 <p>
                  <a href="#amazonec2-transit-gateway-attachment">
                   transit-gateway-attachment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteTransitGatewayPrefixListReference">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTransitGatewayPrefixListReference.html">
+                 DeleteTransitGatewayPrefixListReference
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a transit gateway prefix list reference
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-prefix-list">
+                  prefix-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-route-table">
+                  transit-gateway-route-table*
                  </a>
                 </p>
                </td>
@@ -13589,6 +13755,28 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-GetTransitGatewayPrefixListReferences">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayPrefixListReference.html">
+                 GetTransitGatewayPrefixListReferences
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about prefix list references for a transit gateway
+                                                route table
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-GetTransitGatewayRouteTableAssociations">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html">
@@ -14575,6 +14763,116 @@
                 <p>
                  <a href="#amazonec2-traffic-mirror-target">
                   traffic-mirror-target
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ModifyTransitGateway">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGateway.html">
+                 ModifyTransitGateway
+                </a>
+               </td>
+               <td>
+                Grants permission to modify a transit gateway
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway">
+                  transit-gateway*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyTransitGatewayPrefixListReference">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayPrefixListReference.html">
+                 ModifyTransitGatewayPrefixListReference
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify a transit gateway prefix list reference
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-prefix-list">
+                  prefix-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-route-table">
+                  transit-gateway-route-table*
                  </a>
                 </p>
                </td>
@@ -18027,7 +18325,7 @@
             </div>
            </div>
            <h2 id="amazonec2-resources-for-iam-policies">
-            Resource Types Defined by        Amazon EC2
+            Resource types defined by        Amazon EC2
            </h2>
            <p>
             The following resource types are defined by this service and can be used in the
@@ -18043,7 +18341,7 @@
                                     keys are displayed in the last column of the      table. For details about the columns
                                     in the following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The Resource Types Table
+             The resource types table
             </a>
             .
            </p>
@@ -18053,13 +18351,13 @@
               <thead>
                <tr>
                 <th>
-                 Resource Types
+                 Resource types
                 </th>
                 <th>
                  ARN
                 </th>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                </tr>
               </thead>
@@ -21118,7 +21416,7 @@
             </div>
            </div>
            <h2 id="amazonec2-policy-keys">
-            Condition Keys for        Amazon EC2
+            Condition keys for        Amazon EC2
            </h2>
            <p>
             Amazon EC2 defines the following condition keys that can be used in the
@@ -21129,19 +21427,15 @@
                                     under which the policy statement applies. For details about the columns in the   
                                     following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The Condition Keys Table
+             The condition keys table
             </a>
             .
            </p>
            <p>
             To view the global condition keys that are available to all services, see
             <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-             Available Global        Condition Keys
+             Available global        condition keys
             </a>
-            in the
-            <em>
-             IAM Policy Reference
-            </em>
             .
            </p>
            <div class="table-container">
@@ -21150,7 +21444,7 @@
               <thead>
                <tr>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                 <th>
                  Description
@@ -22135,7 +22429,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the type of volume (gp2, io1, st1, sc1, or standard)
+                Filters access by the type of volume (gp2, io1, io2, st1, sc1, or standard)
                </td>
                <td>
                 String

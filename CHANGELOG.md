@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0 (Unreleased)
+* Speed improvements: The IAM definition is now a dictionary instead of a list.
+* Fixed issue where elasticloadbalancing v1 was showing up in query results but v2 was not. Fixes #226
+* Supports "required" as an additional key for privilege (Fixes #230)
+
 ## 0.8.8 (2020-09-15)
 * Fixes issue with querying condition keys (#225)
 * Adds get_region_from_arn back for our friends at Netflix :)

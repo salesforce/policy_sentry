@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   Actions, Resources, and Condition Keys for      AWS SSO - AWS Identity and Access Management
+   Actions, resources, and condition keys for      AWS SSO - AWS Identity and Access Management
   </title>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="/assets" name="assets_root"/>
@@ -50,7 +50,7 @@
       <div id="awsdocs-content">
        <head>
         <title>
-         Actions, Resources, and Condition Keys for      AWS SSO - AWS Identity and Access Management
+         Actions, resources, and condition keys for      AWS SSO - AWS Identity and Access Management
         </title>
         <meta content="iam-ug.pdf#list_awssso" name="pdf"/>
         <meta content="https://www.amazon.com/dp/B07642VLTV" name="kindle"/>
@@ -91,10 +91,10 @@
            Actions
           </a>
           <a href="#awssso-resources-for-iam-policies">
-           Resource Types
+           Resource types
           </a>
           <a href="#awssso-policy-keys">
-           Condition Keys
+           Condition keys
           </a>
          </div>
          <div class="awsui-util-container" id="main-content">
@@ -102,7 +102,7 @@
            <awsdocs-language-banner data-service="$ctrl.pageService">
            </awsdocs-language-banner>
            <h1 class="topictitle" id="list_awssso">
-            Actions, Resources, and Condition Keys for      AWS SSO
+            Actions, resources, and condition keys for      AWS SSO
            </h1>
            <div class="awsdocs-page-header-container">
             <awsdocs-page-header>
@@ -161,23 +161,23 @@
             <ul>
              <li>
               <a href="#awssso-actions-as-permissions">
-               Actions Defined by        AWS SSO
+               Actions defined by        AWS SSO
               </a>
              </li>
              <li>
               <a href="#awssso-resources-for-iam-policies">
-               Resource Types Defined by        AWS SSO
+               Resource types defined by        AWS SSO
               </a>
              </li>
              <li>
               <a href="#awssso-policy-keys">
-               Condition Keys for        AWS SSO
+               Condition keys for        AWS SSO
               </a>
              </li>
             </ul>
            </div>
            <h2 id="awssso-actions-as-permissions">
-            Actions Defined by        AWS SSO
+            Actions defined by        AWS SSO
            </h2>
            <p>
             You can specify the following actions in the
@@ -193,7 +193,7 @@
            <p>
             The
             <b>
-             Resource Types
+             Resource types
             </b>
             column indicates whether each action supports      resource-level permissions. If
                                     there is no value for this column, you must specify all      resources ("*") in the
@@ -210,13 +210,13 @@
            <p>
             For details about the columns in the following table, see
             <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The Actions Table
+             The actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w468aac33c14c29d878c11b9">
+             <table id="w468aac33c14c29d882c11b9">
               <thead>
                <tr>
                 <th>
@@ -226,16 +226,16 @@
                  Description
                 </th>
                 <th>
-                 Access Level
+                 Access level
                 </th>
                 <th>
-                 Resource Types (*required)
+                 Resource types (*required)
                 </th>
                 <th>
-                 Condition Keys
+                 Condition keys
                 </th>
                 <th>
-                 Dependent Actions
+                 Dependent actions
                 </th>
                </tr>
               </thead>
@@ -275,6 +275,98 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-AttachManagedPolicyToPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 AttachManagedPolicyToPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Attaches an AWS managed policy to a permission set.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssso-CreateAccountAssignment">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 CreateAccountAssignment
+                </a>
+               </td>
+               <td rowspan="3">
+                Assigns access to a Principal for a specified AWS account using a specified permission
+                                                set.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Account">
+                  Account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -359,6 +451,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -408,6 +505,59 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="awssso-DeleteAccountAssignment">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteAccountAssignment
+                </a>
+               </td>
+               <td rowspan="3">
+                Deletes a Principal's access from a specified AWS account using a specified permission
+                                                set.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Account">
+                  Account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="awssso-DeleteApplicationInstance">
                 </a>
@@ -450,6 +600,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="awssso-DeleteInlinePolicyFromPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DeleteInlinePolicyFromPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Deletes the inline policy from a specified permission set.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="awssso-DeleteManagedApplicationInstance">
                 </a>
@@ -471,20 +660,38 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awssso-DeletePermissionSet">
                 </a>
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
                  DeletePermissionSet
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Delete a permission set
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -535,6 +742,123 @@
               </tr>
               <tr>
                <td>
+                <a id="awssso-DescribeAccountAssignmentCreationStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DescribeAccountAssignmentCreationStatus
+                </a>
+               </td>
+               <td>
+                Describes the status of the assignment creation request.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DescribeAccountAssignmentDeletionStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DescribeAccountAssignmentDeletionStatus
+                </a>
+               </td>
+               <td>
+                Describes the status of an assignment deletion request.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-DescribePermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DescribePermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Describes a permission set
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-DescribePermissionSetProvisioningStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DescribePermissionSetProvisioningStatus
+                </a>
+               </td>
+               <td>
+                Describes the status for the given Permission Set Provisioning request.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awssso-DescribePermissionsPolicies">
                 </a>
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
@@ -569,6 +893,45 @@
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-DetachManagedPolicyFromPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 DetachManagedPolicyFromPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Detaches the attached AWS managed policy from the specified permission set.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -653,6 +1016,45 @@
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-GetInlinePolicyForPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 GetInlinePolicyForPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Obtains the inline policy assigned to the permission set.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -875,6 +1277,151 @@
               </tr>
               <tr>
                <td>
+                <a id="awssso-ListAccountAssignmentCreationStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListAccountAssignmentCreationStatus
+                </a>
+               </td>
+               <td>
+                Lists the status of the AWS account assignment creation requests for a specified SSO
+                                                instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListAccountAssignmentDeletionStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListAccountAssignmentDeletionStatus
+                </a>
+               </td>
+               <td>
+                Lists the status of the AWS account assignment deletion requests for a specified SSO
+                                                instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssso-ListAccountAssignments">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListAccountAssignments
+                </a>
+               </td>
+               <td rowspan="3">
+                Lists the assignee of the specified AWS account with the specified permission set.
+               </td>
+               <td rowspan="3">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Account">
+                  Account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-ListAccountsForProvisionedPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListAccountsForProvisionedPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Lists all the AWS accounts where the specified permission set is provisioned.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awssso-ListApplicationInstanceCertificates">
                 </a>
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
@@ -986,6 +1533,92 @@
               </tr>
               <tr>
                <td>
+                <a id="awssso-ListInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListInstances
+                </a>
+               </td>
+               <td>
+                Lists the SSO Instances that the caller has access to.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-ListManagedPoliciesInPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListManagedPoliciesInPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Lists the AWS managed policies that are attached to a specified permission set.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-ListPermissionSetProvisioningStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListPermissionSetProvisioningStatus
+                </a>
+               </td>
+               <td>
+                Lists the status of the Permission Set Provisioning requests for a specified SSO instance.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awssso-ListPermissionSets">
                 </a>
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
@@ -999,6 +1632,50 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-ListPermissionSetsProvisionedToAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListPermissionSetsProvisionedToAccount
+                </a>
+               </td>
+               <td rowspan="2">
+                Lists all the permission sets that are provisioned to a specified AWS account.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Account">
+                  Account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1048,6 +1725,136 @@
                 <p>
                  sso:GetProfile
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Lists the tags that are attached to a specified resource.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssso-ProvisionPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 ProvisionPermissionSet
+                </a>
+               </td>
+               <td rowspan="3">
+                The process by which a specified permission set is provisioned to the specified target.
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Account">
+                  Account*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssso-PutInlinePolicyToPermissionSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 PutInlinePolicyToPermissionSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Attaches an IAM inline policy to a permission set.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1109,6 +1916,120 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssso-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Associates a set of tags with a specified resource.
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssso-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awssso-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Disassociates a set of tags from a specified resource.
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssso-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1303,20 +2224,38 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awssso-UpdatePermissionSet">
                 </a>
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
                  UpdatePermissionSet
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Update the permission set.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awssso-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssso-PermissionSet">
+                  PermissionSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1390,38 +2329,198 @@
             </div>
            </div>
            <h2 id="awssso-resources-for-iam-policies">
-            Resource Types Defined by        AWS SSO
+            Resource types defined by        AWS SSO
            </h2>
            <p>
-            AWS SSO does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      AWS SSO, specify
-            <code class="code">
-             “Resource”: “*”
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#awssso-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w468aac33c14c29d882c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awssso-PermissionSet">
+                </a>
+                PermissionSet
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sso:::permissionSet/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}/$
+                 <span>
+                  {
+                 </span>
+                 PermissionSetId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssso-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-Account">
+                </a>
+                Account
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sso:::account/$
+                 <span>
+                  {
+                 </span>
+                 AccountId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-Instance">
+                </a>
+                Instance
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sso:::instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awssso-policy-keys">
-            Condition Keys for        AWS SSO
+            Condition keys for        AWS SSO
            </h2>
            <p>
-            SSO has no service-specific context keys that can be used in the
+            AWS SSO defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
-             Available Keys for        Conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
-            in the
-            <em>
-             IAM Policy Reference
-            </em>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="reference_policies_condition-keys.html#AvailableKeys" target="_blank">
+             Available global        condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w468aac33c14c29d882c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awssso-aws_RequestTag___TagKey_">
+                </a>
+                aws:RequestTag/${TagKey}
+               </td>
+               <td>
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-aws_ResourceTag___TagKey_">
+                </a>
+                aws:ResourceTag/${TagKey}
+               </td>
+               <td>
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssso-aws_TagKeys">
+                </a>
+                aws:TagKeys
+               </td>
+               <td>
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
           </div>

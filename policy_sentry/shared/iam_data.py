@@ -21,8 +21,10 @@ def get_service_prefix_data(service_prefix):
     Returns:
         List: A list of metadata about that service
     """
-    result = list(filter(lambda item: item["prefix"] == service_prefix, iam_definition))
+    # result = list(filter(lambda item: item["prefix"] == service_prefix, iam_definition))
+    result = iam_definition.get(service_prefix, None)
     try:
-        return result[0]
-    except IndexError as i_e:
-        logger.debug("Service prefix not %s found - See error: %s", service_prefix, str(i_e))
+        return result
+    # pylint: disable=bare-except
+    except:
+        logger.debug("Service prefix not %s found.", service_prefix)

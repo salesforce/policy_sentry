@@ -4,7 +4,7 @@ This supports the policy_sentry query functionality
 """
 import logging
 import functools
-from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
+from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 
 logger = logging.getLogger(__name__)
@@ -21,16 +21,15 @@ def get_arn_data(service_prefix, resource_type_name):
         Dictionary: Metadata about an ARN type
     """
     results = []
-    for service_data in iam_definition:
-        if service_data["prefix"] == service_prefix:
-            for resource in service_data["resources"]:
-                if resource["resource"].lower() == resource_type_name.lower():
-                    output = {
-                        "resource_type_name": resource["resource"],
-                        "raw_arn": resource["arn"],
-                        "condition_keys": resource["condition_keys"],
-                    }
-                    results.append(output)
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    for resource in service_prefix_data["resources"]:
+        if resource["resource"].lower() == resource_type_name.lower():
+            output = {
+                "resource_type_name": resource["resource"],
+                "raw_arn": resource["arn"],
+                "condition_keys": resource["condition_keys"],
+            }
+            results.append(output)
     return results
 
 
@@ -45,10 +44,9 @@ def get_raw_arns_for_service(service_prefix):
         List: A list of raw ARNs
     """
     results = []
-    for service_data in iam_definition:
-        if service_data["prefix"] == service_prefix:
-            for resource in service_data["resources"]:
-                results.append(resource["arn"])
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    for resource in service_prefix_data["resources"]:
+        results.append(resource["arn"])
     return results
 
 
@@ -63,10 +61,9 @@ def get_arn_types_for_service(service_prefix):
         List: A list of ARN types, like `bucket` or `object`
     """
     results = {}
-    for service_data in iam_definition:
-        if service_data["prefix"] == service_prefix:
-            for resource in service_data["resources"]:
-                results[resource["resource"]] = resource["arn"]
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    for resource in service_prefix_data["resources"]:
+        results[resource["resource"]] = resource["arn"]
     return results
 
 
