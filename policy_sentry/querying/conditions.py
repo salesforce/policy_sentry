@@ -21,11 +21,8 @@ def get_condition_keys_for_service(service_prefix):
     Returns:
         List: A list of condition keys
     """
-    results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for condition_key_entry in service_prefix_data["conditions"]:
-        results.append(condition_key_entry["condition"])
-    results = list(dict.fromkeys(results))
+    results = list(dict.fromkeys(service_prefix_data["conditions"].keys()))
     return results
 
 
@@ -42,12 +39,12 @@ def get_condition_key_details(service_prefix, condition_key_name):
         Dictionary: Metadata about the condition key
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for condition_key_entry in service_prefix_data["conditions"]:
-        if is_condition_key_match(condition_key_entry["condition"], condition_key_name):
+    for condition_name, condition_data in service_prefix_data["conditions"].items():
+        if is_condition_key_match(condition_data["condition"], condition_key_name):
             output = {
-                "name": condition_key_entry["condition"],
-                "description": condition_key_entry["description"],
-                "condition_value_type": condition_key_entry["type"].lower(),
+                "name": condition_data["condition"],
+                "description": condition_data["description"],
+                "condition_value_type": condition_data["type"].lower(),
             }
             return output
 
@@ -84,14 +81,14 @@ def get_condition_keys_available_to_raw_arn(raw_arn):
     elements = raw_arn.split(":", 5)
     service_prefix = elements[2]
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource in service_prefix_data["resources"]:
-        if resource["arn"] == raw_arn:
-            results.extend(resource["condition_keys"])
+    for resource_name, resource_data in service_prefix_data["resources"].items():
+        if resource_data["arn"] == raw_arn:
+            results.extend(resource_data["condition_keys"])
     results = list(dict.fromkeys(results))
     return results
 
 
-# pylint: disable=inconsistent-return-statements,unused-variable
+# pylint: disable=inconsistent-return-statements
 def get_condition_value_type(condition_key):
     """
     Get the data type of the condition key - like Date, String, etc.
@@ -104,7 +101,6 @@ def get_condition_value_type(condition_key):
     service_prefix, condition_name = condition_key.split(":")
     service_prefix_data = get_service_prefix_data(service_prefix)
 
-    for condition_key_entry in service_prefix_data["conditions"]:
-        if is_condition_key_match(condition_key_entry["condition"], condition_key):
-
-            return condition_key_entry["type"].lower()
+    for condition_key_entry, condition_key_data in service_prefix_data["conditions"].items():
+        if is_condition_key_match(condition_key_data["condition"], condition_key):
+            return condition_key_data["type"].lower()

@@ -280,21 +280,18 @@ def create_database(destination_directory, access_level_overrides_file):
                             resource_type = chomp(cells[resource_cell].text)
 
                             condition_keys_element = cells[resource_cell + 1]
-                            condition_keys = {}
+                            condition_keys = []
                             if condition_keys_element.text != "":
                                 for key_element in condition_keys_element.find_all("p"):
-                                    # Just set the condition key as the dictionary key
-                                    condition_keys[(chomp(key_element.text))] = None
+                                    condition_keys.append(chomp(key_element.text))
 
                             dependent_actions_element = cells[resource_cell + 2]
-                            dependent_actions = {}
+                            dependent_actions = []
                             if dependent_actions_element.text != "":
                                 for (
                                     action_element
                                 ) in dependent_actions_element.find_all("p"):
-                                    # Just set the condition key as the dictionary key
-                                    dependent_actions[chomp(action_element.text)] = None
-                                    # dependent_actions.append(chomp(action_element.text))
+                                    dependent_actions.append(chomp(action_element.text))
                             if "*" in resource_type:
                                 required = True
                                 resource_type = resource_type.strip("*")
@@ -351,11 +348,9 @@ def create_database(destination_directory, access_level_overrides_file):
                     resource = chomp(cells[0].text)
 
                     arn = no_white_space(cells[1].text)
-                    conditions = {}
+                    conditions = []
                     for condition in cells[2].find_all("p"):
-                        # Set the condition name as the dictionary key with empty string
-                        conditions[chomp(condition.text)] = None
-                        # conditions.append(chomp(condition.text))
+                        conditions.append(chomp(condition.text))
 
                     service_schema["resources"][resource] = {
                         "resource": resource,

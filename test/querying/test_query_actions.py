@@ -28,9 +28,9 @@ class QueryActionsTestCase(unittest.TestCase):
             {
                 "service_name": "AWS Cloud9",
                 "prefix": "cloud9",
-                "privileges": [dict],
-                "resources": [dict],
-                "conditions": [dict]
+                "privileges": dict,
+                "resources": dict,
+                "conditions": dict
             }
         )
         valid_output = check(desired_output_schema, result)
@@ -83,7 +83,7 @@ class QueryActionsTestCase(unittest.TestCase):
         with open(expected_results_file) as json_file:
             expected_results = json.load(json_file)
         results = get_privilege_info("cloud9", "CreateEnvironmentEC2")
-        # print(json.dumps(results, indent=4))
+        print(json.dumps(results, indent=4))
         self.assertDictEqual(results, expected_results)
 
     # def test_get_privilege_info_2(self):
@@ -140,7 +140,7 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertEqual(output, ["ecr:GetAuthorizationToken"])
         # print(json.dumps(output, indent=4))
         output = get_actions_that_support_wildcard_arns_only("all")
-        print(len(output))
+        # print(len(output))
 
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
@@ -179,7 +179,7 @@ class QueryActionsTestCase(unittest.TestCase):
 
         print(len(all_permissions_output) + len(all_write_output))
         # print(len(all_write_output))
-        print(json.dumps(all_write_output, indent=4))
+        # print(json.dumps(all_write_output, indent=4))
         # print(json.dumps(all_permissions_output, indent=4))
 
     def test_get_actions_with_access_level(self):

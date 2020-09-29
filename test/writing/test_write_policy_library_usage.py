@@ -148,7 +148,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             actions_template, minimize=minimize
         )
         self.maxDiff = None
-        # print(json.dumps(policy, indent=4))
+        print(json.dumps(policy, indent=4))
         self.assertDictEqual(policy, desired_actions_policy)
 
     def test_write_crud_policy_with_library_only(self):
