@@ -7,6 +7,7 @@ from policy_sentry.writing.template import (
     get_crud_template_dict,
     get_actions_template_dict,
 )
+from policy_sentry.util.arns import ARN
 
 desired_crud_policy = {
     "Version": "2012-10-17",
@@ -349,3 +350,15 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         result = write_policy_with_template(crud_template)
         # print(json.dumps(result, indent=4))
         self.assertDictEqual(result, expected_results)
+
+    def test_gh_237_ssm_arns_with_paths(self):
+        """test_gh_237_ssm_arns_with_paths: Test GitHub issue #204 with resource ARN paths"""
+        crud_template = {
+            "mode": "crud",
+            'read': ["arn:aws:ssm:::parameter/dev/foo/bar*"]
+        }
+        # result = write_policy_with_template(crud_template)
+        # print(json.dumps(result, indent=4))
+        arn = ARN("arn:aws:ssm:::parameter/dev/foo/bar*")
+        print(arn.same_resource_type("arn:aws:ssm:::parameter/dev"))
+
