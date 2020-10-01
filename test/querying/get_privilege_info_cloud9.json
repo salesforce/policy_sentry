@@ -1,9 +1,11 @@
 {
-    "access_level": "Write",
-    "description": "Grants permission to create an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance.",
     "privilege": "CreateEnvironmentEC2",
-    "resource_types": [
-        {
+    "description": "Grants permission to create an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance.",
+    "access_level": "Write",
+    "resource_types": {
+        "": {
+            "resource_type": "",
+            "required": false,
             "condition_keys": [
                 "cloud9:EnvironmentName",
                 "cloud9:InstanceType",
@@ -14,65 +16,63 @@
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
                 "iam:CreateServiceLinkedRole"
-            ],
-            "resource_type": "",
-            "required": false
+            ]
         }
-    ],
-    "service_resources": [
-        {
+    },
+    "service_resources": {
+        "environment": {
+            "resource": "environment",
             "arn": "arn:${Partition}:cloud9:${Region}:${Account}:environment:${ResourceId}",
             "condition_keys": [
                 "aws:ResourceTag/${TagKey}"
-            ],
-            "resource": "environment"
+            ]
         }
-    ],
-    "service_conditions": [
-        {
+    },
+    "service_conditions": {
+        "aws:RequestTag/${TagKey}": {
             "condition": "aws:RequestTag/${TagKey}",
             "description": "Filters actions based on the presence of tag key-value pairs in the request",
             "type": "String"
         },
-        {
+        "aws:ResourceTag/${TagKey}": {
             "condition": "aws:ResourceTag/${TagKey}",
             "description": "Filters actions based on tag key-value pairs attached to the resource",
             "type": "String"
         },
-        {
+        "aws:TagKeys": {
             "condition": "aws:TagKeys",
             "description": "Filters actions based on the presence of tag keys in the request",
             "type": "String"
         },
-        {
+        "cloud9:EnvironmentId": {
             "condition": "cloud9:EnvironmentId",
             "description": "Filters access by the AWS Cloud9 environment ID",
             "type": "String"
         },
-        {
+        "cloud9:EnvironmentName": {
             "condition": "cloud9:EnvironmentName",
             "description": "Filters access by the AWS Cloud9 environment name",
             "type": "String"
         },
-        {
+        "cloud9:InstanceType": {
             "condition": "cloud9:InstanceType",
             "description": "Filters access by the instance type of the AWS Cloud9 environment's Amazon EC2 instance",
             "type": "String"
         },
-        {
+        "cloud9:Permissions": {
             "condition": "cloud9:Permissions",
             "description": "Filters access by the type of AWS Cloud9 permissions",
             "type": "String"
         },
-        {
+        "cloud9:SubnetId": {
             "condition": "cloud9:SubnetId",
             "description": "Filters access by the subnet ID that the AWS Cloud9 environment will be created in",
             "type": "String"
         },
-        {
+        "cloud9:UserArn": {
             "condition": "cloud9:UserArn",
             "description": "Filters access by the user ARN specified",
             "type": "ARN"
         }
-    ]
+    }
 }

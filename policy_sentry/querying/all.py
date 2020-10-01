@@ -37,14 +37,14 @@ def get_all_actions(lowercase=False):
     all_service_prefixes = get_all_service_prefixes()
     for service_prefix in all_service_prefixes:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for privilege_info in service_prefix_data["privileges"]:
+        for action_name in service_prefix_data["privileges"]:
             if lowercase:
                 all_actions.add(
-                    f"{service_prefix_data['prefix']}:{privilege_info['privilege'].lower()}"
+                    f"{service_prefix}:{action_name.lower()}"
                 )
             else:
                 all_actions.add(
-                    f"{service_prefix_data['prefix']}:{privilege_info['privilege']}"
+                    f"{service_prefix}:{action_name}"
                 )
 
     # results = list(set(results))
