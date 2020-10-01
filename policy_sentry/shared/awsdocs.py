@@ -188,9 +188,9 @@ def create_database(destination_directory, access_level_overrides_file):
             service_schema = {
                 "service_name": service_name,
                 "prefix": prefix,
-                "privileges": [],
-                "resources": [],
-                "conditions": [],
+                "privileges": {},
+                "resources": {},
+                "conditions": {},
             }
 
             access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
@@ -266,7 +266,7 @@ def create_database(destination_directory, access_level_overrides_file):
                     #         access_level = access_level
                     # else:
                     #     access_level = access_level
-                    resource_types = []
+                    resource_types = {}
                     resource_cell = 3
 
                     while rowspan > 0:
@@ -298,14 +298,12 @@ def create_database(destination_directory, access_level_overrides_file):
                             else:
                                 required = False
 
-                            resource_types.append(
-                                {
-                                    "resource_type": resource_type,
-                                    "required": required,
-                                    "condition_keys": condition_keys,
-                                    "dependent_actions": dependent_actions,
-                                }
-                            )
+                            resource_types[resource_type] = {
+                                "resource_type": resource_type,
+                                "required": required,
+                                "condition_keys": condition_keys,
+                                "dependent_actions": dependent_actions,
+                            }
                         rowspan -= 1
                         if rowspan > 0:
                             row_number += 1
@@ -323,7 +321,7 @@ def create_database(destination_directory, access_level_overrides_file):
                         "resource_types": resource_types,
                     }
 
-                    service_schema["privileges"].append(privilege_schema)
+                    service_schema["privileges"][priv] = privilege_schema
                     row_number += 1
 
             # Get resource table
@@ -354,13 +352,11 @@ def create_database(destination_directory, access_level_overrides_file):
                     for condition in cells[2].find_all("p"):
                         conditions.append(chomp(condition.text))
 
-                    service_schema["resources"].append(
-                        {
-                            "resource": resource,
-                            "arn": arn,
-                            "condition_keys": conditions
-                        }
-                    )
+                    service_schema["resources"][resource] = {
+                        "resource": resource,
+                        "arn": arn,
+                        "condition_keys": conditions
+                    }
 
             # Get condition keys table
             for table in tables:
@@ -390,13 +386,11 @@ def create_database(destination_directory, access_level_overrides_file):
                     description = chomp(cells[1].text)
                     value_type = chomp(cells[2].text)
 
-                    service_schema["conditions"].append(
-                        {
-                            "condition": condition,
-                            "description": description,
-                            "type": value_type,
-                        }
-                    )
+                    service_schema["conditions"][condition] = {
+                        "condition": condition,
+                        "description": description,
+                        "type": value_type,
+                    }
             this_service_schema = {
                 service_prefix: service_schema
             }

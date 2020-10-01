@@ -28,6 +28,7 @@ if __name__ == '__main__':
     BUNDLED_DATASTORE_FILE_PATH = os.path.join(
         str(Path(os.path.dirname(__file__))), "policy_sentry", "shared", "data", "iam-definition.json"
     )
+    print("Data store file path: " + str(BUNDLED_DATASTORE_FILE_PATH))
     if os.path.exists(BUNDLED_DATASTORE_FILE_PATH):
         print("Datastore exists. Deleting then rebuilding...")
         os.remove(BUNDLED_DATASTORE_FILE_PATH)

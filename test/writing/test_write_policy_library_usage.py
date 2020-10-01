@@ -149,7 +149,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             actions_template, minimize=minimize
         )
         self.maxDiff = None
-        # print(json.dumps(policy, indent=4))
+        print(json.dumps(policy, indent=4))
         self.assertDictEqual(policy, desired_actions_policy)
 
     def test_write_crud_policy_with_library_only(self):
@@ -361,4 +361,3 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # print(json.dumps(result, indent=4))
         arn = ARN("arn:aws:ssm:::parameter/dev/foo/bar*")
         print(arn.same_resource_type("arn:aws:ssm:::parameter/dev"))
-
