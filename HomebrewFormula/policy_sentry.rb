@@ -3,14 +3,14 @@ class PolicySentry < Formula
 
   desc "Shiny new formula"
   homepage "https://github.com/salesforce/policy_sentry"
-  url "https://files.pythonhosted.org/packages/e1/ac/f698a8e5dca7667309b4f994ace37b85c944975bc60884b9e8b5873755f2/policy_sentry-0.8.7.tar.gz"
-  sha256 "f4a0b3228893b2046f45f5519ed70392f731d9c30625ad7f44b676aca892eaea"
+  url "https://files.pythonhosted.org/packages/df/9b/6ab4b36be4f7459a832a399a96fd06f3a71fd4566885eaabad69d665a5d4/policy_sentry-0.8.8.tar.gz"
+  sha256 "08743be2e284698e8fb8dc87bbd8403e0c0ddbfb9c465f8b6c4be172f3f8471c"
 
   depends_on "python3"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
-    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
+    url "https://files.pythonhosted.org/packages/91/f5/5be6a47f85552586e750b6939b4f21eb4f1b02ef0d0562f1bc3c5fb0ce78/beautifulsoup4-4.9.2.tar.gz"
+    sha256 "1edf5e39f3a5bc6e38b235b369128416c7239b34f692acccececb040233032a1"
   end
 
   resource "certifi" do
