@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.0 (Unreleased)
+## 0.9.0 (2020-10-01)
 * Speed improvements: The IAM definition is now a dictionary instead of a list.
 * Fixed issue where elasticloadbalancing v1 was showing up in query results but v2 was not. Fixes #226
 * Supports "required" as an additional key for privilege (Fixes #230)
