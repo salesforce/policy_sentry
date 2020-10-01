@@ -395,16 +395,6 @@ def get_privilege_info(service_prefix, action):
         privilege_info = iam_definition[service_prefix]["privileges"][action]
         privilege_info["service_resources"] = iam_definition[service_prefix]["resources"]
         privilege_info["service_conditions"] = iam_definition[service_prefix]["conditions"]
-    except KeyError:
-        raise Exception("Unknown action {}:{}".format(service_prefix, action))
+    except KeyError as k_e:
+        raise Exception("Unknown action {}:{}".format(service_prefix, action)) from k_e
     return privilege_info
-    # if service_prefix in iam_definition:
-    #     for privilege_info in iam_definition[service_prefix]["privileges"]:
-    #         if privilege_info["privilege"] == action:
-    #             privilege_info["service_resources"] = iam_definition[service_prefix]["resources"]
-    #             privilege_info["service_conditions"] = iam_definition[service_prefix]["conditions"]
-    #             return privilege_info
-    # for service_info in iam_definition:
-    #     if service_info["prefix"] == service_prefix:
-    # If it is not found at all, raise an exception
-    # raise Exception("Unknown action {}:{}".format(service_prefix, action))
