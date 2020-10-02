@@ -19,7 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sleep 4m
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
 
@@ -74,6 +73,7 @@ jobs:
           python-version: 3.7
       - name: publish brew
         run: |
+          sleep 5m
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           pip install homebrew-pypi-poet
