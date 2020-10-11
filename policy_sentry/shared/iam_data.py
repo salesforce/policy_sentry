@@ -28,4 +28,3 @@ def get_service_prefix_data(service_prefix):
     # pylint: disable=bare-except
     except:
         logger.debug("Service prefix not %s found.", service_prefix)
-
