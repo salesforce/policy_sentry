@@ -44,5 +44,8 @@ from policy_sentry.shared.iam_data import get_service_prefix_data
 class IAMDataTestCase(unittest.TestCase):
 
     def test_get_service_prefix_data_raises_exception(self):
+        """policy_sentry.shared.get_service_prefix_data: verify that
+        invalid aws service prefix raises exception
+        """
         with self.assertRaises(Exception):
             get_service_prefix_data('invalid_aws_service')
