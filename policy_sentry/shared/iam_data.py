@@ -26,5 +26,3 @@ def get_service_prefix_data(service_prefix):
     if result is None:
         raise Exception(f"Service prefix {service_prefix} not found.")
     return result
-
-
