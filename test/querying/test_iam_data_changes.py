@@ -1,6 +1,7 @@
 import unittest
 import json
 from policy_sentry.shared.iam_data import iam_definition
+from policy_sentry.shared.iam_data import get_service_prefix_data
 
 
 # class IAMDataChanges(unittest.TestCase):
@@ -39,3 +40,9 @@ from policy_sentry.shared.iam_data import iam_definition
 #         # 791 and 790. The only non-unique item is swf:workflowType.name, and if you look at the docs, it is pretty much the same so we won't be losing any valuale information by using this as a dictionary key
 #         extra_condition = set([x for x in list_of_conditions if list_of_conditions.count(x) > 1])
 #         print(extra_condition)
+
+class IAMDataTestCase(unittest.TestCase):
+
+    def test_get_service_prefix_data_raises_exception(self):
+        with self.assertRaises(Exception):
+            get_service_prefix_data('invalid_aws_service')
