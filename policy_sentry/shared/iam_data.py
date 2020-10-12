@@ -23,6 +23,8 @@ def get_service_prefix_data(service_prefix):
     """
     # result = list(filter(lambda item: item["prefix"] == service_prefix, iam_definition))
     result = iam_definition.get(service_prefix, None)
-    if not result:
-        raise Exception(f"Service prefix {service_prefix} not found.")
-    return result
+    try:
+        return result
+    # pylint: disable=bare-except
+    except:
+        logger.debug("Service prefix not %s found.", service_prefix)
