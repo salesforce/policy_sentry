@@ -72,6 +72,13 @@ class QueryActionsTestCase(unittest.TestCase):
         # old: 0.021s
         # this one: 0.005s
 
+    def test_get_actions_for_invalid_service(self):
+        """querying.actions.get_actions_for_service
+           for invalid service
+        """
+        output = get_actions_for_service("invalid_service")
+        self.assertListEqual([], output)
+
     def test_get_privilege_info(self):
         expected_results_file = os.path.abspath(
             os.path.join(
