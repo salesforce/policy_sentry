@@ -25,8 +25,9 @@ def get_actions_for_service(service_prefix):
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
-    for item in service_prefix_data["privileges"]:
-        results.append(f"{service_prefix}:{item}")
+    if isinstance(service_prefix_data, dict):
+        for item in service_prefix_data["privileges"]:
+            results.append(f"{service_prefix}:{item}")
     return results
 
 
