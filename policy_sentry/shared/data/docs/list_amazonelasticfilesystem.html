@@ -136,7 +136,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">
-                API operations available for this        service
+                API operations available for this          service
                </a>
                .
               </p>
@@ -145,7 +145,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/efs/latest/ug/auth-and-access-control.html">
-                using IAM
+                using          IAM
                </a>
                permission policies.
               </p>
@@ -649,23 +649,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticfilesystem-DescribeAccessPoints">
                 </a>
                 <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DescribeAccessPoints.html">
                  DescribeAccessPoints
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Returns the descriptions of Amazon EFS access points.
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
                 <p>
+                 <a href="#amazonelasticfilesystem-access-point">
+                  access-point
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonelasticfilesystem-file-system">
-                  file-system*
+                  file-system
                  </a>
                 </p>
                </td>
@@ -797,6 +810,28 @@
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonelasticfilesystem-DescribeMountTargets">
+                </a>
+                <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DescribeMountTargets.html">
+                 DescribeMountTargets
+                </a>
+               </td>
+               <td rowspan="2">
+                Returns the descriptions of all the current mount targets, or a specific mount target,
+                                                for a file system.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
                 <p>
                  <a href="#amazonelasticfilesystem-file-system">
                   file-system*
@@ -810,23 +845,9 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonelasticfilesystem-DescribeMountTargets">
-                </a>
-                <a href="https://docs.aws.amazon.com/efs/latest/ug/API_DescribeMountTargets.html">
-                 DescribeMountTargets
-                </a>
-               </td>
-               <td>
-                Returns the descriptions of all the current mount targets, or a specific mount target,
-                                                for a file system.
-               </td>
-               <td>
-                Read
-               </td>
-               <td>
                 <p>
-                 <a href="#amazonelasticfilesystem-file-system">
-                  file-system*
+                 <a href="#amazonelasticfilesystem-access-point">
+                  access-point
                  </a>
                 </p>
                </td>
@@ -862,23 +883,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticfilesystem-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/efs/latest/ug/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Returns the tags associated with the specified Amazon EFS resource.
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
                 <p>
+                 <a href="#amazonelasticfilesystem-access-point">
+                  access-point
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonelasticfilesystem-file-system">
-                  file-system*
+                  file-system
                  </a>
                 </p>
                </td>
@@ -902,11 +936,6 @@
                 Write
                </td>
                <td>
-                <p>
-                 <a href="#amazonelasticfilesystem-file-system">
-                  file-system*
-                 </a>
-                </p>
                </td>
                <td>
                </td>
@@ -1020,20 +1049,25 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticfilesystem-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/efs/latest/ug/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Creates or overwrites tags associated with the specified Amazon EFS resource.
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
+                <p>
+                 <a href="#amazonelasticfilesystem-access-point">
+                  access-point
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1042,19 +1076,50 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#amazonelasticfilesystem-file-system">
+                  file-system
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonelasticfilesystem-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/efs/latest/ug/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Deletes the specified tags from a specified Amazon EFS resource.
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
+                <p>
+                 <a href="#amazonelasticfilesystem-access-point">
+                  access-point
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonelasticfilesystem-file-system">
+                  file-system
+                 </a>
+                </p>
                </td>
                <td>
                </td>

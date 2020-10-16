@@ -26,6 +26,17 @@ from policy_sentry.util.file import read_yaml_file
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
+def header_matches(string, table):
+    """checks if the string is found in the table header"""
+    headers = [chomp(str(x)).lower() for x in table.find_all("th")]
+    match_found = False
+    for header in headers:
+        if string in header:
+            match_found = True
+            break
+    if not match_found:
+        return False
+    return True
 
 def get_links_from_base_actions_resources_conditions_page():
     """Gets the links from the actions, resources, and conditions keys page, and returns their filenames."""
@@ -171,7 +182,7 @@ def create_database(destination_directory, access_level_overrides_file):
             # Get service name
             title = main_content.find("h1", class_="topictitle").text
             title = re.sub(
-                ".*Actions, Resources, and Condition Keys for *", "", str(title),
+                ".*Actions, resources, and condition Keys for *", "", str(title),
                 flags=re.IGNORECASE
             )
 
@@ -202,9 +213,7 @@ def create_database(destination_directory, access_level_overrides_file):
             for table in tables:
                 # There can be 3 tables, the actions table, an ARN table, and a condition key table
                 # Example: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssecuritytokenservice.html
-                if "<th> Actions </th>" not in [
-                    chomp(str(x)) for x in table.find_all("th")
-                ]:
+                if not header_matches("actions", table) or not header_matches("description", table):
                     continue
 
                 rows = table.find_all("tr")
@@ -219,12 +228,9 @@ def create_database(destination_directory, access_level_overrides_file):
                         continue
 
                     if len(cells) != 6:
-                        # Sometimes the privilege might span multiple rows.
-                        # Example: amazonroute53-DisassociateVPCFromHostedZone
-                        # We should be handling this, but if we are not, then bail
-                        raise Exception(
-                            "Unexpected format in {}: {}".format(prefix, row)
-                        )
+                        # Sometimes the privilege contains Scenarios, and I don't know how to handle this
+                        # raise Exception("Unexpected format in {}: {}".format(prefix, row))
+                        break
 
                     # See if this cell spans multiple rows
                     rowspan = 1
@@ -326,8 +332,7 @@ def create_database(destination_directory, access_level_overrides_file):
 
             # Get resource table
             for table in tables:
-                header_cells = [chomp(str(x)) for x in table.find_all("th")]
-                if "<th> Resource Types </th>".lower() not in (cell.lower() for cell in header_cells):
+                if not header_matches("resource types", table) or not header_matches("arn", table):
                     continue
 
                 rows = table.find_all("tr")
@@ -360,11 +365,7 @@ def create_database(destination_directory, access_level_overrides_file):
 
             # Get condition keys table
             for table in tables:
-                if "<th> Condition Keys </th>".lower() not in [
-                    chomp(str(x)).lower() for x in table.find_all("th")
-                ] or "<th> Type </th>".lower() not in [
-                    chomp(str(x)).lower() for x in table.find_all("th")
-                ]:
+                if not (header_matches("<th> condition keys </th>", table) and header_matches("<th> type </th>", table)):
                     continue
 
                 rows = table.find_all("tr")
