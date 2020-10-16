@@ -229,8 +229,8 @@ def create_database(destination_directory, access_level_overrides_file):
 
                     if len(cells) != 6:
                         # Sometimes the privilege contains Scenarios, and I don't know how to handle this
-                        break
                         # raise Exception("Unexpected format in {}: {}".format(prefix, row))
+                        break
 
                     # See if this cell spans multiple rows
                     rowspan = 1
