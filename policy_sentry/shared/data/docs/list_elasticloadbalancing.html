@@ -136,7 +136,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/">
-                API operations available for this             service
+                API operations available for this          service
                </a>
                .
               </p>
@@ -145,7 +145,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-authentication-access-control.html">
-                using IAM
+                using          IAM
                </a>
                permission policies.
               </p>
@@ -240,18 +240,18 @@
                </tr>
               </thead>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="elasticloadbalancing-AddTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Adds the specified tags to the specified load balancer. Each load balancer can have
                                                 a maximum of 10 tags
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -262,6 +262,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#elasticloadbalancing-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#elasticloadbalancing-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -401,17 +419,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="elasticloadbalancing-CreateLoadBalancer">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_CreateLoadBalancer.html">
                  CreateLoadBalancer
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Creates a load balancer
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -422,6 +440,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#elasticloadbalancing-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#elasticloadbalancing-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -705,6 +741,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#elasticloadbalancing-loadbalancer">
+                  loadbalancer*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -844,17 +885,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="elasticloadbalancing-RemoveTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_RemoveTags.html">
                  RemoveTags
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Removes one or more tags from the specified load balancer
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -865,6 +906,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#elasticloadbalancing-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#elasticloadbalancing-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -991,46 +1050,6 @@
               </thead>
               <tr>
                <td>
-                <a id="elasticloadbalancing-listener">
-                </a>
-                <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">
-                 listener
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:elasticloadbalancing:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}:listener/$
-                 <span>
-                  {
-                 </span>
-                 LoadBalancerName}/$
-                 <span>
-                  {
-                 </span>
-                 LoadBalancerId}/$
-                 <span>
-                  {
-                 </span>
-                 ListenerId}
-                </code>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
                 <a id="elasticloadbalancing-loadbalancer">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html">
@@ -1060,13 +1079,8 @@
                </td>
                <td>
                 <p>
-                 <a href="#elasticloadbalancing-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#elasticloadbalancing-aws_TagKeys">
-                  aws:TagKeys
+                 <a href="#elasticloadbalancing-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                 <p>
@@ -1126,6 +1140,19 @@
                </td>
                <td>
                 A key that is present in the request the user makes to the ELB service
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="elasticloadbalancing-aws_ResourceTag___TagKey_">
+                </a>
+                aws:ResourceTag/${TagKey}
+               </td>
+               <td>
+                Global tag key and value pair
                </td>
                <td>
                 String
