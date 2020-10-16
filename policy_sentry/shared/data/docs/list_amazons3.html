@@ -136,7 +136,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/">
-                API operations available for this             service
+                API operations available for this          service
                </a>
                .
               </p>
@@ -145,7 +145,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-overview.html">
-                using IAM
+                using          IAM
                </a>
                permission policies.
               </p>
@@ -694,6 +694,9 @@
                 </p>
                </td>
                <td>
+                <p>
+                 iam:PassRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -1368,7 +1371,7 @@
                </td>
                <td rowspan="2">
                 Grants permission to retrieve the configuration parameters and status for a batch
-                                                operations job.
+                                                operations job
                </td>
                <td rowspan="2">
                 Read
@@ -5891,6 +5894,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 iam:PassRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -6625,7 +6631,7 @@
                 </a>
                </td>
                <td>
-                Requires that an existing object tag has a specific tag key and value.
+                Filters access by existing object tag key and value
                </td>
                <td>
                 String
@@ -6701,7 +6707,7 @@
                 </a>
                </td>
                <td>
-                Restricts the tag keys and values allowed on objects
+                Filters access by the tag keys and values to be added to objects
                </td>
                <td>
                 String
@@ -6716,7 +6722,7 @@
                 </a>
                </td>
                <td>
-                Restricts the tag keys allowed on objects
+                Filters access by the tag keys to be added to objects
                </td>
                <td>
                 String
@@ -6746,7 +6752,7 @@
                 </a>
                </td>
                <td>
-                Restricts incoming requests to a specific authentication method
+                Filters access by authentication method
                </td>
                <td>
                 String
@@ -6761,7 +6767,7 @@
                 </a>
                </td>
                <td>
-                Requires the delimiter parameter
+                Filters access by delimiter parameter
                </td>
                <td>
                 String
@@ -6791,7 +6797,7 @@
                 </a>
                </td>
                <td>
-                Limits the maximum number of keys returned in a ListBucket request
+                Filters access by maximum number of keys returned in a ListBucket request
                </td>
                <td>
                 Numeric
@@ -6806,7 +6812,7 @@
                 </a>
                </td>
                <td>
-                Enables enforcement of the specified object legal hold status
+                Filters access by object legal hold status
                </td>
                <td>
                 String
@@ -6819,7 +6825,7 @@
                 s3:object-lock-mode
                </td>
                <td>
-                Enables enforcement of the specified object retention mode (COMPLIANCE or GOVERNANCE)
+                Filters access by object retention mode (COMPLIANCE or GOVERNANCE)
                </td>
                <td>
                 String
@@ -6834,7 +6840,7 @@
                 </a>
                </td>
                <td>
-                Enables enforcement of an object relative to the remaining retention days
+                Filters access by remaining object retention days
                </td>
                <td>
                 String
@@ -6849,7 +6855,7 @@
                 </a>
                </td>
                <td>
-                Enables enforcement of a specific retain-until-date
+                Filters access by object retain-until date
                </td>
                <td>
                 String
@@ -6879,8 +6885,7 @@
                 </a>
                </td>
                <td>
-                Identifies the length of time, in milliseconds, that a signature is valid in an authenticated
-                                                request
+                Filters access by the age in milliseconds of the request signature
                </td>
                <td>
                 Numeric
@@ -6895,7 +6900,7 @@
                 </a>
                </td>
                <td>
-                Identifies the version of AWS Signature that is supported for authenticated requests
+                Filters access by the version of AWS Signature used on the request
                </td>
                <td>
                 String
@@ -6925,7 +6930,7 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-acl header with a specific canned ACL in a request
+                Filters access by canned ACL in the request's x-amz-acl header
                </td>
                <td>
                 String
@@ -6940,7 +6945,7 @@
                 </a>
                </td>
                <td>
-                Disallows unsigned content in your bucket
+                Filters access to unsigned content in your bucket
                </td>
                <td>
                 String
@@ -6955,7 +6960,7 @@
                 </a>
                </td>
                <td>
-                Restricts the copy source to a specific bucket, prefix, or object
+                Filters access to requests with a specific bucket, prefix, or object as the copy source
                </td>
                <td>
                 String
@@ -6970,7 +6975,7 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-grant-full-control (full control) header in a request
+                Filters access to requests with the x-amz-grant-full-control (full control) header
                </td>
                <td>
                 String
@@ -6985,7 +6990,7 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-grant-read (read access) header in a request
+                Filters access to requests with the x-amz-grant-read (read access) header
                </td>
                <td>
                 String
@@ -7000,7 +7005,8 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-grant-read-acp (read permissions for the ACL) header in a request
+                Filters access to requests with the x-amz-grant-read-acp (read permissions for the
+                                                ACL) header
                </td>
                <td>
                 String
@@ -7015,7 +7021,7 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-grant-write (write access) header in a request
+                Filters access to requests with the x-amz-grant-write (write access) header
                </td>
                <td>
                 String
@@ -7030,7 +7036,8 @@
                 </a>
                </td>
                <td>
-                Requires the x-amz-grant-write-acp (write permissions for the ACL) header in a request
+                Filters access to requests with the x-amz-grant-write-acp (write permissions for the
+                                                ACL) header
                </td>
                <td>
                 String
@@ -7045,8 +7052,7 @@
                 </a>
                </td>
                <td>
-                Enables enforcement of object metadata behavior (COPY or REPLACE) when objects are
-                                                copied
+                Filters access by object metadata behavior (COPY or REPLACE) when objects are copied
                </td>
                <td>
                 String
@@ -7061,7 +7067,7 @@
                 </a>
                </td>
                <td>
-                Requires server-side encryption
+                Filters access by server-side encryption
                </td>
                <td>
                 String
@@ -7076,7 +7082,7 @@
                 </a>
                </td>
                <td>
-                Requires a specific AWS KMS customer managed CMK for server-side encryption
+                Filters access by AWS KMS customer managed CMK for server-side encryption
                </td>
                <td>
                 String
@@ -7152,8 +7158,8 @@
             <div accesskey="p" class="prev-link" href="./list_amazonroute53domains.html" id="previous">
              Amazon Route53 Domains
             </div>
-            <div accesskey="n" class="next-link" href="./list_amazonsagemaker.html" id="next">
-             Amazon SageMaker
+            <div accesskey="n" class="next-link" href="./list_amazons3onoutposts.html" id="next">
+             Amazon S3 on Outposts
             </div>
            </div>
           </div>

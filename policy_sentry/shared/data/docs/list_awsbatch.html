@@ -136,7 +136,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/">
-                API operations available for this        service
+                API operations available for this          service
                </a>
                .
               </p>
@@ -145,7 +145,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/batch/latest/userguide/IAM_policies.html">
-                using IAM
+                using          IAM
                </a>
                permission policies.
               </p>
@@ -254,6 +254,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -275,13 +280,18 @@
                 Write
                </td>
                <td>
-                <p>
-                 <a href="#awsbatch-compute-environment">
-                  compute-environment*
-                 </a>
-                </p>
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -314,13 +324,18 @@
               </tr>
               <tr>
                <td>
-                <p>
-                 <a href="#awsbatch-job-queue">
-                  job-queue*
-                 </a>
-                </p>
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -509,23 +524,23 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
-                <a id="awsbatch-RegisterJobDefinition">
+               <td rowspan="4">
+                <a id="awsbatch-ListTagsForResource">
                 </a>
-                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html">
-                 RegisterJobDefinition
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2">
-                Registers an AWS Batch job definition.
+               <td rowspan="4">
+                List tags for the specified resource.
                </td>
-               <td rowspan="2">
-                Write
+               <td rowspan="4">
+                List
                </td>
                <td>
                 <p>
-                 <a href="#awsbatch-job-definition">
-                  job-definition*
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment
                  </a>
                 </p>
                </td>
@@ -535,6 +550,58 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job">
+                  job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-definition">
+                  job-definition
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-RegisterJobDefinition">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html">
+                 RegisterJobDefinition
+                </a>
+               </td>
+               <td>
+                Registers an AWS Batch job definition.
+               </td>
+               <td>
+                Write
+               </td>
                <td>
                </td>
                <td>
@@ -578,22 +645,32 @@
                   batch:AWSLogsCreateGroup
                  </a>
                 </p>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awsbatch-SubmitJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">
                  SubmitJob
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Submits an AWS Batch job from a job definition.
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -623,6 +700,107 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="awsbatch-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Tags the specified resource.
+               </td>
+               <td rowspan="5">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job">
+                  job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-definition">
+                  job-definition
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbatch-TerminateJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TerminateJob.html">
@@ -630,14 +808,97 @@
                 </a>
                </td>
                <td>
-                Terminates jobs in a job queue.
+                Terminates a job in an AWS Batch job queue.
                </td>
                <td>
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="awsbatch-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Untags the specified resource.
+               </td>
+               <td rowspan="5">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job">
+                  job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-definition">
+                  job-definition
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -738,7 +999,7 @@
                <td>
                 <a id="awsbatch-compute-environment">
                 </a>
-                <a href="${AuthZDocPage}compute_environments.html" target="_blank">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">
                  compute-environment
                 </a>
                </td>
@@ -764,13 +1025,18 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awsbatch-job-queue">
                 </a>
-                <a href="${AuthZDocPage}job_queues.html" target="_blank">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html">
                  job-queue
                 </a>
                </td>
@@ -796,13 +1062,18 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awsbatch-job-definition">
                 </a>
-                <a href="${AuthZDocPage}job_definitions.html" target="_blank">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html">
                  job-definition
                 </a>
                </td>
@@ -832,6 +1103,48 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-job">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">
+                 job
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:batch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:job/$
+                 <span>
+                  {
+                 </span>
+                 jobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -876,6 +1189,51 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awsbatch-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags that are passed in the request.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags associated with the resource.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tag keys that are passed in the request.
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awsbatch-batch_AWSLogsCreateGroup">
