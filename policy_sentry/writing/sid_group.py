@@ -14,7 +14,7 @@ from policy_sentry.querying.actions import (
 )
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn, parse_arn
-from policy_sentry.util.text import capitalize_first_character
+from policy_sentry.util.text import capitalize_first_character, strip_special_characters
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
@@ -206,7 +206,11 @@ class SidGroup:
             for stmt in statements:
                 if stmt['Sid'] in sids_to_be_changed:
                     arn_details = parse_arn(stmt['Resource'][0])
-                    stmt['Sid'] = create_policy_sid_namespace(arn_details['service'], arn_details['resource'], arn_details['resource_path'])
+                    resource_path = arn_details.get("resource_path")
+                    resource_sid_segment = strip_special_characters(
+                        f"{arn_details['resource']}{resource_path}"
+                    )
+                    stmt['Sid'] = create_policy_sid_namespace(arn_details['service'], "Mult", resource_sid_segment)
 
         policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
         return policy
