@@ -3,6 +3,7 @@ import json
 import os
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import read_yaml_file
+from policy_sentry.util.policy_files import get_sid_names_from_policy, get_statement_from_policy_using_sid
 
 
 class WritePolicyPreventWildcardEscalation(unittest.TestCase):
@@ -88,44 +89,67 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         )
         cfg = read_yaml_file(policy_file_path)
 
-        output = write_policy_with_template(cfg)
-        desired_output = {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "MultMultNone",
-                    "Effect": "Allow",
-                    "Action": [
-                        "ram:EnableSharingWithAwsOrganization",
-                        "ram:GetResourcePolicies",
-                        "ecr:GetAuthorizationToken",
-                        "s3:GetAccessPoint",
-                        "s3:GetAccountPublicAccessBlock",
-                        "s3:ListAccessPoints",
-                        "s3:ListJobs"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
-                },
-                {
-                    "Sid": "S3PermissionsmanagementBucket",
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:DeleteBucketPolicy",
-                        "s3:PutBucketAcl",
-                        "s3:PutBucketPolicy",
-                        "s3:PutBucketPublicAccessBlock"
-                    ],
-                    "Resource": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
-                    ]
-                }
-            ]
-        }
-        print(json.dumps(output, indent=4))
+        results = write_policy_with_template(cfg)
+
+        # The Policy *should* look like this.
+
+        # desired_output = {
+        #     "Version": "2012-10-17",
+        #     "Statement": [
+        #         {
+        #             "Sid": "MultMultNone",
+        #             "Effect": "Allow",
+        #             "Action": [
+        #                 "ram:EnableSharingWithAwsOrganization",
+        #                 "ram:GetResourcePolicies",
+        #                 "ecr:GetAuthorizationToken",
+        #                 "s3:GetAccessPoint",
+        #                 "s3:GetAccountPublicAccessBlock",
+        #                 "s3:ListAccessPoints",
+        #                 "s3:ListJobs"
+        #             ],
+        #             "Resource": [
+        #                 "*"
+        #             ]
+        #         },
+        #         {
+        #             "Sid": "S3PermissionsmanagementBucket",
+        #             "Effect": "Allow",
+        #             "Action": [
+        #                 "s3:DeleteBucketPolicy",
+        #                 "s3:PutBucketAcl",
+        #                 "s3:PutBucketPolicy",
+        #                 "s3:PutBucketPublicAccessBlock"
+        #             ],
+        #             "Resource": [
+        #                 "arn:aws:s3:::example-org-s3-access-logs"
+        #             ]
+        #         }
+        #     ]
+        # }
+
+        print(json.dumps(results, indent=4))
         self.maxDiff = None
-        self.assertDictEqual(output, desired_output)
+
+        # To future-proof this unit test...
+        # (1) check the Sid names
+        sid_names = get_sid_names_from_policy(results)
+        self.assertIn("MultMultNone", sid_names, "Sid is not in the list of expected Statement Ids")
+        self.assertIn("S3PermissionsmanagementBucket", sid_names, "Sid is not in the list of expected Statement Ids")
+
+        # (2) Check for the presence of certain actions that we know will be there
+        statement_1 = get_statement_from_policy_using_sid(results, "MultMultNone")
+        self.assertIn("ram:EnableSharingWithAwsOrganization", statement_1.get("Action"))
+        self.assertIn("s3:GetAccountPublicAccessBlock", statement_1.get("Action"))
+
+        statement_2 = get_statement_from_policy_using_sid(results, "S3PermissionsmanagementBucket")
+        self.assertIn("s3:DeleteBucketPolicy", statement_2.get("Action"))
+        self.assertIn("s3:PutBucketPolicy", statement_2.get("Action"))
+
+        # (3) Check that the length of the list is at least the length that it is right now,
+        # since we expect it to grow eventually
+        self.assertTrue(len(statement_1.get("Action")) > 5)  # Size is 6 at time of writing
+        self.assertTrue(len(statement_2.get("Action")) > 3)  # Size is 4 at time of writing
 
     def test_eks_gh_155(self):
         """test_eks_gh_155: Test EKS issue raised in GH-155"""

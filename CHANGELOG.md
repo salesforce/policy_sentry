@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.1 (Unreleased)
+* write-policy:
+  * Minimization is improved by grouping results based on ARNs (#252)
+* query:
+  * `--resource-type` flag is added to `policy_sentry query action-table` command
+* Backend methods:
+  * Added some utility functions (`get_statement_from_policy_using_sid`, `get_sid_names_from_policy` to make it easier to future-proof unit tests that rely on the ever-changing AWS IAM data.
+  * Bug fix for `get_actions_for_service` (Fixes #245)
+
 ## 0.9.0 (2020-10-01)
 * Speed improvements: The IAM definition is now a dictionary instead of a list.
 * Fixed issue where elasticloadbalancing v1 was showing up in query results but v2 was not. Fixes #226
