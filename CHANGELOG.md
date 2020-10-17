@@ -8,6 +8,7 @@
 * Backend methods:
   * Added some utility functions (`get_statement_from_policy_using_sid`, `get_sid_names_from_policy` to make it easier to future-proof unit tests that rely on the ever-changing AWS IAM data.
   * Bug fix for `get_actions_for_service` (Fixes #245)
+* adding release drafter as github actions (Fixes #257)
 
 ## 0.9.0 (2020-10-01)
 * Speed improvements: The IAM definition is now a dictionary instead of a list.
