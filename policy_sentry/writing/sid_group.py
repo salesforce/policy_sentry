@@ -13,7 +13,7 @@ from policy_sentry.querying.actions import (
     get_actions_at_access_level_that_support_wildcard_arns_only,
 )
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
-from policy_sentry.util.arns import does_arn_match, get_service_from_arn
+from policy_sentry.util.arns import does_arn_match, get_service_from_arn, parse_arn
 from policy_sentry.util.text import capitalize_first_character
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
@@ -157,6 +157,7 @@ class SidGroup:
         all_actions = get_all_actions(lowercase=True)
 
         # render the policy
+        sids_to_be_changed = []
         for sid in self.sids:
             temp_actions = self.sids[sid]["actions"]
             if len(temp_actions) == 0:
@@ -173,23 +174,40 @@ class SidGroup:
             else:
                 actions = temp_actions
             # temp_actions.clear()
+            match_found = False
             if minimize is not None and isinstance(minimize, int):
                 logger.debug("Minimizing statements...")
                 actions = minimize_statement_actions(
                     actions, all_actions, minchars=minimize
                 )
+                # searching in the existing statements
+                # further minimizing the the output
+                for stmt in statements:
+                    if stmt["Resource"] == self.sids[sid]["arn"]:
+                        stmt["Action"].extend(actions)
+                        match_found = True
+                        sids_to_be_changed.append(stmt["Sid"])
+                        break
             logger.debug(f"Adding statement with SID {sid}")
             logger.debug(f"{sid} SID has the actions: {actions}")
             logger.debug(f"{sid} SID has the resources: {self.sids[sid]['arn']}")
 
-            statements.append(
-                {
-                    "Sid": sid,
-                    "Effect": "Allow",
-                    "Action": actions,
-                    "Resource": self.sids[sid]["arn"],
-                }
-            )
+            if not match_found:
+                statements.append(
+                    {
+                        "Sid": sid,
+                        "Effect": "Allow",
+                        "Action": actions,
+                        "Resource": self.sids[sid]["arn"],
+                    }
+                )
+
+        if sids_to_be_changed:
+            for stmt in statements:
+                if stmt['Sid'] in sids_to_be_changed:
+                    arn_details = parse_arn(stmt['Resource'][0])
+                    stmt['Sid'] = create_policy_sid_namespace(arn_details['service'], arn_details['resource'], arn_details['resource_path'])
+
         policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
         return policy
 
