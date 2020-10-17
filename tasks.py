@@ -154,6 +154,10 @@ def query(c):
         c.run('./policy_sentry/bin/cli.py query action-table --service ram --name tagresource', pty=True)
         c.run('./policy_sentry/bin/cli.py query action-table '
               '--service ram --access-level permissions-management', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ssm --resource-type parameter', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ssm --access-level write '
+              '--resource-type parameter', pty=True)
+        c.run('policy_sentry query action-table --service ssm --resource-type parameter', pty=True)
         c.run('./policy_sentry/bin/cli.py query action-table --service ses --condition ses:FeedbackAddress', pty=True)
         c.run('echo "Querying the ARN table"', pty=True)
         c.run('./policy_sentry/bin/cli.py query arn-table --service ssm', pty=True)
