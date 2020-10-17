@@ -1,5 +1,6 @@
 import unittest
 
+from policy_sentry.writing.sid_group import SidGroup
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.querying.all import get_all_actions
 
