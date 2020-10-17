@@ -26,6 +26,7 @@ from policy_sentry.util.file import read_yaml_file
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
+
 def header_matches(string, table):
     """checks if the string is found in the table header"""
     headers = [chomp(str(x)).lower() for x in table.find_all("th")]
@@ -37,6 +38,7 @@ def header_matches(string, table):
     if not match_found:
         return False
     return True
+
 
 def get_links_from_base_actions_resources_conditions_page():
     """Gets the links from the actions, resources, and conditions keys page, and returns their filenames."""

@@ -1,6 +1,7 @@
 """A few methods for parsing policies."""
 import json
 import logging
+from operator import itemgetter
 from policy_sentry.querying.actions import get_action_data
 
 logger = logging.getLogger(__name__)
@@ -74,3 +75,19 @@ def get_actions_from_json_policy_file(file):
         logger.debug("General Error at get_actions_from_json_policy_file.")
         actions_list = []
     return actions_list
+
+
+def get_sid_names_from_policy(policy_json):
+    """
+    Given a Policy JSON, get a list of the Statement IDs. This is helpful in unit tests.
+    """
+    sid_names = list(map(itemgetter("Sid"), policy_json.get("Statement")))
+    return sid_names
+
+
+def get_statement_from_policy_using_sid(policy_json, sid):
+    """
+    Helper function to get a statement just by providing the policy JSON and the Statement ID
+    """
+    res = next((sub for sub in policy_json["Statement"] if sub['Sid'] == sid), None)
+    return res

@@ -4,8 +4,9 @@ import json
 from policy_sentry.util.policy_files import (
     get_actions_from_json_policy_file,
     get_actions_from_policy,
+    get_statement_from_policy_using_sid,
+    get_sid_names_from_policy,
 )
-
 
 
 class PolicyFilesTestCase(unittest.TestCase):
@@ -105,3 +106,90 @@ class PolicyFilesTestCase(unittest.TestCase):
         ]
         self.assertListEqual(requested_actions, desired_actions)
 
+    def test_get_sid_names_from_policy(self):
+        """util.policy_files.get_sid_names_from_policy"""
+        policy_json = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ram:EnableSharingWithAwsOrganization",
+                        "ram:GetResourcePolicies",
+                        "ecr:GetAuthorizationToken",
+                        "s3:GetAccessPoint",
+                        "s3:GetAccountPublicAccessBlock",
+                        "s3:ListAccessPoints"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        expected_result = ["MultMultNone", "S3PermissionsmanagementBucket"]
+        result = get_sid_names_from_policy(policy_json)
+        self.assertListEqual(result, expected_result)
+
+    def test_get_statement_from_policy_using_sid(self):
+        """util.policy_files.get_statement_from_policy_using_sid"""
+        policy_json = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ram:EnableSharingWithAwsOrganization",
+                        "ram:GetResourcePolicies",
+                        "ecr:GetAuthorizationToken",
+                        "s3:GetAccessPoint",
+                        "s3:GetAccountPublicAccessBlock",
+                        "s3:ListAccessPoints"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3PermissionsmanagementBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:DeleteBucketPolicy",
+                        "s3:PutBucketAcl",
+                        "s3:PutBucketPolicy",
+                        "s3:PutBucketPublicAccessBlock"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+
+        expected_result = {
+            'Sid': 'MultMultNone',
+            'Effect': 'Allow',
+            'Action': [
+                'ram:EnableSharingWithAwsOrganization', 'ram:GetResourcePolicies', 'ecr:GetAuthorizationToken',
+                's3:GetAccessPoint', 's3:GetAccountPublicAccessBlock', 's3:ListAccessPoints'
+            ],
+            'Resource': ['*']
+        }
+
+        result = get_statement_from_policy_using_sid(policy_json, "MultMultNone")
+        self.assertDictEqual(result, expected_result)

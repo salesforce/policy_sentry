@@ -110,6 +110,25 @@
             <awsdocs-filter-selector id="awsdocs-filter-selector">
             </awsdocs-filter-selector>
            </div>
+           <div class="awsdocs-note awsdocs-tip">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <span>
+              Tip
+             </span>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              This page is moving to a new location on November 16, 2020. Please update your bookmark
+                                          to      use the new page at
+              <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscodestarconnections.html">
+               https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscodestarconnections.html
+              </a>
+              .
+             </p>
+            </div>
+           </div>
            <p>
             AWS CodeStar Connections (service prefix:
             <code class="code">
@@ -216,7 +235,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac33c14c29d214c11b9">
+             <table id="w469aac33c14c29d216c13b9">
               <thead>
                <tr>
                 <th>
@@ -277,6 +296,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awscodestarconnections-CreateHost">
+                </a>
+                <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_CreateHost.html">
+                 CreateHost
+                </a>
+               </td>
+               <td>
+                Grants permission to create a host resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-codestar-connections_ProviderType">
+                  codestar-connections:ProviderType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscodestarconnections-DeleteConnection">
                 </a>
                 <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteConnection.html">
@@ -303,6 +348,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awscodestarconnections-DeleteHost">
+                </a>
+                <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteHost.html">
+                 DeleteHost
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a host resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-Host">
+                  Host*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscodestarconnections-GetConnection">
                 </a>
                 <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetConnection.html">
@@ -319,6 +390,32 @@
                 <p>
                  <a href="#awscodestarconnections-Connection">
                   Connection*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-GetHost">
+                </a>
+                <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetHost.html">
+                 GetHost
+                </a>
+               </td>
+               <td>
+                Grants permission to get details about a host resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-Host">
+                  Host*
                  </a>
                 </p>
                </td>
@@ -396,6 +493,32 @@
                </td>
                <td>
                 Grants permission to list Connection resources
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-codestar-connections_ProviderTypeFilter">
+                  codestar-connections:ProviderTypeFilter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-ListHosts">
+                </a>
+                <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListHosts.html">
+                 ListHosts
+                </a>
+               </td>
+               <td>
+                Grants permission to list host resources
                </td>
                <td>
                 List
@@ -502,6 +625,62 @@
                 <p>
                  <a href="#awscodestarconnections-codestar-connections_PassedToService">
                   codestar-connections:PassedToService
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-RegisterAppCode">
+                </a>
+                <a href="${AuthZDocPage}#connections-permissions-actions-host-registration" target="_blank">
+                 RegisterAppCode
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to associate a third party server, such as a GitHub Enterprise Server
+                                                instance, with a Host
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-codestar-connections_HostArn">
+                  codestar-connections:HostArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-StartAppRegistrationHandshake">
+                </a>
+                <a href="${AuthZDocPage}#connections-permissions-actions-host-registration" target="_blank">
+                 StartAppRegistrationHandshake
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to associate a third party server, such as a GitHub Enterprise Server
+                                                instance, with a Host
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscodestarconnections-codestar-connections_HostArn">
+                  codestar-connections:HostArn
                  </a>
                 </p>
                </td>
@@ -752,7 +931,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac33c14c29d214c13b5">
+             <table id="w469aac33c14c29d216c15b5">
               <thead>
                <tr>
                 <th>
@@ -798,6 +977,38 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-Host">
+                </a>
+                <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/connections.html/API_Host.html">
+                 Host
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:codestar-connections:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:host/$
+                 <span>
+                  {
+                 </span>
+                 HostId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -827,7 +1038,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w469aac33c14c29d214c15b7">
+             <table id="w469aac33c14c29d216c17b7">
               <thead>
                <tr>
                 <th>
@@ -913,6 +1124,21 @@
                <td>
                 Filters access by the repository that is passed in the request. Applies only to UseConnection
                                                 requests for access to a specific repository
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscodestarconnections-codestar-connections_HostArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-permissions.html#connections-hosts">
+                 codestar-connections:HostArn
+                </a>
+               </td>
+               <td>
+                Filters access by the host resource associated with the connection used in the request
                </td>
                <td>
                 String
