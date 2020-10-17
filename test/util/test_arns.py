@@ -1,7 +1,5 @@
 import unittest
 from policy_sentry.util.arns import does_arn_match, ARN
-import os
-import yaml
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
@@ -14,6 +12,7 @@ import yaml
 # Case 5: arn:partition:service:region:account-id:resourcetype:resource
 # Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
 # Case 7: arn:partition:service:region:account-id:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}
+
 
 class ArnsTestCase(unittest.TestCase):
     def test_does_arn_match_case_bucket(self):
