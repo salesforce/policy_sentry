@@ -10,3 +10,11 @@ def capitalize_first_character(some_string):
     :return:
     """
     return " ".join("".join([w[0].upper(), w[1:].lower()]) for w in some_string.split())
+
+
+def strip_special_characters(some_string):
+    """Remove all special characters, punctuation, and spaces from a string"""
+    # Input: "Special $#! characters   spaces 888323"
+    # Output: 'Specialcharactersspaces888323'
+    result = ''.join(e for e in some_string if e.isalnum())
+    return result
