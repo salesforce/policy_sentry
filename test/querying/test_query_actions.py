@@ -276,6 +276,19 @@ class QueryActionsTestCase(unittest.TestCase):
         output = get_actions_matching_arn_type('rds', 'object')
         self.assertTrue(len(output) == 0)
 
+    def test_get_actions_matching_arn_type_case_4(self):
+        """querying.actions.get_actions_matching_arn_type"""
+
+        desired_output = [
+            'codestar:CreateUserProfile',
+            'codestar:DeleteUserProfile',
+            'codestar:UpdateUserProfile'
+        ]
+
+        output = get_actions_matching_arn_type("codestar", "user")
+
+        self.assertTrue(output, desired_output)
+
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
 
