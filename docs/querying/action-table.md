@@ -5,10 +5,13 @@ Action table
 # NOTE: Use --fmt yaml or --fmt json to change the output format. Defaults to json for querying
 
 # Get a list of actions that do not support resource constraints
-policy_sentry query action-table --service s3 --wildcard-only --fmt yaml
+policy_sentry query action-table --service s3 --resource-type '*' --fmt yaml
 
 # Get a list of actions at the "Read" level in S3 that do not support resource constraints
-policy_sentry query action-table --service s3 --access-level read --wildcard-only --fmt yaml
+policy_sentry query action-table --service s3 --access-level read --resource-type '*' --fmt yaml
+
+# Get a list of actions at the "Write" level in SSM service for resource type "parameter"
+policy_sentry query action-table --service ssm --access-level write --resource-type parameter
 
 # Get a list of all IAM Actions available to the RAM service
 policy_sentry query action-table --service ram
@@ -21,6 +24,7 @@ policy_sentry query action-table --service ram --access-level permissions-manage
 
 # Get a list of all IAM actions under the SES service that support the `ses:FeedbackAddress` condition key.
 policy_sentry query action-table --service ses --condition ses:FeedbackAddress
+
 ```
 
 Options
@@ -42,10 +46,8 @@ Options:
   --condition TEXT                If action table is chosen, you can supply a
                                   condition key to show a list of all IAM
                                   actions that support the condition key.
-  --wildcard-only                 If action table is chosen, show the IAM
-                                  actions that only support wildcard resources
-                                  - i.e., cannot support ARNs in the resource
-                                  block.
+  --resource-type TEXT            Supply a resource type to show a list of all
+                                  IAM actions that support the resource type.
   --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
                                   "yaml"
   --v                             Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
@@ -624,7 +626,7 @@ All IAM actions under the s3 service that have the access level permissions-mana
 ### Actions for S3 service at Write access level that only support wildcard resources (*)
 
 <details open>
-<summary>policy_sentry query action-table --service s3 --access-level read --wildcard-only --fmt yaml</summary>
+<summary>policy_sentry query action-table --service s3 --access-level read --resource-type '*' --fmt yaml</summary>
 <br>
 <pre>
 <code>
@@ -640,7 +642,7 @@ s3 READ actions that must use wildcards in the resources block:
 ### Actions for S3 service at any access level that only support wildcard resources (*)
 
 <details open>
-<summary>policy_sentry query action-table --service s3 --wildcard-only --fmt yaml</summary>
+<summary>policy_sentry query action-table --service s3 --resource-type '*' --fmt yaml</summary>
 <br>
 <pre>
 <code>
