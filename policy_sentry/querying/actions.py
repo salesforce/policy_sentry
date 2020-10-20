@@ -95,33 +95,29 @@ def get_action_data(service, action_name):
     # raise Exception("Unknown action {}:{}".format(service, action_name))
 
 
-def get_actions_that_support_wildcard_arns_only(service_prefix):
+def get_actions_with_access_level(service_prefix, access_level):
     """
-    Get a list of actions that do not support restricting the action to resource ARNs.
-    Set service to "all" to get a list of actions across all services.
+    Get a list of actions in a service under different access levels.
 
     Arguments:
         service_prefix: A single AWS service prefix, like `s3` or `kms`
+        access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
 
     Returns:
-        List: A list of actions that do not support resource ARN constraints
+        List: A list of actions with that access level and service prefix
     """
     results = []
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
             for action_name, action_data in service_prefix_data["privileges"].items():
-                if len(action_data["resource_types"].keys()) == 1:
-                    for resource_type in action_data["resource_types"]:
-                        if resource_type == '':
-                            results.append(f"{service_prefix}:{action_name}")
+                if action_data["access_level"] == access_level:
+                    results.append(f"{some_prefix}:{action_data['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
-            if len(action_data["resource_types"].keys()) == 1:
-                for resource_type in action_data["resource_types"]:
-                    if resource_type == '':
-                        results.append(f"{service_prefix}:{action_name}")
+            if action_data["access_level"] == access_level:
+                results.append(f"{service_prefix}:{action_data['privilege']}")
     return results
 
 
@@ -161,32 +157,6 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
     return results
 
 
-def get_actions_with_access_level(service_prefix, access_level):
-    """
-    Get a list of actions in a service under different access levels.
-
-    Arguments:
-        service_prefix: A single AWS service prefix, like `s3` or `kms`
-        access_level: An access level as it is written in the database, such as 'Read', 'Write', 'List', 'Permisssions management', or 'Tagging'
-
-    Returns:
-        List: A list of actions with that access level and service prefix
-    """
-    results = []
-    if service_prefix == "all":
-        for some_prefix in all_service_prefixes:
-            service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
-                if action_data["access_level"] == access_level:
-                    results.append(f"{some_prefix}:{action_data['privilege']}")
-    else:
-        service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            if action_data["access_level"] == access_level:
-                results.append(f"{service_prefix}:{action_data['privilege']}")
-    return results
-
-
 def get_actions_with_arn_type_and_access_level(
     service_prefix, resource_type_name, access_level
 ):
@@ -203,8 +173,87 @@ def get_actions_with_arn_type_and_access_level(
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
 
-    for action_name, action_data in service_prefix_data["privileges"].items():
-        if action_data["access_level"] == access_level:
+    if resource_type_name == '*':
+        return get_actions_at_access_level_that_support_wildcard_arns_only(service_prefix, access_level)
+
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for action_name, action_data in service_prefix_data["privileges"].items():
+                if action_data["access_level"] == access_level:
+                    for resource_name, resource_data in action_data["resource_types"].items():
+                        this_resource_type = resource_data["resource_type"].strip("*")
+                        if this_resource_type.lower() == resource_type_name.lower():
+                            results.append(f"{service_prefix}:{action_data['privilege']}")
+                            break
+    else:
+        for action_name, action_data in service_prefix_data["privileges"].items():
+            if action_data["access_level"] == access_level:
+                for resource_name, resource_data in action_data["resource_types"].items():
+                    this_resource_type = resource_data["resource_type"].strip("*")
+                    if this_resource_type.lower() == resource_type_name.lower():
+                        results.append(f"{service_prefix}:{action_data['privilege']}")
+                        break
+    return results
+
+
+def get_actions_that_support_wildcard_arns_only(service_prefix):
+    """
+    Get a list of actions that do not support restricting the action to resource ARNs.
+    Set service to "all" to get a list of actions across all services.
+
+    Arguments:
+        service_prefix: A single AWS service prefix, like `s3` or `kms`
+
+    Returns:
+        List: A list of actions that do not support resource ARN constraints
+    """
+    results = []
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for action_name, action_data in service_prefix_data["privileges"].items():
+                if len(action_data["resource_types"].keys()) == 1:
+                    for resource_type in action_data["resource_types"]:
+                        if resource_type == '':
+                            results.append(f"{service_prefix}:{action_name}")
+    else:
+        service_prefix_data = get_service_prefix_data(service_prefix)
+        for action_name, action_data in service_prefix_data["privileges"].items():
+            if len(action_data["resource_types"].keys()) == 1:
+                for resource_type in action_data["resource_types"]:
+                    if resource_type == '':
+                        results.append(f"{service_prefix}:{action_name}")
+    return results
+
+
+def get_actions_matching_arn_type(service_prefix, resource_type_name):
+    """
+    Get a list of actions in a service specific to ARN type.
+
+    Arguments:
+        service_prefix: A single AWS service prefix, like `s3` or `kms`
+        resource_type_name: The ARN type name, like `bucket` or `key`
+    Return:
+        List: A list of actions that have that ARN type
+    """
+    if resource_type_name == '*':
+        return get_actions_that_support_wildcard_arns_only(service_prefix)
+
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    results = []
+
+    if service_prefix == "all":
+        for some_prefix in all_service_prefixes:
+            service_prefix_data = get_service_prefix_data(some_prefix)
+            for action_name, action_data in service_prefix_data["privileges"].items():
+                for resource_name, resource_data in action_data["resource_types"].items():
+                    this_resource_type = resource_data["resource_type"].strip("*")
+                    if this_resource_type.lower() == resource_type_name.lower():
+                        results.append(f"{service_prefix}:{action_data['privilege']}")
+                        break
+    else:
+        for action_name, action_data in service_prefix_data["privileges"].items():
             for resource_name, resource_data in action_data["resource_types"].items():
                 this_resource_type = resource_data["resource_type"].strip("*")
                 if this_resource_type.lower() == resource_type_name.lower():

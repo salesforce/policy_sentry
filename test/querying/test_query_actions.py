@@ -15,7 +15,8 @@ from policy_sentry.querying.actions import (
     get_dependent_actions,
     remove_actions_that_are_not_wildcard_arn_only,
     get_actions_matching_condition_key,
-    get_actions_matching_arn
+    get_actions_matching_arn,
+    get_actions_matching_arn_type
     # get_actions_matching_condition_crud_and_arn
 )
 from policy_sentry.writing.validate import check
@@ -202,7 +203,7 @@ class QueryActionsTestCase(unittest.TestCase):
         # )
         # print(output)
 
-    def test_get_actions_with_arn_type_and_access_level(self):
+    def test_get_actions_with_arn_type_and_access_level_case_1(self):
         """querying.actions.get_actions_with_arn_type_and_access_level"""
         desired_output = [
             's3:DeleteBucketPolicy',
@@ -216,6 +217,77 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
+
+    def test_get_actions_with_arn_type_and_access_level_case_2(self):
+        """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
+        desired_output = [
+            'ssm:DeleteParameter',
+            'ssm:DeleteParameters',
+            'ssm:LabelParameterVersion',
+            'ssm:PutParameter'
+]
+        output = get_actions_with_arn_type_and_access_level(
+            "ssm", "parameter", "Write"
+        )
+        self.assertListEqual(desired_output, output)
+
+    def test_get_actions_with_arn_type_and_access_level_case_3(self):
+        """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
+        desired_output = [
+            's3:PutAccountPublicAccessBlock'
+        ]
+        output = get_actions_with_arn_type_and_access_level(
+            # "ram", "resource-share", "Write"
+            "s3", "*", "Permissions management"
+        )
+        self.assertListEqual(desired_output, output)
+
+    def test_get_actions_with_arn_type_and_access_level_case_4(self):
+        """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
+        desired_output = [
+            'secretsmanager:ListSecrets'
+        ]
+        output = get_actions_with_arn_type_and_access_level(
+            "secretsmanager", "*", "List"
+        )
+        self.assertListEqual(desired_output, output)
+
+    def test_get_actions_with_arn_type_and_access_level_case_5(self):
+        """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
+
+        output = get_actions_with_arn_type_and_access_level(
+            "all", "object", "List"
+        )
+
+        self.assertTrue(len(output) == 2)
+
+    def test_get_actions_matching_arn_type_case_1(self):
+        """querying.actions.get_actions_matching_arn_type"""
+        output = get_actions_matching_arn_type('ecr', '*')
+        self.assertEqual(output, ["ecr:GetAuthorizationToken"])
+
+    def test_get_actions_matching_arn_type_case_2(self):
+        """querying.actions.get_actions_matching_arn_type"""
+        output = get_actions_matching_arn_type('all', 'object')
+        self.assertTrue('all:AbortMultipartUpload' in output)
+
+    def test_get_actions_matching_arn_type_case_3(self):
+        """querying.actions.get_actions_matching_arn_type"""
+        output = get_actions_matching_arn_type('rds', 'object')
+        self.assertTrue(len(output) == 0)
+
+    def test_get_actions_matching_arn_type_case_4(self):
+        """querying.actions.get_actions_matching_arn_type"""
+
+        desired_output = [
+            'codestar:CreateUserProfile',
+            'codestar:DeleteUserProfile',
+            'codestar:UpdateUserProfile'
+        ]
+
+        output = get_actions_matching_arn_type("codestar", "user")
+
+        self.assertTrue(output, desired_output)
 
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
@@ -280,7 +352,6 @@ class QueryActionsTestCase(unittest.TestCase):
     #         "kms:EncryptionAlgorithm", "Write", "*"
     #     )
     #     self.assertListEqual(desired_results, results)
-
 
     def test_remove_actions_not_matching_access_level(self):
         # TODO: This method normalized the access level unnecessarily. Make sure to change that in the final iteration

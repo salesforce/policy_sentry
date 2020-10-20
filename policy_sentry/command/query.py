@@ -18,9 +18,9 @@ from policy_sentry.querying.actions import (
     get_actions_for_service,
     get_actions_with_access_level,
     get_action_data,
-    get_actions_that_support_wildcard_arns_only,
     get_actions_matching_condition_key,
-    get_actions_at_access_level_that_support_wildcard_arns_only,
+    get_actions_with_arn_type_and_access_level,
+    get_actions_matching_arn_type
 )
 from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
@@ -65,11 +65,10 @@ def query():
     help="Supply a condition key to show a list of all IAM actions that support the condition key.",
 )
 @click.option(
-    "--wildcard-only",
-    is_flag=True,
+    "--resource-type",
+    type=str,
     required=False,
-    help="Show the IAM actions that only support "
-    "wildcard resources - i.e., cannot support ARNs in the resource block.",
+    help="Supply a resource type to show a list of all IAM actions that support the resource type.",
 )
 @click.option(
     "--fmt",
@@ -79,13 +78,13 @@ def query():
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
 @click_log.simple_verbosity_option(logger)
-def action_table(name, service, access_level, condition, wildcard_only, fmt):
+def action_table(name, service, access_level, condition, resource_type, fmt):
     """Query the Action Table from the Policy Sentry database"""
-    query_action_table(name, service, access_level, condition, wildcard_only, fmt)
+    query_action_table(name, service, access_level, condition, resource_type, fmt)
 
 
 def query_action_table(
-    name, service, access_level, condition, wildcard_only, fmt="json"
+    name, service, access_level, condition, resource_type, fmt="json"
 ):
     """Query the Action Table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
@@ -114,7 +113,7 @@ def query_action_table(
             print(yaml.dump(output)) if fmt == "yaml" else [
                 print(item) for item in output
             ]
-    elif name is None and access_level and not wildcard_only:
+    elif name is None and access_level and not resource_type:
         print(
             f"All IAM actions under the {service} service that have the access level {access_level}:"
         )
@@ -123,14 +122,12 @@ def query_action_table(
         print(yaml.dump(output)) if fmt == "yaml" else [
             print(json.dumps(output, indent=4))
         ]
-    elif name is None and access_level and wildcard_only:
+    elif name is None and access_level and resource_type:
         print(
-            f"{service} {access_level.upper()} actions that must use wildcards in the resources block:"
+            f"{service} {access_level.upper()} actions that have the resource type {resource_type.upper()}:"
         )
         access_level = transform_access_level_text(access_level)
-        output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            service, access_level
-        )
+        output = get_actions_with_arn_type_and_access_level(service, resource_type, access_level)
         print(yaml.dump(output)) if fmt == "yaml" else [
             print(json.dumps(output, indent=4))
         ]
@@ -145,11 +142,11 @@ def query_action_table(
         ]
     # Get a list of IAM Actions under the service that only support resources = "*"
     # (i.e., you cannot restrict it according to ARN)
-    elif wildcard_only:
+    elif resource_type:
         print(
-            f"IAM actions under {service} service that support wildcard resource values only:"
+            f"IAM actions under {service} service that have the resource type {resource_type}:"
         )
-        output = get_actions_that_support_wildcard_arns_only(service)
+        output = get_actions_matching_arn_type(service, resource_type)
         print(yaml.dump(output)) if fmt == "yaml" else [
             print(json.dumps(output, indent=4))
         ]
