@@ -43,13 +43,16 @@ policy_sentry write-policy --input-file examples/yml/actions.yml
 # NOTE: Use --fmt yaml or --fmt json to change the output format. Defaults to json for querying
 
 # Get a list of actions that do not support resource constraints
-policy_sentry query action-table --service s3 --wildcard-only --fmt yaml
+policy_sentry query action-table --service s3 --resource-type '*' --fmt yaml
 
 # Get a list of actions at the "Write" level in S3 that do not support resource constraints
-policy_sentry query action-table --service s3 --access-level write --wildcard-only --fmt yaml
+policy_sentry query action-table --service s3 --access-level write --resource-type '*' --fmt yaml
 
 # Get a list of all IAM actions across ALL services that have "Permissions management" access
 policy_sentry query action-table --service all --access-level permissions-management
+
+# Get a list of actions at the "Write" level in SSM service for resource type "parameter"
+policy_sentry query action-table --service ssm --access-level write --resource-type parameter
 
 # Get a list of all IAM Actions available to the RAM service
 policy_sentry query action-table --service ram
