@@ -276,4 +276,3 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         results = sid_group.process_template(cfg, minimize=0)
         sid_names = get_sid_names_from_policy(results)
         self.assertEqual(len(sid_names), 1, "More than one statement returned, expected 1")
-
