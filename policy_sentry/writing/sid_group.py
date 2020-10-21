@@ -14,11 +14,7 @@ from policy_sentry.querying.actions import (
 )
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn, parse_arn
-<<<<<<< HEAD
 from policy_sentry.util.text import capitalize_first_character, strip_special_characters
-=======
-from policy_sentry.util.text import capitalize_first_character
->>>>>>> 13cf363... Improving mimization
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
 from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
