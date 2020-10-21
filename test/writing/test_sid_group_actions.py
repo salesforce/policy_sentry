@@ -20,6 +20,7 @@ class SidGroupActionsTestCase(unittest.TestCase):
             "mode": "actions",
             "name": "RoleNameWithCRUD",
             "actions": [
+                "codestar-connections:UseConnection",
                 "kms:CreateGrant",
                 "kms:CreateCustomKeyStore",
                 "ec2:AuthorizeSecurityGroupEgress",
@@ -32,6 +33,16 @@ class SidGroupActionsTestCase(unittest.TestCase):
         desired_output = {
             "Version": "2012-10-17",
             "Statement": [
+                {
+                    "Sid": "CodestarconnectionsReadConnection",
+                    "Effect": "Allow",
+                    "Action": [
+                        "codestar-connections:UseConnection"
+                    ],
+                    "Resource": [
+                        "arn:${Partition}:codestar-connections:${Region}:${Account}:connection/${ConnectionId}"
+                    ]
+                },
                 {
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",

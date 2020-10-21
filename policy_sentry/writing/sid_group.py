@@ -681,7 +681,7 @@ def create_policy_sid_namespace(
     # applies for "Permissions management"
     access_level = re.sub("[^A-Za-z0-9]+", "", access_level)
     sid_namespace_prefix = (
-        capitalize_first_character(service)
+        capitalize_first_character(strip_special_characters(service))
         + capitalize_first_character(access_level)
         + capitalize_first_character(resource_type_name)
     )
