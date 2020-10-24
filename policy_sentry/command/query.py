@@ -84,7 +84,7 @@ def action_table(name, service, access_level, condition, resource_type, fmt, ver
     """Query the Action Table from the Policy Sentry database"""
     if verbose:
         log_level = getattr(logging, verbose.upper())
-        set_stream_logger(log_level)
+        set_stream_logger(level=log_level)
 
     query_action_table(name, service, access_level, condition, resource_type, fmt)
 
@@ -195,9 +195,15 @@ def query_action_table(
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click_log.simple_verbosity_option(logger)
-def arn_table(name, service, list_arn_types, fmt="json"):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def arn_table(name, service, list_arn_types, fmt="json", verbose=None):
     """Query the ARN Table from the Policy Sentry database"""
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(level=log_level)
     query_arn_table(name, service, list_arn_types, fmt)
 
 
@@ -246,9 +252,15 @@ def query_arn_table(name, service, list_arn_types, fmt):
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click_log.simple_verbosity_option(logger)
-def condition_table(name, service, fmt):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def condition_table(name, service, fmt, verbose):
     """Query the condition table from the Policy Sentry database"""
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(level=log_level)
     query_condition_table(name, service, fmt)
 
 

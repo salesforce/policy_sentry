@@ -60,7 +60,7 @@ def initialize_command(access_level_overrides_file, fetch, build, verbose):
     """
     if verbose:
         log_level = getattr(logging, verbose.upper())
-        set_stream_logger(log_level)
+        set_stream_logger(level=log_level)
 
     initialize(access_level_overrides_file, fetch, build)
 

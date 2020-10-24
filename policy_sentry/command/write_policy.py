@@ -46,7 +46,7 @@ def write_policy(input_file, minimize, fmt, verbose):
     """
     if verbose:
         log_level = getattr(logging, verbose.upper())
-        set_stream_logger(log_level)
+        set_stream_logger(level=log_level)
 
     if input_file:
         cfg = read_yaml_file(input_file)

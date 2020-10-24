@@ -39,7 +39,7 @@ def create_template(output_file, template_type, verbose):
     """
     if verbose:
         log_level = getattr(logging, verbose.upper())
-        set_stream_logger(log_level)
+        set_stream_logger(level=log_level)
 
     filename = Path(output_file).resolve()
     if template_type == "actions":

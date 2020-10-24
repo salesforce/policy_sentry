@@ -2,9 +2,9 @@
 import logging
 from logging import NullHandler
 
-# Set default behaviour when policy_sentry is used as library to avoid "No handler found" warnings.
+# Set default handler when policy_sentry is used as library to avoid "No handler found" warnings.
 logging.getLogger(__name__).addHandler(NullHandler())
-name = "policy_sentry"  # pylint: disable=invalid-name
+name = "policy_sentry" # pylint: disable=invalid-name
 
 
 def set_stream_logger(name='policy_sentry', level=logging.DEBUG, format_string=None):
@@ -20,9 +20,12 @@ def set_stream_logger(name='policy_sentry', level=logging.DEBUG, format_string=N
     :type format_string: str
     :param format_string: Log message format
     """
+    # remove existing handlers. since NullHandler is added by default
+    handlers = logging.getLogger(name).handlers
+    for handler in handlers:
+        logging.getLogger(name).removeHandler(handler)
     if format_string is None:
         format_string = "%(asctime)s %(name)s [%(levelname)s] %(message)s"
-
     logger = logging.getLogger(name)
     logger.setLevel(level)
     handler = logging.StreamHandler()
