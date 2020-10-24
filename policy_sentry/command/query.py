@@ -5,7 +5,6 @@ import os
 import json
 import logging
 import click
-import click_log
 import yaml
 from policy_sentry.util.access_levels import transform_access_level_text
 from policy_sentry.querying.all import get_all_service_prefixes
@@ -27,9 +26,9 @@ from policy_sentry.querying.conditions import (
     get_condition_key_details,
 )
 from policy_sentry.shared.constants import DATASTORE_FILE_PATH, LOCAL_DATASTORE_FILE_PATH
+from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
-click_log.basic_config(logger)
 iam_definition_path = DATASTORE_FILE_PATH
 
 
@@ -77,9 +76,16 @@ def query():
     required=False,
     help='Format output as YAML or JSON. Defaults to "yaml"',
 )
-@click_log.simple_verbosity_option(logger)
-def action_table(name, service, access_level, condition, resource_type, fmt):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def action_table(name, service, access_level, condition, resource_type, fmt, verbose):
     """Query the Action Table from the Policy Sentry database"""
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(log_level)
+
     query_action_table(name, service, access_level, condition, resource_type, fmt)
 
 
