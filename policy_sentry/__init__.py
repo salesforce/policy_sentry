@@ -4,7 +4,7 @@ from logging import NullHandler
 
 # Set default handler when policy_sentry is used as library to avoid "No handler found" warnings.
 logging.getLogger(__name__).addHandler(NullHandler())
-name = "policy_sentry" # pylint: disable=invalid-name
+name = "policy_sentry" # pylint: disable=redefined-outer-name
 
 
 def set_stream_logger(name='policy_sentry', level=logging.DEBUG, format_string=None):
