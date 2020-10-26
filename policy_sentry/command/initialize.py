@@ -6,7 +6,6 @@ import os
 import shutil
 import logging
 import click
-import click_log
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.awsdocs import (
     update_html_docs_directory,
@@ -22,9 +21,9 @@ from policy_sentry.shared.constants import (
     BUNDLED_DATASTORE_FILE_PATH,
     BUNDLED_DATA_DIRECTORY,
 )
+from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
-click_log.basic_config(logger)
 
 
 @click.command(name="initialize", short_help="Create a local datastore to store AWS IAM information.")
@@ -51,11 +50,18 @@ click_log.basic_config(logger)
     help="Build the IAM data file from the HTML files rather than copying the data file from "
     "the python package. Defaults to false",
 )
-@click_log.simple_verbosity_option(logger)
-def initialize_command(access_level_overrides_file, fetch, build):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def initialize_command(access_level_overrides_file, fetch, build, verbose):
     """
     CLI command for initializing the local data file
     """
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(level=log_level)
+
     initialize(access_level_overrides_file, fetch, build)
 
 

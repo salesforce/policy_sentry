@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.1 (Unreleased)
+## 0.9.1 (2020-10-26)
 * write-policy:
   * Minimization is improved by grouping results based on ARNs (#252)
 * query:
@@ -8,7 +8,9 @@
 * Backend methods:
   * Added some utility functions (`get_statement_from_policy_using_sid`, `get_sid_names_from_policy` to make it easier to future-proof unit tests that rely on the ever-changing AWS IAM data.
   * Bug fix for `get_actions_for_service` (Fixes #245)
-* adding release drafter as github actions (Fixes #257)
+  * Bug fix for `create_policy_sid_namespace` (Fixes #266)
+* logging
+  * Bug fix for logging not working (Fixes #268)
 
 ## 0.9.0 (2020-10-01)
 * Speed improvements: The IAM definition is now a dictionary instead of a list.
