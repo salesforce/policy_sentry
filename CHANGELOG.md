@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.1 (Unreleased)
+## 0.9.1 (2020-10-26)
 * write-policy:
   * Minimization is improved by grouping results based on ARNs (#252)
 * query:
