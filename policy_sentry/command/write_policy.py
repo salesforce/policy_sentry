@@ -5,13 +5,12 @@ import sys
 import json
 import logging
 import click
-import click_log
 import yaml
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
+from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
-click_log.basic_config(logger)
 
 
 @click.command(
@@ -37,12 +36,17 @@ click_log.basic_config(logger)
     required=False,
     help='Format output as YAML or JSON. Defaults to "json"',
 )
-
-@click_log.simple_verbosity_option(logger)
-def write_policy(input_file, minimize, fmt):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def write_policy(input_file, minimize, fmt, verbose):
     """
     Write least-privilege IAM policies, restricting all actions to resource ARNs.
     """
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(level=log_level)
 
     if input_file:
         cfg = read_yaml_file(input_file)

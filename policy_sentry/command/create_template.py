@@ -5,11 +5,10 @@ Users don't have to remember exactly how to phrase the yaml files, so this comma
 from pathlib import Path
 import logging
 import click
-import click_log
 from policy_sentry.writing.template import create_actions_template, create_crud_template
+from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
-click_log.basic_config(logger)
 
 
 @click.command(
@@ -28,13 +27,19 @@ click_log.basic_config(logger)
     required=True,
     help="Type of write_policy template to create - actions or CRUD. Case insensitive.",
 )
-@click_log.simple_verbosity_option(logger)
-def create_template(output_file, template_type):
+@click.option(
+    '--verbose', '-v',
+    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
+    case_sensitive=False))
+def create_template(output_file, template_type, verbose):
     """
     Writes YML file templates for use in the write-policy
     command, so users can fill out the fields
     without needing to look up the required format.
     """
+    if verbose:
+        log_level = getattr(logging, verbose.upper())
+        set_stream_logger(level=log_level)
 
     filename = Path(output_file).resolve()
     if template_type == "actions":
