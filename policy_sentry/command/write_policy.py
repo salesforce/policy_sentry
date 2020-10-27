@@ -23,11 +23,18 @@ logger = logging.getLogger(__name__)
     help="Path of the YAML File used for generating policies",
 )
 @click.option(
-    "--minimize",
+    "--minimize/--no-minimize",
+    is_flag=True,
     required=False,
-    type=int,
-    help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length. "
-    "Set this to the character length you want - for example, 4",
+    default=False,
+    help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length."
+)
+@click.option(
+    "--minimize-length",
+    type=click.IntRange(0),
+    required=False,
+    default=0,
+    help="Sets the character length applied during policy minimization. Default is zero."
 )
 @click.option(
     "--fmt",
@@ -40,7 +47,7 @@ logger = logging.getLogger(__name__)
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
     case_sensitive=False))
-def write_policy(input_file, minimize, fmt, verbose):
+def write_policy(input_file, minimize, minimize_length, fmt, verbose):
     """
     Write least-privilege IAM policies, restricting all actions to resource ARNs.
     """
@@ -56,7 +63,11 @@ def write_policy(input_file, minimize, fmt, verbose):
         except yaml.YAMLError as exc:
             logger.critical(exc)
             sys.exit()
-    policy = write_policy_with_template(cfg, minimize)
+
+    min_length = None
+    if minimize:
+        min_length = minimize_length
+    policy = write_policy_with_template(cfg, min_length)
 
     if fmt == "yaml":
         policy_str = yaml.dump(policy, sort_keys=False)
@@ -79,8 +90,6 @@ def write_policy_with_template(cfg, minimize=None):
     Returns:
         Dictionary: The JSON policy
     """
-    if minimize is not None and minimize < 0:
-        minimize = None
     sid_group = SidGroup()
     policy = sid_group.process_template(cfg, minimize)
     return policy
