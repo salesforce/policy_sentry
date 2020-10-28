@@ -27,14 +27,15 @@ logger = logging.getLogger(__name__)
     is_flag=True,
     required=False,
     default=False,
+    is_eager=True,
     help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length."
 )
-@click.option(
-    "--minimize-length",
+@click.argument(
+    "minimize-length",
+    nargs=1,
     type=click.IntRange(0),
     required=False,
-    default=0,
-    help="Sets the character length applied during policy minimization. Default is zero."
+    default=0
 )
 @click.option(
     "--fmt",
