@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
     help="Path of the YAML File used for generating policies",
 )
 @click.option(
-    "--minimize/--no-minimize",
+    "--minimize",
     is_flag=True,
     required=False,
     default=False,
