@@ -27,7 +27,6 @@ logger = logging.getLogger(__name__)
     is_flag=True,
     required=False,
     default=False,
-    is_eager=True,
     help="Minimize the resulting statement with *safe* usage of wildcards to reduce policy length."
 )
 @click.argument(
