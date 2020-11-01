@@ -259,23 +259,39 @@
                </tr>
               </thead>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonroute53-AssociateVPCWithHostedZone">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html">
                  AssociateVPCWithHostedZone
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to associate an additional Amazon VPC with a private hosted zone
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
                 <p>
+                 <a href="#amazonroute53-vpc">
+                  vpc*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonroute53-hostedzone">
-                  hostedzone*
+                  hostedzone
                  </a>
                 </p>
                </td>
@@ -389,10 +405,18 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazonroute53-vpc">
+                  vpc
+                 </a>
+                </p>
                </td>
                <td>
                </td>
                <td>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
                </td>
               </tr>
               <tr>
@@ -744,44 +768,21 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="2">
                 <a id="amazonroute53-DisassociateVPCFromHostedZone">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html">
                  DisassociateVPCFromHostedZone
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to disassociate an Amazon Virtual Private Cloud from a Route 53
                                                 private hosted zone
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
-                 <b>
-                  SCENARIO:
-                 </b>
-                 Disassociate by the VPC owner
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonroute53-hostedzone">
-                  hostedzone*
-                 </a>
-                </p>
                 <p>
                  <a href="#amazonroute53-hostedzone">
                   hostedzone
@@ -791,28 +792,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <p>
-                 <b>
-                  SCENARIO:
-                 </b>
-                 Disassociate by the hosted zone owner
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonroute53-hostedzone">
-                  hostedzone*
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonroute53-hostedzone">
-                  hostedzone
+                 <a href="#amazonroute53-vpc">
+                  vpc
                  </a>
                 </p>
                </td>
@@ -1334,6 +1323,36 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonroute53-ListHostedZonesByVPC">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">
+                 ListHostedZonesByVPC
+                </a>
+               </td>
+               <td>
+                Grants permission to get a list of all the private hosted zones that a specified VPC
+                                                is associated with
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53-vpc">
+                  vpc*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonroute53-ListQueryLoggingConfigs">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html">
@@ -1420,7 +1439,7 @@
                 Grants permission to list tags for one health check or hosted zone
                </td>
                <td rowspan="2">
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1459,7 +1478,7 @@
                 Grants permission to list tags for up to 10 health checks or hosted zones
                </td>
                <td rowspan="2">
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1500,7 +1519,7 @@
                                                 in which they were created.
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                </td>
@@ -1522,7 +1541,7 @@
                                                 by using the current AWS account
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                </td>
@@ -1544,7 +1563,7 @@
                                                 in a specified hosted zone
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1571,7 +1590,7 @@
                                                 using a specified traffic policy version
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1598,7 +1617,7 @@
                                                 policy
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1625,7 +1644,7 @@
                                                 that can be associated with a specified hosted zone
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -1974,6 +1993,38 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53-vpc">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">
+                 vpc
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpc/$
+                 <span>
+                  {
+                 </span>
+                 VpcId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2096,10 +2147,9 @@
                 More info available at http://www.omniture.com
             -->
    <script language="JavaScript" type="text/javascript">
-    awsdocs = {
-    prop66: 'AWS Identity and Access Management',
-    prop65: 'User Guide'
-}
+    var awsdocs = awsdocs || {};
+awsdocs.prop66 = 'AWS Identity and Access Management';
+awsdocs.prop65 =  'User Guide';
    </script>
    <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
    </script>
