@@ -267,7 +267,7 @@
                 </a>
                </td>
                <td>
-                Deletes all specified alarms. In the event of an error, no alarms are deleted
+                Grants permission to delete a collection of alarms
                </td>
                <td>
                 Write
@@ -293,7 +293,7 @@
                 </a>
                </td>
                <td>
-                Deletes the specified anomaly detection model from your account.
+                Grants permission to delete the specified anomaly detection model from your account.
                </td>
                <td>
                 Write
@@ -314,7 +314,7 @@
                 </a>
                </td>
                <td>
-                Deletes all CloudWatch dashboards that you specify
+                Grants permission to delete all CloudWatch dashboards that you specify
                </td>
                <td>
                 Write
@@ -340,7 +340,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete a collection of insight rules.
+                Grants permission to delete a collection of insight rules
                </td>
                <td>
                 Write
@@ -366,7 +366,7 @@
                 </a>
                </td>
                <td>
-                Retrieves history for the specified alarm
+                Grants permission to retrieve the history for the specified alarm
                </td>
                <td>
                 Read
@@ -392,7 +392,7 @@
                 </a>
                </td>
                <td>
-                Retrieves alarms with the specified names
+                Grants permission to describe all alarms, currently owned by the user's account
                </td>
                <td>
                 Read
@@ -418,7 +418,8 @@
                 </a>
                </td>
                <td>
-                Retrieves all alarms for a single metric
+                Grants permission to describe all alarms configured on the specified metric, currently
+                                                owned by the user's account
                </td>
                <td>
                 Read
@@ -439,7 +440,8 @@
                 </a>
                </td>
                <td>
-                Lists the anomaly detection models that you have created in your account.
+                Grants permission to lists the anomaly detection models that you have created in your
+                                                account.
                </td>
                <td>
                 Read
@@ -460,7 +462,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to describe all insight rules, currently owned by the user's account.
+                Grants permission to describe all insight rules, currently owned by the user's account
                </td>
                <td>
                 Read
@@ -481,7 +483,7 @@
                 </a>
                </td>
                <td>
-                Disables actions for the specified alarms
+                Grants permission to disable actions for a collection of alarms
                </td>
                <td>
                 Write
@@ -507,7 +509,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to disable a collection of insight rules.
+                Grants permission to disable a collection of insight rules
                </td>
                <td>
                 Write
@@ -533,7 +535,7 @@
                 </a>
                </td>
                <td>
-                Enables actions for the specified alarms
+                Grants permission to enable actions for a collection of alarms
                </td>
                <td>
                 Write
@@ -559,7 +561,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to enable a collection of insight rules.
+                Grants permission to enable a collection of insight rules
                </td>
                <td>
                 Write
@@ -585,7 +587,7 @@
                 </a>
                </td>
                <td>
-                Displays the details of the CloudWatch dashboard you specify
+                Grants permission to display the details of the CloudWatch dashboard you specify
                </td>
                <td>
                 Read
@@ -612,7 +614,7 @@
                </td>
                <td>
                 Grants permission to return the top-N report of unique contributors over a time range
-                                                for a given insight rule.
+                                                for a given insight rule
                </td>
                <td>
                 Read
@@ -638,8 +640,8 @@
                 </a>
                </td>
                <td>
-                Required to retrieve batch amounts of CloudWatch metric data and perform metric math
-                                                on retrieved data
+                Grants permission to retrieve batch amounts of CloudWatch metric data and perform
+                                                metric math on retrieved data
                </td>
                <td>
                 Read
@@ -660,7 +662,7 @@
                 </a>
                </td>
                <td>
-                Gets statistics for the specified metric
+                Grants permission to retrieve statistics for the specified metric
                </td>
                <td>
                 Read
@@ -681,7 +683,7 @@
                 </a>
                </td>
                <td>
-                Required to retrieve snapshots of metric widgets
+                Grants permission to retrieve snapshots of metric widgets
                </td>
                <td>
                 Read
@@ -702,7 +704,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of all CloudWatch dashboards in your account
+                Grants permission to return a list of all CloudWatch dashboards in your account
                </td>
                <td>
                 List
@@ -723,7 +725,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of valid metrics stored for the AWS account owner
+                Grants permission to retrieve a list of valid metrics stored for the AWS account owner
                </td>
                <td>
                 List
@@ -744,7 +746,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                This action lists tags for an Amazon CloudWatch resource.
+                Grants permission to list tags for an Amazon CloudWatch resource
                </td>
                <td rowspan="2">
                 List
@@ -829,7 +831,8 @@
                 </a>
                </td>
                <td>
-                Creates or updates an anomaly detection model for a CloudWatch metric.
+                Grants permission to create or update an anomaly detection model for a CloudWatch
+                                                metric.
                </td>
                <td>
                 Write
@@ -837,6 +840,50 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazoncloudwatch-PutCompositeAlarm">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html">
+                 PutCompositeAlarm
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create or update a composite alarm
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatch-alarm">
+                  alarm*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -850,7 +897,8 @@
                 </a>
                </td>
                <td>
-                Creates a CloudWatch dashboard, or updates an existing dashboard if it already exists
+                Grants permission to create a CloudWatch dashboard, or update an existing dashboard
+                                                if it already exists
                </td>
                <td>
                 Write
@@ -876,7 +924,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create a new insight rule or replace an existing insight rule.
+                Grants permission to create a new insight rule or replace an existing insight rule
                </td>
                <td rowspan="2">
                 Write
@@ -920,8 +968,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates or updates an alarm and associates it with the specified Amazon CloudWatch
-                                                metric
+                Grants permission to create or update an alarm and associates it with the specified
+                                                Amazon CloudWatch metric
                </td>
                <td rowspan="2">
                 Write
@@ -965,7 +1013,7 @@
                 </a>
                </td>
                <td>
-                Publishes metric data points to Amazon CloudWatch
+                Grants permission to publish metric data points to Amazon CloudWatch
                </td>
                <td>
                 Write
@@ -991,7 +1039,7 @@
                 </a>
                </td>
                <td>
-                Temporarily sets the state of an alarm for testing purposes
+                Grants permission to temporarily set the state of an alarm for testing purposes
                </td>
                <td>
                 Write
@@ -1017,7 +1065,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action tags an Amazon CloudWatch resource.
+                Grants permission to add tags to an Amazon CloudWatch resource
                </td>
                <td rowspan="3">
                 Tagging
@@ -1120,7 +1168,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action removes a tag from an Amazon CloudWatch resource.
+                Grants permission to remove a tag from an Amazon CloudWatch resource
                </td>
                <td rowspan="3">
                 Tagging
@@ -1560,10 +1608,9 @@
                 More info available at http://www.omniture.com
             -->
    <script language="JavaScript" type="text/javascript">
-    awsdocs = {
-    prop66: 'AWS Identity and Access Management',
-    prop65: 'User Guide'
-}
+    var awsdocs = awsdocs || {};
+awsdocs.prop66 = 'AWS Identity and Access Management';
+awsdocs.prop65 =  'User Guide';
    </script>
    <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
    </script>
