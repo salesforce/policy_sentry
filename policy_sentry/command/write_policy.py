@@ -37,7 +37,7 @@ class RegisterMinimizeLengthCommand(click.Command):
             if a[0] in prefixes:
                 if len(a) > 1:
                     args[i] = a[0]
-                    args.append(a[0] + '_length=' + a[1])
+                    args.insert(i+1, a[0] + '_length=' + a[1])
                 else:
                     # check if next argument is naked
                     if len(args) > i+1 and not args[i+1].startswith('--'):
