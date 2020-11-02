@@ -20,10 +20,10 @@ class RegisterLengthOption(click.Option):
     register_length = True
 
 class RegisterLengthOptionHelp(click.Option):
-    """ Fix the help for the _length suffix """
+    """ Translate help for the hidden _length suffix """
     def get_help_record(self, ctx):
-        help = super().get_help_record(ctx)
-        return (help[0].replace('_length ', '='),) + help[1:]
+        help_text = super().get_help_record(ctx)
+        return (help_text[0].replace('_length ', ' '),) + help_text[1:]
 
 class RegisterMinimizeLengthCommand(click.Command):
     """ Translate any opt= to opt_length= as needed """
@@ -67,7 +67,7 @@ class RegisterMinimizeLengthCommand(click.Command):
 @click.option(
     "--minimize_length",
     cls=RegisterLengthOptionHelp,
-    help="Sets the minimum character length for minimization.",
+    help="Sets the minimum character length for minimization. Defaults to zero.",
     type=click.IntRange(0),
     required=False,
     default=0
