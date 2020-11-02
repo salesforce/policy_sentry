@@ -22,12 +22,12 @@ class RegisterLengthOption(click.Option):
 class RegisterLengthOptionHelp(click.Option):
     """ Fix the help for the _length suffix """
     def get_help_record(self, ctx):
-        help = super(RegisterLengthOptionHelp, self).get_help_record(ctx)
+        help = super().get_help_record(ctx)
         return (help[0].replace('_length ', '='),) + help[1:]
 
 class RegisterMinimizeLengthCommand(click.Command):
+    """ Translate any opt= to opt_length= as needed """
     def parse_args(self, ctx, args):
-        """ Translate any opt= to opt_length= as needed """
         options = [o for o in ctx.command.params
                    if getattr(o, 'register_length', None)]
         prefixes = {p for p in sum([o.opts for o in options], [])
@@ -43,7 +43,7 @@ class RegisterMinimizeLengthCommand(click.Command):
                     if len(args) > i+1 and not args[i+1].startswith('--'):
                         value = args[i+1]
                         args[i+1] = a[0] + '_length=' + value
-        return super(RegisterMinimizeLengthCommand, self).parse_args(ctx, args)
+        return super().parse_args(ctx, args)
 
 
 @click.command(
