@@ -39,6 +39,8 @@ module "policy_sentry_demo" {
   permissions_management_access_level = var.permissions_management_access_level
   wildcard_only_single_actions               = var.wildcard_only_actions
   minimize                            = var.minimize
+  skip_resource_constraints           = var.skip_resource_constraints
+  exclude_actions                     = var.exclude_actions
 }
 ```
 
