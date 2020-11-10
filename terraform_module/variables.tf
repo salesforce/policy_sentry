@@ -14,8 +14,8 @@ variable "region" {
 }
 
 variable "minimize" {
-  description = "If set to true, it will minimize the size of the IAM Policy file. Defaults to false."
-  default     = false
+  description = "If set to true, it will minimize the size of the IAM Policy file. Defaults to TRUE."
+  default     = true
   type        = bool
 }
 
