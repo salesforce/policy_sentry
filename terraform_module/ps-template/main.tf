@@ -18,7 +18,9 @@ locals {
       "service-list" : var.wildcard_only_list_service,
       "service-tagging" : var.wildcard_only_tagging_service,
       "service-permissions-management" : var.wildcard_only_permissions_management_service,
-    }
+    },
+    "exclude-actions" : var.exclude_actions,
+    "skip-resource-constraints" : var.skip_resource_constraints
   }
   rendered_template = jsonencode(local.policy_sentry_template)
   decoded_template  = jsondecode(jsonencode(local.policy_sentry_template))

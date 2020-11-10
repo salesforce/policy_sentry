@@ -84,3 +84,15 @@ variable "wildcard_only_permissions_management_service" {
   type        = list(string)
   default     = []
 }
+
+variable "skip_resource_constraints" {
+  description = "Skip resource constraint requirements by listing individual actions here, like s3:GetObject."
+  type        = list(string)
+  default     = []
+}
+
+variable "exclude_actions" {
+  description = "Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*"
+  type        = list(string)
+  default     = []
+}
