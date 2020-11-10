@@ -18,7 +18,7 @@ module "policies" {
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.12.8 |
+| terraform | >= 0.12.8 |
 | aws | ~> 2.48.0 |
 | template | ~> 2.1.2 |
 

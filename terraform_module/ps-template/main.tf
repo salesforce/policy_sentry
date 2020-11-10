@@ -34,6 +34,7 @@ resource "local_file" "template" {
 }
 
 data "external" "policy" {
-  program = concat(local.command, ["--input-file", local_file.template.filename])
+  program    = concat(local.command, ["--input-file", local_file.template.filename])
+  depends_on = [local_file.template]
 }
 

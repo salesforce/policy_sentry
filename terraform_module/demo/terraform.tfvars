@@ -14,3 +14,5 @@ write_access_level = [
 skip_resource_constraints = ["s3:GetObject"]
 
 exclude_actions = ["kms:Delete*"]
+
+# minimize = true
