@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 0.12.8"
+  required_version = ">= 0.12.8"
 }
 
 provider "local" {

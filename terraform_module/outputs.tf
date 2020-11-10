@@ -20,5 +20,5 @@ output "iam_policy_path" {
 
 output "iam_policy_document" {
   description = "The policy document."
-  value       = module.create_iam.iam_policy_document
+  value       = jsondecode(module.create_iam.iam_policy_document)
 }
