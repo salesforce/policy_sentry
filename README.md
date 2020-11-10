@@ -19,6 +19,7 @@ IAM Least Privilege Policy Generator.
 - [Cheat sheets](#cheat-sheets)
   * [Policy Writing cheat sheet](#policy-writing-cheat-sheet)
   * [IAM Database Query Cheat Sheet](#iam-database-query-cheat-sheet)
+  * [Local Initialization (Optional)](#local-initialization--optional-)
 - [Other Usage](#other-usage)
   * [Commands](#commands)
   * [Python Library usage](#python-library-usage)
@@ -441,54 +442,7 @@ cat examples/yml/actions.yml | docker run -i --rm kmcquade/policy_sentry:latest 
 
 ### Terraform
 
-The Terraform module is published and maintained [here](https://github.com/kmcquade/terraform-aws-policy-sentry).
-
-* Prerequisites:
-  - Install Policy Sentry (v0.7.2 or higher)
-  - Install Terraform (v0.12.8 or higher)
-
-* Create the `main.tf` in your directory with the following contents:
-
-```hcl
-module "policy_sentry_demo" {
-  source                              = "github.com/kmcquade/terraform-aws-policy-sentry"
-  name                                = var.name
-  read_access_level                   = var.read_access_level
-  write_access_level                  = var.write_access_level
-  list_access_level                   = var.list_access_level
-  tagging_access_level                = var.tagging_access_level
-  permissions_management_access_level = var.permissions_management_access_level
-  wildcard_only_actions               = var.wildcard_only_actions
-  minimize                            = var.minimize
-}
-```
-
-* Copy and paste the contents of the `variables.tf` file [here](https://github.com/kmcquade/terraform-aws-policy-sentry/blob/master/examples/demo/variables.tf) into your directory.
-
-* Create a `terraform.tfvars` file in your directory with the following contents:
-
-terraform.tfvars:
-```hcl
-name = "PolicySentryTest"
-
-list_access_level = [
-  "arn:aws:s3:::example-org",
-]
-
-read_access_level = [
-  "arn:aws:kms:us-east-1:123456789012:key/shaq"
-]
-
-write_access_level = [
-  "arn:aws:kms:us-east-1:123456789012:key/shaq"
-]
-```
-
-* Run `terraform apply` once to create the JSON policy file.
-
-* Run `terraform apply` **again** (from the same directory) to create the IAM policy.
-
-For the full example, including GIFs depicting real output, see the README for the Terraform module [here](https://github.com/kmcquade/terraform-aws-policy-sentry).
+The Terraform module is published and maintained [here](https://github.com/salesforce/policy_sentry/tree/master/terraform_module).
 
 ## References
 

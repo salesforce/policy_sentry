@@ -13,7 +13,7 @@ module "policy_sentry_demo" {
 }
 
 terraform {
-  required_version = "~> 0.12.8"
+  required_version = ">= 0.12.8"
 }
 
 output "iam_policy_arn" {
@@ -23,5 +23,5 @@ output "iam_policy_arn" {
 
 output "iam_policy_document" {
   description = "The policy document, decoded."
-  value       = jsondecode(module.policy_sentry_demo.iam_policy_document)
+  value       = module.policy_sentry_demo.iam_policy_document
 }
