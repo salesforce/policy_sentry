@@ -2,18 +2,31 @@
 
 Builds secure IAM Policies with resource constraints. For more information on Policy Sentry, see [the documentation](https://policy-sentry.readthedocs.io/en/latest/).
 
-## Requirements
+## Prerequisites
 
 * You must have Policy Sentry 0.10.0 installed beforehand and it must be executable from your `$PATH`. Follow the installation instructions [here](https://policy-sentry.readthedocs.io/en/latest/user-guide/installation.html)
-* This module currently only works for 0.12.8
+  * This module currently requires Terraform 0.12.8
 
 ## Usage
 
 ### Example
 
-Use the module as below:
+* Install Terraform 0.12.8
 
-* [main.tf](./demo/main.tf):
+```bash
+# tfenv is a Terraform version manager
+brew install tfenv
+tfenv install 0.12.8
+```
+
+* Install Policy Sentry
+
+```bash
+brew tap salesforce/policy_sentry https://github.com/salesforce/policy_sentry
+brew install policy_sentry
+```
+
+* Use the module as shown in [main.tf](./demo/main.tf):
 
 ```hcl
 module "policy_sentry_demo" {
