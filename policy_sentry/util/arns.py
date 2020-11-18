@@ -39,6 +39,9 @@ class ARN:
             self.resource, self.resource_path = self.resource.split(":", 1)
         self.resource_string = self._resource_string()
 
+    def __repr__(self):
+        return self.arn
+
     # pylint: disable=too-many-return-statements
     def _resource_string(self):
         """
@@ -96,8 +99,18 @@ class ARN:
         # 4b: If we have a confusing resource string, the length of the split resource string list
         #  should at least be the same
         # Again, table/${TableName} (len of 2) should not match `table/${TableName}/backup/${BackupName}` (len of 4)
-        if len(split_resource_string_to_test) != len(arn_format_list):
-            return False
+        # if len(split_resource_string_to_test) != len(arn_format_list):
+        #     return False
+
+        non_empty_arn_format_list = []
+        for i in arn_format_list:
+            if i != "":
+                non_empty_arn_format_list.append(i)
+
+        lower_resource_string = list(map(lambda x:x.lower(),split_resource_string_to_test))
+        for i in non_empty_arn_format_list:
+            if i.lower() not in lower_resource_string:
+                return False
 
         # 4c: See if the non-normalized fields match
         for i in range(len(arn_format_list)):
@@ -116,14 +129,17 @@ class ARN:
 
         # 4. Special type for S3 bucket objects and CodeCommit repos
         # Note: Each service can only have one of these, so these are definitely exceptions
-        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}"]
+        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}", "table/${TableName}", "${BucketName}/${ObjectName}"]
         resource_path_arn_in_database = elements[5]
         if resource_path_arn_in_database in exclusion_list:
             logger.debug("Special type: %s", resource_path_arn_in_database)
+            # handling special case table/${TableName}
+            if resource_string_arn_in_database in ["table/${TableName}", "${BucketName}"]:
+                return len(self.resource_string.split('/')) == len(elements[5].split('/'))
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
-            if "/" in self.resource_string and "/" in elements[5]:
+            elif "/" in self.resource_string and "/" in elements[5]:
                 return True
             # / not being present in either means it's a bucket in both so it matches
             elif "/" not in self.resource_string and "/" not in elements[5]:

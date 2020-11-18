@@ -145,3 +145,51 @@ class ArnsTestCase(unittest.TestCase):
         self.assertFalse(does_arn_match(this_arn, stream))
         self.assertFalse(does_arn_match(this_arn, backup))
         self.assertFalse(does_arn_match(this_arn, global_table))
+
+
+class ArnPathTestCase(unittest.TestCase):
+    # When paths are used
+    def test_ssm_paths(self):
+        parameter_1 = ARN("arn:aws:ssm:::parameter/dev/foo/bar*")
+        parameter_2 = "arn:aws:ssm:::parameter/dev"
+        print(parameter_1.same_resource_type(parameter_2))
+        self.assertTrue(parameter_1.same_resource_type(parameter_2))
+
+
+    # When confusing ARNs that look like paths but are not actually paths are used
+    def test_dynamo_db_non_paths(self):
+        backup_arn = "arn:aws:dynamodb:us-east-1:123456789123:table/mytable/backup/mybackup"
+        backup_raw_arn = "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/backup/${BackupName}"
+
+        table_arn = "arn:aws:dynamodb:us-east-1:123456789123:table/mytable"
+        table_raw_arn = "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}"
+
+        parameter_arn_with_path = "arn:aws:ssm:::parameter/dev/foo/bar*"
+        parameter_arn_without_path = "arn:aws:ssm:::parameter/dev"
+        parameter_raw_arn = "arn:${Partition}:ssm:${Region}:${Account}:parameter/${FullyQualifiedParameterName}"
+
+        s3_object_with_path = "arn:aws:s3:::foo/bar/baz"
+        s3_object_without_path = "arn:aws:s3:::foo/bar"
+
+        s3_object_raw_arn = "arn:${Partition}:s3:::${BucketName}/${ObjectName}"
+        s3_bucket_raw_arn = "arn:${Partition}:s3:::${BucketName}"
+
+        ecr_raw_arn = "arn:${Partition}:ecr:${Region}:${Account}:repository/${RepositoryName}"
+        ecr_arn_with_path = "arn:aws:ecr:*:*:repository/foo/bar"
+        ecr_arn_without_path = "arn:aws:ecr:*:*:repository/foo"
+
+        self.assertTrue(does_arn_match(backup_arn, backup_raw_arn))
+        self.assertTrue(does_arn_match(table_arn, table_raw_arn))
+        self.assertFalse(does_arn_match(table_arn, backup_raw_arn))
+        self.assertFalse(does_arn_match(backup_arn, table_raw_arn))
+
+        self.assertTrue(does_arn_match(parameter_arn_with_path, parameter_raw_arn))
+        self.assertTrue(does_arn_match(parameter_arn_without_path, parameter_raw_arn))
+
+        self.assertTrue(does_arn_match(s3_object_without_path, s3_object_raw_arn))
+        self.assertTrue(does_arn_match(s3_object_with_path, s3_object_raw_arn))
+        self.assertFalse(does_arn_match(s3_object_with_path, s3_bucket_raw_arn))
+        self.assertFalse(does_arn_match(s3_object_without_path, s3_bucket_raw_arn))
+
+        self.assertTrue(does_arn_match(ecr_arn_with_path, ecr_raw_arn))
+        self.assertTrue(does_arn_match(ecr_arn_without_path, ecr_raw_arn))
