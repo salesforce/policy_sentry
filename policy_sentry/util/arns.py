@@ -135,10 +135,7 @@ class ARN:
             logger.debug("Special type: %s", resource_path_arn_in_database)
             # handling special case table/${TableName}
             if resource_string_arn_in_database in ["table/${TableName}", "${BucketName}"]:
-                if len(self.resource_string.split('/')) == len(elements[5].split('/')):
-                    return True
-                else:
-                    return False
+                return len(self.resource_string.split('/')) == len(elements[5].split('/'))
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
