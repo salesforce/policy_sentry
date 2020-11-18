@@ -151,7 +151,7 @@ class ArnPathTestCase(unittest.TestCase):
     # When paths are used
     def test_ssm_paths(self):
         parameter_1 = ARN("arn:aws:ssm:::parameter/dev/foo/bar*")
-        parameter_2 = ARN("arn:aws:ssm:::parameter/dev")
+        parameter_2 = "arn:aws:ssm:::parameter/dev"
         print(parameter_1.same_resource_type(parameter_2))
         self.assertTrue(parameter_1.same_resource_type(parameter_2))
 

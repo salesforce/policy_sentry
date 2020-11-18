@@ -360,4 +360,4 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # result = write_policy_with_template(crud_template)
         # print(json.dumps(result, indent=4))
         arn = ARN("arn:aws:ssm:::parameter/dev/foo/bar*")
-        print(arn.same_resource_type("arn:aws:ssm:::parameter/dev"))
+        self.assertTrue(arn.same_resource_type("arn:aws:ssm:::parameter/dev"))

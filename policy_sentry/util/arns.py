@@ -107,32 +107,39 @@ class ARN:
             if i != "":
                 non_empty_arn_format_list.append(i)
 
+        lower_resource_string = list(map(lambda x:x.lower(),split_resource_string_to_test))
         for i in non_empty_arn_format_list:
             # if i.lower() in [x.lower() for x in split_resource_string_to_test]:
-            if i.lower() not in split_resource_string_to_test:
+            if i.lower() not in lower_resource_string:
                 return False
 
         # 4c: See if the non-normalized fields match
-        # for i in range(len(arn_format_list)):
-        #     # If the field is not normalized to empty string, then make sure the resource type segments match
-        #     # So, using table/${TableName}/backup/${BackupName} as an example:
-        #     # table should match, backup should match,
-        #     # and length of the arn_format_list should be the same as split_resource_string_to_test
-        #     # If all conditions match, then the ARN format is the same.
-        #     if arn_format_list[i] != "":
-        #         if arn_format_list[i] == split_resource_string_to_test[i]:
-        #             pass
-        #         elif split_resource_string_to_test[i] == "*":
-        #             pass
-        #         else:
-        #             return False
+        for i in range(len(arn_format_list)):
+            # If the field is not normalized to empty string, then make sure the resource type segments match
+            # So, using table/${TableName}/backup/${BackupName} as an example:
+            # table should match, backup should match,
+            # and length of the arn_format_list should be the same as split_resource_string_to_test
+            # If all conditions match, then the ARN format is the same.
+            if arn_format_list[i] != "":
+                if arn_format_list[i] == split_resource_string_to_test[i]:
+                    pass
+                elif split_resource_string_to_test[i] == "*":
+                    pass
+                else:
+                    return False
 
         # 4. Special type for S3 bucket objects and CodeCommit repos
         # Note: Each service can only have one of these, so these are definitely exceptions
-        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}"]
+        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}", "table/${TableName}"]
         resource_path_arn_in_database = elements[5]
         if resource_path_arn_in_database in exclusion_list:
             logger.debug("Special type: %s", resource_path_arn_in_database)
+            # handling special case table/${TableName}
+            if resource_string_arn_in_database == "table/${TableName}":
+                if len(self.resource_string.split('/')) == len(elements[5].split('/')):
+                    return True
+                else:
+                    return False
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
