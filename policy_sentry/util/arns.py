@@ -109,7 +109,6 @@ class ARN:
 
         lower_resource_string = list(map(lambda x:x.lower(),split_resource_string_to_test))
         for i in non_empty_arn_format_list:
-            # if i.lower() in [x.lower() for x in split_resource_string_to_test]:
             if i.lower() not in lower_resource_string:
                 return False
 
@@ -130,12 +129,12 @@ class ARN:
 
         # 4. Special type for S3 bucket objects and CodeCommit repos
         # Note: Each service can only have one of these, so these are definitely exceptions
-        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}", "table/${TableName}"]
+        exclusion_list = ["${ObjectName}", "${RepositoryName}", "${BucketName}", "table/${TableName}", "${BucketName}/${ObjectName}"]
         resource_path_arn_in_database = elements[5]
         if resource_path_arn_in_database in exclusion_list:
             logger.debug("Special type: %s", resource_path_arn_in_database)
             # handling special case table/${TableName}
-            if resource_string_arn_in_database == "table/${TableName}":
+            if resource_string_arn_in_database in ["table/${TableName}", "${BucketName}"]:
                 if len(self.resource_string.split('/')) == len(elements[5].split('/')):
                     return True
                 else:
@@ -143,7 +142,7 @@ class ARN:
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
-            if "/" in self.resource_string and "/" in elements[5]:
+            elif "/" in self.resource_string and "/" in elements[5]:
                 return True
             # / not being present in either means it's a bucket in both so it matches
             elif "/" not in self.resource_string and "/" not in elements[5]:

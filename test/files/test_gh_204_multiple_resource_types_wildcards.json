@@ -117,6 +117,7 @@
             "Effect": "Allow",
             "Action": [
                 "rds:AddRoleToDBCluster",
+                "rds:ApplyPendingMaintenanceAction",
                 "rds:BacktrackDBCluster",
                 "rds:CreateDBCluster",
                 "rds:CreateDBClusterEndpoint",
@@ -361,8 +362,20 @@
             "Effect": "Allow",
             "Action": [
                 "rds:DescribeDBClusterBacktracks",
+                "rds:DescribeDBClusterEndpoints",
                 "rds:DescribeDBClusters",
-                "rds:DescribeDBProxyTargets"
+                "rds:DescribeDBProxyTargets",
+                "rds:DescribePendingMaintenanceActions"
+            ],
+            "Resource": [
+                "arn:aws:rds:us-east-1:123456789012:*:*"
+            ]
+        },
+        {
+            "Sid": "RdsListClusterendpoint",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeDBClusterEndpoints"
             ],
             "Resource": [
                 "arn:aws:rds:us-east-1:123456789012:*:*"
@@ -383,19 +396,8 @@
             "Sid": "RdsListClustersnapshot",
             "Effect": "Allow",
             "Action": [
-                "rds:DescribeDBClusterSnapshotAttributes"
-            ],
-            "Resource": [
-                "arn:aws:rds:us-east-1:123456789012:*:*"
-            ]
-        },
-        {
-            "Sid": "RdsListPg",
-            "Effect": "Allow",
-            "Action": [
-                "rds:DescribeDBEngineVersions",
-                "rds:DescribeDBParameterGroups",
-                "rds:DescribeDBParameters"
+                "rds:DescribeDBClusterSnapshotAttributes",
+                "rds:DescribeDBClusterSnapshots"
             ],
             "Resource": [
                 "arn:aws:rds:us-east-1:123456789012:*:*"
@@ -405,11 +407,24 @@
             "Sid": "RdsListDb",
             "Effect": "Allow",
             "Action": [
+                "rds:DescribeDBInstanceAutomatedBackups",
+                "rds:DescribeDBInstances",
                 "rds:DescribeDBLogFiles",
                 "rds:DescribeDBProxyTargets",
                 "rds:DescribeDBSnapshots",
                 "rds:DescribePendingMaintenanceActions",
                 "rds:DescribeValidDBInstanceModifications"
+            ],
+            "Resource": [
+                "arn:aws:rds:us-east-1:123456789012:*:*"
+            ]
+        },
+        {
+            "Sid": "RdsListPg",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeDBParameterGroups",
+                "rds:DescribeDBParameters"
             ],
             "Resource": [
                 "arn:aws:rds:us-east-1:123456789012:*:*"
@@ -473,6 +488,16 @@
             "Effect": "Allow",
             "Action": [
                 "rds:DescribeEventSubscriptions"
+            ],
+            "Resource": [
+                "arn:aws:rds:us-east-1:123456789012:*:*"
+            ]
+        },
+        {
+            "Sid": "RdsListGlobalcluster",
+            "Effect": "Allow",
+            "Action": [
+                "rds:DescribeGlobalClusters"
             ],
             "Resource": [
                 "arn:aws:rds:us-east-1:123456789012:*:*"
