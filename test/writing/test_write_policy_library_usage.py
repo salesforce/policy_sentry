@@ -336,20 +336,31 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             'list': ["arn:aws:rds:us-east-1:123456789012:*:*"]
         }
 
-        expected_results_file = os.path.abspath(
-            os.path.join(
-                os.path.dirname(__file__),
-                os.path.pardir,
-                "files",
-                "test_gh_204_multiple_resource_types_wildcards.json",
-            )
-        )
-
-        with open(expected_results_file, "r") as yaml_file:
-            expected_results = json.load(yaml_file)
-        result = write_policy_with_template(crud_template)
-        # print(json.dumps(result, indent=4))
-        self.assertDictEqual(result, expected_results)
+        # Let's only check the read level ones, or that will get exhausting.
+        expected_statement_ids = [
+            "RdsReadDb",
+            "RdsReadEs",
+            "RdsReadOg",
+            "RdsReadPg",
+            "RdsReadProxy",
+            "RdsReadRi",
+            "RdsReadSecgrp",
+            "RdsReadSnapshot",
+            "RdsReadSubgrp",
+            "RdsReadTargetgroup",
+            "MultMultNone",
+        ]
+        # In the real world, we would want to minimize, but that would just result in two different Sids:
+        #   RdsMult
+        #   MultMultNone
+        # And in this test, we are trying to verify them individually to make sure they are not excluded.
+        # So we will skip --minimize just for this test.
+        policy = write_policy_with_template(crud_template)
+        statement_ids = []
+        for statement in policy.get("Statement"):
+            statement_ids.append(statement.get("Sid"))
+        for expected_sid in expected_statement_ids:
+            self.assertTrue(expected_sid in statement_ids)
 
     def test_gh_237_ssm_arns_with_paths(self):
         """test_gh_237_ssm_arns_with_paths: Test GitHub issue #204 with resource ARN paths"""
