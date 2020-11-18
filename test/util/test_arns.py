@@ -188,23 +188,8 @@ class ArnPathTestCase(unittest.TestCase):
 
         self.assertTrue(does_arn_match(s3_object_without_path, s3_object_raw_arn))
         self.assertTrue(does_arn_match(s3_object_with_path, s3_object_raw_arn))
-        # self.assertFalse(does_arn_match(s3_object_with_path, s3_bucket_raw_arn))
-        # self.assertFalse(does_arn_match(s3_object_without_path, s3_bucket_raw_arn))
+        self.assertFalse(does_arn_match(s3_object_with_path, s3_bucket_raw_arn))
+        self.assertFalse(does_arn_match(s3_object_without_path, s3_bucket_raw_arn))
 
         self.assertTrue(does_arn_match(ecr_arn_with_path, ecr_raw_arn))
         self.assertTrue(does_arn_match(ecr_arn_without_path, ecr_raw_arn))
-
-        {"arn:aws:dynamodb:us-east-1:123456789123:table/mytable/backup/mybackup", "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/backup/${BackupName}", True}
-        {"arn:aws:dynamodb:us-east-1:123456789123:table/mytable", "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}", True}
-
-        {"arn:aws:dynamodb:us-east-1:123456789123:table/mytable/backup/mybackup", "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}", False}
-        {"arn:aws:dynamodb:us-east-1:123456789123:table/mytable", "arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/backup/${BackupName}", False}
-
-        {"arn:aws:ssm:::parameter/dev/foo/bar*", "arn:${Partition}:ssm:${Region}:${Account}:parameter/${FullyQualifiedParameterName}", True}
-        {"arn:aws:ssm:::parameter/dev", "arn:${Partition}:ssm:${Region}:${Account}:parameter/${FullyQualifiedParameterName}", True}
-
-        {"arn:aws:s3:::foo/bar/baz", "arn:${Partition}:s3:::${BucketName}/${ObjectName}", True}
-        {"arn:aws:s3:::foo/bar/baz", "arn:${Partition}:s3:::${BucketName}", False}
-
-        {"arn:aws:ecr:*:*:repository/foo/bar", "arn:${Partition}:ecr:${Region}:${Account}:repository/${RepositoryName}", True}
-        {"arn:aws:ecr:*:*:repository/foo", "arn:${Partition}:ecr:${Region}:${Account}:repository/${RepositoryName}", True}
