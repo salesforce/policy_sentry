@@ -49,17 +49,20 @@ wildcard-only:
 policy_sentry write-policy --input-file crud.yml --minimize 0
 ```
 
-The output has **749 characters** (not counting whitespaces) and will look like this:
+The output has **500 characters** (not counting whitespaces) and will look like this:
 
 ```json
 {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "SsmReadParameter",
+            "Sid": "SsmMultParametermyparameter",
             "Effect": "Allow",
             "Action": [
                 "ssm:getpar*",
+                "ssm:deletepar*",
+                "ssm:la*",
+                "ssm:putp*",
                 "ssm:listt*"
             ],
             "Resource": [
@@ -67,34 +70,14 @@ The output has **749 characters** (not counting whitespaces) and will look like 
             ]
         },
         {
-            "Sid": "SsmWriteParameter",
-            "Effect": "Allow",
-            "Action": [
-                "ssm:deletepar*",
-                "ssm:la*",
-                "ssm:putp*"
-            ],
-            "Resource": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter"
-            ]
-        },
-        {
-            "Sid": "SecretsmanagerPermissionsmanagementSecret",
-            "Effect": "Allow",
-            "Action": [
-                "secretsmanager:deleter*",
-                "secretsmanager:putr*"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-            ]
-        },
-        {
-            "Sid": "SecretsmanagerTaggingSecret",
+            "Sid": "SecretsmanagerMultSecretmysecret",
             "Effect": "Allow",
             "Action": [
                 "secretsmanager:t*",
-                "secretsmanager:un*"
+                "secretsmanager:un*",
+                "secretsmanager:deleter*",
+                "secretsmanager:putr*",
+                "secretsmanager:v*"
             ],
             "Resource": [
                 "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
@@ -115,7 +98,11 @@ policy_sentry write-policy --input-file crud.yml
 
 * The output has **935 characters** and will look like this:
 
-```json
+<details open>
+<summary>policy_sentry query action-table --service all</summary>
+<br>
+<pre>
+<code>
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -170,7 +157,9 @@ policy_sentry write-policy --input-file crud.yml
         }
     ]
 }
-```
+</code>
+</pre>
+</details>
 
 
 ## Conclusion
