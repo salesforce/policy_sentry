@@ -12,6 +12,7 @@ from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
 
+
 # adapted from
 # https://stackoverflow.com/questions/40753999/python-click-make-option-value-optional
 
@@ -19,14 +20,18 @@ class RegisterLengthOption(click.Option):
     """ Mark this option as getting a _length option """
     register_length = True
 
+
 class RegisterLengthOptionHelp(click.Option):
     """ Translate help for the hidden _length suffix """
+
     def get_help_record(self, ctx):
         help_text = super().get_help_record(ctx)
         return (help_text[0].replace('_length ', ' '),) + help_text[1:]
 
+
 class RegisterMinimizeLengthCommand(click.Command):
     """ Translate any opt= to opt_length= as needed """
+
     def parse_args(self, ctx, args):
         options = [o for o in ctx.command.params
                    if getattr(o, 'register_length', None)]
@@ -37,12 +42,12 @@ class RegisterMinimizeLengthCommand(click.Command):
             if a[0] in prefixes:
                 if len(a) > 1:
                     args[i] = a[0]
-                    args.insert(i+1, a[0] + '_length=' + a[1])
+                    args.insert(i + 1, a[0] + '_length=' + a[1])
                 else:
                     # check if next argument is naked
-                    if len(args) > i+1 and not args[i+1].startswith('--'):
-                        value = args[i+1]
-                        args[i+1] = a[0] + '_length=' + value
+                    if len(args) > i + 1 and not args[i + 1].startswith('--'):
+                        value = args[i + 1]
+                        args[i + 1] = a[0] + '_length=' + value
         return super().parse_args(ctx, args)
 
 
@@ -52,12 +57,12 @@ class RegisterMinimizeLengthCommand(click.Command):
 )
 # pylint: disable=duplicate-code
 @click.option(
-    "--input-file",
+    "--input-file", "-i",
     type=str,
     help="Path of the YAML File used for generating policies",
 )
 @click.option(
-    "--minimize",
+    "--minimize", "-m",
     cls=RegisterLengthOption,
     is_flag=True,
     required=False,
@@ -82,7 +87,7 @@ class RegisterMinimizeLengthCommand(click.Command):
 @click.option(
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
+                      case_sensitive=False))
 def write_policy(input_file, minimize, minimize_length, fmt, verbose):
     """
     Write least-privilege IAM policies, restricting all actions to resource ARNs.
@@ -111,7 +116,7 @@ def write_policy(input_file, minimize, minimize_length, fmt, verbose):
         indent = 4 if fmt == "json" else None
         policy_str = json.dumps(policy, indent=indent)
         if fmt == "terraform":
-            obj = { 'policy': policy_str }
+            obj = {'policy': policy_str}
             policy_str = json.dumps(obj)
     print(policy_str)
 

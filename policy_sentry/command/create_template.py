@@ -16,13 +16,13 @@ logger = logging.getLogger(__name__)
     short_help="Create write-policy YML template files",
 )
 @click.option(
-    "--output-file",
+    "--output-file", "-o",
     type=str,
     required=True,
     help="Relative path to output file where we want to store policy_sentry YML files.",
 )
 @click.option(
-    "--template-type",
+    "--template-type", "-t",
     type=click.Choice(["actions", "crud"], case_sensitive=False),
     required=True,
     help="Type of write_policy template to create - actions or CRUD. Case insensitive.",
