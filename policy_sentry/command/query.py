@@ -39,32 +39,35 @@ def query():
 
 @query.command(
     short_help="Query the action table based on access levels, conditions, or actions that only support wildcard "
-    "resources."
+               "resources."
 )
 @click.option(
-    "--service", type=str, required=True, help="Filter according to AWS service."
+    "--service", "-s",
+    type=str,
+    required=True,
+    help="Filter according to AWS service."
 )
 @click.option(
-    "--name",
+    "--name", "-n",
     type=str,
     required=False,
     help='The name of IAM Action. For example, if the action is "iam:ListUsers", supply "ListUsers" here.',
 )
 @click.option(
-    "--access-level",
+    "--access-level", "-a",
     type=click.Choice(["read", "write", "list", "tagging", "permissions-management"]),
     required=False,
     help="Filter according to CRUD levels. "
-    "Acceptable values are read, write, list, tagging, permissions-management",
+         "Acceptable values are read, write, list, tagging, permissions-management",
 )
 @click.option(
-    "--condition",
+    "--condition", "-c",
     type=str,
     required=False,
     help="Supply a condition key to show a list of all IAM actions that support the condition key.",
 )
 @click.option(
-    "--resource-type",
+    "--resource-type", "-r",
     type=str,
     required=False,
     help="Supply a resource type to show a list of all IAM actions that support the resource type.",
@@ -79,7 +82,7 @@ def query():
 @click.option(
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
+                      case_sensitive=False))
 def action_table(name, service, access_level, condition, resource_type, fmt, verbose):
     """Query the Action Table from the Policy Sentry database"""
     if verbose:
@@ -95,7 +98,8 @@ def query_action_table(
     """Query the Action Table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
-        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+        logger.info(
+            f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
     else:
         # Otherwise, leverage the datastore inside the python package
         logger.debug("Leveraging the bundled IAM Definition.")
@@ -171,19 +175,22 @@ def query_action_table(
 
 @query.command(
     short_help="Query the ARN table to show RAW ARNs, like `aws:s3:::bucket/object`. "
-    "Use --list-arn-types ARN types, like `object`."
+               "Use --list-arn-types ARN types, like `object`."
 )
 @click.option(
-    "--service", type=str, required=True, help="Filter according to AWS service."
+    "--service", "-s",
+    type=str,
+    required=True,
+    help="Filter according to AWS service."
 )
 @click.option(
-    "--name",
+    "--name", "-n",
     type=str,
     required=False,
     help="The short name of the resource ARN type. For example, `bucket` under service `s3`.",
 )
 @click.option(
-    "--list-arn-types",
+    "--list-arn-types", "-l",
     is_flag=True,
     required=False,
     help="Show the short names of ARN Types. If empty, this will show RAW ARNs only.",
@@ -198,7 +205,7 @@ def query_action_table(
 @click.option(
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
+                      case_sensitive=False))
 def arn_table(name, service, list_arn_types, fmt="json", verbose=None):
     """Query the ARN Table from the Policy Sentry database"""
     if verbose:
@@ -210,7 +217,8 @@ def arn_table(name, service, list_arn_types, fmt="json", verbose=None):
 def query_arn_table(name, service, list_arn_types, fmt):
     """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
-        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+        logger.info(
+            f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
     else:
         # Otherwise, leverage the datastore inside the python package
         logger.debug("Leveraging the bundled IAM Definition.")
@@ -236,14 +244,17 @@ def query_arn_table(name, service, list_arn_types, fmt):
 
 @query.command(short_help="Query the condition table.")
 @click.option(
-    "--name",
+    "--name", "-n",
     type=str,
     required=False,
     help="Get details on a specific condition key. Leave this blank to get a list of all condition keys "
-    "available to the service.",
+         "available to the service.",
 )
 @click.option(
-    "--service", type=str, required=True, help="Filter according to AWS service."
+    "--service", "-s",
+    type=str,
+    required=True,
+    help="Filter according to AWS service."
 )
 @click.option(
     "--fmt",
@@ -255,7 +266,7 @@ def query_arn_table(name, service, list_arn_types, fmt):
 @click.option(
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
+                      case_sensitive=False))
 def condition_table(name, service, fmt, verbose):
     """Query the condition table from the Policy Sentry database"""
     if verbose:
@@ -268,7 +279,8 @@ def query_condition_table(name, service, fmt="json"):
     """Query the condition table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
-        logger.info(f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+        logger.info(
+            f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
     else:
         # Otherwise, leverage the datastore inside the python package
         logger.debug("Leveraging the bundled IAM Definition.")

@@ -39,8 +39,8 @@ logger = logging.getLogger(__name__)
     required=False,
     default=False,
     help="Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs "
-    "in the Git repository are behind the live docs and you need to use the latest version of the docs right "
-    "now.",
+         "in the Git repository are behind the live docs and you need to use the latest version of the docs right "
+         "now.",
 )
 @click.option(
     "--build",
@@ -48,12 +48,12 @@ logger = logging.getLogger(__name__)
     required=False,
     default=False,
     help="Build the IAM data file from the HTML files rather than copying the data file from "
-    "the python package. Defaults to false",
+         "the python package. Defaults to false",
 )
 @click.option(
     '--verbose', '-v',
     type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
+                      case_sensitive=False))
 def initialize_command(access_level_overrides_file, fetch, build, verbose):
     """
     CLI command for initializing the local data file
