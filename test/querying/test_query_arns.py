@@ -26,15 +26,17 @@ class QueryArnsTestCase(unittest.TestCase):
 
     def test_get_raw_arns_for_service(self):
         """querying.arns.get_raw_arns_for_service"""
-        desired_output = [
+        expected_results = [
             "arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
             "arn:${Partition}:s3:::${BucketName}",
             "arn:${Partition}:s3:::${BucketName}/${ObjectName}",
             "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
+            "arn:${Partition}:s3:${Region}:${Account}:storage-lens/${ConfigId}"
         ]
-        output = get_raw_arns_for_service("s3")
+        results = get_raw_arns_for_service("s3")
         self.maxDiff = None
-        self.assertListEqual(output, desired_output)
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in results)
 
     def test_get_arn_types_for_service(self):
         """querying.arns.get_arn_types_for_service: Tests function that grabs arn_type and raw_arn pairs"""
@@ -45,9 +47,9 @@ class QueryArnsTestCase(unittest.TestCase):
             "job": "arn:${Partition}:s3:${Region}:${Account}:job/${JobId}",
         }
         results = get_arn_types_for_service("s3")
-        # print(json.dumps(results, indent=4))
         self.maxDiff = None
-        self.assertEqual(results, expected_results)
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in results)
 
     def test_get_arn_type_details(self):
         """querying.arns.get_arn_type_details: Tests function that grabs details about a specific ARN name"""
