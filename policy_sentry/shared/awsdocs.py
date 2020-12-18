@@ -75,7 +75,7 @@ def update_html_docs_directory(html_docs_destination):
     (2) the config directory
     :return:
     """
-    link_url_prefix = "https://docs.aws.amazon.com/IAM/latest/UserGuide/"
+    link_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference/"
     initial_html_filenames_list = (
         get_links_from_base_actions_resources_conditions_page()
     )
@@ -157,7 +157,7 @@ def create_database(destination_directory, access_level_overrides_file):
     """
 
     # Create the docs directory if it doesn't exist
-    Path(os.path.join(destination_directory, "data", "docs")).mkdir(
+    Path(os.path.join(destination_directory, "docs")).mkdir(
         parents=True, exist_ok=True
     )
 
@@ -398,9 +398,7 @@ def create_database(destination_directory, access_level_overrides_file):
                 service_prefix: service_schema
             }
             schema.update(this_service_schema)
-            # schema.append(service_schema)
 
-    # schema.sort(key=lambda x: x["prefix"])
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
     with open(iam_definition_file, "w") as file:
         json.dump(schema, file, indent=4)

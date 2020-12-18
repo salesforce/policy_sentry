@@ -13,7 +13,7 @@ from policy_sentry.shared.awsdocs import create_database, update_html_docs_direc
 from policy_sentry.shared.constants import (
     BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_DATA_DIRECTORY,
-    # BUNDLED_DATASTORE_FILE_PATH,
+    BUNDLED_DATASTORE_FILE_PATH,
     BUNDLED_HTML_DIRECTORY_PATH
 )
 
@@ -25,9 +25,9 @@ if __name__ == '__main__':
     update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
     # Can't use the version of the same variable from the policy_sentry/shares/constants.py
     # file because of some syspath nonsense.
-    BUNDLED_DATASTORE_FILE_PATH = os.path.join(
-        str(Path(os.path.dirname(__file__))), "policy_sentry", "shared", "data", "iam-definition.json"
-    )
+    # BUNDLED_DATASTORE_FILE_PATH = os.path.join(
+    #     str(Path(os.path.dirname(__file__))), "policy_sentry", "shared", "data", "iam-definition.json"
+    # )
     print("Data store file path: " + str(BUNDLED_DATASTORE_FILE_PATH))
     if os.path.exists(BUNDLED_DATASTORE_FILE_PATH):
         print("Datastore exists. Deleting then rebuilding...")
@@ -36,4 +36,11 @@ if __name__ == '__main__':
     create_database(BUNDLED_DATA_DIRECTORY, BUNDLED_ACCESS_OVERRIDES_FILE)
     # print("Exporting the IAM database to CSV")
     # write_iam_database_to_csv()
+
+    print("Checking the size of the IAM database as a sanity check.")
+    file_size = os.path.getsize(BUNDLED_DATASTORE_FILE_PATH)
+    # 1 Megabyte == 1024*1024 Bytes
+    file_size = file_size/(1024*1024)
+    print(f"IAM Definition file size in MB: {file_size} MB")
+    assert file_size > 5
 

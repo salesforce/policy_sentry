@@ -12,7 +12,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         """test_determine_actions_to_expand_not_upper_camelcase: The nOtCaMeLcAsE version of the same test"""
         action_list = ["ecr:pUt*"]
         self.maxDiff = None
-        desired_result = [
+        expected_results = [
             "ecr:PutImage",
             "ecr:PutImageScanningConfiguration",
             "ecr:PutImageTagMutability",
@@ -21,10 +21,9 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         result = determine_actions_to_expand(action_list)
         print(result)
         self.maxDiff = None
-        self.assertListEqual(
-            sorted(determine_actions_to_expand(action_list)),
-            sorted(desired_result),
-        )
+        results = determine_actions_to_expand(action_list)
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in results)
 
     def test_determine_actions_to_expand(self):
         """
@@ -33,7 +32,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         """
         action_list = ["ecr:*"]
         self.maxDiff = None
-        desired_result = [
+        expected_results = [
             "ecr:BatchCheckLayerAvailability",
             "ecr:BatchDeleteImage",
             "ecr:BatchGetImage",
@@ -66,10 +65,9 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         ]
         # print(determine_actions_to_expand(action_list))
         self.maxDiff = None
-        self.assertListEqual(
-            sorted(determine_actions_to_expand(action_list)),
-            sorted(desired_result),
-        )
+        results = determine_actions_to_expand(action_list)
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in results)
 
     def test_analyze_by_access_level(self):
         """test_analyze_by_access_level: Test out calling this as a library"""
