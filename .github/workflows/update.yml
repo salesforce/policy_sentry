@@ -31,7 +31,7 @@ jobs:
           cp -f /tmp/.policy_sentry/iam-definition.json $(pwd)/policy_sentry/shared/data/iam-definition.json
           cp -rf /tmp/.policy_sentry/data/docs $(pwd)/policy_sentry/shared/data/
       - name: PR if files were updated
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update database
           title: 'Updates database'
