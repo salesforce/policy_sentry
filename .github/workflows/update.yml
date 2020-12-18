@@ -18,7 +18,7 @@ jobs:
       - name: install deps
         run: pip install requests schema PyYAML click click_log beautifulsoup4
       - name: install policy_sentry
-        run: echo "::set-env name=PYTHONPATH::$(pwd)"
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
       - name: Run initialize
         run: |
           python .github/scripts/update_data.py
