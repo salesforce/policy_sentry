@@ -79,6 +79,7 @@ def get_action_data(service, action_name):
                     "action": f"{service_prefix_data['prefix']}:{this_action_name}",
                     "description": this_action_data["description"],
                     "access_level": this_action_data["access_level"],
+                    "api_documentation_link": this_action_data.get("api_documentation_link"),
                     "resource_arn_format": resource_arn_format,
                     "condition_keys": condition_keys,
                     "dependent_actions": dependent_actions,
@@ -448,3 +449,23 @@ def get_privilege_info(service_prefix, action):
     except KeyError as k_e:
         raise Exception("Unknown action {}:{}".format(service_prefix, action)) from k_e
     return privilege_info
+
+
+def get_api_documentation_link_for_action(service_prefix, action_name):
+    """
+    Given a service, like `s3` and an action name, like `ListBucket`, return the documentation link about that specific
+    API call.
+
+    Arguments:
+        service_prefix: The service prefix, like `s3`
+        action_name: An action name, like `ListBucket`
+
+    Returns:
+        List: Link to the documentation about that API call
+    """
+    rows = get_action_data(service_prefix, action_name)
+    result = None
+    for row in rows.get(service_prefix):
+        if row.get("api_documentation_link"):
+            result = row.get("api_documentation_link")
+    return result

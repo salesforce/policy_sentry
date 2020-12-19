@@ -316,6 +316,53 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonec2imagebuilder-CreateContainerRecipe">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateContainerRecipe.html">
+                 CreateContainerRecipe
+                </a>
+               </td>
+               <td rowspan="2">
+                Create a new Container Recipe
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 imagebuilder:GetComponent
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonec2imagebuilder-CreateDistributionConfiguration">
                 </a>
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateDistributionConfiguration.html">
@@ -587,6 +634,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2imagebuilder-DeleteContainerRecipe">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteContainerRecipe.html">
+                 DeleteContainerRecipe
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a container recipe
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2imagebuilder-DeleteDistributionConfiguration">
                 </a>
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteDistributionConfiguration.html">
@@ -759,6 +832,58 @@
                 <p>
                  <a href="#amazonec2imagebuilder-component">
                   component*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2imagebuilder-GetContainerRecipe">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetContainerRecipe.html">
+                 GetContainerRecipe
+                </a>
+               </td>
+               <td>
+                View details about a container recipe
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2imagebuilder-GetContainerRecipePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetContainerRecipePolicy.html">
+                 GetContainerRecipePolicy
+                </a>
+               </td>
+               <td>
+                View the resource policy associated with a container recipe
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe*
                  </a>
                 </p>
                </td>
@@ -998,6 +1123,27 @@
                </td>
                <td>
                 List the component versions owned by or shared with your account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2imagebuilder-ListContainerRecipes">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html">
+                 ListContainerRecipes
+                </a>
+               </td>
+               <td>
+                List the container recipes owned by or shared with your account
                </td>
                <td>
                 List
@@ -1298,6 +1444,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2imagebuilder-PutContainerRecipePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_PutContainerRecipePolicy.html">
+                 PutContainerRecipePolicy
+                </a>
+               </td>
+               <td>
+                Set the resource policy associated with a container recipe
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2imagebuilder-PutImagePolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_PutImagePolicy.html">
@@ -1378,23 +1550,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="7">
+               <td rowspan="8">
                 <a id="amazonec2imagebuilder-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Tag an Image Builder resource
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonec2imagebuilder-component">
                   component
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe
                  </a>
                 </p>
                </td>
@@ -1492,23 +1677,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="7">
+               <td rowspan="8">
                 <a id="amazonec2imagebuilder-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Untag an Image Builder resource
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonec2imagebuilder-component">
                   component
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-containerRecipe">
+                  containerRecipe
                  </a>
                 </p>
                </td>
@@ -1984,6 +2182,47 @@
                   {
                  </span>
                  ImageRecipeVersion}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2imagebuilder-containerRecipe">
+                </a>
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ContainerRecipe.html">
+                 containerRecipe
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:imagebuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:container-recipe/$
+                 <span>
+                  {
+                 </span>
+                 ContainerRecipeName}/$
+                 <span>
+                  {
+                 </span>
+                 ContainerRecipeVersion}
                 </code>
                </td>
                <td>
