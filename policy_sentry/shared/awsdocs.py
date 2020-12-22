@@ -242,9 +242,13 @@ def create_database(destination_directory, access_level_overrides_file):
                     priv = ""
                     # Get the privilege
                     for link in cells[0].find_all("a"):
-                        if "href" not in link.attrs:
+                        if "href" not in link.attrs:  # pylint: disable=no-else-continue
                             # Skip the <a id='...'> tags
+                            api_documentation_link = None
                             continue
+                        else:
+                            api_documentation_link = link.attrs.get('href')
+                            print(api_documentation_link)
                         priv = chomp(link.text)
                     if priv == "":
                         priv = chomp(cells[0].text)
@@ -327,6 +331,7 @@ def create_database(destination_directory, access_level_overrides_file):
                         "description": description,
                         "access_level": access_level,
                         "resource_types": resource_types,
+                        "api_documentation_link": api_documentation_link
                     }
 
                     service_schema["privileges"][priv] = privilege_schema

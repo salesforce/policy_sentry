@@ -76,14 +76,14 @@ Local Unit Testing and Integration Testing:
 
 * File mapping: Unit test files map directly to the .py files in the Policy Sentry package
 * Folder mapping: Folder structure of the test files maps directly to the folder structure in the Policy Sentry package
-* GitHub issue mapping: Add unit tests that correspond directly to those GitHub issues to show that the fix work specifically for the issue raised. prefix test name with issue number. 
+* GitHub issue mapping: Add unit tests that correspond directly to those GitHub issues to show that the fix work specifically for the issue raised. prefix test name with issue number.
 For example: [test_gh_211_write_with_empty_access_level_lists](https://github.com/salesforce/policy_sentry/blob/0b3398a365f4cf0901bd779c6156207688e7858b/test/writing/test_write_policy_library_usage.py#L269) is prefixed with issue number 111.
-* Adaptable to IAM Definition changes: 
+* Adaptable to IAM Definition changes:
   * For tests that are dependent on current state of the IAM definition (aka the IAM Database, iam_definition.json), avoid doing equals comparision of the results with the expected_results.
   * Over time, as IAM definiton changes, chances are that such tests would fail.
   * Example: let's say that hypothetically the secretsmanager service had 4 actions at the "write" access level that could be restricted to the secret resource type. If I wrote the tests so that they tested the value of the generated policy, that works for the initial tests. But if AWS adds two new actions that can be restricted to that access level and resource type, then the tests would fail.
   * This only really applies for where the expected test values would be dependent on the current state of the IAM definition (aka the IAM Database, iam_definition.json) and the actions in there. So, validating the output of write-policy related commands, and query related commands.
-  * After I realized that, I started writing my tests so that the expected output that showed what actions you'd want would be in the comments instead of the expected_results, so the human knows what's going on. And then I would just check that the size of the array holding the actions is greater than or equal to the size that it is currently at. 
+  * After I realized that, I started writing my tests so that the expected output that showed what actions you'd want would be in the comments instead of the expected_results, so the human knows what's going on. And then I would just check that the size of the array holding the actions is greater than or equal to the size that it is currently at.
     So, in the secretsmanager example above, the test would probably just check that the size of the actions is greater than or equal to 4.
 
 
@@ -101,8 +101,7 @@ folder.
 ./utils/run_tests.sh
 ```
 
-It will execute all of the tests that would normally be run during the
-TravisCI build. If you want to see if it will pass TravisCI, you can
+It will execute all of the tests that would normally be run during the  build. If you want to see if it will pass GitHub actions, you can
 just run that quick command on your machine.
 
 Running the Test Suite

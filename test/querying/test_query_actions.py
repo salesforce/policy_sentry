@@ -16,7 +16,8 @@ from policy_sentry.querying.actions import (
     remove_actions_that_are_not_wildcard_arn_only,
     get_actions_matching_condition_key,
     get_actions_matching_arn,
-    get_actions_matching_arn_type
+    get_actions_matching_arn_type,
+    get_api_documentation_link_for_action
     # get_actions_matching_condition_crud_and_arn
 )
 from policy_sentry.writing.validate import check
@@ -109,6 +110,7 @@ class QueryActionsTestCase(unittest.TestCase):
                     "action": "ram:TagResource",
                     "description": "Tag the specified resources share",
                     "access_level": "Tagging",
+                    "api_documentation_link": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
                     "resource_arn_format": "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}",
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
@@ -121,6 +123,7 @@ class QueryActionsTestCase(unittest.TestCase):
                     "action": "ram:TagResource",
                     "description": "Tag the specified resources share",
                     "access_level": "Tagging",
+                    "api_documentation_link": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
                     "resource_arn_format": "*",
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
@@ -132,7 +135,7 @@ class QueryActionsTestCase(unittest.TestCase):
             ]
         }
         output = get_action_data("ram", "TagResource")
-        # print(json.dumps(output, indent=4))
+        print(json.dumps(output, indent=4))
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
@@ -516,3 +519,12 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertTrue(lb_v1_only_action in results)
         self.assertTrue(lb_v2_only_action in results)
 
+    def test_get_api_documentation_link_for_action(self):
+        """querying.actions.get_api_documentation_link_for_action"""
+        service_prefix = "cloud9"
+        action_name = "CreateEnvironmentEC2"
+        result = get_api_documentation_link_for_action(service_prefix, action_name)
+        print(result)
+        # Link should be: https://docs.aws.amazon.com/cloud9/latest/APIReference/API_CreateEnvironmentEC2.html
+        # We will just check the https and subdomain.domain in case they change the format in the future.
+        self.assertTrue("https://docs.aws.amazon.com" in result)
