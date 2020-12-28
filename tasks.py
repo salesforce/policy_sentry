@@ -182,7 +182,7 @@ def query_with_yaml(c):
         c.run('echo "Querying the action table"', pty=True)
         c.run('./policy_sentry/bin/cli.py query action-table --service ram --fmt yaml', pty=True)
         c.run('./policy_sentry/bin/cli.py query action-table --service ram --name tagresource --fmt yaml', pty=True)
-        c.run('./policy_sentry/bin/cli.py query action-table ''--service ram --access-level permissions-management --fmt yaml', pty=True)
+        c.run('./policy_sentry/bin/cli.py query action-table --service ram --access-level permissions-management --fmt yaml', pty=True)
         c.run('./policy_sentry/bin/cli.py query action-table --service ses --condition ses:FeedbackAddress --fmt yaml', pty=True)
         c.run('echo "Querying the ARN table"', pty=True)
         c.run('./policy_sentry/bin/cli.py query arn-table --service ssm --fmt yaml', pty=True)

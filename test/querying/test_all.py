@@ -4,6 +4,7 @@ from policy_sentry.querying.all import (
     get_all_service_prefixes,
     get_all_actions
 )
+from policy_sentry.command.query import query_action_table
 
 
 class QueryActionsTestCase(unittest.TestCase):
@@ -24,3 +25,28 @@ class QueryActionsTestCase(unittest.TestCase):
         # performance notes:
         # old: 0.112s (without sort)
         # new: 0.106s
+
+    def test_query_actions_with_access_level_and_wildcard_only(self):
+        service = "all"
+        resource_type = "*"
+        result = query_action_table(
+            service=service,
+            resource_type=resource_type,
+            name=None,
+            access_level="permissions-management",
+            condition=None
+        )
+        print(len(result))
+        self.assertTrue(len(result) > 200)
+
+    def test_GH_296_query_all_actions_with_wildcard_resources(self):
+        service = "all"
+        resource_type = "*"
+        result = query_action_table(
+            service=service,
+            resource_type=resource_type,
+            name=None,
+            access_level=None,
+            condition=None
+        )
+        self.assertTrue(len(result) > 3000)
