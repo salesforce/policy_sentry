@@ -18,7 +18,7 @@ def get_version():
             HERE,
             "policy_sentry",
             "bin",
-            "cli.py"
+            "version.py"
         )
     ).read()
     return VERSION_RE.search(init).group(1)
@@ -59,5 +59,4 @@ setuptools.setup(
     zip_safe=True,
     keywords='aws iam roles policy policies privileges security',
     python_requires='>=3.6',
-    # scripts=['policy_sentry/bin/policy_sentry'],
 )
