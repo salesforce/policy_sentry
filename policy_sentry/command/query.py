@@ -19,7 +19,8 @@ from policy_sentry.querying.actions import (
     get_action_data,
     get_actions_matching_condition_key,
     get_actions_with_arn_type_and_access_level,
-    get_actions_matching_arn_type
+    get_actions_matching_arn_type,
+    get_actions_that_support_wildcard_arns_only
 )
 from policy_sentry.querying.conditions import (
     get_condition_keys_for_service,
@@ -30,6 +31,20 @@ from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
 iam_definition_path = DATASTORE_FILE_PATH
+
+
+def print_list(output, fmt="json"):
+    """Common method on how to print a list, depending on whether the user requests JSON or YAML output"""
+    print(yaml.dump(output)) if fmt == "yaml" else [
+        print(json.dumps(output, indent=4))
+    ]
+
+
+def print_dict(output, fmt="json"):
+    """Common method on how to print a dict, depending on whether the user requests JSON or YAML output"""
+    print(yaml.dump(output)) if fmt == "yaml" else [
+        print(json.dumps(output, indent=4))
+    ]
 
 
 @click.group()
@@ -113,43 +128,37 @@ def query_action_table(
             for serv in all_services:
                 result = get_actions_with_access_level(serv, level)
                 output.extend(result)
-            print(yaml.dump(output)) if fmt == "yaml" else [
-                print(result) for result in output
-            ]
+            print_list(output=output, fmt=fmt)
         # Get a list of all services in the database
+        elif resource_type == "*":
+            print("ALL actions that do not support resource ARN constraints")
+            output = get_actions_that_support_wildcard_arns_only(service)
+            print_dict(output=output, fmt=fmt)
         else:
             print("All services in the database:\n")
             output = all_services
-            print(yaml.dump(output)) if fmt == "yaml" else [
-                print(item) for item in output
-            ]
+            print_list(output=output, fmt=fmt)
     elif name is None and access_level and not resource_type:
         print(
             f"All IAM actions under the {service} service that have the access level {access_level}:"
         )
         level = transform_access_level_text(access_level)
         output = get_actions_with_access_level(service, level)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     elif name is None and access_level and resource_type:
         print(
             f"{service} {access_level.upper()} actions that have the resource type {resource_type.upper()}:"
         )
         access_level = transform_access_level_text(access_level)
         output = get_actions_with_arn_type_and_access_level(service, resource_type, access_level)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     # Get a list of all IAM actions under the service that support the specified condition key.
     elif condition:
         print(
             f"IAM actions under {service} service that support the {condition} condition only:"
         )
         output = get_actions_matching_condition_key(service, condition)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     # Get a list of IAM Actions under the service that only support resources = "*"
     # (i.e., you cannot restrict it according to ARN)
     elif resource_type:
@@ -157,14 +166,10 @@ def query_action_table(
             f"IAM actions under {service} service that have the resource type {resource_type}:"
         )
         output = get_actions_matching_arn_type(service, resource_type)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     elif name and access_level is None:
         output = get_action_data(service, name)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     else:
         # Get a list of all IAM Actions available to the service
         output = get_actions_for_service(service)
@@ -229,16 +234,12 @@ def query_arn_table(name, service, list_arn_types, fmt):
     # Get a list of all the ARN types per service, paired with the RAW ARNs
     elif name is None and list_arn_types:
         output = get_arn_types_for_service(service)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     # Get the raw ARN format for the `cloud9` service with the short name
     # `environment`
     else:
         output = get_arn_type_details(service, name)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     return output
 
 
@@ -291,7 +292,5 @@ def query_condition_table(name, service, fmt="json"):
     # Get details on the specific condition key
     else:
         output = get_condition_key_details(service, name)
-        print(yaml.dump(output)) if fmt == "yaml" else [
-            print(json.dumps(output, indent=4))
-        ]
+        print_dict(output=output, fmt=fmt)
     return output
