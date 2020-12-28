@@ -533,4 +533,4 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_all_links(self):
         """querying.actions.get_all_action_links"""
         results = get_all_action_links()
-        self.assertTrue(len(results.keys() > 8000))
+        self.assertTrue(len(results.keys()) > 8000)
