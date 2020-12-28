@@ -17,7 +17,8 @@ from policy_sentry.querying.actions import (
     get_actions_matching_condition_key,
     get_actions_matching_arn,
     get_actions_matching_arn_type,
-    get_api_documentation_link_for_action
+    get_api_documentation_link_for_action,
+    get_all_action_links
     # get_actions_matching_condition_crud_and_arn
 )
 from policy_sentry.writing.validate import check
@@ -528,3 +529,8 @@ class QueryActionsTestCase(unittest.TestCase):
         # Link should be: https://docs.aws.amazon.com/cloud9/latest/APIReference/API_CreateEnvironmentEC2.html
         # We will just check the https and subdomain.domain in case they change the format in the future.
         self.assertTrue("https://docs.aws.amazon.com" in result)
+
+    def test_get_all_links(self):
+        """querying.actions.get_all_action_links"""
+        results = get_all_action_links()
+        self.assertTrue(len(results.keys()) > 8000)
