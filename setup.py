@@ -45,7 +45,6 @@ setuptools.setup(
     install_requires=[
         'beautifulsoup4',
         'click',
-        'click_log',
         'requests',
         'schema',
         'PyYAML',
