@@ -5,7 +5,7 @@ This supports the Policy Sentry query functionality
 import logging
 import functools
 from policy_sentry.shared.iam_data import iam_definition, get_service_prefix_data
-from policy_sentry.querying.all import get_all_service_prefixes
+from policy_sentry.querying.all import get_all_service_prefixes, get_all_actions
 from policy_sentry.querying.arns import get_matching_raw_arns, get_resource_type_name_with_raw_arn
 from policy_sentry.util.arns import get_service_from_arn
 
@@ -469,3 +469,26 @@ def get_api_documentation_link_for_action(service_prefix, action_name):
         if row.get("api_documentation_link"):
             result = row.get("api_documentation_link")
     return result
+
+
+@functools.lru_cache(maxsize=1024)
+def get_all_action_links():
+    """
+    Gets a huge list of the links to all AWS IAM actions. This is meant for use by Cloudsplaining.
+
+    :return: A dictionary of all actions present in the database, with the values being the API documentation links.
+    """
+    all_actions = get_all_actions()
+    results = {}
+    for action in all_actions:
+        try:
+            service_prefix, action_name = action.split(":")
+        except ValueError as v_e:
+            logger.debug(f"{v_e} - for action {action}")
+            continue
+        link = get_api_documentation_link_for_action(service_prefix, action_name)
+        result = {
+            action: link
+        }
+        results.update(result)
+    return results
