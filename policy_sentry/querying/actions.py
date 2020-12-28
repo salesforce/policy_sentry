@@ -217,7 +217,7 @@ def get_actions_that_support_wildcard_arns_only(service_prefix):
                 if len(action_data["resource_types"].keys()) == 1:
                     for resource_type in action_data["resource_types"]:
                         if resource_type == '':
-                            results.append(f"{service_prefix}:{action_name}")
+                            results.append(f"{some_prefix}:{action_name}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():

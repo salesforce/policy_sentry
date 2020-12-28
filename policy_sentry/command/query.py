@@ -36,7 +36,7 @@ iam_definition_path = DATASTORE_FILE_PATH
 def print_list(output, fmt="json"):
     """Common method on how to print a list, depending on whether the user requests JSON or YAML output"""
     print(yaml.dump(output)) if fmt == "yaml" else [
-        print(json.dumps(output, indent=4))
+        print(item) for item in output
     ]
 
 
@@ -174,7 +174,7 @@ def query_action_table(
         # Get a list of all IAM Actions available to the service
         output = get_actions_for_service(service)
         print(f"ALL {service} actions:")
-        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
+        print_list(output=output, fmt=fmt)
     return output
 
 
@@ -230,7 +230,7 @@ def query_arn_table(name, service, list_arn_types, fmt):
     # Get a list of all RAW ARN formats available through the service.
     if name is None and list_arn_types is False:
         output = get_raw_arns_for_service(service)
-        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
+        print_list(output=output, fmt=fmt)
     # Get a list of all the ARN types per service, paired with the RAW ARNs
     elif name is None and list_arn_types:
         output = get_arn_types_for_service(service)
@@ -288,7 +288,7 @@ def query_condition_table(name, service, fmt="json"):
     # Get a list of all condition keys available to the service
     if name is None:
         output = get_condition_keys_for_service(service)
-        print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
+        print_list(output=output, fmt=fmt)
     # Get details on the specific condition key
     else:
         output = get_condition_key_details(service, name)
