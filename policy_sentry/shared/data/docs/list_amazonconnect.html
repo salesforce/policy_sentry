@@ -20,7 +20,7 @@
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
-  <meta content="28a2649e-f83d-40ca-9be6-ab79185dc90a" name="feedback-folder"/>
+  <meta content="IAM" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
@@ -54,7 +54,7 @@
         </title>
         <meta content="service-authorization.pdf#list_amazonconnect" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
-        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-yes"/>
         <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-no"/>
        </head>
@@ -557,16 +557,13 @@
                  ds:CreateIdentityPoolDirectory
                 </p>
                 <p>
+                 ds:DeleteDirectory
+                </p>
+                <p>
                  ds:DescribeDirectories
                 </p>
                 <p>
                  ds:UnauthorizeApplication
-                </p>
-                <p>
-                 firehose:DescribeDeliveryStream
-                </p>
-                <p>
-                 firehose:ListDeliveryStreams
                 </p>
                 <p>
                  iam:AttachRolePolicy
@@ -577,36 +574,89 @@
                 <p>
                  iam:PutRolePolicy
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="amazonconnect-CreateQuickConnect">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQuickConnect.html">
+                 CreateQuickConnect
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permission to create a quick connect in an Amazon Connect instance.
+               </td>
+               <td rowspan="5">
+                Write
+               </td>
+               <td>
                 <p>
-                 kinesis:DescribeStream
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-contact-flow">
+                  contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-user">
+                  user
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
                 </p>
                 <p>
-                 kinesis:ListStreams
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
                 </p>
-                <p>
-                 kms:CreateGrant
-                </p>
-                <p>
-                 kms:DescribeKey
-                </p>
-                <p>
-                 kms:ListAliases
-                </p>
-                <p>
-                 kms:RetireGrant
-                </p>
-                <p>
-                 logs:CreateLogGroup
-                </p>
-                <p>
-                 s3:CreateBucket
-                </p>
-                <p>
-                 s3:GetBucketLocation
-                </p>
-                <p>
-                 s3:ListAllMyBuckets
-                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -813,6 +863,45 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-DeleteQuickConnect">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">
+                 DeleteQuickConnect
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to delete a quick connect in an Amazon Connect instance.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-DeleteUser">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">
@@ -943,27 +1032,6 @@
                 <p>
                  ds:DescribeDirectories
                 </p>
-                <p>
-                 firehose:DescribeDeliveryStream
-                </p>
-                <p>
-                 firehose:ListDeliveryStreams
-                </p>
-                <p>
-                 kinesis:DescribeStream
-                </p>
-                <p>
-                 kinesis:ListStreams
-                </p>
-                <p>
-                 kms:DescribeKey
-                </p>
-                <p>
-                 kms:ListAliases
-                </p>
-                <p>
-                 s3:ListAllMyBuckets
-                </p>
                </td>
               </tr>
               <tr>
@@ -1039,6 +1107,45 @@
                 <p>
                  <a href="#amazonconnect-connect_StorageResourceType">
                   connect:StorageResourceType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-DescribeQuickConnect">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQuickConnect.html">
+                 DescribeQuickConnect
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to describe a quick connect in an Amazon Connect instance.
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -1162,33 +1269,6 @@
                </td>
                <td>
                 Read
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonconnect-instance">
-                  instance*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonconnect-DestroyInstance">
-                </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
-                 DestroyInstance
-                </a>
-               </td>
-               <td>
-                Grants permissions to delete an Amazon Connect instance. When you remove an instance,
-                                                the link to an existing AWS directory is also removed.
-               </td>
-               <td>
-                Write
                </td>
                <td>
                 <p>
@@ -1834,6 +1914,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonconnect-ListQuickConnects">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQuickConnects.html">
+                 ListQuickConnects
+                </a>
+               </td>
+               <td>
+                Grants permissions to list quick connect resources in an Amazon Connect instance.
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-ListRoutingProfileQueues">
                 </a>
@@ -1952,23 +2058,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="amazonconnect-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Grants permissions to list tags for an Amazon Connect resource.
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Read
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect
                  </a>
                 </p>
                </td>
@@ -2066,67 +2185,6 @@
                <td>
                </td>
                <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonconnect-ModifyInstance">
-                </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
-                 ModifyInstance
-                </a>
-               </td>
-               <td>
-                Grants permissions to modify configuration settings for an existing Amazon Connect
-                                                instance. The associated required actions grant permission to modify the settings
-                                                for the instance.
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonconnect-instance">
-                  instance*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 firehose:DescribeDeliveryStream
-                </p>
-                <p>
-                 firehose:ListDeliveryStreams
-                </p>
-                <p>
-                 kinesis:DescribeStream
-                </p>
-                <p>
-                 kinesis:ListStreams
-                </p>
-                <p>
-                 kms:CreateGrant
-                </p>
-                <p>
-                 kms:DescribeKey
-                </p>
-                <p>
-                 kms:ListAliases
-                </p>
-                <p>
-                 kms:RetireGrant
-                </p>
-                <p>
-                 s3:CreateBucket
-                </p>
-                <p>
-                 s3:GetBucketLocation
-                </p>
-                <p>
-                 s3:ListAllMyBuckets
-                </p>
                </td>
               </tr>
               <tr>
@@ -2340,23 +2398,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="amazonconnect-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Grants permissions to tag an Amazon Connect resource.
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect
                  </a>
                 </p>
                </td>
@@ -2415,23 +2486,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="amazonconnect-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Grants permissions to untag an Amazon Connect resource.
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect
                  </a>
                 </p>
                </td>
@@ -2710,6 +2794,125 @@
                 <p>
                  <a href="#amazonconnect-connect_StorageResourceType">
                   connect:StorageResourceType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
+                <a id="amazonconnect-UpdateQuickConnectConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectConfig.html">
+                 UpdateQuickConnectConfig
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permissions to update the configuration of a quick connect in an Amazon Connect
+                                                instance.
+               </td>
+               <td rowspan="5">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-contact-flow">
+                  contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-user">
+                  user
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateQuickConnectName">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectName.html">
+                 UpdateQuickConnectName
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to update a quick connect name and description in an Amazon Connect
+                                                instance.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -3476,6 +3679,47 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonconnect-quick-connect">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html">
+                 quick-connect
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:connect:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}/transfer-destination/$
+                 <span>
+                  {
+                 </span>
+                 QuickConnectId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonconnect-contact-flow">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-contact-flows.html">
@@ -3766,7 +4010,7 @@
                                     so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -3785,7 +4029,7 @@
                                     the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>

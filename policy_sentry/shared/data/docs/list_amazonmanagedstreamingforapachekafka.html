@@ -20,7 +20,7 @@
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
-  <meta content="28a2649e-f83d-40ca-9be6-ab79185dc90a" name="feedback-folder"/>
+  <meta content="IAM" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
@@ -54,7 +54,7 @@
         </title>
         <meta content="service-authorization.pdf#list_amazonmanagedstreamingforapachekafka" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
-        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" name="feedback"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" name="feedback-yes"/>
         <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" name="feedback-no"/>
        </head>
@@ -132,6 +132,15 @@
                 API operations available for this          service
                </a>
                .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/msk/latest/developerguide/security-iam.html">
+                using          IAM
+               </a>
+               permission policies.
               </p>
              </li>
             </ul>
@@ -232,7 +241,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster.
+                Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster
                </td>
                <td>
                 Write
@@ -259,7 +268,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster.
+                Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster
                </td>
                <td>
                 Write
@@ -283,7 +292,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a cluster
+                Grants permission to create an MSK cluster
                </td>
                <td>
                 Write
@@ -338,7 +347,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a configuration.
+                Grants permission to create an MSK configuration
                </td>
                <td>
                 Write
@@ -359,7 +368,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete a cluster.
+                Grants permission to delete an MSK cluster
                </td>
                <td>
                 Write
@@ -380,7 +389,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete the specified MSK configuration.
+                Grants permission to delete the specified MSK configuration
                </td>
                <td>
                 Write
@@ -401,7 +410,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to describe a cluster.
+                Grants permission to describe an MSK cluster
                </td>
                <td>
                 Read
@@ -422,7 +431,8 @@
                 </a>
                </td>
                <td>
-                Returns a description of the cluster operation specified by the ARN.
+                Grants permission to describe the cluster operation that is specified by the given
+                                                ARN
                </td>
                <td>
                 Read
@@ -443,7 +453,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to describe a configuration.
+                Grants permission to describe an MSK configuration
                </td>
                <td>
                 Read
@@ -464,7 +474,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to describe a configuration revision.
+                Grants permission to describe an MSK configuration revision
                </td>
                <td>
                 Read
@@ -485,7 +495,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to get connection details for the broker nodes in a cluster.
+                Grants permission to get connection details for the brokers in an MSK cluster
                </td>
                <td>
                 Read
@@ -506,7 +516,8 @@
                 </a>
                </td>
                <td>
-                Returns a list of the Apache Kafka versions to which you can update this cluster.
+                Grants permission to get a list of the Apache Kafka versions to which you can update
+                                                an MSK cluster
                </td>
                <td>
                 List
@@ -528,7 +539,7 @@
                </td>
                <td>
                 Returns a list of all the operations that have been performed on the specified MSK
-                                                cluster.
+                                                cluster
                </td>
                <td>
                 List
@@ -549,7 +560,28 @@
                 </a>
                </td>
                <td>
-                Grants permission to return a list of all clusters in the current account.
+                Grants permission to list all MSK clusters in this account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmanagedstreamingforapachekafka-ListConfigurationRevisions">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn-revisions.html#ListConfigurationRevisions">
+                 ListConfigurationRevisions
+                </a>
+               </td>
+               <td>
+                Grants permission to list all revisions for an MSK configuration in this account
                </td>
                <td>
                 List
@@ -570,7 +602,28 @@
                 </a>
                </td>
                <td>
-                Grants permission to return a list of all configurations in the current account.
+                Grants permission to list all MSK configurations in this account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmanagedstreamingforapachekafka-ListKafkaVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/kafka-versions.html#ListKafkaVersions">
+                 ListKafkaVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list all Apache Kafka versions supported by Amazon MSK
                </td>
                <td>
                 List
@@ -591,7 +644,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to return a list of nodes in a cluster.
+                Grants permission to list brokers in an MSK cluster
                </td>
                <td>
                 List
@@ -612,8 +665,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to return a list of the Scram Secrets associated with an Amazon
-                                                MSK cluster.
+                Grants permission to list the Scram Secrets associated with an Amazon MSK cluster
                </td>
                <td>
                 List
@@ -634,7 +686,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to list tags of a MSK resource.
+                Grants permission to list tags of an MSK resource
                </td>
                <td>
                 List
@@ -652,6 +704,27 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonmanagedstreamingforapachekafka-RebootBroker">
+                </a>
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-reboot-broker.html#RebootBroker">
+                 RebootBroker
+                </a>
+               </td>
+               <td>
+                Grants permission to reboot broker
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonmanagedstreamingforapachekafka-TagResource">
                 </a>
@@ -660,7 +733,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to tag a MSK resource.
+                Grants permission to tag an MSK resource
                </td>
                <td rowspan="2">
                 Tagging
@@ -704,7 +777,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to remove tags from a MSK resource.
+                Grants permission to remove tags from an MSK resource
                </td>
                <td rowspan="2">
                 Tagging
@@ -743,7 +816,7 @@
                 </a>
                </td>
                <td>
-                Updates the number of broker nodes of the cluster.
+                Updates the number of brokers of the MSK cluster
                </td>
                <td>
                 Write
@@ -764,7 +837,7 @@
                 </a>
                </td>
                <td>
-                Updates the storage size of the broker nodes of the cluster
+                Updates the storage size of the brokers of the MSK cluster
                </td>
                <td>
                 Write
@@ -785,7 +858,7 @@
                 </a>
                </td>
                <td>
-                Update Kafka configuration running on a cluster.
+                Grants permission to update the configuration of the MSK cluster
                </td>
                <td>
                 Write
@@ -806,7 +879,7 @@
                 </a>
                </td>
                <td>
-                Updates the cluster to the specified Apache Kafka version.
+                Grants permission to update the MSK cluster to the specified Apache Kafka version
                </td>
                <td>
                 Write
@@ -827,7 +900,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a new revision of the configuration.
+                Grants permission to create a new revision of the MSK configuration
                </td>
                <td>
                 Write
@@ -848,7 +921,7 @@
                 </a>
                </td>
                <td>
-                Updates the monitoring settings for the cluster.
+                Grants permission to update the monitoring settings for the MSK cluster
                </td>
                <td>
                 Write
@@ -904,7 +977,9 @@
                <td>
                 <a id="amazonmanagedstreamingforapachekafka-cluster">
                 </a>
-                cluster
+                <a href="https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html">
+                 cluster
+                </a>
                </td>
                <td>
                 <code class="code">
@@ -989,7 +1064,7 @@
                 aws:RequestTag/${TagKey}
                </td>
                <td>
-                Filters access based on the allowed set of values for each of the tags
+                Filters actions based on the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -1002,7 +1077,7 @@
                 aws:ResourceTag/${TagKey}
                </td>
                <td>
-                Filters access based on tag-value associated with a MSK resource
+                Filters actions based on tag key-value pairs attached to the MSK resource
                </td>
                <td>
                 String
@@ -1015,7 +1090,7 @@
                 aws:TagKeys
                </td>
                <td>
-                Filters access based on the presence of mandatory tag keys in the request
+                Filters actions based on the presence of tag keys in the request
                </td>
                <td>
                 String
@@ -1082,7 +1157,7 @@
                                     so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -1101,7 +1176,7 @@
                                     the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonmanagedstreamingforapachekafka.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
