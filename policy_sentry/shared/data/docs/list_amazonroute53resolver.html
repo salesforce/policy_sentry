@@ -20,7 +20,7 @@
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
-  <meta content="28a2649e-f83d-40ca-9be6-ab79185dc90a" name="feedback-folder"/>
+  <meta content="IAM" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
@@ -54,7 +54,7 @@
         </title>
         <meta content="service-authorization.pdf#list_amazonroute53resolver" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
-        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" name="feedback"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" name="feedback-yes"/>
         <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" name="feedback-no"/>
        </head>
@@ -555,6 +555,33 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonroute53resolver-GetResolverDnssecConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverDnssecConfig.html">
+                 GetResolverDnssecConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to get the DNSSEC validation support status for DNS queries within
+                                                the specified resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-resolver-dnssec-config">
+                  resolver-dnssec-config*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonroute53resolver-GetResolverEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">
@@ -740,6 +767,32 @@
                 <p>
                  <a href="#amazonroute53resolver-resolver-rule">
                   resolver-rule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-ListResolverDnssecConfigs">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverDnssecConfigs.html">
+                 ListResolverDnssecConfigs
+                </a>
+               </td>
+               <td>
+                Grants permission to list the DNSSEC validation support status for DNS queries
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-resolver-dnssec-config">
+                  resolver-dnssec-config*
                  </a>
                 </p>
                </td>
@@ -1071,6 +1124,33 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonroute53resolver-UpdateResolverDnssecConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverDnssecConfig.html">
+                 UpdateResolverDnssecConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to update the DNSSEC validation support status for DNS queries within
+                                                the specified resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-resolver-dnssec-config">
+                  resolver-dnssec-config*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonroute53resolver-UpdateResolverEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">
@@ -1162,6 +1242,43 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-resolver-dnssec-config">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/access-control-overview.html#access-control-resources">
+                 resolver-dnssec-config
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:route53resolver:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:resolver-dnssec-config/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="amazonroute53resolver-resolver-query-log-config">
@@ -1422,7 +1539,7 @@
                                     so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -1441,7 +1558,7 @@
                                     the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?feedback_destination_id=28a2649e-f83d-40ca-9be6-ab79185dc90a&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonroute53resolver.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
