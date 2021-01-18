@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d678c11b9">
+             <table id="w87aab5b9d682c11b9">
               <thead>
                <tr>
                 <th>
@@ -241,27 +241,6 @@
                </td>
                <td>
                 Grants permission to accept an Amazon Macie membership invitation
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonmacie-ArchiveFindings">
-                </a>
-                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/findings-archive.html">
-                 ArchiveFindings
-                </a>
-               </td>
-               <td>
-                Grants permission to archive one or more findings
                </td>
                <td>
                 Write
@@ -1271,10 +1250,10 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonmacie-ListTagsForResources">
+                <a id="amazonmacie-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html">
-                 ListTagsForResources
+                 ListTagsForResource
                 </a>
                </td>
                <td>
@@ -1354,27 +1333,6 @@
                </td>
                <td>
                 Grants permission to test a custom data identifier
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonmacie-UnarchiveFindings">
-                </a>
-                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/findings-unarchive.html">
-                 UnarchiveFindings
-                </a>
-               </td>
-               <td>
-                Grants permission to reactivate (unarchive) one or more findings
                </td>
                <td>
                 Write
@@ -1591,7 +1549,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d678c13b5">
+             <table id="w87aab5b9d682c13b5">
               <thead>
                <tr>
                 <th>
@@ -1619,7 +1577,11 @@
                  <span>
                   {
                  </span>
-                 Partition}:macie2::$
+                 Partition}:macie2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
@@ -1652,44 +1614,15 @@
                  <span>
                   {
                  </span>
-                 Partition}:macie2::$
+                 Partition}:macie2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
                  Account}:custom-data-identifier/$
-                 <span>
-                  {
-                 </span>
-                 ResourceId}
-                </code>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonmacie-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonmacie-Member">
-                </a>
-                <a href="https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html">
-                 Member
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:macie2::$
-                 <span>
-                  {
-                 </span>
-                 Account}:member/$
                  <span>
                   {
                  </span>
@@ -1718,11 +1651,52 @@
                  <span>
                   {
                  </span>
-                 Partition}:macie2::$
+                 Partition}:macie2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
                  Account}:findings-filter/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-Member">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html">
+                 Member
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:macie2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:member/$
                  <span>
                   {
                  </span>
@@ -1765,7 +1739,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d678c15b7">
+             <table id="w87aab5b9d682c15b7">
               <thead>
                <tr>
                 <th>
