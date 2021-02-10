@@ -25,14 +25,16 @@ class ARN:
         )
 
         if not follows_arn_format:
-            raise Exception("The provided value does not follow required ARN formatting.")
-        elements = self.arn.split(":", 5)
-        self.partition = elements[1]
-        self.service_prefix = elements[2]
-        self.region = elements[3]
-        self.account = elements[4]
-        self.resource = elements[5]
-
+            raise Exception("The provided value does not follow required ARN format.")
+        try:
+            elements = self.arn.split(":", 5)
+            self.partition = elements[1]
+            self.service_prefix = elements[2]
+            self.region = elements[3]
+            self.account = elements[4]
+            self.resource = elements[5]
+        except IndexError as error:
+            raise Exception("The provided ARN is invalid. IndexError: %s. Please provide a valid ARN." % error) from error
         if "/" in self.resource:
             self.resource, self.resource_path = self.resource.split("/", 1)
         elif ":" in self.resource:
@@ -156,16 +158,19 @@ def parse_arn(arn):
     """
     Given an ARN, split up the ARN into the ARN namespacing schema dictated by the AWS docs.
     """
-    elements = arn.split(":", 5)
-    result = {
-        "arn": elements[0],
-        "partition": elements[1],
-        "service": elements[2],
-        "region": elements[3],
-        "account": elements[4],
-        "resource": elements[5],
-        "resource_path": None,
-    }
+    try:
+        elements = arn.split(":", 5)
+        result = {
+            "arn": elements[0],
+            "partition": elements[1],
+            "service": elements[2],
+            "region": elements[3],
+            "account": elements[4],
+            "resource": elements[5],
+            "resource_path": None,
+        }
+    except IndexError as error:
+        raise Exception("The provided ARN is invalid. IndexError: %s. Please provide a valid ARN." % error) from error
     if "/" in result["resource"]:
         result["resource"], result["resource_path"] = result["resource"].split("/", 1)
     elif ":" in result["resource"]:
