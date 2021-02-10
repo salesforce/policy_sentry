@@ -1,5 +1,5 @@
 import unittest
-from policy_sentry.util.arns import does_arn_match, ARN
+from policy_sentry.util.arns import does_arn_match, ARN, parse_arn
 
 # "Does Arn Match" tests
 # See docs for this list: # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
@@ -146,6 +146,11 @@ class ArnsTestCase(unittest.TestCase):
         self.assertFalse(does_arn_match(this_arn, backup))
         self.assertFalse(does_arn_match(this_arn, global_table))
 
+    def test_parse_arn(self):
+        """util.arns.parse_arn: Ensure that invalid ARNs raise a proper exception message"""
+        with self.assertRaises(Exception):
+            parse_arn("aaa")
+
 
 class ArnPathTestCase(unittest.TestCase):
     # When paths are used
@@ -154,7 +159,6 @@ class ArnPathTestCase(unittest.TestCase):
         parameter_2 = "arn:aws:ssm:::parameter/dev"
         print(parameter_1.same_resource_type(parameter_2))
         self.assertTrue(parameter_1.same_resource_type(parameter_2))
-
 
     # When confusing ARNs that look like paths but are not actually paths are used
     def test_dynamo_db_non_paths(self):
