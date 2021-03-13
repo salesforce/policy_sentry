@@ -20,7 +20,7 @@
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
-  <meta content="IAM" name="feedback-item"/>
+  <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
@@ -54,7 +54,7 @@
         </title>
         <meta content="service-authorization.pdf#list_amazonconnect" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
-        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-yes"/>
         <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-no"/>
        </head>
@@ -399,6 +399,58 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="amazonconnect-AssociateQueueQuickConnects">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateQueueQuickConnects.html">
+                 AssociateQueueQuickConnects
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permissions to associate quick connects with a queue in an Amazon Connect instance
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonconnect-AssociateRoutingProfileQueues">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateRoutingProfileQueues.html">
@@ -407,7 +459,7 @@
                </td>
                <td rowspan="3">
                 Grants permissions to associate queues with a routing profile in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="3">
                 Write
@@ -486,7 +538,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to create a contact flow in an Amazon Connect instance.
+                Grants permissions to create a contact flow in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -577,6 +629,102 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="6">
+                <a id="amazonconnect-CreateQueue">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQueue.html">
+                 CreateQueue
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permissions to create a queue in an Amazon Connect instance
+               </td>
+               <td rowspan="6">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-contact-flow">
+                  contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-phone-number">
+                  phone-number
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="5">
                 <a id="amazonconnect-CreateQuickConnect">
                 </a>
@@ -585,7 +733,7 @@
                 </a>
                </td>
                <td rowspan="5">
-                Grants permission to create a quick connect in an Amazon Connect instance.
+                Grants permission to create a quick connect in an Amazon Connect instance
                </td>
                <td rowspan="5">
                 Write
@@ -668,7 +816,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create a routing profile in an Amazon Connect instance.
+                Grants permission to create a routing profile in an Amazon Connect instance
                </td>
                <td rowspan="3">
                 Write
@@ -725,7 +873,7 @@
                 </a>
                </td>
                <td rowspan="5">
-                Grants permission to create a user for the specified Amazon Connect instance.
+                Grants permission to create a user for the specified Amazon Connect instance
                </td>
                <td rowspan="5">
                 Write
@@ -808,7 +956,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create a user hierarchy group in an Amazon Connect instance.
+                Grants permissions to create a user hierarchy group in an Amazon Connect instance
                </td>
                <td>
                 Write
@@ -870,7 +1018,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to delete a quick connect in an Amazon Connect instance.
+                Grants permissions to delete a quick connect in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -909,7 +1057,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to delete a user in an Amazon Connect instance.
+                Grants permissions to delete a user in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -948,7 +1096,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a user hierarchy group in an Amazon Connect instance.
+                Grants permissions to delete a user hierarchy group in an Amazon Connect instance
                </td>
                <td>
                 Write
@@ -974,7 +1122,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to describe a contact flow in an Amazon Connect instance.
+                Grants permissions to describe a contact flow in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1000,6 +1148,32 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-DescribeHoursOfOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeHoursOfOperation.html">
+                 DescribeHoursOfOperation
+                </a>
+               </td>
+               <td>
+                Grants permissions to describe hours of operation in an Amazon Connect instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1043,7 +1217,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to view the attribute details of an existing Amazon Connect instance.
+                Grants permissions to view the attribute details of an existing Amazon Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1083,7 +1257,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to view the instance storage configuration for an existing Amazon
-                                                Connect instance.
+                                                Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1115,6 +1289,45 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-DescribeQueue">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQueue.html">
+                 DescribeQueue
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to describe a queue in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-DescribeQuickConnect">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQuickConnect.html">
@@ -1122,7 +1335,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to describe a quick connect in an Amazon Connect instance.
+                Grants permissions to describe a quick connect in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1161,7 +1374,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to describe a routing profile in an Amazon Connect instance.
+                Grants permissions to describe a routing profile in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1200,7 +1413,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to describe a user in an Amazon Connect instance.
+                Grants permissions to describe a user in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Read
@@ -1239,7 +1452,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to describe a hierarchy group for an Amazon Connect instance.
+                Grants permissions to describe a hierarchy group for an Amazon Connect instance
                </td>
                <td>
                 Read
@@ -1265,7 +1478,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to describe the hierarchy structure for an Amazon Connect instance.
+                Grants permissions to describe the hierarchy structure for an Amazon Connect instance
                </td>
                <td>
                 Read
@@ -1419,6 +1632,59 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonconnect-DisassociateQueueQuickConnects">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateQueueQuickConnects.html">
+                 DisassociateQueueQuickConnects
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permissions to disassociate quick connects from a queue in an Amazon Connect
+                                                instance
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-quick-connect">
+                  quick-connect*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateRoutingProfileQueues">
                 </a>
@@ -1428,7 +1694,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to disassociate queues from a routing profile in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
                 Write
@@ -1495,7 +1761,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to retrieve the contact attributes for the specified contact.
+                Grants permissions to retrieve the contact attributes for the specified contact
                </td>
                <td>
                 Read
@@ -1522,7 +1788,7 @@
                </td>
                <td>
                 Grants permissions to retrieve current metric data for the queues in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td>
                 Read
@@ -1548,8 +1814,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Allows federation into an instance when using SAML-based authentication for identity
-                                                management.
+                Grants permissions to federate into an Amazon Connect instance when using SAML-based
+                                                authentication for identity management
                </td>
                <td rowspan="2">
                 Read
@@ -1583,13 +1849,13 @@
                <td>
                 <a id="amazonconnect-GetFederationTokens">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/amazon-connect-instances.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/emergency-admin-login.html">
                  GetFederationTokens
                 </a>
                </td>
                <td>
-                Grants permissions to federate in to an Amazon Connect instance (Log in as administrator
-                                                functionality in the AWS console).
+                Grants permissions to federate into an Amazon Connect instance (Log in for emergency
+                                                access functionality in the Amazon Connect console)
                </td>
                <td>
                 Write
@@ -1625,7 +1891,7 @@
                </td>
                <td>
                 Grants permissions to retrieve historical metric data for queues in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td>
                 Read
@@ -1651,7 +1917,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view approved origins of an existing Amazon Connect instance.
+                Grants permissions to view approved origins of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -1677,7 +1943,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list contact flow resources in an Amazon Connect instance.
+                Grants permissions to list contact flow resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1703,7 +1969,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list hours of operation resources in an Amazon Connect instance.
+                Grants permissions to list hours of operation resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1729,7 +1995,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view the attributes of an existing Amazon Connect instance.
+                Grants permissions to view the attributes of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -1755,7 +2021,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view storage configurations of an existing Amazon Connect instance.
+                Grants permissions to view storage configurations of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -1781,7 +2047,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view the Amazon Connect instances associated with an AWS account.
+                Grants permissions to view the Amazon Connect instances associated with an AWS account
                </td>
                <td>
                 List
@@ -1805,7 +2071,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view the Lambda functions of an existing Amazon Connect instance.
+                Grants permissions to view the Lambda functions of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -1831,7 +2097,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view the Lex bots of an existing Amazon Connect instance.
+                Grants permissions to view the Lex bots of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -1857,7 +2123,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list phone number resources in an Amazon Connect instance.
+                Grants permissions to list phone number resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1883,7 +2149,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list prompt resources in an Amazon Connect instance.
+                Grants permissions to list prompt resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1901,6 +2167,46 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-ListQueueQuickConnects">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQueueQuickConnects.html">
+                 ListQueueQuickConnects
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to list quick connect resources in a queue in an Amazon Connect
+                                                instance
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonconnect-ListQueues">
                 </a>
@@ -1909,7 +2215,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list queue resources in an Amazon Connect instance.
+                Grants permissions to list queue resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1935,7 +2241,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list quick connect resources in an Amazon Connect instance.
+                Grants permissions to list quick connect resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -1962,10 +2268,10 @@
                </td>
                <td rowspan="2">
                 Grants permissions to list queue resources in a routing profile in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -2001,7 +2307,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list routing profile resources in an Amazon Connect instance.
+                Grants permissions to list routing profile resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -2027,7 +2333,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to view the security keys of an existing Amazon Connect instance.
+                Grants permissions to view the security keys of an existing Amazon Connect instance
                </td>
                <td>
                 List
@@ -2053,7 +2359,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list security profile resources in an Amazon Connect instance.
+                Grants permissions to list security profile resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -2071,23 +2377,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="amazonconnect-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5">
-                Grants permissions to list tags for an Amazon Connect resource.
+               <td rowspan="6">
+                Grants permissions to list tags for an Amazon Connect resource
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Read
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue
                  </a>
                 </p>
                </td>
@@ -2157,7 +2476,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list the hierarchy group resources in an Amazon Connect instance.
+                Grants permissions to list the hierarchy group resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -2183,7 +2502,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list user resources in an Amazon Connect instance.
+                Grants permissions to list user resources in an Amazon Connect instance
                </td>
                <td>
                 List
@@ -2209,7 +2528,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to resume recording for the specified contact.
+                Grants permissions to resume recording for the specified contact
                </td>
                <td>
                 Write
@@ -2235,7 +2554,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to initiate a chat using the Amazon Connect API.
+                Grants permissions to initiate a chat using the Amazon Connect API
                </td>
                <td>
                 Write
@@ -2261,7 +2580,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to start recording for the specified contact.
+                Grants permissions to start recording for the specified contact
                </td>
                <td>
                 Write
@@ -2287,7 +2606,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to initiate outbound calls using the Amazon Connect API.
+                Grants permissions to initiate outbound calls using the Amazon Connect API
                </td>
                <td>
                 Write
@@ -2313,7 +2632,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to initiate a task using the Amazon Connect API.
+                Grants permissions to initiate a task using the Amazon Connect API
                </td>
                <td>
                 Write
@@ -2367,7 +2686,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to stop recording for the specified contact.
+                Grants permissions to stop recording for the specified contact
                </td>
                <td>
                 Write
@@ -2393,7 +2712,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to suspend recording for the specified contact.
+                Grants permissions to suspend recording for the specified contact
                </td>
                <td>
                 Write
@@ -2411,23 +2730,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="amazonconnect-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5">
-                Grants permissions to tag an Amazon Connect resource.
+               <td rowspan="6">
+                Grants permissions to tag an Amazon Connect resource
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue
                  </a>
                 </p>
                </td>
@@ -2499,23 +2831,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="amazonconnect-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5">
-                Grants permissions to untag an Amazon Connect resource.
+               <td rowspan="6">
+                Grants permissions to untag an Amazon Connect resource
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue
                  </a>
                 </p>
                </td>
@@ -2591,7 +2936,7 @@
                </td>
                <td>
                 Grants permissions to create or update the contact attributes associated with the
-                                                specified contact.
+                                                specified contact
                </td>
                <td>
                 Write
@@ -2617,7 +2962,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to update contact flow content in an Amazon Connect instance.
+                Grants permissions to update contact flow content in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -2657,7 +3002,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update the name and description of a contact flow in an Amazon
-                                                Connect instance.
+                                                Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -2814,6 +3159,240 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonconnect-UpdateQueueHoursOfOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueHoursOfOperation.html">
+                 UpdateQueueHoursOfOperation
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permissions to update queue hours of operation in an Amazon Connect instance
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateQueueMaxContacts">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueMaxContacts.html">
+                 UpdateQueueMaxContacts
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to update queue capacity in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateQueueName">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueName.html">
+                 UpdateQueueName
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to update a queue name and description in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="amazonconnect-UpdateQueueOutboundCallerConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueOutboundCallerConfig.html">
+                 UpdateQueueOutboundCallerConfig
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permissions to update queue outbound caller config in an Amazon Connect instance
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-contact-flow">
+                  contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-phone-number">
+                  phone-number
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateQueueStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueStatus.html">
+                 UpdateQueueStatus
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to update queue status in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-queue">
+                  queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="5">
                 <a id="amazonconnect-UpdateQuickConnectConfig">
                 </a>
@@ -2823,7 +3402,7 @@
                </td>
                <td rowspan="5">
                 Grants permissions to update the configuration of a quick connect in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="5">
                 Write
@@ -2902,7 +3481,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update a quick connect name and description in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
                 Write
@@ -2942,7 +3521,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update the concurrency in a routing profile in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
                 Write
@@ -2982,7 +3561,7 @@
                </td>
                <td rowspan="3">
                 Grants permissions to update the outbound queue in a routing profile in an Amazon
-                                                Connect instance.
+                                                Connect instance
                </td>
                <td rowspan="3">
                 Write
@@ -3035,7 +3614,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update a routing profile name and description in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
                 Write
@@ -3074,7 +3653,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to update the queues in routing profile in an Amazon Connect instance.
+                Grants permissions to update the queues in routing profile in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -3113,7 +3692,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permissions to update a hierarchy group for a user in an Amazon Connect instance.
+                Grants permissions to update a hierarchy group for a user in an Amazon Connect instance
                </td>
                <td rowspan="3">
                 Write
@@ -3165,7 +3744,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to update a user hierarchy group name in an Amazon Connect instance.
+                Grants permissions to update a user hierarchy group name in an Amazon Connect instance
                </td>
                <td>
                 Write
@@ -3191,7 +3770,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to update user hierarchy structure in an Amazon Connect instance.
+                Grants permissions to update user hierarchy structure in an Amazon Connect instance
                </td>
                <td>
                 Write
@@ -3218,7 +3797,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update identity information for a user in an Amazon Connect
-                                                instance.
+                                                instance
                </td>
                <td rowspan="2">
                 Write
@@ -3258,7 +3837,7 @@
                </td>
                <td rowspan="2">
                 Grants permissions to update phone configuration settings for a user in an Amazon
-                                                Connect instance.
+                                                Connect instance
                </td>
                <td rowspan="2">
                 Write
@@ -3297,7 +3876,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permissions to update a routing profile for a user in an Amazon Connect instance.
+                Grants permissions to update a routing profile for a user in an Amazon Connect instance
                </td>
                <td rowspan="3">
                 Write
@@ -3349,7 +3928,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permissions to update security profiles for a user in an Amazon Connect instance.
+                Grants permissions to update security profiles for a user in an Amazon Connect instance
                </td>
                <td rowspan="3">
                 Write
@@ -3658,7 +4237,7 @@
                <td>
                 <a id="amazonconnect-queue">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-queue.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_Queue.html">
                  queue
                 </a>
                </td>
@@ -3688,6 +4267,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -3776,7 +4360,7 @@
                <td>
                 <a id="amazonconnect-hours-of-operation">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_HoursOfOperation.html">
                  hours-of-operation
                 </a>
                </td>
@@ -3895,7 +4479,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request.
+                Filters actions based on the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -3910,7 +4494,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource.
+                Filters actions based on tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -3925,7 +4509,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag keys in the request.
+                Filters actions based on the presence of tag keys in the request
                </td>
                <td>
                 String
@@ -3940,7 +4524,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the attribute type of the Amazon Connect instance.
+                Filters access by the attribute type of the Amazon Connect instance
                </td>
                <td>
                 String
@@ -3955,7 +4539,7 @@
                 </a>
                </td>
                <td>
-                Filters access by restricting federation into specified connect instances .
+                Filters access by restricting federation into specified Amazon Connect instances
                </td>
                <td>
                 String
@@ -3971,7 +4555,7 @@
                </td>
                <td>
                 Filters access by restricting the storage resource type of the Amazon Connect instance
-                                                storage configuration.
+                                                storage configuration
                </td>
                <td>
                 String
@@ -4038,7 +4622,7 @@
                                     so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -4057,7 +4641,7 @@
                                     the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=IAM&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
