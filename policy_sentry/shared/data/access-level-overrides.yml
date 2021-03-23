@@ -109,6 +109,8 @@ ecr:
     # AWS documentation lists this as Write
     Permissions management:
         - deleterepositorypolicy
+        - putregistrypolicy
+        - deleteregistrypolicy
 es:
     Permissions management:
         - createelasticsearchdomain
@@ -357,7 +359,9 @@ rds:
         - createdbsubnetgroup
         - createeventsubscription
         - createoptiongroup
-        # AWS documentation lists this as "Permissions management"
+    Permissions management:
+        - modifydbsnapshotattribute
+        - modifydbclustersnapshotattribute
 redshift:
     # AWS documentation lists this as "Permissions management"
     Write:
@@ -383,6 +387,10 @@ securityhub:
     Tagging:
         - untagresource
         - tagresource
+ses:
+    Permissions management:
+        - putidentitypolicy
+        - deleteidentitypolicy
 sns:
     Permissions management:
         - settopicattributes

@@ -534,3 +534,11 @@ class QueryActionsTestCase(unittest.TestCase):
         """querying.actions.get_all_action_links"""
         results = get_all_action_links()
         self.assertTrue(len(results.keys()) > 8000)
+
+    # def test_research_access_levels(self):
+    #     """querying.actions.get_actions_with_access_level"""
+    #     service_prefix = "sns"
+    #     access_level = "Write"
+    #     # access_level = "Permissions management"
+    #     results = get_actions_with_access_level(service_prefix, access_level)
+    #     print(json.dumps(results, indent=4))
