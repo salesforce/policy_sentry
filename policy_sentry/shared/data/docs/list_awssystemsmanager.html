@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1026c11b9">
+             <table id="w87aab5b9e1042c11b9">
               <thead>
                <tr>
                 <th>
@@ -3622,24 +3622,24 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="awssystemsmanager-StartSession">
                 </a>
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartSession.html">
                  StartSession
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to initiate a connection to a specified target for a Session Manager
                                                 session
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#awssystemsmanager-instance">
-                  instance*
+                 <a href="#awssystemsmanager-document">
+                  document
                  </a>
                 </p>
                </td>
@@ -3651,8 +3651,21 @@
               <tr>
                <td>
                 <p>
-                 <a href="#awssystemsmanager-document">
-                  document
+                 <a href="#awssystemsmanager-instance">
+                  instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-task">
+                  task
                  </a>
                 </p>
                </td>
@@ -3668,6 +3681,11 @@
                 <p>
                  <a href="#awssystemsmanager-ssm_SessionDocumentAccessCheck">
                   ssm:SessionDocumentAccessCheck
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ecs_cluster">
+                  ecs:cluster
                  </a>
                 </p>
                </td>
@@ -3704,7 +3722,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to permanently end a Session Manager connection to an instance.
+                Grants permission to permanently end a Session Manager connection to an instance
                </td>
                <td>
                 Write
@@ -4258,9 +4276,28 @@
             </a>
             .
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <span>
+              Note
+             </span>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Some State Manager API parameters have been deprecated. This might lead to unexpected
+                                          behavior. For more information, see
+              <a href="https://docs.aws.amazon.com/https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-iam.html">
+               Working with associations using IAM
+              </a>
+              .
+             </p>
+            </div>
+           </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1026c13b5">
+             <table id="w87aab5b9e1042c13b7">
               <thead>
                <tr>
                 <th>
@@ -4902,6 +4939,48 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-task">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">
+                 task
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ecs:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:task/$
+                 <span>
+                  {
+                 </span>
+                 TaskId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-ecs_ResourceTag___TagKey_">
+                  ecs:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -4930,7 +5009,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1026c15b7">
+             <table id="w87aab5b9e1042c15b7">
               <thead>
                <tr>
                 <th>
@@ -4948,7 +5027,9 @@
                <td>
                 <a id="awssystemsmanager-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
                 Filters 'Create' requests based on the allowed set of values for a specified tags
@@ -4989,6 +5070,36 @@
               </tr>
               <tr>
                <td>
+                <a id="awssystemsmanager-ecs_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/iam-policy-structure.html#amazon-ecs-keys">
+                 ecs:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-ecs_cluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/iam-policy-structure.html#amazon-ecs-keys">
+                 ecs:cluster
+                </a>
+               </td>
+               <td>
+                Filters access by the ARN of an Amazon ECS cluster
+               </td>
+               <td>
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awssystemsmanager-ssm_Overwrite">
                 </a>
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
@@ -4996,7 +5107,7 @@
                 </a>
                </td>
                <td>
-                Filters access by controlling whether the values for specified resources can be overwritten.
+                Filters access by controlling whether the values for specified resources can be overwritten
                </td>
                <td>
                 String
@@ -5011,7 +5122,7 @@
                 </a>
                </td>
                <td>
-                Filters access for resources created in a hierarchical structure.
+                Filters access for resources created in a hierarchical structure
                </td>
                <td>
                 String
@@ -5028,7 +5139,7 @@
                <td>
                 Filters access by verifying that a user has permission to access either the default
                                                 Session Manager configuration document or the custom configuration document specified
-                                                in a request.
+                                                in a request
                </td>
                <td>
                 Boolean
@@ -5038,7 +5149,9 @@
                <td>
                 <a id="awssystemsmanager-ssm_SyncType">
                 </a>
-                ssm:SyncType
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 ssm:SyncType
+                </a>
                </td>
                <td>
                 Filters access by verifying that a user also has access to the ResourceDataSync SyncType

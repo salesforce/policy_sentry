@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d874c11b9">
+             <table id="w87aab5b9d882c11b9">
               <thead>
                <tr>
                 <th>
@@ -253,6 +253,11 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -277,6 +282,11 @@
                 <p>
                  <a href="#amazonrdsdataapi-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -306,6 +316,11 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
@@ -331,6 +346,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -355,6 +380,11 @@
                 <p>
                  <a href="#amazonrdsdataapi-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -384,6 +414,11 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
@@ -398,17 +433,84 @@
             Resource types defined by        Amazon RDS Data API
            </h2>
            <p>
-            Amazon RDS Data API does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      Amazon RDS Data API,
-                                    specify
-            <code class="code">
-             “Resource”: “*”
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#amazonrdsdataapi-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d882c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonrdsdataapi-cluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html">
+                 cluster
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:cluster:$
+                 <span>
+                  {
+                 </span>
+                 DbClusterInstanceName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrdsdataapi-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="amazonrdsdataapi-policy-keys">
             Condition keys for        Amazon RDS Data API
            </h2>
@@ -434,7 +536,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d874c15b7">
+             <table id="w87aab5b9d882c15b7">
               <thead>
                <tr>
                 <th>
@@ -448,21 +550,6 @@
                 </th>
                </tr>
               </thead>
-              <tr>
-               <td>
-                <a id="amazonrdsdataapi-aws_RequestTag___TagKey_">
-                </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
-                 aws:RequestTag/${TagKey}
-                </a>
-               </td>
-               <td>
-                Filters actions based on the tags that are passed in the request
-               </td>
-               <td>
-                String
-               </td>
-              </tr>
               <tr>
                <td>
                 <a id="amazonrdsdataapi-aws_ResourceTag___TagKey_">

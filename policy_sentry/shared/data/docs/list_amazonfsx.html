@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d498c11b9">
+             <table id="w87aab5b9d502c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,6 +233,33 @@
               </thead>
               <tr>
                <td>
+                <a id="amazonfsx-AssociateFileSystemAliases">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_AssociateFileSystemAliases.html">
+                 AssociateFileSystemAliases
+                </a>
+               </td>
+               <td>
+                Grants permission to associate DNS aliases with an Amazon FSx for Windows File Server
+                                                file system
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-system">
+                  file-system*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonfsx-CancelDataRepositoryTask">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CancelDataRepositoryTask.html">
@@ -240,7 +267,7 @@
                 </a>
                </td>
                <td>
-                This action cancels a data repository task
+                Grants permission to cancel a data repository task
                </td>
                <td>
                 Write
@@ -266,7 +293,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action creates a new backup.
+                Grants permission to create a new backup of an Amazon FSx file system
                </td>
                <td rowspan="3">
                 Tagging
@@ -323,7 +350,8 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action creates a new task.
+                Grants permission to create a new data respository task for an Amazon FSx for Lustre
+                                                file system
                </td>
                <td rowspan="3">
                 Tagging
@@ -380,7 +408,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                This action creates a new, empty, Amazon FSx file system
+                Grants permission to create a new, empty, Amazon FSx file system
                </td>
                <td rowspan="2">
                 Tagging
@@ -424,7 +452,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action creates a new Amazon FSx file system from an existing backup.
+                Grants permission to create a new Amazon FSx file system from an existing backup
                </td>
                <td rowspan="3">
                 Tagging
@@ -481,8 +509,8 @@
                 </a>
                </td>
                <td>
-                This action deletes a backup, deleting its contents. After deletion, the backup no
-                                                longer exists, and its data is gone.
+                Grants permission to delete a backup, deleting its contents. After deletion, the backup
+                                                no longer exists, and its data is no longer available.
                </td>
                <td>
                 Write
@@ -508,7 +536,8 @@
                 </a>
                </td>
                <td>
-                This action deletes a file system, deleting its contents.
+                Grants permission to delete a file system, deleting its contents and any existing
+                                                automatic backups of the file system
                </td>
                <td>
                 Write
@@ -534,9 +563,8 @@
                 </a>
                </td>
                <td>
-                This action returns the description of specific Amazon FSx backups, if one or more
-                                                BackupIds are provided for that backup. Otherwise, it returns all backups owned by
-                                                your AWS account in the AWS Region of the endpoint that you're calling.
+                Grants permission to return the descriptions of all backups owned by your AWS account
+                                                in the AWS Region of the endpoint that you're calling
                </td>
                <td>
                 Read
@@ -557,15 +585,40 @@
                 </a>
                </td>
                <td>
-                This action returns the description of specific Amazon FSx data repository task, if
-                                                one or more TaskIds are provided for that data repository task. Otherwise, it returns
-                                                all data repository task owned by your AWS account in the AWS Region of the endpoint
-                                                that you're calling.
+                Grants permission to return the descriptions of all data repository task owned by
+                                                your AWS account in the AWS Region of the endpoint that you're calling
                </td>
                <td>
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-DescribeFileSystemAliases">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystemAliases.html">
+                 DescribeFileSystemAliases
+                </a>
+               </td>
+               <td>
+                Grants permission to return the description of all DNS aliases owned by your Amazon
+                                                FSx for Windows File Server file system
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-system">
+                  file-system*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -581,15 +634,40 @@
                 </a>
                </td>
                <td>
-                This action returns the description of specific Amazon FSx file systems, if a FileSystemIds
-                                                value is provided for that file system. Otherwise, it returns descriptions of all
-                                                file systems owned by your AWS account in the AWS Region of the endpoint that you're
-                                                calling.
+                Grants permission to return the descriptions of all file systems owned by your AWS
+                                                account in the AWS Region of the endpoint that you're calling
                </td>
                <td>
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-DisassociateFileSystemAliases">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DisassociateFileSystemAliases.html">
+                 DisassociateFileSystemAliases
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate file system aliases with an Amazon FSx for Windows
+                                                File Server file system
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-system">
+                  file-system*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -605,7 +683,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                This action lists tags for an Amazon FSx resource.
+                Grants permission to list tags for an Amazon FSx resource
                </td>
                <td rowspan="3">
                 Read
@@ -657,7 +735,7 @@
                 </a>
                </td>
                <td rowspan="4">
-                This action tags an Amazon FSx resource.
+                Grants permission to tag an Amazon FSx resource
                </td>
                <td rowspan="4">
                 Tagging
@@ -727,7 +805,7 @@
                 </a>
                </td>
                <td rowspan="4">
-                This action removes a tag from an Amazon FSx resource.
+                Grants permission to remove a tag from an Amazon FSx resource
                </td>
                <td rowspan="4">
                 Tagging
@@ -792,7 +870,7 @@
                 </a>
                </td>
                <td>
-                This action updates file system configuration.
+                Grants permission to update file system configuration
                </td>
                <td>
                 Write
@@ -850,7 +928,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d498c13b7">
+             <table id="w87aab5b9d502c13b7">
               <thead>
                <tr>
                 <th>
@@ -886,7 +964,11 @@
                  <span>
                   {
                  </span>
-                 Account}:file-system/*
+                 Account}:file-system/$
+                 <span>
+                  {
+                 </span>
+                 FileSystemId}
                 </code>
                </td>
                <td>
@@ -919,7 +1001,11 @@
                  <span>
                   {
                  </span>
-                 Account}:backup/*
+                 Account}:backup/$
+                 <span>
+                  {
+                 </span>
+                 BackupId}
                 </code>
                </td>
                <td>
@@ -952,7 +1038,11 @@
                  <span>
                   {
                  </span>
-                 Account}:task/*
+                 Account}:task/$
+                 <span>
+                  {
+                 </span>
+                 TaskId}
                 </code>
                </td>
                <td>
@@ -991,7 +1081,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d498c15b7">
+             <table id="w87aab5b9d502c15b7">
               <thead>
                <tr>
                 <th>
@@ -1009,9 +1099,12 @@
                <td>
                 <a id="amazonfsx-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
+                Filters actions based on the tags that are passed in the request
                </td>
                <td>
                 String
@@ -1021,9 +1114,12 @@
                <td>
                 <a id="amazonfsx-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
+                Filters actions based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -1033,9 +1129,12 @@
                <td>
                 <a id="amazonfsx-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
+                Filters actions based on the tag keys that are passed in the request
                </td>
                <td>
                 String

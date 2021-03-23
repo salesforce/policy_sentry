@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d238c11b9">
+             <table id="w87aab5b9d242c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td>
-                Creates a new identity pool.
+                Grants permission to create a new identity pool
                </td>
                <td>
                 Write
@@ -258,11 +258,6 @@
                   aws:TagKeys
                  </a>
                 </p>
-                <p>
-                 <a href="#amazoncognitoidentity-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
                </td>
                <td>
                </td>
@@ -276,8 +271,8 @@
                 </a>
                </td>
                <td>
-                Deletes identities from an identity pool. You can specify a list of 1-60 identities
-                                                that you want to delete.
+                Grants permission to delete identities from an identity pool. You can specify a list
+                                                of 1-60 identities that you want to delete
                </td>
                <td>
                 Write
@@ -298,8 +293,8 @@
                 </a>
                </td>
                <td>
-                Deletes a user pool. Once a pool is deleted, users will not be able to authenticate
-                                                with the pool.
+                Grants permission to delete a user pool. Once a pool is deleted, users will not be
+                                                able to authenticate with the pool
                </td>
                <td>
                 Write
@@ -325,8 +320,8 @@
                 </a>
                </td>
                <td>
-                Returns metadata related to the given identity, including when the identity was created
-                                                and any associated linked logins.
+                Grants permission to return metadata related to the given identity, including when
+                                                the identity was created and any associated linked logins
                </td>
                <td>
                 Read
@@ -347,8 +342,8 @@
                 </a>
                </td>
                <td>
-                Gets details about a particular identity pool, including the pool name, ID description,
-                                                creation date, and current number of users.
+                Grants permission to get details about a particular identity pool, including the pool
+                                                name, ID description, creation date, and current number of users
                </td>
                <td>
                 Read
@@ -374,7 +369,7 @@
                 </a>
                </td>
                <td>
-                Returns credentials for the provided identity ID.
+                Grants permission to return credentials for the provided identity ID
                </td>
                <td>
                 Read
@@ -395,8 +390,8 @@
                 </a>
                </td>
                <td>
-                Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit
-                                                linked account.
+                Grants permission to generate (or retrieve) a Cognito ID. Supplying multiple logins
+                                                will create an implicit linked account
                </td>
                <td>
                 Write
@@ -417,7 +412,7 @@
                 </a>
                </td>
                <td>
-                Gets the roles for an identity pool.
+                Grants permission to get the roles for an identity pool
                </td>
                <td>
                 Read
@@ -443,7 +438,7 @@
                 </a>
                </td>
                <td>
-                Gets an OpenID token, using a known Cognito ID.
+                Grants permission to get an OpenID token, using a known Cognito ID
                </td>
                <td>
                 Read
@@ -464,8 +459,34 @@
                 </a>
                </td>
                <td>
-                Registers (or retrieves) a Cognito IdentityId and an OpenID Connect token for a user
-                                                authenticated by your backend authentication process.
+                Grants permission to register (or retrieve) a Cognito IdentityId and an OpenID Connect
+                                                token for a user authenticated by your backend authentication process
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncognitoidentity-identitypool">
+                  identitypool*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncognitoidentity-GetPrincipalTagAttributeMap">
+                </a>
+                <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetPrincipalTagAttributeMap.html">
+                 GetPrincipalTagAttributeMap
+                </a>
+               </td>
+               <td>
+                Grants permission to get the principal tags for an identity pool and provider
                </td>
                <td>
                 Read
@@ -491,7 +512,7 @@
                 </a>
                </td>
                <td>
-                Lists the identities in a pool.
+                Grants permission to list the identities in an identity pool
                </td>
                <td>
                 List
@@ -517,7 +538,7 @@
                 </a>
                </td>
                <td>
-                Lists all of the Cognito identity pools registered for your account.
+                Grants permission to list all of the Cognito identity pools registered for your account
                </td>
                <td>
                 List
@@ -530,18 +551,19 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
                 <a id="amazoncognitoidentity-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2">
-                Lists the tags that are assigned to an Amazon Cognito identity pool.
+               <td>
+                Grants permission to list the tags that are assigned to an Amazon Cognito identity
+                                                pool
                </td>
-               <td rowspan="2">
-                List
+               <td>
+                Read
                </td>
                <td>
                 <p>
@@ -557,19 +579,6 @@
               </tr>
               <tr>
                <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazoncognitoidentity-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
                 <a id="amazoncognitoidentity-LookupDeveloperIdentity">
                 </a>
                 <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html">
@@ -577,8 +586,9 @@
                 </a>
                </td>
                <td>
-                Retrieves the IdentityID associated with a DeveloperUserIdentifier or the list of
-                                                DeveloperUserIdentifiers associated with an IdentityId for an existing identity.
+                Grants permission to retrieve the IdentityId associated with a DeveloperUserIdentifier
+                                                or the list of DeveloperUserIdentifiers associated with an IdentityId for an existing
+                                                identity
                </td>
                <td>
                 Read
@@ -604,8 +614,8 @@
                 </a>
                </td>
                <td>
-                Merges two users having different IdentityIds, existing in the same identity pool,
-                                                and identified by the same developer provider.
+                Grants permission to merge two users having different IdentityIds, existing in the
+                                                same identity pool, and identified by the same developer provider
                </td>
                <td>
                 Write
@@ -631,8 +641,30 @@
                 </a>
                </td>
                <td>
-                Sets the roles for an identity pool. These roles are used when making calls to GetCredentialsForIdentity
-                                                action.
+                Grants permission to set the roles for an identity pool. These roles are used when
+                                                making calls to GetCredentialsForIdentity action
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncognitoidentity-SetPrincipalTagAttributeMap">
+                </a>
+                <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetPrincipalTagAttributeMap.html">
+                 SetPrincipalTagAttributeMap
+                </a>
+               </td>
+               <td>
+                Grants permission to set the principal tags for an identity pool and provider. These
+                                                tags are used when making calls to GetOpenIdToken action
                </td>
                <td>
                 Write
@@ -653,7 +685,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Assigns a set of tags to an Amazon Cognito identity pool.
+                Grants permission to assign a set of tags to an Amazon Cognito identity pool
                </td>
                <td rowspan="2">
                 Tagging
@@ -684,11 +716,6 @@
                   aws:TagKeys
                  </a>
                 </p>
-                <p>
-                 <a href="#amazoncognitoidentity-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
                </td>
                <td>
                </td>
@@ -702,7 +729,7 @@
                 </a>
                </td>
                <td>
-                Unlinks a DeveloperUserIdentifier from an existing identity.
+                Grants permission to unlink a DeveloperUserIdentifier from an existing identity
                </td>
                <td>
                 Write
@@ -728,7 +755,7 @@
                 </a>
                </td>
                <td>
-                Unlinks a federated identity from an existing account.
+                Grants permission to unlink a federated identity from an existing account
                </td>
                <td>
                 Write
@@ -749,7 +776,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Removes the specified tags from an Amazon Cognito identity pool.
+                Grants permission to remove the specified tags from an Amazon Cognito identity pool
                </td>
                <td rowspan="2">
                 Tagging
@@ -775,11 +802,6 @@
                   aws:TagKeys
                  </a>
                 </p>
-                <p>
-                 <a href="#amazoncognitoidentity-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
                </td>
                <td>
                </td>
@@ -793,7 +815,7 @@
                 </a>
                </td>
                <td>
-                Updates a user pool.
+                Grants permission to update an identity pool
                </td>
                <td>
                 Write
@@ -836,7 +858,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d238c13b5">
+             <table id="w87aab5b9d242c13b5">
               <thead>
                <tr>
                 <th>
@@ -915,7 +937,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d238c15b7">
+             <table id="w87aab5b9d242c15b7">
               <thead>
                <tr>
                 <th>
@@ -938,7 +960,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request.
+                Filters actions based on the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -953,7 +975,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource.
+                Filters actions based on tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -968,7 +990,7 @@
                 </a>
                </td>
                <td>
-                Filters access by a key that is present in the request.
+                Filters access by a key that is present in the request
                </td>
                <td>
                 String

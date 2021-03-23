@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d190c11b9">
+             <table id="w87aab5b9d194c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td>
-                Create a canary.
+                Grants permission to create a canary
                </td>
                <td>
                 Write
@@ -262,7 +262,7 @@
                </td>
                <td>
                 Deletes a canary. Amazon Synthetics deletes all the resources except for the Lambda
-                                                function and the CloudWatch Alarms if you created one.
+                                                function and the CloudWatch Alarms if you created one
                </td>
                <td>
                 Write
@@ -288,7 +288,7 @@
                 </a>
                </td>
                <td>
-                Returns information of all canaries.
+                Grants permission to list information of all canaries
                </td>
                <td>
                 Read
@@ -309,7 +309,8 @@
                 </a>
                </td>
                <td>
-                Returns information about the last test run associated with all canaries.
+                Grants permission to list information about the last test run associated with all
+                                                canaries
                </td>
                <td>
                 Read
@@ -330,7 +331,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all the test runs associated with a canary.
+                Grants permission to list information about all the test runs associated with a canary
                </td>
                <td>
                 Read
@@ -356,7 +357,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of all tags and values associated with a canary.
+                Grants permission to list all tags and values associated with a canary
                </td>
                <td>
                 Read
@@ -382,7 +383,8 @@
                 </a>
                </td>
                <td>
-                Starts a canary, so that Amazon Synthetics starts monitoring a website.
+                Grants permission to start a canary, so that Amazon CloudWatch Synthetics starts monitoring
+                                                a website
                </td>
                <td>
                 Write
@@ -408,7 +410,7 @@
                 </a>
                </td>
                <td>
-                Stops a canary.
+                Grants permission to stop a canary
                </td>
                <td>
                 Write
@@ -434,7 +436,7 @@
                 </a>
                </td>
                <td>
-                Adds one or more tags to a canary.
+                Grants permission to add one or more tags to a canary
                </td>
                <td>
                 Write
@@ -460,7 +462,7 @@
                 </a>
                </td>
                <td>
-                Removes one or more tags from a canary.
+                Grants permission to remove one or more tags from a canary
                </td>
                <td>
                 Write
@@ -486,7 +488,7 @@
                 </a>
                </td>
                <td>
-                Updates a canary.
+                Grants permission to update a canary
                </td>
                <td>
                 Write
@@ -529,7 +531,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d190c13b5">
+             <table id="w87aab5b9d194c13b5">
               <thead>
                <tr>
                 <th>
@@ -557,7 +559,11 @@
                  <span>
                   {
                  </span>
-                 Partition}:synthetics::$
+                 Partition}:synthetics:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
@@ -569,6 +575,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazoncloudwatchsynthetics-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -578,17 +589,60 @@
             Condition keys for        Amazon CloudWatch Synthetics
            </h2>
            <p>
-            CloudWatch Synthetics has no service-specific context keys that can be used in the
+            Amazon CloudWatch Synthetics defines the following condition keys that can be used
+                                    in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d194c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchsynthetics-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
