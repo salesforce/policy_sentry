@@ -248,7 +248,7 @@ def create_database(destination_directory, access_level_overrides_file):
                             continue
                         else:
                             api_documentation_link = link.attrs.get('href')
-                            print(api_documentation_link)
+                            logger.debug(api_documentation_link)
                         priv = chomp(link.text)
                     if priv == "":
                         priv = chomp(cells[0].text)
