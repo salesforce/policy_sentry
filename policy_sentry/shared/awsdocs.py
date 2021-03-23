@@ -198,9 +198,13 @@ def create_database(destination_directory, access_level_overrides_file):
                     prefix = prefix.split('<code class="code">')[1]
                     prefix = chomp(prefix.split("</code>")[0])
                     break
+            # The URL to that service's Actions, Resources, and Condition Keys page
+            service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
+            service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
             service_schema = {
                 "service_name": service_name,
                 "prefix": prefix,
+                "service_authorization_url": service_authorization_url,
                 "privileges": {},
                 "resources": {},
                 "conditions": {},

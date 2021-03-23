@@ -25,6 +25,7 @@ def get_service_prefix_data(service_prefix):
     result = iam_definition.get(service_prefix, None)
     try:
         return result
-    # pylint: disable=bare-except
+    # pylint: disable=bare-except, inconsistent-return-statements
     except:
         logger.debug("Service prefix not %s found.", service_prefix)
+        return None

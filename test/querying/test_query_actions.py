@@ -30,6 +30,7 @@ class QueryActionsTestCase(unittest.TestCase):
         desired_output_schema = Schema(
             {
                 "service_name": "AWS Cloud9",
+                "service_authorization_url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloud9.html",
                 "prefix": "cloud9",
                 "privileges": dict,
                 "resources": dict,

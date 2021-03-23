@@ -50,3 +50,11 @@ def get_all_actions(lowercase=False):
     # results = list(set(results))
     # results.sort()
     return all_actions
+
+
+def get_service_authorization_url(service_prefix: str) -> str:
+    """
+    Gets the URL to the Actions, Resources, and Condition Keys page for a particular service.
+    """
+    result = iam_definition.get(service_prefix).get("service_authorization_url")
+    return result
