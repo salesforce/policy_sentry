@@ -3,9 +3,12 @@ SHELL:=/bin/bash
 PROJECT := policy-sentry
 PROJECT_UNDERSCORE := policy_sentry
 
-.PHONY: setup-env
-setup-env:
+.PHONY: virtualenv
+virtualenv:
 	python3 -m venv ./venv && source venv/bin/activate
+
+.PHONY: setup-env
+setup-env: virtualenv
 	python3 -m pip install -r requirements.txt
 
 .PHONY: setup-dev
@@ -13,11 +16,13 @@ setup-dev: setup-env
 	python3 -m pip install -r requirements-dev.txt
 
 .PHONY: build-docs
-build-docs: setup-dev
+build-docs: clean virtualenv
+	python3 -m pip install -r docs/requirements.txt
 	mkdocs build
 
 .PHONY: serve-docs
-serve-docs: setup-dev
+serve-docs: clean virtualenv
+	python3 -m pip install -r docs/requirements.txt
 	mkdocs serve --dev-addr "127.0.0.1:8001"
 
 .PHONY: build
