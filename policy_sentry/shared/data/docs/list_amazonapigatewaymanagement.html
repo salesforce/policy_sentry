@@ -1,0 +1,4062 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, resources, and condition keys for Amazon API Gateway Management - Service Authorization Reference
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_amazonapigatewaymanagement" name="target_state"/>
+  <meta content="list_amazonapigatewaymanagement" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon API Gateway Management." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="Service Authorization Reference" name="product"/>
+  <meta content="Service Authorization Reference" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="Service Authorization Docs" name="feedback-item"/>
+  <meta content="Service Authorization Reference" name="this_doc_product"/>
+  <meta content="Service Authorization Reference" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, resources, and condition keys for Amazon API Gateway Management - Service Authorization Reference
+        </title>
+        <meta content="service-authorization.pdf#list_amazonapigatewaymanagement" name="pdf"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" name="feedback-no"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="service-authorization.pdf#list_amazonapigatewaymanagement" target="_blank" title="Open PDF">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           Service Authorization Reference
+          </a>
+          <a href="reference.html">
+           Service Authorization Reference
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#amazonapigatewaymanagement-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#amazonapigatewaymanagement-resources-for-iam-policies">
+           Resource types
+          </a>
+          <a href="#amazonapigatewaymanagement-policy-keys">
+           Condition keys
+          </a>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_amazonapigatewaymanagement">
+            Actions, resources, and condition keys for      Amazon API Gateway Management
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            Amazon API Gateway Management (service prefix:
+            <code class="code">
+             apigateway
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/apigateway/api-reference/">
+                API operations available for this          service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html">
+                using          IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#amazonapigatewaymanagement-actions-as-permissions">
+               Actions defined by        Amazon API Gateway Management
+              </a>
+             </li>
+             <li>
+              <a href="#amazonapigatewaymanagement-resources-for-iam-policies">
+               Resource types defined by        Amazon API Gateway Management
+              </a>
+             </li>
+             <li>
+              <a href="#amazonapigatewaymanagement-policy-keys">
+               Condition keys for        Amazon API Gateway Management
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="amazonapigatewaymanagement-actions-as-permissions">
+            Actions defined by        Amazon API Gateway Management
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The actions table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9c43c11b9">
+              <thead>
+               <tr>
+                <th>
+                 Actions
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Access level
+                </th>
+                <th>
+                 Resource types (*required)
+                </th>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Dependent actions
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonapigatewaymanagement-AddCertificateToDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/ADD_CERTIFICATE_TO_DOMAIN.html">
+                 AddCertificateToDomain
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to add certificates for mutual TLS authentication to a domain name.
+                                                This is an additional authorization control for managing the DomainName resource due
+                                                to the sensitive nature of mTLS
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainName">
+                  DomainName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainNames">
+                  DomainNames
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="23">
+                <a id="amazonapigatewaymanagement-DELETE">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/API_DELETE.html">
+                 DELETE
+                </a>
+               </td>
+               <td rowspan="23">
+                Grants permission to delete a particular resource
+               </td>
+               <td rowspan="23">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ApiKey">
+                  ApiKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Authorizer">
+                  Authorizer
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-BasePathMapping">
+                  BasePathMapping
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ClientCertificate">
+                  ClientCertificate
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Deployment">
+                  Deployment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationPart">
+                  DocumentationPart
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationVersion">
+                  DocumentationVersion
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainName">
+                  DomainName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponse">
+                  GatewayResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Integration">
+                  Integration
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-IntegrationResponse">
+                  IntegrationResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Method">
+                  Method
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-MethodResponse">
+                  MethodResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Model">
+                  Model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RequestValidator">
+                  RequestValidator
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Resource">
+                  Resource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApi">
+                  RestApi
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stage">
+                  Stage
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Template">
+                  Template
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlan">
+                  UsagePlan
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlanKey">
+                  UsagePlanKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-VpcLink">
+                  VpcLink
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="40">
+                <a id="amazonapigatewaymanagement-GET">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/API_GET.html">
+                 GET
+                </a>
+               </td>
+               <td rowspan="40">
+                Grants permission to read a particular resource
+               </td>
+               <td rowspan="40">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Account">
+                  Account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ApiKey">
+                  ApiKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ApiKeys">
+                  ApiKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Authorizer">
+                  Authorizer
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Authorizers">
+                  Authorizers
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-BasePathMapping">
+                  BasePathMapping
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-BasePathMappings">
+                  BasePathMappings
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ClientCertificate">
+                  ClientCertificate
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ClientCertificates">
+                  ClientCertificates
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Deployment">
+                  Deployment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Deployments">
+                  Deployments
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationPart">
+                  DocumentationPart
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationParts">
+                  DocumentationParts
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationVersion">
+                  DocumentationVersion
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationVersions">
+                  DocumentationVersions
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainName">
+                  DomainName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainNames">
+                  DomainNames
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponse">
+                  GatewayResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponses">
+                  GatewayResponses
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Integration">
+                  Integration
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-IntegrationResponse">
+                  IntegrationResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Method">
+                  Method
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-MethodResponse">
+                  MethodResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Model">
+                  Model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Models">
+                  Models
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RequestValidator">
+                  RequestValidator
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RequestValidators">
+                  RequestValidators
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Resource">
+                  Resource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Resources">
+                  Resources
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApi">
+                  RestApi
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApis">
+                  RestApis
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Sdk">
+                  Sdk
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stage">
+                  Stage
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stages">
+                  Stages
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlan">
+                  UsagePlan
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlanKey">
+                  UsagePlanKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlanKeys">
+                  UsagePlanKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlans">
+                  UsagePlans
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-VpcLink">
+                  VpcLink
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-VpcLinks">
+                  VpcLinks
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="24">
+                <a id="amazonapigatewaymanagement-PATCH">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/API_PATCH.html">
+                 PATCH
+                </a>
+               </td>
+               <td rowspan="24">
+                Grants permission to update a particular resource
+               </td>
+               <td rowspan="24">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Account">
+                  Account
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ApiKey">
+                  ApiKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Authorizer">
+                  Authorizer
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-BasePathMapping">
+                  BasePathMapping
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ClientCertificate">
+                  ClientCertificate
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Deployment">
+                  Deployment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationPart">
+                  DocumentationPart
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationVersion">
+                  DocumentationVersion
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainName">
+                  DomainName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponse">
+                  GatewayResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Integration">
+                  Integration
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-IntegrationResponse">
+                  IntegrationResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Method">
+                  Method
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-MethodResponse">
+                  MethodResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Model">
+                  Model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RequestValidator">
+                  RequestValidator
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Resource">
+                  Resource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApi">
+                  RestApi
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stage">
+                  Stage
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Template">
+                  Template
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlan">
+                  UsagePlan
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlanKey">
+                  UsagePlanKey
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-VpcLink">
+                  VpcLink
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="20">
+                <a id="amazonapigatewaymanagement-POST">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/API_POST.html">
+                 POST
+                </a>
+               </td>
+               <td rowspan="20">
+                Grants permission to create a particular resource
+               </td>
+               <td rowspan="20">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ApiKeys">
+                  ApiKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Authorizers">
+                  Authorizers
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-BasePathMappings">
+                  BasePathMappings
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-ClientCertificates">
+                  ClientCertificates
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Deployments">
+                  Deployments
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationParts">
+                  DocumentationParts
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationVersions">
+                  DocumentationVersions
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainNames">
+                  DomainNames
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponses">
+                  GatewayResponses
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-IntegrationResponse">
+                  IntegrationResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-MethodResponse">
+                  MethodResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Models">
+                  Models
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RequestValidators">
+                  RequestValidators
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Resources">
+                  Resources
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApis">
+                  RestApis
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stages">
+                  Stages
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlanKeys">
+                  UsagePlanKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-UsagePlans">
+                  UsagePlans
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-VpcLinks">
+                  VpcLinks
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="amazonapigatewaymanagement-PUT">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/API_PUT.html">
+                 PUT
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to update a particular resource
+               </td>
+               <td rowspan="6">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DocumentationPart">
+                  DocumentationPart
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-GatewayResponse">
+                  GatewayResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-IntegrationResponse">
+                  IntegrationResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-MethodResponse">
+                  MethodResponse
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApi">
+                  RestApi
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonapigatewaymanagement-RemoveCertificateFromDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/REMOVE_CERTIFICATE_FROM_DOMAIN.html">
+                 RemoveCertificateFromDomain
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to remove certificates for mutual TLS authentication from a domain
+                                                name. This is an additional authorization control for managing the DomainName resource
+                                                due to the sensitive nature of mTLS
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainName">
+                  DomainName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-DomainNames">
+                  DomainNames
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonapigatewaymanagement-SetWebACL">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/WEBACL_SET.html">
+                 SetWebACL
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission set a WAF access control list (ACL). This is an additional authorization
+                                                control for managing the Stage resource due to the sensitive nature of WebAcl's
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stage">
+                  Stage
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-Stages">
+                  Stages
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonapigatewaymanagement-UpdateRestApiPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/api-reference/UPDATE_REST_API_POLICY.html">
+                 UpdateRestApiPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to manage the IAM resource policy for an API. This is an additional
+                                                authorization control for managing an API due to the sensitive nature of the resource
+                                                policy
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApi">
+                  RestApi
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-RestApis">
+                  RestApis
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonapigatewaymanagement-resources-for-iam-policies">
+            Resource types defined by        Amazon API Gateway Management
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#amazonapigatewaymanagement-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The resource types table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9c43c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Account">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Account
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/account/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-ApiKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 ApiKey
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/apikeys/$
+                 <span>
+                  {
+                 </span>
+                 ApiKeyId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-ApiKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 ApiKeys
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/apikeys/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Authorizer">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Authorizer
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/authorizers/$
+                 <span>
+                  {
+                 </span>
+                 AuthorizerId}/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerType">
+                  apigateway:Request/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerUri">
+                  apigateway:Request/AuthorizerUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AuthorizerType">
+                  apigateway:Resource/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AuthorizerUri">
+                  apigateway:Resource/AuthorizerUri
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Authorizers">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Authorizers
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/authorizers/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerType">
+                  apigateway:Request/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerUri">
+                  apigateway:Request/AuthorizerUri
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-BasePathMapping">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 BasePathMapping
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/domainnames/$
+                 <span>
+                  {
+                 </span>
+                 DomainName}/basepathmappings/$
+                 <span>
+                  {
+                 </span>
+                 BasePath}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-BasePathMappings">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 BasePathMappings
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/domainnames/$
+                 <span>
+                  {
+                 </span>
+                 DomainName}/basepathmappings/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-ClientCertificate">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 ClientCertificate
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/clientcertificates/$
+                 <span>
+                  {
+                 </span>
+                 ClientCertificateId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-ClientCertificates">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 ClientCertificates
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/clientcertificates/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Deployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Deployment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/deployments/$
+                 <span>
+                  {
+                 </span>
+                 DeploymentId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Deployments">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Deployments
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/deployments/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_StageName">
+                  apigateway:Request/StageName
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DocumentationPart">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DocumentationPart
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/documentation/parts/$
+                 <span>
+                  {
+                 </span>
+                 DocumentationPartId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DocumentationParts">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DocumentationParts
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/documentation/parts/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DocumentationVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DocumentationVersion
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/documentation/versions/$
+                 <span>
+                  {
+                 </span>
+                 DocumentationVersionId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DocumentationVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DocumentationVersions
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/documentation/versions/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DomainName">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DomainName
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/domainnames/$
+                 <span>
+                  {
+                 </span>
+                 DomainName}/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_EndpointType">
+                  apigateway:Request/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreUri">
+                  apigateway:Request/MtlsTrustStoreUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreVersion">
+                  apigateway:Request/MtlsTrustStoreVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_SecurityPolicy">
+                  apigateway:Request/SecurityPolicy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_EndpointType">
+                  apigateway:Resource/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_MtlsTrustStoreUri">
+                  apigateway:Resource/MtlsTrustStoreUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_MtlsTrustStoreVersion">
+                  apigateway:Resource/MtlsTrustStoreVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_SecurityPolicy">
+                  apigateway:Resource/SecurityPolicy
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-DomainNames">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 DomainNames
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/domainnames/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_EndpointType">
+                  apigateway:Request/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreUri">
+                  apigateway:Request/MtlsTrustStoreUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreVersion">
+                  apigateway:Request/MtlsTrustStoreVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_SecurityPolicy">
+                  apigateway:Request/SecurityPolicy
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-GatewayResponse">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 GatewayResponse
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/gatewayresponses/$
+                 <span>
+                  {
+                 </span>
+                 ResponseType}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-GatewayResponses">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 GatewayResponses
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/gatewayresponses/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Integration">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Integration
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}/methods/$
+                 <span>
+                  {
+                 </span>
+                 HttpMethodType}/integration/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-IntegrationResponse">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 IntegrationResponse
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}/methods/$
+                 <span>
+                  {
+                 </span>
+                 HttpMethodType}/integration/responses/$
+                 <span>
+                  {
+                 </span>
+                 StatusCode}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Method">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Method
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}/methods/$
+                 <span>
+                  {
+                 </span>
+                 HttpMethodType}/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_ApiKeyRequired">
+                  apigateway:Request/ApiKeyRequired
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_RouteAuthorizationType">
+                  apigateway:Request/RouteAuthorizationType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_ApiKeyRequired">
+                  apigateway:Resource/ApiKeyRequired
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_RouteAuthorizationType">
+                  apigateway:Resource/RouteAuthorizationType
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-MethodResponse">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 MethodResponse
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}/methods/$
+                 <span>
+                  {
+                 </span>
+                 HttpMethodType}/responses/$
+                 <span>
+                  {
+                 </span>
+                 StatusCode}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Model">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Model
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/models/$
+                 <span>
+                  {
+                 </span>
+                 ModelName}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Models">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Models
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/models/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-RequestValidator">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 RequestValidator
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/requestvalidators/$
+                 <span>
+                  {
+                 </span>
+                 RequestValidatorId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-RequestValidators">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 RequestValidators
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/requestvalidators/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Resource">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Resource
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Resources">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Resources
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/resources/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-RestApi">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 RestApi
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_ApiKeyRequired">
+                  apigateway:Request/ApiKeyRequired
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_ApiName">
+                  apigateway:Request/ApiName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerType">
+                  apigateway:Request/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerUri">
+                  apigateway:Request/AuthorizerUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_DisableExecuteApiEndpoint">
+                  apigateway:Request/DisableExecuteApiEndpoint
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_EndpointType">
+                  apigateway:Request/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_RouteAuthorizationType">
+                  apigateway:Request/RouteAuthorizationType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_ApiKeyRequired">
+                  apigateway:Resource/ApiKeyRequired
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_ApiName">
+                  apigateway:Resource/ApiName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AuthorizerType">
+                  apigateway:Resource/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AuthorizerUri">
+                  apigateway:Resource/AuthorizerUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_DisableExecuteApiEndpoint">
+                  apigateway:Resource/DisableExecuteApiEndpoint
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_EndpointType">
+                  apigateway:Resource/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_RouteAuthorizationType">
+                  apigateway:Resource/RouteAuthorizationType
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-RestApis">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 RestApis
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_ApiKeyRequired">
+                  apigateway:Request/ApiKeyRequired
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_ApiName">
+                  apigateway:Request/ApiName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerType">
+                  apigateway:Request/AuthorizerType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AuthorizerUri">
+                  apigateway:Request/AuthorizerUri
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_DisableExecuteApiEndpoint">
+                  apigateway:Request/DisableExecuteApiEndpoint
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_EndpointType">
+                  apigateway:Request/EndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_RouteAuthorizationType">
+                  apigateway:Request/RouteAuthorizationType
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Sdk">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Sdk
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/stages/$
+                 <span>
+                  {
+                 </span>
+                 StageName}/sdks/$
+                 <span>
+                  {
+                 </span>
+                 SdkType}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Stage">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Stage
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/stages/$
+                 <span>
+                  {
+                 </span>
+                 StageName}/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AccessLoggingDestination">
+                  apigateway:Request/AccessLoggingDestination
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AccessLoggingFormat">
+                  apigateway:Request/AccessLoggingFormat
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AccessLoggingDestination">
+                  apigateway:Resource/AccessLoggingDestination
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Resource_AccessLoggingFormat">
+                  apigateway:Resource/AccessLoggingFormat
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Stages">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Stages
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/$
+                 <span>
+                  {
+                 </span>
+                 RestApiId}/stages/
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AccessLoggingDestination">
+                  apigateway:Request/AccessLoggingDestination
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonapigatewaymanagement-apigateway_Request_AccessLoggingFormat">
+                  apigateway:Request/AccessLoggingFormat
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-Template">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 Template
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/restapis/models/$
+                 <span>
+                  {
+                 </span>
+                 ModelName}/template/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-UsagePlan">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 UsagePlan
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/usageplans/$
+                 <span>
+                  {
+                 </span>
+                 UsagePlanId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-UsagePlans">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 UsagePlans
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/usageplans/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-UsagePlanKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 UsagePlanKey
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/usageplans/$
+                 <span>
+                  {
+                 </span>
+                 UsagePlanId}/keys/$
+                 <span>
+                  {
+                 </span>
+                 Id}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-UsagePlanKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 UsagePlanKeys
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/usageplans/$
+                 <span>
+                  {
+                 </span>
+                 UsagePlanId}/keys/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-VpcLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 VpcLink
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/vpclinks/$
+                 <span>
+                  {
+                 </span>
+                 VpcLinkId}/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-VpcLinks">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 VpcLinks
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apigateway:$
+                 <span>
+                  {
+                 </span>
+                 Region}::/vpclinks/
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="amazonapigatewaymanagement-policy-keys">
+            Condition keys for        Amazon API Gateway Management
+           </h2>
+           <p>
+            Amazon API Gateway Management defines the following condition keys that can be used
+                                    in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9c43c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_AccessLoggingDestination">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/AccessLoggingDestination
+                </a>
+               </td>
+               <td>
+                Filters access by access log destination. Available during the CreateStage and UpdateStage
+                                                operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_AccessLoggingFormat">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/AccessLoggingFormat
+                </a>
+               </td>
+               <td>
+                Filters access by access log format. Available during the CreateStage and UpdateStage
+                                                operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_ApiKeyRequired">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/ApiKeyRequired
+                </a>
+               </td>
+               <td>
+                Filters access based on whether an API key is required or not. Available during the
+                                                CreateMethod and PutMethod operations. Also available as a collection during import
+                                                and reimport
+               </td>
+               <td>
+                ArrayOfBool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_ApiName">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/ApiName
+                </a>
+               </td>
+               <td>
+                Filters access by API name. Available during the CreateRestApi and UpdateRestApi operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_AuthorizerType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/AuthorizerType
+                </a>
+               </td>
+               <td>
+                Filters access by type of authorizer in the request, for example TOKEN, REQUEST, JWT.
+                                                Available during CreateAuthorizer and UpdateAuthorizer. Also available during import
+                                                and reimport as an ArrayOfString
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_AuthorizerUri">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/AuthorizerUri
+                </a>
+               </td>
+               <td>
+                Filters access by URI of a Lambda authorizer function. Available during CreateAuthorizer
+                                                and UpdateAuthorizer. Also available during import and reimport as an ArrayOfString
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_DisableExecuteApiEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/DisableExecuteApiEndpoint
+                </a>
+               </td>
+               <td>
+                Filters access by status of the default execute-api endpoint. Available during the
+                                                CreateRestApi and DeleteRestApi operations
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_EndpointType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/EndpointType
+                </a>
+               </td>
+               <td>
+                Filters access by endpoint type. Available during the CreateDomainName, UpdateDomainName,
+                                                CreateRestApi, and UpdateRestApi operations
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreUri">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/MtlsTrustStoreUri
+                </a>
+               </td>
+               <td>
+                Filters access by URI of the truststore used for mutual TLS authentication. Available
+                                                during the CreateDomainName and UpdateDomainName operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_MtlsTrustStoreVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/MtlsTrustStoreVersion
+                </a>
+               </td>
+               <td>
+                Filters access by version of the truststore used for mutual TLS authentication. Available
+                                                during the CreateDomainName and UpdateDomainName operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_RouteAuthorizationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/RouteAuthorizationType
+                </a>
+               </td>
+               <td>
+                Filters access by authorization type, for example NONE, AWS_IAM, CUSTOM, JWT, COGNITO_USER_POOLS.
+                                                Available during the CreateMethod and PutMethod operations Also available as a collection
+                                                during import
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_SecurityPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/SecurityPolicy
+                </a>
+               </td>
+               <td>
+                Filters access by TLS version. Available during the CreateDomain and UpdateDomain
+                                                operations
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Request_StageName">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Request/StageName
+                </a>
+               </td>
+               <td>
+                Filters access by stage name of the deployment that you attempt to create. Available
+                                                during the CreateDeployment operation
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_AccessLoggingDestination">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/AccessLoggingDestination
+                </a>
+               </td>
+               <td>
+                Filters access by access log destination of the current Stage resource. Available
+                                                during the UpdateStage and DeleteStage operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_AccessLoggingFormat">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/AccessLoggingFormat
+                </a>
+               </td>
+               <td>
+                Filters access by access log format of the current Stage resource. Available during
+                                                the UpdateStage and DeleteStage operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_ApiKeyRequired">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/ApiKeyRequired
+                </a>
+               </td>
+               <td>
+                Filters access based on whether an API key is required or not for the existing Method
+                                                resource. Available during the PutMethod and DeleteMethod operations. Also available
+                                                as a collection during reimport
+               </td>
+               <td>
+                ArrayOfBool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_ApiName">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/ApiName
+                </a>
+               </td>
+               <td>
+                Filters access by API name of the existing RestApi resource. Available during UpdateRestApi
+                                                and DeleteRestApi operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_AuthorizerType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/AuthorizerType
+                </a>
+               </td>
+               <td>
+                Filters access by the current type of authorizer, for example TOKEN, REQUEST, JWT.
+                                                Available during UpdateAuthorizer and DeleteAuthorizer operations. Also available
+                                                during reimport as an ArrayOfString
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_AuthorizerUri">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/AuthorizerUri
+                </a>
+               </td>
+               <td>
+                Filters access by URI of a Lambda authorizer function. Available during UpdateAuthorizer
+                                                and DeleteAuthorizer operations. Also available during reimport as an ArrayOfString
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_DisableExecuteApiEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/DisableExecuteApiEndpoint
+                </a>
+               </td>
+               <td>
+                Filters access by status of the default execute-api endpoint of the current RestApi
+                                                resource. Available during UpdateRestApi and DeleteRestApi operations
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_EndpointType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/EndpointType
+                </a>
+               </td>
+               <td>
+                Filters access by endpoint type. Available during the UpdateDomainName, DeleteDomainName,
+                                                UpdateRestApi, and DeleteRestApi operations
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_MtlsTrustStoreUri">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/MtlsTrustStoreUri
+                </a>
+               </td>
+               <td>
+                Filters access by URI of the truststore used for mutual TLS authentication. Available
+                                                during UpdateDomainName and DeleteDomainName operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_MtlsTrustStoreVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/MtlsTrustStoreVersion
+                </a>
+               </td>
+               <td>
+                Filters access by version of the truststore used for mutual TLS authentication. Available
+                                                during UpdateDomainName and DeleteDomainName operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_RouteAuthorizationType">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/RouteAuthorizationType
+                </a>
+               </td>
+               <td>
+                Filters access by authorization type of the existing Method resource, for example
+                                                NONE, AWS_IAM, CUSTOM, JWT, COGNITO_USER_POOLS. Available during the PutMethod and
+                                                DeleteMethod operations. Also available as a collection during reimport
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-apigateway_Resource_SecurityPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_service-with-iam.html">
+                 apigateway:Resource/SecurityPolicy
+                </a>
+               </td>
+               <td>
+                Filters access by TLS version. Available during UpdateDomain and DeleteDomain operations
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-tagging.html">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-tagging.html">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonapigatewaymanagement-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-tagging.html">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the presence of tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+           <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
+           </awsdocs-thumb-feedback>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your
+                                                   browser.
+                </strong>
+               </p>
+               <p>
+                To use the AWS Documentation, Javascript must be
+                                                enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_amazonapigateway.html" id="previous">
+             Amazon API Gateway
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazonapigatewaymanagementv2.html" id="next">
+             Amazon API Gateway Management V2
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good
+                                    job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right
+                                    so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're
+                                    sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make
+                                    the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonapigatewaymanagement.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+   <!--
+                SiteCatalyst code version: H.25.2.
+                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+                More info available at http://www.omniture.com
+            -->
+   <script language="JavaScript" type="text/javascript">
+    var awsdocs = awsdocs || {};
+awsdocs.prop66 = 'Service Authorization Reference';
+awsdocs.prop65 =  'Service Authorization Reference';
+   </script>
+   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
+   </script>
+   <!--/DO NOT REMOVE/-->
+   <!--End SiteCatalyst code version: H.25.2.-->
+  </div>
+ </body>
+</html>

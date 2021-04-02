@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d322c11b9">
+             <table id="w87aab5b9d330c11b9">
               <thead>
                <tr>
                 <th>
@@ -274,6 +274,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazondetective-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondetective-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -571,6 +581,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazondetective-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/detective/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the tag values that are assigned to a behavior graph
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-Graph">
+                  Graph*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazondetective-RejectInvitation">
                 </a>
@@ -646,6 +695,94 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazondetective-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/detective/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to assign tag values to a behavior graph
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-Graph">
+                  Graph*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondetective-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondetective-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazondetective-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/detective/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to remove tag values from a behavior graph
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-Graph">
+                  Graph*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondetective-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -672,7 +809,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d322c13b5">
+             <table id="w87aab5b9d330c13b5">
               <thead>
                <tr>
                 <th>
@@ -716,6 +853,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazondetective-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -725,17 +867,89 @@
             Condition keys for        Amazon Detective
            </h2>
            <p>
-            Detective has no service-specific context keys that can be used in the
+            Amazon Detective defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d330c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazondetective-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazondetective-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazondetective-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

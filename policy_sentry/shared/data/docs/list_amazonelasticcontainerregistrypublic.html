@@ -209,7 +209,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d378c11b9">
+             <table id="w87aab5b9d386c11b9">
               <thead>
                <tr>
                 <th>
@@ -313,17 +313,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticcontainerregistrypublic-CreateRepository">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_CreateRepository.html">
                  CreateRepository
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create an image repository
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -334,6 +334,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -623,6 +641,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticcontainerregistrypublic-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to list the tags for an Amazon ECR resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticcontainerregistrypublic-PutImage">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_PutImage.html">
@@ -727,6 +771,94 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonelasticcontainerregistrypublic-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to tag an Amazon ECR resource
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonelasticcontainerregistrypublic-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to untag an Amazon ECR resource
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonelasticcontainerregistrypublic-UploadLayerPart">
                 </a>
@@ -778,7 +910,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d378c13b5">
+             <table id="w87aab5b9d386c13b5">
               <thead>
                <tr>
                 <th>
@@ -818,6 +950,16 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticcontainerregistrypublic-ecr-public_ResourceTag___TagKey_">
+                  ecr-public:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -855,18 +997,105 @@
             Condition keys for        Amazon Elastic Container Registry Public
            </h2>
            <p>
-            Elastic Container Registry Public has no service-specific context keys that can be
-                                    used in the
+            Amazon Elastic Container Registry Public defines the following condition keys that
+                                    can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d386c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerregistrypublic-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters create requests based on the allowed set of values for each of the tags
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerregistrypublic-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on tag-value associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerregistrypublic-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters create requests based on the presence of mandatory tags in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticcontainerregistrypublic-ecr-public_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys">
+                 ecr-public:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions based on tag-value associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

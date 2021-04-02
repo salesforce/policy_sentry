@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d222c11b9">
+             <table id="w87aab5b9d230c11b9">
               <thead>
                <tr>
                 <th>
@@ -232,21 +232,23 @@
                </tr>
               </thead>
               <tr>
-               <td>
+               <td rowspan="3">
                 <a id="amazoncodegurureviewer-AssociateRepository">
                 </a>
-                AssociateRepository
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_AssociateRepository.html">
+                 AssociateRepository
+                </a>
                </td>
-               <td>
-                Grants permission to associates a repository with Amazon CodeGuru Reviewer.
+               <td rowspan="3">
+                Grants permission to associates a repository with Amazon CodeGuru Reviewer
                </td>
-               <td>
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-repository">
-                  repository
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -268,6 +270,73 @@
                 <p>
                  iam:CreateServiceLinkedRole
                 </p>
+                <p>
+                 s3:CreateBucket
+                </p>
+                <p>
+                 s3:ListBucket
+                </p>
+                <p>
+                 s3:PutBucketPolicy
+                </p>
+                <p>
+                 s3:PutLifecycleConfiguration
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-connection">
+                  connection
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-repository">
+                  repository
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodegurureviewer-CreateCodeReview">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview.html">
+                 CreateCodeReview
+                </a>
+               </td>
+               <td>
+                Grants permission to create a code review
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 s3:GetObject
+                </p>
                </td>
               </tr>
               <tr>
@@ -277,7 +346,7 @@
                 CreateConnectionToken [permission only]
                </td>
                <td>
-                Grants permission to perform webbased oauth handshake for 3rd party providers.
+                Grants permission to perform webbased oauth handshake for 3rd party providers
                </td>
                <td>
                 Read
@@ -293,18 +362,20 @@
                <td>
                 <a id="amazoncodegurureviewer-DescribeCodeReview">
                 </a>
-                DescribeCodeReview
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeCodeReview.html">
+                 DescribeCodeReview
+                </a>
                </td>
                <td>
-                Grants permission to describe a code review.
+                Grants permission to describe a code review
                </td>
                <td>
                 Read
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-codereview">
-                  codereview*
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -317,18 +388,20 @@
                <td>
                 <a id="amazoncodegurureviewer-DescribeRecommendationFeedback">
                 </a>
-                DescribeRecommendationFeedback
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRecommendationFeedback.html">
+                 DescribeRecommendationFeedback
+                </a>
                </td>
                <td>
-                Grants permission to describe a recommendation feedback on a code review.
+                Grants permission to describe a recommendation feedback on a code review
                </td>
                <td>
                 Read
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-codereview">
-                  codereview*
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -341,10 +414,12 @@
                <td>
                 <a id="amazoncodegurureviewer-DescribeRepositoryAssociation">
                 </a>
-                DescribeRepositoryAssociation
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRepositoryAssociation.html">
+                 DescribeRepositoryAssociation
+                </a>
                </td>
                <td>
-                Grants permission to describe a repository association.
+                Grants permission to describe a repository association
                </td>
                <td>
                 Read
@@ -365,10 +440,12 @@
                <td>
                 <a id="amazoncodegurureviewer-DisassociateRepository">
                 </a>
-                DisassociateRepository
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DisassociateRepository.html">
+                 DisassociateRepository
+                </a>
                </td>
                <td>
-                Grants permission to disassociate a repository with Amazon CodeGuru Reviewer.
+                Grants permission to disassociate a repository with Amazon CodeGuru Reviewer
                </td>
                <td>
                 Write
@@ -401,7 +478,7 @@
                 GetMetricsData [permission only]
                </td>
                <td>
-                Grants permission to view pull request metrics in console.
+                Grants permission to view pull request metrics in console
                </td>
                <td>
                 Read
@@ -417,10 +494,12 @@
                <td>
                 <a id="amazoncodegurureviewer-ListCodeReviews">
                 </a>
-                ListCodeReviews
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListCodeReviews.html">
+                 ListCodeReviews
+                </a>
                </td>
                <td>
-                Grants permission to list summary of code reviews.
+                Grants permission to list summary of code reviews
                </td>
                <td>
                 List
@@ -436,18 +515,20 @@
                <td>
                 <a id="amazoncodegurureviewer-ListRecommendationFeedback">
                 </a>
-                ListRecommendationFeedback
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendationFeedback.html">
+                 ListRecommendationFeedback
+                </a>
                </td>
                <td>
-                Grants permission to list summary of recommendation feedback on a code review.
+                Grants permission to list summary of recommendation feedback on a code review
                </td>
                <td>
                 List
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-codereview">
-                  codereview*
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -460,7 +541,9 @@
                <td>
                 <a id="amazoncodegurureviewer-ListRecommendations">
                 </a>
-                ListRecommendations
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendations.html">
+                 ListRecommendations
+                </a>
                </td>
                <td>
                 Grants permission to list summary of recommendations on a code review
@@ -470,8 +553,8 @@
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-codereview">
-                  codereview*
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -484,15 +567,43 @@
                <td>
                 <a id="amazoncodegurureviewer-ListRepositoryAssociations">
                 </a>
-                ListRepositoryAssociations
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">
+                 ListRepositoryAssociations
+                </a>
                </td>
                <td>
-                Grants permission to list summary of repository associations.
+                Grants permission to list summary of repository associations
                </td>
                <td>
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodegurureviewer-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to list the resource attached to a associated repository ARN
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -506,7 +617,7 @@
                 ListThirdPartyRepositories [permission only]
                </td>
                <td>
-                Grants permission to list 3rd party providers repositories in console.
+                Grants permission to list 3rd party providers repositories in console
                </td>
                <td>
                 Read
@@ -522,18 +633,72 @@
                <td>
                 <a id="amazoncodegurureviewer-PutRecommendationFeedback">
                 </a>
-                PutRecommendationFeedback
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_PutRecommendationFeedback.html">
+                 PutRecommendationFeedback
+                </a>
                </td>
                <td>
-                Grants permission to put feedback for a recommendation on a code review.
+                Grants permission to put feedback for a recommendation on a code review
                </td>
                <td>
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoncodegurureviewer-codereview">
-                  codereview*
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodegurureviewer-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to attach resource tags to an associated repository ARN
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncodegurureviewer-UnTagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_UnTagResource.html">
+                 UnTagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate resource tags from an associated repository ARN
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncodegurureviewer-association">
+                  association*
                  </a>
                 </p>
                </td>
@@ -568,7 +733,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d222c13b5">
+             <table id="w87aab5b9d230c13b5">
               <thead>
                <tr>
                 <th>
@@ -667,6 +832,36 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazoncodegurureviewer-connection">
+                </a>
+                connection
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:codestar-connections:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:connection/$
+                 <span>
+                  {
+                 </span>
+                 ConnectionId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -696,7 +891,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d222c15b7">
+             <table id="w87aab5b9d230c15b7">
               <thead>
                <tr>
                 <th>
