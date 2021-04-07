@@ -593,3 +593,69 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ]
         }
         self.assertDictEqual(results, expected_result)
+
+
+    def test_exclude_actions_empty_sid_from_crud_output(self):
+        sid_group = SidGroup()
+        crud_with_exclude_actions_empty_sid = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                os.path.pardir,
+                os.path.pardir,
+                "examples",
+                "yml",
+                "crud-with-exclude-actions-empty-sid.yml",
+            )
+        )
+
+        with open(crud_with_exclude_actions_empty_sid, "r") as this_yaml_file:
+            crud_with_exclude_actions_empty_sid_cfg = yaml.safe_load(this_yaml_file)
+        # crud_with_exclude_actions_empty_sid_cfg = {
+        #     "mode": "crud",
+        #     "write": [
+        #         "arn:aws:s3:::test"
+        #     ],
+        #     "exclude-actions": [
+        #         "iam:Pass*"
+        #     ]
+        # }
+
+        # print(json.dumps(crud_with_exclude_actions_empty_sid_cfg, indent=4))
+        sid_group.process_template(crud_with_exclude_actions_empty_sid_cfg)
+        result = sid_group.get_rendered_policy(crud_with_exclude_actions_empty_sid_cfg)
+        # print(json.dumps(result, indent=4))
+        expected_result = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "S3WriteBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:CreateBucket",
+                        "s3:DeleteBucket",
+                        "s3:DeleteBucketOwnershipControls",
+                        "s3:DeleteBucketWebsite",
+                        "s3:PutAccelerateConfiguration",
+                        "s3:PutAnalyticsConfiguration",
+                        "s3:PutBucketCORS",
+                        "s3:PutBucketLogging",
+                        "s3:PutBucketNotification",
+                        "s3:PutBucketObjectLockConfiguration",
+                        "s3:PutBucketOwnershipControls",
+                        "s3:PutBucketRequestPayment",
+                        "s3:PutBucketVersioning",
+                        "s3:PutBucketWebsite",
+                        "s3:PutEncryptionConfiguration",
+                        "s3:PutIntelligentTieringConfiguration",
+                        "s3:PutInventoryConfiguration",
+                        "s3:PutLifecycleConfiguration",
+                        "s3:PutMetricsConfiguration",
+                        "s3:PutReplicationConfiguration"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::test"
+                    ]
+                }
+            ]
+        }
+        self.assertDictEqual(result, expected_result)
