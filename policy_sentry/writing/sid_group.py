@@ -174,6 +174,9 @@ class SidGroup:
             else:
                 actions = temp_actions
             # temp_actions.clear()
+            # Check if SID is empty of actions. Continue if yes.
+            if not actions:
+                continue
             match_found = False
             if minimize is not None and isinstance(minimize, int):
                 logger.debug("Minimizing statements...")
