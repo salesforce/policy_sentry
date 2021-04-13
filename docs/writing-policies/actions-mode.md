@@ -13,7 +13,7 @@ Command options
 Example:
 
 ```bash
-policy_sentry write-policy --input-file examples/actions.yml
+policy_sentry write-policy --input-file examples/yml/actions.yml
 ```
 
 Instructions
