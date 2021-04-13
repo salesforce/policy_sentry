@@ -15,7 +15,7 @@ Command options
 Example:
 
 ```bash
-policy_sentry write-policy --input-file examples/crud.yml
+policy_sentry write-policy --input-file examples/yml/crud.yml
 ```
 
 Instructions
