@@ -118,7 +118,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">
+               <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/">
                 configure this service
                </a>
                .
@@ -136,7 +136,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-set-up.html">
+               <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d370c11b9">
+             <table id="w87aab5b9d374c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,8 +240,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to push the SSH public key to the instance metadata where it remains
-                                                for 60 seconds.
+                Grants access to push an SSH public key to the specified EC2 instance to be used for
+                                                standard SSH
                </td>
                <td rowspan="2">
                 Write
@@ -267,6 +267,33 @@
                   ec2:osuser
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2instanceconnect-SendSerialConsoleSSHPublicKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/ec2-instance-connect/latest/APIReference/API_SendSerialConsoleSSHPublicKey.html">
+                 SendSerialConsoleSSHPublicKey
+                </a>
+               </td>
+               <td>
+                Grants access to push an SSH public key to the specified EC2 instance to be used for
+                                                serial console SSH
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2instanceconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -297,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d370c13b5">
+             <table id="w87aab5b9d374c13b5">
               <thead>
                <tr>
                 <th>
@@ -382,7 +409,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d370c15b7">
+             <table id="w87aab5b9d374c15b7">
               <thead>
                <tr>
                 <th>
@@ -405,7 +432,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags associated with the resource
+                Filters access based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -420,7 +447,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags associated with the resource
+                Filters access based on the tags associated with the resource
                </td>
                <td>
                 String

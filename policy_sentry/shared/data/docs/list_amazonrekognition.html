@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d902c11b9">
+             <table id="w87aab5b9d906c11b9">
               <thead>
                <tr>
                 <th>
@@ -254,18 +254,18 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonrekognition-CreateCollection">
                 </a>
                 <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_CreateCollection.html">
                  CreateCollection
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Creates a collection in an AWS region. You can then add faces to the collection using
                                                 the IndexFaces API.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -276,6 +276,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -307,17 +325,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonrekognition-CreateProjectVersion">
                 </a>
                 <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_CreateProjectVersion.html">
                  CreateProjectVersion
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Creates a new version of a model and begins training.
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -346,18 +364,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonrekognition-CreateStreamProcessor">
                 </a>
                 <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_CreateStreamProcessor.html">
                  CreateStreamProcessor
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Creates an Amazon Rekognition stream processor that you can use to detect and recognize
                                                 faces in a streaming video.
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -381,6 +417,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1045,6 +1099,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonrekognition-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Returns a list of tags associated with a resource.
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-projectversion">
+                  projectversion*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonrekognition-RecognizeCelebrities">
                 </a>
                 <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_RecognizeCelebrities.html">
@@ -1395,6 +1475,89 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonrekognition-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Adds one or more tags to a resource.
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-projectversion">
+                  projectversion*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonrekognition-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Removes one or more tags from a resource.
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-projectversion">
+                  projectversion*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1421,7 +1584,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d902c13b5">
+             <table id="w87aab5b9d906c13b5">
               <thead>
                <tr>
                 <th>
@@ -1576,17 +1739,89 @@
             Condition keys for        Amazon Rekognition
            </h2>
            <p>
-            Rekognition has no service-specific context keys that can be used in the
+            Amazon Rekognition defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d906c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonrekognition-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrekognition-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrekognition-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

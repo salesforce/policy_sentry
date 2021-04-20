@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d962c11b9">
+             <table id="w87aab5b9d966c11b9">
               <thead>
                <tr>
                 <th>
@@ -295,6 +295,16 @@
                 <p>
                  <a href="#awssecuritytokenservice-iam_ResourceTag___TagKey_">
                   iam:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecuritytokenservice-sts_SourceIdentity">
+                  sts:SourceIdentity
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecuritytokenservice-aws_SourceIdentity">
+                  aws:SourceIdentity
                  </a>
                 </p>
                </td>
@@ -512,6 +522,11 @@
                   sts:TransitiveTagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#awssecuritytokenservice-sts_SourceIdentity">
+                  sts:SourceIdentity
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -615,6 +630,11 @@
                 <p>
                  <a href="#awssecuritytokenservice-sts_TransitiveTagKeys">
                   sts:TransitiveTagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecuritytokenservice-sts_SourceIdentity">
+                  sts:SourceIdentity
                  </a>
                 </p>
                </td>
@@ -781,6 +801,64 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="awssecuritytokenservice-SetSourceIdentity">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html#id_credentials_temp_control-access_monitor-perms">
+                 SetSourceIdentity
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="3">
+                Grants permission to set a source identity on a STS session
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssecuritytokenservice-role">
+                  role
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssecuritytokenservice-user">
+                  user
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssecuritytokenservice-sts_SourceIdentity">
+                  sts:SourceIdentity
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecuritytokenservice-aws_SourceIdentity">
+                  aws:SourceIdentity
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awssecuritytokenservice-TagSession">
                 </a>
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">
@@ -873,7 +951,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d962c13b5">
+             <table id="w87aab5b9d966c13b5">
               <thead>
                <tr>
                 <th>
@@ -977,7 +1055,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d962c15b7">
+             <table id="w87aab5b9d966c15b7">
               <thead>
                <tr>
                 <th>
@@ -1092,6 +1170,21 @@
                </td>
                <td>
                 Filters actions based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssecuritytokenservice-aws_SourceIdentity">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceidentity">
+                 aws:SourceIdentity
+                </a>
+               </td>
+               <td>
+                Filters actions based on the source identity that is set on the caller
                </td>
                <td>
                 String
@@ -1708,6 +1801,21 @@
                </td>
                <td>
                 Filters actions based on the role session name required when you assume a role
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssecuritytokenservice-sts_SourceIdentity">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_sourceidentity">
+                 sts:SourceIdentity
+                </a>
+               </td>
+               <td>
+                Filters actions based on the source identity that is passed in the request
                </td>
                <td>
                 String

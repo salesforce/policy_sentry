@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d658c11b9">
+             <table id="w87aab5b9d662c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a delivery stream.
+                Grants permissions to create a delivery stream
                </td>
                <td rowspan="2">
                 Write
@@ -284,7 +284,7 @@
                 </a>
                </td>
                <td>
-                Deletes a delivery stream and its data.
+                Grants permission to delete a delivery stream and its data
                </td>
                <td>
                 Write
@@ -310,10 +310,10 @@
                 </a>
                </td>
                <td>
-                Describes the specified delivery stream and gets the status.
+                Grants permission to describe the specified delivery stream and gets the status
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -336,7 +336,7 @@
                 </a>
                </td>
                <td>
-                Lists your delivery streams.
+                Grants permissions to list your delivery streams
                </td>
                <td>
                 List
@@ -357,7 +357,7 @@
                 </a>
                </td>
                <td>
-                Lists the tags for the specified delivery stream.
+                Grants permissions to list the tags for the specified delivery stream
                </td>
                <td>
                 List
@@ -383,7 +383,8 @@
                 </a>
                </td>
                <td>
-                Writes a single data record into an Amazon Kinesis Firehose delivery stream.
+                Grants permissions to write a single data record into an Amazon Kinesis Firehose delivery
+                                                stream
                </td>
                <td>
                 Write
@@ -409,8 +410,8 @@
                 </a>
                </td>
                <td>
-                Writes multiple data records into a delivery stream in a single call, which can achieve
-                                                higher throughput per producer than when writing single records.
+                Grants permissions to write multiple data records into a delivery stream in a single
+                                                call, which can achieve higher throughput per producer than when writing single records
                </td>
                <td>
                 Write
@@ -436,7 +437,7 @@
                 </a>
                </td>
                <td>
-                Enables server-side encryption (SSE) for the delivery stream.
+                Grants permissions to enable server-side encryption (SSE) for the delivery stream
                </td>
                <td>
                 Write
@@ -462,7 +463,8 @@
                 </a>
                </td>
                <td>
-                Disables the specified destination of the specified delivery stream.
+                Grants permissions to disable the specified destination of the specified delivery
+                                                stream
                </td>
                <td>
                 Write
@@ -488,10 +490,10 @@
                 </a>
                </td>
                <td rowspan="2">
-                Adds or updates tags for the specified delivery stream.
+                Grants permissions to add or update tags for the specified delivery stream
                </td>
                <td rowspan="2">
-                Write
+                Tagging
                </td>
                <td>
                 <p>
@@ -532,10 +534,10 @@
                 </a>
                </td>
                <td rowspan="2">
-                Removes tags from the specified delivery stream.
+                Grants permissions to remove tags from the specified delivery stream
                </td>
                <td rowspan="2">
-                Write
+                Tagging
                </td>
                <td>
                 <p>
@@ -571,7 +573,7 @@
                 </a>
                </td>
                <td>
-                Updates the specified destination of the specified delivery stream.
+                Grants permissions to update the specified destination of the specified delivery stream
                </td>
                <td>
                 Write
@@ -614,7 +616,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d658c13b5">
+             <table id="w87aab5b9d662c13b5">
               <thead>
                <tr>
                 <th>
@@ -693,7 +695,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d658c15b7">
+             <table id="w87aab5b9d662c15b7">
               <thead>
                <tr>
                 <th>
@@ -711,10 +713,12 @@
                <td>
                 <a id="amazonkinesisfirehose-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
-                Filters create requests based on the allowed set of values for each of the tags
+                Filters actions based on the tags that are passed in the request
                </td>
                <td>
                 String
@@ -724,10 +728,12 @@
                <td>
                 <a id="amazonkinesisfirehose-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
-                Filters actions based on tag-value associated with the resource.
+                Filters actions based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -737,10 +743,12 @@
                <td>
                 <a id="amazonkinesisfirehose-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
-                Filters create requests based on the presence of mandatory tags in the request
+                Filters actions based on the tag keys that are passed in the request
                </td>
                <td>
                 String
