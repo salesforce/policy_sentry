@@ -29,8 +29,13 @@ locals {
 }
 
 resource "local_file" "template" {
-  filename = "template.json"
+  filename = "template-${random_string.random_template_name.result}"
   content  = local.rendered_template
+}
+
+resource "random_string" "random_template_name" {
+  length           = 24
+  special          = false
 }
 
 data "external" "policy" {
