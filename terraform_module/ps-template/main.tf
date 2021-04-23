@@ -29,7 +29,7 @@ locals {
 }
 
 resource "local_file" "template" {
-  filename = "template-${random_string.random_template_name.result}"
+  filename = "template-${random_string.random_template_name.result}.json"
   content  = local.rendered_template
 }
 
