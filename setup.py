@@ -10,6 +10,13 @@ TESTS_REQUIRE = [
     'nose',
     'pytest'
 ]
+REQUIRED_PACKAGES = [
+    'beautifulsoup4',
+    'click',
+    'requests',
+    'schema',
+    'PyYAML',
+]
 PROJECT_URLS = {
     "Documentation": "https://policy-sentry.readthedocs.io/",
     "Code": "https://github.com/salesforce/policy_sentry/",
@@ -48,13 +55,7 @@ setuptools.setup(
     url="https://github.com/salesforce/policy_sentry",
     packages=setuptools.find_packages(exclude=['test*']),
     tests_require=TESTS_REQUIRE,
-    install_requires=[
-        'beautifulsoup4',
-        'click',
-        'requests',
-        'schema',
-        'PyYAML',
-    ],
+    install_requires=REQUIRED_PACKAGES,
     project_urls=PROJECT_URLS,
     classifiers=[
         "Programming Language :: Python :: 3",
