@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d478c11b9">
+             <table id="w87aab5b9d482c11b9">
               <thead>
                <tr>
                 <th>
@@ -232,17 +232,17 @@
                </tr>
               </thead>
               <tr>
-               <td rowspan="2">
+               <td>
                 <a id="amazonemroneksemrcontainers-CancelJobRun">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CancelJobRun.html">
                  CancelJobRun
                 </a>
                </td>
-               <td rowspan="2">
+               <td>
                 Grants permission to cancel a job run
                </td>
-               <td rowspan="2">
+               <td>
                 Write
                </td>
                <td>
@@ -258,6 +258,19 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonemroneksemrcontainers-CreateManagedEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html">
+                 CreateManagedEndpoint
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a managed endpoint
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
                <td>
                 <p>
                  <a href="#amazonemroneksemrcontainers-virtualCluster">
@@ -266,6 +279,29 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-emr-containers_ExecutionRoleArn">
+                  emr-containers:ExecutionRoleArn
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -303,6 +339,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonemroneksemrcontainers-DeleteManagedEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DeleteManagedEndpoint.html">
+                 DeleteManagedEndpoint
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a managed endpoint
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-managedEndpoint">
+                  managedEndpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonemroneksemrcontainers-DeleteVirtualCluster">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.html">
@@ -328,17 +390,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
                 <a id="amazonemroneksemrcontainers-DescribeJobRun">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DescribeJobRun.html">
                  DescribeJobRun
                 </a>
                </td>
-               <td rowspan="2">
+               <td>
                 Grants permission to describe a job run
                </td>
-               <td rowspan="2">
+               <td>
                 Read
                </td>
                <td>
@@ -355,9 +417,22 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonemroneksemrcontainers-DescribeManagedEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DescribeManagedEndpoint.html">
+                 DescribeManagedEndpoint
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a managed endpoint
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                 <p>
-                 <a href="#amazonemroneksemrcontainers-virtualCluster">
-                  virtualCluster*
+                 <a href="#amazonemroneksemrcontainers-managedEndpoint">
+                  managedEndpoint*
                  </a>
                 </p>
                </td>
@@ -419,23 +494,62 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
+                <a id="amazonemroneksemrcontainers-ListManagedEndpoints">
+                </a>
+                <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_ListManagedEndpoints.html">
+                 ListManagedEndpoints
+                </a>
+               </td>
+               <td>
+                Grants permission to list managed endpoints associated with a virtual cluster
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-virtualCluster">
+                  virtualCluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonemroneksemrcontainers-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to list tags for the specified resource
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 List
                </td>
                <td>
                 <p>
                  <a href="#amazonemroneksemrcontainers-jobRun">
                   jobRun
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-managedEndpoint">
+                  managedEndpoint
                  </a>
                 </p>
                </td>
@@ -528,23 +642,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonemroneksemrcontainers-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to tag the specified resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonemroneksemrcontainers-jobRun">
                   jobRun
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-managedEndpoint">
+                  managedEndpoint
                  </a>
                 </p>
                </td>
@@ -585,23 +712,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonemroneksemrcontainers-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_UnTagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to untag the specified resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonemroneksemrcontainers-jobRun">
                   jobRun
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonemroneksemrcontainers-managedEndpoint">
+                  managedEndpoint
                  </a>
                 </p>
                </td>
@@ -662,7 +802,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d478c13b5">
+             <table id="w87aab5b9d482c13b5">
               <thead>
                <tr>
                 <th>
@@ -752,9 +892,43 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonemroneksemrcontainers-managedEndpoint">
+                </a>
+                managedEndpoint
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:emr-containers:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:/virtualclusters/$
+                 <span>
+                  {
+                 </span>
+                 virtualClusterId}/endpoints/$
+                 <span>
+                  {
+                 </span>
+                 endpointId}
+                </code>
+               </td>
+               <td>
                 <p>
-                 <a href="#amazonemroneksemrcontainers-emr-containers_ExecutionRoleArn">
-                  emr-containers:ExecutionRoleArn
+                 <a href="#amazonemroneksemrcontainers-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -788,7 +962,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d478c15b7">
+             <table id="w87aab5b9d482c15b7">
               <thead>
                <tr>
                 <th>

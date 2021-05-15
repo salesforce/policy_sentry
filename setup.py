@@ -17,6 +17,12 @@ REQUIRED_PACKAGES = [
     'schema',
     'PyYAML',
 ]
+PROJECT_URLS = {
+    "Documentation": "https://policy-sentry.readthedocs.io/",
+    "Code": "https://github.com/salesforce/policy_sentry/",
+    "Twitter": "https://twitter.com/kmcquade3",
+    "Red Team Report": "https://opensource.salesforce.com/policy_sentry"
+}
 
 
 def get_version():
@@ -50,6 +56,7 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=['test*']),
     tests_require=TESTS_REQUIRE,
     install_requires=REQUIRED_PACKAGES,
+    project_urls=PROJECT_URLS,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
