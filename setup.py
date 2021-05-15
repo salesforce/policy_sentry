@@ -10,6 +10,12 @@ TESTS_REQUIRE = [
     'nose',
     'pytest'
 ]
+PROJECT_URLS = {
+    "Documentation": "https://policy-sentry.readthedocs.io/",
+    "Code": "https://github.com/salesforce/policy_sentry/",
+    "Twitter": "https://twitter.com/kmcquade3",
+    "Red Team Report": "https://opensource.salesforce.com/policy_sentry"
+}
 
 
 def get_version():

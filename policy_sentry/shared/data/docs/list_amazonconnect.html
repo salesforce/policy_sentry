@@ -259,6 +259,46 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonconnect-AssociateCustomerProfilesDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                 AssociateCustomerProfilesDomain
+                </a>
+               </td>
+               <td>
+                Grants permissions to associate a Customer Profiles domain for an existing Amazon
+                                                Connect instance. The associated required actions grant permission to modify the settings
+                                                for the instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:AttachRolePolicy
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PutRolePolicy
+                </p>
+                <p>
+                 profile:GetDomain
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-AssociateInstanceStorageConfig">
                 </a>
@@ -629,6 +669,61 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-CreateIntegrationAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">
+                 CreateIntegrationAssociation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to create an AppIntegration association with an Amazon Connect
+                                                instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 app-integrations:CreateEventIntegrationAssociation
+                </p>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+                <p>
+                 events:PutRule
+                </p>
+                <p>
+                 events:PutTargets
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="6">
                 <a id="amazonconnect-CreateQueue">
                 </a>
@@ -865,6 +960,64 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonconnect-CreateUseCase">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUseCase.html">
+                 CreateUseCase
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permissions to create a use case for an AppIntegration association
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-use-case">
+                  use-case*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="5">
                 <a id="amazonconnect-CreateUser">
                 </a>
@@ -1011,6 +1164,64 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-DeleteIntegrationAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html">
+                 DeleteIntegrationAssociation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to delete an AppIntegration association from an Amazon Connect
+                                                instance. The association must not have any use cases associated with it.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 app-integrations:DeleteEventIntegrationAssociation
+                </p>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+                <p>
+                 events:DeleteRule
+                </p>
+                <p>
+                 events:ListTargetsByRule
+                </p>
+                <p>
+                 events:RemoveTargets
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-DeleteQuickConnect">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">
@@ -1044,6 +1255,51 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-DeleteUseCase">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUseCase.html">
+                 DeleteUseCase
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to delete a use case from an AppIntegration association
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-use-case">
+                  use-case*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1521,6 +1777,52 @@
                <td>
                </td>
                <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-DisassociateCustomerProfilesDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                 DisassociateCustomerProfilesDomain
+                </a>
+               </td>
+               <td>
+                Grants permissions to disassociate a Customer Profiles domain for an existing Amazon
+                                                Connect instance. The associated required actions grant permission to modify the settings
+                                                for the instance.
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:AttachRolePolicy
+                </p>
+                <p>
+                 iam:DeleteRolePolicy
+                </p>
+                <p>
+                 iam:DetachRolePolicy
+                </p>
+                <p>
+                 iam:GetPolicy
+                </p>
+                <p>
+                 iam:GetPolicyVersion
+                </p>
+                <p>
+                 iam:GetRolePolicy
+                </p>
                </td>
               </tr>
               <tr>
@@ -2064,6 +2366,39 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonconnect-ListIntegrationAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListIntegrationAssociations.html">
+                 ListIntegrationAssociations
+                </a>
+               </td>
+               <td>
+                Grants permissions to list summary information about the AppIntegration associations
+                                                for the specified Amazon Connect instance
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonconnect-ListLambdaFunctions">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
@@ -2250,6 +2585,32 @@
                 <p>
                  <a href="#amazonconnect-instance">
                   instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-ListRealtimeContactAnalysisSegments">
+                </a>
+                <a href="https://docs.aws.amazon.com/contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.html">
+                 ListRealtimeContactAnalysisSegments
+                </a>
+               </td>
+               <td>
+                Grants permission to list the analysis segments for a real-time analysis session
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-contact">
+                  contact*
                  </a>
                 </p>
                </td>
@@ -2465,6 +2826,38 @@
                 </p>
                </td>
                <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-ListUseCases">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUseCases.html">
+                 ListUseCases
+                </a>
+               </td>
+               <td>
+                Grants permissions to list the use cases of an AppIntegration association
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 connect:DescribeInstance
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
                </td>
               </tr>
               <tr>
@@ -4423,6 +4816,78 @@
                   {
                  </span>
                  PhoneNumberId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-integration-association">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_IntegrationAssociationSummary.html">
+                 integration-association
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:connect:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}/integration-association/$
+                 <span>
+                  {
+                 </span>
+                 IntegrationAssociationId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-use-case">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_UseCase.html">
+                 use-case
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:connect:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}/use-case/$
+                 <span>
+                  {
+                 </span>
+                 UseCaseId}
                 </code>
                </td>
                <td>
