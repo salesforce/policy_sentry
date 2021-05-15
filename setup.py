@@ -10,6 +10,13 @@ TESTS_REQUIRE = [
     'nose',
     'pytest'
 ]
+REQUIRED_PACKAGES = [
+    'beautifulsoup4',
+    'click',
+    'requests',
+    'schema',
+    'PyYAML',
+]
 
 
 def get_version():
@@ -42,13 +49,7 @@ setuptools.setup(
     url="https://github.com/salesforce/policy_sentry",
     packages=setuptools.find_packages(exclude=['test*']),
     tests_require=TESTS_REQUIRE,
-    install_requires=[
-        'beautifulsoup4',
-        'click',
-        'requests',
-        'schema',
-        'PyYAML',
-    ],
+    install_requires=REQUIRED_PACKAGES,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

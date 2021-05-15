@@ -18,7 +18,7 @@ setup-dev: setup-env
 .PHONY: build-docs
 build-docs: clean virtualenv
 	python3 -m pip install -r docs/requirements.txt
-	mkdocs build
+	mkdocs build --clean --site-dir _build/html --config-file mkdocs.yml
 
 .PHONY: serve-docs
 serve-docs: clean virtualenv
@@ -46,6 +46,7 @@ uninstall:
 clean:
 	rm -rf dist/
 	rm -rf build/
+	rm -rf _build/
 	rm -rf *.egg-info
 	find . -name '*.pyc' -delete
 	find . -name '*.pyo' -delete
