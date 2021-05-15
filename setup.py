@@ -55,6 +55,7 @@ setuptools.setup(
         'schema',
         'PyYAML',
     ],
+    project_urls=PROJECT_URLS,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
