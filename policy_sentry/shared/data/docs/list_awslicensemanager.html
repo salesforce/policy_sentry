@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d694c11b9">
+             <table id="w87aab5b9d703c11b9">
               <thead>
                <tr>
                 <th>
@@ -431,6 +431,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awslicensemanager-CreateLicenseManagerReportGenerator">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateLicenseManagerReportGenerator.html">
+                 CreateLicenseManagerReportGenerator
+                </a>
+               </td>
+               <td>
+                Grants permission to create a report generator for a license configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awslicensemanager-CreateLicenseVersion">
                 </a>
                 <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateLicenseVersion.html">
@@ -551,6 +572,32 @@
                 <p>
                  <a href="#awslicensemanager-license-configuration">
                   license-configuration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslicensemanager-DeleteLicenseManagerReportGenerator">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_DeleteLicenseManagerReportGenerator.html">
+                 DeleteLicenseManagerReportGenerator
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a report generator
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awslicensemanager-report-generator">
+                  report-generator*
                  </a>
                 </p>
                </td>
@@ -686,12 +733,38 @@
                 Grants permission to get a license configuration
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                 <p>
                  <a href="#awslicensemanager-license-configuration">
                   license-configuration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslicensemanager-GetLicenseManagerReportGenerator">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_GetLicenseManagerReportGenerator.html">
+                 GetLicenseManagerReportGenerator
+                </a>
+               </td>
+               <td>
+                Grants permission to get a report generator
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awslicensemanager-report-generator">
+                  report-generator*
                  </a>
                 </p>
                </td>
@@ -835,6 +908,32 @@
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslicensemanager-ListLicenseManagerReportGenerators">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListLicenseManagerReportGenerators.html">
+                 ListLicenseManagerReportGenerators
+                </a>
+               </td>
+               <td>
+                Grants permission to list report generators
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awslicensemanager-license-configuration">
+                  license-configuration
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1169,6 +1268,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awslicensemanager-UpdateLicenseManagerReportGenerator">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_UpdateLicenseManagerReportGenerator.html">
+                 UpdateLicenseManagerReportGenerator
+                </a>
+               </td>
+               <td>
+                Grants permission to update a report generator for a license configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awslicensemanager-report-generator">
+                  report-generator*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awslicensemanager-UpdateLicenseSpecificationsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_UpdateLicenseSpecificationsForResource.html">
@@ -1240,7 +1365,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d694c13b5">
+             <table id="w87aab5b9d703c13b5">
               <thead>
                <tr>
                 <th>
@@ -1276,7 +1401,7 @@
                  <span>
                   {
                  </span>
-                 Account}:license-configuration/$
+                 Account}:license-configuration:$
                  <span>
                   {
                  </span>
@@ -1347,6 +1472,43 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awslicensemanager-report-generator">
+                </a>
+                <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/report-generators.html">
+                 report-generator
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:license-manager:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:report-generator:$
+                 <span>
+                  {
+                 </span>
+                 ReportGeneratorId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awslicensemanager-license-manager_ResourceTag___TagKey_">
+                  license-manager:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1375,7 +1537,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d694c15b7">
+             <table id="w87aab5b9d703c15b7">
               <thead>
                <tr>
                 <th>
@@ -1398,7 +1560,7 @@
                 </a>
                </td>
                <td>
-                Filters create requests based on allowed set of values for each of the mandatory tags
+                Filters access based on the tags that are passed in the request
                </td>
                <td>
                 String
@@ -1413,7 +1575,7 @@
                 </a>
                </td>
                <td>
-                Enforce tag keys that are used in the request
+                Filters access based on the tag keys that are passed in the request
                </td>
                <td>
                 String
@@ -1428,7 +1590,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag-value associated with the resource.
+                Filters access based on tag key-value pairs attached to the resource
                </td>
                <td>
                 String
