@@ -118,7 +118,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-ops-center.html">
+               <a href="https://docs.aws.amazon.com/incident-manager/latest/UserGuide/what-is-incident-manager.html">
                 configure this service
                </a>
                .
@@ -127,7 +127,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/Welcome.html">
+               <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/Welcome.html">
                 API operations available for this          service
                </a>
                .
@@ -136,7 +136,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/security-iam.html">
+               <a href="https://docs.aws.amazon.com/incident-manager/latest/UserGuide/security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1062c11b9">
+             <table id="w87aab5b9e1071c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,9 +233,572 @@
               </thead>
               <tr>
                <td>
+                <a id="awssystemsmanagerincidentmanager-CreateReplicationSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html">
+                 CreateReplicationSet
+                </a>
+               </td>
+               <td>
+                Grants permission to create a replication set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-CreateResponsePlan">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html">
+                 CreateResponsePlan
+                </a>
+               </td>
+               <td>
+                Grants permission to create a response plan
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-CreateTimelineEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateTimelineEvent.html">
+                 CreateTimelineEvent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a timeline event for an incident record
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-DeleteIncidentRecord">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_DeleteIncidentRecord.html">
+                 DeleteIncidentRecord
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an incident record
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-DeleteReplicationSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_DeleteReplicationSet.html">
+                 DeleteReplicationSet
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a replication set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-replication-set">
+                  replication-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-DeleteResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_DeleteResourcePolicy.html">
+                 DeleteResourcePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to delete resource policy from a response plan
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-DeleteResponsePlan">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_DeleteResponsePlan.html">
+                 DeleteResponsePlan
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a response plan
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-DeleteTimelineEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_DeleteTimelineEvent.html">
+                 DeleteTimelineEvent
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a timeline event
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-GetIncidentRecord">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_GetIncidentRecord.html">
+                 GetIncidentRecord
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to view the contents of an incident record
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-GetReplicationSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_GetReplicationSet.html">
+                 GetReplicationSet
+                </a>
+               </td>
+               <td>
+                Grants permission to view the replication set
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-replication-set">
+                  replication-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-GetResourcePolicies">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_GetResourcePolicies.html">
+                 GetResourcePolicies
+                </a>
+               </td>
+               <td>
+                Grants permission to view resource policies of a response plan
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-GetResponsePlan">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_GetResponsePlan.html">
+                 GetResponsePlan
+                </a>
+               </td>
+               <td>
+                Grants permission to view the contents of a specified response plan
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-GetTimelineEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_GetTimelineEvent.html">
+                 GetTimelineEvent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to view a timeline event
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-ListIncidentRecords">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListIncidentRecords.html">
+                 ListIncidentRecords
+                </a>
+               </td>
+               <td>
+                Grants permission to list the contents of all incident records
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-ListRelatedItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListRelatedItems.html">
+                 ListRelatedItems
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list related items of an incident records
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-ListReplicationSets">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListReplicationSets.html">
+                 ListReplicationSets
+                </a>
+               </td>
+               <td>
+                Grants permission to list all replication sets
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-ListResponsePlans">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListResponsePlans.html">
+                 ListResponsePlans
+                </a>
+               </td>
+               <td>
+                Grants permission to list all response plans
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of resource tags for a specified resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-ListTimelineEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListTimelineEvents.html">
+                 ListTimelineEvents
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list all timeline events for an incident record
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-PutResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_PutResourcePolicy.html">
+                 PutResourcePolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to put resource policy on a response plan
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awssystemsmanagerincidentmanager-StartIncident">
                 </a>
-                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartIncident.html">
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_StartIncident.html">
                  StartIncident
                 </a>
                </td>
@@ -245,6 +808,256 @@
                <td>
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to add tags to a response plan
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td>
+                Grants permission to remove tags from a response plan
+               </td>
+               <td>
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-UpdateDeletionProtection">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateDeletionProtection.html">
+                 UpdateDeletionProtection
+                </a>
+               </td>
+               <td>
+                Grants permission to update replication set deletion protection
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-replication-set">
+                  replication-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-UpdateIncidentRecord">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateIncidentRecord.html">
+                 UpdateIncidentRecord
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update the contents of an incident record
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-UpdateRelatedItems">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateRelatedItems.html">
+                 UpdateRelatedItems
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update related items of an incident record
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-UpdateReplicationSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateReplicationSet.html">
+                 UpdateReplicationSet
+                </a>
+               </td>
+               <td>
+                Grants permission to update a replication set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-replication-set">
+                  replication-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-UpdateResponsePlan">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateResponsePlan.html">
+                 UpdateResponsePlan
+                </a>
+               </td>
+               <td>
+                Grants permission to update the contents of a response plan
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awssystemsmanagerincidentmanager-UpdateTimelineEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateTimelineEvent.html">
+                 UpdateTimelineEvent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a timeline event
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#awssystemsmanagerincidentmanager-response-plan">
@@ -283,7 +1096,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1062c13b5">
+             <table id="w87aab5b9e1071c13b5">
               <thead>
                <tr>
                 <th>
@@ -301,7 +1114,7 @@
                <td>
                 <a id="awssystemsmanagerincidentmanager-response-plan">
                 </a>
-                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-ops-center.html">
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/UserGuide/response-plans.html">
                  response-plan
                 </a>
                </td>
@@ -329,7 +1142,7 @@
                <td>
                 <a id="awssystemsmanagerincidentmanager-incident-record">
                 </a>
-                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-ops-center.html">
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/UserGuide/incident-record.html">
                  incident-record
                 </a>
                </td>
@@ -352,6 +1165,34 @@
                   {
                  </span>
                  IncidentRecord}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-replication-set">
+                </a>
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/UserGuide/replication-set.html">
+                 replication-set
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm-incidents::$
+                 <span>
+                  {
+                 </span>
+                 Account}:replication-set/$
+                 <span>
+                  {
+                 </span>
+                 ReplicationSet}
                 </code>
                </td>
                <td>
@@ -411,8 +1252,8 @@
             <div accesskey="p" class="prev-link" href="./list_awssystemsmanager.html" id="previous">
              AWS Systems Manager
             </div>
-            <div accesskey="n" class="next-link" href="./list_awstageditor.html" id="next">
-             AWS Tag Editor
+            <div accesskey="n" class="next-link" href="./list_awssystemsmanagerincidentmanagercontacts.html" id="next">
+             AWS Systems Manager Incident Manager Contacts
             </div>
            </div>
           </div>

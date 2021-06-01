@@ -118,7 +118,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/latest/devguide/get-started.html">
+               <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/what-it-is.html">
                 configure this service
                </a>
                .
@@ -127,7 +127,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/latest/devguide/get-started.html">
+               <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/what-it-is.html">
                 API operations available for this          service
                </a>
                .
@@ -136,7 +136,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/latest/devguide/get-started.html">
+               <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/">
                 using          IAM
                </a>
                permission policies.
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d326c11b9">
+             <table id="w87aab5b9d335c11b9">
               <thead>
                <tr>
                 <th>
@@ -235,11 +235,14 @@
                <td>
                 <a id="awsdeepcomposer-AssociateCoupon">
                 </a>
-                AssociateCoupon [permission only]
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/what-it-is-keyboard.html">
+                 AssociateCoupon
+                </a>
+                [permission only]
                </td>
                <td>
-                Associates a DeepComposer coupon (or DSN) with the account associated with the sender
-                                                of the request.
+                Grants permission to associate a DeepComposer coupon (or DSN) with the account associated
+                                                with the sender of the request
                </td>
                <td>
                 Write
@@ -255,15 +258,43 @@
                <td>
                 <a id="awsdeepcomposer-CreateAudio">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  CreateAudio
                 </a>
                 [permission only]
                </td>
                <td>
-                Creates an audio file by converting the midi composition into a wav or mp3 file.
+                Grants permission to create an audio file by converting the midi composition into
+                                                a wav or mp3 file
                </td>
                <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepcomposer-audio">
+                  audio*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepcomposer-CreateComposition">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
+                 CreateComposition
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to create a multi-track midi composition
+               </td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -279,20 +310,6 @@
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awsdeepcomposer-CreateComposition">
-                </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
-                 CreateComposition
-                </a>
-                [permission only]
-               </td>
-               <td>
-                Creates a multi-track midi composition.
-               </td>
-               <td>
-                Write
-               </td>
                <td>
                </td>
                <td>
@@ -311,21 +328,34 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdeepcomposer-CreateModel">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  CreateModel
                 </a>
                 [permission only]
                </td>
-               <td>
-                Starts creating/training a generative-model that is able to perform inference against
-                                                the user-provided piano-melody to create a multi-track midi composition.
+               <td rowspan="2">
+                Grants permission to start creating/training a generative-model that is able to perform
+                                                inference against the user-provided piano-melody to create a multi-track midi composition
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdeepcomposer-model">
+                  model*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -347,13 +377,13 @@
                <td>
                 <a id="awsdeepcomposer-DeleteComposition">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  DeleteComposition
                 </a>
                 [permission only]
                </td>
                <td>
-                Deletes the composition.
+                Grants permission to delete the composition
                </td>
                <td>
                 Write
@@ -374,12 +404,12 @@
                <td>
                 <a id="awsdeepcomposer-DeleteModel">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  DeleteModel
                 </a>
                </td>
                <td>
-                Deletes the model.
+                Grants permission to delete the model
                </td>
                <td>
                 Write
@@ -400,13 +430,13 @@
                <td rowspan="2">
                 <a id="awsdeepcomposer-GetComposition">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  GetComposition
                 </a>
                 [permission only]
                </td>
                <td rowspan="2">
-                Returns information about the composition.
+                Grants permission to get information about the composition
                </td>
                <td rowspan="2">
                 Read
@@ -440,13 +470,13 @@
                <td rowspan="2">
                 <a id="awsdeepcomposer-GetModel">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  GetModel
                 </a>
                 [permission only]
                </td>
                <td rowspan="2">
-                Returns information about the model.
+                Grants permission to get information about the model
                </td>
                <td rowspan="2">
                 Read
@@ -480,18 +510,23 @@
                <td>
                 <a id="awsdeepcomposer-GetSampleModel">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  GetSampleModel
                 </a>
                 [permission only]
                </td>
                <td>
-                Returns information about the sample/pre-trained DeepComposer model.
+                Grants permission to get information about the sample/pre-trained DeepComposer model
                </td>
                <td>
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepcomposer-model">
+                  model*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -502,18 +537,23 @@
                <td>
                 <a id="awsdeepcomposer-ListCompositions">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  ListCompositions
                 </a>
                 [permission only]
                </td>
                <td>
-                Returns a list of all the compositions owned by the sender of the request.
+                Grants permission to list all the compositions owned by the sender of the request
                </td>
                <td>
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepcomposer-composition">
+                  composition*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -524,18 +564,23 @@
                <td>
                 <a id="awsdeepcomposer-ListModels">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  ListModels
                 </a>
                 [permission only]
                </td>
                <td>
-                Returns a list of all the models owned by the sender of the request.
+                Grants permission to list all the models owned by the sender of the request
                </td>
                <td>
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepcomposer-model">
+                  model*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -546,18 +591,24 @@
                <td>
                 <a id="awsdeepcomposer-ListSampleModels">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  ListSampleModels
                 </a>
                 [permission only]
                </td>
                <td>
-                Returns a list of all the sample/pre-trained models provided by the DeepComposer service.
+                Grants permission to list all the sample/pre-trained models provided by the DeepComposer
+                                                service
                </td>
                <td>
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepcomposer-model">
+                  model*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -568,10 +619,12 @@
                <td rowspan="3">
                 <a id="awsdeepcomposer-ListTagsForResource">
                 </a>
-                ListTagsForResource
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html">
+                 ListTagsForResource
+                </a>
                </td>
                <td rowspan="3">
-                Grants permission to lists tag for a resource.
+                Grants permission to list tags for a resource
                </td>
                <td rowspan="3">
                 List
@@ -618,15 +671,24 @@
                <td>
                 <a id="awsdeepcomposer-ListTrainingTopics">
                 </a>
-                ListTrainingTopics [permission only]
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
+                 ListTrainingTopics
+                </a>
+                [permission only]
                </td>
                <td>
-                Returns a list of all the training options or topic for creating/training a model.
+                Grants permission to list all the training options or topic for creating/training
+                                                a model
                </td>
                <td>
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepcomposer-model">
+                  model*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -637,10 +699,12 @@
                <td rowspan="3">
                 <a id="awsdeepcomposer-TagResource">
                 </a>
-                TagResource
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html">
+                 TagResource
+                </a>
                </td>
                <td rowspan="3">
-                Grants permission to tag a resource.
+                Grants permission to tag a resource
                </td>
                <td rowspan="3">
                 Tagging
@@ -697,10 +761,12 @@
                <td rowspan="3">
                 <a id="awsdeepcomposer-UntagResource">
                 </a>
-                UntagResource
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html">
+                 UntagResource
+                </a>
                </td>
                <td rowspan="3">
-                Grants permission to untag a resource.
+                Grants permission to untag a resource
                </td>
                <td rowspan="3">
                 Tagging
@@ -757,13 +823,13 @@
                <td>
                 <a id="awsdeepcomposer-UpdateComposition">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  UpdateComposition
                 </a>
                 [permission only]
                </td>
                <td>
-                Modifies the mutable properties associated with a composition.
+                Grants permission to modify the mutable properties associated with a composition
                </td>
                <td>
                 Write
@@ -784,13 +850,13 @@
                <td>
                 <a id="awsdeepcomposer-UpdateModel">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  UpdateModel
                 </a>
                 [permission only]
                </td>
                <td>
-                Modifies the mutable properties associated with a model.
+                Grants permission to to modify the mutable properties associated with a model
                </td>
                <td>
                 Write
@@ -833,7 +899,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d326c13b5">
+             <table id="w87aab5b9d335c13b5">
               <thead>
                <tr>
                 <th>
@@ -851,7 +917,7 @@
                <td>
                 <a id="awsdeepcomposer-model">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-train-custom-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html">
                  model
                 </a>
                </td>
@@ -888,7 +954,7 @@
                <td>
                 <a id="awsdeepcomposer-composition">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  composition
                 </a>
                </td>
@@ -925,7 +991,7 @@
                <td>
                 <a id="awsdeepcomposer-audio">
                 </a>
-                <a href="https://docs.aws.amazon.com/latest/devguide/get-started.htmlget-started-compose-with-trained-model.html">
+                <a href="https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html">
                  audio
                 </a>
                </td>
@@ -981,7 +1047,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d326c15b7">
+             <table id="w87aab5b9d335c15b7">
               <thead>
                <tr>
                 <th>

@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d690c11b9">
+             <table id="w87aab5b9d699c11b9">
               <thead>
                <tr>
                 <th>
@@ -258,20 +258,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="3">
                 <a id="amazonlexv2-CreateBot">
                 </a>
                 <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">
                  CreateBot
                 </a>
                </td>
-               <td>
+               <td rowspan="3">
                 Grants permission to create a new bot and a test bot alias pointing to the DRAFT bot
                                                 version
                </td>
-               <td>
+               <td rowspan="3">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -305,8 +331,8 @@
                </td>
                <td>
                 <p>
-                 <a href="#amazonlexv2-bot">
-                  bot*
+                 <a href="#amazonlexv2-botalias">
+                  bot alias*
                  </a>
                 </p>
                </td>
@@ -414,6 +440,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonlexv2-CreateExport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateExport.html">
+                 CreateExport
+                </a>
+               </td>
+               <td>
+                Grants permission to create an export for an existing resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonlexv2-CreateIntent">
                 </a>
                 <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">
@@ -430,6 +482,45 @@
                 <p>
                  <a href="#amazonlexv2-bot">
                   bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlexv2-CreateResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateResourcePolicy.html">
+                 CreateResourcePolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new resource policy for a Lex resource
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias
                  </a>
                 </p>
                </td>
@@ -491,6 +582,27 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonlexv2-CreateUploadUrl">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html">
+                 CreateUploadUrl
+                </a>
+               </td>
+               <td>
+                Grants permission to create an upload url for import file
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonlexv2-DeleteBot">
                 </a>
@@ -514,6 +626,27 @@
                <td>
                </td>
                <td>
+                <p>
+                 lex:DeleteBotAlias
+                </p>
+                <p>
+                 lex:DeleteBotChannel
+                </p>
+                <p>
+                 lex:DeleteBotLocale
+                </p>
+                <p>
+                 lex:DeleteBotVersion
+                </p>
+                <p>
+                 lex:DeleteIntent
+                </p>
+                <p>
+                 lex:DeleteSlot
+                </p>
+                <p>
+                 lex:DeleteSlotType
+                </p>
                </td>
               </tr>
               <tr>
@@ -606,6 +739,15 @@
                <td>
                </td>
                <td>
+                <p>
+                 lex:DeleteIntent
+                </p>
+                <p>
+                 lex:DeleteSlot
+                </p>
+                <p>
+                 lex:DeleteSlotType
+                </p>
                </td>
               </tr>
               <tr>
@@ -618,6 +760,58 @@
                </td>
                <td>
                 Grants permission to delete an existing bot version
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-DeleteExport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteExport.html">
+                 DeleteExport
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an existing export
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-DeleteImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteImport.html">
+                 DeleteImport
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an existing import
                </td>
                <td>
                 Write
@@ -652,6 +846,45 @@
                 <p>
                  <a href="#amazonlexv2-bot">
                   bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlexv2-DeleteResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteResourcePolicy.html">
+                 DeleteResourcePolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete an existing resource policy for a Lex resource
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias
                  </a>
                 </p>
                </td>
@@ -871,6 +1104,85 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonlexv2-DescribeExport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">
+                 DescribeExport
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an existing export
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 lex:DescribeBot
+                </p>
+                <p>
+                 lex:DescribeBotLocale
+                </p>
+                <p>
+                 lex:DescribeIntent
+                </p>
+                <p>
+                 lex:DescribeSlot
+                </p>
+                <p>
+                 lex:DescribeSlotType
+                </p>
+                <p>
+                 lex:ListBotLocales
+                </p>
+                <p>
+                 lex:ListIntents
+                </p>
+                <p>
+                 lex:ListSlotTypes
+                </p>
+                <p>
+                 lex:ListSlots
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-DescribeImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html">
+                 DescribeImport
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an existing import
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonlexv2-DescribeIntent">
                 </a>
                 <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeIntent.html">
@@ -887,6 +1199,45 @@
                 <p>
                  <a href="#amazonlexv2-bot">
                   bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlexv2-DescribeResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeResourcePolicy.html">
+                 DescribeResourcePolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve an existing resource policy for a Lex resource
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias
                  </a>
                 </p>
                </td>
@@ -941,48 +1292,6 @@
                   bot*
                  </a>
                 </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonlexv2-GetBuiltinIntents">
-                </a>
-                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_GetBuiltinIntents.html">
-                 GetBuiltinIntents
-                </a>
-               </td>
-               <td>
-                Grants permission to list built-in intents
-               </td>
-               <td>
-                List
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonlexv2-GetBuiltinSlotTypes">
-                </a>
-                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_GetBuiltinSlotTypes.html">
-                 GetBuiltinSlotTypes
-                </a>
-               </td>
-               <td>
-                Grants permission to list built-in slot types
-               </td>
-               <td>
-                List
-               </td>
-               <td>
                </td>
                <td>
                </td>
@@ -1130,6 +1439,90 @@
                </td>
                <td>
                 Grants permission to list existing bots
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-ListBuiltInIntents">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInIntents.html">
+                 ListBuiltInIntents
+                </a>
+               </td>
+               <td>
+                Grants permission to list built-in intents
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-ListBuiltInSlotTypes">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInSlotTypes.html">
+                 ListBuiltInSlotTypes
+                </a>
+               </td>
+               <td>
+                Grants permission to list built-in slot types
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-ListExports">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html">
+                 ListExports
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing exports
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlexv2-ListImports">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html">
+                 ListImports
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing imports
                </td>
                <td>
                 List
@@ -1365,6 +1758,105 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="amazonlexv2-StartImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html">
+                 StartImport
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to start a new import with the uploaded import file
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 lex:CreateBot
+                </p>
+                <p>
+                 lex:CreateBotLocale
+                </p>
+                <p>
+                 lex:CreateIntent
+                </p>
+                <p>
+                 lex:CreateSlot
+                </p>
+                <p>
+                 lex:CreateSlotType
+                </p>
+                <p>
+                 lex:DeleteBotLocale
+                </p>
+                <p>
+                 lex:DeleteIntent
+                </p>
+                <p>
+                 lex:DeleteSlot
+                </p>
+                <p>
+                 lex:DeleteSlotType
+                </p>
+                <p>
+                 lex:UpdateBot
+                </p>
+                <p>
+                 lex:UpdateBotLocale
+                </p>
+                <p>
+                 lex:UpdateIntent
+                </p>
+                <p>
+                 lex:UpdateSlot
+                </p>
+                <p>
+                 lex:UpdateSlotType
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlexv2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonlexv2-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_TagResource.html">
@@ -1557,6 +2049,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonlexv2-UpdateExport">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateExport.html">
+                 UpdateExport
+                </a>
+               </td>
+               <td>
+                Grants permission to update an existing export
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonlexv2-UpdateIntent">
                 </a>
                 <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateIntent.html">
@@ -1573,6 +2091,45 @@
                 <p>
                  <a href="#amazonlexv2-bot">
                   bot*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlexv2-UpdateResourcePolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateResourcePolicy.html">
+                 UpdateResourcePolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update an existing resource policy for a Lex resource
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-bot">
+                  bot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlexv2-botalias">
+                  bot alias
                  </a>
                 </p>
                </td>
@@ -1659,7 +2216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d690c13b5">
+             <table id="w87aab5b9d699c13b5">
               <thead>
                <tr>
                 <th>
@@ -1779,7 +2336,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d690c15b7">
+             <table id="w87aab5b9d699c15b7">
               <thead>
                <tr>
                 <th>
