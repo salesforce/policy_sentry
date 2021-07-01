@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.7'
-      - name: install deps
+      - name: install dependencies
         run: pip install requests schema PyYAML click click_log beautifulsoup4
       - name: install policy_sentry
         run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
@@ -29,9 +29,16 @@ jobs:
           fi
           cp -f /tmp/.policy_sentry/iam-definition.json $(pwd)/policy_sentry/shared/data/iam-definition.json
           cp -rf /tmp/.policy_sentry/data/docs $(pwd)/policy_sentry/shared/data/
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: PR if files were updated
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update database
           title: 'Updates database'
           body: This is an automated PR created because AWS IAM definitions have changed.
+          branch: ${{ steps.vars.outputs.sha_short }}
+          delete-branch: true
+          labels: |
+            automation
