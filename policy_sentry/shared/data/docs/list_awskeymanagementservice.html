@@ -61,7 +61,7 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="service-authorization.pdf#list_awskeymanagementservice" target="_blank" title="Open PDF">
+          <a href="service-authorization.pdf#list_awskeymanagementservice" rel="noopener noreferrer" target="_blank" title="Open PDF">
           </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
@@ -118,7 +118,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/kms/latest/developerguide/">
+               <a href="https://docs.aws.amazon.com/kms/latest/developerguide/overview.html">
                 configure this service
                </a>
                .
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d655c11b9">
+             <table id="w87aab5b9d659c11b9">
               <thead>
                <tr>
                 <th>
@@ -471,6 +471,16 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_KeyOrigin">
                   kms:KeyOrigin
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_MultiRegion">
+                  kms:MultiRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_MultiRegionKeyType">
+                  kms:MultiRegionKeyType
                  </a>
                 </p>
                </td>
@@ -1853,6 +1863,58 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="awskeymanagementservice-ReplicateKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html">
+                 ReplicateKey
+                </a>
+               </td>
+               <td rowspan="2">
+                Controls permission to replicate a multi-Region primary key
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 kms:CreateKey
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ReplicaRegion">
+                  kms:ReplicaRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="awskeymanagementservice-RetireGrant">
                 </a>
@@ -2023,6 +2085,33 @@
                   kms:ViaService
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-SynchronizeMultiRegionKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-auth.html#multi-region-auth-slr">
+                 SynchronizeMultiRegionKey
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Controls access to internal APIs that synchronize multi-Region keys
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -2241,6 +2330,55 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="awskeymanagementservice-UpdatePrimaryRegion">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdatePrimaryRegion.html">
+                 UpdatePrimaryRegion
+                </a>
+               </td>
+               <td rowspan="2">
+                Controls permission to update the primary Region of a multi-Region primary key
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_PrimaryRegion">
+                  kms:PrimaryRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awskeymanagementservice-Verify">
                 </a>
                 <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html">
@@ -2319,7 +2457,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d655c13b5">
+             <table id="w87aab5b9d659c13b5">
               <thead>
                <tr>
                 <th>
@@ -2426,7 +2564,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d655c15b7">
+             <table id="w87aab5b9d659c15b7">
               <thead>
                <tr>
                 <th>
@@ -2684,6 +2822,56 @@
               </tr>
               <tr>
                <td>
+                <a id="awskeymanagementservice-kms_MultiRegion">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-multi-region">
+                 kms:MultiRegion
+                </a>
+               </td>
+               <td>
+                Filters access to an API operation based on the MultiRegion property of the CMK created
+                                                by or used in the operation. Use it to qualify authorization of the CreateKey operation
+                                                or any operation that is authorized for a CMK resource
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-kms_MultiRegionKeyType">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-multi-region-key-type">
+                 kms:MultiRegionKeyType
+                </a>
+               </td>
+               <td>
+                Filters access to an API operation based on the MultiRegionKeyType property of the
+                                                CMK created by or used in the operation. Use it to qualify authorization of the CreateKey
+                                                operation or any operation that is authorized for a CMK resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-kms_PrimaryRegion">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-primary-region">
+                 kms:PrimaryRegion
+                </a>
+               </td>
+               <td>
+                Filters access to the UpdatePrimaryRegion operation based on the value of the PrimaryRegion
+                                                parameter in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awskeymanagementservice-kms_ReEncryptOnSameKey">
                 </a>
                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-reencrypt-on-same-key">
@@ -2696,6 +2884,22 @@
                </td>
                <td>
                 Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-kms_ReplicaRegion">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-replica-region">
+                 kms:ReplicaRegion
+                </a>
+               </td>
+               <td>
+                Filters access to the ReplicateKey operation based on the value of the ReplicaRegion
+                                                parameter in the request
+               </td>
+               <td>
+                String
                </td>
               </tr>
               <tr>
@@ -2848,7 +3052,7 @@
                 </strong>
                </p>
                <p>
-                To use the AWS Documentation, Javascript must be
+                To use the Amazon Web Services Documentation, Javascript must be
                                                 enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
