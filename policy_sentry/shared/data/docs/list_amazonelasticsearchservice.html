@@ -133,6 +133,15 @@
                .
               </p>
              </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-ac.html">
+                using          IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
             </ul>
            </div>
            <div class="highlights" id="inline-topiclist">
@@ -224,6 +233,28 @@
               </thead>
               <tr>
                <td>
+                <a id="amazonelasticsearchservice-AcceptInboundConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-acceptinboundconnection">
+                 AcceptInboundConnection
+                </a>
+               </td>
+               <td>
+                Grants permission to the destination domain owner to accept an inbound cross-cluster
+                                                search connection request
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-AcceptInboundCrossClusterSearchConnection">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-acceptinboundcrossclustersearchconnection">
@@ -245,17 +276,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticsearchservice-AddTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-addtags">
                  AddTags
                 </a>
                </td>
-               <td>
-                Grants permission to attach resource tags to an Amazon ES domain.
+               <td rowspan="2">
+                Grants permission to attach resource tags to an Amazon OpenSearch domain
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -266,6 +297,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -324,16 +373,42 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonelasticsearchservice-CreateElasticsearchDomain">
+                <a id="amazonelasticsearchservice-CreateDataPrepperPipeline">
                 </a>
-                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createelasticsearchdomain">
-                 CreateElasticsearchDomain
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 CreateDataPrepperPipeline
                 </a>
                </td>
                <td>
-                Grants permission to create an Amazon ES domain.
+                Grants permission to create a DataPrepper pipeline
                </td>
                <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-pipeline">
+                  pipeline
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonelasticsearchservice-CreateDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createdomain">
+                 CreateDomain
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an Amazon OpenSearch Service domain
+               </td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -350,6 +425,68 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonelasticsearchservice-CreateElasticsearchDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createelasticsearchdomain">
+                 CreateElasticsearchDomain
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an Amazon OpenSearch domain
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-CreateElasticsearchServiceRole">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createelasticsearchservicerole">
@@ -357,13 +494,40 @@
                 </a>
                </td>
                <td>
-                Grants permission to create the service-linked role required for Amazon ES domains
-                                                that use VPC access.
+                Grants permission to create the service-linked role required for Amazon OpenSearch
+                                                domains that use VPC access
                </td>
                <td>
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-CreateOutboundConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createoutboundconnection">
+                 CreateOutboundConnection
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new cross-cluster search connection from a source domain
+                                                to a destination domain
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -420,6 +584,80 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticsearchservice-CreateServiceRole">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-createservicerole">
+                 CreateServiceRole
+                </a>
+               </td>
+               <td>
+                Grants permission to create the service-linked role required for Amazon OpenSearch
+                                                domains that use VPC access
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DeleteDataPrepperPipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 DeleteDataPrepperPipeline
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a DataPrepperpipeline
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DeleteDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-deletedomain">
+                 DeleteDomain
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon OpenSearch domain and all of its data
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-DeleteElasticsearchDomain">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-deleteelasticsearchdomain">
@@ -427,7 +665,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete an Amazon ES domain and all of its data.
+                Grants permission to delete an Amazon OpenSearch domain and all of its data
                </td>
                <td>
                 Write
@@ -453,8 +691,30 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete the service-linked role required for Amazon ES domains
-                                                that use VPC access.
+                Grants permission to delete the service-linked role required for Amazon OpenSearch
+                                                domains that use VPC access
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DeleteInboundConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-deleteinboundconnection">
+                 DeleteInboundConnection
+                </a>
+               </td>
+               <td>
+                Grants permission to the destination domain owner to delete an existing inbound cross-cluster
+                                                search connection
                </td>
                <td>
                 Write
@@ -476,6 +736,28 @@
                </td>
                <td>
                 Grants permission to the destination domain owner to delete an existing inbound cross-cluster
+                                                search connection
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DeleteOutboundConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-deleteoutboundconnection">
+                 DeleteOutboundConnection
+                </a>
+               </td>
+               <td>
+                Grants permission to the source domain owner to delete an existing outbound cross-cluster
                                                 search connection
                </td>
                <td>
@@ -520,12 +802,121 @@
                </td>
                <td>
                 Grants permission to delete a package from Amazon ES. The package must not be associated
-                                                with any Amazon ES domain.
+                                                with any Amazon ES domain
                </td>
                <td>
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeDataPrepperPipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 DescribeDataPrepperPipeline
+                </a>
+               </td>
+               <td>
+                Grants permission to view a description of the pipeline configuration for the specified
+                                                DataPrepper pipeline
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeDomain">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describedomain">
+                 DescribeDomain
+                </a>
+               </td>
+               <td>
+                Grants permission to view a description of the domain configuration for the specified
+                                                Amazon OpenSearch domain, including the domain ID, domain service endpoint, and domain
+                                                ARN
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeDomainConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describedomainconfig">
+                 DescribeDomainConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to view a description of the configuration options and status of
+                                                an Amazon OpenSearch domain
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeDomains">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describedomain">
+                 DescribeDomains
+                </a>
+               </td>
+               <td>
+                Grants permission to view a description of the domain configuration for up to five
+                                                specified Amazon OpenSearch domain
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -542,7 +933,8 @@
                </td>
                <td>
                 Grants permission to view a description of the domain configuration for the specified
-                                                Amazon ES domain, including the domain ID, domain service endpoint, and domain ARN.
+                                                Amazon OpenSearch domain, including the domain ID, domain service endpoint, and domain
+                                                ARN
                </td>
                <td>
                 Read
@@ -569,7 +961,7 @@
                </td>
                <td>
                 Grants permission to view a description of the configuration options and status of
-                                                an Amazon ES domain.
+                                                an Amazon OpenSearch domain
                </td>
                <td>
                 Read
@@ -596,7 +988,7 @@
                </td>
                <td>
                 Grants permission to view a description of the domain configuration for up to five
-                                                specified Amazon ES domains.
+                                                specified Amazon OpenSearch domains
                </td>
                <td>
                 List
@@ -623,7 +1015,29 @@
                </td>
                <td>
                 Grants permission to view the instance count, storage, and master node limits for
-                                                a given Elasticsearch version and instance type.
+                                                a given OpenSearch version and instance type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeInboundConnections">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describeinboundconnections">
+                 DescribeInboundConnections
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the inbound cross-cluster search connections for a destination
+                                                domain
                </td>
                <td>
                 List
@@ -646,6 +1060,50 @@
                <td>
                 Grants permission to list all the inbound cross-cluster search connections for a destination
                                                 domain
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeInstanceTypeLimits">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describeinstancetypelimits">
+                 DescribeInstanceTypeLimits
+                </a>
+               </td>
+               <td>
+                Grants permission to view the instance count, storage, and master node limits for
+                                                a given OpenSearch version and instance type
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeOutboundConnections">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describeoutboundconnections">
+                 DescribeOutboundConnections
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the outbound cross-cluster search connections for a
+                                                source domain
                </td>
                <td>
                 List
@@ -709,7 +1167,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to fetch reserved instance offerings for ES
+                Grants permission to fetch reserved instance offerings for OpenSearch
                </td>
                <td>
                 List
@@ -730,7 +1188,49 @@
                 </a>
                </td>
                <td>
-                Grants permission to fetch ES reserved instances already purchased by customer
+                Grants permission to fetch OpenSearch reserved instances already purchased by customer
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeReservedInstanceOfferings">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describereservedelasticsearchinstanceofferings">
+                 DescribeReservedInstanceOfferings
+                </a>
+               </td>
+               <td>
+                Grants permission to fetch reserved instance offerings for OpenSearch
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-DescribeReservedInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-describereservedelasticsearchinstances">
+                 DescribeReservedInstances
+                </a>
+               </td>
+               <td>
+                Grants permission to fetch OpenSearch reserved instances already purchased by customer
                </td>
                <td>
                 List
@@ -777,7 +1277,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send cross-cluster requests to a destination domain.
+                Grants permission to send cross-cluster requests to a destination domain
                </td>
                <td>
                 Read
@@ -803,7 +1303,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP DELETE requests to the Elasticsearch APIs.
+                Grants permission to send HTTP DELETE requests to the OpenSearch APIs
                </td>
                <td>
                 Write
@@ -829,7 +1329,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP GET requests to the Elasticsearch APIs.
+                Grants permission to send HTTP GET requests to the OpenSearch APIs
                </td>
                <td>
                 Read
@@ -855,7 +1355,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP HEAD requests to the Elasticsearch APIs.
+                Grants permission to send HTTP HEAD requests to the OpenSearch APIs
                </td>
                <td>
                 Read
@@ -881,7 +1381,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP PATCH requests to the Elasticsearch APIs.
+                Grants permission to send HTTP PATCH requests to the OpenSearch APIs
                </td>
                <td>
                 Write
@@ -907,7 +1407,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP POST requests to the Elasticsearch APIs.
+                Grants permission to send HTTP POST requests to the OpenSearch APIs
                </td>
                <td>
                 Write
@@ -933,7 +1433,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to send HTTP PUT requests to the Elasticsearch APIs.
+                Grants permission to send HTTP PUT requests to the OpenSearch APIs
                </td>
                <td>
                 Write
@@ -960,7 +1460,34 @@
                </td>
                <td>
                 Grants permission to fetch list of compatible elastic search versions to which Amazon
-                                                ES domain can be upgraded
+                                                OpenSearch domain can be upgraded
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-GetCompatibleVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-getcompatibleversions">
+                 GetCompatibleVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to fetch list of compatible OpenSearch versions to which Amazon
+                                                OpenSearch domain can be upgraded
                </td>
                <td>
                 List
@@ -1007,7 +1534,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to fetch upgrade history for given ES domain
+                Grants permission to fetch upgrade history for given OpenSearch domain
                </td>
                <td>
                 Read
@@ -1033,7 +1560,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to fetch upgrade status for given ES domain
+                Grants permission to fetch upgrade status for given OpenSearch domain
                </td>
                <td>
                 Read
@@ -1052,6 +1579,54 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticsearchservice-IngestDataPrepperPipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 IngestDataPrepperPipeline
+                </a>
+               </td>
+               <td>
+                Grants permission to ingest data into a DataPrepper pipeline
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-pipeline">
+                  pipeline
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-ListDataPrepperPipelines">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 ListDataPrepperPipelines
+                </a>
+               </td>
+               <td>
+                Grants permission to display the names of all DataPrepper pipelines that the current
+                                                user owns
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-ListDomainNames">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-listdomainnames">
@@ -1059,8 +1634,8 @@
                 </a>
                </td>
                <td>
-                Grants permission to display the names of all Amazon ES domains that the current user
-                                                owns.
+                Grants permission to display the names of all Amazon OpenSearch domains that the current
+                                                user owns
                </td>
                <td>
                 List
@@ -1102,8 +1677,8 @@
                 </a>
                </td>
                <td>
-                Grants permission to list all instance types and available features for a given Elasticsearch
-                                                version.
+                Grants permission to list all instance types and available features for a given OpenSearch
+                                                version
                </td>
                <td>
                 List
@@ -1124,8 +1699,8 @@
                 </a>
                </td>
                <td>
-                Grants permission to list all Elasticsearch instance types that are supported for
-                                                a given Elasticsearch version.
+                Grants permission to list all OpenSearch instance types that are supported for a given
+                                                OpenSearch version
                </td>
                <td>
                 List
@@ -1146,7 +1721,51 @@
                 </a>
                </td>
                <td>
-                Grants permission to list all supported Elasticsearch versions on Amazon ES.
+                Grants permission to list all supported OpenSearch versions on Amazon OpenSearch
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-ListInstanceTypeDetails">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-listinstancetypedetails">
+                 ListInstanceTypeDetails
+                </a>
+               </td>
+               <td>
+                Grants permission to list all instance types and available features for a given OpenSearch
+                                                version
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-ListInstanceTypes">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-listinstancetypes">
+                 ListInstanceTypes
+                </a>
+               </td>
+               <td>
+                Grants permission to list all OpenSearch instance types that are supported for a given
+                                                OpenSearch version
                </td>
                <td>
                 List
@@ -1193,7 +1812,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to display all of the tags for an Amazon ES domain.
+                Grants permission to display all of the tags for an Amazon OpenSearch domain
                </td>
                <td>
                 Read
@@ -1212,6 +1831,27 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticsearchservice-ListVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-listversions">
+                 ListVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list all supported OpenSearch versions on Amazon OpenSearch
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-PurchaseReservedElasticsearchInstanceOffering">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-purchasereservedelasticsearchinstance">
@@ -1219,7 +1859,50 @@
                 </a>
                </td>
                <td>
-                Grants permission to purchase ES reserved instances
+                Grants permission to purchase OpenSearch reserved instances
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-PurchaseReservedInstanceOffering">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-purchasereservedelasticsearchinstance">
+                 PurchaseReservedInstanceOffering
+                </a>
+               </td>
+               <td>
+                Grants permission to purchase OpenSearch reserved instances
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-RejectInboundConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-rejectinboundconnection">
+                 RejectInboundConnection
+                </a>
+               </td>
+               <td>
+                Grants permission to the destination domain owner to reject an inbound cross-cluster
+                                                search connection request
                </td>
                <td>
                 Write
@@ -1254,17 +1937,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonelasticsearchservice-RemoveTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-listtags">
                  RemoveTags
                 </a>
                </td>
-               <td>
-                Grants permission to remove tags from Amazon ES domains.
+               <td rowspan="2">
+                Grants permission to remove tags from Amazon OpenSearch domains
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -1275,6 +1958,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1307,6 +2003,60 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonelasticsearchservice-UpdateDataPrepperPipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 UpdateDataPrepperPipeline
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configuration of a DataPrepper pipeline (currently
+                                                limited to updating desired capacity)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-UpdateDomainConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-updatedomainconfig">
+                 UpdateDomainConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configuration of an Amazon OpenSearch domain, such
+                                                as the instance type or number of instances
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-domain">
+                  domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonelasticsearchservice-UpdateElasticsearchDomainConfig">
                 </a>
                 <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-updateelasticsearchdomainconfig">
@@ -1314,8 +2064,8 @@
                 </a>
                </td>
                <td>
-                Grants permission to modify the configuration of an Amazon ES domain, such as the
-                                                instance type or number of instances.
+                Grants permission to modify the configuration of an Amazon OpenSearch domain, such
+                                                as the instance type or number of instances
                </td>
                <td>
                 Write
@@ -1449,6 +2199,106 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-pipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/trace-analytics.html">
+                 pipeline
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:es:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:pipeline/$
+                 <span>
+                  {
+                 </span>
+                 PipelineName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-es_role">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/slr-es.html">
+                 es_role
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iam::$
+                 <span>
+                  {
+                 </span>
+                 Account}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonElasticsearchService
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-opensearchservice_role">
+                </a>
+                <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/slr-es.html">
+                 opensearchservice_role
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iam::$
+                 <span>
+                  {
+                 </span>
+                 Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchInternalService
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticsearchservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -1458,17 +2308,90 @@
             Condition keys for        Amazon Elasticsearch Service
            </h2>
            <p>
-            Elasticsearch Service has no service-specific context keys that can be used in the
+            Amazon Elasticsearch Service defines the following condition keys that can be used
+                                    in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w87aab5b9d447c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticsearchservice-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
@@ -1482,13 +2405,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1519,12 +2441,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonelasticsearchservice.html" id="fblink" target="_blank" text="Feedback">
@@ -1538,12 +2458,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonelasticsearchservice.html" id="fblink" target="_blank" text="Feedback">

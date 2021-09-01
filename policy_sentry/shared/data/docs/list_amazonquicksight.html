@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d903c11b9">
+             <table id="w87aab5b9d907c11b9">
               <thead>
                <tr>
                 <th>
@@ -2175,6 +2175,73 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonquicksight-GenerateEmbedUrlForAnonymousUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html">
+                 GenerateEmbedUrlForAnonymousUser
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to generate a URL used to embed a QuickSight Dashboard for a user
+                                                not registered with QuickSight
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonquicksight-dashboard">
+                  dashboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonquicksight-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonquicksight-GenerateEmbedUrlForRegisteredUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">
+                 GenerateEmbedUrlForRegisteredUser
+                </a>
+               </td>
+               <td>
+                Grants permission to generate a URL used to embed a QuickSight Dashboard for a user
+                                                registered with QuickSight
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonquicksight-user">
+                  user*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonquicksight-GetAnonymousUserEmbedUrl">
                 </a>
@@ -2625,7 +2692,7 @@
                 Grants permission to list tags of a QuickSight resource
                </td>
                <td rowspan="4">
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -3158,6 +3225,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonquicksight-quicksight_Edition">
+                  quicksight:Edition
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonquicksight-quicksight_DirectoryType">
+                  quicksight:DirectoryType
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3997,7 +4074,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d903c13b5">
+             <table id="w87aab5b9d907c13b5">
               <thead>
                <tr>
                 <th>
@@ -4380,7 +4457,11 @@
                  <span>
                   {
                  </span>
-                 Partition}:quicksight::$
+                 Partition}:quicksight:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
@@ -4413,7 +4494,11 @@
                  <span>
                   {
                  </span>
-                 Partition}:quicksight::$
+                 Partition}:quicksight:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
                  <span>
                   {
                  </span>
@@ -4455,7 +4540,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d903c15b7">
+             <table id="w87aab5b9d907c15b7">
               <thead>
                <tr>
                 <th>
@@ -4509,6 +4594,36 @@
                </td>
                <td>
                 Filters access by tag keys
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonquicksight-quicksight_DirectoryType">
+                </a>
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/security-scp.html">
+                 quicksight:DirectoryType
+                </a>
+               </td>
+               <td>
+                Filters access based on the user management options
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonquicksight-quicksight_Edition">
+                </a>
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/security-scp.html">
+                 quicksight:Edition
+                </a>
+               </td>
+               <td>
+                Filters access based on the edition of QuickSight
                </td>
                <td>
                 String
@@ -4575,13 +4690,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -4612,12 +4726,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonquicksight.html" id="fblink" target="_blank" text="Feedback">
@@ -4631,12 +4743,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonquicksight.html" id="fblink" target="_blank" text="Feedback">

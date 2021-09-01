@@ -127,7 +127,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/comprehend/latest/dg/">
+               <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_Reference.html">
                 API operations available for this          service
                </a>
                .
@@ -392,20 +392,33 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-CreateDocumentClassifier">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateDocumentClassifier.html">
                  CreateDocumentClassifier
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a new document classifier that you can use to categorize
                                                 documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classifier">
+                  document-classifier*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -449,18 +462,18 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="5">
                 <a id="amazoncomprehend-CreateEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateEndpoint.html">
                  CreateEndpoint
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Grants permission to create a model-specific endpoint for synchronous inference for
                                                 a previously trained custom model
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Write
                </td>
                <td>
@@ -478,8 +491,34 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazoncomprehend-document-classifier-endpoint">
+                  document-classifier-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazoncomprehend-entity-recognizer">
                   entity-recognizer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entity-recognizer-endpoint">
+                  entity-recognizer-endpoint*
                  </a>
                 </p>
                </td>
@@ -507,19 +546,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-CreateEntityRecognizer">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateEntityRecognizer.html">
                  CreateEntityRecognizer
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create an entity recognizer using submitted files
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entity-recognizer">
+                  entity-recognizer*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -665,6 +717,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classification-job">
+                  document-classification-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -713,6 +770,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -774,6 +836,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -822,6 +889,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -843,6 +915,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -864,6 +941,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -885,6 +967,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -906,6 +993,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-topics-detection-job">
+                  topics-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1061,7 +1153,7 @@
                                                 submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1082,7 +1174,7 @@
                 Grants permission to get a list of the document classifiers that you have created
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1104,7 +1196,7 @@
                                                 submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1125,7 +1217,7 @@
                 Grants permission to get a list of all existing endpoints that you've created
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1146,7 +1238,7 @@
                 Grants permission to get a list of the entity detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1168,7 +1260,7 @@
                                                 created, including recognizers currently in training
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1189,7 +1281,7 @@
                 Grants permission to get a list of Events detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1210,7 +1302,7 @@
                 Grants permission to get a list of key phrase detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1231,7 +1323,7 @@
                 Grants permission to get a list of PII entities detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1252,7 +1344,7 @@
                 Grants permission to get a list of sentiment detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1262,19 +1354,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="12">
                 <a id="amazoncomprehend-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="12">
                 Grants permission to list tags for a resource
                </td>
-               <td rowspan="4">
-                List
+               <td rowspan="12">
+                Read
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classification-job">
+                  document-classification-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazoncomprehend-document-classifier">
@@ -1292,6 +1397,32 @@
                 <p>
                  <a href="#amazoncomprehend-document-classifier-endpoint">
                   document-classifier-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job
                  </a>
                 </p>
                </td>
@@ -1328,6 +1459,71 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-topics-detection-job">
+                  topics-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazoncomprehend-ListTopicsDetectionJobs">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTopicsDetectionJobs.html">
@@ -1338,7 +1534,7 @@
                 Grants permission to get a list of the topic detection jobs that you have submitted
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -1348,19 +1544,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoncomprehend-StartDocumentClassificationJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDocumentClassificationJob.html">
                  StartDocumentClassificationJob
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to start an asynchronous document classification job
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classification-job">
+                  document-classification-job*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazoncomprehend-document-classifier">
@@ -1378,6 +1587,16 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
                  </a>
@@ -1402,23 +1621,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartDominantLanguageDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDominantLanguageDetectionJob.html">
                  StartDominantLanguageDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous dominant language detection job for a collection
                                                 of documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
@@ -1444,20 +1686,33 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoncomprehend-StartEntitiesDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html">
                  StartEntitiesDetectionJob
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to start an asynchronous entity detection job for a collection of
                                                 documents
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazoncomprehend-entity-recognizer">
@@ -1475,6 +1730,16 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
                  </a>
@@ -1499,23 +1764,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartEventsDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEventsDetectionJob.html">
                  StartEventsDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous Events detection job for a collection of
                                                 documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_OutputKmsKey">
                   comprehend:OutputKmsKey
@@ -1526,23 +1814,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartKeyPhrasesDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartKeyPhrasesDetectionJob.html">
                  StartKeyPhrasesDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous key phrase detection job for a collection
                                                 of documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
@@ -1568,23 +1879,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartPiiEntitiesDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html">
                  StartPiiEntitiesDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous PII entities detection job for a collection
                                                 of documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_OutputKmsKey">
                   comprehend:OutputKmsKey
@@ -1595,23 +1929,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartSentimentDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartSentimentDetectionJob.html">
                  StartSentimentDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous sentiment detection job for a collection
                                                 of documents
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
@@ -1637,23 +1994,46 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncomprehend-StartTopicsDetectionJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_StartTopicsDetectionJob.html">
                  StartTopicsDetectionJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to start an asynchronous job to detect the most common topics in
                                                 the collection of documents and the phrases associated with each topic
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-topics-detection-job">
+                  topics-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncomprehend-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazoncomprehend-comprehend_VolumeKmsKey">
                   comprehend:VolumeKmsKey
@@ -1693,6 +2073,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1714,6 +2099,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1735,6 +2125,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1756,6 +2151,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1777,6 +2177,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1798,6 +2203,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1857,19 +2267,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="13">
                 <a id="amazoncomprehend-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="13">
                 Grants permission to tag a resource with given key value pairs
                </td>
-               <td rowspan="5">
+               <td rowspan="13">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classification-job">
+                  document-classification-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazoncomprehend-document-classifier">
@@ -1898,6 +2321,32 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazoncomprehend-entity-recognizer">
                   entity-recognizer
                  </a>
@@ -1913,6 +2362,71 @@
                 <p>
                  <a href="#amazoncomprehend-entity-recognizer-endpoint">
                   entity-recognizer-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-topics-detection-job">
+                  topics-detection-job
                  </a>
                 </p>
                </td>
@@ -1940,19 +2454,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="13">
                 <a id="amazoncomprehend-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="13">
                 Grants permission to untag a resource with given key
                </td>
-               <td rowspan="5">
+               <td rowspan="13">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-document-classification-job">
+                  document-classification-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazoncomprehend-document-classifier">
@@ -1981,6 +2508,32 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazoncomprehend-dominant-language-detection-job">
+                  dominant-language-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-entities-detection-job">
+                  entities-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazoncomprehend-entity-recognizer">
                   entity-recognizer
                  </a>
@@ -1996,6 +2549,71 @@
                 <p>
                  <a href="#amazoncomprehend-entity-recognizer-endpoint">
                   entity-recognizer-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-events-detection-job">
+                  events-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-key-phrases-detection-job">
+                  key-phrases-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-pii-entities-detection-job">
+                  pii-entities-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-sentiment-detection-job">
+                  sentiment-detection-job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-topics-detection-job">
+                  topics-detection-job
                  </a>
                 </p>
                </td>
@@ -2236,6 +2854,286 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-dominant-language-detection-job">
+                </a>
+                dominant-language-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dominant-language-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-entities-detection-job">
+                </a>
+                entities-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:entities-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-pii-entities-detection-job">
+                </a>
+                pii-entities-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:pii-entities-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-events-detection-job">
+                </a>
+                events-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:events-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-key-phrases-detection-job">
+                </a>
+                key-phrases-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:key-phrases-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-sentiment-detection-job">
+                </a>
+                sentiment-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:sentiment-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-topics-detection-job">
+                </a>
+                topics-detection-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:topics-detection-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncomprehend-document-classification-job">
+                </a>
+                document-classification-job
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:comprehend:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:document-classification-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncomprehend-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2333,7 +3231,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the model KMS key associated with the resource in the request.
+                Filters access by the model KMS key associated with the resource in the request
                </td>
                <td>
                 ARN
@@ -2348,7 +3246,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the output KMS key associated with the resource in the request.
+                Filters access by the output KMS key associated with the resource in the request
                </td>
                <td>
                 ARN
@@ -2363,7 +3261,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the volume KMS key associated with the resource in the request.
+                Filters access by the volume KMS key associated with the resource in the request
                </td>
                <td>
                 ARN
@@ -2379,7 +3277,7 @@
                </td>
                <td>
                 Filters access by the list of all VPC security group ids associated with the resource
-                                                in the request.
+                                                in the request
                </td>
                <td>
                 ArrayOfString
@@ -2395,7 +3293,7 @@
                </td>
                <td>
                 Filters access by the list of all VPC subnets associated with the resource in the
-                                                request.
+                                                request
                </td>
                <td>
                 ArrayOfString
@@ -2417,13 +3315,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -2454,12 +3351,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazoncomprehend.html" id="fblink" target="_blank" text="Feedback">
@@ -2473,12 +3368,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazoncomprehend.html" id="fblink" target="_blank" text="Feedback">

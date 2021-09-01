@@ -235,7 +235,7 @@
                <td>
                 <a id="awsbugbust-CreateEvent">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  CreateEvent
                 </a>
                 [permission only]
@@ -249,23 +249,36 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsbugbust-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbugbust-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsbugbust-EvaluateProfilingGroups">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  EvaluateProfilingGroups
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to evaluate checked-in profiling groups
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -282,17 +295,30 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-GetEvent">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  GetEvent
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view customer details about an event
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -309,19 +335,32 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-GetJoinEventStatus">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  GetJoinEventStatus
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view the status of a BugBust player's attempt to join a BugBust
                                                 event
                </td>
-               <td>
-                Write
+               <td rowspan="2">
+                Read
                </td>
                <td>
                 <p>
@@ -337,17 +376,30 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-JoinEvent">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  JoinEvent
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to join an event
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -363,19 +415,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awsbugbust-ListBugs">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListBugs
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to view the bugs that were imported into an event for players to
                                                 work on
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Read
                </td>
                <td>
@@ -400,7 +465,7 @@
                <td>
                 <p>
                  <a href="#awsbugbust-codereview">
-                  codereview
+                  codereview*
                  </a>
                 </p>
                </td>
@@ -411,17 +476,30 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-ListEventParticipants">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListEventParticipants
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view the participants of an event
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -438,17 +516,30 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-ListEventScores">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListEventScores
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view the scores of an event's players
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -459,6 +550,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -467,7 +571,7 @@
                <td>
                 <a id="awsbugbust-ListEvents">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListEvents
                 </a>
                 [permission only]
@@ -481,24 +585,29 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsbugbust-ListProfilingGroups">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListProfilingGroups
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view the profiling groups that were imported into an event for
                                                 players to work on
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -515,19 +624,32 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-ListPullRequests">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  ListPullRequests
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view the pull requests used by players to submit fixes to their
                                                 claimed bugs in an event
                </td>
-               <td>
-                Write
+               <td rowspan="2">
+                Read
                </td>
                <td>
                 <p>
@@ -542,18 +664,161 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsbugbust-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
+                 ListTagsForResource
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to lists tag for a Bugbust resource
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-Event">
+                  Event*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsbugbust-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
+                 TagResource
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to tag a Bugbust resource
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-Event">
+                  Event*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbugbust-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsbugbust-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
+                 UntagResource
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to untag a Bugbust resource
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-Event">
+                  Event*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbugbust-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
                 <a id="awsbugbust-UpdateEvent">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  UpdateEvent
                 </a>
                 [permission only]
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to update a BugBust event
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -593,7 +858,7 @@
                <td>
                 <p>
                  <a href="#awsbugbust-ProfilingGroup">
-                  ProfilingGroup
+                  ProfilingGroup*
                  </a>
                 </p>
                </td>
@@ -606,7 +871,7 @@
                <td>
                 <p>
                  <a href="#awsbugbust-codereview">
-                  codereview
+                  codereview*
                  </a>
                 </p>
                </td>
@@ -617,18 +882,31 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-UpdateWorkItem">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  UpdateWorkItem
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to update a work item as claimed or unclaimed (bug or profiling
                                                 group)
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -645,17 +923,30 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbugbust-UpdateWorkItemAdmin">
                 </a>
-                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/">
+                <a href="https://docs.aws.amazon.com/codeguru/latest/bugbust-ug/auth-and-access-control-permissions-reference.html">
                  UpdateWorkItemAdmin
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to update an event's work item (bug or profiling group)
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -666,6 +957,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -724,11 +1028,23 @@
                  <span>
                   {
                  </span>
-                 Partition}:codeguru-reviewer::$
+                 Partition}:codeguru-reviewer:$
                  <span>
                   {
                  </span>
-                 Account}:.+:.+
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:association:$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}:codereview:$
+                 <span>
+                  {
+                 </span>
+                 CodeReviewId}
                 </code>
                </td>
                <td>
@@ -806,6 +1122,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsbugbust-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -852,6 +1173,21 @@
               </thead>
               <tr>
                <td>
+                <a id="awsbugbust-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbugbust-aws_ResourceTag___TagKey_">
                 </a>
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
@@ -859,7 +1195,22 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource
+                Filters access based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbugbust-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access based on the tag keys that are passed in the request
                </td>
                <td>
                 String
@@ -881,13 +1232,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -918,12 +1268,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsbugbust.html" id="fblink" target="_blank" text="Feedback">
@@ -937,12 +1285,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsbugbust.html" id="fblink" target="_blank" text="Feedback">

@@ -370,7 +370,7 @@
                 Grants permission to create a new backup of an Amazon FSx file system
                </td>
                <td rowspan="3">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -382,6 +382,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -428,7 +431,7 @@
                                                 file system
                </td>
                <td rowspan="3">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -440,6 +443,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -485,7 +491,7 @@
                 Grants permission to create a new, empty, Amazon FSx file system
                </td>
                <td rowspan="2">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -497,6 +503,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -529,7 +538,7 @@
                 Grants permission to create a new Amazon FSx file system from an existing backup
                </td>
                <td rowspan="3">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -541,6 +550,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -602,18 +614,18 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="3">
                 <a id="amazonfsx-DeleteFileSystem">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteFileSystem.html">
                  DeleteFileSystem
                 </a>
                </td>
-               <td>
+               <td rowspan="3">
                 Grants permission to delete a file system, deleting its contents and any existing
                                                 automatic backups of the file system
                </td>
-               <td>
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -624,6 +636,43 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+                <p>
+                 fsx:CreateBackup
+                </p>
+                <p>
+                 fsx:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-backup">
+                  backup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1340,13 +1389,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1377,12 +1425,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" id="fblink" target="_blank" text="Feedback">
@@ -1396,12 +1442,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" id="fblink" target="_blank" text="Feedback">
