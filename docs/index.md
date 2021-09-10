@@ -16,9 +16,9 @@ Policy Sentry's policy writing templates are expressed in YAML and include the f
 
 Policy Sentry can also be used to:
 
--   [Query the IAM database](https://policy-sentry.readthedocs.io/en/latest/user-guide/querying-the-database.html) to reduce manual search time
--   [Generate IAM Policies based on Terraform output](https://policy-sentry.readthedocs.io/en/latest/terraform/terraform-demo.html)
--   [Write least-privilege IAM Policies](https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html) based on a list of IAM actions (or CRUD levels)
+-   [Query the IAM database](https://policy-sentry.readthedocs.io/en/latest/querying/querying/) to reduce manual search time
+-   [Generate IAM Policies based on Terraform output](https://policy-sentry.readthedocs.io/en/latest/other/terraform/)
+-   [Write least-privilege IAM Policies](https://policy-sentry.readthedocs.io/en/latest/tutorial/) based on a list of IAM actions (or CRUD levels)
 
 
 
