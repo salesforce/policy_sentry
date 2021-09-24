@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d347c11b9">
+             <table id="w86aab5b9d347c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,6 +233,162 @@
               </thead>
               <tr>
                <td rowspan="2">
+                <a id="awsdeepracer-AddLeaderboardAccessPermission">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html">
+                 AddLeaderboardAccessPermission
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to add access for a private leaderboard
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-AdminGetAccountConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html">
+                 AdminGetAccountConfig
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get current admin multiuser configuration for this account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-AdminListAssociatedResources">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-list-associated-resources.html">
+                 AdminListAssociatedResources
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list all deepracer users with their associated resources created
+                                                under this account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-AdminListAssociatedUsers">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-list-associated-users.html">
+                 AdminListAssociatedUsers
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list user data for all users associated with this account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-AdminManageUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-manage-user.html">
+                 AdminManageUser
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to manage a user associated with this account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-AdminSetAccountConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html">
+                 AdminSetAccountConfig
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to set configuration options for this account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awsdeepracer-CloneReinforcementLearningModel">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html#deepracer-clone-trained-model">
@@ -240,10 +396,10 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
-                Grants permission to clone existing DeepRacer models
+               <td rowspan="3">
+                Grants permission to clone an existing DeepRacer model
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -273,15 +429,43 @@
               </tr>
               <tr>
                <td>
-                <a id="awsdeepracer-CreateAccountResources">
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-CreateCar">
                 </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
-                 CreateAccountResources
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html">
+                 CreateCar
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permission to create resources needed by DeepRacer on behalf of the user
+                Grants permission to create a DeepRacer car in your garage
                </td>
                <td>
                 Write
@@ -289,12 +473,119 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-CreateLeaderboard">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-create-community-race.html">
+                 CreateLeaderboard
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create a leaderboard
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="awsdeepracer-CreateLeaderboardAccessToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html">
+                 CreateLeaderboardAccessToken
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to create an access token for a private leaderboard
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awsdeepracer-CreateLeaderboardSubmission">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
@@ -302,10 +593,10 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
-                Grants permission to submit DeepRacer models to be evaluated for leaderboards
+               <td rowspan="3">
+                Grants permission to submit a DeepRacer model to be evaluated for leaderboards
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -335,6 +626,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-CreateReinforcementLearningModel">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -342,10 +661,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to create reinforcement learning models for DeepRacer
+               <td rowspan="2">
+                Grants permission to create ra einforcement learning model for DeepRacer
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -362,20 +681,53 @@
               </tr>
               <tr>
                <td>
-                <a id="awsdeepracer-DeleteAccountResources">
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-DeleteLeaderboard">
                 </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
-                 DeleteAccountResources
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html">
+                 DeleteLeaderboard
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to delete resources created by DeepRacer on behalf of the user
+               <td rowspan="2">
+                Grants permission to delete a leaderboard
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -384,6 +736,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-DeleteModel">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -391,10 +761,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to delete DeepRacer models
+               <td rowspan="2">
+                Grants permission to delete a DeepRacer model
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -411,16 +781,78 @@
               </tr>
               <tr>
                <td>
-                <a id="awsdeepracer-GetAccountResources">
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-EditLeaderboard">
                 </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
-                 GetAccountResources
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html">
+                 EditLeaderboard
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to edit a leaderboard
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-GetAccountConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html">
+                 GetAccountConfig
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permission to retrieve the resources created by DeepRacer on behalf of the
-                                                user
+                Grants permission to get current multiuser configuration for this account
                </td>
                <td>
                 Read
@@ -428,6 +860,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -442,7 +884,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permission to retrieve the user's alias for submitting DeepRacer models to
+                Grants permission to retrieve the user's alias for submitting a DeepRacer model to
                                                 leaderboards
                </td>
                <td>
@@ -451,12 +893,144 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-GetAssetUrl">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html">
+                 GetAssetUrl
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to download artifacts for an existing DeepRacer model
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-reinforcement_learning_model">
+                  reinforcement_learning_model*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-GetCar">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html">
+                 GetCar
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve a specific DeepRacer car from your garage
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-car">
+                  car*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-GetCars">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html">
+                 GetCars
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to view all the DeepRacer cars in your garage
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-GetEvaluation">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
@@ -464,11 +1038,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to retrieve information about existing DeepRacer models' evaluation
+               <td rowspan="2">
+                Grants permission to retrieve information about an existing DeepRacer model's evaluation
                                                 jobs
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -485,6 +1059,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-GetLatestUserSubmission">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
@@ -492,11 +1084,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to retrieve information about how the latest submitted DeepRacer
                                                 model for a user performed on a leaderboard
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -513,6 +1105,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-GetLeaderboard">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
@@ -520,10 +1130,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to retrieve information about leaderboards
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -540,6 +1150,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-GetModel">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -547,10 +1175,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to retrieve information about existing DeepRacer models
+               <td rowspan="2">
+                Grants permission to retrieve information about an existing DeepRacer model
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -567,18 +1195,35 @@
               </tr>
               <tr>
                <td>
-                <a id="awsdeepracer-GetRankedUserSubmission">
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-GetPrivateLeaderboard">
                 </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
-                 GetRankedUserSubmission
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html">
+                 GetPrivateLeaderboard
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to retrieve information about the performance of a user's DeepRacer
-                                                model that got placed on a leaderboard
+               <td rowspan="2">
+                Grants permission to retrieve information about private leaderboards
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -589,6 +1234,70 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-GetRankedUserSubmission">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
+                 GetRankedUserSubmission
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve information about the performance of a user's DeepRacer
+                                                model that got placed on a leaderboard
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -621,7 +1330,7 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdeepracer-GetTrainingJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -629,11 +1338,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to retrieve information about existing DeepRacer models' training
+               <td rowspan="2">
+                Grants permission to retrieve information about an existing DeepRacer model's training
                                                 job
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -650,6 +1359,56 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-ImportModel">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-troubleshooting-service-migration-errors.html">
+                 ImportModel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to import a reinforcement learning model for DeepRacer
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-ListEvaluations">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
@@ -657,11 +1416,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to list DeepRacer models' evaluation jobs
+               <td rowspan="2">
+                Grants permission to list a DeepRacer model's evaluation jobs
                </td>
-               <td>
-                List
+               <td rowspan="2">
+                Read
                </td>
                <td>
                 <p>
@@ -677,6 +1436,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-ListLeaderboardSubmissions">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
@@ -684,11 +1461,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to list all the submissions of DeepRacer models of a user on a leaderboard
+               <td rowspan="2">
+                Grants permission to list all the DeepRacer model submissions of a user on a leaderboard
                </td>
-               <td>
-                List
+               <td rowspan="2">
+                Read
                </td>
                <td>
                 <p>
@@ -698,6 +1475,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -715,11 +1510,21 @@
                 Grants permission to list all the available leaderboards
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -737,11 +1542,244 @@
                 Grants permission to list all existing DeepRacer models
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-ListPrivateLeaderboardParticipants">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html">
+                 ListPrivateLeaderboardParticipants
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve participant information about private leaderboards
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-ListPrivateLeaderboards">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html">
+                 ListPrivateLeaderboards
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list all the available private leaderboards
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-ListSubscribedPrivateLeaderboards">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html">
+                 ListSubscribedPrivateLeaderboards
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list all the subscribed private leaderboards
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="7">
+                <a id="awsdeepracer-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="7">
+                Grants permission to lists tag for a resource
+               </td>
+               <td rowspan="7">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-car">
+                  car
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-evaluation_job">
+                  evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard_evaluation_job">
+                  leaderboard_evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-reinforcement_learning_model">
+                  reinforcement_learning_model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-training_job">
+                  training_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -759,7 +1797,7 @@
                 Grants permission to list all DeepRacer tracks
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -769,7 +1807,7 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdeepracer-ListTrainingJobs">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -777,11 +1815,11 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to list DeepRacer models' training jobs
+               <td rowspan="2">
+                Grants permission to list a DeepRacer model's training jobs
                </td>
-               <td>
-                List
+               <td rowspan="2">
+                Read
                </td>
                <td>
                 <p>
@@ -797,15 +1835,33 @@
               </tr>
               <tr>
                <td>
-                <a id="awsdeepracer-SetAlias">
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-MigrateModels">
                 </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
-                 SetAlias
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-troubleshooting-service-migration-errors.html">
+                 MigrateModels
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permission to set the user's alias for submitting DeepRacer models to leaderboards
+                Grants permission to migrate previous reinforcement learning models for DeepRacer
                </td>
                <td>
                 Write
@@ -819,6 +1875,129 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="awsdeepracer-PerformLeaderboardOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-perform-leaderboard-operation.html">
+                 PerformLeaderboardOperation
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to performs the leaderboard operation mentioned in the operation
+                                                attribute
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-RemoveLeaderboardAccessPermission">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html">
+                 RemoveLeaderboardAccessPermission
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to remove access for a private leaderboard
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-SetAlias">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
+                 SetAlias
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to set the user's alias for submitting a DeepRacer model to leaderboards
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awsdeepracer-StartEvaluation">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
@@ -826,10 +2005,10 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
-                Grants permission to evaluate DeepRacer models in a simulated environment
+               <td rowspan="3">
+                Grants permission to evaluate a DeepRacer model in a simulated environment
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -859,6 +2038,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-StopEvaluation">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
@@ -866,10 +2073,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to stop DeepRacer model evaluations
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -886,6 +2093,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsdeepracer-StopTrainingReinforcementLearningModel">
                 </a>
                 <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html">
@@ -893,10 +2118,10 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to stop training DeepRacer models
+               <td rowspan="2">
+                Grants permission to stop training a DeepRacer model
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -907,6 +2132,148 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="7">
+                <a id="awsdeepracer-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="7">
+                Grants permission to tag a resource
+               </td>
+               <td rowspan="7">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-car">
+                  car
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-evaluation_job">
+                  evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard_evaluation_job">
+                  leaderboard_evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-reinforcement_learning_model">
+                  reinforcement_learning_model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-training_job">
+                  training_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -929,6 +2296,175 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="7">
+                <a id="awsdeepracer-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="7">
+                Grants permission to untag a resource
+               </td>
+               <td rowspan="7">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-car">
+                  car
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-evaluation_job">
+                  evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard">
+                  leaderboard
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-leaderboard_evaluation_job">
+                  leaderboard_evaluation_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-reinforcement_learning_model">
+                  reinforcement_learning_model
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-training_job">
+                  training_job
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsdeepracer-UpdateCar">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html">
+                 UpdateCar
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to update a DeepRacer car in your garage
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-car">
+                  car*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-deepracer_UserToken">
+                  deepracer:UserToken
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeepracer-deepracer_MultiUser">
+                  deepracer:MultiUser
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -959,7 +2495,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d347c13b5">
+             <table id="w86aab5b9d347c13b5">
               <thead>
                <tr>
                 <th>
@@ -973,6 +2509,150 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awsdeepracer-car">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html">
+                 car
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:deepracer:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:car/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-evaluation_job">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
+                 evaluation_job
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:deepracer:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}: evaluation_job/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-leaderboard">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
+                 leaderboard
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:deepracer:$
+                 <span>
+                  {
+                 </span>
+                 Region}::leaderboard/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-leaderboard_evaluation_job">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
+                 leaderboard_evaluation_job
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:deepracer:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:leaderboard_evaluation_job/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awsdeepracer-reinforcement_learning_model">
@@ -996,6 +2676,39 @@
                   {
                  </span>
                  Account}:model/reinforcement_learning/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-track">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html">
+                 track
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:deepracer:$
+                 <span>
+                  {
+                 </span>
+                 Region}::track/$
                  <span>
                   {
                  </span>
@@ -1035,126 +2748,11 @@
                 </code>
                </td>
                <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsdeepracer-evaluation_job">
-                </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html">
-                 evaluation_job
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:deepracer:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}: evaluation_job/$
-                 <span>
-                  {
-                 </span>
-                 ResourceId}
-                </code>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsdeepracer-leaderboard_evaluation_job">
-                </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
-                 leaderboard_evaluation_job
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:deepracer:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}:leaderboard_evaluation_job/$
-                 <span>
-                  {
-                 </span>
-                 ResourceId}
-                </code>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsdeepracer-track">
-                </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html">
-                 track
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:deepracer:$
-                 <span>
-                  {
-                 </span>
-                 Region}::track/$
-                 <span>
-                  {
-                 </span>
-                 ResourceId}
-                </code>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsdeepracer-leaderboard">
-                </a>
-                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html">
-                 leaderboard
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:deepracer:$
-                 <span>
-                  {
-                 </span>
-                 Region}::leaderboard/$
-                 <span>
-                  {
-                 </span>
-                 ResourceId}
-                </code>
-               </td>
-               <td>
+                <p>
+                 <a href="#awsdeepracer-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -1164,17 +2762,119 @@
             Condition keys for        AWS DeepRacer
            </h2>
            <p>
-            DeepRacer has no service-specific context keys that can be used in the
+            AWS DeepRacer defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are
-                                    available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w86aab5b9d347c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsdeepracer-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions by tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters actions by tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters actions by tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-deepracer_MultiUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/reference_policies_iam-condition-keys.html#condition-keys-multiuser">
+                 deepracer:MultiUser
+                </a>
+               </td>
+               <td>
+                Filters access by multiuser flag
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdeepracer-deepracer_UserToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/deepracer/latest/developerguide/reference_policies_iam-condition-keys.html#condition-keys-usertoken">
+                 deepracer:UserToken
+                </a>
+               </td>
+               <td>
+                Filters access by user token in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
@@ -1188,13 +2888,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1225,12 +2924,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsdeepracer.html" id="fblink" target="_blank" text="Feedback">
@@ -1244,12 +2941,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsdeepracer.html" id="fblink" target="_blank" text="Feedback">
@@ -1273,20 +2968,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

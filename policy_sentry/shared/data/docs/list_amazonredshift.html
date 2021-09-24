@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d919c11b9">
+             <table id="w86aab5b9d931c11b9">
               <thead>
                <tr>
                 <th>
@@ -254,6 +254,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonredshift-AssociateDataShareConsumer">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_AssociateDataShareConsumer.html">
+                 AssociateDataShareConsumer
+                </a>
+               </td>
+               <td>
+                Grants permission to associate a consumer to a datashare
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-datashare">
+                  datashare*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonredshift-AuthorizeClusterSecurityGroupIngress">
                 </a>
@@ -289,6 +315,45 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-AuthorizeDataShare">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeDataShare.html">
+                 AuthorizeDataShare
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to authorize the specified datashare consumer to consume a datashare
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-datashare">
+                  datashare*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-redshift_ConsumerIdentifier">
+                  redshift:ConsumerIdentifier
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1278,6 +1343,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonredshift-DeauthorizeDataShare">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeauthorizeDataShare.html">
+                 DeauthorizeDataShare
+                </a>
+               </td>
+               <td rowspan="2">
+                Remove permission from the specified datashare consumer to consume a datashare
+               </td>
+               <td rowspan="2">
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-datashare">
+                  datashare*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-redshift_ConsumerIdentifier">
+                  redshift:ConsumerIdentifier
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonredshift-DeleteCluster">
                 </a>
@@ -2061,6 +2165,69 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonredshift-DescribeDataShares">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataShares.html">
+                 DescribeDataShares
+                </a>
+               </td>
+               <td>
+                Grants permission to describe datashares created and consumed by your clusters
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeDataSharesForConsumer">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataSharesForConsumer.html">
+                 DescribeDataSharesForConsumer
+                </a>
+               </td>
+               <td>
+                Grants permission to describe only datashares consumed by your clusters
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DescribeDataSharesForProducer">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataSharesForProducer.html">
+                 DescribeDataSharesForProducer
+                </a>
+               </td>
+               <td>
+                Grants permission to describe only datashares created by your clusters
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonredshift-DescribeDefaultClusterParameters">
                 </a>
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html">
@@ -2796,6 +2963,32 @@
                 <p>
                  <a href="#amazonredshift-cluster">
                   cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-DisassociateDataShareConsumer">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisassociateDataShareConsumer.html">
+                 DisassociateDataShareConsumer
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate a consumer from a datashare
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-datashare">
+                  datashare*
                  </a>
                 </p>
                </td>
@@ -3567,6 +3760,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonredshift-RejectDataShare">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_RejectDataShare.html">
+                 RejectDataShare
+                </a>
+               </td>
+               <td>
+                Grants permission to decline a datashare shared from another account
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-datashare">
+                  datashare*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonredshift-ResetClusterParameterGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html">
@@ -3885,7 +4104,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d919c13b5">
+             <table id="w86aab5b9d931c13b5">
               <thead>
                <tr>
                 <th>
@@ -3926,6 +4145,47 @@
                   {
                  </span>
                  ClusterName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonredshift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-datashare">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html">
+                 datashare
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:datashare:$
+                 <span>
+                  {
+                 </span>
+                 ProducerClusterNamespace}/
+                 <span>
+                  {
+                 </span>
+                 DataShareName}
                 </code>
                </td>
                <td>
@@ -4555,7 +4815,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d919c15b7">
+             <table id="w86aab5b9d931c15b7">
               <thead>
                <tr>
                 <th>
@@ -4609,6 +4869,21 @@
                </td>
                <td>
                 Filters actions based on the presence of mandatory tags in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonredshift-redshift_ConsumerIdentifier">
+                </a>
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:ConsumerIdentifier
+                </a>
+               </td>
+               <td>
+                Filters access by the datashare consumer
                </td>
                <td>
                 String
@@ -4675,13 +4950,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -4712,12 +4986,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonredshift.html" id="fblink" target="_blank" text="Feedback">
@@ -4731,12 +5003,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonredshift.html" id="fblink" target="_blank" text="Feedback">
@@ -4760,20 +5030,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

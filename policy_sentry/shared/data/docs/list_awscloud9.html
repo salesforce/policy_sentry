@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d179c11b9">
+             <table id="w86aab5b9d179c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,6 +233,34 @@
               </thead>
               <tr>
                <td>
+                <a id="awscloud9-ActivateEC2Remote">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 ActivateEC2Remote
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to start the Amazon EC2 instance that your AWS Cloud9 IDE connects
+                                                to
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloud9-CreateEnvironmentEC2">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloud9/latest/APIReference/API_CreateEnvironmentEC2.html">
@@ -242,7 +270,7 @@
                <td>
                 Grants permission to create an AWS Cloud9 development environment, launches an Amazon
                                                 Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the
-                                                instance.
+                                                instance
                </td>
                <td>
                 Write
@@ -270,6 +298,16 @@
                   cloud9:UserArn
                  </a>
                 </p>
+                <p>
+                 <a href="#awscloud9-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloud9-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
@@ -292,7 +330,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to add an environment member to an AWS Cloud9 development environment.
+                Grants permission to add an environment member to an AWS Cloud9 development environment
                </td>
                <td rowspan="2">
                 Write
@@ -334,6 +372,71 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloud9-CreateEnvironmentSSH">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 CreateEnvironmentSSH
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create an AWS Cloud9 SSH development environment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-cloud9_EnvironmentName">
+                  cloud9:EnvironmentName
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloud9-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloud9-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-CreateEnvironmentToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 CreateEnvironmentToken
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create an authentication token that allows a connection between
+                                                the AWS Cloud9 IDE and the user's environment
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloud9-DeleteEnvironment">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloud9/latest/APIReference/API_DeleteEnvironment.html">
@@ -343,7 +446,7 @@
                <td>
                 Grants permission to delete an AWS Cloud9 development environment. If the environment
                                                 is hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance, also terminates
-                                                the instance.
+                                                the instance
                </td>
                <td>
                 Write
@@ -372,10 +475,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete an environment member from an AWS Cloud9 development environment.
+                Grants permission to delete an environment member from an AWS Cloud9 development environment
                </td>
                <td>
                 Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-DescribeEC2Remote">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 DescribeEC2Remote
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get details about the connection to the EC2 development environment,
+                                                including host, user, and port
+               </td>
+               <td>
+                Read
                </td>
                <td>
                 <p>
@@ -399,7 +530,7 @@
                </td>
                <td rowspan="2">
                 Grants permission to get information about environment members for an AWS Cloud9 development
-                                                environment.
+                                                environment
                </td>
                <td rowspan="2">
                 Read
@@ -443,7 +574,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to get status information for an AWS Cloud9 development environment.
+                Grants permission to get status information for an AWS Cloud9 development environment
                </td>
                <td>
                 Read
@@ -469,7 +600,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to get information about AWS Cloud9 development environments.
+                Grants permission to get information about AWS Cloud9 development environments
                </td>
                <td>
                 Read
@@ -488,15 +619,148 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloud9-DescribeSSHRemote">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 DescribeSSHRemote
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get details about the connection to the SSH development environment,
+                                                including host, user, and port
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-GetEnvironmentConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 GetEnvironmentConfig
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get configuration information that's used to initialize the AWS
+                                                Cloud9 IDE
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-GetEnvironmentSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 GetEnvironmentSettings
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get the AWS Cloud9 IDE settings for a specified development environment
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-GetMembershipSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 GetMembershipSettings
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get the AWS Cloud9 IDE settings for a specified environment member
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-GetUserPublicKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 GetUserPublicKey
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get the user's public SSH key, which is used by AWS Cloud9 to
+                                                connect to SSH development environments
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloud9-GetUserSettings">
                 </a>
-                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/settings-user.html">
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
                  GetUserSettings
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permission to get IDE-specific settings of an AWS Cloud9 user.
+                Grants permission to get the AWS Cloud9 IDE settings for a specified user
                </td>
                <td>
                 Read
@@ -517,7 +781,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to get a list of AWS Cloud9 development environment identifiers.
+                Grants permission to get a list of AWS Cloud9 development environment identifiers
                </td>
                <td>
                 Read
@@ -538,10 +802,38 @@
                 </a>
                </td>
                <td>
-                Lists tags for a cloud9 environment
+                Grants permission to list tags for a cloud9 environment
                </td>
                <td>
                 Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-ModifyTemporaryCredentialsOnEnvironmentEC2">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 ModifyTemporaryCredentialsOnEnvironmentEC2
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to set AWS managed temporary credentials on the Amazon EC2 instance
+                                                that's used by the AWS Cloud9 integrated development environment (IDE)
+               </td>
+               <td>
+                Write
                </td>
                <td>
                 <p>
@@ -564,10 +856,10 @@
                 </a>
                </td>
                <td rowspan="2">
-                Adds tags to a cloud9 environment
+                Grants permission to add tags to a cloud9 environment
                </td>
                <td rowspan="2">
-                Write
+                Tagging
                </td>
                <td>
                 <p>
@@ -608,10 +900,10 @@
                 </a>
                </td>
                <td rowspan="2">
-                Removes tags from a cloud9 environment
+                Grants permission to remove tags from a cloud9 environment
                </td>
                <td rowspan="2">
-                Write
+                Tagging
                </td>
                <td>
                 <p>
@@ -630,6 +922,11 @@
                </td>
                <td>
                 <p>
+                 <a href="#awscloud9-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
                  <a href="#awscloud9-aws_TagKeys">
                   aws:TagKeys
                  </a>
@@ -647,7 +944,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to change the settings of an existing AWS Cloud9 development environment.
+                Grants permission to change the settings of an existing AWS Cloud9 development environment
                </td>
                <td>
                 Write
@@ -674,7 +971,7 @@
                </td>
                <td rowspan="2">
                 Grants permission to change the settings of an existing environment member for an
-                                                AWS Cloud9 development environment.
+                                                AWS Cloud9 development environment
                </td>
                <td rowspan="2">
                 Write
@@ -716,18 +1013,125 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloud9-UpdateEnvironmentSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 UpdateEnvironmentSettings
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to update the AWS Cloud9 IDE settings for a specified development
+                                                environment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-UpdateMembershipSettings">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 UpdateMembershipSettings
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to update the AWS Cloud9 IDE settings for a specified environment
+                                                member
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-UpdateSSHRemote">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 UpdateSSHRemote
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to update details about the connection to the SSH development environment,
+                                                including host, user, and port
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloud9-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloud9-UpdateUserSettings">
                 </a>
-                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/settings-user.html">
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
                  UpdateUserSettings
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permission to update IDE-specific settings of an AWS Cloud9 user.
+                Grants permission to update IDE-specific settings of an AWS Cloud9 user
                </td>
                <td>
                 Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloud9-ValidateEnvironmentName">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/security-iam.html#auth-and-access-control-ref-matrix">
+                 ValidateEnvironmentName
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to validate the environment name during the process of creating
+                                                an AWS Cloud9 development environment
+               </td>
+               <td>
+                Read
                </td>
                <td>
                </td>
@@ -762,7 +1166,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d179c13b5">
+             <table id="w86aab5b9d179c13b5">
               <thead>
                <tr>
                 <th>
@@ -780,7 +1184,7 @@
                <td>
                 <a id="awscloud9-environment">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-environment">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-environment">
                  environment
                 </a>
                </td>
@@ -841,7 +1245,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d179c15b7">
+             <table id="w86aab5b9d179c15b7">
               <thead>
                <tr>
                 <th>
@@ -904,7 +1308,7 @@
                <td>
                 <a id="awscloud9-cloud9_EnvironmentId">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_EnvironmentId">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_EnvironmentId">
                  cloud9:EnvironmentId
                 </a>
                </td>
@@ -919,7 +1323,7 @@
                <td>
                 <a id="awscloud9-cloud9_EnvironmentName">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_EnvironmentName">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_EnvironmentName">
                  cloud9:EnvironmentName
                 </a>
                </td>
@@ -934,7 +1338,7 @@
                <td>
                 <a id="awscloud9-cloud9_InstanceType">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_InstanceType">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_InstanceType">
                  cloud9:InstanceType
                 </a>
                </td>
@@ -949,7 +1353,7 @@
                <td>
                 <a id="awscloud9-cloud9_Permissions">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_Permissions">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_Permissions">
                  cloud9:Permissions
                 </a>
                </td>
@@ -964,7 +1368,7 @@
                <td>
                 <a id="awscloud9-cloud9_SubnetId">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_SubnetId">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_SubnetId">
                  cloud9:SubnetId
                 </a>
                </td>
@@ -979,7 +1383,7 @@
                <td>
                 <a id="awscloud9-cloud9_UserArn">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html#awscloud9-cloud9_UserArn">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awscloud9.html##awscloud9-cloud9_UserArn">
                  cloud9:UserArn
                 </a>
                </td>
@@ -1006,13 +1410,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1043,12 +1446,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awscloud9.html" id="fblink" target="_blank" text="Feedback">
@@ -1062,12 +1463,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awscloud9.html" id="fblink" target="_blank" text="Feedback">
@@ -1091,20 +1490,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d527c11b9">
+             <table id="w86aab5b9d527c11b9">
               <thead>
                <tr>
                 <th>
@@ -359,18 +359,19 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonfsx-CreateBackup">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateBackup.html">
                  CreateBackup
                 </a>
                </td>
-               <td rowspan="3">
-                Grants permission to create a new backup of an Amazon FSx file system
+               <td rowspan="4">
+                Grants permission to create a new backup of an Amazon FSx file system or an Amazon
+                                                FSx volume
                </td>
-               <td rowspan="3">
-                Tagging
+               <td rowspan="4">
+                Write
                </td>
                <td>
                 <p>
@@ -382,13 +383,29 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <p>
                  <a href="#amazonfsx-file-system">
-                  file-system*
+                  file-system
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume
                  </a>
                 </p>
                </td>
@@ -428,7 +445,7 @@
                                                 file system
                </td>
                <td rowspan="3">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -440,6 +457,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -485,7 +505,7 @@
                 Grants permission to create a new, empty, Amazon FSx file system
                </td>
                <td rowspan="2">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -497,6 +517,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -529,7 +552,7 @@
                 Grants permission to create a new Amazon FSx file system from an existing backup
                </td>
                <td rowspan="3">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
@@ -541,6 +564,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 fsx:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -568,6 +594,197 @@
                 <p>
                  <a href="#amazonfsx-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonfsx-CreateStorageVirtualMachine">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateStorageVirtualMachine.html">
+                 CreateStorageVirtualMachine
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a new storage virtual machine in an Amazon FSx for Ontap
+                                                file system
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-system">
+                  file-system*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 fsx:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfsx-CreateVolume">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateVolume.html">
+                 CreateVolume
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new volume
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 fsx:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-fsx_StorageVirtualMachineId">
+                  fsx:StorageVirtualMachineId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="amazonfsx-CreateVolumeFromBackup">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateVolumeFromBackup.html">
+                 CreateVolumeFromBackup
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to create a new volume from backup
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-backup">
+                  backup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 fsx:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-fsx_StorageVirtualMachineId">
+                  fsx:StorageVirtualMachineId
                  </a>
                 </p>
                </td>
@@ -602,18 +819,18 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="3">
                 <a id="amazonfsx-DeleteFileSystem">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteFileSystem.html">
                  DeleteFileSystem
                 </a>
                </td>
-               <td>
+               <td rowspan="3">
                 Grants permission to delete a file system, deleting its contents and any existing
                                                 automatic backups of the file system
                </td>
-               <td>
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -624,6 +841,127 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+                <p>
+                 fsx:CreateBackup
+                </p>
+                <p>
+                 fsx:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-backup">
+                  backup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfsx-DeleteStorageVirtualMachine">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteStorageVirtualMachine.html">
+                 DeleteStorageVirtualMachine
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a storage virtual machine, deleting its contents.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfsx-DeleteVolume">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteVolume.html">
+                 DeleteVolume
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a volume, deleting its contents and any existing automatic
+                                                backups of the volume.
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-fsx_StorageVirtualMachineId">
+                  fsx:StorageVirtualMachineId
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -750,6 +1088,50 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonfsx-DescribeStorageVirtualMachines">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeStorageVirtualMachines.html">
+                 DescribeStorageVirtualMachines
+                </a>
+               </td>
+               <td>
+                Grants permission to return the descriptions of all storage virtual machines owned
+                                                by your AWS account in the AWS Region of the endpoint that you're calling
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-DescribeVolumes">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeVolumes.html">
+                 DescribeVolumes
+                </a>
+               </td>
+               <td>
+                Grants permission to return the descriptions of all volumes owned by your AWS account
+                                                in the AWS Region of the endpoint that you're calling
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonfsx-DisassociateFileGateway">
                 </a>
                 <a href="https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html">
@@ -803,17 +1185,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="5">
                 <a id="amazonfsx-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Grants permission to list tags for an Amazon FSx resource
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Read
                </td>
                <td>
@@ -844,8 +1226,34 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonfsx-task">
                   task
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume
                  </a>
                 </p>
                </td>
@@ -881,17 +1289,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="6">
                 <a id="amazonfsx-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="6">
                 Grants permission to tag an Amazon FSx resource
                </td>
-               <td rowspan="4">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
@@ -922,8 +1330,34 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonfsx-task">
                   task
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume
                  </a>
                 </p>
                </td>
@@ -951,17 +1385,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="6">
                 <a id="amazonfsx-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="6">
                 Grants permission to remove a tag from an Amazon FSx resource
                </td>
-               <td rowspan="4">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
@@ -992,8 +1426,34 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonfsx-task">
                   task
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume
                  </a>
                 </p>
                </td>
@@ -1041,6 +1501,89 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfsx-UpdateStorageVirtualMachine">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateStorageVirtualMachine.html">
+                 UpdateStorageVirtualMachine
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update storage virtual machine configuration
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-storage-virtual-machine">
+                  storage-virtual-machine*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfsx-UpdateVolume">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateVolume.html">
+                 UpdateVolume
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update volume configuration
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-volume">
+                  volume*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-fsx_StorageVirtualMachineId">
+                  fsx:StorageVirtualMachineId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1075,14 +1618,14 @@
             </div>
             <div class="awsdocs-note-text">
              <p>
-              Amazon FSx for Windows File Server and Amazon FSx for Lustre share some of the same
-                                          resource types, with the same ARN format for each.
+              Amazon FSx for Windows File Server, Lustre, and Ontap share some of the same resource
+                                          types, with the same ARN format for each.
              </p>
             </div>
            </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d527c13b7">
+             <table id="w86aab5b9d527c13b7">
               <thead>
                <tr>
                 <th>
@@ -1172,6 +1715,47 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonfsx-storage-virtual-machine">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/OntapGuide/access-control-overview.html#access-control-resources">
+                 storage-virtual-machine
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:fsx:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:storage-virtual-machine/$
+                 <span>
+                  {
+                 </span>
+                 FileSystemId}/$
+                 <span>
+                  {
+                 </span>
+                 StorageVirtualMachineId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonfsx-task">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/access-control-overview.html#access-control-resources">
@@ -1197,6 +1781,47 @@
                   {
                  </span>
                  TaskId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-volume">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/OntapGuide/access-control-overview.html#access-control-resources">
+                 volume
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:fsx:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:volume/$
+                 <span>
+                  {
+                 </span>
+                 FileSystemId}/$
+                 <span>
+                  {
+                 </span>
+                 VolumeId}
                 </code>
                </td>
                <td>
@@ -1235,7 +1860,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d527c15b7">
+             <table id="w86aab5b9d527c15b7">
               <thead>
                <tr>
                 <th>
@@ -1324,6 +1949,22 @@
                 Bool
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-fsx_StorageVirtualMachineId">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/access-control-manage-access-intro.htmlAPI_CreateVolume.html">
+                 fsx:StorageVirtualMachineId
+                </a>
+               </td>
+               <td>
+                Filters access by the containing storage virtual machine for a volume for mutating
+                                                volume operations
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1340,13 +1981,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1377,12 +2017,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" id="fblink" target="_blank" text="Feedback">
@@ -1396,12 +2034,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" id="fblink" target="_blank" text="Feedback">
@@ -1425,20 +2061,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

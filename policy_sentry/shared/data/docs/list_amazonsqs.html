@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1043c11b9">
+             <table id="w86aab5b9e1075c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td>
-                Adds a permission to a queue for a specific principal.
+                Grants permission to a queue for a specific principal
                </td>
                <td>
                 Permissions management
@@ -266,33 +266,8 @@
                 </a>
                </td>
                <td>
-                Changes the visibility timeout of a specified message in a queue to a new value.
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonsqs-queue">
-                  queue*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonsqs-ChangeMessageVisibilityBatch">
-                </a>
-                <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">
-                 ChangeMessageVisibilityBatch
-                </a>
-               </td>
-               <td>
-                Changes the visibility timeout of multiple messages.
+                Grants permission to change the visibility timeout of a specified message in a queue
+                                                to a new value
                </td>
                <td>
                 Write
@@ -318,7 +293,7 @@
                 </a>
                </td>
                <td>
-                Creates a new queue, or returns the URL of an existing one.
+                Grants permission to create a new queue, or returns the URL of an existing one
                </td>
                <td>
                 Write
@@ -344,33 +319,7 @@
                 </a>
                </td>
                <td>
-                Deletes the specified message from the specified queue.
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonsqs-queue">
-                  queue*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonsqs-DeleteMessageBatch">
-                </a>
-                <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">
-                 DeleteMessageBatch
-                </a>
-               </td>
-               <td>
-                Deletes up to ten messages from the specified queue.
+                Grants permission to delete the specified message from the specified queue
                </td>
                <td>
                 Write
@@ -396,7 +345,8 @@
                 </a>
                </td>
                <td>
-                Deletes the queue specified by the queue URL, regardless of whether the queue is empty.
+                Grants permission to delete the queue specified by the queue URL, regardless of whether
+                                                the queue is empty
                </td>
                <td>
                 Write
@@ -422,7 +372,7 @@
                 </a>
                </td>
                <td>
-                Gets attributes for the specified queue.
+                Grants permission to get attributes for the specified queue
                </td>
                <td>
                 Read
@@ -448,7 +398,7 @@
                 </a>
                </td>
                <td>
-                Returns the URL of an existing queue.
+                Grants permission to return the URL of an existing queue
                </td>
                <td>
                 Read
@@ -474,8 +424,8 @@
                 </a>
                </td>
                <td>
-                Returns a list of your queues that have the RedrivePolicy queue attribute configured
-                                                with a dead letter queue.
+                Grants permission to return a list of your queues that have the RedrivePolicy queue
+                                                attribute configured with a dead letter queue
                </td>
                <td>
                 Read
@@ -501,7 +451,7 @@
                 </a>
                </td>
                <td>
-                Lists tags added to an SQS queue.
+                Grants permission to list tags added to an SQS queue
                </td>
                <td>
                 Read
@@ -527,10 +477,10 @@
                 </a>
                </td>
                <td>
-                Returns a list of your queues.
+                Grants permission to return a list of your queues
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -548,7 +498,7 @@
                 </a>
                </td>
                <td>
-                Deletes the messages in a queue specified by the queue URL.
+                Grants permission to delete the messages in a queue specified by the queue URL
                </td>
                <td>
                 Write
@@ -574,8 +524,8 @@
                 </a>
                </td>
                <td>
-                Retrieves one or more messages, with a maximum limit of 10 messages, from the specified
-                                                queue.
+                Grants permission to retrieve one or more messages, with a maximum limit of 10 messages,
+                                                from the specified queue
                </td>
                <td>
                 Read
@@ -601,7 +551,8 @@
                 </a>
                </td>
                <td>
-                Revokes any permissions in the queue policy that matches the specified Label parameter.
+                Grants permission to revoke any permissions in the queue policy that matches the specified
+                                                Label parameter
                </td>
                <td>
                 Permissions management
@@ -627,33 +578,7 @@
                 </a>
                </td>
                <td>
-                Delivers a message to the specified queue.
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonsqs-queue">
-                  queue*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="amazonsqs-SendMessageBatch">
-                </a>
-                <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">
-                 SendMessageBatch
-                </a>
-               </td>
-               <td>
-                Delivers up to ten messages to the specified queue.
+                Grants permission to deliver a message to the specified queue
                </td>
                <td>
                 Write
@@ -679,7 +604,7 @@
                 </a>
                </td>
                <td>
-                Sets the value of one or more queue attributes.
+                Grants permission to set the value of one or more queue attributes
                </td>
                <td>
                 Write
@@ -705,7 +630,7 @@
                 </a>
                </td>
                <td>
-                Add tags to the specified SQS queue.
+                Grants permission to add tags to the specified SQS queue
                </td>
                <td>
                 Tagging
@@ -731,7 +656,7 @@
                 </a>
                </td>
                <td>
-                Remove tags from the specified SQS queue.
+                Grants permission to remove tags from the specified SQS queue
                </td>
                <td>
                 Tagging
@@ -789,7 +714,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9e1043c13b7">
+             <table id="w86aab5b9e1075c13b7">
               <thead>
                <tr>
                 <th>
@@ -866,13 +791,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -886,8 +810,8 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_amazonsns.html" id="previous">
-             Amazon SNS
+            <div accesskey="p" class="prev-link" href="./list_awssqlworkbench.html" id="previous">
+             AWS SQL Workbench
             </div>
             <div accesskey="n" class="next-link" href="./list_awssso.html" id="next">
              AWS SSO
@@ -903,12 +827,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonsqs.html" id="fblink" target="_blank" text="Feedback">
@@ -922,12 +844,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonsqs.html" id="fblink" target="_blank" text="Feedback">
@@ -951,20 +871,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -216,7 +216,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d711c11b9">
+             <table id="w86aab5b9d711c11b9">
               <thead>
                <tr>
                 <th>
@@ -248,7 +248,7 @@
                 </a>
                </td>
                <td>
-                Creates a static IP address that can be attached to an instance
+                Grants permission to create a static IP address that can be attached to an instance
                </td>
                <td>
                 Write
@@ -314,7 +314,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Attaches a disk to an instance
+                Grants permission to attach a disk to an instance
                </td>
                <td rowspan="2">
                 Write
@@ -353,7 +353,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Attaches one or more instances to a load balancer
+                Grants permission to attach one or more instances to a load balancer
                </td>
                <td rowspan="2">
                 Write
@@ -392,7 +392,7 @@
                 </a>
                </td>
                <td>
-                Attaches a TLS certificate to a load balancer
+                Grants permission to attach a TLS certificate to a load balancer
                </td>
                <td>
                 Write
@@ -418,7 +418,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Attaches a static IP address to an instance
+                Grants permission to attach a static IP address to an instance
                </td>
                <td rowspan="2">
                 Write
@@ -457,7 +457,7 @@
                 </a>
                </td>
                <td>
-                Closes a public port of an instance
+                Grants permission to close a public port of an instance
                </td>
                <td>
                 Write
@@ -483,7 +483,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Copies a snapshot from one AWS Region to another in Amazon Lightsail
+                Grants permission to copy a snapshot from one AWS Region to another in Amazon Lightsail
                </td>
                <td rowspan="2">
                 Write
@@ -505,6 +505,76 @@
                 <p>
                  <a href="#amazonlightsail-InstanceSnapshot">
                   InstanceSnapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-CreateBucket">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucket.html">
+                 CreateBucket
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an Amazon Lightsail bucket
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonlightsail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-CreateBucketAccessKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">
+                 CreateBucketAccessKey
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new access key for the specified bucket
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
                  </a>
                 </p>
                </td>
@@ -548,7 +618,8 @@
                 </a>
                </td>
                <td>
-                Creates a new Amazon EC2 instance from an exported Amazon Lightsail snapshot
+                Grants permission to create a new Amazon EC2 instance from an exported Amazon Lightsail
+                                                snapshot
                </td>
                <td>
                 Write
@@ -669,7 +740,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a disk
+                Grants permission to create a disk
                </td>
                <td rowspan="2">
                 Write
@@ -713,7 +784,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a disk from snapshot
+                Grants permission to create a disk from snapshot
                </td>
                <td rowspan="2">
                 Write
@@ -757,7 +828,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a disk snapshot
+                Grants permission to create a disk snapshot
                </td>
                <td rowspan="2">
                 Write
@@ -827,7 +898,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a domain resource for the specified domain name
+                Grants permission to create a domain resource for the specified domain name
                </td>
                <td rowspan="2">
                 Write
@@ -871,9 +942,9 @@
                 </a>
                </td>
                <td>
-                Creates one or more DNS record entries for a domain resource: Address (A), canonical
-                                                name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service
-                                                locator (SRV), or text (TXT)
+                Grants permission to create one or more DNS record entries for a domain resource:
+                                                Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start
+                                                of authority (SOA), service locator (SRV), or text (TXT)
                </td>
                <td>
                 Write
@@ -899,7 +970,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Creates an instance snapshot
+                Grants permission to create an instance snapshot
                </td>
                <td rowspan="3">
                 Write
@@ -956,7 +1027,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates one or more instances
+                Grants permission to create one or more instances
                </td>
                <td rowspan="2">
                 Write
@@ -1000,7 +1071,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Creates one or more instances based on an instance snapshot
+                Grants permission to create one or more instances based on an instance snapshot
                </td>
                <td rowspan="3">
                 Write
@@ -1057,7 +1128,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a key pair used to authenticate and connect to an instance
+                Grants permission to create a key pair used to authenticate and connect to an instance
                </td>
                <td rowspan="2">
                 Write
@@ -1101,7 +1172,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a load balancer
+                Grants permission to create a load balancer
                </td>
                <td rowspan="2">
                 Write
@@ -1145,7 +1216,7 @@
                 </a>
                </td>
                <td>
-                Creates a load balancer TLS certificate
+                Grants permission to create a load balancer TLS certificate
                </td>
                <td>
                 Write
@@ -1171,7 +1242,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a new relational database
+                Grants permission to create a new relational database
                </td>
                <td rowspan="2">
                 Write
@@ -1215,7 +1286,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a new relational database from a snapshot
+                Grants permission to create a new relational database from a snapshot
                </td>
                <td rowspan="2">
                 Write
@@ -1259,7 +1330,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a relational database snapshot
+                Grants permission to create a relational database snapshot
                </td>
                <td rowspan="2">
                 Write
@@ -1351,6 +1422,58 @@
                 <p>
                  <a href="#amazonlightsail-Instance">
                   Instance
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteBucket">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteBucket.html">
+                 DeleteBucket
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon Lightsail bucket
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-DeleteBucketAccessKey">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteBucketAccessKey.html">
+                 DeleteBucketAccessKey
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an access key for the specified Amazon Lightsail bucket
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
                  </a>
                 </p>
                </td>
@@ -1473,7 +1596,7 @@
                 </a>
                </td>
                <td>
-                Deletes a disk
+                Grants permission to delete a disk
                </td>
                <td>
                 Write
@@ -1499,7 +1622,7 @@
                 </a>
                </td>
                <td>
-                Deletes a disk snapshot
+                Grants permission to delete a disk snapshot
                </td>
                <td>
                 Write
@@ -1551,7 +1674,7 @@
                 </a>
                </td>
                <td>
-                Deletes a domain resource and all of its DNS records
+                Grants permission to delete a domain resource and all of its DNS records
                </td>
                <td>
                 Write
@@ -1577,7 +1700,7 @@
                 </a>
                </td>
                <td>
-                Deletes a DNS record entry for a domain resource
+                Grants permission to delete a DNS record entry for a domain resource
                </td>
                <td>
                 Write
@@ -1603,7 +1726,7 @@
                 </a>
                </td>
                <td>
-                Deletes an instance
+                Grants permission to delete an instance
                </td>
                <td>
                 Write
@@ -1629,7 +1752,7 @@
                 </a>
                </td>
                <td>
-                Deletes an instance snapshot
+                Grants permission to delete an instance snapshot
                </td>
                <td>
                 Write
@@ -1655,7 +1778,7 @@
                 </a>
                </td>
                <td>
-                Deletes a key pair used to authenticate and connect to an instance
+                Grants permission to delete a key pair used to authenticate and connect to an instance
                </td>
                <td>
                 Write
@@ -1681,8 +1804,8 @@
                 </a>
                </td>
                <td>
-                Deletes the known host key or certificate used by the Amazon Lightsail browser-based
-                                                SSH or RDP clients to authenticate an instance
+                Grants permission to delete the known host key or certificate used by the Amazon Lightsail
+                                                browser-based SSH or RDP clients to authenticate an instance
                </td>
                <td>
                 Write
@@ -1708,7 +1831,7 @@
                 </a>
                </td>
                <td>
-                Deletes a load balancer
+                Grants permission to delete a load balancer
                </td>
                <td>
                 Write
@@ -1734,7 +1857,7 @@
                 </a>
                </td>
                <td>
-                Deletes a load balancer TLS certificate
+                Grants permission to delete a load balancer TLS certificate
                </td>
                <td>
                 Write
@@ -1760,7 +1883,7 @@
                 </a>
                </td>
                <td>
-                Deletes a relational database
+                Grants permission to delete a relational database
                </td>
                <td>
                 Write
@@ -1786,7 +1909,7 @@
                 </a>
                </td>
                <td>
-                Deletes relational database snapshot
+                Grants permission to delete a relational database snapshot
                </td>
                <td>
                 Write
@@ -1839,7 +1962,7 @@
                 </a>
                </td>
                <td>
-                Detaches a disk from an instance
+                Grants permission to detach a disk from an instance
                </td>
                <td>
                 Write
@@ -1865,7 +1988,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Detaches one or more instances from a load balancer
+                Grants permission to detach one or more instances from a load balancer
                </td>
                <td rowspan="2">
                 Write
@@ -1904,7 +2027,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Detaches a static IP from an instance to which it is attached
+                Grants permission to detach a static IP from an instance to which it is attached
                </td>
                <td rowspan="2">
                 Write
@@ -1982,8 +2105,8 @@
                 </a>
                </td>
                <td>
-                Downloads the default key pair used to authenticate and connect to instances in a
-                                                specific AWS Region
+                Grants permission to download the default key pair used to authenticate and connect
+                                                to instances in a specific AWS Region
                </td>
                <td>
                 Write
@@ -2048,7 +2171,7 @@
                 </a>
                </td>
                <td>
-                Exports an Amazon Lightsail snapshot to Amazon EC2
+                Grants permission to export an Amazon Lightsail snapshot to Amazon EC2
                </td>
                <td>
                 Write
@@ -2069,7 +2192,7 @@
                 </a>
                </td>
                <td>
-                Returns the names of all active (not deleted) resources
+                Grants permission to get the names of all active (not deleted) resources
                </td>
                <td>
                 Read
@@ -2132,10 +2255,96 @@
                 </a>
                </td>
                <td>
-                Returns a list of instance images, or blueprints. You can use a blueprint to create
-                                                a new instance already running a specific operating system, as well as a pre-installed
-                                                application or development stack. The software that runs on your instance depends
-                                                on the blueprint you define when creating the instance
+                Grants permission to get a list of instance images, or blueprints. You can use a blueprint
+                                                to create a new instance already running a specific operating system, as well as a
+                                                pre-installed application or development stack. The software that runs on your instance
+                                                depends on the blueprint you define when creating the instance
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBucketAccessKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">
+                 GetBucketAccessKeys
+                </a>
+               </td>
+               <td>
+                Grants permission to get the existing access key IDs for the specified Amazon Lightsail
+                                                bucket
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBucketBundles">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">
+                 GetBucketBundles
+                </a>
+               </td>
+               <td>
+                Grants permission to get the bundles that can be applied to an Amazon Lightsail bucket
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBucketMetricData">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketMetricData.html">
+                 GetBucketMetricData
+                </a>
+               </td>
+               <td>
+                Grants permission to get the data points of a specific metric for an Amazon Lightsail
+                                                bucket
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-GetBuckets">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">
+                 GetBuckets
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about one or more Amazon Lightsail buckets
                </td>
                <td>
                 Read
@@ -2156,10 +2365,10 @@
                 </a>
                </td>
                <td>
-                Returns a list of instance bundles. You can use a bundle to create a new instance
-                                                with a set of performance specifications, such as CPU count, disk size, RAM size,
-                                                and network transfer allowance. The cost of your instance depends on the bundle you
-                                                define when creating the instance
+                Grants permission to get a list of instance bundles. You can use a bundle to create
+                                                a new instance with a set of performance specifications, such as CPU count, disk size,
+                                                RAM size, and network transfer allowance. The cost of your instance depends on the
+                                                bundle you define when creating the instance
                </td>
                <td>
                 Read
@@ -2201,8 +2410,8 @@
                 </a>
                </td>
                <td>
-                Returns information about all CloudFormation stacks used to create Amazon EC2 resources
-                                                from exported Amazon Lightsail snapshots
+                Grants permission to get information about all CloudFormation stacks used to create
+                                                Amazon EC2 resources from exported Amazon Lightsail snapshots
                </td>
                <td>
                 Read
@@ -2402,7 +2611,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a disk
+                Grants permission to get information about a disk
                </td>
                <td>
                 Read
@@ -2428,7 +2637,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a disk snapshot
+                Grants permission to get information about a disk snapshot
                </td>
                <td>
                 Read
@@ -2454,7 +2663,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all disk snapshots
+                Grants permission to get information about all disk snapshots
                </td>
                <td>
                 Read
@@ -2480,7 +2689,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all disks
+                Grants permission to get information about all disks
                </td>
                <td>
                 Read
@@ -2589,7 +2798,7 @@
                 </a>
                </td>
                <td>
-                Returns DNS records for a domain resource
+                Grants permission to get DNS records for a domain resource
                </td>
                <td>
                 Read
@@ -2615,7 +2824,7 @@
                 </a>
                </td>
                <td>
-                Returns DNS records for all domain resources
+                Grants permission to get DNS records for all domain resources
                </td>
                <td>
                 Read
@@ -2641,8 +2850,8 @@
                 </a>
                </td>
                <td>
-                Returns information about all records to export Amazon Lightsail snapshots to Amazon
-                                                EC2
+                Grants permission to get information about all records of exported Amazon Lightsail
+                                                snapshots to Amazon EC2
                </td>
                <td>
                 Read
@@ -2668,7 +2877,7 @@
                 </a>
                </td>
                <td>
-                Returns information about an instance
+                Grants permission to get information about an instance
                </td>
                <td>
                 Read
@@ -2694,7 +2903,8 @@
                 </a>
                </td>
                <td>
-                Returns temporary keys you can use to authenticate and connect to an instance
+                Grants permission to get temporary keys you can use to authenticate and connect to
+                                                an instance
                </td>
                <td>
                 Write
@@ -2720,7 +2930,7 @@
                 </a>
                </td>
                <td>
-                Returns the data points for the specified metric of an instance
+                Grants permission to get the data points for the specified metric of an instance
                </td>
                <td>
                 Read
@@ -2746,7 +2956,7 @@
                 </a>
                </td>
                <td>
-                Returns the port states of an instance
+                Grants permission to get the port states of an instance
                </td>
                <td>
                 Read
@@ -2772,7 +2982,7 @@
                 </a>
                </td>
                <td>
-                Returns information about an instance snapshot
+                Grants permission to get information about an instance snapshot
                </td>
                <td>
                 Read
@@ -2798,7 +3008,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all instance snapshots
+                Grants permission to get information about all instance snapshots
                </td>
                <td>
                 Read
@@ -2824,7 +3034,7 @@
                 </a>
                </td>
                <td>
-                Returns the state of an instance
+                Grants permission to get the state of an instance
                </td>
                <td>
                 Read
@@ -2850,7 +3060,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all instances
+                Grants permission to get information about all instances
                </td>
                <td>
                 Read
@@ -2876,7 +3086,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a key pair
+                Grants permission to get information about a key pair
                </td>
                <td>
                 Read
@@ -2902,7 +3112,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all key pairs
+                Grants permission to get information about all key pairs
                </td>
                <td>
                 Read
@@ -2928,7 +3138,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a load balancer
+                Grants permision to get information about a load balancer
                </td>
                <td>
                 Read
@@ -2954,7 +3164,7 @@
                 </a>
                </td>
                <td>
-                Returns the data points for the specified metric of a load balancer
+                Grants permission to get the data points for the specified metric of a load balancer
                </td>
                <td>
                 Read
@@ -2975,12 +3185,12 @@
                <td>
                 <a id="amazonlightsail-GetLoadBalancerTlsCertificates">
                 </a>
-                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteLoadBalancerTlsCertificate.html">
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsCertificates.html">
                  GetLoadBalancerTlsCertificates
                 </a>
                </td>
                <td>
-                Returns information about a load balancer TLS certificate
+                Grants permission to get information about a load balancer's TLS certificates
                </td>
                <td>
                 Read
@@ -3006,7 +3216,7 @@
                 </a>
                </td>
                <td>
-                Returns information about load balancers
+                Grants permission to get information about load balancers
                </td>
                <td>
                 Read
@@ -3032,8 +3242,9 @@
                 </a>
                </td>
                <td>
-                Returns information about an operation. Operations include events such as when you
-                                                create an instance, allocate a static IP, attach a static IP, and so on
+                Grants permission to get information about an operation. Operations include events
+                                                such as when you create an instance, allocate a static IP, attach a static IP, and
+                                                so on
                </td>
                <td>
                 Read
@@ -3054,8 +3265,9 @@
                 </a>
                </td>
                <td>
-                Returns information about all operations. Operations include events such as when you
-                                                create an instance, allocate a static IP, attach a static IP, and so on
+                Grants permission to get information about all operations. Operations include events
+                                                such as when you create an instance, allocate a static IP, attach a static IP, and
+                                                so on
                </td>
                <td>
                 Read
@@ -3076,7 +3288,7 @@
                 </a>
                </td>
                <td rowspan="5">
-                Returns operations for a resource
+                Grants permission to get operations for a resource
                </td>
                <td rowspan="5">
                 Read
@@ -3154,7 +3366,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of all valid AWS Regions for Amazon Lightsail
+                Grants permission to get a list of all valid AWS Regions for Amazon Lightsail
                </td>
                <td>
                 Read
@@ -3175,7 +3387,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a relational database
+                Grants permission to get information about a relational database
                </td>
                <td>
                 Read
@@ -3201,10 +3413,10 @@
                 </a>
                </td>
                <td>
-                Returns a list of relational database images, or blueprints. You can use a blueprint
-                                                to create a new database running a specific database engine. The database engine that
-                                                runs on your database depends on the blueprint you define when creating the relational
-                                                database
+                Grants permission to get a list of relational database images, or blueprints. You
+                                                can use a blueprint to create a new database running a specific database engine. The
+                                                database engine that runs on your database depends on the blueprint you define when
+                                                creating the relational database
                </td>
                <td>
                 Read
@@ -3225,10 +3437,11 @@
                 </a>
                </td>
                <td>
-                Returns a list of relational database bundles. You can use a bundle to create a new
-                                                database with a set of performance specifications, such as CPU count, disk size, RAM
-                                                size, network transfer allowance, and standard of high availability. The cost of your
-                                                database depends on the bundle you define when creating the relational database
+                Grants permission to get a list of relational database bundles. You can use a bundle
+                                                to create a new database with a set of performance specifications, such as CPU count,
+                                                disk size, RAM size, network transfer allowance, and standard of high availability.
+                                                The cost of your database depends on the bundle you define when creating the relational
+                                                database
                </td>
                <td>
                 Read
@@ -3249,7 +3462,7 @@
                 </a>
                </td>
                <td>
-                Returns events for a relational database
+                Grants permission to get events for a relational database
                </td>
                <td>
                 Read
@@ -3270,7 +3483,7 @@
                 </a>
                </td>
                <td>
-                Returns events for the specified log stream of a relational database
+                Grants permission to get events for the specified log stream of a relational database
                </td>
                <td>
                 Read
@@ -3291,7 +3504,7 @@
                 </a>
                </td>
                <td>
-                Returns the log streams available for a relational database
+                Grants permission to get the log streams available for a relational database
                </td>
                <td>
                 Read
@@ -3312,7 +3525,7 @@
                 </a>
                </td>
                <td>
-                Returns the master user password of a relational database
+                Grants permission to get the master user password of a relational database
                </td>
                <td>
                 Write
@@ -3333,7 +3546,8 @@
                 </a>
                </td>
                <td>
-                Returns the data points for the specified metric of a relational database
+                Grants permission to get the data points for the specified metric of a relational
+                                                database
                </td>
                <td>
                 Read
@@ -3354,7 +3568,7 @@
                 </a>
                </td>
                <td>
-                Returns the parameters of a relational database
+                Grants permission to get the parameters of a relational database
                </td>
                <td>
                 Read
@@ -3375,7 +3589,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a relational database snapshot
+                Grants permission to get information about a relational database snapshot
                </td>
                <td>
                 Read
@@ -3401,7 +3615,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all relational database snapshots
+                Grants permission to get information about all relational database snapshots
                </td>
                <td>
                 Read
@@ -3427,7 +3641,7 @@
                 </a>
                </td>
                <td>
-                Return information about all relational databases
+                Grants permission to get information about all relational databases
                </td>
                <td>
                 Read
@@ -3453,7 +3667,7 @@
                 </a>
                </td>
                <td>
-                Returns information about a static IP
+                Grants permission to get information about a static IP
                </td>
                <td>
                 Read
@@ -3479,7 +3693,7 @@
                 </a>
                </td>
                <td>
-                Returns information about all static IPs
+                Grants permission to get information about all static IPs
                </td>
                <td>
                 Read
@@ -3505,7 +3719,7 @@
                 </a>
                </td>
                <td>
-                Imports a public key from a key pair
+                Grants permission to import a public key from a key pair
                </td>
                <td>
                 Write
@@ -3531,8 +3745,8 @@
                 </a>
                </td>
                <td>
-                Returns a boolean value indicating whether the Amazon Lightsail virtual private cloud
-                                                (VPC) is peered
+                Grants permission to get a boolean value indicating whether the Amazon Lightsail virtual
+                                                private cloud (VPC) is peered
                </td>
                <td>
                 Read
@@ -3553,7 +3767,7 @@
                 </a>
                </td>
                <td>
-                Adds, or opens a public port of an instance
+                Grants permission to add, or open a public port of an instance
                </td>
                <td>
                 Write
@@ -3579,7 +3793,8 @@
                 </a>
                </td>
                <td>
-                Tries to peer the Amazon Lightsail virtual private cloud (VPC) with the default VPC
+                Grants permission to try to peer the Amazon Lightsail virtual private cloud (VPC)
+                                                with the default VPC
                </td>
                <td>
                 Write
@@ -3627,8 +3842,8 @@
                 </a>
                </td>
                <td>
-                Sets the specified open ports for an instance, and closes all ports for every protocol
-                                                not included in the request
+                Grants permission to set the specified open ports for an instance, and closes all
+                                                ports for every protocol not included in the request
                </td>
                <td>
                 Write
@@ -3654,7 +3869,7 @@
                 </a>
                </td>
                <td>
-                Reboots an instance that is in a running state
+                Grants permission to reboot an instance that is in a running state
                </td>
                <td>
                 Write
@@ -3680,7 +3895,7 @@
                 </a>
                </td>
                <td>
-                Reboots a relational database that is in a running state
+                Grants permission to reboot a relational database that is in a running state
                </td>
                <td>
                 Write
@@ -3733,7 +3948,7 @@
                 </a>
                </td>
                <td>
-                Deletes a static IP
+                Grants permission to delete a static IP
                </td>
                <td>
                 Write
@@ -3857,6 +4072,46 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonlightsail-SetResourceAccessForBucket">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">
+                 SetResourceAccessForBucket
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to set the Amazon Lightsail resources that can access the specified
+                                                Amazon Lightsail bucket
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Instance">
+                  Instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonlightsail-StartInstance">
                 </a>
@@ -3865,7 +4120,7 @@
                 </a>
                </td>
                <td>
-                Starts an instance that is in a stopped state
+                Grants permission to start an instance that is in a stopped state
                </td>
                <td>
                 Write
@@ -3891,7 +4146,7 @@
                 </a>
                </td>
                <td>
-                Starts a relational database that is in a stopped state
+                Grants permission to start a relational database that is in a stopped state
                </td>
                <td>
                 Write
@@ -3917,7 +4172,7 @@
                 </a>
                </td>
                <td>
-                Stops an instance that is in a running state
+                Grants permission to stop an instance that is in a running state
                </td>
                <td>
                 Write
@@ -3943,7 +4198,7 @@
                 </a>
                </td>
                <td>
-                Stops a relational database that is in a running state
+                Grants permission to stop a relational database that is in a running state
                </td>
                <td>
                 Write
@@ -3969,7 +4224,7 @@
                 </a>
                </td>
                <td rowspan="11">
-                Tags a resource
+                Grants permission to tag a resource
                </td>
                <td rowspan="11">
                 Tagging
@@ -4158,8 +4413,8 @@
                 </a>
                </td>
                <td>
-                Attempts to unpeer the Amazon Lightsail virtual private cloud (VPC) from the default
-                                                VPC
+                Grants permission to try to unpeer the Amazon Lightsail virtual private cloud (VPC)
+                                                from the default VPC
                </td>
                <td>
                 Write
@@ -4180,7 +4435,7 @@
                 </a>
                </td>
                <td rowspan="11">
-                Untags a resource
+                Grants permission to untag a resource
                </td>
                <td rowspan="11">
                 Tagging
@@ -4334,6 +4589,59 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonlightsail-UpdateBucket">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucket.html">
+                 UpdateBucket
+                </a>
+               </td>
+               <td>
+                Grants permission to update an existing Amazon Lightsail bucket
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-UpdateBucketBundle">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">
+                 UpdateBucketBundle
+                </a>
+               </td>
+               <td>
+                Grants permission to update the bundle, or storage plan, of an existing Amazon Lightsail
+                                                bucket
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-Bucket">
+                  Bucket*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonlightsail-UpdateContainerService">
                 </a>
                 <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateContainerService.html">
@@ -4422,7 +4730,7 @@
                 </a>
                </td>
                <td>
-                Updates a domain recordset after it is created
+                Grants permission to update a domain recordset after it is created
                </td>
                <td>
                 Write
@@ -4448,7 +4756,8 @@
                 </a>
                </td>
                <td>
-                Updates a load balancer attribute, such as the health check path and session stickiness
+                Grants permission to update a load balancer attribute, such as the health check path
+                                                and session stickiness
                </td>
                <td>
                 Write
@@ -4474,7 +4783,7 @@
                 </a>
                </td>
                <td>
-                Updates a relational database
+                Grants permission to update a relational database
                </td>
                <td>
                 Write
@@ -4500,7 +4809,7 @@
                 </a>
                </td>
                <td>
-                Updates the parameters of a relational database
+                Grants permission to update the parameters of a relational database
                </td>
                <td>
                 Write
@@ -4538,7 +4847,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d711c13b5">
+             <table id="w86aab5b9d711c13b5">
               <thead>
                <tr>
                 <th>
@@ -5178,6 +5487,43 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonlightsail-Bucket">
+                </a>
+                <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_Bucket.html">
+                 Bucket
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lightsail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:Bucket/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlightsail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -5206,7 +5552,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d711c15b7">
+             <table id="w86aab5b9d711c15b7">
               <thead>
                <tr>
                 <th>
@@ -5281,13 +5627,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -5318,12 +5663,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonlightsail.html" id="fblink" target="_blank" text="Feedback">
@@ -5337,12 +5680,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonlightsail.html" id="fblink" target="_blank" text="Feedback">
@@ -5366,20 +5707,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>
