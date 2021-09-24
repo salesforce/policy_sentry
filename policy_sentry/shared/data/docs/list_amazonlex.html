@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d699c11b9">
+             <table id="w86aab5b9d699c11b9">
               <thead>
                <tr>
                 <th>
@@ -957,6 +957,48 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonlex-GetMigration">
+                </a>
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/API_GetMigration.html">
+                 GetMigration
+                </a>
+               </td>
+               <td>
+                Grants permission to view an ongoing or completed migration
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonlex-GetMigrations">
+                </a>
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/API_GetMigrations.html">
+                 GetMigrations
+                </a>
+               </td>
+               <td>
+                Grants permission to view list of migrations from Amazon Lex v1 to Amazon Lex v2
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonlex-GetSession">
                 </a>
@@ -1428,6 +1470,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonlex-StartMigration">
+                </a>
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/API_StartMigration.html">
+                 StartMigration
+                </a>
+               </td>
+               <td>
+                Grants permission to migrate a bot from Amazon Lex v1 to Amazon Lex v2
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonlex-botversion">
+                  bot version*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="4">
                 <a id="amazonlex-TagResource">
                 </a>
@@ -1593,7 +1661,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d699c13b5">
+             <table id="w86aab5b9d699c13b5">
               <thead>
                <tr>
                 <th>
@@ -1871,7 +1939,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d699c15b7">
+             <table id="w86aab5b9d699c15b7">
               <thead>
                <tr>
                 <th>
@@ -1889,7 +1957,9 @@
                <td>
                 <a id="amazonlex-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
                 Filters access based on the tags in the request.
@@ -1902,7 +1972,9 @@
                <td>
                 <a id="amazonlex-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
                 Filters access by the tags attached to a Lex resource.
@@ -1915,7 +1987,9 @@
                <td>
                 <a id="amazonlex-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
                 Filters access based on the set of tag keys in the request.
@@ -1928,7 +2002,9 @@
                <td>
                 <a id="amazonlex-lex_associatedIntents">
                 </a>
-                lex:associatedIntents
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/security_iam_service-with-iam.html">
+                 lex:associatedIntents
+                </a>
                </td>
                <td>
                 Enables you to control access based on the intents included in the request.
@@ -1941,7 +2017,9 @@
                <td>
                 <a id="amazonlex-lex_associatedSlotTypes">
                 </a>
-                lex:associatedSlotTypes
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/security_iam_service-with-iam.html">
+                 lex:associatedSlotTypes
+                </a>
                </td>
                <td>
                 Enables you to control access based on the slot types included in the request.
@@ -1954,7 +2032,9 @@
                <td>
                 <a id="amazonlex-lex_channelType">
                 </a>
-                lex:channelType
+                <a href="https://docs.aws.amazon.com/lex/latest/dg/security_iam_service-with-iam.html">
+                 lex:channelType
+                </a>
                </td>
                <td>
                 Enables you to control access based on the channel type included in the request.
@@ -1979,13 +2059,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -2016,12 +2095,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonlex.html" id="fblink" target="_blank" text="Feedback">
@@ -2035,12 +2112,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonlex.html" id="fblink" target="_blank" text="Feedback">
@@ -2064,20 +2139,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

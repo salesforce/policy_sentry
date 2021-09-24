@@ -225,6 +225,7 @@ class RdsWritingTestCase(unittest.TestCase):
                     "Sid": "RdsReadDb",
                     "Effect": "Allow",
                     "Action": [
+                        "rds:DownloadCompleteDBLogFile",
                         "rds:DownloadDBLogFilePortion",
                         "rds:ListTagsForResource"
                     ],
@@ -234,9 +235,21 @@ class RdsWritingTestCase(unittest.TestCase):
                 }
             ]
         }
-        policy = write_policy_with_template(cfg)
-        print(json.dumps(policy, indent=4))
-        self.assertDictEqual(desired_output, policy)
+        expected_actions = [
+            "rds:DownloadCompleteDBLogFile",
+            "rds:DownloadDBLogFilePortion",
+            "rds:ListTagsForResource"
+        ]
+        output = write_policy_with_template(cfg)
+        print(json.dumps(output, indent=4))
+        expected_statement_ids = [
+            "RdsReadDb"
+        ]
+        for statement in output.get("Statement"):
+            self.assertTrue(statement.get("Sid") in expected_statement_ids)
+        for action in expected_actions:
+            self.assertTrue(action in output["Statement"][0]["Action"])
+
 
     def test_rds_policy_read_write_list(self):
         """test_rds_policy_read_write_list: Make sure that the RDS Policies work properly for multiple levels"""

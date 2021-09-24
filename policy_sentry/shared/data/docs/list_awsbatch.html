@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d135c11b9">
+             <table id="w86aab5b9d135c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td>
-                Cancels a job in an AWS Batch job queue.
+                Grants permission to cancel a job in an AWS Batch job queue in your account
                </td>
                <td>
                 Write
@@ -258,19 +258,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsbatch-CreateComputeEnvironment">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html">
                  CreateComputeEnvironment
                 </a>
                </td>
-               <td>
-                Creates an AWS Batch compute environment.
+               <td rowspan="2">
+                Grants permission to create an AWS Batch compute environment in your account
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -289,23 +302,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awsbatch-CreateJobQueue">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html">
                  CreateJobQueue
                 </a>
                </td>
-               <td rowspan="2">
-                Creates an AWS Batch job queue.
+               <td rowspan="3">
+                Grants permission to create an AWS Batch job queue in your account
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#awsbatch-compute-environment">
                   compute-environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue*
                  </a>
                 </p>
                </td>
@@ -341,7 +367,7 @@
                 </a>
                </td>
                <td>
-                Deletes an AWS Batch compute environment.
+                Grants permission to delete an AWS Batch compute environment in your account
                </td>
                <td>
                 Write
@@ -367,7 +393,7 @@
                 </a>
                </td>
                <td>
-                Deletes the specified job queue.
+                Grants permission to delete an AWS Batch job queue in your account
                </td>
                <td>
                 Write
@@ -393,7 +419,7 @@
                 </a>
                </td>
                <td>
-                Deregisters an AWS Batch job definition.
+                Grants permission to deregister an AWS Batch job definition in your account
                </td>
                <td>
                 Write
@@ -419,7 +445,7 @@
                 </a>
                </td>
                <td>
-                Describes one or more of your compute environments.
+                Grants permission to describe one or more AWS Batch compute environments in your account
                </td>
                <td>
                 Read
@@ -440,7 +466,7 @@
                 </a>
                </td>
                <td>
-                Describes a list of job definitions.
+                Grants permission to describe one or more AWS Batch job definitions in your account
                </td>
                <td>
                 Read
@@ -461,7 +487,7 @@
                 </a>
                </td>
                <td>
-                Describes one or more of your job queues.
+                Grants permission to describe one or more AWS Batch job queues in your account
                </td>
                <td>
                 Read
@@ -482,7 +508,7 @@
                 </a>
                </td>
                <td>
-                Describes a list of AWS Batch jobs.
+                Grants permission to describe a list of AWS Batch jobs in your account
                </td>
                <td>
                 Read
@@ -503,7 +529,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of task jobs for a specified job queue.
+                Grants permission to list jobs for a specified AWS Batch job queue in your account
                </td>
                <td>
                 List
@@ -524,10 +550,10 @@
                 </a>
                </td>
                <td rowspan="4">
-                List tags for the specified resource.
+                Grants permission to list tags for an AWS Batch resource in your account
                </td>
                <td rowspan="4">
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -581,19 +607,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsbatch-RegisterJobDefinition">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html">
                  RegisterJobDefinition
                 </a>
                </td>
-               <td>
-                Registers an AWS Batch job definition.
+               <td rowspan="2">
+                Grants permission to register an AWS Batch job definition in your account
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-job-definition">
+                  job-definition*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -660,7 +699,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Submits an AWS Batch job from a job definition.
+                Grants permission to submit an AWS Batch job from a job definition in your account
                </td>
                <td rowspan="3">
                 Write
@@ -717,7 +756,7 @@
                 </a>
                </td>
                <td rowspan="5">
-                Tags the specified resource.
+                Grants permission to tag an AWS Batch resource in your account
                </td>
                <td rowspan="5">
                 Tagging
@@ -800,7 +839,7 @@
                 </a>
                </td>
                <td>
-                Terminates a job in an AWS Batch job queue.
+                Grants permission to terminate a job in an AWS Batch job queue in your account
                </td>
                <td>
                 Write
@@ -826,7 +865,7 @@
                 </a>
                </td>
                <td rowspan="5">
-                Untags the specified resource.
+                Grants permission to untag an AWS Batch resource in your account
                </td>
                <td rowspan="5">
                 Tagging
@@ -904,7 +943,7 @@
                 </a>
                </td>
                <td>
-                Updates an AWS Batch compute environment.
+                Grants permission to update an AWS Batch compute environment in your account
                </td>
                <td>
                 Write
@@ -922,23 +961,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsbatch-UpdateJobQueue">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateJobQueue.html">
                  UpdateJobQueue
                 </a>
                </td>
-               <td>
-                Updates a job queue.
+               <td rowspan="2">
+                Grants permission to update an AWS Batch job queue in your account
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#awsbatch-job-queue">
                   job-queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment
                  </a>
                 </p>
                </td>
@@ -973,7 +1025,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d135c13b5">
+             <table id="w86aab5b9d135c13b5">
               <thead>
                <tr>
                 <th>
@@ -1167,7 +1219,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d135c15b7">
+             <table id="w86aab5b9d135c15b7">
               <thead>
                <tr>
                 <th>
@@ -1190,7 +1242,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags that are passed in the request.
+                Filters access based on the tags that are passed in the request
                </td>
                <td>
                 String
@@ -1205,7 +1257,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags associated with the resource.
+                Filters access based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -1220,7 +1272,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tag keys that are passed in the request.
+                Filters access based on the tag keys that are passed in the request
                </td>
                <td>
                 String
@@ -1235,7 +1287,8 @@
                 </a>
                </td>
                <td>
-                When this parameter is true, the awslogs-group will be created for the logs.
+                Filters access based on the specified logging driver to determine whether awslogs
+                                                group will be created for the logs
                </td>
                <td>
                 Boolean
@@ -1250,7 +1303,7 @@
                 </a>
                </td>
                <td>
-                The awslogs group where the logs are located.
+                Filters access based on the awslogs group where the logs are located
                </td>
                <td>
                 String
@@ -1265,7 +1318,7 @@
                 </a>
                </td>
                <td>
-                The region where the logs are sent to.
+                Filters access based on the region where the logs are sent to
                </td>
                <td>
                 String
@@ -1280,7 +1333,7 @@
                 </a>
                </td>
                <td>
-                The awslogs log stream prefix.
+                Filters access based on the awslogs log stream prefix
                </td>
                <td>
                 String
@@ -1295,7 +1348,7 @@
                 </a>
                </td>
                <td>
-                The image used to start a container.
+                Filters access based on the image used to start a container
                </td>
                <td>
                 String
@@ -1310,7 +1363,7 @@
                 </a>
                </td>
                <td>
-                The log driver used for the container.
+                Filters access based on the log driver used for the container
                </td>
                <td>
                 String
@@ -1325,8 +1378,9 @@
                 </a>
                </td>
                <td>
-                When this parameter is true, the container is given elevated privileges on the host
-                                                container instance (similar to the root user).
+                Filter access based on the specified privileged parameter value that determines whether
+                                                the container is given elevated privileges on the host container instance (similar
+                                                to the root user)
                </td>
                <td>
                 Boolean
@@ -1341,7 +1395,7 @@
                 </a>
                </td>
                <td>
-                The user name or numeric uid to use inside the container.
+                Filters access based on the user name or numeric uid used inside the container
                </td>
                <td>
                 String
@@ -1363,13 +1417,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1400,12 +1453,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsbatch.html" id="fblink" target="_blank" text="Feedback">
@@ -1419,12 +1470,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsbatch.html" id="fblink" target="_blank" text="Feedback">
@@ -1448,20 +1497,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

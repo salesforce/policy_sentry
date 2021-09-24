@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d295c11b9">
+             <table id="w86aab5b9d295c11b9">
               <thead>
                <tr>
                 <th>
@@ -235,7 +235,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-AssociateApprovedOrigin">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateApprovedOrigin
                 </a>
                </td>
@@ -272,18 +272,18 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonconnect-AssociateBot">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateBot
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permissions to associate a Lex bot for an existing Amazon Connect instance.
                                                 The associated required actions grant permission to modify the settings for the instance.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -306,7 +306,7 @@
                  iam:PutRolePolicy
                 </p>
                 <p>
-                 lex:DeleteResourcePolicy
+                 lex:CreateResourcePolicy
                 </p>
                 <p>
                  lex:DescribeBotAlias
@@ -321,9 +321,22 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonconnect-AssociateCustomerProfilesDomain">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateCustomerProfilesDomain
                 </a>
                </td>
@@ -363,7 +376,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-AssociateInstanceStorageConfig">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateInstanceStorageConfig
                 </a>
                </td>
@@ -438,7 +451,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-AssociateLambdaFunction">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateLambdaFunction
                 </a>
                </td>
@@ -481,7 +494,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-AssociateLexBot">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateLexBot
                 </a>
                </td>
@@ -648,7 +661,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-AssociateSecurityKey">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  AssociateSecurityKey
                 </a>
                </td>
@@ -675,6 +688,55 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-CreateAgentStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateAgentStatus.html">
+                 CreateAgentStatus
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create agent status in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-agent-status">
+                  agent-status*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
@@ -734,10 +796,59 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-CreateHoursOfOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateHoursOfOperation.html">
+                 CreateHoursOfOperation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create hours of operation in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonconnect-CreateInstance">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  CreateInstance
                 </a>
                </td>
@@ -1327,9 +1438,53 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-DeleteHoursOfOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteHoursOfOperation.html">
+                 DeleteHoursOfOperation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete hours of operation in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-DeleteInstance">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DeleteInstance
                 </a>
                </td>
@@ -1632,6 +1787,50 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-DescribeAgentStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeAgentStatus.html">
+                 DescribeAgentStatus
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe agent status in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-agent-status">
+                  agent-status*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-DescribeContactFlow">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactFlow.html">
@@ -1705,6 +1904,11 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
                  </a>
@@ -1717,7 +1921,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DescribeInstance">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DescribeInstance
                 </a>
                </td>
@@ -1760,7 +1964,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DescribeInstanceAttribute">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DescribeInstanceAttribute
                 </a>
                </td>
@@ -1804,7 +2008,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DescribeInstanceStorageConfig">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DescribeInstanceStorageConfig
                 </a>
                </td>
@@ -2103,7 +2307,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateApprovedOrigin">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateApprovedOrigin
                 </a>
                </td>
@@ -2141,18 +2345,18 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonconnect-DisassociateBot">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateBot
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permissions to disassociate a Lex bot for an existing Amazon Connect instance.
                                                 The associated required actions grant permission to modify the settings for the instance.
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -2184,9 +2388,22 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonconnect-DisassociateCustomerProfilesDomain">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateCustomerProfilesDomain
                 </a>
                </td>
@@ -2232,7 +2449,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateInstanceStorageConfig">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateInstanceStorageConfig
                 </a>
                </td>
@@ -2278,7 +2495,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateLambdaFunction">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateLambdaFunction
                 </a>
                </td>
@@ -2322,7 +2539,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateLexBot">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateLexBot
                 </a>
                </td>
@@ -2474,7 +2691,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-DisassociateSecurityKey">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  DisassociateSecurityKey
                 </a>
                </td>
@@ -2707,10 +2924,36 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonconnect-ListAgentStatuses">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAgentStatuses.html">
+                 ListAgentStatuses
+                </a>
+               </td>
+               <td>
+                Grants permission to list agent statuses in an Amazon Connect instance
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-ListApprovedOrigins">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListApprovedOrigins
                 </a>
                </td>
@@ -2746,17 +2989,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonconnect-ListBots">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListBots
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permissions to view the Lex bots of an existing Amazon Connect instance
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
@@ -2767,6 +3010,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2840,7 +3096,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-ListInstanceAttributes">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListInstanceAttributes
                 </a>
                </td>
@@ -2879,7 +3135,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-ListInstanceStorageConfigs">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListInstanceStorageConfigs
                 </a>
                </td>
@@ -2918,7 +3174,7 @@
                <td>
                 <a id="amazonconnect-ListInstances">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListInstances
                 </a>
                </td>
@@ -2988,7 +3244,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-ListLambdaFunctions">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListLambdaFunctions
                 </a>
                </td>
@@ -3027,7 +3283,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-ListLexBots">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListLexBots
                 </a>
                </td>
@@ -3338,7 +3594,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-ListSecurityKeys">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ListSecurityKeys
                 </a>
                </td>
@@ -3413,23 +3669,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="6">
+               <td rowspan="8">
                 <a id="amazonconnect-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Grants permissions to list tags for an Amazon Connect resource
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Read
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association
                  </a>
                 </p>
                </td>
@@ -3469,6 +3738,19 @@
                 <p>
                  <a href="#amazonconnect-routing-profile">
                   routing-profile
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-use-case">
+                  use-case
                  </a>
                 </p>
                </td>
@@ -3863,23 +4145,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="6">
+               <td rowspan="8">
                 <a id="amazonconnect-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Grants permissions to tag an Amazon Connect resource
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association
                  </a>
                 </p>
                </td>
@@ -3919,6 +4214,19 @@
                 <p>
                  <a href="#amazonconnect-routing-profile">
                   routing-profile
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-use-case">
+                  use-case
                  </a>
                 </p>
                </td>
@@ -3964,23 +4272,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="6">
+               <td rowspan="8">
                 <a id="amazonconnect-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Grants permissions to untag an Amazon Connect resource
                </td>
-               <td rowspan="6">
+               <td rowspan="8">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-contact-flow">
                   contact-flow
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-integration-association">
+                  integration-association
                  </a>
                 </p>
                </td>
@@ -4031,6 +4352,19 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonconnect-use-case">
+                  use-case
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonconnect-user">
                   user
                  </a>
@@ -4053,6 +4387,50 @@
                 <p>
                  <a href="#amazonconnect-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateAgentStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateAgentStatus.html">
+                 UpdateAgentStatus
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update agent status in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-agent-status">
+                  agent-status*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
                  </a>
                 </p>
                </td>
@@ -4190,9 +4568,53 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-UpdateHoursOfOperation">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateHoursOfOperation.html">
+                 UpdateHoursOfOperation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update hours of operation in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-hours-of-operation">
+                  hours-of-operation*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-UpdateInstanceAttribute">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  UpdateInstanceAttribute
                 </a>
                </td>
@@ -4252,7 +4674,7 @@
                <td rowspan="2">
                 <a id="amazonconnect-UpdateInstanceStorageConfig">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/amazon-connect-console/grant-instance-permissions">
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  UpdateInstanceStorageConfig
                 </a>
                </td>
@@ -5269,7 +5691,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d295c13b5">
+             <table id="w86aab5b9d295c13b5">
               <thead>
                <tr>
                 <th>
@@ -5662,6 +6084,52 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-agent-status">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-status.html">
+                 agent-status
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:connect:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:instance/$
+                 <span>
+                  {
+                 </span>
+                 InstanceId}/agent-status/$
+                 <span>
+                  {
+                 </span>
+                 AgentStatusId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -5810,7 +6278,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d295c15b7">
+             <table id="w86aab5b9d295c15b7">
               <thead>
                <tr>
                 <th>
@@ -5931,13 +6399,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -5968,12 +6435,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
@@ -5987,12 +6452,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" id="fblink" target="_blank" text="Feedback">
@@ -6016,20 +6479,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>
