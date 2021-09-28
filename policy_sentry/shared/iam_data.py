@@ -7,7 +7,7 @@ from policy_sentry.shared.constants import DATASTORE_FILE_PATH
 logger = logging.getLogger()
 # On initialization, load the IAM data
 iam_definition_path = DATASTORE_FILE_PATH
-logger.info(f"Leveraging the IAM definition at {iam_definition_path}")
+logger.debug(f"Leveraging the IAM definition at {iam_definition_path}")
 iam_definition = json.load(open(iam_definition_path, "r"))
 
 
