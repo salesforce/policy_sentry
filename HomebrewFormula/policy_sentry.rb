@@ -3,8 +3,8 @@ class PolicySentry < Formula
 
   desc "Shiny new formula"
   homepage "https://github.com/salesforce/policy_sentry"
-  url "https://files.pythonhosted.org/packages/d2/13/681b8b5400576778904032fc8b52fbebebb7f8a36fa2b0d11fdfa7fb22c1/policy_sentry-0.11.17.tar.gz"
-  sha256 "ec4d6df39fb194ca551e6c4340be6ae04e6b9f76c956648e7371a571be881285"
+  url "https://files.pythonhosted.org/packages/d1/ef/033029dfe81e914525a6e339d8090ff34c7c9fb9be4e5f550bc50617c914/policy_sentry-0.11.18.tar.gz"
+  sha256 "fdeb53644195ee0404b0983ebd0bc1d2ea8c6b29266f8036d880285f4562560e"
 
   depends_on "python3"
 
@@ -74,8 +74,8 @@ class PolicySentry < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
-    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
+    url "https://files.pythonhosted.org/packages/76/e4/b0f1010d29a61e3527667b214498da73299f747dd25ad0fd135705170716/zipp-3.5.1.tar.gz"
+    sha256 "1fc9641b26f3bd81069b7738b039f2819cab6e3fc3399a953e19d92cc81eff4d"
   end
 
   def install
