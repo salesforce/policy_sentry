@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d995c11b9">
+             <table id="w86aab5b9e1007c11b9">
               <thead>
                <tr>
                 <th>
@@ -443,6 +443,11 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-server-side-encryption-aws-kms-key-id">
                   s3:x-amz-server-side-encryption-aws-kms-key-id
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-server-side-encryption-customer-algorithm">
+                  s3:x-amz-server-side-encryption-customer-algorithm
                  </a>
                 </p>
                 <p>
@@ -1226,70 +1231,6 @@
                </td>
                <td rowspan="2">
                 Grants permission to delete the bucket named in the URI
-               </td>
-               <td rowspan="2">
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazons3-bucket">
-                  bucket*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazons3-s3_authType">
-                  s3:authType
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_ResourceAccount">
-                  s3:ResourceAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_signatureAge">
-                  s3:signatureAge
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_signatureversion">
-                  s3:signatureversion
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_TlsVersion">
-                  s3:TlsVersion
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_x-amz-content-sha256">
-                  s3:x-amz-content-sha256
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td rowspan="2">
-                <a id="amazons3-DeleteBucketOwnershipControls">
-                </a>
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketOwnershipControls.html">
-                 DeleteBucketOwnershipControls
-                </a>
-               </td>
-               <td rowspan="2">
-                Grants permission to delete ownership controls on a bucket
                </td>
                <td rowspan="2">
                 Write
@@ -7064,7 +7005,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to add or replace ownership controls on a bucket
+                Grants permission to add, replace or delete ownership controls on a bucket
                </td>
                <td rowspan="2">
                 Write
@@ -8129,6 +8070,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazons3-s3_x-amz-server-side-encryption-customer-algorithm">
+                  s3:x-amz-server-side-encryption-customer-algorithm
+                 </a>
+                </p>
+                <p>
                  <a href="#amazons3-s3_x-amz-storage-class">
                   s3:x-amz-storage-class
                  </a>
@@ -8172,7 +8118,7 @@
                </td>
                <td rowspan="2">
                 Grants permission to set the access control list (ACL) permissions for new or existing
-                                                objects in an S3 bucket.
+                                                objects in an S3 bucket
                </td>
                <td rowspan="2">
                 Permissions management
@@ -9116,6 +9062,11 @@
                   s3:x-amz-server-side-encryption-aws-kms-key-id
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-server-side-encryption-customer-algorithm">
+                  s3:x-amz-server-side-encryption-customer-algorithm
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -9447,7 +9398,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d995c13b5">
+             <table id="w86aab5b9e1007c13b5">
               <thead>
                <tr>
                 <th>
@@ -9668,7 +9619,7 @@
                  <span>
                   {
                  </span>
-                 AccessPointName}
+                 AccessPointAlias}
                 </code>
                </td>
                <td>
@@ -9734,7 +9685,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d995c15b7">
+             <table id="w86aab5b9e1007c15b7">
               <thead>
                <tr>
                 <th>
@@ -9757,7 +9708,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags that are passed in the request
+                Filters access by the tags that are passed in the request
                </td>
                <td>
                 String
@@ -9772,7 +9723,7 @@
                 </a>
                </td>
                <td>
-                Requested region for the multi region access point operation
+                Filters access by Requested region for the multi region access point operation
                </td>
                <td>
                 String
@@ -9787,7 +9738,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags associated with the resource
+                Filters access by the tags associated with the resource
                </td>
                <td>
                 String
@@ -9802,10 +9753,10 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tag keys that are passed in the request
+                Filters access by the tag keys that are passed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -9862,7 +9813,7 @@
                 </a>
                </td>
                <td>
-                Filters access to updating the job priority by operation
+                Filters access by operation to updating the job priority
                </td>
                <td>
                 String
@@ -9877,7 +9828,7 @@
                 </a>
                </td>
                <td>
-                Filters access to cancelling existing jobs by priority range
+                Filters access by priority range to cancelling existing jobs
                </td>
                <td>
                 Numeric
@@ -9907,8 +9858,8 @@
                 </a>
                </td>
                <td>
-                Filters access to cancelling suspended jobs by a specific job suspended cause (for
-                                                example, AWAITING_CONFIRMATION)
+                Filters access by a specific job suspended cause (for example, AWAITING_CONFIRMATION)
+                                                to cancelling suspended jobs
                </td>
                <td>
                 String
@@ -9938,7 +9889,7 @@
                 </a>
                </td>
                <td>
-                Filters access to creating jobs by operation
+                Filters access by operation to creating jobs
                </td>
                <td>
                 String
@@ -9953,7 +9904,7 @@
                 </a>
                </td>
                <td>
-                Filters access to creating new jobs by priority range
+                Filters access by priority range to creating new jobs
                </td>
                <td>
                 Numeric
@@ -9986,7 +9937,7 @@
                 Filters access by the tag keys to be added to objects
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -10238,7 +10189,7 @@
                 </a>
                </td>
                <td>
-                Filters access to unsigned content in your bucket
+                Filters access by unsigned content in your bucket
                </td>
                <td>
                 String
@@ -10253,7 +10204,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with a specific bucket, prefix, or object as the copy source
+                Filters access by copy source bucket, prefix, or object in the copy object requests
                </td>
                <td>
                 String
@@ -10268,7 +10219,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with the x-amz-grant-full-control (full control) header
+                Filters access by x-amz-grant-full-control (full control) header
                </td>
                <td>
                 String
@@ -10283,7 +10234,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with the x-amz-grant-read (read access) header
+                Filters access by x-amz-grant-read (read access) header
                </td>
                <td>
                 String
@@ -10298,8 +10249,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with the x-amz-grant-read-acp (read permissions for the
-                                                ACL) header
+                Filters access by the x-amz-grant-read-acp (read permissions for the ACL) header
                </td>
                <td>
                 String
@@ -10314,7 +10264,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with the x-amz-grant-write (write access) header
+                Filters access by the x-amz-grant-write (write access) header
                </td>
                <td>
                 String
@@ -10329,8 +10279,7 @@
                 </a>
                </td>
                <td>
-                Filters access to requests with the x-amz-grant-write-acp (write permissions for the
-                                                ACL) header
+                Filters access by the x-amz-grant-write-acp (write permissions for the ACL) header
                </td>
                <td>
                 String
@@ -10376,6 +10325,21 @@
                </td>
                <td>
                 Filters access by AWS KMS customer managed CMK for server-side encryption
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazons3-s3_x-amz-server-side-encryption-customer-algorithm">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">
+                 s3:x-amz-server-side-encryption-customer-algorithm
+                </a>
+               </td>
+               <td>
+                Filters access by customer-provided algorithm (SSE-C) for server-side encryption
                </td>
                <td>
                 String
