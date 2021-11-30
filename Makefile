@@ -3,20 +3,27 @@ SHELL:=/bin/bash
 PROJECT := policy-sentry
 PROJECT_UNDERSCORE := policy_sentry
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Environment setup and management
+# ---------------------------------------------------------------------------------------------------------------------
 virtualenv:
 	python3 -m venv ./venv && source venv/bin/activate
 setup-env: virtualenv
 	python3 -m pip install -r requirements.txt
 setup-dev: setup-env
 	python3 -m pip install -r requirements-dev.txt
-# Docs
+# ---------------------------------------------------------------------------------------------------------------------
+# Documentation
+# ---------------------------------------------------------------------------------------------------------------------
 build-docs: clean virtualenv
 	python3 -m pip install -r docs/requirements.txt
 	mkdocs build --clean --site-dir _build/html --config-file mkdocs.yml
 serve-docs: clean virtualenv
 	python3 -m pip install -r docs/requirements.txt
 	mkdocs serve --dev-addr "127.0.0.1:8001"
-# Installation
+# ---------------------------------------------------------------------------------------------------------------------
+# Installation etc.
+# ---------------------------------------------------------------------------------------------------------------------
 build: setup-env clean
 	python3 -m pip install --upgrade setuptools wheel
 	python3 -m setup -q sdist bdist_wheel
@@ -38,25 +45,37 @@ clean:
 	find . -name '*.egg-link' -delete
 	find . -name '*.pyc' -exec rm --force {} +
 	find . -name '*.pyo' -exec rm --force {} +
+# ---------------------------------------------------------------------------------------------------------------------
 # Testing
+# ---------------------------------------------------------------------------------------------------------------------
 test: setup-dev
 	python3 -m coverage run -m pytest -v
 security-test: setup-dev
 	bandit -r ./${PROJECT_UNDERSCORE}/
+# ---------------------------------------------------------------------------------------------------------------------
+# Linting and formatting
+# ---------------------------------------------------------------------------------------------------------------------
 fmt: setup-dev
 	black ${PROJECT_UNDERSCORE}/
 lint: setup-dev
 	pylint ${PROJECT_UNDERSCORE}/
+# ---------------------------------------------------------------------------------------------------------------------
 # Package publishing
+# ---------------------------------------------------------------------------------------------------------------------
 publish: build
 	python3 -m pip install --upgrade twine
 	python3 -m twine upload dist/*
 	python3 -m pip install ${PROJECT}
-# Misc
+# ---------------------------------------------------------------------------------------------------------------------
+# Miscellaneous
+# ---------------------------------------------------------------------------------------------------------------------
 count-loc:
 	echo "If you don't have tokei installed, you can install it with 'brew install tokei'"
 	echo "Website: https://github.com/XAMPPRocky/tokei#installation'"
 	tokei ./* --exclude --exclude '**/*.html' --exclude '**/*.json' --exclude "docs/*" --exclude "examples/*" --exclude "test/*"
-# Repository specific
-update-iam-data:
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Project specific scripts
+# ---------------------------------------------------------------------------------------------------------------------
+update-iam-data: setup-dev
 	python3 ./utils/download_docs.py

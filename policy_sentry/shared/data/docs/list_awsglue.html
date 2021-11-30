@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d543c11b9">
+             <table id="w86aab5b9d551c11b9">
               <thead>
                <tr>
                 <th>
@@ -902,6 +902,21 @@
                 <p>
                  <a href="#awsglue-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-glue_VpcIds">
+                  glue:VpcIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-glue_SubnetIds">
+                  glue:SubnetIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-glue_SecurityGroupIds">
+                  glue:SecurityGroupIds
                  </a>
                 </p>
                </td>
@@ -3635,6 +3650,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-NotifyEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/starting-workflow-eventbridge.html">
+                 NotifyEvent
+                </a>
+               </td>
+               <td>
+                Grants permission to notify an event to the event-driven workflow
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-PutDataCatalogEncryptionSettings">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-security.html#aws-glue-api-jobs-security-PutDataCatalogEncryptionSettings">
@@ -4610,6 +4651,21 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-glue_VpcIds">
+                  glue:VpcIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-glue_SubnetIds">
+                  glue:SubnetIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-glue_SecurityGroupIds">
+                  glue:SecurityGroupIds
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4955,7 +5011,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d543c13b5">
+             <table id="w86aab5b9d551c13b5">
               <thead>
                <tr>
                 <th>
@@ -5497,7 +5553,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d543c15b7">
+             <table id="w86aab5b9d551c15b7">
               <thead>
                <tr>
                 <th>
@@ -5556,6 +5612,82 @@
                 String
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsglue-glue_CredentialIssuingService">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys">
+                 glue:CredentialIssuingService
+                </a>
+               </td>
+               <td>
+                Filters access by the service from which the credentials of the request is issued
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-glue_RoleAssumedBy">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys">
+                 glue:RoleAssumedBy
+                </a>
+               </td>
+               <td>
+                Filters access by the service from which the credentials of the request is obtained
+                                                by assuming the customer role
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-glue_SecurityGroupIds">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys">
+                 glue:SecurityGroupIds
+                </a>
+               </td>
+               <td>
+                Filters access by the ID of security groups configured for the Glue job
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-glue_SubnetIds">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys">
+                 glue:SubnetIds
+                </a>
+               </td>
+               <td>
+                Filters access by the ID of subnets configured for the Glue job
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-glue_VpcIds">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys">
+                 glue:VpcIds
+                </a>
+               </td>
+               <td>
+                Filters access by the ID of the VPC configured for the Glue job
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -5572,13 +5704,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -5609,12 +5740,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsglue.html" id="fblink" target="_blank" text="Feedback">
@@ -5628,12 +5757,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsglue.html" id="fblink" target="_blank" text="Feedback">
@@ -5657,20 +5784,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>

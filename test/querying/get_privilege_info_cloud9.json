@@ -1,6 +1,6 @@
 {
     "privilege": "CreateEnvironmentEC2",
-    "description": "Grants permission to create an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance.",
+    "description": "Grants permission to create an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then hosts the environment on the instance",
     "access_level": "Write",
     "resource_types": {
         "": {
@@ -10,7 +10,9 @@
                 "cloud9:EnvironmentName",
                 "cloud9:InstanceType",
                 "cloud9:SubnetId",
-                "cloud9:UserArn"
+                "cloud9:UserArn",
+                "aws:RequestTag/${TagKey}",
+                "aws:TagKeys"
             ],
             "dependent_actions": [
                 "ec2:DescribeSubnets",

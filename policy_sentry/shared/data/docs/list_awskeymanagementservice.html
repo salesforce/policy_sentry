@@ -36,7 +36,7 @@
   <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
   </script>
  </head>
- <body class="awsdocs awsui">
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
    <awsdocs-header>
    </awsdocs-header>
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d659c11b9">
+             <table id="w86aab5b9d671c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +240,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to cancel the scheduled deletion of a customer master key
+                Controls permission to cancel the scheduled deletion of an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -293,6 +293,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -306,8 +311,8 @@
                 </a>
                </td>
                <td rowspan="3">
-                Controls permission to create an alias for a customer master key (CMK). Aliases are
-                                                optional friendly names that you can associate with customer master keys
+                Controls permission to create an alias for an AWS KMS key. Aliases are optional friendly
+                                                names that you can associate with KMS keys
                </td>
                <td rowspan="3">
                 Write
@@ -373,10 +378,18 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
                  cloudhsm:DescribeClusters
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
                 </p>
                </td>
               </tr>
@@ -389,8 +402,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to add a grant to a customer master key. You can use grants to
-                                                add permissions without changing the key policy or IAM policy
+                Controls permission to add a grant to an AWS KMS key. You can use grants to add permissions
+                                                without changing the key policy or IAM policy
                </td>
                <td rowspan="2">
                 Permissions management
@@ -444,8 +457,8 @@
                 </a>
                </td>
                <td>
-                Controls permission to create a customer master key that can be used to protect data
-                                                keys and other sensitive information
+                Controls permission to create an AWS KMS key that can be used to protect data keys
+                                                and other sensitive information
                </td>
                <td>
                 Write
@@ -459,32 +472,26 @@
                  </a>
                 </p>
                 <p>
-                 <a href="#awskeymanagementservice-kms_CustomerMasterKeySpec">
-                  kms:CustomerMasterKeySpec
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
                  </a>
                 </p>
                 <p>
-                 <a href="#awskeymanagementservice-kms_CustomerMasterKeyUsage">
-                  kms:CustomerMasterKeyUsage
-                 </a>
-                </p>
-                <p>
-                 <a href="#awskeymanagementservice-kms_KeyOrigin">
-                  kms:KeyOrigin
-                 </a>
-                </p>
-                <p>
-                 <a href="#awskeymanagementservice-kms_MultiRegion">
-                  kms:MultiRegion
-                 </a>
-                </p>
-                <p>
-                 <a href="#awskeymanagementservice-kms_MultiRegionKeyType">
-                  kms:MultiRegionKeyType
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
                  </a>
                 </p>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 kms:PutKeyPolicy
+                </p>
+                <p>
+                 kms:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -496,8 +503,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to decrypt ciphertext that was encrypted under a customer master
-                                                key
+                Controls permission to decrypt ciphertext that was encrypted under an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -534,6 +540,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -552,7 +563,7 @@
                </td>
                <td rowspan="3">
                 Controls permission to delete an alias. Aliases are optional friendly names that you
-                                                can associate with customer master keys
+                                                can associate with AWS KMS keys
                </td>
                <td rowspan="3">
                 Write
@@ -617,6 +628,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -630,8 +646,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to delete cryptographic material that you imported into a customer
-                                                master key. This action makes the key unusable
+                Controls permission to delete cryptographic material that you imported into an AWS
+                                                KMS key. This action makes the key unusable
                </td>
                <td rowspan="2">
                 Write
@@ -684,6 +700,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -697,7 +718,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to view detailed information about a customer master key
+                Controls permission to view detailed information about an AWS KMS key
                </td>
                <td rowspan="2">
                 Read
@@ -724,6 +745,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -741,8 +767,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to disable a customer master key, which prevents it from being
-                                                used in cryptographic operations
+                Controls permission to disable an AWS KMS key, which prevents it from being used in
+                                                cryptographic operations
                </td>
                <td rowspan="2">
                 Write
@@ -786,8 +812,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to disable automatic rotation of a customer managed customer master
-                                                key
+                Controls permission to disable automatic rotation of a customer managed AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -840,6 +865,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -853,8 +883,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to change the state of a customer master key (CMK) to enabled.
-                                                This allows the CMK to be used in cryptographic operations
+                Controls permission to change the state of an AWS KMS key to enabled. This allows
+                                                the KMS key to be used in cryptographic operations
                </td>
                <td rowspan="2">
                 Write
@@ -899,7 +929,7 @@
                </td>
                <td rowspan="2">
                 Controls permission to enable automatic rotation of the cryptographic material in
-                                                a customer master key
+                                                an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -943,8 +973,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the specified customer master key to encrypt data and data
-                                                keys
+                Controls permission to use the specified AWS KMS key to encrypt data and data keys
                </td>
                <td rowspan="2">
                 Write
@@ -978,6 +1007,11 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_EncryptionContextKeys">
                   kms:EncryptionContextKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
                  </a>
                 </p>
                 <p>
@@ -998,8 +1032,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the customer master key to generate data keys. You can
-                                                use the data keys to encrypt data outside of AWS KMS
+                Controls permission to use the AWS KMS key to generate data keys. You can use the
+                                                data keys to encrypt data outside of AWS KMS
                </td>
                <td rowspan="2">
                 Write
@@ -1033,6 +1067,11 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_EncryptionContextKeys">
                   kms:EncryptionContextKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
                  </a>
                 </p>
                 <p>
@@ -1053,7 +1092,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the customer master key to generate data key pairs
+                Controls permission to use the AWS KMS key to generate data key pairs
                </td>
                <td rowspan="2">
                 Write
@@ -1092,6 +1131,11 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_EncryptionContextKeys">
                   kms:EncryptionContextKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
                  </a>
                 </p>
                 <p>
@@ -1112,9 +1156,9 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the customer master key to generate data key pairs. Unlike
-                                                the GenerateDataKeyPair operation, this operation returns an encrypted private key
-                                                without a plaintext copy
+                Controls permission to use the AWS KMS key to generate data key pairs. Unlike the
+                                                GenerateDataKeyPair operation, this operation returns an encrypted private key without
+                                                a plaintext copy
                </td>
                <td rowspan="2">
                 Write
@@ -1156,6 +1200,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -1173,9 +1222,9 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the customer master key to generate a data key. Unlike
-                                                the GenerateDataKey operation, this operation returns an encrypted data key without
-                                                a plaintext version of the data key
+                Controls permission to use the AWS KMS key to generate a data key. Unlike the GenerateDataKey
+                                                operation, this operation returns an encrypted data key without a plaintext version
+                                                of the data key
                </td>
                <td rowspan="2">
                 Write
@@ -1209,6 +1258,11 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_EncryptionContextKeys">
                   kms:EncryptionContextKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
                  </a>
                 </p>
                 <p>
@@ -1251,7 +1305,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to view the key policy for the specified customer master key
+                Controls permission to view the key policy for the specified AWS KMS key
                </td>
                <td rowspan="2">
                 Read
@@ -1296,7 +1350,7 @@
                </td>
                <td rowspan="2">
                 Controls permission to determine whether automatic key rotation is enabled on the
-                                                customer master key
+                                                AWS KMS key
                </td>
                <td rowspan="2">
                 Read
@@ -1395,7 +1449,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to download the public key of an asymmetric customer master key
+                Controls permission to download the public key of an asymmetric AWS KMS key
                </td>
                <td rowspan="2">
                 Read
@@ -1422,6 +1476,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -1439,7 +1498,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to import cryptographic material into a customer master key
+                Controls permission to import cryptographic material into an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -1494,7 +1553,7 @@
                </td>
                <td>
                 Controls permission to view the aliases that are defined in the account. Aliases are
-                                                optional friendly names that you can associate with customer master keys
+                                                optional friendly names that you can associate with AWS KMS keys
                </td>
                <td>
                 List
@@ -1515,7 +1574,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to view all grants for a customer master key
+                Controls permission to view all grants for an AWS KMS key
                </td>
                <td rowspan="2">
                 List
@@ -1564,7 +1623,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to view the names of key policies for a customer master key
+                Controls permission to view the names of key policies for an AWS KMS key
                </td>
                <td rowspan="2">
                 List
@@ -1608,8 +1667,8 @@
                 </a>
                </td>
                <td>
-                Controls permission to view the key ID and Amazon Resource Name (ARN) of all customer
-                                                master keys in the account
+                Controls permission to view the key ID and Amazon Resource Name (ARN) of all AWS KMS
+                                                keys in the account
                </td>
                <td>
                 List
@@ -1630,7 +1689,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to view all tags that are attached to a customer master key
+                Controls permission to view all tags that are attached to an AWS KMS key
                </td>
                <td rowspan="2">
                 List
@@ -1702,7 +1761,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to replace the key policy for the specified customer master key
+                Controls permission to replace the key policy for the specified AWS KMS key
                </td>
                <td rowspan="2">
                 Permissions management
@@ -1794,6 +1853,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -1854,6 +1918,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -1887,7 +1956,16 @@
                </td>
                <td>
                 <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
                  kms:CreateKey
+                </p>
+                <p>
+                 kms:PutKeyPolicy
+                </p>
+                <p>
+                 kms:TagResource
                 </p>
                </td>
               </tr>
@@ -2000,7 +2078,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to schedule deletion of a customer master key
+                Controls permission to schedule deletion of an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -2076,6 +2154,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_SigningAlgorithm">
                   kms:SigningAlgorithm
                  </a>
@@ -2125,8 +2208,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to create or update tags that are attached to a customer master
-                                                key
+                Controls permission to create or update tags that are attached to an AWS KMS key
                </td>
                <td rowspan="2">
                 Tagging
@@ -2170,7 +2252,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to delete tags that are attached to a customer master key
+                Controls permission to delete tags that are attached to an AWS KMS key
                </td>
                <td rowspan="2">
                 Tagging
@@ -2214,8 +2296,8 @@
                 </a>
                </td>
                <td rowspan="3">
-                Controls permission to associate an alias with a different customer master key. An
-                                                alias is an optional friendly name that you can associate with a customer master key
+                Controls permission to associate an alias with a different AWS KMS key. An alias is
+                                                an optional friendly name that you can associate with a KMS key
                </td>
                <td rowspan="3">
                 Write
@@ -2280,6 +2362,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2293,7 +2380,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to delete or change the description of a customer master key
+                Controls permission to delete or change the description of an AWS KMS key
                </td>
                <td rowspan="2">
                 Write
@@ -2386,7 +2473,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Controls permission to use the specified customer master key to verify digital signatures
+                Controls permission to use the specified AWS KMS key to verify digital signatures
                </td>
                <td rowspan="2">
                 Write
@@ -2415,6 +2502,11 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_MessageType">
                   kms:MessageType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
                  </a>
                 </p>
                 <p>
@@ -2457,7 +2549,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d659c13b5">
+             <table id="w86aab5b9d671c13b5">
               <thead>
                <tr>
                 <th>
@@ -2507,7 +2599,7 @@
                <td>
                 <a id="awskeymanagementservice-key">
                 </a>
-                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">
                  key
                 </a>
                </td>
@@ -2564,7 +2656,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w87aab5b9d659c15b7">
+             <table id="w86aab5b9d671c15b7">
               <thead>
                <tr>
                 <th>
@@ -2587,8 +2679,8 @@
                 </a>
                </td>
                <td>
-                Filters access to the specified AWS KMS operations based on tags assigned to the customer
-                                                master key
+                Filters access to the specified AWS KMS operations based on tags assigned to the AWS
+                                                KMS key
                </td>
                <td>
                 String
@@ -2631,14 +2723,13 @@
                <td>
                 <a id="awskeymanagementservice-kms_CustomerMasterKeySpec">
                 </a>
-                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-customer-master-key-spec">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-key-spec-replaced">
                  kms:CustomerMasterKeySpec
                 </a>
                </td>
                <td>
-                Filters access to an API operation based on the CustomerMasterKeySpec property of
-                                                the CMK that is created by or used in the operation. Use it to qualify authorization
-                                                of the CreateKey operation or any operation that is authorized for a CMK resource
+                The kms:CustomerMasterKeySpec condition key is deprecated. Instead, use the kms:KeySpec
+                                                condition key.
                </td>
                <td>
                 String
@@ -2648,14 +2739,13 @@
                <td>
                 <a id="awskeymanagementservice-kms_CustomerMasterKeyUsage">
                 </a>
-                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-customer-master-key-usage">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-key-usage-replaced">
                  kms:CustomerMasterKeyUsage
                 </a>
                </td>
                <td>
-                Filters access to an API operation based on the KeyUsage property of the CMK created
-                                                by or used in the operation. Use it to qualify authorization of the CreateKey operation
-                                                or any operation that is authorized for a CMK resource
+                The kms:CustomerMasterKeyUsage condition key is deprecated. Instead, use the kms:KeyUsage
+                                                condition key.
                </td>
                <td>
                 String
@@ -2796,9 +2886,43 @@
                 </a>
                </td>
                <td>
-                Filters access to an API operation based on the Origin property of the CMK created
-                                                by or used in the operation. Use it to qualify authorization of the CreateKey operation
-                                                or any operation that is authorized for a CMK resource
+                Filters access to an API operation based on the Origin property of the AWS KMS key
+                                                created by or used in the operation. Use it to qualify authorization of the CreateKey
+                                                operation or any operation that is authorized for a KMS key
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-kms_KeySpec">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-key-spec">
+                 kms:KeySpec
+                </a>
+               </td>
+               <td>
+                Filters access to an API operation based on the KeySpec property of the AWS KMS key
+                                                that is created by or used in the operation. Use it to qualify authorization of the
+                                                CreateKey operation or any operation that is authorized for a KMS key resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awskeymanagementservice-kms_KeyUsage">
+                </a>
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-key-usage">
+                 kms:KeyUsage
+                </a>
+               </td>
+               <td>
+                Filters access to an API operation based on the KeyUsage property of the AWS KMS key
+                                                created by or used in the operation. Use it to qualify authorization of the CreateKey
+                                                operation or any operation that is authorized for a KMS key resource
                </td>
                <td>
                 String
@@ -2829,9 +2953,9 @@
                 </a>
                </td>
                <td>
-                Filters access to an API operation based on the MultiRegion property of the CMK created
-                                                by or used in the operation. Use it to qualify authorization of the CreateKey operation
-                                                or any operation that is authorized for a CMK resource
+                Filters access to an API operation based on the MultiRegion property of the AWS KMS
+                                                key created by or used in the operation. Use it to qualify authorization of the CreateKey
+                                                operation or any operation that is authorized for a KMS key resource
                </td>
                <td>
                 Bool
@@ -2847,8 +2971,8 @@
                </td>
                <td>
                 Filters access to an API operation based on the MultiRegionKeyType property of the
-                                                CMK created by or used in the operation. Use it to qualify authorization of the CreateKey
-                                                operation or any operation that is authorized for a CMK resource
+                                                AWS KMS key created by or used in the operation. Use it to qualify authorization of
+                                                the CreateKey operation or any operation that is authorized for a KMS key resource
                </td>
                <td>
                 String
@@ -2879,8 +3003,8 @@
                 </a>
                </td>
                <td>
-                Filters access to the ReEncrypt operation when it uses the same customer master key
-                                                that was used for the Encrypt operation
+                Filters access to the ReEncrypt operation when it uses the same AWS KMS key that was
+                                                used for the Encrypt operation
                </td>
                <td>
                 Bool
@@ -2928,7 +3052,7 @@
                </td>
                <td>
                 Filters access to specified AWS KMS operations based on aliases associated with the
-                                                customer master key
+                                                AWS KMS key
                </td>
                <td>
                 ArrayOfString
@@ -2980,7 +3104,7 @@
                                                 key material only when it expires by the specified date
                </td>
                <td>
-                Numeric
+                Date
                </td>
               </tr>
               <tr>
@@ -3047,13 +3171,12 @@
                <p>
                 <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
                 <strong>
-                 Javascript is disabled or is unavailable in your
-                                                   browser.
+                 Javascript is disabled or is unavailable in your browser.
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be
-                                                enabled. Please refer to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -3084,12 +3207,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know we're doing a good
-                                    job!
+            Thanks for letting us know we're doing a good job!
            </p>
            <p>
-            If you've got a moment, please tell us what we did right
-                                    so we can do more of it.
+            If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awskeymanagementservice.html" id="fblink" target="_blank" text="Feedback">
@@ -3103,12 +3224,10 @@
           </div>
           <div class="content">
            <p>
-            Thanks for letting us know this page needs work. We're
-                                    sorry we let you down.
+            Thanks for letting us know this page needs work. We're sorry we let you down.
            </p>
            <p>
-            If you've got a moment, please tell us how we can make
-                                    the documentation better.
+            If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
             <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awskeymanagementservice.html" id="fblink" target="_blank" text="Feedback">
@@ -3132,20 +3251,6 @@
    </awsui-app-layout>
    <awsdocs-cookie-banner class="doc-cookie-banner">
    </awsdocs-cookie-banner>
-   <!--
-                SiteCatalyst code version: H.25.2.
-                Copyright 1996-2012 Adobe, Inc. All Rights Reserved
-                More info available at http://www.omniture.com
-            -->
-   <script language="JavaScript" type="text/javascript">
-    var awsdocs = awsdocs || {};
-awsdocs.prop66 = 'Service Authorization Reference';
-awsdocs.prop65 =  'Service Authorization Reference';
-   </script>
-   <script language="JavaScript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js" type="text/javascript">
-   </script>
-   <!--/DO NOT REMOVE/-->
-   <!--End SiteCatalyst code version: H.25.2.-->
   </div>
  </body>
 </html>
