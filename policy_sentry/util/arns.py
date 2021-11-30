@@ -170,7 +170,7 @@ def parse_arn(arn):
             "resource_path": None,
         }
     except IndexError as error:
-        raise Exception("The provided ARN is invalid. IndexError: %s. Please provide a valid ARN." % error) from error
+        raise Exception("IndexError: The provided ARN '%s' is invalid. Please provide a valid ARN." % arn)
     if "/" in result["resource"]:
         result["resource"], result["resource_path"] = result["resource"].split("/", 1)
     elif ":" in result["resource"]:

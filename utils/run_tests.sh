@@ -5,7 +5,6 @@ set -ex
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
-invoke test.lint
 invoke build.uninstall-package
 invoke build.install-package
 invoke integration.clean
