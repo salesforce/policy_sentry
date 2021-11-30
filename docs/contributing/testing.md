@@ -63,7 +63,6 @@ invoke integration.analyze-policy
 invoke integration.query
 invoke integration.write-policy
 
-invoke test.lint
 invoke test.security
 
 invoke unit.nose
