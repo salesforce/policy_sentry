@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d931c11b9">
+             <table id="w86aab5b9d955c11b9">
               <thead>
                <tr>
                 <th>
@@ -319,19 +319,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="16">
+               <td rowspan="17">
                 <a id="amazonrds-AddTagsToResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td rowspan="16">
+               <td rowspan="17">
                 Grants permission to add metadata tags to an Amazon RDS resource
                </td>
-               <td rowspan="16">
+               <td rowspan="17">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonrds-cluster">
@@ -920,6 +933,59 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonrds-CreateCustomDBEngineVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateCustomDBEngineVersion.html">
+                 CreateCustomDBEngineVersion
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a custom engine version
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 mediaimport:CreateDatabaseBinarySnapshot
+                </p>
+                <p>
+                 rds:AddTagsToResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="7">
                 <a id="amazonrds-CreateDBCluster">
                 </a>
@@ -948,6 +1014,9 @@
                 </p>
                 <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 rds:CreateDBInstance
                 </p>
                </td>
               </tr>
@@ -1048,6 +1117,21 @@
                 <p>
                  <a href="#amazonrds-rds_StorageEncrypted">
                   rds:StorageEncrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseClass">
+                  rds:DatabaseClass
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageSize">
+                  rds:StorageSize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Piops">
+                  rds:Piops
                  </a>
                 </p>
                </td>
@@ -1338,6 +1422,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonrds-rds_BackupTarget">
+                  rds:BackupTarget
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonrds-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -1682,6 +1771,11 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazonrds-rds_BackupTarget">
+                  rds:BackupTarget
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonrds-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
                  </a>
@@ -1940,6 +2034,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonrds-DeleteCustomDBEngineVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteCustomDBEngineVersion.html">
+                 DeleteCustomDBEngineVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an existing custom engine version
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonrds-DeleteDBCluster">
                 </a>
@@ -1963,6 +2083,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 rds:DeleteDBInstance
+                </p>
                </td>
               </tr>
               <tr>
@@ -2455,7 +2578,8 @@
                 </a>
                </td>
                <td>
-                Lists the set of CA certificates provided by Amazon RDS for this AWS account
+                Grants permission to list the set of CA certificates provided by Amazon RDS for this
+                                                AWS account
                </td>
                <td>
                 List
@@ -3688,19 +3812,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="15">
+               <td rowspan="16">
                 <a id="amazonrds-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="15">
+               <td rowspan="16">
                 Grants permission to list all tags on an Amazon RDS resource
                </td>
-               <td rowspan="15">
+               <td rowspan="16">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonrds-cluster">
@@ -3945,17 +4082,43 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td>
+                <a id="amazonrds-ModifyCustomDBEngineVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyCustomDBEngineVersion.html">
+                 ModifyCustomDBEngineVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to modify an existing custom engine version
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
                 <a id="amazonrds-ModifyDBCluster">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html">
                  ModifyDBCluster
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to modify a setting for an Amazon Aurora DB cluster
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -3970,6 +4133,9 @@
                <td>
                 <p>
                  iam:PassRole
+                </p>
+                <p>
+                 rds:ModifyDBInstance
                 </p>
                </td>
               </tr>
@@ -3995,6 +4161,29 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseClass">
+                  rds:DatabaseClass
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageSize">
+                  rds:StorageSize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Piops">
+                  rds:Piops
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4534,6 +4723,35 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonrds-RebootDBCluster">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBCluster.html">
+                 RebootDBCluster
+                </a>
+               </td>
+               <td>
+                Grants permission to reboot a previously provisioned DB cluster
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 rds:RebootDBInstance
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonrds-RebootDBInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html">
@@ -4712,19 +4930,32 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="16">
+               <td rowspan="17">
                 <a id="amazonrds-RemoveTagsFromResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td rowspan="16">
+               <td rowspan="17">
                 Grants permission to remove metadata tags from an Amazon RDS resource
                </td>
-               <td rowspan="16">
+               <td rowspan="17">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cev">
+                  cev
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonrds-cluster">
@@ -5097,6 +5328,9 @@
                 <p>
                  rds:AddTagsToResource
                 </p>
+                <p>
+                 rds:CreateDBInstance
+                </p>
                </td>
               </tr>
               <tr>
@@ -5144,6 +5378,21 @@
                   rds:req-tag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseClass">
+                  rds:DatabaseClass
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageSize">
+                  rds:StorageSize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Piops">
+                  rds:Piops
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -5177,6 +5426,9 @@
                 </p>
                 <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 rds:CreateDBInstance
                 </p>
                </td>
               </tr>
@@ -5223,6 +5475,21 @@
                 <p>
                  <a href="#amazonrds-rds_req-tag___TagKey_">
                   rds:req-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseClass">
+                  rds:DatabaseClass
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageSize">
+                  rds:StorageSize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Piops">
+                  rds:Piops
                  </a>
                 </p>
                </td>
@@ -5304,6 +5571,11 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonrds-rds_BackupTarget">
+                  rds:BackupTarget
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonrds-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -5441,6 +5713,11 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazonrds-rds_BackupTarget">
+                  rds:BackupTarget
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonrds-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
                  </a>
@@ -5521,7 +5798,7 @@
                 </a>
                </td>
                <td>
-                Starts the DB cluster
+                Grants permission to start the DB cluster
                </td>
                <td>
                 Write
@@ -5744,7 +6021,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d931c13b5">
+             <table id="w86aab5b9d955c13b5">
               <thead>
                <tr>
                 <th>
@@ -6468,6 +6745,51 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-cev">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html">
+                 cev
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:cev:$
+                 <span>
+                  {
+                 </span>
+                 Engine}/$
+                 <span>
+                  {
+                 </span>
+                 EngineVersion}/$
+                 <span>
+                  {
+                 </span>
+                 CustomDbEngineVersionId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -6496,7 +6818,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d931c15b7">
+             <table id="w86aab5b9d955c15b7">
               <thead>
                <tr>
                 <th>
@@ -6519,7 +6841,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag key-value pairs in the request
+                Filters access by the set of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -6534,7 +6856,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on tag key-value pairs attached to the resource
+                Filters access by the set of tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -6549,7 +6871,22 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag keys in the request
+                Filters access by the set of tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-rds_BackupTarget">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:BackupTarget
+                </a>
+               </td>
+               <td>
+                Filters access by the type of backup target. One of: REGION, OUTPOSTS
                </td>
                <td>
                 String
@@ -6629,7 +6966,7 @@
                                                 Availability Zones. To indicate that the DB instance is using Multi-AZ, specify true
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
@@ -6662,7 +6999,7 @@
                                                 be encrypted. To enforce storage encryption, specify true
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
@@ -6694,7 +7031,7 @@
                                                 VPC, specify true
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
