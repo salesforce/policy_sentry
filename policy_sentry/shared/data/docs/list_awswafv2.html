@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c11b9">
+             <table id="w86aab5b9e1199c11b9">
               <thead>
                <tr>
                 <th>
@@ -407,23 +407,49 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="awswafv2-CreateRuleGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html">
                  CreateRuleGroup
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to create a RuleGroup
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#awswafv2-rulegroup">
                   rulegroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-ipset">
+                  ipset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-regexpatternset">
+                  regexpatternset
                  </a>
                 </p>
                </td>
@@ -451,23 +477,62 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="5">
                 <a id="awswafv2-CreateWebACL">
                 </a>
                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html">
                  CreateWebACL
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="5">
                 Grants permission to create a WebACL
                </td>
-               <td rowspan="2">
-                Permissions management
+               <td rowspan="5">
+                Write
                </td>
                <td>
                 <p>
                  <a href="#awswafv2-webacl">
                   webacl*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-ipset">
+                  ipset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-regexpatternset">
+                  regexpatternset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-rulegroup">
+                  rulegroup
                  </a>
                 </p>
                </td>
@@ -663,7 +728,7 @@
                 Grants permission to delete a WebACL
                </td>
                <td>
-                Permissions management
+                Write
                </td>
                <td>
                 <p>
@@ -689,7 +754,7 @@
                 Grants permission to retrieve high-level information for a managed rule group
                </td>
                <td>
-                List
+                Read
                </td>
                <td>
                </td>
@@ -734,7 +799,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission disassociate a WebACL from an application resource
+                Grants permission to disassociate a WebACL from an application resource
                </td>
                <td rowspan="3">
                 Write
@@ -851,6 +916,32 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswafv2-GetManagedRuleSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_GetManagedRuleSet.html">
+                 GetManagedRuleSet
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve details about a ManagedRuleSet
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awswafv2-managedruleset">
+                  managedruleset*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1183,6 +1274,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awswafv2-ListManagedRuleSets">
+                </a>
+                <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ListManagedRuleSets.html">
+                 ListManagedRuleSets
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an array of your ManagedRuleSet objects
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awswafv2-ListRegexPatternSets">
                 </a>
                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ListRegexPatternSets.html">
@@ -1406,6 +1518,45 @@
                 <p>
                  iam:CreateServiceLinkedRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awswafv2-PutManagedRuleSetVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_PutManagedRuleSetVersions.html">
+                 PutManagedRuleSetVersions
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to enable create a new or update an existing version of a ManagedRuleSet
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswafv2-managedruleset">
+                  managedruleset*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-rulegroup">
+                  rulegroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1641,6 +1792,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awswafv2-UpdateManagedRuleSetVersionExpiryDate">
+                </a>
+                <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateManagedRuleSetVersionExpiryDate.html">
+                 UpdateManagedRuleSetVersionExpiryDate
+                </a>
+               </td>
+               <td>
+                Grants permission to update the expiry date of a version in ManagedRuleSet
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswafv2-managedruleset">
+                  managedruleset*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="awswafv2-UpdateRegexPatternSet">
                 </a>
@@ -1680,23 +1857,49 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="awswafv2-UpdateRuleGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRuleGroup.html">
                  UpdateRuleGroup
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to update a RuleGroup
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#awswafv2-rulegroup">
                   rulegroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-ipset">
+                  ipset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-regexpatternset">
+                  regexpatternset
                  </a>
                 </p>
                </td>
@@ -1719,23 +1922,62 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="5">
                 <a id="awswafv2-UpdateWebACL">
                 </a>
                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateWebACL.html">
                  UpdateWebACL
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="5">
                 Grants permission to update a WebACL
                </td>
-               <td rowspan="2">
-                Permissions management
+               <td rowspan="5">
+                Write
                </td>
                <td>
                 <p>
                  <a href="#awswafv2-webacl">
                   webacl*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-ipset">
+                  ipset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-regexpatternset">
+                  regexpatternset
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awswafv2-rulegroup">
+                  rulegroup
                  </a>
                 </p>
                </td>
@@ -1783,7 +2025,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c13b5">
+             <table id="w86aab5b9e1199c13b5">
               <thead>
                <tr>
                 <th>
@@ -1885,6 +2127,46 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswafv2-managedruleset">
+                </a>
+                <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleSet.html">
+                 managedruleset
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:wafv2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:$
+                 <span>
+                  {
+                 </span>
+                 Scope}/managedruleset/$
+                 <span>
+                  {
+                 </span>
+                 Name}/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -2105,7 +2387,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c15b7">
+             <table id="w86aab5b9e1199c15b7">
               <thead>
                <tr>
                 <th>
@@ -2128,7 +2410,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the allowed set of values for each of the tags
+                Filters access by the allowed set of values for each of the tags
                </td>
                <td>
                 String
@@ -2143,7 +2425,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag-value associated with the resource
+                Filters access by tag-value associated with the resource
                </td>
                <td>
                 String
@@ -2158,7 +2440,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of mandatory tags in the request
+                Filters access by the presence of mandatory tags in the request
                </td>
                <td>
                 String

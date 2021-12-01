@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, resources, and condition keys for AWS Network Manager - Service Authorization Reference
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awsnetworkmanager" name="target_state"/>
+  <meta content="list_awsnetworkmanager" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsnetworkmanager.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS Network Manager." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="Service Authorization Reference" name="product"/>
+  <meta content="Service Authorization Reference" name="guide"/>
+  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
+  <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="Service Authorization Docs" name="feedback-item"/>
+  <meta content="Service Authorization Reference" name="this_doc_product"/>
+  <meta content="Service Authorization Reference" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, resources, and condition keys for AWS Network Manager - Service Authorization Reference
+        </title>
+        <meta content="service-authorization.pdf#list_awsnetworkmanager" name="pdf"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsnetworkmanager.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsnetworkmanager.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsnetworkmanager.html" name="feedback-no"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="service-authorization.pdf#list_awsnetworkmanager" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           Service Authorization Reference
+          </a>
+          <a href="reference.html">
+           Service Authorization Reference
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awsnetworkmanager-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awsnetworkmanager-resources-for-iam-policies">
+           Resource types
+          </a>
+          <a href="#awsnetworkmanager-policy-keys">
+           Condition keys
+          </a>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awsnetworkmanager">
+            Actions, resources, and condition keys for      AWS Network Manager
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS Network Manager (service prefix:
+            <code class="code">
+             networkmanager
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context
+                                    keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/vpc/latest/tgw/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/">
+                API operations available for this          service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html">
+                using          IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awsnetworkmanager-actions-as-permissions">
+               Actions defined by        AWS Network Manager
+              </a>
+             </li>
+             <li>
+              <a href="#awsnetworkmanager-resources-for-iam-policies">
+               Resource types defined by        AWS Network Manager
+              </a>
+             </li>
+             <li>
+              <a href="#awsnetworkmanager-policy-keys">
+               Condition keys for        AWS Network Manager
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awsnetworkmanager-actions-as-permissions">
+            Actions defined by        AWS Network Manager
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform
+                                    an operation in AWS. When you      use an action in a policy, you usually allow or
+                                    deny access to the API operation or CLI      command with the same name. However,
+                                    in some cases, a single action controls access to more      than one operation. Alternatively,
+                                    some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If
+                                    there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then
+                                    you can specify an ARN of that type in a statement with that      action. Required
+                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
+                                    permission ARN in a statement using this action, then it must be of this type.   
+                                    Some actions support multiple resource types. If the resource type is optional (not
+                                    indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
+             The actions table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w86aab5b9d879c11b9">
+              <thead>
+               <tr>
+                <th>
+                 Actions
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Access level
+                </th>
+                <th>
+                 Resource types (*required)
+                </th>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Dependent actions
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td rowspan="4">
+                <a id="awsnetworkmanager-AssociateCustomerGateway">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_AssociateCustomerGateway.html">
+                 AssociateCustomerGateway
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to associate a customer gateway to a device
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_cgwArn">
+                  networkmanager:cgwArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsnetworkmanager-AssociateLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_AssociateLink.html">
+                 AssociateLink
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to associate a link to a device
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="awsnetworkmanager-AssociateTransitGatewayConnectPeer">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_AssociateTransitGatewayConnectPeer.html">
+                 AssociateTransitGatewayConnectPeer
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to associate a transit gateway connect peer to a device
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_tgwConnectPeerArn">
+                  networkmanager:tgwConnectPeerArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-CreateConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateConnection.html">
+                 CreateConnection
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new connection
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-CreateDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateDevice.html">
+                 CreateDevice
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new device
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-CreateGlobalNetwork">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateGlobalNetwork.html">
+                 CreateGlobalNetwork
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new global network
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsnetworkmanager-CreateLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateLink.html">
+                 CreateLink
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a new link
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-CreateSite">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateSite.html">
+                 CreateSite
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new site
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DeleteConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteConnection.html">
+                 DeleteConnection
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a connection
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DeleteDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteDevice.html">
+                 DeleteDevice
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a device
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-DeleteGlobalNetwork">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteGlobalNetwork.html">
+                 DeleteGlobalNetwork
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a global network
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DeleteLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteLink.html">
+                 DeleteLink
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a link
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DeleteSite">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeleteSite.html">
+                 DeleteSite
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a site
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DeregisterTransitGateway">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DeregisterTransitGateway.html">
+                 DeregisterTransitGateway
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to deregister a transit gateway from a global network
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_tgwArn">
+                  networkmanager:tgwArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-DescribeGlobalNetworks">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DescribeGlobalNetworks.html">
+                 DescribeGlobalNetworks
+                </a>
+               </td>
+               <td>
+                Grants permission to describe global networks
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DisassociateCustomerGateway">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DisassociateCustomerGateway.html">
+                 DisassociateCustomerGateway
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to disassociate a customer gateway from a device
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_cgwArn">
+                  networkmanager:cgwArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsnetworkmanager-DisassociateLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DisassociateLink.html">
+                 DisassociateLink
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to disassociate a link from a device
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-DisassociateTransitGatewayConnectPeer">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_DisassociateTransitGatewayConnectPeer.html">
+                 DisassociateTransitGatewayConnectPeer
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to disassociate a transit gateway connect peer from a device
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_tgwConnectPeerArn">
+                  networkmanager:tgwConnectPeerArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-GetConnections">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetConnections.html">
+                 GetConnections
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe connections
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetCustomerGatewayAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetCustomerGatewayAssociations.html">
+                 GetCustomerGatewayAssociations
+                </a>
+               </td>
+               <td>
+                Grants permission to describe customer gateway associations
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-GetDevices">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetDevices.html">
+                 GetDevices
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe devices
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsnetworkmanager-GetLinkAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetLinkAssociations.html">
+                 GetLinkAssociations
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to describe link associations
+               </td>
+               <td rowspan="3">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-GetLinks">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetLinks.html">
+                 GetLinks
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe links
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetNetworkResourceCounts">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetNetworkResourceCounts.html">
+                 GetNetworkResourceCounts
+                </a>
+               </td>
+               <td>
+                Grants permission to return the number of resources for a global network grouped by
+                                                type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetNetworkResourceRelationships">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetNetworkResourceRelationships.html">
+                 GetNetworkResourceRelationships
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve related resources for a resource within the global network
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetNetworkResources">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetNetworkResources.html">
+                 GetNetworkResources
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a global network resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetNetworkRoutes">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetNetworkRoutes.html">
+                 GetNetworkRoutes
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve routes for a route table within the global network
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetNetworkTelemetry">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetNetworkTelemetry.html">
+                 GetNetworkTelemetry
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve network telemetry objects for the global network
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetRouteAnalysis">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetRouteAnalysis.html">
+                 GetRouteAnalysis
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a route analysis configuration and result
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-GetSites">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetSites.html">
+                 GetSites
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe global networks
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetTransitGatewayConnectPeerAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetTransitGatewayConnectPeerAssociations.html">
+                 GetTransitGatewayConnectPeerAssociations
+                </a>
+               </td>
+               <td>
+                Grants permission to describe transit gateway connect peer associations
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-GetTransitGatewayRegistrations">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetTransitGatewayRegistrations.html">
+                 GetTransitGatewayRegistrations
+                </a>
+               </td>
+               <td>
+                Grants permission to describe transit gateway registrations
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="awsnetworkmanager-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to lists tag for a Network Manager resource
+               </td>
+               <td rowspan="6">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-RegisterTransitGateway">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_RegisterTransitGateway.html">
+                 RegisterTransitGateway
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to register a transit gateway to a global network
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-networkmanager_tgwArn">
+                  networkmanager:tgwArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-StartRouteAnalysis">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_StartRouteAnalysis.html">
+                 StartRouteAnalysis
+                </a>
+               </td>
+               <td>
+                Grants permission to start a route analysis and stores analysis configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="awsnetworkmanager-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to tag a Network Manager resource
+               </td>
+               <td rowspan="6">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="awsnetworkmanager-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to untag a Network Manager resource
+               </td>
+               <td rowspan="6">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-UpdateConnection">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateConnection.html">
+                 UpdateConnection
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a connection
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-connection">
+                  connection*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-UpdateDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateDevice.html">
+                 UpdateDevice
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a device
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-device">
+                  device*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-UpdateGlobalNetwork">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateGlobalNetwork.html">
+                 UpdateGlobalNetwork
+                </a>
+               </td>
+               <td>
+                Grants permission to update a global network
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-UpdateLink">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateLink.html">
+                 UpdateLink
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a link
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-link">
+                  link*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-UpdateNetworkResourceMetadata">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateNetworkResourceMetadata.html">
+                 UpdateNetworkResourceMetadata
+                </a>
+               </td>
+               <td>
+                Grants permission to add or update metadata key/value pairs on network resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsnetworkmanager-UpdateSite">
+                </a>
+                <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateSite.html">
+                 UpdateSite
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a site
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-global-network">
+                  global-network*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-site">
+                  site*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsnetworkmanager-resources-for-iam-policies">
+            Resource types defined by        AWS Network Manager
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsnetworkmanager-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource
+                                    type can also define which      condition keys you can include in a policy. These
+                                    keys are displayed in the last column of the      table. For details about the columns
+                                    in the following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
+             The resource types table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w86aab5b9d879c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-global-network">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html">
+                 global-network
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:networkmanager::$
+                 <span>
+                  {
+                 </span>
+                 Account}:global-network/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-site">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html">
+                 site
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:networkmanager::$
+                 <span>
+                  {
+                 </span>
+                 Account}:site/$
+                 <span>
+                  {
+                 </span>
+                 GlobalNetworkId}/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-link">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html">
+                 link
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:networkmanager::$
+                 <span>
+                  {
+                 </span>
+                 Account}:link/$
+                 <span>
+                  {
+                 </span>
+                 GlobalNetworkId}/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-device">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html">
+                 device
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:networkmanager::$
+                 <span>
+                  {
+                 </span>
+                 Account}:device/$
+                 <span>
+                  {
+                 </span>
+                 GlobalNetworkId}/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-connection">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/what-is-network-manager.html">
+                 connection
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:networkmanager::$
+                 <span>
+                  {
+                 </span>
+                 Account}:connection/$
+                 <span>
+                  {
+                 </span>
+                 GlobalNetworkId}/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsnetworkmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsnetworkmanager-policy-keys">
+            Condition keys for        AWS Network Manager
+           </h2>
+           <p>
+            AWS Network Manager defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions
+                                    under which the policy statement applies. For details about the columns in the   
+                                    following table, see
+            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
+             The condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w86aab5b9d879c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-networkmanager_cgwArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html">
+                 networkmanager:cgwArn
+                </a>
+               </td>
+               <td>
+                Filters access by which customer gateways can be associated or disassociated
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-networkmanager_tgwArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html">
+                 networkmanager:tgwArn
+                </a>
+               </td>
+               <td>
+                Filters access by which transit gateways can be registered or deregistered
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsnetworkmanager-networkmanager_tgwConnectPeerArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/tgw/nm-security-iam.html">
+                 networkmanager:tgwConnectPeerArn
+                </a>
+               </td>
+               <td>
+                Filters access by which transit gateway connect peers can be associated or disassociated
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+           <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
+           </awsdocs-thumb-feedback>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your browser.
+                </strong>
+               </p>
+               <p>
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
+                                                to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awsnetworkfirewall.html" id="previous">
+             AWS Network Firewall
+            </div>
+            <div accesskey="n" class="next-link" href="./list_amazonnimblestudio.html" id="next">
+             Amazon Nimble Studio
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsnetworkmanager.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsnetworkmanager.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+  </div>
+ </body>
+</html>

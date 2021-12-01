@@ -127,7 +127,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/">
+               <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/">
                 API operations available for this          service
                </a>
                .
@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9c99c11b9">
+             <table id="w86aab5b9d103c11b9">
               <thead>
                <tr>
                 <th>
@@ -231,6 +231,58 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonappstream2.0-AssociateApplicationFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AssociateApplicationFleet.html">
+                 AssociateApplicationFleet
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to associate the specified application with the fleet
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
               <tr>
                <td rowspan="3">
                 <a id="amazonappstream2.0-AssociateFleet">
@@ -404,6 +456,99 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonappstream2.0-CreateAppBlock">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateAppBlock.html">
+                 CreateAppBlock
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an app block. App blocks store details about the virtual
+                                                hard disk that contains the files for the application in an S3 bucket. It also stores
+                                                the setup script with details about how to mount the virtual hard disk. App blocks
+                                                are only supported for Elastic fleets
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonappstream2.0-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonappstream2.0-CreateApplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateApplication.html">
+                 CreateApplication
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an application within customer account. Applications store
+                                                the details about how to launch applications on streaming instances. This is only
+                                                supported for Elastic fleets
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonappstream2.0-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonappstream2.0-CreateDirectoryConfig">
                 </a>
@@ -457,7 +602,7 @@
                <td>
                 <p>
                  <a href="#amazonappstream2.0-image">
-                  image*
+                  image
                  </a>
                 </p>
                </td>
@@ -768,6 +913,84 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonappstream2.0-DeleteAppBlock">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DeleteAppBlock.html">
+                 DeleteAppBlock
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete the specified app block
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonappstream2.0-DeleteApplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DeleteApplication.html">
+                 DeleteApplication
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete the specified application
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonappstream2.0-DeleteDirectoryConfig">
                 </a>
@@ -1024,6 +1247,101 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-DescribeAppBlocks">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeAppBlocks.html">
+                 DescribeAppBlocks
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a list that describes one or more specified app blocks,
+                                                if the app block arns are provided. Otherwise, all app blocks in the account are described
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonappstream2.0-DescribeApplicationFleetAssociations">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeApplicationFleetAssociations.html">
+                 DescribeApplicationFleetAssociations
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve the associations that are associated with the specified
+                                                application or fleet
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-DescribeApplications">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeApplications.html">
+                 DescribeApplications
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a list that describes one or more specified applications,
+                                                if the application arns are provided. Otherwise, all applications in the account are
+                                                described
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1319,6 +1637,58 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonappstream2.0-DisassociateApplicationFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DisassociateApplicationFleet.html">
+                 DisassociateApplicationFleet
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to disassociate the specified application from the specified fleet
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1690,21 +2060,47 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="7">
                 <a id="amazonappstream2.0-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Grants permission to add or overwrite one or more tags for the specified AppStream
                                                 2.0 resource. The following resources can be tagged: Image builders, images, fleets,
-                                                and stacks
+                                                stacks, app blocks and applications
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonappstream2.0-fleet">
@@ -1780,20 +2176,46 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="7">
                 <a id="amazonappstream2.0-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Grants permission to disassociate one or more tags from the specified AppStream 2.0
                                                 resource
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonappstream2.0-fleet">
@@ -1852,6 +2274,58 @@
                 <p>
                  <a href="#amazonappstream2.0-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonappstream2.0-UpdateApplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UpdateApplication.html">
+                 UpdateApplication
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to update the specified fields for the specified application
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-app-block">
+                  app-block
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -2038,7 +2512,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9c99c13b5">
+             <table id="w86aab5b9d103c13b5">
               <thead>
                <tr>
                 <th>
@@ -2200,6 +2674,80 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-app-block">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html#what-is-concepts">
+                 app-block
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:appstream:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:app-block/$
+                 <span>
+                  {
+                 </span>
+                 AppBlockName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-application">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.html#what-is-concepts">
+                 application
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:appstream:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:application/$
+                 <span>
+                  {
+                 </span>
+                 ApplicationName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2228,7 +2776,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9c99c15b7">
+             <table id="w86aab5b9d103c15b7">
               <thead>
                <tr>
                 <th>
@@ -2266,7 +2814,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request
+                Filters access by the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -2281,7 +2829,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource
+                Filters access by the tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -2296,7 +2844,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag keys in the request
+                Filters access by the presence of tag keys in the request
                </td>
                <td>
                 String

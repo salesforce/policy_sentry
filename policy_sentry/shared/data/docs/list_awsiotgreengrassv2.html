@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d647c11b9">
+             <table id="w86aab5b9d667c11b9">
               <thead>
                <tr>
                 <th>
@@ -231,6 +231,58 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-BatchAssociateClientDeviceWithCoreDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">
+                 BatchAssociateClientDeviceWithCoreDevice
+                </a>
+               </td>
+               <td>
+                Grants permission to associate a list of client devices with a core device
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotgreengrassv2-coreDevice">
+                  coreDevice*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-BatchDisassociateClientDeviceFromCoreDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceFromCoreDevice.html">
+                 BatchDisassociateClientDeviceFromCoreDevice
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate a list of client devices from a core device
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotgreengrassv2-coreDevice">
+                  coreDevice*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awsiotgreengrassv2-CancelDeployment">
@@ -584,6 +636,33 @@
               </tr>
               <tr>
                <td>
+                <a id="awsiotgreengrassv2-ListClientDevicesAssociatedWithCoreDevice">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.html">
+                 ListClientDevicesAssociatedWithCoreDevice
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a paginated list of client devices associated to a AWS
+                                                IoT Greengrass core device
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotgreengrassv2-coreDevice">
+                  coreDevice*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsiotgreengrassv2-ListComponentVersions">
                 </a>
                 <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListComponentVersions.html">
@@ -764,7 +843,7 @@
                 Grants permission to list the tags for a resource
                </td>
                <td rowspan="5">
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -1054,7 +1133,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d647c13b5">
+             <table id="w86aab5b9d667c13b5">
               <thead>
                <tr>
                 <th>
@@ -1248,7 +1327,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d647c15b7">
+             <table id="w86aab5b9d667c15b7">
               <thead>
                <tr>
                 <th>
@@ -1322,7 +1401,7 @@
                                                 the temporary security credentials that made the current request
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
@@ -1334,8 +1413,7 @@
                 </a>
                </td>
                <td>
-                Filters create requests based on the allowed set of values for each of the mandatory
-                                                tags
+                Filters access by checking tag key/value pairs included in the request
                </td>
                <td>
                 String
@@ -1350,7 +1428,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tag value associated with the resource
+                Filters access by checking tag key/value pairs associated with a specific resource
                </td>
                <td>
                 String
@@ -1368,7 +1446,7 @@
                 Filters access by checking whether the request was sent using SSL
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
@@ -1380,7 +1458,7 @@
                 </a>
                </td>
                <td>
-                Filters create requests based on the presence of mandatory tags in the request
+                Filters access by checking tag keys passed in the request
                </td>
                <td>
                 String

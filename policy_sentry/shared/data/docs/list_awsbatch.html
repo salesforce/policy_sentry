@@ -208,7 +208,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d135c11b9">
+             <table id="w86aab5b9d143c11b9">
               <thead>
                <tr>
                 <th>
@@ -302,17 +302,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="awsbatch-CreateJobQueue">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html">
                  CreateJobQueue
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to create an AWS Batch job queue in your account
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -332,6 +332,63 @@
                 <p>
                  <a href="#awsbatch-job-queue">
                   job-queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsbatch-CreateSchedulingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateSchedulingPolicy.html">
+                 CreateSchedulingPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an AWS Batch scheduling policy in your account
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy*
                  </a>
                 </p>
                </td>
@@ -402,6 +459,32 @@
                 <p>
                  <a href="#awsbatch-job-queue">
                   job-queue*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-DeleteSchedulingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DeleteSchedulingPolicy.html">
+                 DeleteSchedulingPolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an AWS Batch scheduling policy in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy*
                  </a>
                 </p>
                </td>
@@ -522,6 +605,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsbatch-DescribeSchedulingPolicies">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeSchedulingPolicies.html">
+                 DescribeSchedulingPolicies
+                </a>
+               </td>
+               <td>
+                Grants permission to describe one or more AWS Batch scheduling policies in your account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbatch-ListJobs">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListJobs.html">
@@ -542,17 +646,38 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td>
+                <a id="awsbatch-ListSchedulingPolicies">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListSchedulingPolicies.html">
+                 ListSchedulingPolicies
+                </a>
+               </td>
+               <td>
+                Grants permission to list AWS Batch scheduling policies in your account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
                 <a id="awsbatch-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Grants permission to list tags for an AWS Batch resource in your account
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Read
                </td>
                <td>
@@ -598,6 +723,19 @@
                 <p>
                  <a href="#awsbatch-job-queue">
                   job-queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy
                  </a>
                 </p>
                </td>
@@ -743,22 +881,27 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#awsbatch-batch_ShareIdentifier">
+                  batch:ShareIdentifier
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="awsbatch-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Grants permission to tag an AWS Batch resource in your account
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
@@ -804,6 +947,19 @@
                 <p>
                  <a href="#awsbatch-job-queue">
                   job-queue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy
                  </a>
                 </p>
                </td>
@@ -857,17 +1013,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="awsbatch-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Grants permission to untag an AWS Batch resource in your account
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Tagging
                </td>
                <td>
@@ -923,6 +1079,19 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                </td>
                <td>
                 <p>
@@ -961,17 +1130,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awsbatch-UpdateJobQueue">
                 </a>
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateJobQueue.html">
                  UpdateJobQueue
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to update an AWS Batch job queue in your account
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -991,6 +1160,45 @@
                 <p>
                  <a href="#awsbatch-compute-environment">
                   compute-environment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-UpdateSchedulingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateSchedulingPolicy.html">
+                 UpdateSchedulingPolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to update an AWS Batch scheduling policy in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-scheduling-policy">
+                  scheduling-policy*
                  </a>
                 </p>
                </td>
@@ -1025,7 +1233,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d135c13b5">
+             <table id="w86aab5b9d143c13b5">
               <thead>
                <tr>
                 <th>
@@ -1180,7 +1388,44 @@
                  <span>
                   {
                  </span>
-                 jobId}
+                 JobId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-scheduling-policy">
+                </a>
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/scheduling-policy.html">
+                 scheduling-policy
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:batch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:scheduling-policy/$
+                 <span>
+                  {
+                 </span>
+                 SchedulingPolicyName}
                 </code>
                </td>
                <td>
@@ -1219,7 +1464,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d135c15b7">
+             <table id="w86aab5b9d143c15b7">
               <thead>
                <tr>
                 <th>
@@ -1242,7 +1487,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the tags that are passed in the request
+                Filters access by the tags that are passed in the request
                </td>
                <td>
                 String
@@ -1257,7 +1502,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the tags associated with the resource
+                Filters access by the tags associated with the resource
                </td>
                <td>
                 String
@@ -1272,7 +1517,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the tag keys that are passed in the request
+                Filters access by the tag keys that are passed in the request
                </td>
                <td>
                 String
@@ -1282,28 +1527,28 @@
                <td>
                 <a id="awsbatch-batch_AWSLogsCreateGroup">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:AWSLogsCreateGroup
                 </a>
                </td>
                <td>
-                Filters access based on the specified logging driver to determine whether awslogs
-                                                group will be created for the logs
+                Filters access by the specified logging driver to determine whether awslogs group
+                                                will be created for the logs
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awsbatch-batch_AWSLogsGroup">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:AWSLogsGroup
                 </a>
                </td>
                <td>
-                Filters access based on the awslogs group where the logs are located
+                Filters access by the awslogs group where the logs are located
                </td>
                <td>
                 String
@@ -1313,12 +1558,12 @@
                <td>
                 <a id="awsbatch-batch_AWSLogsRegion">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:AWSLogsRegion
                 </a>
                </td>
                <td>
-                Filters access based on the region where the logs are sent to
+                Filters access by the region where the logs are sent to
                </td>
                <td>
                 String
@@ -1328,12 +1573,12 @@
                <td>
                 <a id="awsbatch-batch_AWSLogsStreamPrefix">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:AWSLogsStreamPrefix
                 </a>
                </td>
                <td>
-                Filters access based on the awslogs log stream prefix
+                Filters access by the awslogs log stream prefix
                </td>
                <td>
                 String
@@ -1343,12 +1588,12 @@
                <td>
                 <a id="awsbatch-batch_Image">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:Image
                 </a>
                </td>
                <td>
-                Filters access based on the image used to start a container
+                Filters access by on the image used to start a container
                </td>
                <td>
                 String
@@ -1358,12 +1603,12 @@
                <td>
                 <a id="awsbatch-batch_LogDriver">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:LogDriver
                 </a>
                </td>
                <td>
-                Filters access based on the log driver used for the container
+                Filters access by the log driver used for the container
                </td>
                <td>
                 String
@@ -1373,29 +1618,44 @@
                <td>
                 <a id="awsbatch-batch_Privileged">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:Privileged
                 </a>
                </td>
                <td>
-                Filter access based on the specified privileged parameter value that determines whether
+                Filters access by the specified privileged parameter value that determines whether
                                                 the container is given elevated privileges on the host container instance (similar
                                                 to the root user)
                </td>
                <td>
-                Boolean
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-batch_ShareIdentifier">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:ShareIdentifier
+                </a>
+               </td>
+               <td>
+                Filters access by the shareIdentifier used inside submit job
+               </td>
+               <td>
+                String
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awsbatch-batch_User">
                 </a>
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsbatch.html#awsbatch-policy-keys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
                  batch:User
                 </a>
                </td>
                <td>
-                Filters access based on the user name or numeric uid used inside the container
+                Filters access by user name or numeric uid used inside the container
                </td>
                <td>
                 String
