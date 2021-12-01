@@ -415,7 +415,10 @@ class QueryActionsTestCase(unittest.TestCase):
         result = remove_actions_not_matching_access_level(
             actions_list, "List"
         )
-        self.assertListEqual(result, ["ecr:DescribeRepositories"])
+        # self.assertListEqual(result, ["ecr:DescribeRepositories"])
+        # DescribeRepositories is no longer considered a "list" action.
+        self.assertListEqual(result, [])
+        
         # Tagging
         result = remove_actions_not_matching_access_level(
             actions_list, "Tagging"
