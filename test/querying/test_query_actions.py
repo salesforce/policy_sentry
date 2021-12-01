@@ -404,9 +404,7 @@ class QueryActionsTestCase(unittest.TestCase):
             actions_list, "Read"
         )
         expected = ["ecr:BatchGetImage"]
-        for tmp in result:
-            self.assertTrue(tmp in expected)
-        # self.assertListEqual(result, ["ecr:BatchGetImage", "ecr:DescribeRepositories"])
+        self.assertListEqual(result, ["ecr:BatchGetImage", "ecr:DescribeRepositories"])
         # Write
         result = remove_actions_not_matching_access_level(
             actions_list, "Write"
