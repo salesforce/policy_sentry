@@ -6,10 +6,17 @@ module "create_template" {
   list_access_level                   = var.list_access_level
   tagging_access_level                = var.tagging_access_level
   permissions_management_access_level = var.permissions_management_access_level
-  wildcard_only_single_actions        = var.wildcard_only_single_actions
-  minimize                            = var.minimize
-  skip_resource_constraints           = var.skip_resource_constraints
-  exclude_actions                     = var.exclude_actions
+
+  wildcard_only_single_actions                 = var.wildcard_only_single_actions
+  wildcard_only_read_service                   = var.wildcard_only_read_service
+  wildcard_only_write_service                  = var.wildcard_only_write_service
+  wildcard_only_list_service                   = var.wildcard_only_list_service
+  wildcard_only_tagging_service                = var.wildcard_only_tagging_service
+  wildcard_only_permissions_management_service = var.wildcard_only_permissions_management_service
+
+  minimize                  = var.minimize
+  skip_resource_constraints = var.skip_resource_constraints
+  exclude_actions           = var.exclude_actions
 }
 
 module "create_iam" {
