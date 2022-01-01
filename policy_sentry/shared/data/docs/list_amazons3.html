@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -208,7 +207,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1023c11b9">
+             <table id="w86aab5b9e1059c11b9">
               <thead>
                <tr>
                 <th>
@@ -740,6 +739,11 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-grant-write-acp">
                   s3:x-amz-grant-write-acp
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-object-ownership">
+                  s3:x-amz-object-ownership
                  </a>
                 </p>
                </td>
@@ -9383,7 +9387,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1023c13b5">
+             <table id="w86aab5b9e1059c13b5">
               <thead>
                <tr>
                 <th>
@@ -9670,7 +9674,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1023c15b7">
+             <table id="w86aab5b9e1059c15b7">
               <thead>
                <tr>
                 <th>
@@ -9929,7 +9933,7 @@
                <td>
                 <a id="amazons3-s3_ResourceAccount">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html#condition-key-bucket-ops-2">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html#example-object-resource-account">
                  s3:ResourceAccount
                 </a>
                </td>
@@ -9944,7 +9948,7 @@
                <td>
                 <a id="amazons3-s3_TlsVersion">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/bucket-policy-s3-sigv4-conditions.html">
+                <a href="#example-object-tls-version">
                  s3:TlsVersion
                 </a>
                </td>
@@ -10280,6 +10284,21 @@
                </td>
                <td>
                 Filters access by object metadata behavior (COPY or REPLACE) when objects are copied
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazons3-s3_x-amz-object-ownership">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ensure-object-ownership.html#object-ownership-requiring-bucket-owner-enforced">
+                 s3:x-amz-object-ownership
+                </a>
+               </td>
+               <td>
+                Filters access by Object Ownership
                </td>
                <td>
                 String
