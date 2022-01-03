@@ -22,8 +22,8 @@ def get_arn_data(service_prefix, resource_type_name):
     """
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_data in service_prefix_data["resources"]:
-        if resource_data["resource"].lower() == resource_type_name.lower():
+    for resource_data in service_prefix_data["resource_types"]:
+        if resource_data["resource_type"].lower() == resource_type_name.lower():
             output = {
                 "resource_type_name": resource_data["resource"],
                 "raw_arn": resource_data["arn"],
@@ -62,8 +62,8 @@ def get_arn_types_for_service(service_prefix):
     """
     results = {}
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_data in service_prefix_data["resources"]:
-        results[resource_data["resource"]] = resource_data["arn"]
+    for resource_data in service_prefix_data["resource_types"]:
+        results[resource_data["resource_type"]] = resource_data["arn"]
     return results
 
 
@@ -79,10 +79,10 @@ def get_arn_type_details(service_prefix, resource_type_name):
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     output = {}
-    for resource_data in service_prefix_data["resources"]:
-        if resource_data["resource"].lower() == resource_type_name.lower():
+    for resource_data in service_prefix_data["resource_types"]:
+        if resource_data["resource_type"].lower() == resource_type_name.lower():
             output = {
-                "resource_type_name": resource_data["resource"],
+                "resource_type_name": resource_data["resource_type"],
                 "raw_arn": resource_data["arn"],
                 "condition_keys": resource_data["condition_keys"],
             }
@@ -104,9 +104,9 @@ def get_resource_type_name_with_raw_arn(raw_arn):
     service_prefix = elements[2]
     service_data = get_service_prefix_data(service_prefix)
 
-    for resource_data in service_data["resources"]:
+    for resource_data in service_data["resource_types"]:
         if resource_data["arn"].lower() == raw_arn.lower():
-            return resource_data["resource"]
+            return resource_data["resource_type"]
 
 
 def get_matching_raw_arns(arn):

@@ -149,6 +149,18 @@ firehose:
         - untagdeliverystream
         - tagdeliverystream
 glue:
+    # Not listed in AWS documentation
+    List:
+        - listblueprints
+    # Not listed in AWS documentation
+    Read:
+        - getblueprints
+        - getblueprintsrun
+        - getblueprintsruns
+    # Not listed in AWS documentation
+    Write:
+        - createblueprint
+        - deleteblueprint
     # AWS documentation lists this as "Write"
     Permissions management:
         - putresourcepolicy
