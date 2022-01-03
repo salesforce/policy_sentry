@@ -6,7 +6,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
 def override_access_level(service_override_config, action_name, provided_access_level):
     """
     Given the service-specific override config, determine whether or not the
@@ -15,7 +14,7 @@ def override_access_level(service_override_config, action_name, provided_access_
     Arguments:
         service_override_config: Given that the name
         action_name: The name of the action
-        provided_access_level: Read, Write, List, Tagging, or 'Permissions management'.
+        provided_access_level: Read, Write, List, Tagging, Unknown, or 'Permissions management'.
     """
     real_access_level = []  # This will hold the real access level in index 0
     try:
@@ -64,6 +63,8 @@ def transform_access_level_text(access_level):
         level = "List"
     elif access_level == "tagging":
         level = "Tagging"
+    elif access_level == "unknown":
+        level = "Unknown"
     elif access_level == "permissions-management":
         level = "Permissions management"
     else:
@@ -106,6 +107,10 @@ def determine_access_level_override(
     elif str.lower(provided_access_level) == str.lower("Tagging"):
         override_decision = override_access_level(
             service_override_config, str.lower(action_name), "Tagging"
+        )
+    elif str.lower(provided_access_level) == str.lower("Unknown"):
+        override_decision = override_access_level(
+            service_override_config, str.lower(action_name), "Unknown"
         )
     else:
         logger.debug(

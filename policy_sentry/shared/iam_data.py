@@ -21,8 +21,7 @@ def get_service_prefix_data(service_prefix):
     Returns:
         List: A list of metadata about that service
     """
-    # result = list(filter(lambda item: item["prefix"] == service_prefix, iam_definition))
-    result = iam_definition.get(service_prefix, None)
+    result = next((item for item in iam_definition if item["prefix"] == service_prefix), None)
     try:
         return result
     # pylint: disable=bare-except, inconsistent-return-statements

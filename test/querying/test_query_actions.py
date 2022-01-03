@@ -32,9 +32,9 @@ class QueryActionsTestCase(unittest.TestCase):
                 "service_name": "AWS Cloud9",
                 "service_authorization_url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloud9.html",
                 "prefix": "cloud9",
-                "privileges": dict,
-                "resources": dict,
-                "conditions": dict
+                "privileges": list,
+                "resources": list,
+                "conditions": list
             }
         )
         valid_output = check(desired_output_schema, result)
@@ -156,11 +156,16 @@ class QueryActionsTestCase(unittest.TestCase):
         # Variant 2: ECR
         results = get_actions_that_support_wildcard_arns_only("ecr")
         expected_results = [
+            "ecr:CreatePullThroughCacheRule",
+            "ecr:DeletePullThroughCacheRule",
             "ecr:DeleteRegistryPolicy",
+            "ecr:DescribePullThroughCacheRules",
             "ecr:DescribeRegistry",
             "ecr:GetAuthorizationToken",
             "ecr:GetRegistryPolicy",
+            "ecr:GetRegistryScanningConfiguration",
             "ecr:PutRegistryPolicy",
+            "ecr:PutRegistryScanningConfiguration",
             "ecr:PutReplicationConfiguration"
         ]
         # print(json.dumps(results, indent=4))
@@ -286,11 +291,16 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_matching_arn_type_case_1(self):
         """querying.actions.get_actions_matching_arn_type"""
         expected_results = [
+            "ecr:CreatePullThroughCacheRule",
+            "ecr:DeletePullThroughCacheRule",
             "ecr:DeleteRegistryPolicy",
+            "ecr:DescribePullThroughCacheRules",
             "ecr:DescribeRegistry",
             "ecr:GetAuthorizationToken",
             "ecr:GetRegistryPolicy",
+            "ecr:GetRegistryScanningConfiguration",
             "ecr:PutRegistryPolicy",
+            "ecr:PutRegistryScanningConfiguration",
             "ecr:PutReplicationConfiguration"
         ]
         results = get_actions_matching_arn_type('ecr', '*')

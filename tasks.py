@@ -52,6 +52,11 @@ def download_latest_aws_docs(c):
     """Download the latest AWS docs, and update the bundled IAM database."""
     c.run('./utils/download_docs.py')
 
+@task
+def download_iam_dataset(c):
+    """Download the latest IAM definitions from iam-dataset (aws.permissions.cloud)."""
+    c.run('./utils/download_iam_dataset.py')
+
 # BUILD
 @task
 def build_package(c):
@@ -293,6 +298,7 @@ unit.add_task(run_pytest, 'pytest')
 docs.add_task(build_docs, "build-docs")
 docs.add_task(serve_docs, "serve-docs")
 docs.add_task(download_latest_aws_docs, 'download_latest_aws_docs')
+docs.add_task(download_iam_dataset, 'download_iam_dataset')
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(format, 'format')

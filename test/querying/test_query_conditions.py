@@ -38,6 +38,8 @@ class QueryConditionsTestCase(unittest.TestCase):
             'aws:RequestTag/${TagKey}',
             'aws:ResourceTag/${TagKey}',
             'aws:TagKeys',
+            'ec2:IsLaunchTemplateResource',
+            'ec2:LaunchTemplate',
             'ec2:Region',
             'ec2:ResourceTag/${TagKey}',
             'ec2:Vpc'
@@ -63,6 +65,8 @@ class QueryConditionsTestCase(unittest.TestCase):
             'aws:RequestTag/${TagKey}',
             'aws:ResourceTag/${TagKey}',
             'aws:TagKeys',
+            'ec2:IsLaunchTemplateResource',
+            'ec2:LaunchTemplate',
             'ec2:Region',
             'ec2:ResourceTag/${TagKey}',
             'ec2:Vpc'

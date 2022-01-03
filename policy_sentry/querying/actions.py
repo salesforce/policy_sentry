@@ -27,7 +27,7 @@ def get_actions_for_service(service_prefix):
     results = []
     if isinstance(service_prefix_data, dict):
         for item in service_prefix_data["privileges"]:
-            results.append(f"{service_prefix}:{item}")
+            results.append(f"{service_prefix}:{item['privilege']}")
     return results
 
 
@@ -47,7 +47,10 @@ def get_action_data(service, action_name):
     action_data_results = {}
     try:
         service_prefix_data = get_service_prefix_data(service)
-        for this_action_name, this_action_data in service_prefix_data["privileges"].items():
+        for action in service_prefix_data["privileges"]:
+            #for this_action_name, this_action_data in service_prefix_data["privileges"]:
+            this_action_name = action["privilege"]
+            this_action_data = action
             # Get the baseline conditions and dependent actions
             condition_keys = []
             dependent_actions = []
@@ -56,11 +59,11 @@ def get_action_data(service, action_name):
             if action_name == "*":
                 # rows = this_action_data["resource_types"]
                 for resource_type_entry in this_action_data["resource_types"]:
-                    rows.append(this_action_data["resource_types"][resource_type_entry])
+                    rows.append(resource_type_entry)
             else:
                 for resource_type_entry in this_action_data["resource_types"]:
                     if this_action_name.lower() == action_name.lower():
-                        rows.append(this_action_data["resource_types"][resource_type_entry])
+                        rows.append(resource_type_entry)
             for row in rows:
                 # Set default value for if no other matches are found
                 resource_arn_format = "*"
@@ -68,7 +71,7 @@ def get_action_data(service, action_name):
                 if row["dependent_actions"]:
                     dependent_actions.extend(row["dependent_actions"])
                 # Get the condition keys
-                for service_resource_name, service_resource_data in service_prefix_data["resources"].items():
+                for service_resource_data in service_prefix_data["resources"]:
                     if row["resource_type"] == "":
                         continue
                     if row["resource_type"].strip("*") == service_resource_data["resource"]:
@@ -111,12 +114,12 @@ def get_actions_with_access_level(service_prefix, access_level):
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
+            for action_data in service_prefix_data["privileges"]:
                 if action_data["access_level"] == access_level:
                     results.append(f"{some_prefix}:{action_data['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"]:
             if action_data["access_level"] == access_level:
                 results.append(f"{service_prefix}:{action_data['privilege']}")
     return results
@@ -139,20 +142,20 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
+            for action_data in service_prefix_data["privileges"]:
                 if len(action_data["resource_types"]) == 1:
                     if (
                         action_data["access_level"] == access_level
-                        and action_data["resource_types"].get("")
+                        and "" in [r["resource_type"] for r in action_data["resource_types"]]
                     ):
                         results.append(f"{some_prefix}:{action_data['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"]:
             if len(action_data["resource_types"]) == 1:
                 if (
                     action_data["access_level"] == access_level
-                    and action_data["resource_types"].get("")
+                    and "" in [r["resource_type"] for r in action_data["resource_types"]]
                 ):
                     results.append(f"{service_prefix}:{action_data['privilege']}")
     return results
@@ -180,17 +183,17 @@ def get_actions_with_arn_type_and_access_level(
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
+            for action_data in service_prefix_data["privileges"]:
                 if action_data["access_level"] == access_level:
-                    for resource_name, resource_data in action_data["resource_types"].items():
+                    for resource_data in action_data["resource_types"]:
                         this_resource_type = resource_data["resource_type"].strip("*")
                         if this_resource_type.lower() == resource_type_name.lower():
                             results.append(f"{service_prefix}:{action_data['privilege']}")
                             break
     else:
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"]:
             if action_data["access_level"] == access_level:
-                for resource_name, resource_data in action_data["resource_types"].items():
+                for resource_data in action_data["resource_types"]:
                     this_resource_type = resource_data["resource_type"].strip("*")
                     if this_resource_type.lower() == resource_type_name.lower():
                         results.append(f"{service_prefix}:{action_data['privilege']}")
@@ -213,18 +216,18 @@ def get_actions_that_support_wildcard_arns_only(service_prefix):
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
-                if len(action_data["resource_types"].keys()) == 1:
+            for action_data in service_prefix_data["privileges"]:
+                if len(action_data["resource_types"]) == 1:
                     for resource_type in action_data["resource_types"]:
-                        if resource_type == '':
-                            results.append(f"{some_prefix}:{action_name}")
+                        if resource_type["resource_type"] == '':
+                            results.append(f"{some_prefix}:{action_data['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            if len(action_data["resource_types"].keys()) == 1:
+        for action_data in service_prefix_data["privileges"]:
+            if len(action_data["resource_types"]) == 1:
                 for resource_type in action_data["resource_types"]:
-                    if resource_type == '':
-                        results.append(f"{service_prefix}:{action_name}")
+                    if resource_type["resource_type"] == '':
+                        results.append(f"{service_prefix}:{action_data['privilege']}")
     return results
 
 
@@ -247,15 +250,15 @@ def get_actions_matching_arn_type(service_prefix, resource_type_name):
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
-                for resource_name, resource_data in action_data["resource_types"].items():
+            for action_data in service_prefix_data["privileges"]:
+                for resource_data in action_data["resource_types"]:
                     this_resource_type = resource_data["resource_type"].strip("*")
                     if this_resource_type.lower() == resource_type_name.lower():
                         results.append(f"{service_prefix}:{action_data['privilege']}")
                         break
     else:
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            for resource_name, resource_data in action_data["resource_types"].items():
+        for action_data in service_prefix_data["privileges"]:
+            for resource_data in action_data["resource_types"]:
                 this_resource_type = resource_data["resource_type"].strip("*")
                 if this_resource_type.lower() == resource_type_name.lower():
                     results.append(f"{service_prefix}:{action_data['privilege']}")
@@ -278,9 +281,9 @@ def get_actions_matching_arn(arn):
         resource_type_name = get_resource_type_name_with_raw_arn(raw_arn)
         service_prefix = get_service_from_arn(raw_arn)
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"]:
         # for some_action in service_prefix_data["privileges"]:
-            for resource_name, resource_data in action_data["resource_types"].items():
+            for resource_data in action_data["resource_types"]:
                 this_resource_type = resource_data["resource_type"].strip("*")
                 if this_resource_type.lower() == resource_type_name.lower():
                     results.append(f"{service_prefix}:{action_data['privilege']}")
@@ -303,14 +306,14 @@ def get_actions_matching_condition_key(service_prefix, condition_key):
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
-                for resource_name, resource_data in action_data["resource_types"].items():
+            for action_data in service_prefix_data["privileges"]:
+                for resource_data in action_data["resource_types"]:
                     if condition_key in resource_data["condition_keys"]:
                         results.append(f"{service_prefix}:{action_data['privilege']}")
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            for resource_name, resource_data in action_data["resource_types"].items():
+        for action_data in service_prefix_data["privileges"]:
+            for resource_data in action_data["resource_types"]:
                 if condition_key in resource_data["condition_keys"]:
                     results.append(f"{service_prefix}:{action_data['privilege']}")
     return results
@@ -349,7 +352,7 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
         this_result = None
         if service_prefix_data:
             if service_prefix_data.get("privileges"):
-                for action_name, action_data in service_prefix_data["privileges"].items():
+                for action_data in service_prefix_data["privileges"]:
                     if action_data.get("access_level") == access_level:
                         if action_data.get("privilege").lower() == some_action.lower():
                             this_result = f"{some_service_prefix}:{action_data.get('privilege')}"
@@ -362,7 +365,7 @@ def remove_actions_not_matching_access_level(actions_list, access_level):
         actions_list.clear()
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
+            for action_data in service_prefix_data["privileges"]:
                 if action_data["access_level"] == access_level:
                     actions_list.append(f"{some_prefix}:{action_data['privilege']}")
     for action in actions_list:
@@ -443,9 +446,12 @@ def get_privilege_info(service_prefix, action):
         List: The info from the docs about that action, along with some of the info from the docs
     """
     try:
-        privilege_info = iam_definition[service_prefix]["privileges"][action]
-        privilege_info["service_resources"] = iam_definition[service_prefix]["resources"]
-        privilege_info["service_conditions"] = iam_definition[service_prefix]["conditions"]
+        #privilege_info = iam_definition[service_prefix]["privileges"][action]
+        service_data = get_service_prefix_data(service_prefix)
+        privilege_info_tmp = service_data["privileges"]
+        privilege_info = next((item for item in privilege_info_tmp if item["privilege"] == action), None)
+        privilege_info["service_resources"] = service_data["resources"]
+        privilege_info["service_conditions"] = service_data["conditions"]
     except KeyError as k_e:
         raise Exception("Unknown action {}:{}".format(service_prefix, action)) from k_e
     return privilege_info

@@ -582,7 +582,6 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "s3:CreateBucket",
                         "s3:DeleteBucket",
-                        "s3:DeleteBucketOwnershipControls",
                         "s3:DeleteBucketWebsite",
                         "s3:PutAccelerateConfiguration",
                         "s3:PutAnalyticsConfiguration",

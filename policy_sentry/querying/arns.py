@@ -22,7 +22,7 @@ def get_arn_data(service_prefix, resource_type_name):
     """
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"]:
         if resource_data["resource"].lower() == resource_type_name.lower():
             output = {
                 "resource_type_name": resource_data["resource"],
@@ -45,7 +45,7 @@ def get_raw_arns_for_service(service_prefix):
     """
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"]:
         results.append(resource_data["arn"])
     return results
 
@@ -62,7 +62,7 @@ def get_arn_types_for_service(service_prefix):
     """
     results = {}
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"]:
         results[resource_data["resource"]] = resource_data["arn"]
     return results
 
@@ -79,7 +79,7 @@ def get_arn_type_details(service_prefix, resource_type_name):
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     output = {}
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"]:
         if resource_data["resource"].lower() == resource_type_name.lower():
             output = {
                 "resource_type_name": resource_data["resource"],
@@ -104,7 +104,7 @@ def get_resource_type_name_with_raw_arn(raw_arn):
     service_prefix = elements[2]
     service_data = get_service_prefix_data(service_prefix)
 
-    for resource_name, resource_data in service_data["resources"].items():
+    for resource_data in service_data["resources"]:
         if resource_data["arn"].lower() == raw_arn.lower():
             return resource_data["resource"]
 

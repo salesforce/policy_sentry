@@ -22,6 +22,12 @@ LOCAL_HTML_DIRECTORY_PATH = os.path.join(CONFIG_DIRECTORY, "data", "docs")
 BASE_DOCUMENTATION_URL = "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
 # BASE_DOCUMENTATION_URL = "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html"
 
+IAM_DATASET_URL = "https://raw.githubusercontent.com/iann0036/iam-dataset/main/iam_definition.json"
+SERVICE_AUTHORIZATION_URL_PREFIX = "https://docs.aws.amazon.com/service-authorization/latest/reference"
+
+# Handle unknown access levels by trying to infer it based on other actions (If False, the actions will need to be overridden)
+INFER_ACTION_ACCESS_LEVEL = True
+
 # Data json file
 # On initialization, load the IAM data
 BUNDLED_DATASTORE_FILE_PATH = os.path.join(
