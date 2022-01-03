@@ -146,7 +146,7 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
                 if len(action_data["resource_types"]) == 1:
                     if (
                         action_data["access_level"] == access_level
-                        and "" in [r["resource_type"] for r in action_data["resource_types"]]
+                        and action_data["resource_types"][0]['resource_type'] == ""
                     ):
                         results.append(f"{some_prefix}:{action_data['privilege']}")
     else:
@@ -155,7 +155,7 @@ def get_actions_at_access_level_that_support_wildcard_arns_only(
             if len(action_data["resource_types"]) == 1:
                 if (
                     action_data["access_level"] == access_level
-                    and "" in [r["resource_type"] for r in action_data["resource_types"]]
+                    and action_data["resource_types"][0]['resource_type'] == ""
                 ):
                     results.append(f"{service_prefix}:{action_data['privilege']}")
     return results

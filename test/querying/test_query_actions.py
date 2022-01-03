@@ -203,7 +203,7 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
         self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
-        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
+        self.assertListEqual(permissions_output, ["s3:PutAccessPointPublicAccessBlock", "s3:PutAccountPublicAccessBlock"])
 
         all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Permissions management"
@@ -261,6 +261,7 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_3(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
+            's3:PutAccessPointPublicAccessBlock',
             's3:PutAccountPublicAccessBlock'
         ]
         output = get_actions_with_arn_type_and_access_level(

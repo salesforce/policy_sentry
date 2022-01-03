@@ -58,17 +58,25 @@ def infer_action_access_level(action, privileges):
     matching_privileges_access_levels = []
     if words:
         # The first word is usually a good indicator or access level (Describe, List, Create, etc.)
-        action_descriptor = words[0]
+        # Let's work backwards though in case there is a multi-word match
+        while not matching_privileges_access_levels:
+            action_descriptor = ''.join(words)
 
-        # Find actions with similar starting words, add all the access levels to a list
-        for privilege in privileges:
-            if re.match(f'^{action_descriptor}', privilege["privilege"]):
-                matching_privileges_access_levels.append(privilege["access_level"])
+            # Find actions with similar starting words, add all the access levels to a list
+            for privilege in privileges:
+                if re.match(f'^{action_descriptor}', privilege["privilege"]) and not privilege["privilege"] == action_descriptor:
+                    matching_privileges_access_levels.append(privilege["access_level"])
 
-        # If we found some access levels, find the one that occurs most often
-        if matching_privileges_access_levels:
-            mode = max(set(matching_privileges_access_levels), key = matching_privileges_access_levels.count)
-            return mode
+            # If we found some access levels, find the one that occurs most often
+            if matching_privileges_access_levels:
+                mode = max(set(matching_privileges_access_levels), key = matching_privileges_access_levels.count)
+                return mode
+            else:
+                words.pop()
+
+            # We're out of words to match on, break
+            if not words:
+                break
 
     return 'Unknown'
 
