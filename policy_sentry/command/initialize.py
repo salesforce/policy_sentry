@@ -1,15 +1,17 @@
 """
 Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
-Create the SQLite datastore and fill it with the tables scraped from the AWS Docs
 """
 import os
 import shutil
 import logging
 import click
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.shared.awsdocs import (
-    update_html_docs_directory,
-    create_database,
+# from policy_sentry.shared.awsdocs import (
+#     update_html_docs_directory,
+#     create_database,
+# )
+from policy_sentry.shared.dataset import (
+    create_database
 )
 from policy_sentry.shared.constants import (
     LOCAL_HTML_DIRECTORY_PATH,
@@ -78,7 +80,7 @@ def initialize(access_level_overrides_file=None, fetch=False, build=False):
     database_path = create_policy_sentry_config_directory()
 
     # Copy over the html docs, which will be used to build the database
-    create_html_docs_directory()
+    #create_html_docs_directory()
 
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
@@ -99,9 +101,9 @@ def initialize(access_level_overrides_file=None, fetch=False, build=False):
         shutil.copy(BUNDLED_DATASTORE_FILE_PATH, database_path)
 
     # --fetch: wget the AWS IAM Actions, Resources and Condition Keys pages and store them locally.
-    if fetch:
-        # `wget` the html docs to the local directory
-        update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
+    # if fetch:
+        # # `wget` the html docs to the local directory
+        # update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
 
     # --build
     if build or access_level_overrides_file or fetch:
@@ -136,20 +138,20 @@ def create_policy_sentry_config_directory():
     return LOCAL_DATASTORE_FILE_PATH
 
 
-def create_html_docs_directory():
-    """
-    Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
-    Essentially:
-    mkdir -p ~/.policy_sentry/data/docs
-    cp -r $MODULE_DIR/policy_sentry/shared/data/docs ~/.policy_sentry/data/docs
-    :return:
-    """
-    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
-        pass
-    else:
-        os.makedirs(LOCAL_HTML_DIRECTORY_PATH)
-    # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
-    logger.debug(BUNDLED_HTML_DIRECTORY_PATH)
-    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
-        shutil.rmtree(LOCAL_HTML_DIRECTORY_PATH)
-    shutil.copytree(BUNDLED_HTML_DIRECTORY_PATH, LOCAL_HTML_DIRECTORY_PATH)
+# def create_html_docs_directory():
+#     """
+#     Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
+#     Essentially:
+#     mkdir -p ~/.policy_sentry/data/docs
+#     cp -r $MODULE_DIR/policy_sentry/shared/data/docs ~/.policy_sentry/data/docs
+#     :return:
+#     """
+#     if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
+#         pass
+#     else:
+#         os.makedirs(LOCAL_HTML_DIRECTORY_PATH)
+#     # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
+#     logger.debug(BUNDLED_HTML_DIRECTORY_PATH)
+#     if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
+#         shutil.rmtree(LOCAL_HTML_DIRECTORY_PATH)
+#     shutil.copytree(BUNDLED_HTML_DIRECTORY_PATH, LOCAL_HTML_DIRECTORY_PATH)
