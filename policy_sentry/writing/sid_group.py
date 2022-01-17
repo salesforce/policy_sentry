@@ -65,6 +65,7 @@ class SidGroup:
         self.wildcard_only_service_list = []
         self.wildcard_only_service_tagging = []
         self.wildcard_only_service_permissions_management = []
+        self.wildcard_dependent_actions = True
 
     def get_sid_group(self):
         """
@@ -258,12 +259,23 @@ class SidGroup:
                         dependent_actions = [
                             x for x in dependent_actions if x not in supplied_actions
                         ]
+                        # if len(dependent_actions) > 0:
+                        #     for dep_action in dependent_actions:
+                        #         self.add_action_without_resource_constraint(dep_action)
+                        #         # self.add_action_without_resource_constraint(
+                        #         #     str.lower(dep_action)
+                        #         # )
                         if len(dependent_actions) > 0:
                             for dep_action in dependent_actions:
-                                self.add_action_without_resource_constraint(dep_action)
-                                # self.add_action_without_resource_constraint(
-                                #     str.lower(dep_action)
-                                # )
+                                # If a dependent action has the same resource constraint, add it to actions 
+                                # instead of * which could grant more access than anticipated.
+                                for level in ["Read", "Write", "List", "Tagging", "Permissions management"]:
+                                    if dep_action in get_actions_with_arn_type_and_access_level(
+                                        service_prefix, resource_type_name, level):
+                                            if not dep_action in actions:
+                                                actions.append(dep_action)
+                                if not dep_action in actions and self.wildcard_dependent_actions:
+                                    self.add_action_without_resource_constraint(dep_action)
 
                         temp_sid_dict = {
                             "arn": [arn],
@@ -416,6 +428,9 @@ class SidGroup:
             if cfg.get("exclude-actions"):
                 if cfg.get("exclude-actions")[0] != "":
                     self.add_exclude_actions(cfg["exclude-actions"])
+            # Wildcard DEPENDENT ACTIONS
+            if isinstance(cfg.get("wildcard-dependent-actions"), bool):
+                self.wildcard_dependent_actions = cfg.get("wildcard-dependent-actions")
             # WILDCARD ONLY SECTION
             if cfg.get("wildcard-only"):
                 if cfg.get("wildcard-only").get("single-actions"):

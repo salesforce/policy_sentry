@@ -608,3 +608,107 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ]
         }
         self.assertDictEqual(result, expected_result)
+
+    def test_crud_with_wildcard_dependent_actions_false(self):
+        cfg = {
+            "mode": "crud",
+            "name": "RoleNameWithCRUD",
+            "write": ["arn:aws:s3:::example-org-s3-access-logs"],
+            "wildcard-dependent-actions": False
+        }
+        sid_group = SidGroup()
+        output = sid_group.process_template(cfg)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "S3WriteBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:CreateBucket",
+                        "s3:DeleteBucket",
+                        "s3:DeleteBucketOwnershipControls",
+                        "s3:DeleteBucketWebsite",
+                        "s3:PutAccelerateConfiguration",
+                        "s3:PutAnalyticsConfiguration",
+                        "s3:PutBucketCORS",
+                        "s3:PutBucketLogging",
+                        "s3:PutBucketNotification",
+                        "s3:PutBucketObjectLockConfiguration",
+                        "s3:PutBucketOwnershipControls",
+                        "s3:PutBucketRequestPayment",
+                        "s3:PutBucketVersioning",
+                        "s3:PutBucketWebsite",
+                        "s3:PutEncryptionConfiguration",
+                        "s3:PutIntelligentTieringConfiguration",
+                        "s3:PutInventoryConfiguration",
+                        "s3:PutLifecycleConfiguration",
+                        "s3:PutMetricsConfiguration",
+                        "s3:PutReplicationConfiguration"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        self.maxDiff = None
+        # print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)
+
+    def test_crud_with_wildcard_dependent_actions_true(self):
+        cfg = {
+            "mode": "crud",
+            "name": "RoleNameWithCRUD",
+            "write": ["arn:aws:s3:::example-org-s3-access-logs"],
+            "wildcard-dependent-actions": True
+        }
+        sid_group = SidGroup()
+        output = sid_group.process_template(cfg)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "MultMultNone",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:PassRole"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                },
+                {
+                    "Sid": "S3WriteBucket",
+                    "Effect": "Allow",
+                    "Action": [
+                        "s3:CreateBucket",
+                        "s3:DeleteBucket",
+                        "s3:DeleteBucketOwnershipControls",
+                        "s3:DeleteBucketWebsite",
+                        "s3:PutAccelerateConfiguration",
+                        "s3:PutAnalyticsConfiguration",
+                        "s3:PutBucketCORS",
+                        "s3:PutBucketLogging",
+                        "s3:PutBucketNotification",
+                        "s3:PutBucketObjectLockConfiguration",
+                        "s3:PutBucketOwnershipControls",
+                        "s3:PutBucketRequestPayment",
+                        "s3:PutBucketVersioning",
+                        "s3:PutBucketWebsite",
+                        "s3:PutEncryptionConfiguration",
+                        "s3:PutIntelligentTieringConfiguration",
+                        "s3:PutInventoryConfiguration",
+                        "s3:PutLifecycleConfiguration",
+                        "s3:PutMetricsConfiguration",
+                        "s3:PutReplicationConfiguration"
+                    ],
+                    "Resource": [
+                        "arn:aws:s3:::example-org-s3-access-logs"
+                    ]
+                }
+            ]
+        }
+        self.maxDiff = None
+        # print(json.dumps(output, indent=4))
+        self.assertDictEqual(output, desired_output)
