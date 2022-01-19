@@ -21,6 +21,8 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Whether or not to add dependent actions if they don't have the same resource constraint (default: true)
+wildcard-dependent-actions: true
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -52,6 +54,7 @@ CRUD_TEMPLATE_DICT = {
     "list": [],
     "tagging": [],
     "permissions-management": [],
+    "wildcard-dependent-actions": True,
     "wildcard-only": {
         "single-actions": [],
         "service-read": [],
