@@ -65,7 +65,6 @@ class SidGroup:
         self.wildcard_only_service_list = []
         self.wildcard_only_service_tagging = []
         self.wildcard_only_service_permissions_management = []
-        self.sts_actions = []
 
     def get_sid_group(self):
         """
