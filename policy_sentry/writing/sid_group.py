@@ -65,6 +65,7 @@ class SidGroup:
         self.wildcard_only_service_list = []
         self.wildcard_only_service_tagging = []
         self.wildcard_only_service_permissions_management = []
+        self.sts_actions = []
 
     def get_sid_group(self):
         """
@@ -107,6 +108,18 @@ class SidGroup:
             self.skip_resource_constraints.append([skip_resource_constraints_actions])
         else:
             raise Exception("Please provide 'skip_resource_constraints' as a list of IAM actions.")
+
+    def add_sts_actions(self, sts_actions):
+        """
+        To add STS actions to the output
+        """
+        if sts_actions:
+            for key, assume_actions in sts_actions.items():
+                for action, arns in assume_actions.items():
+                    self.sts_actions = get_action_data(key, action.replace('-',''))
+                    print(self.sts_actions)
+        else:
+            self.sts_actions = []
 
     def add_requested_service_wide(self, service_prefixes, access_level):
         """

@@ -1,6 +1,7 @@
 """
 Validation for the Policy Sentry YML Templates.
 """
+from ast import Or
 import logging
 from schema import Optional, Schema, And, Use, SchemaError
 
@@ -51,6 +52,7 @@ CRUD_SCHEMA = Schema(
         },
         Optional("skip-resource-constraints"): [str],
         Optional("exclude-actions"): [str],
+        Optional("sts"): dict({Or("assume-role","assume-role-with-saml","assume-role-with-web-identity"): list}),
     }
 )
 
