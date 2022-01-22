@@ -1,3 +1,5 @@
+Assume Role Actions
+============
 
 Using CRUD mode, you can add STS assume role actions to your larger CRUD policy by using the `sts` section.
 
