@@ -42,6 +42,18 @@ invalid_crud_with_mispelled_category = {
     "wrist": ["arn:aws:s3:::example-org-sbx-vmimport",],
 }
 
+valid_crud_with_sts_actions = {
+    "mode": "crud",
+    "name": "RoleNameWithCRUD",
+    "sts": {"assume-role": ["arn:aws:iam::123456789012:role/demo",]}
+}
+
+invalid_crud_with_invalid_sts_action = {
+    "mode": "crud",
+    "name": "RoleNameWithCRUD",
+    "sts": {"assume-role-fake-something": ["arn:aws:iam::123456789012:role/demo",]}
+}
+
 
 class YMLSchemaTestCase(unittest.TestCase):
     def test_actions_schema(self):
@@ -54,5 +66,8 @@ class YMLSchemaTestCase(unittest.TestCase):
         result = check_crud_schema(valid_cfg_for_crud)
         self.assertTrue(result)
         self.assertTrue(check_crud_schema(valid_crud_with_one_item_only))
+        self.assertTrue(check_crud_schema(valid_crud_with_sts_actions))
         with self.assertRaises(Exception):
             check_crud_schema(invalid_crud_with_mispelled_category)
+        with self.assertRaises(Exception):
+            check_crud_schema(invalid_crud_with_invalid_sts_action)

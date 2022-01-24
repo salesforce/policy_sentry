@@ -61,6 +61,13 @@ wildcard-only:
   - ''
   service-permissions-management:
   - ''
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 ```
 
 -   Then just fill it out:
@@ -92,6 +99,13 @@ wildcard-only:
   - ''
   service-permissions-management:
   - ''
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 ```
 
 -   Run the command:
