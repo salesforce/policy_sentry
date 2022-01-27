@@ -108,6 +108,56 @@ class SidGroup:
         else:
             raise Exception("Please provide 'skip_resource_constraints' as a list of IAM actions.")
 
+    def add_sts_actions(self, sts_actions):
+        """
+        To add STS actions to the output from special YAML section
+        """
+        if sts_actions:
+            # Hard coded for this special case
+            service_prefix = "sts"
+            access_level = "Write"
+
+            for action, arns in sts_actions.items():
+                clean_action = action.replace('-','') # Convention to follow adding dashes instead of CamelCase
+                service_action_data = get_action_data(service_prefix, clean_action)
+
+                # Schema validation takes care of this, but just in case. No data returned for the action
+                if not service_action_data:
+                    raise Exception(f"Could not find service action data for {service_prefix} - {clean_action}")
+
+                for row in service_action_data[service_prefix]:
+                    for arn in arns:
+                        if not arn: # skip the - '' situation
+                            continue
+                        if (
+                                does_arn_match(arn, row["resource_arn_format"])
+                                and row["access_level"] == access_level
+                            ):
+                            raw_arn_format = row["resource_arn_format"]
+
+                            # Each action will get its own namespace sts:AssumeRole -> AssumeRole
+                            # -1 index is a neat trick if the colon ever goes away we won't get an index error.
+                            sid_namespace = row["action"].split(':')[-1]
+
+                            temp_sid_dict = {
+                                "arn": [arn],
+                                "service": service_prefix,
+                                "access_level": access_level,
+                                "arn_format": raw_arn_format,
+                                "actions": [row["action"]],
+                                "conditions": [],  # TODO: Add conditions
+                            }
+
+                        # Using a custom namespace and not gathering actions so no need to find
+                        # dependent actions either, though we could do it here    
+
+                        if sid_namespace in self.sids.keys():
+                            # If the ARN already exists there, skip it.
+                            if arn not in self.sids[sid_namespace]["arn"]:
+                                self.sids[sid_namespace]["arn"].append(arn)
+                        else:
+                            self.sids[sid_namespace] = temp_sid_dict
+
     def add_requested_service_wide(self, service_prefixes, access_level):
         """
         When a user requests all wildcard-only actions available under a service at a specific access level
@@ -486,6 +536,14 @@ class SidGroup:
                         self.add_action_without_resource_constraint(
                             skip_resource_constraints_action, "SkipResourceConstraints"
                         )
+
+            # STS Section
+            if cfg.get("sts"):
+                logger.debug(
+                    f"STS section detected. Building assume role policy statement"
+                )
+                self.add_sts_actions(cfg['sts'])
+
         elif cfg.get("mode") == "actions":
             check_actions_schema(cfg)
             if "actions" in cfg.keys():

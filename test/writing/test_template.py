@@ -47,6 +47,14 @@ skip-resource-constraints:
 # Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
 exclude-actions:
 - ''
+# If this policy needs to include an AssumeRole action
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 """
         crud_template = create_crud_template()
         self.maxDiff = None

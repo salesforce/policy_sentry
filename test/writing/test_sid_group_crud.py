@@ -612,3 +612,34 @@ class SidGroupCrudTestCase(unittest.TestCase):
         for action in expected_actions:
             self.assertTrue(action in result["Statement"][0]["Action"])
         # self.assertDictEqual(result, expected_result)
+
+
+    def test_write_template_with_sts_actions(self):
+        cfg = {
+            "mode": "crud",
+            "name": "RoleNameWithCRUD",
+            "sts": {"assume-role-with-web-identity": ["arn:aws:iam::123456789012:role/demo"]},
+            "list": [
+                "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
+            ],
+        }
+        sid_group = SidGroup()
+        rendered_policy = sid_group.process_template(cfg)
+        desired_output = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "AssumeRoleWithWebIdentity",
+                    "Effect": "Allow",
+                    "Action": [
+                        "sts:AssumeRoleWithWebIdentity"
+                    ],
+                    "Resource": [
+                        "arn:aws:iam::123456789012:role/demo"
+                    ]
+                }
+            ]
+        }
+
+        # print(json.dumps(rendered_policy, indent=4))
+        self.assertEqual(rendered_policy, desired_output)

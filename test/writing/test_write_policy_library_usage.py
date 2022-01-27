@@ -86,6 +86,16 @@ desired_crud_policy = {
             "Resource": [
                 "arn:aws:kms:us-east-1:123456789012:key/123456"
             ]
+        },
+        {
+            "Sid": "AssumeRole",
+            "Effect": "Allow",
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::123456789012:role/demo"
+            ]
         }
     ]
 }
@@ -181,6 +191,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             "arn:aws:ssm:us-east-1:123456789012:parameter/test"
         )
         another_crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
+        another_crud_template["sts"]["assume-role"].append("arn:aws:iam::123456789012:role/demo")
         # Modify it
         sid_group = SidGroup()
         # minimize = None
@@ -193,7 +204,8 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             "SecretsmanagerWriteSecret",
             "S3ListObject",
             "SsmTaggingParameter",
-            "KmsPermissionsmanagementKey"
+            "KmsPermissionsmanagementKey",
+            "AssumeRole"
         ]
         self.maxDiff = None
         print(json.dumps(result, indent=4))
