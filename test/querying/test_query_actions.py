@@ -97,7 +97,29 @@ class QueryActionsTestCase(unittest.TestCase):
             expected_results = json.load(json_file)
         results = get_privilege_info("cloud9", "CreateEnvironmentEC2")
         print(json.dumps(results, indent=4))
-        self.assertDictEqual(results, expected_results)
+        # Future proofing the unit tests
+        self.assertEqual(results["privilege"], expected_results["privilege"])
+        self.assertEqual(results["access_level"], expected_results["access_level"])
+        self.assertEqual(results["resource_types"][""]["resource_type"], expected_results["resource_types"][""]["resource_type"])
+        self.assertTrue("aws:RequestTag/${TagKey}" in results["resource_types"][""]["condition_keys"])
+        self.assertTrue("ec2:DescribeSubnets" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("ec2:DescribeVpcs" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("iam:CreateServiceLinkedRole" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("environment" in results["service_resources"].keys())
+        expected_service_conditions = [
+            'aws:RequestTag/${TagKey}',
+            'aws:ResourceTag/${TagKey}',
+            'aws:TagKeys',
+            'cloud9:EnvironmentId',
+            'cloud9:EnvironmentName',
+            'cloud9:InstanceType',
+            'cloud9:OwnerArn',
+            'cloud9:Permissions',
+            'cloud9:SubnetId',
+            'cloud9:UserArn'
+        ]
+        for expected_condition in expected_service_conditions:
+            self.assertTrue(expected_condition in results["service_conditions"].keys())
 
     # def test_get_privilege_info_2(self):
     #     results = get_privilege_info("ram", "CreateResourceShare")
@@ -418,7 +440,7 @@ class QueryActionsTestCase(unittest.TestCase):
         # self.assertListEqual(result, ["ecr:DescribeRepositories"])
         # DescribeRepositories is no longer considered a "list" action.
         self.assertListEqual(result, [])
-        
+
         # Tagging
         result = remove_actions_not_matching_access_level(
             actions_list, "Tagging"

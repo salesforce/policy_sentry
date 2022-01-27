@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -208,7 +207,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1143c11b9">
+             <table id="w86aab5b9e1179c11b9">
               <thead>
                <tr>
                 <th>
@@ -1922,7 +1921,7 @@
                                                 group
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                </td>
@@ -2354,11 +2353,11 @@
                <td>
                 <a id="awssystemsmanager-GetManifest">
                 </a>
-                GetManifest
+                GetManifest [permission only]
                </td>
                <td>
-                Used by Systems Manager and SSM Agent to determine package installation requirements
-                                                for an instance (internal Systems Manager call)
+                Grants permission to Systems Manager and SSM Agent to determine package installation
+                                                requirements for an instance (internal Systems Manager call)
                </td>
                <td>
                 Read
@@ -2800,7 +2799,7 @@
                 Grants permission to view metadata history about a specified SSM document
                </td>
                <td>
-                Read
+                List
                </td>
                <td>
                 <p>
@@ -2870,8 +2869,8 @@
                 </a>
                </td>
                <td rowspan="2">
-                Used by SSM Agent to check for new State Manager associations (internal Systems Manager
-                                                call)
+                Grants permission to SSM Agent to check for new State Manager associations (internal
+                                                Systems Manager call)
                </td>
                <td rowspan="2">
                 List
@@ -3208,11 +3207,11 @@
                <td>
                 <a id="awssystemsmanager-PutConfigurePackageResult">
                 </a>
-                PutConfigurePackageResult
+                PutConfigurePackageResult [permission only]
                </td>
                <td>
-                Used by SSM Agent to generate a report of the results of specific agent requests (internal
-                                                Systems Manager call)
+                Grants permission to SSM Agent to generate a report of the results of specific agent
+                                                requests (internal Systems Manager call)
                </td>
                <td>
                 Read
@@ -3311,6 +3310,37 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanager-RegisterManagedInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
+                 RegisterManagedInstance
+                </a>
+               </td>
+               <td>
+                Grants permission to register a Systems Manager Agent
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4046,11 +4076,11 @@
                <td rowspan="3">
                 <a id="awssystemsmanager-UpdateInstanceAssociationStatus">
                 </a>
-                UpdateInstanceAssociationStatus
+                UpdateInstanceAssociationStatus [permission only]
                </td>
                <td rowspan="3">
-                Used by SSM Agent to update the status of the association that it is currently running
-                                                (internal Systems Manager call)
+                Grants permission to SSM Agent to update the status of the association that it is
+                                                currently running (internal Systems Manager call)
                </td>
                <td rowspan="3">
                 Write
@@ -4102,8 +4132,8 @@
                 </a>
                </td>
                <td>
-                Used by SSM Agent to send a heartbeat signal to the Systems Manager service in the
-                                                cloud
+                Grants permission to SSM Agent to send a heartbeat signal to the Systems Manager service
+                                                in the cloud
                </td>
                <td>
                 Write
@@ -4408,7 +4438,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1143c13b7">
+             <table id="w86aab5b9e1179c13b7">
               <thead>
                <tr>
                 <th>
@@ -5130,7 +5160,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1143c15b7">
+             <table id="w86aab5b9e1179c15b7">
               <thead>
                <tr>
                 <th>
@@ -5153,7 +5183,8 @@
                 </a>
                </td>
                <td>
-                Filters 'Create' requests based on the allowed set of values for a specified tags
+                Filters access by 'Create' requests based on the allowed set of values for a specified
+                                                tags
                </td>
                <td>
                 String
@@ -5168,7 +5199,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on a tag key-value pair assigned to the AWS resource
+                Filters access by based on a tag key-value pair assigned to the AWS resource
                </td>
                <td>
                 String
@@ -5183,7 +5214,8 @@
                 </a>
                </td>
                <td>
-                Filters 'Create' requests based on whether mandatory tags are included in the request
+                Filters access by 'Create' requests based on whether mandatory tags are included in
+                                                the request
                </td>
                <td>
                 String
@@ -5213,7 +5245,7 @@
                 </a>
                </td>
                <td>
-                Filters access for resources created in a hierarchical structure
+                Filters access by resources created in a hierarchical structure
                </td>
                <td>
                 String
@@ -5233,7 +5265,7 @@
                                                 in a request
                </td>
                <td>
-                Boolean
+                Bool
                </td>
               </tr>
               <tr>
@@ -5261,7 +5293,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on a tag key-value pair assigned to the Systems Manager resource
+                Filters access by based on a tag key-value pair assigned to the Systems Manager resource
                </td>
                <td>
                 String

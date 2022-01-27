@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -208,7 +207,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d399c11b9">
+             <table id="w86aab5b9d411c11b9">
               <thead>
                <tr>
                 <th>
@@ -691,6 +690,43 @@
                 <p>
                  ec2:CreateTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-AllocateIpamPoolCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">
+                 AllocateIpamPoolCidr
+                </a>
+               </td>
+               <td>
+                Grants permission to allocate a CIDR from an Amazon VPC IP Address Manager (IPAM)
+                                                pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1865,17 +1901,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonec2-AssociateVpcCidrBlock">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateVpcCidrBlock.html">
                  AssociateVpcCidrBlock
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to associate a CIDR block with a VPC
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -1892,6 +1928,16 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_Ipv4IpamPoolId">
+                  ec2:Ipv4IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv6IpamPoolId">
+                  ec2:Ipv6IpamPoolId
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
                  </a>
@@ -1904,6 +1950,29 @@
                 <p>
                  <a href="#amazonec2-ec2_Tenancy">
                   ec2:Tenancy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -4924,6 +4993,186 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-CreateIpam">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpam.html">
+                 CreateIpam
+                </a>
+               </td>
+               <td>
+                Grants permission to create an Amazon VPC IP Address Manager (IPAM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam">
+                  ipam*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateIpamPool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamPool.html">
+                 CreateIpamPool
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an IP address pool for Amazon VPC IP Address Manager (IPAM),
+                                                which is a collection of contiguous IP address CIDRs
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateIpamScope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamScope.html">
+                 CreateIpamScope
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an Amazon VPC IP Address Manager (IPAM) scope, which is
+                                                the highest-level container within IPAM
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam">
+                  ipam*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-CreateKeyPair">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">
@@ -5523,6 +5772,50 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonec2-CreateNetworkInsightsAccessScope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInsightsAccessScope.html">
+                 CreateNetworkInsightsAccessScope
+                </a>
+               </td>
+               <td>
+                Grants permission to create a Network Access Scope
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="8">
                 <a id="amazonec2-CreateNetworkInsightsPath">
                 </a>
@@ -6054,6 +6347,51 @@
                 <p>
                  <a href="#amazonec2-ec2_PlacementGroupStrategy">
                   ec2:PlacementGroupStrategy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-CreatePublicIpv4Pool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreatePublicIpv4Pool.html">
+                 CreatePublicIpv4Pool
+                </a>
+               </td>
+               <td>
+                Grants permission to create a public IPv4 address pool for public IPv4 CIDRs that
+                                                you own and bring to Amazon to manage with Amazon VPC IP Address Manager (IPAM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                 <p>
@@ -7013,17 +7351,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="61">
+               <td rowspan="66">
                 <a id="amazonec2-CreateTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">
                  CreateTags
                 </a>
                </td>
-               <td rowspan="61">
+               <td rowspan="66">
                 Grants permission to add or overwrite one or more tags for Amazon EC2 resources
                </td>
-               <td rowspan="61">
+               <td rowspan="66">
                 Tagging
                </td>
                <td>
@@ -7748,6 +8086,75 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-ipam">
+                  ipam
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-ipv4pool-ec2">
                   ipv4pool-ec2
                  </a>
@@ -8090,6 +8497,52 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope-analysis">
+                  network-insights-access-scope-analysis
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -10195,17 +10648,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonec2-CreateVpc">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html">
                  CreateVpc
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to create a VPC with a specified CIDR block
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -10227,6 +10680,16 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_Ipv4IpamPoolId">
+                  ec2:Ipv4IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv6IpamPoolId">
+                  ec2:Ipv6IpamPoolId
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
                  </a>
@@ -10236,6 +10699,29 @@
                 <p>
                  ec2:CreateTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -11475,6 +11961,115 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DeleteIpam">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpam.html">
+                 DeleteIpam
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon VPC IP Address Manager (IPAM) and remove all
+                                                monitored data associated with the IPAM including the historical data for CIDRs
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam">
+                  ipam*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DeleteIpamPool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamPool.html">
+                 DeleteIpamPool
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an Amazon VPC IP Address Manager (IPAM) pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DeleteIpamScope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamScope.html">
+                 DeleteIpamScope
+                </a>
+               </td>
+               <td>
+                Grants permission to delete the scope for an Amazon VPC IP Address Manager (IPAM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DeleteKeyPair">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteKeyPair.html">
@@ -11864,6 +12459,78 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DeleteNetworkInsightsAccessScope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScope.html">
+                 DeleteNetworkInsightsAccessScope
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a Network Access Scope
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DeleteNetworkInsightsAccessScopeAnalysis">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScopeAnalysis.html">
+                 DeleteNetworkInsightsAccessScopeAnalysis
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a Network Access Scope analysis
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope-analysis">
+                  network-insights-access-scope-analysis*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DeleteNetworkInsightsAnalysis">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAnalysis.html">
@@ -12096,6 +12763,48 @@
                 <p>
                  <a href="#amazonec2-ec2_PlacementGroupStrategy">
                   ec2:PlacementGroupStrategy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DeletePublicIpv4Pool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeletePublicIpv4Pool.html">
+                 DeletePublicIpv4Pool
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a public IPv4 address pool for public IPv4 CIDRs that
+                                                you own and brought to Amazon to manage with Amazon VPC IP Address Manager (IPAM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                 <p>
@@ -12464,17 +13173,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="60">
+               <td rowspan="65">
                 <a id="amazonec2-DeleteTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="60">
+               <td rowspan="65">
                 Grants permission to delete one or more tags from Amazon EC2 resources
                </td>
-               <td rowspan="60">
+               <td rowspan="65">
                 Tagging
                </td>
                <td>
@@ -13039,6 +13748,75 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-ipam">
+                  ipam
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-ipv4pool-ec2">
                   ipv4pool-ec2
                  </a>
@@ -13358,6 +14136,52 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope-analysis">
+                  network-insights-access-scope-analysis
+                 </a>
+                </p>
+               </td>
+               <td>
                 <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
@@ -15212,6 +16036,84 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DeprovisionIpamPoolCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">
+                 DeprovisionIpamPoolCidr
+                </a>
+               </td>
+               <td>
+                Grants permission to deprovision a CIDR provisioned from an Amazon VPC IP Address
+                                                Manager (IPAM) pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DeprovisionPublicIpv4PoolCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionPublicIpv4PoolCidr.html">
+                 DeprovisionPublicIpv4PoolCidr
+                </a>
+               </td>
+               <td>
+                Grants permission to deprovision a CIDR from a public IPv4 pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DeregisterImage">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html">
@@ -17022,6 +17924,69 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DescribeIpamPools">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamPools.html">
+                 DescribeIpamPools
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon VPC IP Address Manager (IPAM) pools
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeIpamScopes">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamScopes.html">
+                 DescribeIpamScopes
+                </a>
+               </td>
+               <td>
+                Grants permission to describe Amazon VPC IP Address Manager (IPAM) scopes
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeIpams">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html">
+                 DescribeIpams
+                </a>
+               </td>
+               <td>
+                Grants permission to describe an Amazon VPC IP Address Manager (IPAM)
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DescribeIpv6Pools">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpv6Pools.html">
@@ -17307,6 +18272,48 @@
                </td>
                <td>
                 Grants permission to describe one or more network ACLs
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeNetworkInsightsAccessScopeAnalyses">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopeAnalyses.html">
+                 DescribeNetworkInsightsAccessScopeAnalyses
+                </a>
+               </td>
+               <td>
+                Grants permission to describe one or more Network Access Scope analyses
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeNetworkInsightsAccessScopes">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopes.html">
+                 DescribeNetworkInsightsAccessScopes
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the Network Access Scopes
                </td>
                <td>
                 List
@@ -17774,6 +18781,27 @@
                </td>
                <td>
                 Grants permission to describe an attribute of a snapshot
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeSnapshotTierStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshotTierStatus.html">
+                 DescribeSnapshotTierStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the storage tier status for Amazon EBS snapshots
                </td>
                <td>
                 List
@@ -19402,6 +20430,28 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DisableIpamOrganizationAdminAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableIpamOrganizationAdminAccount.html">
+                 DisableIpamOrganizationAdminAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to disable an AWS Organizations member account as an Amazon VPC
+                                                IP Address Manager (IPAM) admin account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DisableSerialConsoleAccess">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableSerialConsoleAccess.html">
@@ -20544,6 +21594,28 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-EnableIpamOrganizationAdminAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableIpamOrganizationAdminAccount.html">
+                 EnableIpamOrganizationAdminAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to enable an AWS Organizations member account as an Amazon VPC IP
+                                                Address Manager (IPAM) admin account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-EnableSerialConsoleAccess">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html">
@@ -21537,6 +22609,198 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-GetInstanceTypesFromInstanceRequirements">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">
+                 GetInstanceTypesFromInstanceRequirements
+                </a>
+               </td>
+               <td>
+                Grants permission to view a list of instance types with specified instance attributes
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-GetIpamAddressHistory">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamAddressHistory.html">
+                 GetIpamAddressHistory
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve historical information about a CIDR within an Amazon
+                                                VPC IP Address Manager (IPAM) scope
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-GetIpamPoolAllocations">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html">
+                 GetIpamPoolAllocations
+                </a>
+               </td>
+               <td>
+                Grants permission to get a list of all the CIDR allocations in an Amazon VPC IP Address
+                                                Manager (IPAM) pool
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-GetIpamPoolCidrs">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html">
+                 GetIpamPoolCidrs
+                </a>
+               </td>
+               <td>
+                Grants permission to get the CIDRs provisioned to an Amazon VPC IP Address Manager
+                                                (IPAM) pool
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-GetIpamResourceCidrs">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamResourceCidrs.html">
+                 GetIpamResourceCidrs
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to get information about the resources in an Amazon VPC IP Address
+                                                Manager (IPAM) scope
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-GetLaunchTemplateData">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetLaunchTemplateData.html">
@@ -21718,6 +22982,48 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-GetNetworkInsightsAccessScopeAnalysisFindings">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeAnalysisFindings.html">
+                 GetNetworkInsightsAccessScopeAnalysisFindings
+                </a>
+               </td>
+               <td>
+                Grants permission to get the findings for one or more Network Access Scope analyses
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-GetNetworkInsightsAccessScopeContent">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeContent.html">
+                 GetNetworkInsightsAccessScopeContent
+                </a>
+               </td>
+               <td>
+                Grants permission to get the content for a specified Network Access Scope
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-GetPasswordData">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html">
@@ -21846,6 +23152,28 @@
                <td>
                 Grants permission to retrieve the access status of your account to the EC2 serial
                                                 console of all instances
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-GetSpotPlacementScores">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">
+                 GetSpotPlacementScores
+                </a>
+               </td>
+               <td>
+                Grants permission to calculate the Spot placement score for a Region or Availability
+                                                Zone based on the specified target capacity and compute requirements
                </td>
                <td>
                 Read
@@ -22794,6 +24122,78 @@
                 <p>
                  <a href="#amazonec2-ec2_VolumeType">
                   ec2:VolumeType
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ListSnapshotsInRecycleBin">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ListSnapshotsInRecycleBin.html">
+                 ListSnapshotsInRecycleBin
+                </a>
+               </td>
+               <td>
+                Grants permission to list the Amazon EBS snapshots that are currently in the Recycle
+                                                Bin
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-snapshot">
+                  snapshot
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Encrypted">
+                  ec2:Encrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentVolume">
+                  ec2:ParentVolume
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SnapshotTime">
+                  ec2:SnapshotTime
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VolumeSize">
+                  ec2:VolumeSize
                  </a>
                 </p>
                </td>
@@ -24474,6 +25874,154 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-ModifyIpam">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpam.html">
+                 ModifyIpam
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configurations of an Amazon VPC IP Address Manager
+                                                (IPAM)
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam">
+                  ipam*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ModifyIpamPool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamPool.html">
+                 ModifyIpamPool
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configurations of an Amazon VPC IP Address Manager
+                                                (IPAM) pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ModifyIpamResourceCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">
+                 ModifyIpamResourceCidr
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configurations of an Amazon VPC IP Address Manager
+                                                (IPAM) resource CIDR
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ModifyIpamScope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamScope.html">
+                 ModifyIpamScope
+                </a>
+               </td>
+               <td>
+                Grants permission to modify the configurations of an Amazon VPC IP Address Manager
+                                                (IPAM) scope
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-scope">
+                  ipam-scope*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-ModifyLaunchTemplate">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyLaunchTemplate.html">
@@ -24939,6 +26487,82 @@
                 <p>
                  <a href="#amazonec2-ec2_Attribute___AttributeName_">
                   ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentVolume">
+                  ec2:ParentVolume
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SnapshotTime">
+                  ec2:SnapshotTime
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VolumeSize">
+                  ec2:VolumeSize
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ModifySnapshotTier">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySnapshotTier.html">
+                 ModifySnapshotTier
+                </a>
+               </td>
+               <td>
+                Grants permission to archive Amazon EBS snapshots
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Encrypted">
+                  ec2:Encrypted
                  </a>
                 </p>
                 <p>
@@ -26717,6 +28341,43 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-MoveByoipCidrToIpam">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_MoveByoipCidrToIpam.html">
+                 MoveByoipCidrToIpam
+                </a>
+               </td>
+               <td>
+                Grants permission to move a BYOIP IPv4 CIDR to Amazon VPC IP Address Manager (IPAM)
+                                                from a public IPv4 pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-ProvisionByoipCidr">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionByoipCidr.html">
@@ -26733,6 +28394,106 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ProvisionIpamPoolCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionIpamPoolCidr.html">
+                 ProvisionIpamPoolCidr
+                </a>
+               </td>
+               <td>
+                Grants permission to provision a CIDR to an Amazon VPC IP Address Manager (IPAM) pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ProvisionPublicIpv4PoolCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionPublicIpv4PoolCidr.html">
+                 ProvisionPublicIpv4PoolCidr
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to provision a CIDR to a public IPv4 pool
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -27549,6 +29310,43 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ReleaseIpamPoolAllocation">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">
+                 ReleaseIpamPoolAllocation
+                </a>
+               </td>
+               <td>
+                Grants permission to release an allocation within an Amazon VPC IP Address Manager
+                                                (IPAM) pool
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipam-pool">
+                  ipam-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
                 <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
@@ -29611,6 +31409,150 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-RestoreSnapshotFromRecycleBin">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RestoreSnapshotFromRecycleBin.html">
+                 RestoreSnapshotFromRecycleBin
+                </a>
+               </td>
+               <td>
+                Grants permission to restore an Amazon EBS snapshot from the Recycle Bin
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Encrypted">
+                  ec2:Encrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentVolume">
+                  ec2:ParentVolume
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SnapshotTime">
+                  ec2:SnapshotTime
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VolumeSize">
+                  ec2:VolumeSize
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-RestoreSnapshotTier">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RestoreSnapshotTier.html">
+                 RestoreSnapshotTier
+                </a>
+               </td>
+               <td>
+                Grants permission to restore an archived Amazon EBS snapshot for use temporarily or
+                                                permanently, or modify the restore period or restore type for a snapshot that was
+                                                previously temporarily restored
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-snapshot">
+                  snapshot*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Encrypted">
+                  ec2:Encrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentVolume">
+                  ec2:ParentVolume
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SnapshotTime">
+                  ec2:SnapshotTime
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VolumeSize">
+                  ec2:VolumeSize
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-RevokeClientVpnIngress">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeClientVpnIngress.html">
@@ -31433,6 +33375,45 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonec2-StartNetworkInsightsAccessScopeAnalysis">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartNetworkInsightsAccessScopeAnalysis.html">
+                 StartNetworkInsightsAccessScopeAnalysis
+                </a>
+               </td>
+               <td>
+                Grants permission to start a Network Access Scope analysis
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope">
+                  network-insights-access-scope
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonec2-StartNetworkInsightsAnalysis">
                 </a>
@@ -32145,7 +34126,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d399c13b5">
+             <table id="w86aab5b9d411c13b5">
               <thead>
                <tr>
                 <th>
@@ -33689,6 +35670,150 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-ipam">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 ipam
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2::$
+                 <span>
+                  {
+                 </span>
+                 Account}:ipam/$
+                 <span>
+                  {
+                 </span>
+                 IpamId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ipam-pool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 ipam-pool
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2::$
+                 <span>
+                  {
+                 </span>
+                 Account}:ipam-pool/$
+                 <span>
+                  {
+                 </span>
+                 IpamPoolId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ipam-scope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 ipam-scope
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2::$
+                 <span>
+                  {
+                 </span>
+                 Account}:ipam-scope/$
+                 <span>
+                  {
+                 </span>
+                 IpamScopeId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-ipv4pool-ec2">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#ip-addressing-eips">
@@ -34407,6 +36532,110 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-network-insights-access-scope-analysis">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 network-insights-access-scope-analysis
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:network-insights-access-scope-analysis/$
+                 <span>
+                  {
+                 </span>
+                 NetworkInsightsAccessScopeAnalysisId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-network-insights-access-scope">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 network-insights-access-scope
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:network-insights-access-scope/$
+                 <span>
+                  {
+                 </span>
+                 NetworkInsightsAccessScopeId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -36315,6 +38544,16 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_Ipv4IpamPoolId">
+                  ec2:Ipv4IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv6IpamPoolId">
+                  ec2:Ipv6IpamPoolId
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
                  </a>
@@ -36692,7 +38931,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d399c15b7">
+             <table id="w86aab5b9d411c15b7">
               <thead>
                <tr>
                 <th>
@@ -37168,6 +39407,36 @@
                </td>
                <td>
                 Filters access by the type of instance
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ec2_Ipv4IpamPoolId">
+                </a>
+                <a href="iam-policy-structure.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
+                 ec2:Ipv4IpamPoolId
+                </a>
+               </td>
+               <td>
+                Filters access by the ID of an IPAM pool provided for IPv4 CIDR block allocation
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-ec2_Ipv6IpamPoolId">
+                </a>
+                <a href="iam-policy-structure.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
+                 ec2:Ipv6IpamPoolId
+                </a>
+               </td>
+               <td>
+                Filters access by the ID of an IPAM pool provided for IPv6 CIDR block allocation
                </td>
                <td>
                 String
