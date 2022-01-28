@@ -106,8 +106,7 @@
             <code class="code">
              appstream
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d107c11b9">
+             <table id="w85aab5b9d107c11b9">
               <thead>
                <tr>
                 <th>
@@ -283,6 +272,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonappstream2.0-AssociateApplicationToEntitlement">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AssociateApplicationToEntitlement.html">
+                 AssociateApplicationToEntitlement
+                </a>
+               </td>
+               <td>
+                Grants permission to associate the specified application to the specified entitlement
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="amazonappstream2.0-AssociateFleet">
                 </a>
@@ -343,9 +358,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to associate the specified users with the specified stacks. Users
-                                                in a user pool cannot be assigned to stacks with fleets that are joined to an Active
-                                                Directory domain
+                Grants permission to associate the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain
                </td>
                <td rowspan="2">
                 Write
@@ -423,8 +436,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to copy the specified image within the same Region or to a new Region
-                                                within the same AWS account
+                Grants permission to copy the specified image within the same Region or to a new Region within the same AWS account
                </td>
                <td rowspan="2">
                 Write
@@ -463,10 +475,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create an app block. App blocks store details about the virtual
-                                                hard disk that contains the files for the application in an S3 bucket. It also stores
-                                                the setup script with details about how to mount the virtual hard disk. App blocks
-                                                are only supported for Elastic fleets
+                Grants permission to create an app block. App blocks store details about the virtual hard disk that contains the files for the application in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. App blocks are only supported for Elastic fleets
                </td>
                <td rowspan="2">
                 Write
@@ -510,9 +519,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create an application within customer account. Applications store
-                                                the details about how to launch applications on streaming instances. This is only
-                                                supported for Elastic fleets
+                Grants permission to create an application within customer account. Applications store the details about how to launch applications on streaming instances. This is only supported for Elastic fleets
                </td>
                <td rowspan="2">
                 Write
@@ -556,14 +563,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a Directory Config object in AppStream 2.0. This object
-                                                includes the configuration information required to join fleets and image builders
-                                                to Microsoft Active Directory domains
+                Grants permission to create a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains
                </td>
                <td>
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-CreateEntitlement">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateEntitlement.html">
+                 CreateEntitlement
+                </a>
+               </td>
+               <td>
+                Grants permission to create an entitlement to control access to applications based on user attributes
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -579,8 +610,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create a fleet. A fleet is a group of streaming instances from
-                                                which applications are launched and streamed to users
+                Grants permission to create a fleet. A fleet is a group of streaming instances from which applications are launched and streamed to users
                </td>
                <td rowspan="3">
                 Write
@@ -637,8 +667,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create an image builder. An image builder is a virtual machine
-                                                that is used to create an image
+                Grants permission to create an image builder. An image builder is a virtual machine that is used to create an image
                </td>
                <td rowspan="3">
                 Write
@@ -734,8 +763,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create a stack to start streaming applications to users. A stack
-                                                consists of an associated fleet, user access policies, and storage configurations
+                Grants permission to create a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations
                </td>
                <td rowspan="2">
                 Write
@@ -779,9 +807,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create a temporary URL to start an AppStream 2.0 streaming session
-                                                for the specified user. A streaming URL enables application streaming to be tested
-                                                without user setup
+                Grants permission to create a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup
                </td>
                <td rowspan="3">
                 Write
@@ -877,8 +903,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to create a usage report subscription. Usage reports are generated
-                                                daily
+                Grants permission to create a usage report subscription. Usage reports are generated daily
                </td>
                <td>
                 Write
@@ -998,14 +1023,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete the specified Directory Config object from AppStream 2.0.
-                                                This object includes the configuration information required to join fleets and image
-                                                builders to Microsoft Active Directory domains
+                Grants permission to delete the specified Directory Config object from AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains
                </td>
                <td>
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-DeleteEntitlement">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DeleteEntitlement.html">
+                 DeleteEntitlement
+                </a>
+               </td>
+               <td>
+                Grants permission to delete the specified entitlement
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1060,8 +1109,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to delete the specified image. An image cannot be deleted when it
-                                                is in use
+                Grants permission to delete the specified image. An image cannot be deleted when it is in use
                </td>
                <td rowspan="2">
                 Write
@@ -1178,9 +1226,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to delete the specified stack. After the stack is deleted, the application
-                                                streaming environment provided by the stack is no longer available to users. Also,
-                                                any reservations made for application streaming sessions for the stack are released
+                Grants permission to delete the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released
                </td>
                <td rowspan="2">
                 Write
@@ -1261,8 +1307,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified app blocks,
-                                                if the app block arns are provided. Otherwise, all app blocks in the account are described
+                Grants permission to retrieve a list that describes one or more specified app blocks, if the app block arns are provided. Otherwise, all app blocks in the account are described
                </td>
                <td>
                 Read
@@ -1288,8 +1333,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to retrieve the associations that are associated with the specified
-                                                application or fleet
+                Grants permission to retrieve the associations that are associated with the specified application or fleet
                </td>
                <td rowspan="2">
                 Read
@@ -1328,9 +1372,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified applications,
-                                                if the application arns are provided. Otherwise, all applications in the account are
-                                                described
+                Grants permission to retrieve a list that describes one or more specified applications, if the application arns are provided. Otherwise, all applications in the account are described
                </td>
                <td>
                 Read
@@ -1356,16 +1398,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified Directory
-                                                Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise,
-                                                all Directory Config objects in the account are described. This object includes the
-                                                configuration information required to join fleets and image builders to Microsoft
-                                                Active Directory domains
+                Grants permission to retrieve a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains
                </td>
                <td>
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-DescribeEntitlements">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeEntitlements.html">
+                 DescribeEntitlements
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve one or all entitlements for the specified stack
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1381,8 +1445,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified fleets,
-                                                if the fleet names are provided. Otherwise, all fleets in the account are described
+                Grants permission to retrieve a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described
                </td>
                <td>
                 Read
@@ -1408,9 +1471,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified image builders,
-                                                if the image builder names are provided. Otherwise, all image builders in the account
-                                                are described
+                Grants permission to retrieve a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described
                </td>
                <td>
                 Read
@@ -1436,8 +1497,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes the permissions for shared AWS
-                                                account IDs on a private image that you own
+                Grants permission to retrieve a list that describes the permissions for shared AWS account IDs on a private image that you own
                </td>
                <td>
                 Read
@@ -1463,9 +1523,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified images,
-                                                if the image names or image ARNs are provided. Otherwise, all images in the account
-                                                are described
+                Grants permission to retrieve a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described
                </td>
                <td>
                 Read
@@ -1491,9 +1549,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to retrieve a list that describes the streaming sessions for the
-                                                specified stack and fleet. If a user ID is provided for the stack and fleet, only
-                                                the streaming sessions for that user are described
+                Grants permission to retrieve a list that describes the streaming sessions for the specified stack and fleet. If a user ID is provided for the stack and fleet, only the streaming sessions for that user are described
                </td>
                <td rowspan="2">
                 Read
@@ -1532,8 +1588,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list that describes one or more specified stacks,
-                                                if the stack names are provided. Otherwise, all stacks in the account are described
+                Grants permission to retrieve a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described
                </td>
                <td>
                 Read
@@ -1627,8 +1682,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to disable the specified user in the user pool. This action does
-                                                not delete the user
+                Grants permission to disable the specified user in the user pool. This action does not delete the user
                </td>
                <td>
                 Write
@@ -1688,6 +1742,32 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-DisassociateApplicationFromEntitlement">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DisassociateApplicationFromEntitlement.html">
+                 DisassociateApplicationFromEntitlement
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate the specified application from the specified entitlement
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1795,8 +1875,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve the name of the fleet that is associated with the specified
-                                                stack
+                Grants permission to retrieve the name of the fleet that is associated with the specified stack
                </td>
                <td>
                 Read
@@ -1822,8 +1901,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve the name of the stack with which the specified fleet
-                                                is associated
+                Grants permission to retrieve the name of the stack with which the specified fleet is associated
                </td>
                <td>
                 Read
@@ -1842,6 +1920,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonappstream2.0-ListEntitledApplications">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ListEntitledApplications.html">
+                 ListEntitledApplications
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the applications that are associated with the specified entitlement
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonappstream2.0-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ListTagsForResource.html">
@@ -1849,8 +1953,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list of all tags for the specified AppStream 2.0 resource.
-                                                The following resources can be tagged: Image builders, images, fleets, and stacks
+                Grants permission to retrieve a list of all tags for the specified AppStream 2.0 resource. The following resources can be tagged: Image builders, images, fleets, and stacks
                </td>
                <td>
                 Read
@@ -2027,8 +2130,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to federated users to sign in by using their existing credentials
-                                                and stream applications from the specified stack
+                Grants permission to federated users to sign in by using their existing credentials and stream applications from the specified stack
                </td>
                <td rowspan="2">
                 Write
@@ -2067,9 +2169,7 @@
                 </a>
                </td>
                <td rowspan="7">
-                Grants permission to add or overwrite one or more tags for the specified AppStream
-                                                2.0 resource. The following resources can be tagged: Image builders, images, fleets,
-                                                stacks, app blocks and applications
+                Grants permission to add or overwrite one or more tags for the specified AppStream 2.0 resource. The following resources can be tagged: Image builders, images, fleets, stacks, app blocks and applications
                </td>
                <td rowspan="7">
                 Tagging
@@ -2183,8 +2283,7 @@
                 </a>
                </td>
                <td rowspan="7">
-                Grants permission to disassociate one or more tags from the specified AppStream 2.0
-                                                resource
+                Grants permission to disassociate one or more tags from the specified AppStream 2.0 resource
                </td>
                <td rowspan="7">
                 Tagging
@@ -2340,14 +2439,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to update the specified Directory Config object in AppStream 2.0.
-                                                This object includes the configuration information required to join fleets and image
-                                                builders to Microsoft Active Directory domains
+                Grants permission to update the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains
                </td>
                <td>
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonappstream2.0-UpdateEntitlement">
+                </a>
+                <a href="https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UpdateEntitlement.html">
+                 UpdateEntitlement
+                </a>
+               </td>
+               <td>
+                Grants permission to update the specified fields for the specified entitlement
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonappstream2.0-stack">
+                  stack*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2363,8 +2486,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to update the specified fleet. All attributes except the fleet name
-                                                can be updated when the fleet is in the STOPPED state
+                Grants permission to update the specified fleet. All attributes except the fleet name can be updated when the fleet is in the STOPPED state
                </td>
                <td rowspan="3">
                 Write
@@ -2500,18 +2622,15 @@
             <a href="#amazonappstream2.0-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d107c13b5">
+             <table id="w85aab5b9d107c13b5">
               <thead>
                <tr>
                 <th>
@@ -2758,11 +2877,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -2775,7 +2892,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d107c15b7">
+             <table id="w85aab5b9d107c15b7">
               <thead>
                <tr>
                 <th>
@@ -2869,8 +2986,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

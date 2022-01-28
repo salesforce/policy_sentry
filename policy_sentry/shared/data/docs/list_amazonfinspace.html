@@ -106,8 +106,7 @@
             <code class="code">
              finspace
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d543c11b9">
+             <table id="w85aab5b9d550c11b9">
               <thead>
                <tr>
                 <th>
@@ -231,17 +220,17 @@
                </tr>
               </thead>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonfinspace-CreateEnvironment">
                 </a>
                 <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateEnvironment.html">
                  CreateEnvironment
                 </a>
                </td>
-               <td>
-                Grants permissions to create a FinSpace environment
+               <td rowspan="2">
+                Grants permission to create a FinSpace environment
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -257,18 +246,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfinspace-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonfinspace-CreateUser">
                 </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateUser.html">
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
                  CreateUser
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
-                Grants permissions to create a FinSpace user.
+               <td rowspan="3">
+                Grants permission to create a FinSpace user
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -292,6 +299,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfinspace-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -305,7 +330,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a FinSpace environment.
+                Grants permission to delete a FinSpace environment
                </td>
                <td>
                 Write
@@ -314,46 +339,6 @@
                 <p>
                  <a href="#amazonfinspace-environment">
                   environment*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td rowspan="2">
-                <a id="amazonfinspace-DeleteUser">
-                </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteUser.html">
-                 DeleteUser
-                </a>
-                [permission only]
-               </td>
-               <td rowspan="2">
-                Grants permissions to delete a FinSpace user.
-               </td>
-               <td rowspan="2">
-                Write
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonfinspace-environment">
-                  environment*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
-                 <a href="#amazonfinspace-user">
-                  user*
                  </a>
                 </p>
                </td>
@@ -371,7 +356,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to describe a FinSpace environment.
+                Grants permission to describe a FinSpace environment
                </td>
                <td>
                 Read
@@ -392,13 +377,13 @@
                <td>
                 <a id="amazonfinspace-GetLoadSampleDataSetGroupIntoEnvironmentStatus">
                 </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_GetLoadSampleDataSetGroupIntoEnvironmentStatus.html">
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
                  GetLoadSampleDataSetGroupIntoEnvironmentStatus
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permissions to request status of the loading of sample data bundle.
+                Grants permission to request status of the loading of sample data bundle
                </td>
                <td>
                 Read
@@ -419,13 +404,13 @@
                <td rowspan="2">
                 <a id="amazonfinspace-GetUser">
                 </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_GetUser.html">
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
                  GetUser
                 </a>
                 [permission only]
                </td>
                <td rowspan="2">
-                Grants permissions to describe a FinSpace user.
+                Grants permission to describe a FinSpace user
                </td>
                <td rowspan="2">
                 Read
@@ -464,7 +449,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list FinSpace environments in the AWS account.
+                Grants permission to list FinSpace environments in the AWS account
                </td>
                <td>
                 List
@@ -490,7 +475,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return a list of tags for a resource.
+                Grants permission to return a list of tags for a resource
                </td>
                <td>
                 Read
@@ -511,13 +496,13 @@
                <td rowspan="2">
                 <a id="amazonfinspace-ListUsers">
                 </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_ListUsers.html">
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
                  ListUsers
                 </a>
                 [permission only]
                </td>
                <td rowspan="2">
-                Grants permissions to list FinSpace users in an environment.
+                Grants permission to list FinSpace users in an environment
                </td>
                <td rowspan="2">
                 List
@@ -551,13 +536,13 @@
                <td>
                 <a id="amazonfinspace-LoadSampleDataSetGroupIntoEnvironment">
                 </a>
-                <a href="https://docs.aws.amazon.com/finspace/latest/management-api/API_LoadSampleDataSetGroupIntoEnvironment.html">
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
                  LoadSampleDataSetGroupIntoEnvironment
                 </a>
                 [permission only]
                </td>
                <td>
-                Grants permissions to load sample data bundle into your FinSpace environment.
+                Grants permission to load sample data bundle into your FinSpace environment
                </td>
                <td>
                 Write
@@ -575,6 +560,46 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonfinspace-ResetUserPassword">
+                </a>
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
+                 ResetUserPassword
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to reset the password for a FinSpace user
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-user">
+                  user*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonfinspace-TagResource">
                 </a>
@@ -583,7 +608,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to tag a resource.
+                Grants permission to tag a resource
                </td>
                <td>
                 Tagging
@@ -609,7 +634,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to untag a resource.
+                Grants permission to untag a resource
                </td>
                <td>
                 Tagging
@@ -635,7 +660,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to update a FinSpace environment
+                Grants permission to update a FinSpace environment
                </td>
                <td>
                 Write
@@ -644,6 +669,46 @@
                 <p>
                  <a href="#amazonfinspace-environment">
                   environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonfinspace-UpdateUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html">
+                 UpdateUser
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to update a FinSpace user
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-environment">
+                  environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfinspace-user">
+                  user*
                  </a>
                 </p>
                </td>
@@ -667,18 +732,15 @@
             <a href="#amazonfinspace-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d543c13b5">
+             <table id="w85aab5b9d550c13b5">
               <thead>
                <tr>
                 <th>
@@ -718,7 +780,7 @@
                  <span>
                   {
                  </span>
-                 environmentId}
+                 EnvironmentId}
                 </code>
                </td>
                <td>
@@ -755,7 +817,7 @@
                  <span>
                   {
                  </span>
-                 userId}
+                 UserId}
                 </code>
                </td>
                <td>
@@ -777,11 +839,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -794,7 +854,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d543c15b7">
+             <table id="w85aab5b9d550c15b7">
               <thead>
                <tr>
                 <th>
@@ -873,8 +933,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

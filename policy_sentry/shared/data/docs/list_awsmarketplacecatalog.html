@@ -106,8 +106,7 @@
             <code class="code">
              aws-marketplace
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -117,7 +116,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
+               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">
                 configure this service
                </a>
                .
@@ -126,7 +125,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.html">
+               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
                 API operations available for this          service
                </a>
                .
@@ -135,7 +134,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/marketplace-catalog/latest/api-reference/api-access-control.html">
+               <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/api-access-control.html">
                 using          IAM
                </a>
                permission policies.
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d827c11b9">
+             <table id="w85aab5b9d834c11b9">
               <thead>
                <tr>
                 <th>
@@ -234,17 +223,22 @@
                <td>
                 <a id="awsmarketplacecatalog-CancelChangeSet">
                 </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_CancelChangeSet.html">
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_CancelChangeSet.html">
                  CancelChangeSet
                 </a>
                </td>
                <td>
-                Cancels a running change set.
+                Grants permission to cancel a running change set
                </td>
                <td>
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsmarketplacecatalog-ChangeSet">
+                  ChangeSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -255,10 +249,12 @@
                <td>
                 <a id="awsmarketplacecatalog-CompleteTask">
                 </a>
-                CompleteTask
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
+                 CompleteTask
+                </a>
                </td>
                <td>
-                Complete an existing task and submit the content to the associated change.
+                Grants permission to complete an existing task and submit the content to the associated change
                </td>
                <td>
                 Write
@@ -274,17 +270,22 @@
                <td>
                 <a id="awsmarketplacecatalog-DescribeChangeSet">
                 </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_DescribeChangeSet.html">
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html">
                  DescribeChangeSet
                 </a>
                </td>
                <td>
-                Returns the details of an existing change set.
+                Grants permission to return the details of an existing change set
                </td>
                <td>
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsmarketplacecatalog-ChangeSet">
+                  ChangeSet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -295,17 +296,22 @@
                <td>
                 <a id="awsmarketplacecatalog-DescribeEntity">
                 </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_DescribeEntity.html">
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeEntity.html">
                  DescribeEntity
                 </a>
                </td>
                <td>
-                Returns the details of an existing entity.
+                Grants permission to return the details of an existing entity
                </td>
                <td>
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsmarketplacecatalog-Entity">
+                  Entity*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -316,10 +322,12 @@
                <td>
                 <a id="awsmarketplacecatalog-DescribeTask">
                 </a>
-                DescribeTask
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
+                 DescribeTask
+                </a>
                </td>
                <td>
-                Returns the details of an existing task.
+                Grants permission to return the details of an existing task
                </td>
                <td>
                 Read
@@ -335,52 +343,12 @@
                <td>
                 <a id="awsmarketplacecatalog-ListChangeSets">
                 </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_ListChangeSets.html">
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListChangeSets.html">
                  ListChangeSets
                 </a>
                </td>
                <td>
-                Lists existing change sets.
-               </td>
-               <td>
-                Read
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsmarketplacecatalog-ListEntities">
-                </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_ListEntities.html">
-                 ListEntities
-                </a>
-               </td>
-               <td>
-                Lists existing entities.
-               </td>
-               <td>
-                Read
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsmarketplacecatalog-ListTasks">
-                </a>
-                ListTasks
-               </td>
-               <td>
-                Lists existing tasks.
+                Grants permission to list existing change sets
                </td>
                <td>
                 List
@@ -394,18 +362,73 @@
               </tr>
               <tr>
                <td>
+                <a id="awsmarketplacecatalog-ListEntities">
+                </a>
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">
+                 ListEntities
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing entities
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsmarketplacecatalog-ListTasks">
+                </a>
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
+                 ListTasks
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing tasks
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsmarketplacecatalog-StartChangeSet">
                 </a>
-                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_Operations.htmlAPI_StartChangeSet.html">
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html">
                  StartChangeSet
                 </a>
                </td>
-               <td>
-                Requests a new change set.
+               <td rowspan="2">
+                Grants permission to request a new change set. (Note: resource-level permissions for this action and condition context keys for this action are only supported when used with Catalog API and are not supported when used with AWS Marketplace Management Portal)
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsmarketplacecatalog-Entity">
+                  Entity*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -422,10 +445,12 @@
                <td>
                 <a id="awsmarketplacecatalog-UpdateTask">
                 </a>
-                UpdateTask
+                <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/">
+                 UpdateTask
+                </a>
                </td>
                <td>
-                Update the content of an existing task.
+                Grants permission to update the contents of an existing task
                </td>
                <td>
                 Write
@@ -452,18 +477,15 @@
             <a href="#awsmarketplacecatalog-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d827c13b5">
+             <table id="w85aab5b9d834c13b5">
               <thead>
                <tr>
                 <th>
@@ -564,11 +586,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -581,7 +601,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d827c15b7">
+             <table id="w85aab5b9d834c15b7">
               <thead>
                <tr>
                 <th>
@@ -604,7 +624,7 @@
                 </a>
                </td>
                <td>
-                Enables you to verify change type in the StartChangeSet request.
+                Filters access by the change type in the StartChangeSet request
                </td>
                <td>
                 String
@@ -630,8 +650,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

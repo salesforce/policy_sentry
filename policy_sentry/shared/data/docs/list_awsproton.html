@@ -106,8 +106,7 @@
             <code class="code">
              proton
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d971c11b9">
+             <table id="w85aab5b9d978c11b9">
               <thead>
                <tr>
                 <th>
@@ -239,8 +228,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to reject an environment account connection request from another
-                                                environment account.
+                Grants permission to reject an environment account connection request from another environment account
                </td>
                <td>
                 Write
@@ -443,6 +431,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsproton-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsproton-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -500,7 +498,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                DEPRECATED - use CreateEnvironmentTemplateVersion instead
+                Grants permission to create an environment template major version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead
                </td>
                <td rowspan="2">
                 Write
@@ -544,7 +542,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                DEPRECATED - use CreateEnvironmentTemplateVersion instead
+                Grants permission to create an environment template minor version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead
                </td>
                <td rowspan="2">
                 Write
@@ -619,6 +617,32 @@
                   aws:RequestTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-CreateRepository">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html">
+                 CreateRepository
+                </a>
+               </td>
+               <td>
+                Grants permission to create a repository
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -728,7 +752,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                DEPRECATED - use CreateServiceTemplateVersion instead
+                Grants permission to create a service template major version.  DEPRECATED - use CreateServiceTemplateVersion instead
                </td>
                <td rowspan="2">
                 Write
@@ -772,7 +796,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                DEPRECATED - use CreateServiceTemplateVersion instead
+                Grants permission to create a service template minor version.  DEPRECATED - use CreateServiceTemplateVersion instead
                </td>
                <td rowspan="2">
                 Write
@@ -853,6 +877,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsproton-CreateTemplateSyncConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateTemplateSyncConfig.html">
+                 CreateTemplateSyncConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to create a template sync config
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsproton-DeleteAccountRoles">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteAccountRoles.html">
@@ -860,7 +905,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateAccountSettings instead
+                Grants permission to delete account roles.  DEPRECATED - use UpdateAccountSettings instead
                </td>
                <td>
                 Write
@@ -972,7 +1017,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use DeleteEnvironmentTemplateVersion instead
+                Grants permission to delete an environment template major version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead
                </td>
                <td>
                 Write
@@ -998,7 +1043,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use DeleteEnvironmentTemplateVersion instead
+                Grants permission to delete an environment template minor version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead
                </td>
                <td>
                 Write
@@ -1033,6 +1078,32 @@
                 <p>
                  <a href="#awsproton-environment-template">
                   environment-template*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-DeleteRepository">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteRepository.html">
+                 DeleteRepository
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a repository
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-repository">
+                  repository*
                  </a>
                 </p>
                </td>
@@ -1115,7 +1186,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use DeleteServiceTemplateVersion instead
+                Grants permission to delete a service template major version.  DEPRECATED - use DeleteServiceTemplateVersion instead
                </td>
                <td>
                 Write
@@ -1141,7 +1212,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use DeleteServiceTemplateVersion instead
+                Grants permission to delete a service template minor version.  DEPRECATED - use DeleteServiceTemplateVersion instead
                </td>
                <td>
                 Write
@@ -1186,6 +1257,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsproton-DeleteTemplateSyncConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteTemplateSyncConfig.html">
+                 DeleteTemplateSyncConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a TemplateSyncConfig
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsproton-GetAccountRoles">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountRoles.html">
@@ -1193,7 +1285,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use GetAccountSettings instead
+                Grants permission to get account roles.  DEPRECATED - use GetAccountSettings instead
                </td>
                <td>
                 Read
@@ -1313,7 +1405,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use GetEnvironmentTemplateVersion instead
+                Grants permission to get an environment template major version.  DEPRECATED - use GetEnvironmentTemplateVersion instead
                </td>
                <td>
                 Read
@@ -1339,7 +1431,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use GetEnvironmentTemplateVersion instead
+                Grants permission to get an environment template minor version.  DEPRECATED - use GetEnvironmentTemplateVersion instead
                </td>
                <td>
                 Read
@@ -1376,6 +1468,53 @@
                   environment-template*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-GetRepository">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepository.html">
+                 GetRepository
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a repository
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-GetRepositorySyncStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepositorySyncStatus.html">
+                 GetRepositorySyncStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to get the latest sync status for a repository
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1469,7 +1608,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use GetServiceTemplateVersion instead
+                Grants permission to get a service template major version.  DEPRECATED - use GetServiceTemplateVersion instead
                </td>
                <td>
                 Read
@@ -1495,7 +1634,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use GetServiceTemplateVersion instead
+                Grants permission to get a service template minor version.  DEPRECATED - use GetServiceTemplateVersion instead
                </td>
                <td>
                 Read
@@ -1540,6 +1679,48 @@
               </tr>
               <tr>
                <td>
+                <a id="awsproton-GetTemplateSyncConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncConfig.html">
+                 GetTemplateSyncConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a TemplateSyncConfig
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-GetTemplateSyncStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncStatus.html">
+                 GetTemplateSyncStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the sync status of a template
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsproton-ListEnvironmentAccountConnections">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentAccountConnections.html">
@@ -1573,7 +1754,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use ListEnvironmentTemplateVersions instead
+                Grants permission to list environment template major versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead
                </td>
                <td>
                 List
@@ -1599,7 +1780,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use ListEnvironmentTemplateVersions instead
+                Grants permission to list an environment template minor versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead
                </td>
                <td>
                 List
@@ -1686,6 +1867,48 @@
               </tr>
               <tr>
                <td>
+                <a id="awsproton-ListRepositories">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositories.html">
+                 ListRepositories
+                </a>
+               </td>
+               <td>
+                Grants permission to list repositories
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-ListRepositorySyncDefinitions">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositorySyncDefinitions.html">
+                 ListRepositorySyncDefinitions
+                </a>
+               </td>
+               <td>
+                Grants permission to list repository sync definitions
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsproton-ListServiceInstances">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstances.html">
@@ -1714,7 +1937,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use ListServiceTemplateVersions instead
+                Grants permission to list service template major versions.  DEPRECATED - use ListServiceTemplateVersions instead
                </td>
                <td>
                 List
@@ -1740,7 +1963,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use ListServiceTemplateVersions instead
+                Grants permission to list service template minor versions.  DEPRECATED - use ListServiceTemplateVersions instead
                </td>
                <td>
                 List
@@ -1834,7 +2057,7 @@
                 </a>
                </td>
                <td rowspan="11">
-                Grants permissions to list tags of a resource
+                Grants permission to list tags of a resource
                </td>
                <td rowspan="11">
                 Read
@@ -1990,8 +2213,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to reject an environment account connection request from another
-                                                environment account.
+                Grants permission to reject an environment account connection request from another environment account
                </td>
                <td>
                 Write
@@ -2017,7 +2239,7 @@
                 </a>
                </td>
                <td rowspan="12">
-                Grants permissions to add tags to a resource
+                Grants permission to add tags to a resource
                </td>
                <td rowspan="12">
                 Tagging
@@ -2191,7 +2413,7 @@
                 </a>
                </td>
                <td rowspan="12">
-                Grants permissions to remove tags from a resource
+                Grants permission to remove tags from a resource
                </td>
                <td rowspan="12">
                 Tagging
@@ -2360,7 +2582,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateAccountSettings instead
+                Grants permission to update account roles.  DEPRECATED - use UpdateAccountSettings instead
                </td>
                <td>
                 Write
@@ -2502,7 +2724,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateEnvironmentTemplateVersion instead
+                Grants permission to update an environment template major version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead
                </td>
                <td>
                 Write
@@ -2528,7 +2750,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateEnvironmentTemplateVersion instead
+                Grants permission to update an environment template minor version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead
                </td>
                <td>
                 Write
@@ -2563,6 +2785,32 @@
                 <p>
                  <a href="#awsproton-environment-template">
                   environment-template*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-UpdateRepository">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateRepository.html">
+                 UpdateRepository
+                </a>
+               </td>
+               <td>
+                Grants permission to update a repository
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-repository">
+                  repository*
                  </a>
                 </p>
                </td>
@@ -2723,7 +2971,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateServiceTemplateVersion instead
+                Grants permission to update a service template major version.  DEPRECATED - use UpdateServiceTemplateVersion instead
                </td>
                <td>
                 Write
@@ -2749,7 +2997,7 @@
                 </a>
                </td>
                <td>
-                DEPRECATED - use UpdateServiceTemplateVersion instead
+                Grants permission to create a service template minor version.  DEPRECATED - use UpdateServiceTemplateVersion instead
                </td>
                <td>
                 Write
@@ -2792,6 +3040,27 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsproton-UpdateTemplateSyncConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateTemplateSyncConfig.html">
+                 UpdateTemplateSyncConfig
+                </a>
+               </td>
+               <td>
+                Grants permission to update a TemplateSyncConfig
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2807,18 +3076,15 @@
             <a href="#awsproton-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d971c13b5">
+             <table id="w85aab5b9d978c13b5">
               <thead>
                <tr>
                 <th>
@@ -3313,6 +3579,47 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awsproton-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-repository">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-repositories.html">
+                 repository
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:proton:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:repository/$
+                 <span>
+                  {
+                 </span>
+                 Provider}:$
+                 <span>
+                  {
+                 </span>
+                 Name}
+                </code>
+               </td>
+               <td>
                </td>
               </tr>
              </table>
@@ -3326,11 +3633,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -3343,7 +3648,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d971c15b7">
+             <table id="w85aab5b9d978c15b7">
               <thead>
                <tr>
                 <th>
@@ -3452,8 +3757,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
