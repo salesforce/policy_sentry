@@ -106,8 +106,7 @@
             <code class="code">
              greengrass
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d683c11b9">
+             <table id="w85aab5b9d690c11b9">
               <thead>
                <tr>
                 <th>
@@ -230,6 +219,30 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-AssociateServiceRoleToAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_AssociateServiceRoleToAccount.html">
+                 AssociateServiceRoleToAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to associate a role with your account. AWS IoT Greengrass uses this role to access your Lambda functions and AWS IoT resources
+               </td>
+               <td>
+                Permissions management
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awsiotgreengrassv2-BatchAssociateClientDeviceWithCoreDevice">
@@ -469,9 +482,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete a AWS IoT Greengrass core device, which is an AWS IoT
-                                                thing. This operation removes the core device from the list of core devices. This
-                                                operation doesn't delete the AWS IoT thing
+                Grants permission to delete a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core device from the list of core devices. This operation doesn't delete the AWS IoT thing
                </td>
                <td>
                 Write
@@ -511,6 +522,27 @@
                   componentVersion*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-DisassociateServiceRoleFromAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DisassociateServiceRoleFromAccount.html">
+                 DisassociateServiceRoleFromAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate the service role from an account. Without a service role, deployments will not work
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -567,6 +599,35 @@
                <td>
                </td>
                <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-GetConnectivityInfo">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetConnectivityInfo.html">
+                 GetConnectivityInfo
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the connectivity information for a Greengrass core device
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotgreengrassv2-connectivityInfo">
+                  connectivityInfo*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iot:GetThingShadow
+                </p>
                </td>
               </tr>
               <tr>
@@ -635,6 +696,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsiotgreengrassv2-GetServiceRoleForAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetServiceRoleForAccount.html">
+                 GetServiceRoleForAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the service role that is attached to an account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsiotgreengrassv2-ListClientDevicesAssociatedWithCoreDevice">
                 </a>
                 <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.html">
@@ -642,8 +724,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a paginated list of client devices associated to a AWS
-                                                IoT Greengrass core device
+                Grants permission to retrieve a paginated list of client devices associated to a AWS IoT Greengrass core device
                </td>
                <td>
                 List
@@ -770,8 +851,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieves a paginated list of deployment jobs that AWS IoT Greengrass
-                                                sends to AWS IoT Greengrass core devices
+                Grants permission to retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core devices
                </td>
                <td>
                 List
@@ -812,8 +892,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a paginated list of the components that a AWS IoT Greengrass
-                                                core device runs
+                Grants permission to retrieve a paginated list of the components that a AWS IoT Greengrass core device runs
                </td>
                <td>
                 List
@@ -922,8 +1001,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to list components that meet the component, version, and platform
-                                                requirements of a deployment
+                Grants permission to list components that meet the component, version, and platform requirements of a deployment
                </td>
                <td>
                 List
@@ -1106,6 +1184,38 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-UpdateConnectivityInfo">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_UpdateConnectivityInfo.html">
+                 UpdateConnectivityInfo
+                </a>
+               </td>
+               <td>
+                Grants permission to update the connectivity information for a Greengrass core. Any devices that belong to the group that has this core will receive this information in order to find the location of the core and connect to it
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotgreengrassv2-connectivityInfo">
+                  connectivityInfo*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iot:GetThingShadow
+                </p>
+                <p>
+                 iot:UpdateThingShadow
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1121,18 +1231,15 @@
             <a href="#awsiotgreengrassv2-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d683c13b5">
+             <table id="w85aab5b9d690c13b5">
               <thead>
                <tr>
                 <th>
@@ -1146,6 +1253,38 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awsiotgreengrassv2-connectivityInfo">
+                </a>
+                <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ConnectivityInfo.html">
+                 connectivityInfo
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:greengrass:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:/greengrass/things/$
+                 <span>
+                  {
+                 </span>
+                 ThingName}/connectivityInfo
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awsiotgreengrassv2-component">
@@ -1309,11 +1448,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -1326,7 +1463,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d683c15b7">
+             <table id="w85aab5b9d690c15b7">
               <thead>
                <tr>
                 <th>
@@ -1364,8 +1501,7 @@
                 </a>
                </td>
                <td>
-                Filters access by checking date/time conditions for the current date and time in epoch
-                                                or Unix time
+                Filters access by checking date/time conditions for the current date and time in epoch or Unix time
                </td>
                <td>
                 Date
@@ -1380,8 +1516,7 @@
                 </a>
                </td>
                <td>
-                Filters access by checking how long ago (in seconds) the security credentials validated
-                                                by multi-factor authentication (MFA) in the request were issued using MFA
+                Filters access by checking how long ago (in seconds) the security credentials validated by multi-factor authentication (MFA) in the request were issued using MFA
                </td>
                <td>
                 Numeric
@@ -1396,8 +1531,7 @@
                 </a>
                </td>
                <td>
-                Filters access by checking whether multi-factor authentication (MFA) was used to validate
-                                                the temporary security credentials that made the current request
+                Filters access by checking whether multi-factor authentication (MFA) was used to validate the temporary security credentials that made the current request
                </td>
                <td>
                 Bool
@@ -1498,8 +1632,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

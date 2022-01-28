@@ -106,8 +106,7 @@
             <code class="code">
              glue
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -175,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d579c11b9">
+             <table id="w85aab5b9d586c11b9">
               <thead>
                <tr>
                 <th>
@@ -426,17 +415,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="3">
                 <a id="awsglue-BatchDeleteTableVersion">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-DeleteTableVersion">
                  BatchDeleteTableVersion
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Grants permission to delete one or more versions of a table
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -479,9 +468,22 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-BatchGetBlueprints">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-BatchGetBlueprints">
+                 BatchGetBlueprints
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve one or more blueprints
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                 <p>
-                 <a href="#awsglue-tableversion">
-                  tableversion*
+                 <a href="#awsglue-blueprint">
+                  blueprint*
                  </a>
                 </p>
                </td>
@@ -505,6 +507,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -526,6 +533,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-devendpoint">
+                  devendpoint*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -547,6 +559,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -620,6 +637,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -641,6 +663,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -662,6 +689,58 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-BatchUpdatePartition">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-BatchUpdatePartition">
+                 BatchUpdatePartition
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to update one or more partitions
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -696,6 +775,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-CancelStatement">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-CancelStatement">
+                 CancelStatement
+                </a>
+               </td>
+               <td>
+                Grants permission to cancel a statement in an interactive session
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-CheckSchemaVersionValidity">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-schema-registry-api.html#aws-glue-api-schema-registry-api-CheckSchemaVersionValidity">
@@ -711,6 +816,37 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-CreateBlueprint">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-CreateBlueprint">
+                 CreateBlueprint
+                </a>
+               </td>
+               <td>
+                Grants permission to create a blueprint
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -764,13 +900,18 @@
               </tr>
               <tr>
                <td>
-                <p>
-                 <a href="#awsglue-connection">
-                  connection*
-                 </a>
-                </p>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -807,36 +948,23 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
                 <a id="awsglue-CreateDatabase">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-CreateDatabase">
                  CreateDatabase
                 </a>
                </td>
-               <td rowspan="2">
+               <td>
                 Grants permission to create a database
                </td>
-               <td rowspan="2">
+               <td>
                 Write
                </td>
                <td>
                 <p>
                  <a href="#awsglue-catalog">
                   catalog*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
-                 <a href="#awsglue-database">
-                  database*
                  </a>
                 </p>
                </td>
@@ -939,6 +1067,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -953,6 +1091,58 @@
                </td>
                <td rowspan="3">
                 Grants permission to create a partition
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-CreatePartitionIndex">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-CreatePartitionIndex">
+                 CreatePartitionIndex
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a specified partition index in an existing table
                </td>
                <td rowspan="3">
                 Write
@@ -1103,15 +1293,233 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td>
+                <a id="awsglue-CreateSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-api-session-CreateSession">
+                 CreateSession
+                </a>
+               </td>
+               <td>
+                Grants permission to create an interactive session
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsglue-CreateTable">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-CreateTable">
                  CreateTable
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="2">
                 Grants permission to create a table
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-CreateTrigger">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-CreateTrigger">
+                 CreateTrigger
+                </a>
+               </td>
+               <td>
+                Grants permission to create a trigger
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsglue-CreateUserDefinedFunction">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-functions.html#aws-glue-api-catalog-functions-CreateUserDefinedFunction">
+                 CreateUserDefinedFunction
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a function definition
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-CreateWorkflow">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-CreateWorkflow">
+                 CreateWorkflow
+                </a>
+               </td>
+               <td>
+                Grants permission to create a workflow
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-DeleteBlueprint">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-DeleteBlueprint">
+                 DeleteBlueprint
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a blueprint
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-DeleteClassifier">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-DeleteClassifier">
+                 DeleteClassifier
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a classifier
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-DeleteColumnStatisticsForPartition">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition">
+                 DeleteColumnStatisticsForPartition
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to delete the partition column statistics of a column
                </td>
                <td rowspan="3">
                 Write
@@ -1155,46 +1563,15 @@
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awsglue-CreateTrigger">
-                </a>
-                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-CreateTrigger">
-                 CreateTrigger
-                </a>
-               </td>
-               <td>
-                Grants permission to create a trigger
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#awsglue-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#awsglue-aws_TagKeys">
-                  aws:TagKeys
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
                <td rowspan="3">
-                <a id="awsglue-CreateUserDefinedFunction">
+                <a id="awsglue-DeleteColumnStatisticsForTable">
                 </a>
-                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-functions.html#aws-glue-api-catalog-functions-CreateUserDefinedFunction">
-                 CreateUserDefinedFunction
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable">
+                 DeleteColumnStatisticsForTable
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create a function definition
+                Grants permission to delete the table statistics of columns
                </td>
                <td rowspan="3">
                 Write
@@ -1227,62 +1604,10 @@
               <tr>
                <td>
                 <p>
-                 <a href="#awsglue-userdefinedfunction">
-                  userdefinedfunction*
+                 <a href="#awsglue-table">
+                  table*
                  </a>
                 </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsglue-CreateWorkflow">
-                </a>
-                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-CreateWorkflow">
-                 CreateWorkflow
-                </a>
-               </td>
-               <td>
-                Grants permission to create a workflow
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 <a href="#awsglue-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#awsglue-aws_TagKeys">
-                  aws:TagKeys
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awsglue-DeleteClassifier">
-                </a>
-                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-DeleteClassifier">
-                 DeleteClassifier
-                </a>
-               </td>
-               <td>
-                Grants permission to delete a classifier
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
                </td>
                <td>
                </td>
@@ -1343,6 +1668,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1350,17 +1680,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="awsglue-DeleteDatabase">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-DeleteDatabase">
                  DeleteDatabase
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to delete a database
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -1390,6 +1720,32 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-userdefinedfunction">
+                  userdefinedfunction*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-DeleteDevEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-dev-endpoint.html#aws-glue-api-dev-endpoint-DeleteDevEndpoint">
@@ -1403,6 +1759,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-devendpoint">
+                  devendpoint*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1424,6 +1785,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1466,6 +1832,58 @@
                </td>
                <td rowspan="3">
                 Grants permission to delete a partition
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-DeletePartitionIndex">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-DeletePartitionIndex">
+                 DeletePartitionIndex
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to delete a specified partition index from an existing table
                </td>
                <td rowspan="3">
                 Write
@@ -1660,6 +2078,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awsglue-DeleteSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-DeleteSession">
+                 DeleteSession
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an interactive session after stopping the session if not already stopped
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="awsglue-DeleteTable">
                 </a>
@@ -1712,17 +2156,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="3">
                 <a id="awsglue-DeleteTableVersion">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-DeleteTableVersion">
                  DeleteTableVersion
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Grants permission to delete a version of a table
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -1765,19 +2209,6 @@
               </tr>
               <tr>
                <td>
-                <p>
-                 <a href="#awsglue-tableversion">
-                  tableversion*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
                 <a id="awsglue-DeleteTrigger">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-DeleteTrigger">
@@ -1791,6 +2222,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1864,6 +2300,89 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-GetBlueprint">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprint">
+                 GetBlueprint
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a blueprint
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-GetBlueprintRun">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprintRun">
+                 GetBlueprintRun
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a blueprint run
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-GetBlueprintRuns">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprintRuns">
+                 GetBlueprintRuns
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve all runs of a blueprint
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1932,6 +2451,110 @@
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-GetColumnStatisticsForPartition">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-GetColumnStatisticsForPartition">
+                 GetColumnStatisticsForPartition
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to retrieve partition statistics of columns
+               </td>
+               <td rowspan="3">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-GetColumnStatisticsForTable">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetColumnStatisticsForTable">
+                 GetColumnStatisticsForTable
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to retrieve table statistics of columns
+               </td>
+               <td rowspan="3">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2031,6 +2654,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2094,6 +2722,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2214,6 +2847,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-devendpoint">
+                  devendpoint*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2256,6 +2894,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2439,6 +3082,11 @@
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-mlTransform">
+                  mlTransform*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2868,6 +3516,58 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awsglue-GetSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-GetSession">
+                 GetSession
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an interactive session
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-GetStatement">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-GetStatement">
+                 GetStatement
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve result and information about a statement in an interactive session
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="awsglue-GetTable">
                 </a>
@@ -2920,17 +3620,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="3">
                 <a id="awsglue-GetTableVersion">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetTableVersion">
                  GetTableVersion
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Grants permission to retrieve a version of a table
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Read
                </td>
                <td>
@@ -2972,30 +3672,17 @@
                </td>
               </tr>
               <tr>
-               <td>
-                <p>
-                 <a href="#awsglue-tableversion">
-                  tableversion*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td rowspan="4">
+               <td rowspan="3">
                 <a id="awsglue-GetTableVersions">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetTableVersions">
                  GetTableVersions
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Grants permission to retrieve a list of versions of a table
                </td>
-               <td rowspan="4">
+               <td rowspan="3">
                 Read
                </td>
                <td>
@@ -3028,19 +3715,6 @@
                 <p>
                  <a href="#awsglue-table">
                   table*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
-                 <a href="#awsglue-tableversion">
-                  tableversion*
                  </a>
                 </p>
                </td>
@@ -3194,6 +3868,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3230,7 +3909,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to retrieve a function definition.
+                Grants permission to retrieve a function definition
                </td>
                <td rowspan="3">
                 Read
@@ -3340,6 +4019,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3361,6 +4045,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3382,6 +4071,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3403,6 +4097,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3429,6 +4128,27 @@
                   catalog*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-ListBlueprints">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-ListBlueprints">
+                 ListBlueprints
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve all blueprints
+               </td>
+               <td>
+                List
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -3513,6 +4233,11 @@
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-mlTransform">
+                  mlTransform*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3607,6 +4332,53 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-ListSessions">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-ListSessions">
+                 ListSessions
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a list of interactive session
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-ListStatements">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-ListStatements">
+                 ListStatements
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a list of statements in an interactive session
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-ListTriggers">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-ListTriggers">
@@ -3688,6 +4460,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3774,6 +4551,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3933,6 +4715,37 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-RunStatement">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-RunStatement">
+                 RunStatement
+                </a>
+               </td>
+               <td>
+                Grants permission to run a code or statement in an interactive session
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3993,6 +4806,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-StartBlueprintRun">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-StartBlueprintRun">
+                 StartBlueprintRun
+                </a>
+               </td>
+               <td>
+                Grants permission to start running a blueprint
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-StartCrawler">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StartCrawler">
@@ -4006,6 +4845,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4173,6 +5017,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4194,6 +5043,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4215,6 +5069,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4244,6 +5103,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-StopSession">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-StopSession">
+                 StopSession
+                </a>
+               </td>
+               <td>
+                Grants permission to stop an interactive session
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-session">
+                  session*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-StopTrigger">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-StopTrigger">
@@ -4257,6 +5142,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4278,6 +5168,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4467,6 +5362,37 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-UpdateBlueprint">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-UpdateBlueprint">
+                 UpdateBlueprint
+                </a>
+               </td>
+               <td>
+                Grants permission to update a blueprint
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -4486,6 +5412,110 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-UpdateColumnStatisticsForPartition">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-UpdateColumnStatisticsForPartition">
+                 UpdateColumnStatisticsForPartition
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to update partition statistics of columns
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsglue-UpdateColumnStatisticsForTable">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable">
+                 UpdateColumnStatisticsForTable
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to update table statistics of columns
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-catalog">
+                  catalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-database">
+                  database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsglue-table">
+                  table*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4546,6 +5576,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-crawler">
+                  crawler*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4627,6 +5662,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-devendpoint">
+                  devendpoint*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4634,19 +5674,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsglue-UpdateJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-UpdateJob">
                  UpdateJob
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to update a job
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -4879,6 +5932,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-trigger">
+                  trigger*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4952,6 +6010,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-workflow">
+                  workflow*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4999,18 +6062,15 @@
             <a href="#awsglue-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d579c13b5">
+             <table id="w85aab5b9d586c13b5">
               <thead>
                <tr>
                 <th>
@@ -5415,6 +6475,43 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-blueprint">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">
+                 blueprint
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:glue:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:blueprint/$
+                 <span>
+                  {
+                 </span>
+                 BlueprintName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-mlTransform">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">
@@ -5524,6 +6621,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsglue-session">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">
+                 session
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:glue:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:session/$
+                 <span>
+                  {
+                 </span>
+                 SessionId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -5535,11 +6669,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -5552,7 +6684,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d579c15b7">
+             <table id="w85aab5b9d586c15b7">
               <thead>
                <tr>
                 <th>
@@ -5635,8 +6767,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the service from which the credentials of the request is obtained
-                                                by assuming the customer role
+                Filters access by the service from which the credentials of the request is obtained by assuming the customer role
                </td>
                <td>
                 String
@@ -5654,7 +6785,7 @@
                 Filters access by the ID of security groups configured for the Glue job
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -5669,7 +6800,7 @@
                 Filters access by the ID of subnets configured for the Glue job
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -5684,7 +6815,7 @@
                 Filters access by the ID of the VPC configured for the Glue job
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>
@@ -5707,8 +6838,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
