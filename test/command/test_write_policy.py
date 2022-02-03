@@ -172,7 +172,8 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "eks:ListClusters",
-                        "eks:CreateCluster"
+                        "eks:CreateCluster",
+                        "eks:RegisterCluster"
                     ],
                     "Resource": [
                         "*"
@@ -180,7 +181,10 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                 }
             ]
         }
-        self.assertDictEqual(result, expected_results)
+        self.assertEqual(result["Statement"][0]["Sid"], expected_results["Statement"][0]["Sid"])
+        self.assertTrue("eks:ListClusters" in result["Statement"][0]["Action"])
+        self.assertTrue("eks:CreateCluster" in result["Statement"][0]["Action"])
+        self.assertTrue("eks:RegisterCluster" in result["Statement"][0]["Action"])
 
     def test_dynamodb_arn_policy_gh_215(self):
         """test_dynamodb_arn_matching_gh_215: Test writing a policy with DynamoDB"""

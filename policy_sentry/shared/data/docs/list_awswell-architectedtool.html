@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -107,8 +106,7 @@
             <code class="code">
              wellarchitected
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -176,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1203c11b9">
+             <table id="w85aab5b9e1246c11b9">
               <thead>
                <tr>
                 <th>
@@ -249,6 +237,58 @@
                 <p>
                  <a href="#awswell-architectedtool-workload">
                   workload*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-CreateLensShare">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensShare.html">
+                 CreateLensShare
+                </a>
+               </td>
+               <td>
+                Grants permission to an owner of a lens to share with other AWS accounts and IAM Users
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-CreateLensVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensVersion.html">
+                 CreateLensVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new lens version
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
                  </a>
                 </p>
                </td>
@@ -342,6 +382,58 @@
               </tr>
               <tr>
                <td>
+                <a id="awswell-architectedtool-DeleteLens">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLens.html">
+                 DeleteLens
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a lens
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-DeleteLensShare">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLensShare.html">
+                 DeleteLensShare
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an existing lens share
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awswell-architectedtool-DeleteWorkload">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteWorkload.html">
@@ -420,6 +512,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awswell-architectedtool-ExportLens">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ExportLens.html">
+                 ExportLens
+                </a>
+               </td>
+               <td>
+                Grants permission to export an existing lens
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awswell-architectedtool-GetAnswer">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAnswer.html">
@@ -436,6 +554,32 @@
                 <p>
                  <a href="#awswell-architectedtool-workload">
                   workload*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-GetLens">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLensShare.html">
+                 GetLens
+                </a>
+               </td>
+               <td>
+                Grants permission to get an existing lens
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
                  </a>
                 </p>
                </td>
@@ -505,13 +649,17 @@
                 </a>
                </td>
                <td>
-                Grants permission to get the difference between the specified lens version and latest
-                                                available lens version
+                Grants permission to get the difference between the specified lens version and latest available lens version
                </td>
                <td>
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -579,6 +727,27 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-ImportLens">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ImportLens.html">
+                 ImportLens
+                </a>
+               </td>
+               <td>
+                Grants permission to import a new lens
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -653,6 +822,32 @@
                 <p>
                  <a href="#awswell-architectedtool-workload">
                   workload*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-ListLensShares">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListLensShares.html">
+                 ListLensShares
+                </a>
+               </td>
+               <td>
+                Grants permission to list all shares created for a lens
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens*
                  </a>
                 </p>
                </td>
@@ -738,8 +933,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to list the workload share invitations of the specified account
-                                                or user
+                Grants permission to list the workload share invitations of the specified account or user
                </td>
                <td>
                 List
@@ -1059,8 +1253,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to upgrade the specified lens review to use the latest version of
-                                                the associated lens
+                Grants permission to upgrade the specified lens review to use the latest version of the associated lens
                </td>
                <td>
                 Write
@@ -1092,18 +1285,15 @@
             <a href="#awswell-architectedtool-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1203c13b5">
+             <table id="w85aab5b9e1246c13b5">
               <thead>
                <tr>
                 <th>
@@ -1154,6 +1344,38 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awswell-architectedtool-lens">
+                </a>
+                <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_Lens.html">
+                 lens
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:wellarchitected:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:lens/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1161,16 +1383,13 @@
             Condition keys for        AWS Well-Architected Tool
            </h2>
            <p>
-            AWS Well-Architected Tool defines the following condition keys that can be used in
-                                    the
+            AWS Well-Architected Tool defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -1183,7 +1402,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1203c15b7">
+             <table id="w85aab5b9e1246c15b7">
               <thead>
                <tr>
                 <th>
@@ -1262,8 +1481,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

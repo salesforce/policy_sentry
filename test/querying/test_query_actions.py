@@ -97,7 +97,29 @@ class QueryActionsTestCase(unittest.TestCase):
             expected_results = json.load(json_file)
         results = get_privilege_info("cloud9", "CreateEnvironmentEC2")
         print(json.dumps(results, indent=4))
-        self.assertDictEqual(results, expected_results)
+        # Future proofing the unit tests
+        self.assertEqual(results["privilege"], expected_results["privilege"])
+        self.assertEqual(results["access_level"], expected_results["access_level"])
+        self.assertEqual(results["resource_types"][""]["resource_type"], expected_results["resource_types"][""]["resource_type"])
+        self.assertTrue("aws:RequestTag/${TagKey}" in results["resource_types"][""]["condition_keys"])
+        self.assertTrue("ec2:DescribeSubnets" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("ec2:DescribeVpcs" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("iam:CreateServiceLinkedRole" in results["resource_types"][""]["dependent_actions"])
+        self.assertTrue("environment" in results["service_resources"].keys())
+        expected_service_conditions = [
+            'aws:RequestTag/${TagKey}',
+            'aws:ResourceTag/${TagKey}',
+            'aws:TagKeys',
+            'cloud9:EnvironmentId',
+            'cloud9:EnvironmentName',
+            'cloud9:InstanceType',
+            'cloud9:OwnerArn',
+            'cloud9:Permissions',
+            'cloud9:SubnetId',
+            'cloud9:UserArn'
+        ]
+        for expected_condition in expected_service_conditions:
+            self.assertTrue(expected_condition in results["service_conditions"].keys())
 
     # def test_get_privilege_info_2(self):
     #     results = get_privilege_info("ram", "CreateResourceShare")
@@ -164,8 +186,8 @@ class QueryActionsTestCase(unittest.TestCase):
             "ecr:PutReplicationConfiguration"
         ]
         # print(json.dumps(results, indent=4))
-        for result in results:
-            self.assertTrue(result in expected_results)
+        for item in expected_results:
+            self.assertTrue(item in results)
 
         # Variant 3: All actions
         output = get_actions_that_support_wildcard_arns_only("all")
@@ -198,8 +220,8 @@ class QueryActionsTestCase(unittest.TestCase):
         self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
         self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
-        self.assertListEqual(permissions_output, ["s3:PutAccountPublicAccessBlock"])
-
+        for item in ["s3:PutAccountPublicAccessBlock"]:
+            self.assertTrue(item in permissions_output)
         all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Permissions management"
         )
@@ -256,13 +278,17 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_3(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
-            's3:PutAccountPublicAccessBlock'
+            's3:PutAccountPublicAccessBlock',
+            's3:PutAccessPointPublicAccessBlock'
         ]
         output = get_actions_with_arn_type_and_access_level(
             # "ram", "resource-share", "Write"
             "s3", "*", "Permissions management"
         )
-        self.assertListEqual(desired_output, output)
+        print(output)
+        for item in desired_output:
+            self.assertTrue(item in output)
+        # self.assertListEqual(desired_output, output)
 
     def test_get_actions_with_arn_type_and_access_level_case_4(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
@@ -278,10 +304,9 @@ class QueryActionsTestCase(unittest.TestCase):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
 
         output = get_actions_with_arn_type_and_access_level(
-            "all", "object", "List"
+            "s3", "object", "List"
         )
-
-        self.assertTrue(len(output) == 2)
+        self.assertTrue("s3:ListMultipartUploadParts" in output)
 
     def test_get_actions_matching_arn_type_case_1(self):
         """querying.actions.get_actions_matching_arn_type"""
@@ -295,8 +320,8 @@ class QueryActionsTestCase(unittest.TestCase):
         ]
         results = get_actions_matching_arn_type('ecr', '*')
         print(json.dumps(results, indent=4))
-        for result in results:
-            self.assertTrue(result in expected_results)
+        for item in expected_results:
+            self.assertTrue(item in results)
         # self.assertEqual(output, ["ecr:GetAuthorizationToken"])
 
     def test_get_actions_matching_arn_type_case_2(self):
@@ -418,7 +443,7 @@ class QueryActionsTestCase(unittest.TestCase):
         # self.assertListEqual(result, ["ecr:DescribeRepositories"])
         # DescribeRepositories is no longer considered a "list" action.
         self.assertListEqual(result, [])
-        
+
         # Tagging
         result = remove_actions_not_matching_access_level(
             actions_list, "Tagging"

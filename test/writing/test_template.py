@@ -26,6 +26,8 @@ tagging:
 - ''
 permissions-management:
 - ''
+# Whether or not to add dependent actions if they don't have the same resource constraint (default: true)
+wildcard-dependent-actions: true
 # Actions that do not support resource constraints
 wildcard-only:
   single-actions: # standalone actions
@@ -47,6 +49,14 @@ skip-resource-constraints:
 # Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
 exclude-actions:
 - ''
+# If this policy needs to include an AssumeRole action
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 """
         crud_template = create_crud_template()
         self.maxDiff = None

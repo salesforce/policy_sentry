@@ -177,6 +177,14 @@ skip-resource-constraints:
 # Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
 exclude-actions:
 - ''
+# If this policy needs to include an AssumeRole action
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 ```
 
 ### Step 2: Copy/paste ARNs
@@ -466,4 +474,3 @@ The Terraform module is published and maintained [here](https://github.com/sales
 [13]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#crud-mode-arns-and-access-levels
 [14]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#actions-mode-lists-of-iam-actions
 [15]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#folder-mode-write-multiple-policies-from-crud-mode-files
-

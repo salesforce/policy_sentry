@@ -44,6 +44,14 @@ skip-resource-constraints:
 # Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
 exclude-actions:
 - ''
+# If this policy needs to include an AssumeRole action
+sts:
+  assume-role:
+    - ''
+  assume-role-with-saml:
+    - ''
+  assume-role-with-web-identity:
+    - ''
 """
 
 CRUD_TEMPLATE_DICT = {
@@ -64,7 +72,12 @@ CRUD_TEMPLATE_DICT = {
         "service-permissions-management": [],
     },
     "skip-resource-constraints": [],
-    "exclude-actions": []
+    "exclude-actions": [],
+    "sts": {
+        "assume-role": [], 
+        "assume-role-with-saml": [], 
+        "assume-role-with-web-identity": []
+    }
 }
 
 ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}

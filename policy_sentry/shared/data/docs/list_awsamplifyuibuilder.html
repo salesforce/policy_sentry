@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, resources, and condition keys for AWS Amplify UI Builder - Service Authorization Reference
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awsamplifyuibuilder" name="target_state"/>
+  <meta content="list_awsamplifyuibuilder" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsamplifyuibuilder.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS Amplify UI Builder." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="Service Authorization Reference" name="product"/>
+  <meta content="Service Authorization Reference" name="guide"/>
+  <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="Service Authorization Docs" name="feedback-item"/>
+  <meta content="Service Authorization Reference" name="this_doc_product"/>
+  <meta content="Service Authorization Reference" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, resources, and condition keys for AWS Amplify UI Builder - Service Authorization Reference
+        </title>
+        <meta content="service-authorization.pdf#list_awsamplifyuibuilder" name="pdf"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsamplifyuibuilder.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsamplifyuibuilder.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsamplifyuibuilder.html" name="feedback-no"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="service-authorization.pdf#list_awsamplifyuibuilder" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           Service Authorization Reference
+          </a>
+          <a href="reference.html">
+           Service Authorization Reference
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awsamplifyuibuilder-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awsamplifyuibuilder-resources-for-iam-policies">
+           Resource types
+          </a>
+          <a href="#awsamplifyuibuilder-policy-keys">
+           Condition keys
+          </a>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awsamplifyuibuilder">
+            Actions, resources, and condition keys for      AWS Amplify UI Builder
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS Amplify UI Builder (service prefix:
+            <code class="code">
+             amplifyuibuilder
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/amplify/latest/userguide/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/">
+                API operations available for this          service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/amplify/latest/userguide/security-iam.html">
+                using          IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awsamplifyuibuilder-actions-as-permissions">
+               Actions defined by        AWS Amplify UI Builder
+              </a>
+             </li>
+             <li>
+              <a href="#awsamplifyuibuilder-resources-for-iam-policies">
+               Resource types defined by        AWS Amplify UI Builder
+              </a>
+             </li>
+             <li>
+              <a href="#awsamplifyuibuilder-policy-keys">
+               Condition keys for        AWS Amplify UI Builder
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awsamplifyuibuilder-actions-as-permissions">
+            Actions defined by        AWS Amplify UI Builder
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9c43c11b9">
+              <thead>
+               <tr>
+                <th>
+                 Actions
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Access level
+                </th>
+                <th>
+                 Resource types (*required)
+                </th>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Dependent actions
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-CreateComponent">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_CreateComponent.html">
+                 CreateComponent
+                </a>
+               </td>
+               <td>
+                Grants permission to create a component
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-CreateTheme">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_CreateTheme.html">
+                 CreateTheme
+                </a>
+               </td>
+               <td>
+                Grants permission to create a theme
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-DeleteComponent">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_DeleteComponent.html">
+                 DeleteComponent
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a component
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-DeleteTheme">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_DeleteTheme.html">
+                 DeleteTheme
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a theme
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ExchangeCodeForToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExchangeCodeForToken.html">
+                 ExchangeCodeForToken
+                </a>
+               </td>
+               <td>
+                Grants permission to exchange a code for a token
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ExportComponents">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExportComponents.html">
+                 ExportComponents
+                </a>
+               </td>
+               <td>
+                Grants permission to export components
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ExportThemes">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExportThemes.html">
+                 ExportThemes
+                </a>
+               </td>
+               <td>
+                Grants permission to export themes
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-GetComponent">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetComponent.html">
+                 GetComponent
+                </a>
+               </td>
+               <td>
+                Grants permission to get an existing component
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-GetTheme">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetTheme.html">
+                 GetTheme
+                </a>
+               </td>
+               <td>
+                Grants permission to get an existing theme
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ListComponents">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListComponents.html">
+                 ListComponents
+                </a>
+               </td>
+               <td>
+                Grants permission to list the components for an app
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsamplifyuibuilder-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the tags for a resource
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ListThemes">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListThemes.html">
+                 ListThemes
+                </a>
+               </td>
+               <td>
+                Grants permission to list the themes for an app
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-RefreshToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_RefreshToken.html">
+                 RefreshToken
+                </a>
+               </td>
+               <td>
+                Grants permission to refresh an access token
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsamplifyuibuilder-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to tag a resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsamplifyuibuilder-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to untag a resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-UpdateComponent">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_UpdateComponent.html">
+                 UpdateComponent
+                </a>
+               </td>
+               <td>
+                Grants permission to update a component
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ComponentResource">
+                  ComponentResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-UpdateTheme">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_UpdateTheme.html">
+                 UpdateTheme
+                </a>
+               </td>
+               <td>
+                Grants permission to update a theme
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-ThemeResource">
+                  ThemeResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsamplifyuibuilder-resources-for-iam-policies">
+            Resource types defined by        AWS Amplify UI Builder
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsamplifyuibuilder-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9c43c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ComponentResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_Component.html">
+                 ComponentResource
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:amplifyuibuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:app/$
+                 <span>
+                  {
+                 </span>
+                 AppId}/environment/$
+                 <span>
+                  {
+                 </span>
+                 EnvironmentName}/components/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_AppId">
+                  amplifyuibuilder:AppId
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_ComponentsId">
+                  amplifyuibuilder:ComponentsId
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_EnvironmentName">
+                  amplifyuibuilder:EnvironmentName
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-ThemeResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_Theme.html">
+                 ThemeResource
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:amplifyuibuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:app/$
+                 <span>
+                  {
+                 </span>
+                 AppId}/environment/$
+                 <span>
+                  {
+                 </span>
+                 EnvironmentName}/themes/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_AppId">
+                  amplifyuibuilder:AppId
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_EnvironmentName">
+                  amplifyuibuilder:EnvironmentName
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-amplifyuibuilder_ThemesId">
+                  amplifyuibuilder:ThemesId
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsamplifyuibuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsamplifyuibuilder-policy-keys">
+            Condition keys for        AWS Amplify UI Builder
+           </h2>
+           <p>
+            AWS Amplify UI Builder defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9c43c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-amplifyuibuilder_AppId">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplify/latest/APIReference/API_App.html">
+                 amplifyuibuilder:AppId
+                </a>
+               </td>
+               <td>
+                Filters access by the app ID
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-amplifyuibuilder_ComponentsId">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_Component.html">
+                 amplifyuibuilder:ComponentsId
+                </a>
+               </td>
+               <td>
+                Filters access by the component ID
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-amplifyuibuilder_EnvironmentName">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplify/latest/APIReference/API_BackendEnvironment.html">
+                 amplifyuibuilder:EnvironmentName
+                </a>
+               </td>
+               <td>
+                Filters access by the backend environment name
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-amplifyuibuilder_ThemesId">
+                </a>
+                <a href="https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_Theme.html">
+                 amplifyuibuilder:ThemesId
+                </a>
+               </td>
+               <td>
+                Filters access by the theme ID
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access based on the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsamplifyuibuilder-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access based on the tag keys that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+           <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
+           </awsdocs-thumb-feedback>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your browser.
+                </strong>
+               </p>
+               <p>
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awsamplifyadmin.html" id="previous">
+             AWS Amplify Admin
+            </div>
+            <div accesskey="n" class="next-link" href="./list_apachekafkaapisforamazonmskclusters.html" id="next">
+             Apache Kafka APIs for Amazon MSK clusters
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsamplifyuibuilder.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsamplifyuibuilder.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+  </div>
+ </body>
+</html>

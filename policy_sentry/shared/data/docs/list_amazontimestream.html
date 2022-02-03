@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -107,8 +106,7 @@
             <code class="code">
              timestream
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -176,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c11b9">
+             <table id="w85aab5b9e1210c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,7 +228,7 @@
                 </a>
                </td>
                <td>
-                Grants Permission to cancel queries in your account
+                Grants permission to cancel queries in your account
                </td>
                <td>
                 Write
@@ -261,7 +249,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to create a database in your account.
+                Grants permission to create a database in your account
                </td>
                <td rowspan="2">
                 Write
@@ -297,6 +285,40 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazontimestream-CreateScheduledQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_CreateScheduledQuery.html">
+                 CreateScheduledQuery
+                </a>
+               </td>
+               <td>
+                Grants permission to create a scheduled query in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazontimestream-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazontimestream-CreateTable">
                 </a>
@@ -305,7 +327,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to create a table in your account.
+                Grants permission to create a table in your account
                </td>
                <td rowspan="2">
                 Write
@@ -349,7 +371,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a database in your account.
+                Grants permission to delete a database in your account
                </td>
                <td>
                 Write
@@ -368,6 +390,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazontimestream-DeleteScheduledQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DeleteScheduledQuery.html">
+                 DeleteScheduledQuery
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a scheduled query in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazontimestream-DeleteTable">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteTable.html">
@@ -375,7 +423,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a table in your account.
+                Grants permission to delete a table in your account
                </td>
                <td>
                 Write
@@ -401,7 +449,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to describe a database in your account.
+                Grants permission to describe a database in your account
                </td>
                <td>
                 Read
@@ -427,12 +475,38 @@
                 </a>
                </td>
                <td>
-                Grants permissions to describe timestream endpoints.
+                Grants permission to describe timestream endpoints
                </td>
                <td>
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazontimestream-DescribeScheduledQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DescribeScheduledQuery.html">
+                 DescribeScheduledQuery
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a scheduled query in your account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -448,7 +522,7 @@
                 </a>
                </td>
                <td>
-                Grants Permissions to describe a table in your account
+                Grants permission to describe a table in your account
                </td>
                <td>
                 Read
@@ -467,6 +541,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazontimestream-ExecuteScheduledQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ExecuteScheduledQuery.html">
+                 ExecuteScheduledQuery
+                </a>
+               </td>
+               <td>
+                Grants permission to execute a scheduled query in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazontimestream-ListDatabases">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListDatabases.html">
@@ -474,7 +574,7 @@
                 </a>
                </td>
                <td>
-                Grants Permission to list databases in your account
+                Grants permission to list databases in your account
                </td>
                <td>
                 List
@@ -495,7 +595,7 @@
                 </a>
                </td>
                <td>
-                Grants Permissions to list measures of a table in your account
+                Grants permission to list measures of a table in your account
                </td>
                <td>
                 List
@@ -514,6 +614,27 @@
               </tr>
               <tr>
                <td>
+                <a id="amazontimestream-ListScheduledQueries">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ListScheduledQueries.html">
+                 ListScheduledQueries
+                </a>
+               </td>
+               <td>
+                Grants permission to list scheduled queries in your account
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazontimestream-ListTables">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTables.html">
@@ -521,7 +642,7 @@
                 </a>
                </td>
                <td>
-                Grants Permission to list tables in your account
+                Grants permission to list tables in your account
                </td>
                <td>
                 List
@@ -539,23 +660,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazontimestream-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2">
-                Grants permissions to list tags of a resource in your account.
+               <td rowspan="3">
+                Grants permission to list tags of a resource in your account
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 List
                </td>
                <td>
                 <p>
                  <a href="#amazontimestream-database">
                   database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
                  </a>
                 </p>
                </td>
@@ -586,7 +720,7 @@
                 </a>
                </td>
                <td>
-                Grants Permission to issue 'select from table' queries
+                Grants permission to issue 'select from table' queries
                </td>
                <td>
                 Read
@@ -612,7 +746,7 @@
                 </a>
                </td>
                <td>
-                Grants Permissions to issue 'select 1' queries
+                Grants permission to issue 'select 1' queries
                </td>
                <td>
                 Read
@@ -625,23 +759,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazontimestream-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3">
-                Grants permissions to add tags to a resource.
+               <td rowspan="4">
+                Grants permission to add tags to a resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazontimestream-database">
                   database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
                  </a>
                 </p>
                </td>
@@ -682,23 +829,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazontimestream-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3">
-                Grants permissions to remove a tag from a resource.
+               <td rowspan="4">
+                Grants permission to remove a tag from a resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
                 <p>
                  <a href="#amazontimestream-database">
                   database*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
                  </a>
                 </p>
                </td>
@@ -742,7 +902,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to update a database in your account.
+                Grants permission to update a database in your account
                </td>
                <td>
                 Write
@@ -761,6 +921,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazontimestream-UpdateScheduledQuery">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_UpdateScheduledQuery.html">
+                 UpdateScheduledQuery
+                </a>
+               </td>
+               <td>
+                Grants permission to update a scheduled query in your account
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-scheduled-query">
+                  scheduled-query*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazontimestream-UpdateTable">
                 </a>
                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateTable.html">
@@ -768,7 +954,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to update a table in your account.
+                Grants permission to update a table in your account
                </td>
                <td>
                 Write
@@ -794,7 +980,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to ingest data to a table in your account.
+                Grants permission to ingest data to a table in your account
                </td>
                <td>
                 Write
@@ -826,18 +1012,15 @@
             <a href="#amazontimestream-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c13b5">
+             <table id="w85aab5b9e1210c13b5">
               <thead>
                <tr>
                 <th>
@@ -929,6 +1112,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazontimestream-scheduled-query">
+                </a>
+                <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/API_ScheduledQuery.html">
+                 scheduled-query
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:timestream:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:scheduled-query/$
+                 <span>
+                  {
+                 </span>
+                 ScheduledQueryName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazontimestream-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -940,11 +1160,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -957,7 +1175,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9e1167c15b7">
+             <table id="w85aab5b9e1210c15b7">
               <thead>
                <tr>
                 <th>
@@ -980,7 +1198,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request
+                Filters access by the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -995,7 +1213,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource
+                Filters access by tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -1010,7 +1228,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag keys in the request
+                Filters access by the presence of tag keys in the request
                </td>
                <td>
                 String
@@ -1036,8 +1254,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>

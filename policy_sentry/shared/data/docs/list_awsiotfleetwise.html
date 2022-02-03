@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Actions, resources, and condition keys for AWS IoT FleetWise - Service Authorization Reference
+  </title>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="/assets" name="assets_root"/>
+  <meta content="list_awsiotfleetwise" name="target_state"/>
+  <meta content="list_awsiotfleetwise" name="default_state"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/assets/images/favicon.ico" rel="shortcut icon" type="image/ico"/>
+  <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleetwise.html" rel="canonical"/>
+  <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to AWS IoT FleetWise." name="description"/>
+  <meta content="IAD" name="deployment_region"/>
+  <meta content="Service Authorization Reference" name="product"/>
+  <meta content="Service Authorization Reference" name="guide"/>
+  <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
+  <meta content="en_us" name="guide-locale"/>
+  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="Service Authorization Docs" name="feedback-item"/>
+  <meta content="Service Authorization Reference" name="this_doc_product"/>
+  <meta content="Service Authorization Reference" name="this_doc_guide"/>
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  </script>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  </script>
+ </head>
+ <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
+  <div class="awsdocs-container">
+   <awsdocs-header>
+   </awsdocs-header>
+   <awsui-app-layout class="awsui-util-no-gutters" header-selector="awsdocs-header" id="app-layout" navigation-change="$ctrl.onNavChange($event)" navigation-hide="false" navigation-open="$ctrl.navOpen" navigation-width="$ctrl.navWidth" ng-controller="ContentController as $ctrl" tools-change="$ctrl.onToolsChange($event)" tools-hide="$ctrl.hideTools" tools-open="$ctrl.toolsOpen" tools-width="$ctrl.toolsWidth">
+    <div dom-region="navigation" id="guide-toc">
+     <awsdocs-toc>
+     </awsdocs-toc>
+    </div>
+    <div dom-region="content" id="main-column" tabindex="-1">
+     <awsdocs-view class="awsdocs-view">
+      <div id="awsdocs-content">
+       <head>
+        <title>
+         Actions, resources, and condition keys for AWS IoT FleetWise - Service Authorization Reference
+        </title>
+        <meta content="service-authorization.pdf#list_awsiotfleetwise" name="pdf"/>
+        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsiotfleetwise.html" name="feedback"/>
+        <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsiotfleetwise.html" name="feedback-yes"/>
+        <meta content="feedbackno.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsiotfleetwise.html" name="feedback-no"/>
+       </head>
+       <body>
+        <div id="main">
+         <div style="display: none">
+          <a href="service-authorization.pdf#list_awsiotfleetwise" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          </a>
+         </div>
+         <div class="breadcrumb" id="breadcrumbs">
+          <a href="http://aws.amazon.com">
+           AWS
+          </a>
+          <a href="/index.html">
+           Documentation
+          </a>
+          <a href="/iam/index.html">
+           Service Authorization Reference
+          </a>
+          <a href="reference.html">
+           Service Authorization Reference
+          </a>
+         </div>
+         <div id="page-toc-src">
+          <a href="#awsiotfleetwise-actions-as-permissions">
+           Actions
+          </a>
+          <a href="#awsiotfleetwise-resources-for-iam-policies">
+           Resource types
+          </a>
+          <a href="#awsiotfleetwise-policy-keys">
+           Condition keys
+          </a>
+         </div>
+         <div class="awsui-util-container" id="main-content">
+          <div id="main-col-body">
+           <awsdocs-language-banner data-service="$ctrl.pageService">
+           </awsdocs-language-banner>
+           <h1 class="topictitle" id="list_awsiotfleetwise">
+            Actions, resources, and condition keys for      AWS IoT FleetWise
+           </h1>
+           <div class="awsdocs-page-header-container">
+            <awsdocs-page-header>
+            </awsdocs-page-header>
+            <awsdocs-filter-selector id="awsdocs-filter-selector">
+            </awsdocs-filter-selector>
+           </div>
+           <p>
+            AWS IoT FleetWise (service prefix:
+            <code class="code">
+             iotfleetwise
+            </code>
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
+           </p>
+           <p>
+            References:
+           </p>
+           <div class="itemizedlist">
+            <ul class="itemizedlist" type="disc">
+             <li class="listitem">
+              <p>
+               Learn how to
+               <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">
+                configure this service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               View a list of the
+               <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/">
+                API operations available for this          service
+               </a>
+               .
+              </p>
+             </li>
+             <li class="listitem">
+              <p>
+               Learn how to secure this service and its resources by
+               <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/authorization.html">
+                using          IAM
+               </a>
+               permission policies.
+              </p>
+             </li>
+            </ul>
+           </div>
+           <div class="highlights" id="inline-topiclist">
+            <p>
+             <strong>
+              Topics
+             </strong>
+            </p>
+            <ul>
+             <li>
+              <a href="#awsiotfleetwise-actions-as-permissions">
+               Actions defined by        AWS IoT FleetWise
+              </a>
+             </li>
+             <li>
+              <a href="#awsiotfleetwise-resources-for-iam-policies">
+               Resource types defined by        AWS IoT FleetWise
+              </a>
+             </li>
+             <li>
+              <a href="#awsiotfleetwise-policy-keys">
+               Condition keys for        AWS IoT FleetWise
+              </a>
+             </li>
+            </ul>
+           </div>
+           <h2 id="awsiotfleetwise-actions-as-permissions">
+            Actions defined by        AWS IoT FleetWise
+           </h2>
+           <p>
+            You can specify the following actions in the
+            <code class="code">
+             Action
+            </code>
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Resource types
+            </b>
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
+            <code class="code">
+             Resource
+            </code>
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
+           </p>
+           <p>
+            For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9d682c11b9">
+              <thead>
+               <tr>
+                <th>
+                 Actions
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Access level
+                </th>
+                <th>
+                 Resource types (*required)
+                </th>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Dependent actions
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td rowspan="2">
+                <a id="awsiotfleetwise-AssociateVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_AssociateVehicle.html">
+                 AssociateVehicle
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to associate the given vehicle to a fleet
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="awsiotfleetwise-CreateCampaign">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateCampaign.html">
+                 CreateCampaign
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a campaign
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-CreateDecoderManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateDecoderManifest.html">
+                 CreateDecoderManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to create a decoder manifest for an existing model
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-CreateFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateFleet.html">
+                 CreateFleet
+                </a>
+               </td>
+               <td>
+                Grants permission to create a fleet
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-CreateModelManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateModelManifest.html">
+                 CreateModelManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to create a model manifest definition
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-CreateSignalCatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateSignalCatalog.html">
+                 CreateSignalCatalog
+                </a>
+               </td>
+               <td>
+                Grants permission to create a signal catalog
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsiotfleetwise-CreateVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateVehicle.html">
+                 CreateVehicle
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a vehicle
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iot:CreateThing
+                </p>
+                <p>
+                 iot:DescribeThing
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteCampaign">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteCampaign.html">
+                 DeleteCampaign
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a campaign
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-campaign">
+                  campaign*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteDecoderManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteDecoderManifest.html">
+                 DeleteDecoderManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to delete the given decoder manifest
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteFleet.html">
+                 DeleteFleet
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a fleet
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteModelManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteModelManifest.html">
+                 DeleteModelManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to delete the given model manifest
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteSignalCatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteSignalCatalog.html">
+                 DeleteSignalCatalog
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a specific signal catalog
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-DeleteVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteVehicle.html">
+                 DeleteVehicle
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a vehicle
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsiotfleetwise-DisassociateVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DisassociateVehicle.html">
+                 DisassociateVehicle
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to disassociate a vehicle from an existing fleet
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetCampaign">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetCampaign.html">
+                 GetCampaign
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a given campaign
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-campaign">
+                  campaign*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetDecoderManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetDecoderManifest.html">
+                 GetDecoderManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a given decoder manifest definition
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetFleet.html">
+                 GetFleet
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a fleet
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetModelManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetModelManifest.html">
+                 GetModelManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a given model manifest definition
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetRegisterAccountStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetRegisterAccountStatus.html">
+                 GetRegisterAccountStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to get the account registration status with IoT FleetWise
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetSignalCatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetSignalCatalog.html">
+                 GetSignalCatalog
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a specific signal catalog
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetVehicle.html">
+                 GetVehicle
+                </a>
+               </td>
+               <td>
+                Grants permission to get summary information for a vehicle
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-GetVehicleStatus">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetVehicleStatus.html">
+                 GetVehicleStatus
+                </a>
+               </td>
+               <td>
+                Grants permission to get the status of the campaigns running on a specific vehicle
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ImportDecoderManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ImportDecoderManifest.html">
+                 ImportDecoderManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to import an existing decoder manifest
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ImportSignalCatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ImportSignalCatalog.html">
+                 ImportSignalCatalog
+                </a>
+               </td>
+               <td>
+                Grants permission to create a signal catalog by importing existing definitions
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListCampaigns">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListCampaigns.html">
+                 ListCampaigns
+                </a>
+               </td>
+               <td>
+                Grants permission to list campaigns
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListDecoderManifestNetworkInterfaces">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifestNetworkInterfaces.html">
+                 ListDecoderManifestNetworkInterfaces
+                </a>
+               </td>
+               <td>
+                Grants permission to list network interfaces associated to the existing decoder manifest
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListDecoderManifestSignals">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifestSignals.html">
+                 ListDecoderManifestSignals
+                </a>
+               </td>
+               <td>
+                Grants permission to list decoder manifest signals
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListDecoderManifests">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifests.html">
+                 ListDecoderManifests
+                </a>
+               </td>
+               <td>
+                Grants permission to list all decoder manifests, with an optional filter on model manifest
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListFleets">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListFleets.html">
+                 ListFleets
+                </a>
+               </td>
+               <td>
+                Grants permission to list all fleets
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListFleetsForVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListFleetsForVehicle.html">
+                 ListFleetsForVehicle
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the fleets that the given vehicle is associated with
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListModelManifestNodes">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListModelManifestNodes.html">
+                 ListModelManifestNodes
+                </a>
+               </td>
+               <td>
+                Grants permission to list all nodes for the given model manifest
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListModelManifests">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListModelManifests.html">
+                 ListModelManifests
+                </a>
+               </td>
+               <td>
+                Grants permission to list all model manifests, with an optional filter on signal catalog
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListSignalCatalogNodes">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_.html">
+                 ListSignalCatalogNodes
+                </a>
+               </td>
+               <td>
+                Grants permission to list all nodes for a given signal catalog
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListSignalCatalogs">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListSignalCatalogs.html">
+                 ListSignalCatalogs
+                </a>
+               </td>
+               <td>
+                Grants permission to list all signal catalogs
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListVehicles">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListVehicles.html">
+                 ListVehicles
+                </a>
+               </td>
+               <td>
+                Grants permission to list all vehicles, with an optional filter on model manifest
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-ListVehiclesInFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListVehiclesInFleet.html">
+                 ListVehiclesInFleet
+                </a>
+               </td>
+               <td>
+                Grants permission to list vehicles in the given fleet
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-RegisterAccount">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_RegisterAccount.html">
+                 RegisterAccount
+                </a>
+               </td>
+               <td>
+                Grants permission to register an AWS account to IoT FleetWise
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-UpdateCampaign">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateCampaign.html">
+                 UpdateCampaign
+                </a>
+               </td>
+               <td>
+                Grants permission to update the given campaign
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-campaign">
+                  campaign*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-UpdateDecoderManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateDecoderManifest.html">
+                 UpdateDecoderManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to update a decoder manifest defnition
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-UpdateFleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateFleet.html">
+                 UpdateFleet
+                </a>
+               </td>
+               <td>
+                Grants permission to update the fleet
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-UpdateModelManifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateModelManifest.html">
+                 UpdateModelManifest
+                </a>
+               </td>
+               <td>
+                Grants permission to update the given model manifest definition
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-UpdateSignalCatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateSignalCatalog.html">
+                 UpdateSignalCatalog
+                </a>
+               </td>
+               <td>
+                Grants permission to update a specific signal catalog definition
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-signalcatalog">
+                  signalcatalog*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="awsiotfleetwise-UpdateVehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateVehicle.html">
+                 UpdateVehicle
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to update the vehicle
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-vehicle">
+                  vehicle*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-decodermanifest">
+                  decodermanifest
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-modelmanifest">
+                  modelmanifest
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsiotfleetwise-iotfleetwise_UpdateToModelManifestArn">
+                  iotfleetwise:UpdateToModelManifestArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsiotfleetwise-iotfleetwise_UpdateToDecoderManifestArn">
+                  iotfleetwise:UpdateToDecoderManifestArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsiotfleetwise-resources-for-iam-policies">
+            Resource types defined by        AWS IoT FleetWise
+           </h2>
+           <p>
+            The following resource types are defined by this service and can be used in the
+            <code class="code">
+             Resource
+            </code>
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsiotfleetwise-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9d682c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-campaign">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 campaign
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:campaign/$
+                 <span>
+                  {
+                 </span>
+                 CampaignName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-decodermanifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 decodermanifest
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:decoder-manifest/$
+                 <span>
+                  {
+                 </span>
+                 Name}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-fleet">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 fleet
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:fleet/$
+                 <span>
+                  {
+                 </span>
+                 FleetId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-modelmanifest">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 modelmanifest
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:model-manifest/$
+                 <span>
+                  {
+                 </span>
+                 Name}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-signalcatalog">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 signalcatalog
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:signal-catalog/$
+                 <span>
+                  {
+                 </span>
+                 Name}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-vehicle">
+                </a>
+                <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iot-vehicle-wise.html">
+                 vehicle
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iotfleetwise:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vehicle/$
+                 <span>
+                  {
+                 </span>
+                 VehicleId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <h2 id="awsiotfleetwise-policy-keys">
+            Condition keys for        AWS IoT FleetWise
+           </h2>
+           <p>
+            AWS IoT FleetWise defines the following condition keys that can be used in the
+            <code class="code">
+             Condition
+            </code>
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9d682c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-iotfleetwise_UpdateToDecoderManifestArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleetwise.html">
+                 iotfleetwise:UpdateToDecoderManifestArn
+                </a>
+               </td>
+               <td>
+                Filters access by a list of IoT FleetWise Decoder Manifest ARNs
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsiotfleetwise-iotfleetwise_UpdateToModelManifestArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleetwise.html">
+                 iotfleetwise:UpdateToModelManifestArn
+                </a>
+               </td>
+               <td>
+                Filters access by a list of IoT FleetWise Model Manifest ARNs
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <awsdocs-copyright class="copyright-print">
+           </awsdocs-copyright>
+           <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
+           </awsdocs-thumb-feedback>
+          </div>
+          <noscript>
+           <div>
+            <div>
+             <div>
+              <div id="js_error_message">
+               <p>
+                <img alt="Warning" src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png"/>
+                <strong>
+                 Javascript is disabled or is unavailable in your browser.
+                </strong>
+               </p>
+               <p>
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
+               </p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </noscript>
+          <div class="awsui-util-font-size-0" id="main-col-footer">
+           <div id="doc-conventions">
+            <a href="/general/latest/gr/docconventions.html" target="_top">
+             Document Conventions
+            </a>
+           </div>
+           <div class="prev-next">
+            <div accesskey="p" class="prev-link" href="./list_awsiotfleethubfordevicemanagement.html" id="previous">
+             AWS IoT Fleet Hub for Device Management
+            </div>
+            <div accesskey="n" class="next-link" href="./list_awsiotgreengrass.html" id="next">
+             AWS IoT Greengrass
+            </div>
+           </div>
+          </div>
+          <awsdocs-page-utilities>
+          </awsdocs-page-utilities>
+         </div>
+         <div id="quick-feedback-yes" style="display: none;">
+          <div class="title">
+           Did this page help you? - Yes
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know we're doing a good job!
+           </p>
+           <p>
+            If you've got a moment, please tell us what we did right so we can do more of it.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsiotfleetwise.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+         <div id="quick-feedback-no" style="display: none;">
+          <div class="title">
+           Did this page help you? - No
+          </div>
+          <div class="content">
+           <p>
+            Thanks for letting us know this page needs work. We're sorry we let you down.
+           </p>
+           <p>
+            If you've got a moment, please tell us how we can make the documentation better.
+           </p>
+           <p>
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awsiotfleetwise.html" id="fblink" target="_blank" text="Feedback">
+            </awsui-button>
+           </p>
+          </div>
+         </div>
+        </div>
+       </body>
+      </div>
+     </awsdocs-view>
+     <div class="page-loading-indicator" id="page-loading-indicator">
+      <awsui-spinner size="large">
+      </awsui-spinner>
+     </div>
+    </div>
+    <div dom-region="tools" id="tools-panel">
+     <awsdocs-tools-panel id="awsdocs-tools-panel">
+     </awsdocs-tools-panel>
+    </div>
+   </awsui-app-layout>
+   <awsdocs-cookie-banner class="doc-cookie-banner">
+   </awsdocs-cookie-banner>
+  </div>
+ </body>
+</html>

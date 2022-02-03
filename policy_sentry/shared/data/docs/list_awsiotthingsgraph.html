@@ -16,24 +16,23 @@
   <meta content="IAD" name="deployment_region"/>
   <meta content="Service Authorization Reference" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
-  <meta content="de_de:Deutsch/en_us:English/es_es:Español/fr_fr:Français/it_it:Italiano/ja_jp:日本語/ko_kr:한국어/pt_br:Português/zh_cn:中文 (简体)/zh_tw:中文 (繁體)" name="locales"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
   <meta content="toc-contents.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2020.09.30" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2020.09.30" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2020.09.30" type="text/javascript">
+  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2020.09.30" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
   </script>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
@@ -107,8 +106,7 @@
             <code class="code">
              iotthingsgraph
             </code>
-            ) provides the following    service-specific resources, actions, and condition context
-                                    keys for use in IAM permission    policies.
+            ) provides the following    service-specific resources, actions, and condition context keys for use in IAM permission    policies.
            </p>
            <p>
             References:
@@ -176,39 +174,29 @@
             <code class="code">
              Action
             </code>
-            element of an IAM      policy statement. Use policies to grant permissions to perform
-                                    an operation in AWS. When you      use an action in a policy, you usually allow or
-                                    deny access to the API operation or CLI      command with the same name. However,
-                                    in some cases, a single action controls access to more      than one operation. Alternatively,
-                                    some operations require several different actions.
+            element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
            </p>
            <p>
             The
             <b>
              Resource types
             </b>
-            column indicates whether each action supports      resource-level permissions. If
-                                    there is no value for this column, you must specify all      resources ("*") in the
+            column indicates whether each action supports      resource-level permissions. If there is no value for this column, you must specify all      resources ("*") in the
             <code class="code">
              Resource
             </code>
-            element of your policy statement. If the column      includes a resource type, then
-                                    you can specify an ARN of that type in a statement with that      action. Required
-                                    resources are indicated in the table with an asterisk (*). If you specify a      resource-level
-                                    permission ARN in a statement using this action, then it must be of this type.   
-                                    Some actions support multiple resource types. If the resource type is optional (not
-                                    indicated      as required), then you can choose to use one but not the other.
+            element of your policy statement. If the column      includes a resource type, then you can specify an ARN of that type in a statement with that      action. Required resources are indicated in the table with an asterisk (*). If you specify a      resource-level permission ARN in a statement using this action, then it must be of this type.      Some actions support multiple resource types. If the resource type is optional (not indicated      as required), then you can choose to use one but not the other.
            </p>
            <p>
             For details about the columns in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#actions_table">
-             The actions table
+            <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
+             Actions table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d675c11b9">
+             <table id="w85aab5b9d702c11b9">
               <thead>
                <tr>
                 <th>
@@ -240,9 +228,7 @@
                 </a>
                </td>
                <td>
-                Associates a device with a concrete thing that is in the user's registry. A thing
-                                                can be associated with only one device at a time. If you associate a thing with a
-                                                new device id, its previous association will be removed.
+                Associates a device with a concrete thing that is in the user's registry. A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed
                </td>
                <td>
                 Write
@@ -269,11 +255,7 @@
                 </a>
                </td>
                <td>
-                Creates a workflow template. Workflows can be created only in the user's namespace.
-                                                (The public namespace contains only entities.) The workflow can contain only entities
-                                                in the specified namespace. The workflow is validated against the entities in the
-                                                latest version of the user's namespace unless another namespace version is specified
-                                                in the request.
+                Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request
                </td>
                <td>
                 Write
@@ -294,7 +276,7 @@
                 </a>
                </td>
                <td>
-                Creates an instance of a system with specified configurations and Things.
+                Creates an instance of a system with specified configurations and Things
                </td>
                <td>
                 Write
@@ -325,8 +307,7 @@
                 </a>
                </td>
                <td>
-                Creates a system. The system is validated against the entities in the latest version
-                                                of the user's namespace unless another namespace version is specified in the request.
+                Creates a system. The system is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request
                </td>
                <td>
                 Write
@@ -347,10 +328,7 @@
                 </a>
                </td>
                <td>
-                Deletes a workflow. Any new system or system instance that contains this workflow
-                                                will fail to update or deploy. Existing system instances that contain the workflow
-                                                will continue to run (since they use a snapshot of the workflow taken at the time
-                                                of deploying the system instance).
+                Deletes a workflow. Any new system or system instance that contains this workflow will fail to update or deploy. Existing system instances that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deploying the system instance)
                </td>
                <td>
                 Write
@@ -376,8 +354,7 @@
                 </a>
                </td>
                <td>
-                Deletes the specified namespace. This action deletes all of the entities in the namespace.
-                                                Delete the systems and flows in the namespace before performing this action.
+                Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows in the namespace before performing this action
                </td>
                <td>
                 Write
@@ -398,9 +375,7 @@
                 </a>
                </td>
                <td>
-                Deletes a system instance. Only instances that have never been deployed, or that have
-                                                been undeployed from the target can be deleted. Users can create a new system instance
-                                                that has the same ID as a deleted system instance.
+                Deletes a system instance. Only instances that have never been deployed, or that have been undeployed from the target can be deleted. Users can create a new system instance that has the same ID as a deleted system instance
                </td>
                <td>
                 Write
@@ -426,9 +401,7 @@
                 </a>
                </td>
                <td>
-                Deletes a system. New system instances can't contain the system after its deletion.
-                                                Existing system instances that contain the system will continue to work because they
-                                                use a snapshot of the system that is taken when it is deployed.
+                Deletes a system. New system instances can't contain the system after its deletion. Existing system instances that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed
                </td>
                <td>
                 Write
@@ -454,7 +427,7 @@
                 </a>
                </td>
                <td>
-                Deploys the system instance to the target specified in CreateSystemInstance.
+                Deploys the system instance to the target specified in CreateSystemInstance
                </td>
                <td>
                 Write
@@ -480,9 +453,7 @@
                 </a>
                </td>
                <td>
-                Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated
-                                                flows can't be deployed, but existing system instances that use the flow will continue
-                                                to run.
+                Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing system instances that use the flow will continue to run
                </td>
                <td>
                 Write
@@ -508,7 +479,7 @@
                 </a>
                </td>
                <td>
-                Deprecates the specified system.
+                Deprecates the specified system
                </td>
                <td>
                 Write
@@ -534,8 +505,7 @@
                 </a>
                </td>
                <td>
-                Gets the latest version of the user's namespace and the public version that it is
-                                                tracking.
+                Gets the latest version of the user's namespace and the public version that it is tracking
                </td>
                <td>
                 Read
@@ -556,9 +526,7 @@
                 </a>
                </td>
                <td>
-                Dissociates a device entity from a concrete thing. The action takes only the type
-                                                of the entity that you need to dissociate because only one entity of a particular
-                                                type can be associated with a thing.
+                Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only one entity of a particular type can be associated with a thing
                </td>
                <td>
                 Write
@@ -585,8 +553,7 @@
                 </a>
                </td>
                <td>
-                Gets descriptions of the specified entities. Uses the latest version of the user's
-                                                namespace by default.
+                Gets descriptions of the specified entities. Uses the latest version of the user's namespace by default
                </td>
                <td>
                 Read
@@ -607,8 +574,7 @@
                 </a>
                </td>
                <td>
-                Gets the latest version of the DefinitionDocument and FlowTemplateSummary for the
-                                                specified workflow.
+                Gets the latest version of the DefinitionDocument and FlowTemplateSummary for the specified workflow
                </td>
                <td>
                 Read
@@ -634,9 +600,7 @@
                 </a>
                </td>
                <td>
-                Gets revisions of the specified workflow. Only the last 100 revisions are stored.
-                                                If the workflow has been deprecated, this action will return revisions that occurred
-                                                before the deprecation. This action won't work for workflows that have been deleted.
+                Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated, this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted
                </td>
                <td>
                 Read
@@ -662,7 +626,7 @@
                 </a>
                </td>
                <td>
-                Gets the status of a namespace deletion task.
+                Gets the status of a namespace deletion task
                </td>
                <td>
                 Read
@@ -683,7 +647,7 @@
                 </a>
                </td>
                <td>
-                Gets a system instance.
+                Gets a system instance
                </td>
                <td>
                 Read
@@ -709,7 +673,7 @@
                 </a>
                </td>
                <td>
-                Gets a system.
+                Gets a system
                </td>
                <td>
                 Read
@@ -735,10 +699,7 @@
                 </a>
                </td>
                <td>
-                Gets revisions made to the specified system template. Only the previous 100 revisions
-                                                are stored. If the system has been deprecated, this action will return the revisions
-                                                that occurred before its deprecation. This action won't work with systems that have
-                                                been deleted.
+                Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return the revisions that occurred before its deprecation. This action won't work with systems that have been deleted
                </td>
                <td>
                 Read
@@ -764,7 +725,7 @@
                 </a>
                </td>
                <td>
-                Gets the status of the specified upload.
+                Gets the status of the specified upload
                </td>
                <td>
                 Read
@@ -832,8 +793,7 @@
                 </a>
                </td>
                <td>
-                Searches for entities of the specified type. You can search for entities in your namespace
-                                                and the public namespace that you're tracking.
+                Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking
                </td>
                <td>
                 Read
@@ -880,7 +840,7 @@
                 </a>
                </td>
                <td>
-                Searches for summary information about workflows.
+                Searches for summary information about workflows
                </td>
                <td>
                 Read
@@ -901,7 +861,7 @@
                 </a>
                </td>
                <td>
-                Searches for system instances in the user's account.
+                Searches for system instances in the user's account
                </td>
                <td>
                 Read
@@ -922,8 +882,7 @@
                 </a>
                </td>
                <td>
-                Searches for summary information about systems in the user's account. You can filter
-                                                by the ID of a workflow to return only systems that use the specified workflow.
+                Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow
                </td>
                <td>
                 Read
@@ -944,8 +903,7 @@
                 </a>
                </td>
                <td>
-                Searches for things associated with the specified entity. You can search by both device
-                                                and device model.
+                Searches for things associated with the specified entity. You can search by both device and device model
                </td>
                <td>
                 Read
@@ -1010,7 +968,7 @@
                 </a>
                </td>
                <td>
-                Removes the system instance and associated triggers from the target.
+                Removes the system instance and associated triggers from the target
                </td>
                <td>
                 Write
@@ -1075,9 +1033,7 @@
                 </a>
                </td>
                <td>
-                Updates the specified workflow. All deployed systems and system instances that use
-                                                the workflow will see the changes in the flow when it is redeployed. The workflow
-                                                can contain only entities in the specified namespace.
+                Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. The workflow can contain only entities in the specified namespace
                </td>
                <td>
                 Write
@@ -1103,9 +1059,7 @@
                 </a>
                </td>
                <td>
-                Updates the specified system. You don't need to run this action after updating a workflow.
-                                                Any system instance that uses the system will see the changes in the system when it
-                                                is redeployed.
+                Updates the specified system. You don't need to run this action after updating a workflow. Any system instance that uses the system will see the changes in the system when it is redeployed
                </td>
                <td>
                 Write
@@ -1131,7 +1085,7 @@
                 </a>
                </td>
                <td>
-                Asynchronously uploads one or more entity definitions to the user's namespace.
+                Asynchronously uploads one or more entity definitions to the user's namespace
                </td>
                <td>
                 Write
@@ -1158,18 +1112,15 @@
             <a href="#awsiotthingsgraph-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource
-                                    type can also define which      condition keys you can include in a policy. These
-                                    keys are displayed in the last column of the      table. For details about the columns
-                                    in the following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#resources_table">
-             The resource types table
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d675c13b5">
+             <table id="w85aab5b9d702c13b5">
               <thead>
                <tr>
                 <th>
@@ -1295,11 +1246,9 @@
             <code class="code">
              Condition
             </code>
-            element of an IAM policy. You can use these keys to further refine      the conditions
-                                    under which the policy statement applies. For details about the columns in the   
-                                    following table, see
-            <a href="./reference_policies_actions-resources-contextkeys.html#context_keys_table">
-             The condition keys table
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
@@ -1312,7 +1261,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w86aab5b9d675c15b7">
+             <table id="w85aab5b9d702c15b7">
               <thead>
                <tr>
                 <th>
@@ -1330,13 +1279,12 @@
                <td>
                 <a id="awsiotthingsgraph-aws_RequestTag___TagKey_">
                 </a>
-                <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/tagging-tg.html/reference_iam-permissions.html#iam-contextkeys">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
                  aws:RequestTag/${TagKey}
                 </a>
                </td>
                <td>
-                Filters access by a key that is present in the request the user makes to the thingsgraph
-                                                service.
+                Filters access by a key that is present in the request the user makes to the thingsgraph service
                </td>
                <td>
                 String
@@ -1346,12 +1294,12 @@
                <td>
                 <a id="awsiotthingsgraph-aws_ResourceTag___TagKey_">
                 </a>
-                <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/tagging-tg.html/reference_iam-permissions.html#iam-contextkeys">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
                  aws:ResourceTag/${TagKey}
                 </a>
                </td>
                <td>
-                Filters access by a tag key and value pair.
+                Filters access by a tag key and value pair
                </td>
                <td>
                 String
@@ -1361,13 +1309,12 @@
                <td>
                 <a id="awsiotthingsgraph-aws_TagKeys">
                 </a>
-                <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/tagging-tg.html/reference_iam-permissions.html#iam-contextkeys">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
                  aws:TagKeys
                 </a>
                </td>
                <td>
-                Filters access by the list of all the tag key names present in the request the user
-                                                makes to the thingsgraph service.
+                Filters access by the list of all the tag key names present in the request the user makes to the thingsgraph service
                </td>
                <td>
                 String
@@ -1393,8 +1340,7 @@
                 </strong>
                </p>
                <p>
-                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer
-                                                to your browser's Help pages for instructions.
+                To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.
                </p>
               </div>
              </div>
@@ -1411,8 +1357,8 @@
             <div accesskey="p" class="prev-link" href="./list_awsiotsitewise.html" id="previous">
              AWS IoT SiteWise
             </div>
-            <div accesskey="n" class="next-link" href="./list_awsiq.html" id="next">
-             AWS IQ
+            <div accesskey="n" class="next-link" href="./list_awsiottwinmaker.html" id="next">
+             AWS IoT TwinMaker
             </div>
            </div>
           </div>
