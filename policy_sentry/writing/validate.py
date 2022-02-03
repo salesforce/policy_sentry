@@ -2,7 +2,6 @@
 Validation for the Policy Sentry YML Templates.
 """
 import logging
-from xmlrpc.client import boolean
 from schema import Optional, Schema, And, Use, SchemaError
 
 logger = logging.getLogger(__name__)
