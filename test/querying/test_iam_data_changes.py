@@ -11,9 +11,6 @@ class IAMDefinitionQA(unittest.TestCase):
         self.all_actions = list(all_actions)
         self.all_actions.sort()
 
-
-    # Debug statement:
-    # service_prefix in ["apigateway", "aws-marketplace", "greengrass", "lex", "kinesisanalytics", "ses"]
     def test_services_with_multiple_pages_apigateway(self):
         """Ensure that apigateway v1 and apigateway v2 actions are both present in the ses namespace"""
         # API Gateway Management V1: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonapigatewaymanagement.html
@@ -523,5 +520,4 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
         ]
 
         for action in actions:
-            if action not in self.all_actions:
-                print("Action {} not found in IAM definition".format(action))
+            self.assertTrue(action in self.all_actions)
