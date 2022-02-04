@@ -161,6 +161,7 @@ def create_database(destination_directory, access_level_overrides_file):
         parents=True, exist_ok=True
     )
 
+    # This holds the entire IAM definition
     schema = {}
 
     # for filename in ['list_amazonathena.partial.html']:
@@ -191,27 +192,30 @@ def create_database(destination_directory, access_level_overrides_file):
             title = title.replace("</h1>", "")
             service_name = chomp(title)
 
-            prefix = ""
+            service_prefix = ""
             for c in main_content.find("h1", class_="topictitle").parent.children:
                 if "prefix" in str(c):
-                    prefix = str(c)
-                    prefix = prefix.split('<code class="code">')[1]
-                    prefix = chomp(prefix.split("</code>")[0])
+                    service_prefix = str(c)
+                    service_prefix = service_prefix.split('<code class="code">')[1]
+                    service_prefix = chomp(service_prefix.split("</code>")[0])
                     break
-            # The URL to that service's Actions, Resources, and Condition Keys page
-            service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
-            service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
-            service_schema = {
-                "service_name": service_name,
-                "prefix": prefix,
-                "service_authorization_url": service_authorization_url,
-                "privileges": {},
-                "resources": {},
-                "conditions": {},
-            }
+
+            if service_prefix not in schema.keys():
+                schema[service_prefix] = {}
+                # The URL to that service's Actions, Resources, and Condition Keys page
+                service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
+                service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
+                schema[service_prefix] = {
+                    "service_name": service_name,
+                    "prefix": service_prefix,
+                    "service_authorization_url": service_authorization_url,
+                    "privileges": {},
+                    "resources": {},
+                    "conditions": {},
+                }
 
             access_level_overrides_cfg = get_action_access_level_overrides_from_yml(
-                prefix, access_level_overrides_file
+                service_prefix, access_level_overrides_file
             )
 
             tables = main_content.find_all("div", class_="table-contents")
@@ -256,7 +260,6 @@ def create_database(destination_directory, access_level_overrides_file):
                         priv = chomp(link.text)
                     if priv == "":
                         priv = chomp(cells[0].text)
-                    service_prefix = prefix
                     action_name = priv
                     description = chomp(cells[1].text)
                     access_level = chomp(cells[2].text)
@@ -338,7 +341,7 @@ def create_database(destination_directory, access_level_overrides_file):
                         "api_documentation_link": api_documentation_link
                     }
 
-                    service_schema["privileges"][priv] = privilege_schema
+                    schema[service_prefix]["privileges"][priv] = privilege_schema
                     row_number += 1
 
             # Get resource table
@@ -368,7 +371,7 @@ def create_database(destination_directory, access_level_overrides_file):
                     for condition in cells[2].find_all("p"):
                         conditions.append(chomp(condition.text))
 
-                    service_schema["resources"][resource] = {
+                    schema[service_prefix]["resources"][resource] = {
                         "resource": resource,
                         "arn": arn,
                         "condition_keys": conditions
@@ -398,15 +401,15 @@ def create_database(destination_directory, access_level_overrides_file):
                     description = chomp(cells[1].text)
                     value_type = chomp(cells[2].text)
 
-                    service_schema["conditions"][condition] = {
+                    schema[service_prefix]["conditions"][condition] = {
                         "condition": condition,
                         "description": description,
                         "type": value_type,
                     }
-            this_service_schema = {
-                service_prefix: service_schema
-            }
-            schema.update(this_service_schema)
+            # this_service_schema = {
+            #     service_prefix: service_schema
+            # }
+            # schema.update(this_service_schema)
 
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
     with open(iam_definition_file, "w") as file:
