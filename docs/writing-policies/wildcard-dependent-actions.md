@@ -167,5 +167,3 @@ Notice how none of those actions are included in the resulting JSON policy outpu
     ]
 }
 ```
-
-
