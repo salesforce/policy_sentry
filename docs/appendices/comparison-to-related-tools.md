@@ -138,6 +138,29 @@ there are some major limitations:
         not every CloudTrail action matches IAM Actions, the results are
         not always accurate.
 
+Monitoring AWS API Calls
+------------------------
+
+### actionhero
+
+-   [actionhero](https://github.com/princespaghetti/actionhero)
+
+Action Hero is a sidecar style utility to monitor the AWS API calls that your
+application makes and log out the corresponding IAM actions.
+
+Action Hero is limited in that it uses the AWS SDK's [Client Side
+Monitoring](https://docs.aws.amazon.com/sdk-for-go/api/aws/csm/) (CSM), and as
+such, cannot capture parameters or Resource ARNs. It also does not generate
+full policies; it only logs out IAM actions. Due to these limitations,
+Action Hero is not a complete tool, but can be a great addition to other tools
+as it can accurately capture all required actions.
+
+Currently, Action Hero is best suited for developing policies side-by-side with
+your application. This approach is different from the Log-based tools that
+generate policies for existing deployed applications. That being said, as a
+sidecar, Action Hero _could_ be deployed alongside applications to monitor AWS
+API calls in production.
+
 Other Infrastructure as Code Tools
 ----------------------------------
 
