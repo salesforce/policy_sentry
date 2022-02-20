@@ -18,6 +18,7 @@ git clone git@github.com:salesforce/policy_sentry.git
 python3 -m venv ./venv && source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install -r requirements-dev.txt
+pip3 install -r docs/requirements.txt
 
 # Create the HTML files
 invoke docs.build-docs
