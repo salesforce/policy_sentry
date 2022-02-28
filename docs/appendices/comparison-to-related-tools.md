@@ -141,19 +141,38 @@ there are some major limitations:
 Monitoring AWS API Calls
 ------------------------
 
+### iamlive
+
+-   [iamlive](https://github.com/iann0036/iamlive)
+
+`iamlive` is a tool that monitors AWS API calls and generates an IAM policy
+based on those.
+
+`iamlive` can either use the AWS SDK's [Client Side
+Monitoring](https://docs.aws.amazon.com/sdk-for-go/api/aws/csm/) (CSM) feature
+or an embedded proxy to track which AWS API calls are made. In CSM mode, it can
+only capture IAM Actions, but in proxy mode, it can also capture Resource ARNs.
+
+`iamlive` shares similar limitations to other tools in that it relies on an
+[unofficial mapping](https://github.com/iann0036/iam-dataset) from SDK calls to
+IAM Actions, and so can have inaccuracies.
+
+Currently, `iamlive` is mainly intended to be used in a separate terminal window
+from a currently running application. That being said, it could potentially be
+used as a sidecar alongside deployed applications.
+
 ### actionhero
 
 -   [actionhero](https://github.com/princespaghetti/actionhero)
 
 Action Hero is a sidecar style utility to monitor the AWS API calls that your
-application makes and log out the corresponding IAM actions.
+application makes and log out the corresponding IAM Actions.
 
-Action Hero is limited in that it uses the AWS SDK's [Client Side
-Monitoring](https://docs.aws.amazon.com/sdk-for-go/api/aws/csm/) (CSM), and as
-such, cannot capture parameters or Resource ARNs. It also does not generate
-full policies; it only logs out IAM actions. Due to these limitations,
-Action Hero is not a complete tool, but can be a great addition to other tools
-as it can accurately capture all required actions.
+Action Hero is limited in that it makes exclusive use of CSM, and as such,
+cannot capture parameters or Resource ARNs. It also does not generate full
+policies; it only logs out IAM Actions. Due to these limitations, Action Hero
+is not a complete tool, but can be a great addition to other tools as it can
+accurately capture all required actions.
 
 Currently, Action Hero is best suited for developing policies side-by-side with
 your application. This approach is different from the Log-based tools that
