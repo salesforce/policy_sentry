@@ -41,8 +41,6 @@ actions:
 ```yaml
 mode: actions
 name: 'RoleNameWithActions'
-description: 'Justification for privileges' # for auditability
-role_arn: 'arn:aws:iam::123456789102:role/myRole' # for auditability
 actions:
 - kms:CreateGrant
 - kms:CreateCustomKeyStore
