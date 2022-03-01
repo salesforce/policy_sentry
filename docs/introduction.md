@@ -7,7 +7,7 @@ Writing security-conscious IAM Policies by hand can be very tedious and ineffici
 
  * Determined to make your best effort to give users and roles the least amount of privilege you need to perform your duties, you spend way too much time combing through the AWS IAM Documentation on [Actions, Resources, and Condition Keys for AWS Services][1].
  * Your team lead encourages you to build security into your IAM Policies for product quality, but eventually you get frustrated due to project deadlines.
- * You don't have an embedded security person on your team who can write those IAM policies for you, and there's no automated tool that will [automagically sense the AWS API calls that you perform](https://github.com/princespaghetti/actionhero) and then write them for you in a least-privilege manner.
+ * You don't have an embedded security person on your team who can write those IAM Policies for you, and there's no automated tool that will automagically sense the AWS API calls that you perform and then write them for you with Resource ARN constraints.
  * After fantasizing about that level of automation, you realize that writing least privilege IAM Policies, seemingly out of charity, will jeopardize your ability to finish your code in time to meet project deadlines.
  * You use Managed Policies (because hey, why not) or you eyeball the names of the API calls and use wildcards instead so you can move on with your life.
 
