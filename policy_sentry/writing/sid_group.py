@@ -149,7 +149,7 @@ class SidGroup:
                             }
 
                         # Using a custom namespace and not gathering actions so no need to find
-                        # dependent actions either, though we could do it here    
+                        # dependent actions either, though we could do it here
 
                         if sid_namespace in self.sids.keys():
                             # If the ARN already exists there, skip it.
@@ -234,17 +234,18 @@ class SidGroup:
                     actions, all_actions, minchars=minimize
                 )
                 # searching in the existing statements
-                # further minimizing the the output
+                # further minimizing the output
                 for stmt in statements:
                     if stmt["Resource"] == self.sids[sid]["arn"]:
+                        actions = [x for x in actions if x not in stmt["Action"]]
                         stmt["Action"].extend(actions)
                         match_found = True
                         sids_to_be_changed.append(stmt["Sid"])
                         break
+                actions = list(dict.fromkeys(actions))  # remove duplicates
             logger.debug(f"Adding statement with SID {sid}")
             logger.debug(f"{sid} SID has the actions: {actions}")
             logger.debug(f"{sid} SID has the resources: {self.sids[sid]['arn']}")
-
             if not match_found:
                 statements.append(
                     {
@@ -264,7 +265,13 @@ class SidGroup:
                         f"{arn_details['resource']}{resource_path}"
                     )
                     stmt['Sid'] = create_policy_sid_namespace(arn_details['service'], "Mult", resource_sid_segment)
-
+                    # If we have combined the statements, minimize it again
+                    if minimize is not None and isinstance(minimize, int):
+                        actions = minimize_statement_actions(
+                            stmt['Action'], all_actions, minchars=minimize
+                        )
+                        actions.sort()
+                        stmt['Action'] = actions
         policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
         return policy
 
