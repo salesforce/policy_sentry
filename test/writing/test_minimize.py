@@ -130,8 +130,8 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         self.assertEqual(len(sid_names), 1, "More than one statement returned, expected 1")
 
         # (2) Check for the presence of certain actions that we know will be there
-        expected_action = ['ssm:getpar*', 'ssm:deletepar*', 'ssm:la*', 'ssm:putp*']
-        self.assertEqual(write_format['Statement'][0]['Action'], expected_action, "extra actions are returned")
+        expected_actions = ["ssm:deletepar*", "ssm:getpar*", "ssm:la*", "ssm:putp*"]
+        self.assertEqual(write_format['Statement'][0]['Action'], expected_actions, "extra actions are returned")
         self.assertEqual(write_format['Statement'][0]['Resource'], cfg['read'], "Wrong resources were returned")
 
     def test_minimize_rw_different(self):
@@ -278,3 +278,19 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
     #     sid_names = get_sid_names_from_policy(results)
     #     self.assertEqual(len(sid_names), 1, "More than one statement returned, expected 1")
 
+    def test_GH_364_remove_duplicates_from_minimize(self):
+        cfg = {
+            "mode": "crud",
+            "read": ["arn:aws:rds:*:*:*:test-*"],
+            "write": ["arn:aws:rds:*:*:*:test-*"],
+            "list": ["arn:aws:rds:*:*:*:test-*"],
+            "tagging": ["arn:aws:rds:*:*:*:test-*"],
+            "permissions-management": ["arn:aws:rds:*:*:*:test-*"],
+        }
+        # Bug introduced in https://github.com/salesforce/policy_sentry/pull/252
+        sid_group = SidGroup()
+        results = sid_group.process_template(cfg, minimize=0)
+        print(json.dumps(results, indent=4))
+        actions = results["Statement"][0]["Action"]
+        actions_set = set(actions)
+        self.assertEqual(len(actions_set), len(actions), "There should be no duplicate strings in the actions.")
