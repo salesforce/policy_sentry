@@ -359,17 +359,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonsns-CreateTopic">
                 </a>
                 <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">
                  CreateTopic
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a topic to which notifications can be published
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -385,6 +385,24 @@
                 <p>
                  iam:PassRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsns-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsns-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1236,6 +1254,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonsns-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -1282,10 +1305,27 @@
                <td>
                 <a id="amazonsns-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
-                Filters access baded on tags from request
+                Filters access by tags from request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsns-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by tags associated with the restource
                </td>
                <td>
                 String
@@ -1295,10 +1335,12 @@
                <td>
                 <a id="amazonsns-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
-                Filters access baded on tag keys from request
+                Filters access by tag keys from request
                </td>
                <td>
                 String
@@ -1313,7 +1355,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the URL, email address, or ARN from a Subscribe request or a previously confirmed subscription
+                Filters access by the URL, email address, or ARN from a Subscribe request or a previously confirmed subscription
                </td>
                <td>
                 String
@@ -1328,7 +1370,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the protocol value from a Subscribe request or a previously confirmed subscription
+                Filters access by the protocol value from a Subscribe request or a previously confirmed subscription
                </td>
                <td>
                 String

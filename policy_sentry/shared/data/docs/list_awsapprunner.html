@@ -334,17 +334,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="awsapprunner-CreateService">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">
                  CreateService
                 </a>
                </td>
-               <td rowspan="4">
-                Grants permission to create an AWS App Runner service
+               <td rowspan="5">
+                Grants permission to create an AWS App Runner service resource
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Write
                </td>
                <td>
@@ -387,6 +387,19 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                </td>
                <td>
                 <p>
@@ -407,6 +420,55 @@
                 <p>
                  <a href="#awsapprunner-apprunner_AutoScalingConfigurationArn">
                   apprunner:AutoScalingConfigurationArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsapprunner-apprunner_VpcConnectorArn">
+                  apprunner:VpcConnectorArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsapprunner-CreateVpcConnector">
+                </a>
+                <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateVpcConnector.html">
+                 CreateVpcConnector
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an AWS App Runner VPC connector resource
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsapprunner-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsapprunner-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -448,7 +510,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete an AWS App Runner connection
+                Grants permission to delete an AWS App Runner connection resource
                </td>
                <td>
                 Write
@@ -474,7 +536,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to delete an AWS App Runner service
+                Grants permission to delete an AWS App Runner service resource
                </td>
                <td>
                 Write
@@ -493,6 +555,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsapprunner-DeleteVpcConnector">
+                </a>
+                <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteVpcConnector.html">
+                 DeleteVpcConnector
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an AWS App Runner VPC connector resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsapprunner-DescribeAutoScalingConfiguration">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeAutoScalingConfiguration.html">
@@ -500,7 +588,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve descriptions of an AWS App Runner automatic scaling configuration resource
+                Grants permission to retrieve the description of an AWS App Runner automatic scaling configuration resource
                </td>
                <td>
                 Read
@@ -552,7 +640,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve description of an operation that occurred on an AWS App Runner service
+                Grants permission to retrieve the description of an operation that occurred on an AWS App Runner service
                </td>
                <td>
                 Read
@@ -578,7 +666,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve description of an AWS App Runner service
+                Grants permission to retrieve the description of an AWS App Runner service resource
                </td>
                <td>
                 Read
@@ -587,6 +675,32 @@
                 <p>
                  <a href="#awsapprunner-service">
                   service*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsapprunner-DescribeVpcConnector">
+                </a>
+                <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeVpcConnector.html">
+                 DescribeVpcConnector
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the description of an AWS App Runner VPC connector resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector*
                  </a>
                 </p>
                </td>
@@ -651,7 +765,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list of AWS App Runner connections associated with your AWS account
+                Grants permission to retrieve a list of AWS App Runner connections in your AWS account
                </td>
                <td>
                 List
@@ -672,7 +786,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list of operations that occurred on an AWS App Runner service
+                Grants permission to retrieve a list of operations that occurred on an AWS App Runner service resource
                </td>
                <td>
                 List
@@ -711,17 +825,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="awsapprunner-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to list tags associated with an AWS App Runner resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Read
                </td>
                <td>
@@ -756,6 +870,40 @@
                   service
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsapprunner-ListVpcConnectors">
+                </a>
+                <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListVpcConnectors.html">
+                 ListVpcConnectors
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a list of AWS App Runner VPC connectors in your AWS account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -841,17 +989,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="awsapprunner-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4">
-                Grants permission to add tags to, or update tag values of, an App Runner resource
+               <td rowspan="5">
+                Grants permission to add tags to, or update tag values of, an AWS App Runner resource
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Tagging
                </td>
                <td>
@@ -884,6 +1032,19 @@
                 <p>
                  <a href="#awsapprunner-service">
                   service
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector
                  </a>
                 </p>
                </td>
@@ -911,17 +1072,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="awsapprunner-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4">
-                Grants permission to remove tags from an App Runner resource
+               <td rowspan="5">
+                Grants permission to remove tags from an AWS App Runner resource
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Tagging
                </td>
                <td>
@@ -964,6 +1125,19 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                </td>
                <td>
                 <p>
@@ -976,17 +1150,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="awsapprunner-UpdateService">
                 </a>
                 <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html">
                  UpdateService
                 </a>
                </td>
-               <td rowspan="4">
-                Grants permission to update an AWS App Runner service
+               <td rowspan="5">
+                Grants permission to update an AWS App Runner service resource
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Write
                </td>
                <td>
@@ -1029,6 +1203,19 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awsapprunner-vpcconnector">
+                  vpcconnector
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                </td>
                <td>
                 <p>
@@ -1039,6 +1226,11 @@
                 <p>
                  <a href="#awsapprunner-apprunner_AutoScalingConfigurationArn">
                   apprunner:AutoScalingConfigurationArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsapprunner-apprunner_VpcConnectorArn">
+                  apprunner:VpcConnectorArn
                  </a>
                 </p>
                </td>
@@ -1209,6 +1401,51 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsapprunner-vpcconnector">
+                </a>
+                <a href="${UserGuideDocPage}architecture.html#architecture.resources" rel="noopener noreferrer" target="_blank">
+                 vpcconnector
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:apprunner:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpcconnector/$
+                 <span>
+                  {
+                 </span>
+                 VpcConnectorName}/$
+                 <span>
+                  {
+                 </span>
+                 VpcConnectorVersion}/$
+                 <span>
+                  {
+                 </span>
+                 VpcConnectorId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsapprunner-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1258,7 +1495,7 @@
                 </a>
                </td>
                <td>
-                Filters access to the CreateService and UpdateService actions based on the ARN of an associated AutoScalingConfiguration resource
+                Filters access by the CreateService and UpdateService actions based on the ARN of an associated AutoScalingConfiguration resource
                </td>
                <td>
                 ARN
@@ -1273,7 +1510,22 @@
                 </a>
                </td>
                <td>
-                Filters access to the CreateService and UpdateService actions based on the ARN of an associated Connection resource
+                Filters access by the CreateService and UpdateService actions based on the ARN of an associated Connection resource
+               </td>
+               <td>
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsapprunner-apprunner_VpcConnectorArn">
+                </a>
+                <a href="${UserGuideDocPage}security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies" rel="noopener noreferrer" target="_blank">
+                 apprunner:VpcConnectorArn
+                </a>
+               </td>
+               <td>
+                Filters access by the CreateService and UpdateService actions based on the ARN of an associated VpcConnector resource
                </td>
                <td>
                 ARN
@@ -1288,7 +1540,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request
+                Filters access by actions based on the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -1303,7 +1555,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource
+                Filters access by actions based on tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -1318,7 +1570,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag keys in the request
+                Filters access by actions based on the presence of tag keys in the request
                </td>
                <td>
                 String

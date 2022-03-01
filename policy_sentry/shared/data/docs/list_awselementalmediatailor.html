@@ -221,6 +221,35 @@
               </thead>
               <tr>
                <td>
+                <a id="awselementalmediatailor-ConfigureLogsForPlaybackConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/configurelogs-playbackconfiguration.html">
+                 ConfigureLogsForPlaybackConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to configure logs for a playback configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-playbackConfiguration">
+                  playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awselementalmediatailor-CreateChannel">
                 </a>
                 <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname.html">
@@ -246,6 +275,32 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awselementalmediatailor-CreatePrefetchSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html">
+                 CreatePrefetchSchedule
+                </a>
+               </td>
+               <td>
+                Grants permission to create a prefetch schedule for the playback configuration with the specified playback configuration name
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-playbackConfiguration">
+                  playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -412,7 +467,7 @@
                 </a>
                </td>
                <td>
-                Deletes the playback configuration for the specified name
+                Grants permission to delete the specified playback configuration
                </td>
                <td>
                 Write
@@ -421,6 +476,45 @@
                 <p>
                  <a href="#awselementalmediatailor-playbackConfiguration">
                   playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awselementalmediatailor-DeletePrefetchSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html">
+                 DeletePrefetchSchedule
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a prefetch schedule for a playback configuration with the specified prefetch schedule name
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-playbackConfiguration">
+                  playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-prefetchSchedule">
+                  prefetchSchedule*
                  </a>
                 </p>
                </td>
@@ -742,6 +836,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="awselementalmediatailor-GetPrefetchSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html">
+                 GetPrefetchSchedule
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to retrieve prefetch schedule for a playback configuration with the specified prefetch schedule name
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-playbackConfiguration">
+                  playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-prefetchSchedule">
+                  prefetchSchedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="awselementalmediatailor-ListAlerts">
                 </a>
@@ -806,6 +939,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awselementalmediatailor-ListPrefetchSchedules">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname.html">
+                 ListPrefetchSchedules
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the list of prefetch schedules for a playback configuration
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awselementalmediatailor-playbackConfiguration">
+                  playbackConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awselementalmediatailor-ListSourceLocations">
                 </a>
                 <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocations.html">
@@ -834,7 +993,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of the tags assigned to the specified playback configuration resource
+                Grants permission to list the tags assigned to the specified playback configuration resource
                </td>
                <td>
                 Read
@@ -990,7 +1149,7 @@
                 </a>
                </td>
                <td>
-                Adds tags to the specified playback configuration resource
+                Grants permission to add tags to the specified playback configuration resource
                </td>
                <td>
                 Tagging
@@ -1021,7 +1180,7 @@
                 </a>
                </td>
                <td>
-                Removes tags from the specified playback configuration resource
+                Grants permission to remove tags from the specified playback configuration resource
                </td>
                <td>
                 Tagging
@@ -1206,6 +1365,38 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awselementalmediatailor-prefetchSchedule">
+                </a>
+                <a href="https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html">
+                 prefetchSchedule
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:mediatailor:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:prefetchSchedule/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
