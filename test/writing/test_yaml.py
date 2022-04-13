@@ -154,7 +154,23 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         # with self.assertRaises(Exception):
         result = write_policy_with_template(crud_file_input)
         print(json.dumps(result, indent=4))
-        self.assertDictEqual(desired_output, result)
+        # self.assertDictEqual(desired_output, result)
+        # Future proofing tests - just checking if the ones we expect in the past are available in the future, even if we add on new ones.
+        expected_sids = ["SsmReadParameter", "SsmWriteParameter", "SsmListParameter"]
+        expected_write_actions = ["ssm:DeleteParameter", "ssm:DeleteParameters", "ssm:LabelParameterVersion", "ssm:PutParameter"]
+        expected_read_actions = ["ssm:GetParameter", "ssm:GetParameterHistory", "ssm:GetParameters", "ssm:GetParametersByPath"]
+        expected_list_actions = ["ssm:ListTagsForResource"]
+        for statement in result["Statement"]:
+            self.assertTrue(statement["Sid"] in expected_sids)
+            if statement["Sid"] == "SsmWriteParameter":
+                for action in expected_write_actions:
+                    self.assertTrue(action in statement["Action"])
+            if statement["Sid"] == "SsmReadParameter":
+                for action in expected_read_actions:
+                    self.assertTrue(action in statement["Action"])
+            if statement["Sid"] == "SsmListParameter":
+                for action in expected_list_actions:
+                    self.assertTrue(action in statement["Action"])
 
 
 class YamlValidationActionsTestCase(unittest.TestCase):
