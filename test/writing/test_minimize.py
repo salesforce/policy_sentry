@@ -130,8 +130,11 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         self.assertEqual(len(sid_names), 1, "More than one statement returned, expected 1")
 
         # (2) Check for the presence of certain actions that we know will be there
-        expected_actions = ["ssm:deletepar*", "ssm:getpar*", "ssm:la*", "ssm:putp*"]
-        self.assertEqual(write_format['Statement'][0]['Action'], expected_actions, "extra actions are returned")
+        self.assertEqual(
+            write_format['Statement'][0]['Action'],
+            ["ssm:deletepar*", "ssm:getpar*", "ssm:la*", "ssm:putp*", 'ssm:un*'],
+            "extra actions are returned"
+        )
         self.assertEqual(write_format['Statement'][0]['Resource'], cfg['read'], "Wrong resources were returned")
 
     def test_minimize_rw_different(self):
@@ -185,7 +188,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         self.assertEqual(len(write_format['Statement']), 2, "More than two statements returned, expected 2")
         self.assertEqual(write_format['Statement'][0]['Action'], ['ssm:getpar*'], "extra actions are returned")
         self.assertEqual(write_format['Statement'][0]['Resource'], cfg['read'], "Wrong resources were returned")
-        self.assertEqual(write_format['Statement'][1]['Action'], ['ssm:deletepar*', 'ssm:la*', 'ssm:putp*'],
+        self.assertEqual(write_format['Statement'][1]['Action'], ['ssm:deletepar*', 'ssm:la*', 'ssm:putp*', 'ssm:un*'],
                          "extra actions are returned")
         self.assertEqual(write_format['Statement'][1]['Resource'], cfg['write'], "Wrong resources were returned")
 

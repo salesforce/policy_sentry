@@ -273,7 +273,8 @@ class QueryActionsTestCase(unittest.TestCase):
         output = get_actions_with_arn_type_and_access_level(
             "ssm", "parameter", "Write"
         )
-        self.assertListEqual(desired_output, output)
+        for item in desired_output:
+            self.assertTrue(item in output)
 
     def test_get_actions_with_arn_type_and_access_level_case_3(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
