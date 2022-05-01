@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -22,18 +22,19 @@
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor3.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor1.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-common.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.js?version=2021.12.02">
   </script>
+  <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -196,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d594c11b9">
+             <table id="w85aab5b9d590c11b9">
               <thead>
                <tr>
                 <th>
@@ -520,6 +521,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-BatchGetCustomEntityTypes">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-BatchGetCustomEntityTypes">
+                 BatchGetCustomEntityTypes
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve one or more Custom Entity Types
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-BatchGetDevEndpoints">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-dev-endpoint.html#aws-glue-api-dev-endpoint-BatchGetDevEndpoints">
@@ -689,6 +711,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -949,6 +976,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-CreateCustomEntityType">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-CreateCustomEntityType">
+                 CreateCustomEntityType
+                </a>
+               </td>
+               <td>
+                Grants permission to create a Custom Entity Type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-CreateDatabase">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-CreateDatabase">
@@ -1186,17 +1234,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsglue-CreateRegistry">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-schema-registry-api.html#aws-glue-api-schema-registry-api-CreateRegistry">
                  CreateRegistry
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a new schema registry
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -1212,17 +1260,35 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awsglue-CreateSchema">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-schema-registry-api.html#aws-glue-api-schema-registry-api-CreateSchema">
                  CreateSchema
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to create a new schema container
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -1246,6 +1312,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1673,6 +1757,27 @@
                   crawler*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-DeleteCustomEntityType">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-DeleteCustomEntityType">
+                 DeleteCustomEntityType
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a Custom Entity Type
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -2709,6 +2814,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsglue-GetCustomEntityType">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-GetCustomEntityType">
+                 GetCustomEntityType
+                </a>
+               </td>
+               <td>
+                Grants permission to read a Custom Entity Type
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsglue-GetDataCatalogEncryptionSettings">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-security.html#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings">
@@ -2941,6 +3067,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2962,6 +3093,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4216,6 +4352,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4237,6 +4383,47 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsglue-ListCustomEntityTypes">
+                </a>
+                <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-ListGetCustomEntityTypes">
+                 ListCustomEntityTypes
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve all Custom Entity Types
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4258,6 +4445,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4279,22 +4476,32 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsglue-ListMLTransforms">
                 </a>
                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-machine-learning-api.html#aws-glue-api-machine-learning-api-ListMLTransforms">
                  ListMLTransforms
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to retrieve all ML Transforms
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
@@ -4305,6 +4512,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4459,6 +4684,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglue-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -5009,6 +5244,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsglue-job">
+                  job*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -6161,7 +6401,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d594c13b5">
+             <table id="w85aab5b9d590c13b5">
               <thead>
                <tr>
                 <th>
@@ -6775,7 +7015,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d594c15b7">
+             <table id="w85aab5b9d590c15b7">
               <thead>
                <tr>
                 <th>
@@ -6831,7 +7071,7 @@
                 Filters actions based on the presence of tag keys in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>

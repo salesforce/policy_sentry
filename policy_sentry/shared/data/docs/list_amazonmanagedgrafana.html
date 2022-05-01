@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -22,18 +22,19 @@
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor3.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor1.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-common.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.js?version=2021.12.02">
   </script>
+  <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -125,7 +126,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/grafana/latest/userguide/logging-using-cloudtrail.html">
+               <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/">
                 API operations available for this          service
                </a>
                .
@@ -196,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d822c11b9">
+             <table id="w85aab5b9d826c11b9">
               <thead>
                <tr>
                 <th>
@@ -265,6 +266,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
@@ -345,7 +356,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to describe authetication providers on a workspace
+                Grants permission to describe authentication providers on a workspace
                </td>
                <td>
                 Read
@@ -416,6 +427,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonmanagedgrafana-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td>
+                Grants permission to list tags associated with a workspace
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-workspace">
+                  workspace
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonmanagedgrafana-ListWorkspaces">
                 </a>
                 <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html">
@@ -431,6 +468,94 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonmanagedgrafana-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to add tags to, or update tag values of, a workspace
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-workspace">
+                  workspace
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonmanagedgrafana-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to remove tags from a workspace
+               </td>
+               <td rowspan="2">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-workspace">
+                  workspace
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -496,7 +621,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to modify authetication providers on a workspace
+                Grants permission to modify authentication providers on a workspace
                </td>
                <td>
                 Write
@@ -536,7 +661,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d822c13b5">
+             <table id="w85aab5b9d826c13b5">
               <thead>
                <tr>
                 <th>
@@ -580,6 +705,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazonmanagedgrafana-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -589,16 +719,87 @@
             Condition keys for        Amazon Managed Grafana
            </h2>
            <p>
-            Managed Grafana has no service-specific context keys that can be used in the
+            Amazon Managed Grafana defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9d826c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="amazonmanagedgrafana-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by actions based on the presence of tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmanagedgrafana-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by actions based on tag key-value pairs attached to the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmanagedgrafana-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/grafana/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access by actions based on the presence of tag keys in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

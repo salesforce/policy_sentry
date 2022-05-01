@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -22,18 +22,19 @@
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor3.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor1.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-common.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.js?version=2021.12.02">
   </script>
+  <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -560,7 +561,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Creates a target group.
+                Creates a target group
                </td>
                <td rowspan="2">
                 Write
@@ -2036,7 +2037,9 @@
                <td>
                 <a id="elasticloadbalancingv2-aws_RequestTag___TagKey_">
                 </a>
-                aws:RequestTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
                </td>
                <td>
                 A key that is present in the request the user makes to the ELB service
@@ -2049,7 +2052,9 @@
                <td>
                 <a id="elasticloadbalancingv2-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
                 Global tag key and value pair
@@ -2062,20 +2067,24 @@
                <td>
                 <a id="elasticloadbalancingv2-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
                 The list of all the tag key names associated with the resource in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
                <td>
                 <a id="elasticloadbalancingv2-elasticloadbalancing_ResourceTag___TagKey_">
                 </a>
-                elasticloadbalancing:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 elasticloadbalancing:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
                 A tag key and value pair
