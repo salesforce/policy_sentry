@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -22,18 +22,19 @@
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor3.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor1.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-common.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.js?version=2021.12.02">
   </script>
+  <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -2966,17 +2967,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonec2-AuthorizeSecurityGroupEgress">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html">
                  AuthorizeSecurityGroupEgress
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to add one or more outbound rules to a VPC security group
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -3012,6 +3013,29 @@
                 <p>
                  ec2:CreateTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-security-group-rule">
+                  security-group-rule*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -3028,17 +3052,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonec2-AuthorizeSecurityGroupIngress">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html">
                  AuthorizeSecurityGroupIngress
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to add one or more inbound rules to a security group
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -3074,6 +3098,29 @@
                 <p>
                  ec2:CreateTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-security-group-rule">
+                  security-group-rule*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -21641,7 +21688,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-vpc">
-                  vpc
+                  vpc*
                  </a>
                 </p>
                </td>
@@ -29054,6 +29101,135 @@
                 <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyInstanceMaintenanceOptions">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceMaintenanceOptions.html">
+                 ModifyInstanceMaintenanceOptions
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the recovery behaviour for an instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute">
+                  ec2:Attribute
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EbsOptimized">
+                  ec2:EbsOptimized
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceAutoRecovery">
+                  ec2:InstanceAutoRecovery
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceID">
+                  ec2:InstanceID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceMarketType">
+                  ec2:InstanceMarketType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceMetadataTags">
+                  ec2:InstanceMetadataTags
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceProfile">
+                  ec2:InstanceProfile
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceType">
+                  ec2:InstanceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_MetadataHttpEndpoint">
+                  ec2:MetadataHttpEndpoint
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_MetadataHttpPutResponseHopLimit">
+                  ec2:MetadataHttpPutResponseHopLimit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_MetadataHttpTokens">
+                  ec2:MetadataHttpTokens
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroup">
+                  ec2:PlacementGroup
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RootDeviceType">
+                  ec2:RootDeviceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Tenancy">
+                  ec2:Tenancy
                  </a>
                 </p>
                </td>
@@ -38207,19 +38383,45 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonec2-StartNetworkInsightsAccessScopeAnalysis">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartNetworkInsightsAccessScopeAnalysis.html">
                  StartNetworkInsightsAccessScopeAnalysis
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to start a Network Access Scope analysis
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope-analysis">
+                  network-insights-access-scope-analysis*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonec2-network-insights-access-scope">
@@ -38235,9 +38437,6 @@
                 </p>
                </td>
                <td>
-                <p>
-                 ec2:CreateTags
-                </p>
                </td>
               </tr>
               <tr>
@@ -38276,13 +38475,13 @@
                </td>
                <td>
                 <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
                  </a>
                 </p>
                 <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -44353,7 +44552,7 @@
                 Filters access by a list of tag keys that are allowed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>

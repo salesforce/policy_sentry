@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AWSDocsDocPageApp" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -22,18 +22,19 @@
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
-  <link href="https://docs.aws.amazon.com/assets/css/vendor4.css?version=2021.12.02" rel="stylesheet"/>
-  <link href="https://docs.aws.amazon.com/assets/css/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor3.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor4.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor3.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/vendor1.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor1.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-common.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-common.js?version=2021.12.02">
   </script>
-  <script defer="" src="https://docs.aws.amazon.com/assets/js/awsdocs-doc-app.js?version=2021.12.02" type="text/javascript">
+  <script defer="" src="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.js?version=2021.12.02">
   </script>
+  <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
+  <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -196,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d363c11b9">
+             <table id="w85aab5b9d359c11b9">
               <thead>
                <tr>
                 <th>
@@ -228,7 +229,7 @@
                 </a>
                </td>
                <td>
-                Create a data lifecycle policy to manage the scheduled creation and retention of Amazon EBS snapshots. You may have up to 100 policies.
+                Grants permission to create a data lifecycle policy to manage the scheduled creation and retention of Amazon EBS snapshots. You may have up to 100 policies
                </td>
                <td>
                 Write
@@ -259,7 +260,7 @@
                 </a>
                </td>
                <td>
-                Delete an existing data lifecycle policy. In addition, this action halts the creation and deletion of snapshots that the policy specified. Existing snapshots are not affected.
+                Grants permission to delete an existing data lifecycle policy. In addition, this action halts the creation and deletion of snapshots that the policy specified. Existing snapshots are not affected
                </td>
                <td>
                 Write
@@ -285,7 +286,7 @@
                 </a>
                </td>
                <td>
-                Returns a list of summary descriptions of data lifecycle policies.
+                Grants permission to returns a list of summary descriptions of data lifecycle policies
                </td>
                <td>
                 List
@@ -306,7 +307,7 @@
                 </a>
                </td>
                <td>
-                Returns a complete description of a single data lifecycle policy.
+                Grants permission to return a complete description of a single data lifecycle policy
                </td>
                <td>
                 Read
@@ -332,7 +333,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to list the tags associated with a resource.
+                Grants permission to list the tags associated with a resource
                </td>
                <td>
                 Read
@@ -350,17 +351,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazondatalifecyclemanager-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td>
-                Grants permission to add or update tags of a resource.
+               <td rowspan="2">
+                Grants permission to add or update tags of a resource
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -377,16 +378,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondatalifecyclemanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondatalifecyclemanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazondatalifecyclemanager-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td>
-                Grants permission to remove associated with a resource.
+               <td rowspan="2">
+                Grants permission to remove tags associated with a resource
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -397,6 +416,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazondatalifecyclemanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondatalifecyclemanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -410,7 +447,7 @@
                 </a>
                </td>
                <td>
-                Updates an existing data lifecycle policy.
+                Grants permission to update an existing data lifecycle policy
                </td>
                <td>
                 Write
@@ -450,7 +487,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d363c13b5">
+             <table id="w85aab5b9d359c13b5">
               <thead>
                <tr>
                 <th>
@@ -527,7 +564,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d363c15b7">
+             <table id="w85aab5b9d359c15b7">
               <thead>
                <tr>
                 <th>
@@ -550,7 +587,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag key-value pairs in the request
+                Filters access by the tags that are passed in the request
                </td>
                <td>
                 String
@@ -565,7 +602,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on tag key-value pairs attached to the resource
+                Filters access by the tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -580,10 +617,10 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the presence of tag keys in the request
+                Filters access by the tag keys that are passed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>
@@ -623,8 +660,8 @@
             <div accesskey="p" class="prev-link" href="./list_awsdataexchange.html" id="previous">
              AWS Data Exchange
             </div>
-            <div accesskey="n" class="next-link" href="./list_datapipeline.html" id="next">
-             Data Pipeline
+            <div accesskey="n" class="next-link" href="./list_awsdatapipeline.html" id="next">
+             AWS Data Pipeline
             </div>
            </div>
           </div>
