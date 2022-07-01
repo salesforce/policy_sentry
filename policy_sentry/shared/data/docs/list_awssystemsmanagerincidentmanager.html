@@ -197,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9e1230c11b9">
+             <table id="w85aab5b9e1238c11b9">
               <thead>
                <tr>
                 <th>
@@ -261,10 +261,23 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
                  iam:PassRole
+                </p>
+                <p>
+                 ssm-incidents:TagResource
                 </p>
                </td>
               </tr>
@@ -696,23 +709,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awssystemsmanagerincidentmanager-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to view a list of resource tags for a specified resource
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
                 <p>
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awssystemsmanagerincidentmanager-response-plan">
-                  response-plan*
+                  response-plan
                  </a>
                 </p>
                </td>
@@ -813,23 +839,23 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="3">
                 <a id="awssystemsmanagerincidentmanager-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="3">
                 Grants permission to add tags to a response plan
                </td>
-               <td>
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
                 <p>
-                 <a href="#awssystemsmanagerincidentmanager-response-plan">
-                  response-plan*
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record
                  </a>
                 </p>
                </td>
@@ -840,26 +866,83 @@
               </tr>
               <tr>
                <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="awssystemsmanagerincidentmanager-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="3">
                 Grants permission to remove tags from a response plan
                </td>
-               <td>
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
                 <p>
-                 <a href="#awssystemsmanagerincidentmanager-response-plan">
-                  response-plan*
+                 <a href="#awssystemsmanagerincidentmanager-incident-record">
+                  incident-record
                  </a>
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-response-plan">
+                  response-plan
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -995,17 +1078,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awssystemsmanagerincidentmanager-UpdateResponsePlan">
                 </a>
                 <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_UpdateResponsePlan.html">
                  UpdateResponsePlan
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to update the contents of a response plan
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -1021,6 +1104,27 @@
                 <p>
                  iam:PassRole
                 </p>
+                <p>
+                 ssm-incidents:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1085,7 +1189,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9e1230c13b5">
+             <table id="w85aab5b9e1238c13b5">
               <thead>
                <tr>
                 <th>
@@ -1125,13 +1229,18 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awssystemsmanagerincidentmanager-incident-record">
                 </a>
-                <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-record.html">
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/tracking-details.html">
                  incident-record
                 </a>
                </td>
@@ -1157,13 +1266,18 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awssystemsmanagerincidentmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awssystemsmanagerincidentmanager-replication-set">
                 </a>
-                <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/replication-set.html">
+                <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/disaster-recovery-resiliency.html#replication">
                  replication-set
                 </a>
                </td>
@@ -1194,16 +1308,87 @@
             Condition keys for        AWS Systems Manager Incident Manager
            </h2>
            <p>
-            Incident Manager has no service-specific context keys that can be used in the
+            AWS Systems Manager Incident Manager defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents">
+             <table id="w85aab5b9e1238c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awssystemsmanagerincidentmanager-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
@@ -1258,7 +1443,7 @@
             If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -1275,7 +1460,7 @@
             If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>

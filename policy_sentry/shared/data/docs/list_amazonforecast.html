@@ -197,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d562c11b9">
+             <table id="w85aab5b9d566c11b9">
               <thead>
                <tr>
                 <th>
@@ -561,6 +561,50 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonforecast-CreateMonitor">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateMonitor.html">
+                 CreateMonitor
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an monitor using a Predictor resource
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-predictor">
+                  predictor*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonforecast-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonforecast-CreatePredictor">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreatePredictor.html">
@@ -831,6 +875,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonforecast-DeleteMonitor">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteMonitor.html">
+                 DeleteMonitor
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a monitor resource
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonforecast-DeletePredictor">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DeletePredictor.html">
@@ -882,17 +952,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="9">
+               <td rowspan="10">
                 <a id="amazonforecast-DeleteResourceTree">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteResourceTree.html">
                  DeleteResourceTree
                 </a>
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Grants permission to delete a resource and its child resources
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Write
                </td>
                <td>
@@ -977,6 +1047,19 @@
                 <p>
                  <a href="#amazonforecast-forecastExport">
                   forecastExport*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
                  </a>
                 </p>
                </td>
@@ -1221,6 +1304,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonforecast-DescribeMonitor">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeMonitor.html">
+                 DescribeMonitor
+                </a>
+               </td>
+               <td>
+                Grants permission to describe an monitor resource
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonforecast-DescribePredictor">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribePredictor.html">
@@ -1446,6 +1555,53 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonforecast-ListMonitorEvaluations">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitorEvaluations.html">
+                 ListMonitorEvaluations
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the monitor evaluation result for a monitor
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonforecast-ListMonitors">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitors.html">
+                 ListMonitors
+                </a>
+               </td>
+               <td>
+                Grants permission to list all the monitor resources
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonforecast-ListPredictorBacktestExportJobs">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListPredictorBacktestExportJobs.html">
@@ -1643,17 +1799,61 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="8">
+               <td rowspan="2">
+                <a id="amazonforecast-ResumeResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ResumeResource.html">
+                 ResumeResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to resume Amazon Forecast resource jobs
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonforecast-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="9">
                 <a id="amazonforecast-StopResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_StopResource.html">
                  StopResource
                 </a>
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Grants permission to stop Amazon Forecast resource jobs
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Write
                </td>
                <td>
@@ -1712,6 +1912,19 @@
                 <p>
                  <a href="#amazonforecast-forecastExport">
                   forecastExport*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonforecast-monitor">
+                  monitor*
                  </a>
                 </p>
                </td>
@@ -2117,7 +2330,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d562c13b5">
+             <table id="w85aab5b9d566c13b5">
               <thead>
                <tr>
                 <th>
@@ -2488,6 +2701,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonforecast-monitor">
+                </a>
+                <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateMonitor.html">
+                 monitor
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:forecast:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:monitor/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonforecast-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2514,7 +2764,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9d562c15b7">
+             <table id="w85aab5b9d566c15b7">
               <thead>
                <tr>
                 <th>
@@ -2630,7 +2880,7 @@
             If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonforecast.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonforecast.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -2647,7 +2897,7 @@
             If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonforecast.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonforecast.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
