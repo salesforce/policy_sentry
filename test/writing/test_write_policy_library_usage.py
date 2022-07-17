@@ -163,7 +163,8 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         expected_statement_ids = [
             "KmsPermissionsmanagementKey",
             "MultMultNone",
-            "Ec2WriteSecuritygroup"
+            "Ec2WriteSecuritygroup",
+            "Ec2WriteSecuritygrouprule"
         ]
         # self.assertDictEqual(policy, desired_actions_policy)
         for statement in policy.get("Statement"):
