@@ -82,7 +82,7 @@ class SidGroupActionsTestCase(unittest.TestCase):
             "KmsPermissionsmanagementKey",
             "MultMultNone",
             "Ec2WriteSecuritygroup",
-
+            "Ec2WriteSecuritygrouprule",
         ]
         for statement in output.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
