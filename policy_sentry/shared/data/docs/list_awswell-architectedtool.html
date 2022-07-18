@@ -197,7 +197,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9e1286c11b9">
+             <table id="w85aab5b9e1294c11b9">
               <thead>
                <tr>
                 <th>
@@ -564,17 +564,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awswell-architectedtool-GetLens">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLensShare.html">
                  GetLens
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to get an existing lens
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -585,6 +585,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awswell-architectedtool-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -749,6 +762,16 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#awswell-architectedtool-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awswell-architectedtool-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -947,23 +970,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awswell-architectedtool-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to list tags for a Well-Architected resource
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Read
                </td>
                <td>
                 <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awswell-architectedtool-workload">
-                  workload*
+                  workload
                  </a>
                 </p>
                </td>
@@ -1033,23 +1069,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awswell-architectedtool-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to tag a Well-Architected resource
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
                 <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awswell-architectedtool-workload">
-                  workload*
+                  workload
                  </a>
                 </p>
                </td>
@@ -1077,23 +1126,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awswell-architectedtool-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to untag a Well-Architected resource
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
                 <p>
+                 <a href="#awswell-architectedtool-lens">
+                  lens
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awswell-architectedtool-workload">
-                  workload*
+                  workload
                  </a>
                 </p>
                </td>
@@ -1294,7 +1356,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9e1286c13b5">
+             <table id="w85aab5b9e1294c13b5">
               <thead>
                <tr>
                 <th>
@@ -1375,6 +1437,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awswell-architectedtool-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -1403,7 +1470,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents">
-             <table id="w85aab5b9e1286c15b7">
+             <table id="w85aab5b9e1294c15b7">
               <thead>
                <tr>
                 <th>
@@ -1426,7 +1493,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag key-value pairs in the request
+                Filters access by tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -1441,7 +1508,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on tag key-value pairs attached to the resource
+                Filters access by tag key-value pairs attached to the resource
                </td>
                <td>
                 String
@@ -1456,7 +1523,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag keys in the request
+                Filters access by tag keys in the request
                </td>
                <td>
                 ArrayOfString
@@ -1519,7 +1586,7 @@
             If you've got a moment, please tell us what we did right so we can do more of it.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awswell-architectedtool.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awswell-architectedtool.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
@@ -1536,7 +1603,7 @@
             If you've got a moment, please tell us how we can make the documentation better.
            </p>
            <p>
-            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awswell-architectedtool.html" id="fblink" target="_blank" text="Feedback">
+            <awsui-button click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service Authorization Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_awswell-architectedtool.html" id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback">
             </awsui-button>
            </p>
           </div>
