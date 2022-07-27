@@ -45,6 +45,7 @@ if "CUSTOM_ACCESS_OVERRIDES_FILE" in os.environ:
     BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
         os.path.abspath(os.path.dirname(__file__)), CUSTOM_ACCESS_OVERRIDES_FILE
     )
+
 else:
     BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
         os.path.abspath(os.path.dirname(__file__)), "data", "access-level-overrides.yml"
