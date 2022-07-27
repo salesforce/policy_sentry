@@ -40,9 +40,16 @@ else:
     DATASTORE_FILE_PATH = BUNDLED_DATASTORE_FILE_PATH
 
 # Overrides
-BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), "data", "access-level-overrides.yml"
-)
+if "CUSTOM_ACCESS_OVERRIDES_FILE" in os.environ:
+    CUSTOM_ACCESS_OVERRIDES_FILE=os.environ['CUSTOM_ACCESS_OVERRIDES_FILE']
+    BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), CUSTOM_ACCESS_OVERRIDES_FILE
+    )
+
+else:
+    BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "data", "access-level-overrides.yml"
+    )
 
 LOCAL_ACCESS_OVERRIDES_FILE = os.path.join(
     CONFIG_DIRECTORY, "access-level-overrides.yml"
