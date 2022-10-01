@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -35,6 +35,10 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
+  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  </script>
+  <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
+  <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon Macie"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -210,8 +214,8 @@
             </div>
            </div>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d818c11c11">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d842c11c11">
               <thead>
                <tr>
                 <th>
@@ -277,6 +281,37 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-CreateAllowList">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/allow-lists.html">
+                 CreateAllowList
+                </a>
+               </td>
+               <td>
+                Grants permission to create and define the settings for an allow list
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmacie-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -522,6 +557,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonmacie-DeleteAllowList">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/allow-lists-id.html">
+                 DeleteAllowList
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an allow list
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonmacie-DeleteCustomDataIdentifier">
                 </a>
                 <a href="https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html">
@@ -738,7 +799,7 @@
                 </a>
                </td>
                <td>
-                Grants an Amazon Macie member account with permission to disassociate from its Macie administrator account
+                Grants permission to an Amazon Macie member account to disassociate from its Macie administrator account
                </td>
                <td>
                 Write
@@ -759,7 +820,7 @@
                 </a>
                </td>
                <td>
-                (Deprecated) Grants an Amazon Macie member account with permission to disassociate from its Macie administrator account
+                Grants permission to an Amazon Macie member account to disassociate from its Macie administrator account
                </td>
                <td>
                 Write
@@ -780,7 +841,7 @@
                 </a>
                </td>
                <td>
-                Grants an Amazon Macie administrator account with permission to disassociate from a Macie member account
+                Grants permission to an Amazon Macie administrator account to disassociate from a Macie member account
                </td>
                <td>
                 Write
@@ -854,6 +915,32 @@
                 Read
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-GetAllowList">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/allow-lists-id.html">
+                 GetAllowList
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the settings and status of an allow list
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1068,7 +1155,7 @@
                 </a>
                </td>
                <td>
-                (Deprecated) Grants permission to retrieve information about the Amazon Macie administrator account for an account
+                Grants permission to retrieve information about the Amazon Macie administrator account for an account
                </td>
                <td>
                 Read
@@ -1100,6 +1187,69 @@
                   Member*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-GetRevealConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/reveal-configuration.html">
+                 GetRevealConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve the status and configuration settings for retrieving occurrences of sensitive data reported by findings
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-GetSensitiveDataOccurrences">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/findings-findingid-reveal.html">
+                 GetSensitiveDataOccurrences
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve occurrences of sensitive data reported by a finding
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-GetSensitiveDataOccurrencesAvailability">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/findings-findingid-reveal-availability.html">
+                 GetSensitiveDataOccurrencesAvailability
+                </a>
+               </td>
+               <td>
+                Grants permission to check whether occurrences of sensitive data can be retrieved for a finding
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1140,6 +1290,27 @@
                </td>
                <td>
                 Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-ListAllowLists">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/allow-lists.html">
+                 ListAllowLists
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a subset of information about all the allow lists for an account
+               </td>
+               <td>
+                List
                </td>
                <td>
                </td>
@@ -1317,20 +1488,77 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="5">
                 <a id="amazonmacie-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td>
+               <td rowspan="5">
                 Grants permission to retrieve the tags for an Amazon Macie resource
                </td>
-               <td>
+               <td rowspan="5">
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-ClassificationJob">
+                  ClassificationJob
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-CustomDataIdentifier">
+                  CustomDataIdentifier
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-FindingsFilter">
+                  FindingsFilter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-Member">
+                  Member
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1401,19 +1629,84 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="6">
                 <a id="amazonmacie-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html">
                  TagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="6">
                 Grants permission to add or update the tags for an Amazon Macie resource
                </td>
-               <td>
+               <td rowspan="6">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-ClassificationJob">
+                  ClassificationJob
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-CustomDataIdentifier">
+                  CustomDataIdentifier
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-FindingsFilter">
+                  FindingsFilter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-Member">
+                  Member
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -1453,19 +1746,84 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="6">
                 <a id="amazonmacie-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html">
                  UntagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="6">
                 Grants permission to remove tags from an Amazon Macie resource
                </td>
-               <td>
+               <td rowspan="6">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-ClassificationJob">
+                  ClassificationJob
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-CustomDataIdentifier">
+                  CustomDataIdentifier
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-FindingsFilter">
+                  FindingsFilter
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmacie-Member">
+                  Member
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -1474,6 +1832,32 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-UpdateAllowList">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/allow-lists-id.html">
+                 UpdateAllowList
+                </a>
+               </td>
+               <td>
+                Grants permission to update the settings for an allow list
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-AllowList">
+                  AllowList*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1596,7 +1980,7 @@
                 </a>
                </td>
                <td>
-                Grants an Amazon Macie administrator account with permission to suspend or re-enable a Macie member account
+                Grants permission to an Amazon Macie administrator account to suspend or re-enable a Macie member account
                </td>
                <td>
                 Write
@@ -1618,6 +2002,27 @@
                </td>
                <td>
                 Grants permission to update Amazon Macie configuration settings for an AWS organization
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmacie-UpdateRevealConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/APIReference/reveal-configuration.html">
+                 UpdateRevealConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to update the status and configuration settings for retrieving occurrences of sensitive data reported by findings
                </td>
                <td>
                 Write
@@ -1651,8 +2056,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d818c13b5">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d842c13b5">
               <thead>
                <tr>
                 <th>
@@ -1666,6 +2071,43 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="amazonmacie-AllowList">
+                </a>
+                <a href="https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html">
+                 AllowList
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:macie2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:allow-list/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmacie-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="amazonmacie-ClassificationJob">
@@ -1839,8 +2281,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d818c15b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d842c15b7">
               <thead>
                <tr>
                 <th>
@@ -1863,7 +2305,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag key-value pairs in the request
+                Filters access by a tag key and value pair that is allowed in the request
                </td>
                <td>
                 String
@@ -1878,7 +2320,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on tag key-value pairs that are associated with the resource
+                Filters access by a tag key and value pair of a resource
                </td>
                <td>
                 String
@@ -1893,10 +2335,10 @@
                 </a>
                </td>
                <td>
-                Filters access based on the presence of tag keys in the request
+                Filters access by the presence of tag keys in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>

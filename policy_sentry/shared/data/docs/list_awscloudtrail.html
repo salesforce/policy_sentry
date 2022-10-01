@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -35,6 +35,10 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
+  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  </script>
+  <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
+  <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS CloudTrail"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -196,8 +200,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d219c11b9">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d223c11b9">
               <thead>
                <tr>
                 <th>
@@ -221,17 +225,17 @@
                </tr>
               </thead>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awscloudtrail-AddTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to add one or more tags to a trail, up to a limit of 10
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
@@ -255,6 +259,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudtrail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -326,16 +348,43 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-CreateServiceLinkedChannel">
+                </a>
+                <a href="API_CreateServiceLinkedChannel.html" rel="noopener noreferrer" target="_blank">
+                 CreateServiceLinkedChannel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create a service-linked channel that specifies the settings for delivery of log data to an AWS service
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-channel">
+                  channel*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awscloudtrail-CreateTrail">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html">
                  CreateTrail
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a trail that specifies the settings for delivery of log data to an Amazon S3 bucket
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -351,6 +400,24 @@
                 <p>
                  s3:PutObject
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudtrail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -371,6 +438,33 @@
                 <p>
                  <a href="#awscloudtrail-eventdatastore">
                   eventdatastore*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-DeleteServiceLinkedChannel">
+                </a>
+                <a href="API_DeleteServiceLinkedChannel.html" rel="noopener noreferrer" target="_blank">
+                 DeleteServiceLinkedChannel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to delete a service-linked channel
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-channel">
+                  channel*
                  </a>
                 </p>
                </td>
@@ -543,6 +637,33 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-GetServiceLinkedChannel">
+                </a>
+                <a href="API_GetServiceLinkedChannel.html" rel="noopener noreferrer" target="_blank">
+                 GetServiceLinkedChannel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list settings for the service-linked channel
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-channel">
+                  channel*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-GetTrail">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrail.html">
@@ -640,6 +761,28 @@
                </td>
                <td>
                 Grants permission to list queries associated with an event data store
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-ListServiceLinkedChannels">
+                </a>
+                <a href="API_ListServiceLinkedChannels.html" rel="noopener noreferrer" target="_blank">
+                 ListServiceLinkedChannels
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list service-linked channels associated with the current region for a specified account
                </td>
                <td>
                 List
@@ -785,17 +928,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awscloudtrail-RemoveTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RemoveTags.html">
                  RemoveTags
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to remove tags from a trail
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Tagging
                </td>
                <td>
@@ -819,6 +962,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -950,6 +1106,33 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-UpdateServiceLinkedChannel">
+                </a>
+                <a href="API_UpdateServiceLinkedChannel.html" rel="noopener noreferrer" target="_blank">
+                 UpdateServiceLinkedChannel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to update the settings that specify delivery of log files
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-channel">
+                  channel*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-UpdateTrail">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html">
@@ -1018,8 +1201,8 @@
             </div>
            </div>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d219c13b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d223c13b7">
               <thead>
                <tr>
                 <th>
@@ -1063,6 +1246,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -1102,6 +1290,38 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-channel">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html">
+                 channel
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cloudtrail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:channel/$
+                 <span>
+                  {
+                 </span>
+                 ChannelId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1127,8 +1347,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d219c15b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d223c15b7">
               <thead>
                <tr>
                 <th>
