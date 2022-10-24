@@ -56,7 +56,7 @@
         <title>
          Actions, resources, and condition keys for Amazon FSx - Service Authorization Reference
         </title>
-        <meta content="service-authorization.pdf#list_amazonfsx" name="pdf"/>
+        <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonfsx" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonfsx.html" name="feedback-yes"/>
@@ -65,7 +65,7 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="service-authorization.pdf#list_amazonfsx" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          <a href="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonfsx" rel="noopener noreferrer" target="_blank" title="Open PDF">
           </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d586c11b9">
+             <table id="w39aab5b9d578c11b9">
               <thead>
                <tr>
                 <th>
@@ -231,6 +231,7 @@
                 <a href="https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html">
                  AssociateFileGateway
                 </a>
+                [permission only]
                </td>
                <td>
                 Grants permission to associate a File Gateway instance with an Amazon FSx for Windows File Server file system
@@ -520,6 +521,100 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonfsx-CreateFileCache">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html">
+                 CreateFileCache
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a new, empty, Amazon file cache
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+                <p>
+                 fsx:CreateDataRepositoryAssociation
+                </p>
+                <p>
+                 fsx:TagResource
+                </p>
+                <p>
+                 logs:CreateLogGroup
+                </p>
+                <p>
+                 logs:CreateLogStream
+                </p>
+                <p>
+                 logs:PutLogEvents
+                </p>
+                <p>
+                 s3:ListBucket
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-association">
+                  association
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-fsx_NfsDataRepositoryEncryptionInTransitEnabled">
+                  fsx:NfsDataRepositoryEncryptionInTransitEnabled
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-fsx_NfsDataRepositoryAuthenticationEnabled">
+                  fsx:NfsDataRepositoryAuthenticationEnabled
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -971,6 +1066,66 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="amazonfsx-DeleteFileCache">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteFileCache.html">
+                 DeleteFileCache
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to delete a file cache, deleting its contents
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 fsx:DeleteDataRepositoryAssociation
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-association">
+                  association
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonfsx-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonfsx-DeleteFileSystem">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteFileSystem.html">
@@ -1158,6 +1313,7 @@
                 <a href="https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html">
                  DescribeAssociatedFileGateways
                 </a>
+                [permission only]
                </td>
                <td>
                 Grants permission to describe the File Gateway instances associated with an Amazon FSx for Windows File Server file system
@@ -1229,6 +1385,27 @@
                </td>
                <td>
                 Grants permission to return the descriptions of all data repository tasks owned by your AWS account in the AWS Region of the endpoint that you're calling
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-DescribeFileCaches">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">
+                 DescribeFileCaches
+                </a>
+               </td>
+               <td>
+                Grants permission to return the descriptions of all file caches owned by your AWS account in the AWS Region of the endpoint that you're calling
                </td>
                <td>
                 Read
@@ -1357,6 +1534,7 @@
                 <a href="https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html">
                  DisassociateFileGateway
                 </a>
+                [permission only]
                </td>
                <td>
                 Grants permission to disassociate a File Gateway instance from an Amazon FSx for Windows File Server file system
@@ -1403,17 +1581,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="7">
+               <td rowspan="8">
                 <a id="amazonfsx-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Grants permission to list tags for an Amazon FSx resource
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Read
                </td>
                <td>
@@ -1433,6 +1611,19 @@
                 <p>
                  <a href="#amazonfsx-backup">
                   backup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache
                  </a>
                 </p>
                </td>
@@ -1598,17 +1789,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="8">
+               <td rowspan="9">
                 <a id="amazonfsx-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Grants permission to tag an Amazon FSx resource
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Tagging
                </td>
                <td>
@@ -1628,6 +1819,19 @@
                 <p>
                  <a href="#amazonfsx-backup">
                   backup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache
                  </a>
                 </p>
                </td>
@@ -1720,17 +1924,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="8">
+               <td rowspan="9">
                 <a id="amazonfsx-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Grants permission to remove a tag from an Amazon FSx resource
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Tagging
                </td>
                <td>
@@ -1750,6 +1954,19 @@
                 <p>
                  <a href="#amazonfsx-backup">
                   backup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache
                  </a>
                 </p>
                </td>
@@ -1854,6 +2071,32 @@
                 <p>
                  <a href="#amazonfsx-association">
                   association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-UpdateFileCache">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileCache.html">
+                 UpdateFileCache
+                </a>
+               </td>
+               <td>
+                Grants permission to update file cache configuration
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-file-cache">
+                  file-cache*
                  </a>
                 </p>
                </td>
@@ -2021,7 +2264,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d586c13b7">
+             <table id="w39aab5b9d578c13b7">
               <thead>
                <tr>
                 <th>
@@ -2062,6 +2305,43 @@
                   {
                  </span>
                  FileSystemId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonfsx-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-file-cache">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/security-iam.html">
+                 file-cache
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:fsx:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:file-cache/$
+                 <span>
+                  {
+                 </span>
+                 FileCacheId}
                 </code>
                </td>
                <td>
@@ -2213,7 +2493,7 @@
                  <span>
                   {
                  </span>
-                 FileSystemId}/$
+                 FileSystemIdOrFileCacheId}/$
                  <span>
                   {
                  </span>
@@ -2336,7 +2616,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d586c15b7">
+             <table id="w39aab5b9d578c15b7">
               <thead>
                <tr>
                 <th>
@@ -2423,6 +2703,36 @@
                </td>
                <td>
                 Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-fsx_NfsDataRepositoryAuthenticationEnabled">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/access-control-manage-access-intro.htmlAPI_CreateFileCache.html">
+                 fsx:NfsDataRepositoryAuthenticationEnabled
+                </a>
+               </td>
+               <td>
+                Filters access by NFS data repositories which support authentication
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonfsx-fsx_NfsDataRepositoryEncryptionInTransitEnabled">
+                </a>
+                <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/access-control-manage-access-intro.htmlAPI_CreateFileCache.html">
+                 fsx:NfsDataRepositoryEncryptionInTransitEnabled
+                </a>
+               </td>
+               <td>
+                Filters access by NFS data repositories which support encryption-in-transit
+               </td>
+               <td>
+                String
                </td>
               </tr>
               <tr>

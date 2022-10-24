@@ -56,7 +56,7 @@
         <title>
          Actions, resources, and condition keys for Amazon Connect - Service Authorization Reference
         </title>
-        <meta content="service-authorization.pdf#list_amazonconnect" name="pdf"/>
+        <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonconnect" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-yes"/>
@@ -65,7 +65,7 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="service-authorization.pdf#list_amazonconnect" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          <a href="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonconnect" rel="noopener noreferrer" target="_blank" title="Open PDF">
           </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d327c11b9">
+             <table id="w39aab5b9d323c11b9">
               <thead>
                <tr>
                 <th>
@@ -858,23 +858,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonconnect-ClaimPhoneNumber">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">
                  ClaimPhoneNumber
                 </a>
                </td>
-               <td rowspan="3">
-                Grants permission to claim phone number resources in an Amazon Connect instance
+               <td rowspan="4">
+                Grants permission to claim phone number resources in an Amazon Connect instance or traffic distribution group
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#amazonconnect-instance">
                   instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
                  </a>
                 </p>
                </td>
@@ -1200,6 +1213,9 @@
                <td>
                 <p>
                  app-integrations:CreateEventIntegrationAssociation
+                </p>
+                <p>
+                 cases:GetDomain
                 </p>
                 <p>
                  connect:DescribeInstance
@@ -1594,6 +1610,68 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonconnect-CreateTrafficDistributionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">
+                 CreateTrafficDistributionGroup
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a traffic distribution group
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2253,6 +2331,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-DeleteTrafficDistributionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">
+                 DeleteTrafficDistributionGroup
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a traffic distribution group
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="amazonconnect-DeleteUseCase">
                 </a>
@@ -2796,10 +2913,10 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to describe phone number resources in an Amazon Connect instance
+                Grants permission to describe phone number resources in an Amazon Connect instance or traffic distribution group
                </td>
                <td rowspan="2">
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -2996,6 +3113,45 @@
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-DescribeTrafficDistributionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeTrafficDistributionGroup.html">
+                 DescribeTrafficDistributionGroup
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe a traffic distribution group
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -3891,6 +4047,45 @@
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-GetTrafficDistribution">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetTrafficDistribution.html">
+                 GetTrafficDistribution
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to read traffic distribution for a traffic distribution group
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -4814,17 +5009,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="15">
+               <td rowspan="16">
                 <a id="amazonconnect-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="15">
+               <td rowspan="16">
                 Grants permission to list tags for an Amazon Connect resource
                </td>
-               <td rowspan="15">
+               <td rowspan="16">
                 Read
                </td>
                <td>
@@ -4972,6 +5167,19 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonconnect-use-case">
                   use-case
                  </a>
@@ -5039,6 +5247,32 @@
                 <p>
                  <a href="#amazonconnect-instance">
                   instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-ListTrafficDistributionGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTrafficDistributionGroups.html">
+                 ListTrafficDistributionGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to list traffic distribution groups
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
                  </a>
                 </p>
                </td>
@@ -5281,6 +5515,70 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonconnect-ReplicateInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
+                 ReplicateInstance
+                </a>
+               </td>
+               <td>
+                Grants permission to create a replica of an Amazon Connect instance
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ds:AuthorizeApplication
+                </p>
+                <p>
+                 ds:CheckAlias
+                </p>
+                <p>
+                 ds:CreateAlias
+                </p>
+                <p>
+                 ds:CreateDirectory
+                </p>
+                <p>
+                 ds:CreateIdentityPoolDirectory
+                </p>
+                <p>
+                 ds:DeleteDirectory
+                </p>
+                <p>
+                 ds:DescribeDirectories
+                </p>
+                <p>
+                 ds:UnauthorizeApplication
+                </p>
+                <p>
+                 iam:AttachRolePolicy
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PutRolePolicy
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonconnect-ResumeContactRecording">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html">
@@ -5314,7 +5612,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to search phone number resources in an Amazon Connect instance
+                Grants permission to search phone number resources in an Amazon Connect instance or traffic distribution group
                </td>
                <td>
                 List
@@ -5819,17 +6117,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="18">
+               <td rowspan="19">
                 <a id="amazonconnect-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="18">
+               <td rowspan="19">
                 Grants permission to tag an Amazon Connect resource
                </td>
-               <td rowspan="18">
+               <td rowspan="19">
                 Tagging
                </td>
                <td>
@@ -5992,6 +6290,19 @@
                 <p>
                  <a href="#amazonconnect-task-template">
                   task-template
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group
                  </a>
                 </p>
                </td>
@@ -6136,17 +6447,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="18">
+               <td rowspan="19">
                 <a id="amazonconnect-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="18">
+               <td rowspan="19">
                 Grants permission to untag an Amazon Connect resource
                </td>
-               <td rowspan="18">
+               <td rowspan="19">
                 Tagging
                </td>
                <td>
@@ -6309,6 +6620,19 @@
                 <p>
                  <a href="#amazonconnect-task-template">
                   task-template
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group
                  </a>
                 </p>
                </td>
@@ -6941,17 +7265,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonconnect-UpdatePhoneNumber">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">
                  UpdatePhoneNumber
                 </a>
                </td>
-               <td rowspan="3">
-                Grants permission to update phone number resources in an Amazon Connect instance
+               <td rowspan="4">
+                Grants permission to update phone number resources in an Amazon Connect instance or traffic distribution group
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -6971,6 +7295,19 @@
                 <p>
                  <a href="#amazonconnect-phone-number">
                   phone-number*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
                  </a>
                 </p>
                </td>
@@ -7656,6 +7993,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-UpdateTrafficDistribution">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html">
+                 UpdateTrafficDistribution
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update traffic distribution for a traffic distribution group
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="amazonconnect-UpdateUserHierarchy">
                 </a>
@@ -8059,7 +8435,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d327c13b5">
+             <table id="w39aab5b9d323c13b5">
               <thead>
                <tr>
                 <th>
@@ -8986,6 +9362,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonconnect-traffic-distribution-group">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/traffic-distribution-groups.html">
+                 traffic-distribution-group
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:connect:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:traffic-distribution-group/$
+                 <span>
+                  {
+                 </span>
+                 TrafficDistributionGroupId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -9012,7 +9425,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d327c15b7">
+             <table id="w39aab5b9d323c15b7">
               <thead>
                <tr>
                 <th>
