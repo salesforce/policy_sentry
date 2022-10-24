@@ -56,7 +56,7 @@
         <title>
          Actions, resources, and condition keys for Amazon EC2 Auto Scaling - Service Authorization Reference
         </title>
-        <meta content="service-authorization.pdf#list_amazonec2autoscaling" name="pdf"/>
+        <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonec2autoscaling" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2autoscaling.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2autoscaling.html" name="feedback-yes"/>
@@ -65,7 +65,7 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="service-authorization.pdf#list_amazonec2autoscaling" rel="noopener noreferrer" target="_blank" title="Open PDF">
+          <a href="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonec2autoscaling" rel="noopener noreferrer" target="_blank" title="Open PDF">
           </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d431c11b9">
+             <table id="w39aab5b9d425c11b9">
               <thead>
                <tr>
                 <th>
@@ -536,6 +536,12 @@
                 </p>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -2285,6 +2291,9 @@
                 </p>
                </td>
                <td>
+                <p>
+                 iam:PassRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -2348,7 +2357,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d431c13b5">
+             <table id="w39aab5b9d425c13b5">
               <thead>
                <tr>
                 <th>
@@ -2470,7 +2479,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d431c15b7">
+             <table id="w39aab5b9d425c15b7">
               <thead>
                <tr>
                 <th>
@@ -2493,7 +2502,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the AMI used to create the instance
+                Filters access based on the AMI ID for the launch configuration
                </td>
                <td>
                 String
@@ -2508,7 +2517,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the type of instance, in terms of the hardware resources available
+                Filters access based on the instance type for the launch configuration
                </td>
                <td>
                 String
@@ -2523,7 +2532,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the types of instances, in terms of the hardware resources available
+                Filters access based on the instance types present as overrides to a launch template for a mixed instances policy. Use it to qualify which instance types can be explicitly defined in the policy
                </td>
                <td>
                 String
@@ -2583,7 +2592,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the maximum scaling size
+                Filters access based on the maximum scaling size in the request
                </td>
                <td>
                 Numeric
@@ -2643,7 +2652,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the minimum scaling size
+                Filters access based on the minimum scaling size in the request
                </td>
                <td>
                 Numeric
@@ -2658,7 +2667,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the value of a tag attached to a resource
+                Filters access based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -2673,7 +2682,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the spot price associated with an instance
+                Filters access based on the price for Spot Instances for the launch configuration
                </td>
                <td>
                 Numeric
@@ -2718,7 +2727,7 @@
                 </a>
                </td>
                <td>
-                Filters access based on the value of a tag associated with the request
+                Filters access based on the tags that are passed in the request
                </td>
                <td>
                 String
@@ -2728,10 +2737,12 @@
                <td>
                 <a id="amazonec2autoscaling-aws_ResourceTag___TagKey_">
                 </a>
-                aws:ResourceTag/${TagKey}
+                <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
+                 aws:ResourceTag/${TagKey}
+                </a>
                </td>
                <td>
-                Filters access based on the tag-value associated with the resource
+                Filters access based on the tags associated with the resource
                </td>
                <td>
                 String
@@ -2741,13 +2752,15 @@
                <td>
                 <a id="amazonec2autoscaling-aws_TagKeys">
                 </a>
-                aws:TagKeys
+                <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/control-access-using-iam.html#policy-auto-scaling-condition-keys">
+                 aws:TagKeys
+                </a>
                </td>
                <td>
-                Filters create requests based on the presence of mandatory tags in the request
+                Filters access based on the tag keys that are passed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>

@@ -18,7 +18,7 @@
   <meta content="Service Authorization Reference" name="guide"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
-  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="toc-contents.json;toc-list_amazonec2.json" name="tocs"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
   <meta content="Service Authorization Reference" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
@@ -56,7 +56,6 @@
         <title>
          Actions, resources, and condition keys for Amazon EC2 - Service Authorization Reference
         </title>
-        <meta content="service-authorization.pdf#list_amazonec2" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2.html" name="feedback-yes"/>
@@ -65,8 +64,6 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="service-authorization.pdf#list_amazonec2" rel="noopener noreferrer" target="_blank" title="Open PDF">
-          </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
           <a href="http://aws.amazon.com">
@@ -78,7 +75,7 @@
           <a href="/iam/index.html">
            Service Authorization Reference
           </a>
-          <a href="reference.html">
+          <a href="list_amazonec2.html">
            Service Authorization Reference
           </a>
          </div>
@@ -131,7 +128,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">
-                API operations available for this          service
+                API operations available for this        service
                </a>
                .
               </p>
@@ -140,7 +137,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-iam.html">
-                using          IAM
+                using        IAM
                </a>
                permission policies.
               </p>
@@ -201,7 +198,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d427c11b9">
+             <table id="w53aab7c11b9">
               <thead>
                <tr>
                 <th>
@@ -3842,11 +3839,6 @@
                   ec2:SnapshotID
                  </a>
                 </p>
-                <p>
-                 <a href="#amazonec2-ec2_SourceOutpostArn">
-                  ec2:SourceOutpostArn
-                 </a>
-                </p>
                </td>
                <td>
                 <p>
@@ -4317,6 +4309,107 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateCoipCidr">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipCidr.html">
+                 CreateCoipCidr
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a range of customer-owned IP (CoIP) addresses
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateCoipPool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipPool.html">
+                 CreateCoipPool
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a pool of customer-owned IP (CoIP) addresses
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table">
+                  local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonec2-CreateCoipPoolPermission">
                 </a>
@@ -4326,7 +4419,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permission to allow a service to access a customer owned IP (CoIP) pool
+                Grants permission to allow a service to access a customer-owned IP (CoIP) pool
                </td>
                <td>
                 Write
@@ -6190,6 +6283,81 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonec2-CreateLocalGatewayRouteTable">
+                </a>
+                <a href="API_CreateLocalGatewayRouteTable.html" rel="noopener noreferrer" target="_blank">
+                 CreateLocalGatewayRouteTable
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a local gateway route table
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway">
+                  local-gateway*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table">
+                  local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonec2-CreateLocalGatewayRouteTablePermission">
                 </a>
@@ -6230,6 +6398,104 @@
                <td>
                </td>
                <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="amazonec2-CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html">
+                 CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to create a local gateway route table virtual interface group association
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table">
+                  local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table-virtual-interface-group-association">
+                  local-gateway-route-table-virtual-interface-group-association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface-group">
+                  local-gateway-virtual-interface-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
@@ -8440,17 +8706,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="72">
+               <td rowspan="75">
                 <a id="amazonec2-CreateTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">
                  CreateTags
                 </a>
                </td>
-               <td rowspan="72">
+               <td rowspan="75">
                 Grants permission to add or overwrite one or more tags for Amazon EC2 resources
                </td>
-               <td rowspan="72">
+               <td rowspan="75">
                 Tagging
                </td>
                <td>
@@ -8578,6 +8844,29 @@
                 <p>
                  <a href="#amazonec2-ec2_ServerCertificateArn">
                   ec2:ServerCertificateArn
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -10388,6 +10677,29 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-vpc-endpoint-connection">
+                  vpc-endpoint-connection
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-vpc-endpoint-service">
                   vpc-endpoint-service
                  </a>
@@ -10407,6 +10719,29 @@
                 <p>
                  <a href="#amazonec2-ec2_VpceServicePrivateDnsName">
                   ec2:VpceServicePrivateDnsName
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-vpc-endpoint-service-permission">
+                  vpc-endpoint-service-permission
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -13042,6 +13377,104 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteCoipCidr">
+                </a>
+                <a href="API_DeleteCoipCidr.html" rel="noopener noreferrer" target="_blank">
+                 DeleteCoipCidr
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a range of customer-owned IP (CoIP) addresses
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteCoipPool">
+                </a>
+                <a href="API_DeleteCoipPool.html" rel="noopener noreferrer" target="_blank">
+                 DeleteCoipPool
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a pool of customer-owned IP (CoIP) addresses
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonec2-DeleteCoipPoolPermission">
                 </a>
@@ -13051,7 +13484,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permission to deny a service from accessing a customer owned IP (CoIP) pool
+                Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool
                </td>
                <td>
                 Write
@@ -13835,6 +14268,55 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonec2-DeleteLocalGatewayRouteTable">
+                </a>
+                <a href="API_DeleteLocalGatewayRouteTable.html" rel="noopener noreferrer" target="_blank">
+                 DeleteLocalGatewayRouteTable
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a local gateway route table
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table">
+                  local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonec2-DeleteLocalGatewayRouteTablePermission">
                 </a>
                 <a href="https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html">
@@ -13852,6 +14334,55 @@
                 <p>
                  <a href="#amazonec2-local-gateway-route-table">
                   local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html">
+                 DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a local gateway route table virtual interface group association
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-route-table-virtual-interface-group-association">
+                  local-gateway-route-table-virtual-interface-group-association*
                  </a>
                 </p>
                </td>
@@ -15054,17 +15585,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="72">
+               <td rowspan="75">
                 <a id="amazonec2-DeleteTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="72">
+               <td rowspan="75">
                 Grants permission to delete one or more tags from Amazon EC2 resources
                </td>
-               <td rowspan="72">
+               <td rowspan="75">
                 Tagging
                </td>
                <td>
@@ -15140,6 +15671,29 @@
                 <p>
                  <a href="#amazonec2-client-vpn-endpoint">
                   client-vpn-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool
                  </a>
                 </p>
                </td>
@@ -16587,8 +17141,54 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-vpc-endpoint-connection">
+                  vpc-endpoint-connection
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-vpc-endpoint-service">
                   vpc-endpoint-service
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-vpc-endpoint-service-permission">
+                  vpc-endpoint-service-permission
                  </a>
                 </p>
                </td>
@@ -24486,19 +25086,65 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="5">
                 <a id="amazonec2-DisassociateRouteTable">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateRouteTable.html">
                  DisassociateRouteTable
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Grants permission to disassociate a subnet from a route table
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv6pool-ec2">
+                  ipv6pool-ec2
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonec2-route-table">
@@ -26115,19 +26761,42 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonec2-GetCoipPoolUsage">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCoipPoolUsage.html">
                  GetCoipPoolUsage
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to describe the allocations from the specified customer-owned address pool
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -31038,23 +31707,46 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonec2-ModifyLocalGatewayRoute">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyLocalGatewayRoute.html">
                  ModifyLocalGatewayRoute
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to modify a local gateway route
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#amazonec2-local-gateway-route-table">
                   local-gateway-route-table*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface-group">
+                  local-gateway-virtual-interface-group
                  </a>
                 </p>
                </td>
@@ -35670,17 +36362,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="5">
                 <a id="amazonec2-ReplaceRouteTableAssociation">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceRouteTableAssociation.html">
                  ReplaceRouteTableAssociation
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Grants permission to change the route table that is associated with a subnet
                </td>
-               <td rowspan="3">
+               <td rowspan="5">
                 Write
                </td>
                <td>
@@ -35709,6 +36401,52 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-ipv6pool-ec2">
+                  ipv6pool-ec2
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -40270,7 +41008,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d427c13b5">
+             <table id="w53aab7c13b5">
               <thead>
                <tr>
                 <th>
@@ -42067,6 +42805,63 @@
                 <p>
                  <a href="#amazonec2-ec2_Attribute___AttributeName_">
                   ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-coip-pool">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 coip-pool
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:coip-pool/$
+                 <span>
+                  {
+                 </span>
+                 Ipv4PoolCoipId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                 <p>
@@ -44953,6 +45748,63 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-vpc-endpoint-connection">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html">
+                 vpc-endpoint-connection
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpc-endpoint-connection/$
+                 <span>
+                  {
+                 </span>
+                 VpcEndpointConnectionId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-vpc-endpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html">
@@ -45096,6 +45948,63 @@
                 <p>
                  <a href="#amazonec2-ec2_VpceServicePrivateDnsName">
                   ec2:VpceServicePrivateDnsName
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-vpc-endpoint-service-permission">
+                </a>
+                <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html#vpc-endpoint-policies">
+                 vpc-endpoint-service-permission
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpc-endpoint-service-permission/$
+                 <span>
+                  {
+                 </span>
+                 VpcEndpointServicePermissionId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -45608,7 +46517,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w85aab5b9d427c15b7">
+             <table id="w53aab7c15b7">
               <thead>
                <tr>
                 <th>
@@ -46869,21 +47778,6 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonec2-ec2_ResourceTag_">
-                </a>
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/control-access-with-tags.html">
-                 ec2:ResourceTag/
-                </a>
-               </td>
-               <td>
-                Filters access by the preface string for a tag key and value pair that are attached to a resource
-               </td>
-               <td>
-                String
-               </td>
-              </tr>
-              <tr>
-               <td>
                 <a id="amazonec2-ec2_ResourceTag___TagKey_">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/control-access-with-tags.html">
@@ -47306,11 +48200,11 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_amazondynamodbacceleratordax.html" id="previous">
-             Amazon DynamoDB Accelerator (DAX)
+            <div accesskey="p" class="prev-link" href="list_amazonec2.previous" id="previous" target="_self">
+             Previous
             </div>
-            <div accesskey="n" class="next-link" href="./list_amazonec2autoscaling.html" id="next">
-             Amazon EC2 Auto Scaling
+            <div accesskey="n" class="next-link" href="list_amazonec2.next" id="next" target="_self">
+             Next
             </div>
            </div>
           </div>
