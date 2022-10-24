@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -35,6 +35,10 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
+  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  </script>
+  <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
+  <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Lambda"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -196,8 +200,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d774c11b9">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d794c11b9">
               <thead>
                <tr>
                 <th>
@@ -416,6 +420,16 @@
                 <p>
                  <a href="#awslambda-lambda_CodeSigningConfigArn">
                   lambda:CodeSigningConfigArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -1884,17 +1898,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awslambda-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TagResources.html">
                  TagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to add tags to an AWS Lambda function
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -1911,16 +1925,34 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awslambda-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awslambda-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to remove tags from an AWS Lambda function
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -1931,6 +1963,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2237,8 +2282,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d774c13b5">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d794c13b5">
               <thead>
                <tr>
                 <th>
@@ -2346,6 +2391,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -2382,6 +2432,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -2418,6 +2473,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -2513,8 +2573,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d774c15b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d794c15b7">
               <thead>
                <tr>
                 <th>
@@ -2528,6 +2588,51 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td>
+                <a id="awslambda-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslambda-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags associated with the resource
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslambda-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td>
+                ArrayOfString
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="awslambda-lambda_CodeSigningConfigArn">
@@ -2616,6 +2721,21 @@
                </td>
                <td>
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awslambda-lambda_SourceFunctionArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html">
+                 lambda:SourceFunctionArn
+                </a>
+               </td>
+               <td>
+                Filters access by the ARN of the AWS Lambda function from which the request originated
+               </td>
+               <td>
+                ARN
                </td>
               </tr>
               <tr>

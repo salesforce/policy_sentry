@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -35,6 +35,10 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
+  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  </script>
+  <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
+  <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon EventBridge"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -135,7 +139,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">
+               <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -196,8 +200,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d543c11b9">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d551c11b9">
               <thead>
                <tr>
                 <th>
@@ -312,23 +316,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoneventbridge-CreateArchive">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">
                  CreateArchive
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a new archive
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#amazoneventbridge-archive">
                   archive*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-event-bus">
+                  event-bus*
                  </a>
                 </p>
                </td>
@@ -632,7 +649,7 @@
                <td>
                 <a id="amazoneventbridge-DeleteEventBus">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource.html">
                  DeleteEventBus
                 </a>
                </td>
@@ -658,7 +675,7 @@
                <td>
                 <a id="amazoneventbridge-DeletePartnerEventSource">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource.html">
                  DeletePartnerEventSource
                 </a>
                </td>
@@ -681,23 +698,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-DeleteRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeleteRule.html">
                  DeleteRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to delete rules
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -946,23 +976,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-DescribeRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeRule.html">
                  DescribeRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to retrieve details about rules
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Read
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -985,23 +1028,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-DisableRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html">
                  DisableRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to disable rules
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1029,23 +1085,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-EnableRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_EnableRule.html">
                  EnableRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to enable rules
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1336,17 +1405,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazoneventbridge-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to retrieve a list of tags associated with an Amazon EventBridge resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 List
                </td>
                <td>
@@ -1364,8 +1433,21 @@
               <tr>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1388,23 +1470,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-ListTargetsByRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">
                  ListTargetsByRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to retrieve a list of targets defined for a rule
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 List
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1518,23 +1613,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-PutRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutRule.html">
                  PutRule
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to create or updates rules
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1597,23 +1705,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-PutTargets">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html">
                  PutTargets
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to add targets to a rule
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1667,23 +1788,36 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazoneventbridge-RemoveTargets">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html">
                  RemoveTargets
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to removes targets from a rule
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule*
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1737,17 +1871,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazoneventbridge-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to add a tag to an Amazon EventBridge resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
@@ -1765,8 +1899,21 @@
               <tr>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -1820,17 +1967,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazoneventbridge-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to remove a tag from an Amazon EventBridge resource
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Tagging
                </td>
                <td>
@@ -1848,8 +1995,21 @@
               <tr>
                <td>
                 <p>
-                 <a href="#amazoneventbridge-rule">
-                  rule
+                 <a href="#amazoneventbridge-rule-on-custom-event-bus">
+                  rule-on-custom-event-bus
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-rule-on-default-event-bus">
+                  rule-on-default-event-bus
                  </a>
                 </p>
                </td>
@@ -2015,8 +2175,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d543c13b5">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d551c13b5">
               <thead>
                <tr>
                 <th>
@@ -2034,7 +2194,7 @@
                <td>
                 <a id="amazoneventbridge-event-source">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  event-source
                 </a>
                </td>
@@ -2062,7 +2222,7 @@
                <td>
                 <a id="amazoneventbridge-event-bus">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  event-bus
                 </a>
                </td>
@@ -2097,10 +2257,10 @@
               </tr>
               <tr>
                <td>
-                <a id="amazoneventbridge-rule">
+                <a id="amazoneventbridge-rule-on-default-event-bus">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
-                 rule
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
+                 rule-on-default-event-bus
                 </a>
                </td>
                <td>
@@ -2117,11 +2277,48 @@
                  <span>
                   {
                  </span>
-                 Account}:rule/[$
+                 Account}:rule/$
                  <span>
                   {
                  </span>
-                 EventBusName}/]$
+                 RuleName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoneventbridge-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoneventbridge-rule-on-custom-event-bus">
+                </a>
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
+                 rule-on-custom-event-bus
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:events:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:rule/$
+                 <span>
+                  {
+                 </span>
+                 EventBusName}/$
                  <span>
                   {
                  </span>
@@ -2140,7 +2337,7 @@
                <td>
                 <a id="amazoneventbridge-archive">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  archive
                 </a>
                </td>
@@ -2172,7 +2369,7 @@
                <td>
                 <a id="amazoneventbridge-replay">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  replay
                 </a>
                </td>
@@ -2204,7 +2401,7 @@
                <td>
                 <a id="amazoneventbridge-connection">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  connection
                 </a>
                </td>
@@ -2236,7 +2433,7 @@
                <td>
                 <a id="amazoneventbridge-api-destination">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  api-destination
                 </a>
                </td>
@@ -2268,7 +2465,7 @@
                <td>
                 <a id="amazoneventbridge-endpoint">
                 </a>
-                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html#eventbridge-arn-format">
+                <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-manage-iam-access.html#eventbridge-arn-format">
                  endpoint
                 </a>
                </td>
@@ -2321,8 +2518,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d543c15b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d551c15b7">
               <thead>
                <tr>
                 <th>

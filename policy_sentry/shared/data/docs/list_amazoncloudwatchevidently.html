@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
@@ -35,6 +35,10 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
+  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  </script>
+  <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
+  <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon CloudWatch Evidently"/>
  </head>
  <body class="awsdocs awsui" ng-csp="no-unsafe-eval">
   <div class="awsdocs-container">
@@ -196,8 +200,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d231c11b9">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d235c11b9">
               <thead>
                <tr>
                 <th>
@@ -368,6 +372,43 @@
                 </p>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchevidently-CreateSegment">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">
+                 CreateSegment
+                </a>
+               </td>
+               <td>
+                Grants permission to create a segment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchevidently-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -466,6 +507,32 @@
                 <p>
                  <a href="#amazoncloudwatchevidently-Project">
                   Project*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchevidently-DeleteSegment">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteSegment.html">
+                 DeleteSegment
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a segment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Segment">
+                  Segment*
                  </a>
                 </p>
                </td>
@@ -632,6 +699,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazoncloudwatchevidently-GetSegment">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_GetSegment.html">
+                 GetSegment
+                </a>
+               </td>
+               <td>
+                Grants permission to get segment details
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Segment">
+                  Segment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazoncloudwatchevidently-ListExperiments">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">
@@ -703,6 +796,48 @@
                </td>
                <td>
                 Grants permission to list projects
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchevidently-ListSegmentReferences">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListSegmentReferences.html">
+                 ListSegmentReferences
+                </a>
+               </td>
+               <td>
+                Grants permission to list resources referencing a segment
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchevidently-ListSegments">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListSegments.html">
+                 ListSegments
+                </a>
+               </td>
+               <td>
+                Grants permission to list segments
                </td>
                <td>
                 Read
@@ -866,19 +1001,84 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="6">
                 <a id="amazoncloudwatchevidently-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="6">
                 Grants permission to tag resources
                </td>
-               <td>
+               <td rowspan="6">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Experiment">
+                  Experiment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Feature">
+                  Feature
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Launch">
+                  Launch
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Project">
+                  Project
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Segment">
+                  Segment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -898,18 +1098,104 @@
               </tr>
               <tr>
                <td>
+                <a id="amazoncloudwatchevidently-TestSegmentPattern">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TestSegmentPattern.html">
+                 TestSegmentPattern
+                </a>
+               </td>
+               <td>
+                Grants permission to test a segment pattern
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
                 <a id="amazoncloudwatchevidently-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td>
+               <td rowspan="6">
                 Grants permission to untag resources
                </td>
-               <td>
+               <td rowspan="6">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Experiment">
+                  Experiment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Feature">
+                  Feature
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Launch">
+                  Launch
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Project">
+                  Project
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-Segment">
+                  Segment
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -1029,6 +1315,12 @@
                <td>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -1079,8 +1371,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d231c13b5">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d235c13b5">
               <thead>
                <tr>
                 <th>
@@ -1098,7 +1390,7 @@
                <td>
                 <a id="amazoncloudwatchevidently-Project">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/projects.html">
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_Project.html">
                  Project
                 </a>
                </td>
@@ -1116,7 +1408,7 @@
                  <span>
                   {
                  </span>
-                 OwnerAccountId}:project/$
+                 Account}:project/$
                  <span>
                   {
                  </span>
@@ -1135,7 +1427,7 @@
                <td>
                 <a id="amazoncloudwatchevidently-Feature">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/features.html">
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_Feature.html">
                  Feature
                 </a>
                </td>
@@ -1153,7 +1445,7 @@
                  <span>
                   {
                  </span>
-                 OwnerAccountId}:project/$
+                 Account}:project/$
                  <span>
                   {
                  </span>
@@ -1176,7 +1468,7 @@
                <td>
                 <a id="amazoncloudwatchevidently-Experiment">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/experiments.html">
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_Experiment.html">
                  Experiment
                 </a>
                </td>
@@ -1194,7 +1486,7 @@
                  <span>
                   {
                  </span>
-                 OwnerAccountId}:project/$
+                 Account}:project/$
                  <span>
                   {
                  </span>
@@ -1217,7 +1509,7 @@
                <td>
                 <a id="amazoncloudwatchevidently-Launch">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/launches.html">
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_Launch.html">
                  Launch
                 </a>
                </td>
@@ -1235,7 +1527,7 @@
                  <span>
                   {
                  </span>
-                 OwnerAccountId}:project/$
+                 Account}:project/$
                  <span>
                   {
                  </span>
@@ -1244,6 +1536,43 @@
                   {
                  </span>
                  LaunchName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchevidently-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchevidently-Segment">
+                </a>
+                <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_Segment.html">
+                 Segment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:evidently:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:segment/$
+                 <span>
+                  {
+                 </span>
+                 SegmentName}
                 </code>
                </td>
                <td>
@@ -1279,8 +1608,8 @@
             .
            </p>
            <div class="table-container">
-            <div class="table-contents">
-             <table id="w85aab5b9d231c15b7">
+            <div class="table-contents disable-scroll">
+             <table id="w85aab5b9d235c15b7">
               <thead>
                <tr>
                 <th>
@@ -1373,8 +1702,8 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_cloudwatchapplicationinsights.html" id="previous">
-             CloudWatch Application Insights
+            <div accesskey="p" class="prev-link" href="./list_amazoncloudwatchapplicationinsights.html" id="previous">
+             Amazon CloudWatch Application Insights
             </div>
             <div accesskey="n" class="next-link" href="./list_amazoncloudwatchlogs.html" id="next">
              Amazon CloudWatch Logs
