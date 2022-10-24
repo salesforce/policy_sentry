@@ -7,57 +7,57 @@ from policy_sentry.util.policy_files import get_sid_names_from_policy, get_state
 
 
 class WritePolicyPreventWildcardEscalation(unittest.TestCase):
-    def test_wildcard_when_not_necessary(self):
-        """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
-        cfg = {
-            "mode": "crud",
-            "name": "RoleNameWithCRUD",
-            "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-            "wildcard-only": {
-                "single-actions": [
-                    # The first three are legitimately wildcard only.
-                    # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-                    "ram:EnableSharingWithAwsOrganization",
-                    "ram:GetResourcePolicies",
-                    "secretsmanager:CreateSecret",
-                    # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-                    # bypassing this mechanism, while allowing them to explicitly
-                    # request specific privs that require wildcard mode. This next value -
-                    # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-                    "secretsmanager:PutSecretValue",
-                ],
-            }
-        }
-        output = write_policy_with_template(cfg)
-        # print(json.dumps(output, indent=4))
-        desired_output = {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "MultMultNone",
-                    "Effect": "Allow",
-                    "Action": [
-                        "ram:EnableSharingWithAwsOrganization",
-                        "ram:GetResourcePolicies",
-                    ],
-                    "Resource": ["*"],
-                },
-                {
-                    "Sid": "S3PermissionsmanagementBucket",
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:DeleteBucketPolicy",
-                        "s3:PutBucketAcl",
-                        "s3:PutBucketPolicy",
-                        "s3:PutBucketPublicAccessBlock",
-                    ],
-                    "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
-                },
-            ],
-        }
-        self.maxDiff = None
-        print(output)
-        self.assertDictEqual(desired_output, output)
+#     def test_wildcard_when_not_necessary(self):
+#         """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
+#         cfg = {
+#             "mode": "crud",
+#             "name": "RoleNameWithCRUD",
+#             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
+#             "wildcard-only": {
+#                 "single-actions": [
+#                     # The first three are legitimately wildcard only.
+#                     # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+#                     "ram:EnableSharingWithAwsOrganization",
+#                     "ram:GetResourcePolicies",
+#                     "secretsmanager:CreateSecret",
+#                     # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+#                     # bypassing this mechanism, while allowing them to explicitly
+#                     # request specific privs that require wildcard mode. This next value -
+#                     # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+#                     "secretsmanager:PutSecretValue",
+#                 ],
+#             }
+#         }
+#         output = write_policy_with_template(cfg)
+#         # print(json.dumps(output, indent=4))
+#         desired_output = {
+#             "Version": "2012-10-17",
+#             "Statement": [
+#                 {
+#                     "Sid": "MultMultNone",
+#                     "Effect": "Allow",
+#                     "Action": [
+#                         "ram:EnableSharingWithAwsOrganization",
+#                         "ram:GetResourcePolicies",
+#                     ],
+#                     "Resource": ["*"],
+#                 },
+#                 {
+#                     "Sid": "S3PermissionsmanagementBucket",
+#                     "Effect": "Allow",
+#                     "Action": [
+#                         "s3:DeleteBucketPolicy",
+#                         "s3:PutBucketAcl",
+#                         "s3:PutBucketPolicy",
+#                         "s3:PutBucketPublicAccessBlock",
+#                     ],
+#                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
+#                 },
+#             ],
+#         }
+#         self.maxDiff = None
+#         print(output)
+#         self.assertDictEqual(desired_output, output)
 
 
 # class TaggingTestCase(unittest.TestCase):
