@@ -6,7 +6,7 @@ from policy_sentry.util.file import read_yaml_file
 from policy_sentry.util.policy_files import get_sid_names_from_policy, get_statement_from_policy_using_sid
 
 
-class WritePolicyPreventWildcardEscalation(unittest.TestCase):
+# class WritePolicyPreventWildcardEscalation(unittest.TestCase):
 #     def test_wildcard_when_not_necessary(self):
 #         """test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only"""
 #         cfg = {
