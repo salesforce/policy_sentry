@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Batch"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d139c11b9">
+             <table id="w43aab5b9d143c11b9">
               <thead>
                <tr>
                 <th>
@@ -808,6 +808,31 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awsbatch-batch_EKSServiceAccountName">
+                  batch:EKSServiceAccountName
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-batch_EKSImage">
+                  batch:EKSImage
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-batch_EKSRunAsUser">
+                  batch:EKSRunAsUser
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-batch_EKSRunAsGroup">
+                  batch:EKSRunAsGroup
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-batch_EKSPrivileged">
+                  batch:EKSPrivileged
+                 </a>
+                </p>
+                <p>
                  <a href="#awsbatch-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
                  </a>
@@ -877,6 +902,11 @@
                 <p>
                  <a href="#awsbatch-batch_ShareIdentifier">
                   batch:ShareIdentifier
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-batch_EKSImage">
+                  batch:EKSImage
                  </a>
                 </p>
                </td>
@@ -1223,7 +1253,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d139c13b5">
+             <table id="w43aab5b9d143c13b5">
               <thead>
                <tr>
                 <th>
@@ -1393,7 +1423,7 @@
                <td>
                 <a id="awsbatch-scheduling-policy">
                 </a>
-                <a href="https://docs.aws.amazon.com/batch/latest/userguide/scheduling-policy.html">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/scheduling-policies.html">
                  scheduling-policy
                 </a>
                </td>
@@ -1452,7 +1482,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d139c15b7">
+             <table id="w43aab5b9d143c15b7">
               <thead>
                <tr>
                 <th>
@@ -1573,6 +1603,81 @@
               </tr>
               <tr>
                <td>
+                <a id="awsbatch-batch_EKSImage">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:EKSImage
+                </a>
+               </td>
+               <td>
+                Filters access by the image used to start a container for an Amazon EKS job
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-batch_EKSPrivileged">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:EKSPrivileged
+                </a>
+               </td>
+               <td>
+                Filters access by the specified privileged parameter value that determines whether the container is given elevated privileges on the host container instance (similar to the root user) for an Amazon EKS job
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-batch_EKSRunAsGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:EKSRunAsGroup
+                </a>
+               </td>
+               <td>
+                Filters access by the specified group numeric ID (gid) used to start a container in an Amazon EKS job
+               </td>
+               <td>
+                Numeric
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-batch_EKSRunAsUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:EKSRunAsUser
+                </a>
+               </td>
+               <td>
+                Filters access by the specified user numeric ID (uid) used to start a a container in an Amazon EKS job
+               </td>
+               <td>
+                Numeric
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbatch-batch_EKSServiceAccountName">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
+                 batch:EKSServiceAccountName
+                </a>
+               </td>
+               <td>
+                Filters access by the name of the service account used to run the pod for an Amazon EKS job
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbatch-batch_Image">
                 </a>
                 <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbatch.html#awsbatch-policy-keys">
@@ -1580,7 +1685,7 @@
                 </a>
                </td>
                <td>
-                Filters access by on the image used to start a container
+                Filters access by the image used to start a container
                </td>
                <td>
                 String

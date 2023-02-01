@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon EC2"/>
@@ -221,6 +221,73 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-AcceptAddressTransfer">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptAddressTransfer.html">
+                 AcceptAddressTransfer
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to accept an Elastic IP address transfer
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-elastic-ip">
+                  elastic-ip*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_AllocationId">
+                  ec2:AllocationId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Domain">
+                  ec2:Domain
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PublicIpAddress">
+                  ec2:PublicIpAddress
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
               <tr>
                <td>
                 <a id="amazonec2-AcceptReservedInstancesExchangeQuote">
@@ -2733,6 +2800,78 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="amazonec2-AttachVerifiedAccessTrustProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachVerifiedAccessTrustProvider.html">
+                 AttachVerifiedAccessTrustProvider
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to attach a trust provider to a Verified Access instance
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonec2-AttachVolume">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachVolume.html">
@@ -3078,7 +3217,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to add one or more outbound rules to a VPC security group
+                Grants permission to add one or more outbound rules to a VPC security group. Policies using the security-group-rule resource-level permission are only enforced when the API request includes TagSpecifications
                </td>
                <td rowspan="3">
                 Write
@@ -3122,7 +3261,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-security-group-rule">
-                  security-group-rule*
+                  security-group-rule
                  </a>
                 </p>
                </td>
@@ -3163,7 +3302,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to add one or more inbound rules to a security group
+                Grants permission to add one or more inbound rules to a VPC security group. Policies using the security-group-rule resource-level permission are only enforced when the API request includes TagSpecifications
                </td>
                <td rowspan="3">
                 Write
@@ -3207,7 +3346,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-security-group-rule">
-                  security-group-rule*
+                  security-group-rule
                  </a>
                 </p>
                </td>
@@ -3473,6 +3612,81 @@
                 <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CancelImageLaunchPermission">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelImageLaunchPermission.html">
+                 CancelImageLaunchPermission
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2">
+                Grants permission to remove your AWS account from the launch permissions for the specified AMI
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-image">
+                  image*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageID">
+                  ec2:ImageID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageType">
+                  ec2:ImageType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Public">
+                  ec2:Public
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RootDeviceType">
+                  ec2:RootDeviceType
                  </a>
                 </p>
                </td>
@@ -4410,7 +4624,7 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonec2-CreateCoipPoolPermission">
                 </a>
                 <a href="https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html">
@@ -4418,12 +4632,35 @@
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to allow a service to access a customer-owned IP (CoIP) pool
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -6211,17 +6448,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
+               <td rowspan="4">
                 <a id="amazonec2-CreateLocalGatewayRoute">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRoute.html">
                  CreateLocalGatewayRoute
                 </a>
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Grants permission to create a static route for a local gateway route table
                </td>
-               <td rowspan="3">
+               <td rowspan="4">
                 Write
                </td>
                <td>
@@ -6263,6 +6500,49 @@
                 <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-interface">
+                  network-interface
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_NetworkInterfaceID">
+                  ec2:NetworkInterfaceID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Subnet">
+                  ec2:Subnet
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
                  </a>
                 </p>
                </td>
@@ -7587,8 +7867,8 @@
                </td>
                <td>
                 <p>
-                 <a href="#amazonec2-network-insights-access-scope">
-                  network-insights-access-scope*
+                 <a href="#amazonec2-ipv4pool-ec2">
+                  ipv4pool-ec2*
                  </a>
                 </p>
                </td>
@@ -7624,17 +7904,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="amazonec2-CreateReplaceRootVolumeTask">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateReplaceRootVolumeTask.html">
                  CreateReplaceRootVolumeTask
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Grants permission to create a root volume replacement task
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Write
                </td>
                <td>
@@ -7762,6 +8042,54 @@
                 <p>
                  <a href="#amazonec2-ec2_VolumeID">
                   ec2:VolumeID
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-image">
+                  image
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageID">
+                  ec2:ImageID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageType">
+                  ec2:ImageType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Public">
+                  ec2:Public
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RootDeviceType">
+                  ec2:RootDeviceType
                  </a>
                 </p>
                </td>
@@ -8706,17 +9034,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="75">
+               <td rowspan="80">
                 <a id="amazonec2-CreateTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">
                  CreateTags
                 </a>
                </td>
-               <td rowspan="75">
+               <td rowspan="80">
                 Grants permission to add or overwrite one or more tags for Amazon EC2 resources
                </td>
-               <td rowspan="75">
+               <td rowspan="80">
                 Tagging
                </td>
                <td>
@@ -10558,6 +10886,131 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-policy">
+                  verified-access-policy
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-volume">
                   volume
                  </a>
@@ -12068,6 +12521,47 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazonec2-subnet">
+                  subnet*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SubnetID">
+                  ec2:SubnetID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-transit-gateway">
                   transit-gateway*
                  </a>
@@ -12086,9 +12580,6 @@
                 </p>
                </td>
                <td>
-                <p>
-                 ec2:CreateTags
-                </p>
                </td>
               </tr>
               <tr>
@@ -12139,6 +12630,187 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="amazonec2-CreateVerifiedAccessEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessEndpoint.html">
+                 CreateVerifiedAccessEndpoint
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to create a Verified Access endpoint
+               </td>
+               <td rowspan="6">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-interface">
+                  network-interface
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AssociatePublicIpAddress">
+                  ec2:AssociatePublicIpAddress
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AuthorizedService">
+                  ec2:AuthorizedService
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AuthorizedUser">
+                  ec2:AuthorizedUser
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_NetworkInterfaceID">
+                  ec2:NetworkInterfaceID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Permission">
+                  ec2:Permission
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Subnet">
+                  ec2:Subnet
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-security-group">
+                  security-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SecurityGroupID">
+                  ec2:SecurityGroupID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <p>
                  <a href="#amazonec2-subnet">
                   subnet
@@ -12173,6 +12845,185 @@
                 </p>
                </td>
                <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonec2-CreateVerifiedAccessGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessGroup.html">
+                 CreateVerifiedAccessGroup
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to create a Verified Access group
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateVerifiedAccessInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessInstance.html">
+                 CreateVerifiedAccessInstance
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a Verified Access instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-CreateVerifiedAccessTrustProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessTrustProvider.html">
+                 CreateVerifiedAccessTrustProvider
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a verified trust provider
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
                </td>
               </tr>
               <tr>
@@ -13475,7 +14326,7 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonec2-DeleteCoipPoolPermission">
                 </a>
                 <a href="https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html">
@@ -13483,12 +14334,35 @@
                 </a>
                 [permission only]
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-coip-pool">
+                  coip-pool*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -15158,7 +16032,7 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="amazonec2-DeleteResourcePolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/vpc/latest/ipam/share-pool-ipam.html">
@@ -15166,16 +16040,72 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to remove an IAM policy that enables cross-account sharing from a resource
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#amazonec2-ipam-pool">
                   ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-placement-group">
+                  placement-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupName">
+                  ec2:PlacementGroupName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupStrategy">
+                  ec2:PlacementGroupStrategy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
                  </a>
                 </p>
                </td>
@@ -15585,17 +16515,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="75">
+               <td rowspan="80">
                 <a id="amazonec2-DeleteTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="75">
+               <td rowspan="80">
                 Grants permission to delete one or more tags from Amazon EC2 resources
                </td>
-               <td rowspan="75">
+               <td rowspan="80">
                 Tagging
                </td>
                <td>
@@ -17072,6 +18002,121 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-policy">
+                  verified-access-policy
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-volume">
                   volume
                  </a>
@@ -18090,6 +19135,212 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonec2-DeleteVerifiedAccessEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessEndpoint.html">
+                 DeleteVerifiedAccessEndpoint
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a Verified Access endpoint
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteVerifiedAccessGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessGroup.html">
+                 DeleteVerifiedAccessGroup
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a Verified Access group
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteVerifiedAccessInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessInstance.html">
+                 DeleteVerifiedAccessInstance
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a Verified Access instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DeleteVerifiedAccessTrustProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessTrustProvider.html">
+                 DeleteVerifiedAccessTrustProvider
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete a verified trust provider
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonec2-DeleteVolume">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVolume.html">
@@ -19058,6 +20309,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-DescribeAddressTransfers">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddressTransfers.html">
+                 DescribeAddressTransfers
+                </a>
+               </td>
+               <td>
+                Grants permission to describe an Elastic IP address transfer
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-DescribeAddresses">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html">
@@ -19182,6 +20459,32 @@
                </td>
                <td>
                 Grants permission to describe one or more of the Availability Zones that are available to you
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeAwsNetworkPerformanceMetricSubscriptions">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAwsNetworkPerformanceMetricSubscriptions.html">
+                 DescribeAwsNetworkPerformanceMetricSubscriptions
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the current infrastructure performance metric subscriptions
                </td>
                <td>
                 List
@@ -19371,7 +20674,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-client-vpn-endpoint">
-                  client-vpn-endpoint
+                  client-vpn-endpoint*
                  </a>
                 </p>
                </td>
@@ -19382,38 +20685,8 @@
                  </a>
                 </p>
                 <p>
-                 <a href="#amazonec2-ec2_ClientRootCertificateChainArn">
-                  ec2:ClientRootCertificateChainArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CloudwatchLogGroupArn">
-                  ec2:CloudwatchLogGroupArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CloudwatchLogStreamArn">
-                  ec2:CloudwatchLogStreamArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_DirectoryArn">
-                  ec2:DirectoryArn
-                 </a>
-                </p>
-                <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_SamlProviderArn">
-                  ec2:SamlProviderArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ServerCertificateArn">
-                  ec2:ServerCertificateArn
                  </a>
                 </p>
                </td>
@@ -19450,7 +20723,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-client-vpn-endpoint">
-                  client-vpn-endpoint
+                  client-vpn-endpoint*
                  </a>
                 </p>
                </td>
@@ -19608,7 +20881,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-client-vpn-endpoint">
-                  client-vpn-endpoint
+                  client-vpn-endpoint*
                  </a>
                 </p>
                </td>
@@ -19687,7 +20960,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-client-vpn-endpoint">
-                  client-vpn-endpoint
+                  client-vpn-endpoint*
                  </a>
                 </p>
                </td>
@@ -20074,7 +21347,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-fleet">
-                  fleet
+                  fleet*
                  </a>
                 </p>
                </td>
@@ -20123,7 +21396,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-fleet">
-                  fleet
+                  fleet*
                  </a>
                 </p>
                </td>
@@ -20235,18 +21508,8 @@
                  </a>
                 </p>
                 <p>
-                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
-                  ec2:Attribute/${AttributeName}
-                 </a>
-                </p>
-                <p>
                  <a href="#amazonec2-ec2_Owner">
                   ec2:Owner
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_Public">
-                  ec2:Public
                  </a>
                 </p>
                 <p>
@@ -20470,7 +21733,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-image">
-                  image
+                  image*
                  </a>
                 </p>
                </td>
@@ -20622,7 +21885,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-instance">
-                  instance
+                  instance*
                  </a>
                 </p>
                </td>
@@ -22021,7 +23284,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-snapshot">
-                  snapshot
+                  snapshot*
                  </a>
                 </p>
                </td>
@@ -22193,7 +23456,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-spot-fleet-request">
-                  spot-fleet-request
+                  spot-fleet-request*
                  </a>
                 </p>
                </td>
@@ -22242,7 +23505,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-spot-fleet-request">
-                  spot-fleet-request
+                  spot-fleet-request*
                  </a>
                 </p>
                </td>
@@ -22869,6 +24132,136 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonec2-DescribeVerifiedAccessEndpoints">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessEndpoints.html">
+                 DescribeVerifiedAccessEndpoints
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the specified Verified Access endpoints or all Verified Access endpoints
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeVerifiedAccessGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessGroups.html">
+                 DescribeVerifiedAccessGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the specified Verified Access groups or all Verified Access groups
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeVerifiedAccessInstanceLoggingConfigurations">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessInstanceLoggingConfigurations.html">
+                 DescribeVerifiedAccessInstanceLoggingConfigurations
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the current logging configuration for the Verified Access instances
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeVerifiedAccessInstances">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessInstances.html">
+                 DescribeVerifiedAccessInstances
+                </a>
+               </td>
+               <td>
+                Grants permission to describe the specified Verified Access instances or all Verified Access instances
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DescribeVerifiedAccessTrustProviders">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessTrustProviders.html">
+                 DescribeVerifiedAccessTrustProviders
+                </a>
+               </td>
+               <td>
+                Grants permission to describe details of existing Verified Access trust providers
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonec2-DescribeVolumeAttribute">
                 </a>
@@ -22885,7 +24278,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-volume">
-                  volume
+                  volume*
                  </a>
                 </p>
                </td>
@@ -22903,11 +24296,6 @@
                 <p>
                  <a href="#amazonec2-ec2_Encrypted">
                   ec2:Encrypted
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_KmsKeyId">
-                  ec2:KmsKeyId
                  </a>
                 </p>
                 <p>
@@ -23809,6 +25197,78 @@
               </tr>
               <tr>
                <td rowspan="3">
+                <a id="amazonec2-DetachVerifiedAccessTrustProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachVerifiedAccessTrustProvider.html">
+                 DetachVerifiedAccessTrustProvider
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to detach a trust provider from a Verified Access instance
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
                 <a id="amazonec2-DetachVolume">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachVolume.html">
@@ -24067,6 +25527,96 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonec2-DisableAddressTransfer">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAddressTransfer.html">
+                 DisableAddressTransfer
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to disable Elastic IP address transfer
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-elastic-ip">
+                  elastic-ip*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AllocationId">
+                  ec2:AllocationId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Domain">
+                  ec2:Domain
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PublicIpAddress">
+                  ec2:PublicIpAddress
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-DisableAwsNetworkPerformanceMetricSubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAwsNetworkPerformanceMetricSubscription.html">
+                 DisableAwsNetworkPerformanceMetricSubscription
+                </a>
+               </td>
+               <td>
+                Grants permission to disable infrastructure performance metric subscriptions
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonec2-DisableEbsEncryptionByDefault">
                 </a>
@@ -24109,7 +25659,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-image">
-                  image
+                  image*
                  </a>
                 </p>
                </td>
@@ -25086,19 +26636,47 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="7">
                 <a id="amazonec2-DisassociateRouteTable">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateRouteTable.html">
                  DisassociateRouteTable
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Grants permission to disassociate a subnet from a route table
                </td>
-               <td rowspan="5">
+               <td rowspan="7">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-internet-gateway">
+                  internet-gateway
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InternetGatewayID">
+                  ec2:InternetGatewayID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonec2-ipv4pool-ec2">
@@ -25209,6 +26787,29 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-vpn-gateway">
+                  vpn-gateway
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -25632,6 +27233,96 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonec2-EnableAddressTransfer">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAddressTransfer.html">
+                 EnableAddressTransfer
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to enable Elastic IP address transfer
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-elastic-ip">
+                  elastic-ip*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AllocationId">
+                  ec2:AllocationId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Domain">
+                  ec2:Domain
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PublicIpAddress">
+                  ec2:PublicIpAddress
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-EnableAwsNetworkPerformanceMetricSubscription">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.html">
+                 EnableAwsNetworkPerformanceMetricSubscription
+                </a>
+               </td>
+               <td>
+                Grants permission to enable infrastructure performance subscriptions
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonec2-EnableEbsEncryptionByDefault">
                 </a>
@@ -25674,7 +27365,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-image">
-                  image
+                  image*
                  </a>
                 </p>
                </td>
@@ -25944,6 +27635,38 @@
                 </p>
                 <p>
                  organizations:RegisterDelegatedAdministrator
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-EnableReachabilityAnalyzerOrganizationSharing">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableReachabilityAnalyzerOrganizationSharing.html">
+                 EnableReachabilityAnalyzerOrganizationSharing
+                </a>
+               </td>
+               <td>
+                Grants permission to enable organization sharing of reachability analyzer
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 organizations:EnableAWSServiceAccess
                 </p>
                </td>
               </tr>
@@ -26707,6 +28430,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonec2-GetAwsNetworkPerformanceData">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.html">
+                 GetAwsNetworkPerformanceData
+                </a>
+               </td>
+               <td>
+                Grants permission to get network performance data
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonec2-GetCapacityReservationUsage">
                 </a>
@@ -26777,7 +28526,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-coip-pool">
-                  coip-pool
+                  coip-pool*
                  </a>
                 </p>
                </td>
@@ -26950,7 +28699,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-instance">
-                  instance
+                  instance*
                  </a>
                 </p>
                </td>
@@ -28068,7 +29817,7 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="amazonec2-GetResourcePolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/vpc/latest/ipam/share-pool-ipam.html">
@@ -28076,16 +29825,72 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to describe an IAM policy that enables cross-account sharing
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Read
                </td>
                <td>
                 <p>
                  <a href="#amazonec2-ipam-pool">
                   ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-placement-group">
+                  placement-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupName">
+                  ec2:PlacementGroupName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupStrategy">
+                  ec2:PlacementGroupStrategy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
                  </a>
                 </p>
                </td>
@@ -28222,19 +30027,42 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonec2-GetTransitGatewayMulticastDomainAssociations">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayMulticastDomainAssociations.html">
                  GetTransitGatewayMulticastDomainAssociations
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to get information about the associations for a transit gateway multicast domain
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-multicast-domain">
+                  transit-gateway-multicast-domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -28424,6 +30252,114 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonec2-GetVerifiedAccessEndpointPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessEndpointPolicy.html">
+                 GetVerifiedAccessEndpointPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to show the Verified Access policy associated with the endpoint
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-GetVerifiedAccessGroupPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessGroupPolicy.html">
+                 GetVerifiedAccessGroupPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to show the contents of the Verified Access policy associated with the group
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="amazonec2-GetVpnConnectionDeviceSampleConfiguration">
                 </a>
@@ -28463,7 +30399,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-vpn-connection-device-type">
-                  vpn-connection-device-type
+                  vpn-connection-device-type*
                  </a>
                 </p>
                </td>
@@ -30570,6 +32506,39 @@
                </td>
                <td>
                 <p>
+                 <a href="#amazonec2-capacity-reservation">
+                  capacity-reservation*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute">
+                  ec2:Attribute
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-instance">
                   instance*
                  </a>
@@ -30669,29 +32638,6 @@
                 <p>
                  <a href="#amazonec2-ec2_Tenancy">
                   ec2:Tenancy
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
-                 <a href="#amazonec2-capacity-reservation">
-                  capacity-reservation
-                 </a>
-                </p>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -32387,8 +34333,8 @@
               <tr>
                <td>
                 <p>
-                 <a href="#amazonec2-prefix-list">
-                  prefix-list
+                 <a href="#amazonec2-security-group-rule">
+                  security-group-rule*
                  </a>
                 </p>
                </td>
@@ -32410,8 +34356,8 @@
               <tr>
                <td>
                 <p>
-                 <a href="#amazonec2-security-group-rule">
-                  security-group-rule
+                 <a href="#amazonec2-prefix-list">
+                  prefix-list
                  </a>
                 </p>
                </td>
@@ -33346,6 +35292,453 @@
                 <p>
                  <a href="#amazonec2-ec2_SubnetID">
                   ec2:SubnetID
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="4">
+                <a id="amazonec2-ModifyVerifiedAccessEndpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessEndpoint.html">
+                 ModifyVerifiedAccessEndpoint
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to modify the configuration of a Verified Access endpoint
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-subnet">
+                  subnet
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SubnetID">
+                  ec2:SubnetID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyVerifiedAccessEndpointPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessEndpointPolicy.html">
+                 ModifyVerifiedAccessEndpointPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the specified Verified Access endpoint policy
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-endpoint">
+                  verified-access-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonec2-ModifyVerifiedAccessGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessGroup.html">
+                 ModifyVerifiedAccessGroup
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to modify the specified Verified Access Group configuration
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyVerifiedAccessGroupPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessGroupPolicy.html">
+                 ModifyVerifiedAccessGroupPolicy
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the specified Verified Access group policy
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyVerifiedAccessInstance">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessInstance.html">
+                 ModifyVerifiedAccessInstance
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the configuration of the specified Verified Access instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyVerifiedAccessInstanceLoggingConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessInstanceLoggingConfiguration.html">
+                 ModifyVerifiedAccessInstanceLoggingConfiguration
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the logging configuration for the specified Verified Access instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-instance">
+                  verified-access-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonec2-ModifyVerifiedAccessTrustProvider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessTrustProvider.html">
+                 ModifyVerifiedAccessTrustProvider
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to modify the configuration of the specified Verified Access trust provider
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-trust-provider">
+                  verified-access-trust-provider*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -34785,7 +37178,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-ipam-pool">
-                  ipam-pool
+                  ipam-pool*
                  </a>
                 </p>
                </td>
@@ -34932,7 +37325,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-ipv4pool-ec2">
-                  ipv4pool-ec2
+                  ipv4pool-ec2*
                  </a>
                 </p>
                </td>
@@ -35069,7 +37462,7 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="4">
                 <a id="amazonec2-PutResourcePolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/vpc/latest/ipam/share-pool-ipam.html">
@@ -35077,16 +37470,72 @@
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Grants permission to attach an IAM policy that enables cross-account sharing to a resource
                </td>
-               <td rowspan="2">
+               <td rowspan="4">
                 Write
                </td>
                <td>
                 <p>
                  <a href="#amazonec2-ipam-pool">
                   ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-placement-group">
+                  placement-group
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupName">
+                  ec2:PlacementGroupName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroupStrategy">
+                  ec2:PlacementGroupStrategy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-verified-access-group">
+                  verified-access-group
                  </a>
                 </p>
                </td>
@@ -39390,6 +41839,44 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonec2-subnet">
+                  subnet*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SubnetID">
+                  ec2:SubnetID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonec2-key-pair">
                   key-pair
                  </a>
@@ -39589,44 +42076,6 @@
               </tr>
               <tr>
                <td>
-                <p>
-                 <a href="#amazonec2-subnet">
-                  subnet
-                 </a>
-                </p>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_AvailabilityZone">
-                  ec2:AvailabilityZone
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_SubnetID">
-                  ec2:SubnetID
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_Vpc">
-                  ec2:Vpc
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
                </td>
                <td>
                 <p>
@@ -39655,7 +42104,7 @@
                <td>
                 <p>
                  <a href="#amazonec2-local-gateway-route-table">
-                  local-gateway-route-table
+                  local-gateway-route-table*
                  </a>
                 </p>
                </td>
@@ -39688,19 +42137,42 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonec2-SearchTransitGatewayMulticastGroups">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">
                  SearchTransitGatewayMulticastGroups
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to search for groups, sources, and members in a transit gateway multicast domain
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-transit-gateway-multicast-domain">
+                  transit-gateway-multicast-domain*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -40114,24 +42586,8 @@
                </td>
                <td>
                 <p>
-                 <a href="#amazonec2-network-insights-access-scope-analysis">
-                  network-insights-access-scope-analysis*
-                 </a>
-                </p>
-               </td>
-               <td>
-               </td>
-               <td>
-                <p>
-                 ec2:CreateTags
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <p>
                  <a href="#amazonec2-network-insights-access-scope">
-                  network-insights-access-scope
+                  network-insights-access-scope*
                  </a>
                 </p>
                </td>
@@ -40146,6 +42602,22 @@
                   ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonec2-network-insights-access-scope-analysis">
+                  network-insights-access-scope-analysis*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -41825,7 +44297,7 @@
                  <span>
                   {
                  </span>
-                 ElasticInferenceAcceleratorId}
+                 AcceleratorId}
                 </code>
                </td>
                <td>
@@ -42030,7 +44502,11 @@
                  <span>
                   {
                  </span>
-                 Region}::fpga-image/$
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:fpga-image/$
                  <span>
                   {
                  </span>
@@ -43166,7 +45642,7 @@
                  <span>
                   {
                  </span>
-                 Account}:license-configuration/$
+                 Account}:license-configuration:$
                  <span>
                   {
                  </span>
@@ -45626,6 +48102,301 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-verified-access-endpoint">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 verified-access-endpoint
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:verified-access-endpoint/$
+                 <span>
+                  {
+                 </span>
+                 VerifiedAccessEndpointId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_DomainCertificateArn">
+                  ec2:DomainCertificateArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_LoadBalancerArn">
+                  ec2:LoadBalancerArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-verified-access-group">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 verified-access-group
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:verified-access-group/$
+                 <span>
+                  {
+                 </span>
+                 VerifiedAccessGroupId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-verified-access-instance">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 verified-access-instance
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:verified-access-instance/$
+                 <span>
+                  {
+                 </span>
+                 VerifiedAccessInstanceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-verified-access-policy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 verified-access-policy
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:verified-access-policy/$
+                 <span>
+                  {
+                 </span>
+                 VerifiedAccessPolicyId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonec2-verified-access-trust-provider">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#EC2_ARN_Format">
+                 verified-access-trust-provider
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:verified-access-trust-provider/$
+                 <span>
+                  {
+                 </span>
+                 VerifiedAccessTrustProviderId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-volume">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html">
@@ -46893,6 +49664,21 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-ec2_DomainCertificateArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                 ec2:DomainCertificateArn
+                </a>
+               </td>
+               <td>
+                Filters access by the ARN of an Amazon Certificate Manager certificate
+               </td>
+               <td>
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-ec2_EbsOptimized">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
@@ -46978,7 +49764,7 @@
                 Filters access by the internet key exchange (IKE) versions that are permitted for a VPN tunnel
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -47253,6 +50039,21 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonec2-ec2_LoadBalancerArn">
+                </a>
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                 ec2:LoadBalancerArn
+                </a>
+               </td>
+               <td>
+                Filters access by the ARN of an Elastic Load Balancer
+               </td>
+               <td>
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonec2-ec2_MetadataHttpEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
@@ -47428,7 +50229,7 @@
                 Filters access by the Diffie-Hellman group numbers that are permitted for a VPN tunnel for the phase 1 IKE negotiations
                </td>
                <td>
-                Numeric
+                ArrayOfNumeric
                </td>
               </tr>
               <tr>
@@ -47443,7 +50244,7 @@
                 Filters access by the encryption algorithms that are permitted for a VPN tunnel for the phase 1 IKE negotiations
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -47458,7 +50259,7 @@
                 Filters access by the integrity algorithms that are permitted for a VPN tunnel for the phase 1 IKE negotiations
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -47488,7 +50289,7 @@
                 Filters access by the Diffie-Hellman group numbers that are permitted for a VPN tunnel for the phase 2 IKE negotiations
                </td>
                <td>
-                Numeric
+                ArrayOfNumeric
                </td>
               </tr>
               <tr>
@@ -47503,7 +50304,7 @@
                 Filters access by the encryption algorithms that are permitted for a VPN tunnel for the phase 2 IKE negotiations
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>
@@ -47518,7 +50319,7 @@
                 Filters access by the integrity algorithms that are permitted for a VPN tunnel for the phase 2 IKE negotiations
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
               <tr>

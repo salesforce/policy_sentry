@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Data Pipeline"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d367c11b9">
+             <table id="w43aab5b9d391c11b9">
               <thead>
                <tr>
                 <th>
@@ -225,19 +225,32 @@
                </tr>
               </thead>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-ActivatePipeline">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html">
                  ActivatePipeline
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to validate the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -261,19 +274,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-AddTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to add or modify tags for the specified pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -285,6 +311,16 @@
                 <p>
                  <a href="#awsdatapipeline-datapipeline_Tag">
                   datapipeline:Tag
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdatapipeline-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdatapipeline-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -325,22 +361,38 @@
                 </p>
                </td>
                <td>
+                <p>
+                 datapipeline:AddTags
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-DeactivatePipeline">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html">
                  DeactivatePipeline
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to Deactivate the specified running pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -364,19 +416,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-DeletePipeline">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html">
                  DeletePipeline
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to delete a pipeline, its pipeline definition, and its run history
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -395,19 +460,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-DescribeObjects">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html">
                  DescribeObjects
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to get the object definitions for a set of objects associated with the pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -426,19 +504,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-DescribePipelines">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html">
                  DescribePipelines
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to retrieves metadata about one or more pipelines
                </td>
-               <td>
-                List
+               <td rowspan="2">
+                Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -457,19 +548,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-EvaluateExpression">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html">
                  EvaluateExpression
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to task runners to call EvaluateExpression, to evaluate a string in the context of the specified object
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -494,6 +598,7 @@
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetAccountLimits.html">
                  GetAccountLimits
                 </a>
+                [permission only]
                </td>
                <td>
                 Grants permission to call GetAccountLimits
@@ -509,19 +614,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-GetPipelineDefinition">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html">
                  GetPipelineDefinition
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to gets the definition of the specified pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -598,6 +716,7 @@
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutAccountLimits.html">
                  PutAccountLimits
                 </a>
+                [permission only]
                </td>
                <td>
                 Grants permission to call PutAccountLimits
@@ -613,19 +732,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-PutPipelineDefinition">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html">
                  PutPipelineDefinition
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to add tasks, schedules, and preconditions to the specified pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -649,19 +781,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-QueryObjects">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html">
                  QueryObjects
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to query the specified pipeline for the names of objects that match the specified set of conditions
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -680,19 +825,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-RemoveTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html">
                  RemoveTags
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to remove existing tags from the specified pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -704,6 +862,16 @@
                 <p>
                  <a href="#awsdatapipeline-datapipeline_Tag">
                   datapipeline:Tag
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdatapipeline-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdatapipeline-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -725,6 +893,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -753,19 +926,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-SetStatus">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html">
                  SetStatus
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -798,6 +984,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -805,19 +996,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsdatapipeline-ValidatePipelineDefinition">
                 </a>
                 <a href="https://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html">
                  ValidatePipelineDefinition
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to validate the specified pipeline definition to ensure that it is well formed and can be run without error
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                </td>
                <td>
@@ -847,16 +1051,76 @@
             Resource types defined by        AWS Data Pipeline
            </h2>
            <p>
-            AWS Data Pipeline does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      AWS Data Pipeline, specify
-            <code class="code">
-             "Resource": "*"
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsdatapipeline-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w43aab5b9d391c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td>
+                <a id="awsdatapipeline-pipeline">
+                </a>
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatapipeline.html">
+                 pipeline
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:datapipeline:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:pipeline/$
+                 <span>
+                  {
+                 </span>
+                 PipelineId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsdatapipeline-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awsdatapipeline-policy-keys">
             Condition keys for        AWS Data Pipeline
            </h2>
@@ -880,7 +1144,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d367c15b7">
+             <table id="w43aab5b9d391c15b7">
               <thead>
                <tr>
                 <th>
@@ -904,6 +1168,21 @@
                </td>
                <td>
                 Filters access by the presence of tag key-value pairs in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsdatapipeline-aws_ResourceTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by tag key-value pairs attached to the resource
                </td>
                <td>
                 String

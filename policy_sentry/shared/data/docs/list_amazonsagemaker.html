@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon SageMaker"/>
@@ -325,17 +325,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="44">
+               <td rowspan="45">
                 <a id="amazonsagemaker-AddTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td rowspan="44">
+               <td rowspan="45">
                 Grants permission to add or overwrite one or more tags for the specified Amazon SageMaker resource
                </td>
-               <td rowspan="44">
+               <td rowspan="45">
                 Tagging
                </td>
                <td>
@@ -862,6 +862,24 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazonsagemaker-model-explainability-job-definition">
                   model-explainability-job-definition
                  </a>
@@ -1205,7 +1223,7 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonsagemaker-BatchGetMetrics">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/">
@@ -1213,12 +1231,25 @@
                 </a>
                 [permission only]
                </td>
-               <td>
-                Grants permission to retrieve metrics associated with SageMaker Resources such as Training Jobs. This API is not publicly exposed at this point, however admins can control this action
+               <td rowspan="2">
+                Grants permission to retrieve metrics associated with SageMaker Resources such as Training Jobs or Trial Components. This API is not publicly exposed at this point, however admins can control this action
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-experiment-trial-component">
+                  experiment-trial-component*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonsagemaker-training-job">
@@ -1258,20 +1289,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonsagemaker-BatchPutMetrics">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/">
                  BatchPutMetrics
                 </a>
-                [permission only]
                </td>
-               <td>
-                Grants permission to publish metrics associated with a SageMaker Resource such as a Training Job. This API is not publicly exposed at this point, however admins can control this action
+               <td rowspan="2">
+                Grants permission to publish metrics associated with a SageMaker Resource such as a Training Job or Trial Component
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-experiment-trial-component">
+                  experiment-trial-component*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonsagemaker-training-job">
@@ -1397,7 +1440,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create an App for a SageMaker Studio UserProfile
+                Grants permission to create an App for a SageMaker UserProfile or Space
                </td>
                <td rowspan="2">
                 Write
@@ -2463,6 +2506,21 @@
                   sagemaker:FeatureGroupOfflineStoreS3Uri
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_FeatureGroupEnableOnlineStore">
+                  sagemaker:FeatureGroupEnableOnlineStore
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_FeatureGroupOfflineStoreConfig">
+                  sagemaker:FeatureGroupOfflineStoreConfig
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_FeatureGroupDisableGlueTableCreation">
+                  sagemaker:FeatureGroupDisableGlueTableCreation
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2518,6 +2576,58 @@
                   sagemaker:WorkteamType
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-CreateHub">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHub.html">
+                 CreateHub
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a hub
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
                 <p>
                  <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -2779,6 +2889,61 @@
                 <p>
                  <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-CreateInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">
+                 CreateInferenceExperiment
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create an inference experiment
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 iam:PassRole
+                </p>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -3095,6 +3260,89 @@
                 <p>
                  <a href="#amazonsagemaker-sagemaker_VpcSubnets">
                   sagemaker:VpcSubnets
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-CreateModelCard">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelCard.html">
+                 CreateModelCard
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a model card
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-CreateModelCardExportJob">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelCardExportJob.html">
+                 CreateModelCardExportJob
+                </a>
+               </td>
+               <td>
+                Grants permission to create an export job for a model card
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -3904,6 +4152,100 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="amazonsagemaker-CreateSharedModel">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 CreateSharedModel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to create a shared model in a SageMaker Studio application
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-shared-model">
+                  shared-model*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-CreateSpace">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateSpace.html">
+                 CreateSpace
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a Space for a SageMaker Domain
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-space">
+                  space*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_InstanceTypes">
+                  sagemaker:InstanceTypes
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ImageArns">
+                  sagemaker:ImageArns
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ImageVersionArns">
+                  sagemaker:ImageVersionArns
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonsagemaker-CreateStudioLifecycleConfig">
                 </a>
@@ -4260,7 +4602,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create a UserProfile for a SageMaker Studio Domain
+                Grants permission to create a UserProfile for a SageMaker Domain
                </td>
                <td rowspan="2">
                 Write
@@ -5080,6 +5422,86 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-DeleteHub">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHub.html">
+                 DeleteHub
+                </a>
+               </td>
+               <td>
+                Grants permission to delete hubs
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-DeleteHubContent">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHubContent.html">
+                 DeleteHubContent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete hub content
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub-content">
+                  hub-content*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-DeleteHumanLoop">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHumanLoop.html">
@@ -5194,6 +5616,37 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-DeleteInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceExperiment.html">
+                 DeleteInferenceExperiment
+                </a>
+               </td>
+               <td>
+                Grants permission to delete an inference experiment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-DeleteLineageGroupPolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html">
@@ -5262,6 +5715,37 @@
                 <p>
                  <a href="#amazonsagemaker-model-bias-job-definition">
                   model-bias-job-definition*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-DeleteModelCard">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteModelCard.html">
+                 DeleteModelCard
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a model card
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
                  </a>
                 </p>
                </td>
@@ -5608,6 +6092,37 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-DeleteSpace">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteSpace.html">
+                 DeleteSpace
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a Space
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-space">
+                  space*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-DeleteStudioLifecycleConfig">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteStudioLifecycleConfig.html">
@@ -5638,17 +6153,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="44">
+               <td rowspan="45">
                 <a id="amazonsagemaker-DeleteTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="44">
+               <td rowspan="45">
                 Grants permission to delete the specified set of tags from an Amazon SageMaker resource
                </td>
-               <td rowspan="44">
+               <td rowspan="45">
                 Tagging
                </td>
                <td>
@@ -6159,6 +6674,24 @@
                 <p>
                  <a href="#amazonsagemaker-model-bias-job-definition">
                   model-bias-job-definition
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card
                  </a>
                 </p>
                </td>
@@ -7276,6 +7809,86 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-DescribeHub">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHub.html">
+                 DescribeHub
+                </a>
+               </td>
+               <td>
+                Grants permission to describe hubs
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-DescribeHubContent">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHubContent.html">
+                 DescribeHubContent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to describe hub content
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub-content">
+                  hub-content*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-DescribeHumanLoop">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHumanLoop.html">
@@ -7421,6 +8034,37 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-DescribeInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">
+                 DescribeInferenceExperiment
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about an inference experiment
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-DescribeInferenceRecommendationsJob">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRecommendationsJob.html">
@@ -7560,6 +8204,63 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-DescribeModelCard">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelCard.html">
+                 DescribeModelCard
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about a model card
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-DescribeModelCardExportJob">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelCardExportJob.html">
+                 DescribeModelCardExportJob
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about a model card export job
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card-export-job">
+                  model-card-export-job*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -7908,6 +8609,64 @@
                 <p>
                  <a href="#amazonsagemaker-project">
                   project*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-DescribeSharedModel">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 DescribeSharedModel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to describe a shared model in a SageMaker Studio application
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-shared-model">
+                  shared-model*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-DescribeSpace">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeSpace.html">
+                 DescribeSpace
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a Space
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-space">
+                  space*
                  </a>
                 </p>
                </td>
@@ -8482,6 +9241,76 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="3">
+                <a id="amazonsagemaker-ImportHubContent">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ImportHubContent.html">
+                 ImportHubContent
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to import hub content
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub-content">
+                  hub-content*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonsagemaker-InvokeEndpoint">
                 </a>
@@ -9009,6 +9838,102 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-ListHubContentVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContentVersions.html">
+                 ListHubContentVersions
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list all versions of hub content
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub-content">
+                  hub-content*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListHubContents">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContents.html">
+                 ListHubContents
+                </a>
+               </td>
+               <td>
+                Grants permission to list newest versions of hub content
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListHubs">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubs.html">
+                 ListHubs
+                </a>
+               </td>
+               <td>
+                Grants permission to list hubs
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonsagemaker-ListHumanLoops">
                 </a>
@@ -9125,6 +10050,48 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-ListInferenceExperiments">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceExperiments.html">
+                 ListInferenceExperiments
+                </a>
+               </td>
+               <td>
+                Grants permission to list inference experiments
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListInferenceRecommendationsJobSteps">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">
+                 ListInferenceRecommendationsJobSteps
+                </a>
+               </td>
+               <td>
+                Grants permission to list inference recommendations job steps
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-ListInferenceRecommendationsJobs">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobs.html">
@@ -9227,6 +10194,89 @@
                </td>
                <td>
                 Grants permission to list model bias job definitions
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListModelCardExportJobs">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCardExportJobs.html">
+                 ListModelCardExportJobs
+                </a>
+               </td>
+               <td>
+                Grants permission to list export jobs for a model card
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListModelCardVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCardVersions.html">
+                 ListModelCardVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list versions of a model card
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListModelCards">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCards.html">
+                 ListModelCards
+                </a>
+               </td>
+               <td>
+                Grants permission to list model cards
                </td>
                <td>
                 List
@@ -9363,6 +10413,48 @@
                </td>
                <td>
                 Grants permission to list the models created with the CreateModel API
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListMonitoringAlertHistory">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMonitoringHistory.html">
+                 ListMonitoringAlertHistory
+                </a>
+               </td>
+               <td>
+                Grants permission to list the history of a monitoring alert
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListMonitoringAlerts">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMonitoringAlerts.html">
+                 ListMonitoringAlerts
+                </a>
+               </td>
+               <td>
+                Grants permission to list monitoring alerts
                </td>
                <td>
                 List
@@ -9606,6 +10698,98 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-ListSharedModelEvents">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 ListSharedModelEvents
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list shared model events
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListSharedModelVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 ListSharedModelVersions
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list shared model versions
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-shared-model">
+                  shared-model*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListSharedModels">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 ListSharedModels
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to list shared models
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-ListSpaces">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListSpaces.html">
+                 ListSpaces
+                </a>
+               </td>
+               <td>
+                Grants permission to list the Spaces in your account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-ListStageDevices">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListStageDevices.html">
@@ -9668,17 +10852,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="43">
+               <td rowspan="44">
                 <a id="amazonsagemaker-ListTags">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td rowspan="43">
+               <td rowspan="44">
                 Grants permission to list the tag set associated with the specified resource
                </td>
-               <td rowspan="43">
+               <td rowspan="44">
                 List
                </td>
                <td>
@@ -10189,6 +11373,24 @@
                 <p>
                  <a href="#amazonsagemaker-model-bias-job-definition">
                   model-bias-job-definition
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card
                  </a>
                 </p>
                </td>
@@ -10926,6 +12128,33 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-SendSharedModelEvent">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 SendSharedModelEvent
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to send a shared model event
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-shared-model-event">
+                  shared-model-event*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-StartEdgeDeploymentStage">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartEdgeDeploymentStage.html">
@@ -10977,6 +12206,37 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-StartInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartInferenceExperiment.html">
+                 StartInferenceExperiment
+                </a>
+               </td>
+               <td>
+                Grants permission to start an inference experiment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -11242,6 +12502,37 @@
                 <p>
                  <a href="#amazonsagemaker-hyper-parameter-tuning-job">
                   hyper-parameter-tuning-job*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-StopInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">
+                 StopInferenceExperiment
+                </a>
+               </td>
+               <td>
+                Grants permission to stop an inference experiment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
                  </a>
                 </p>
                </td>
@@ -11936,6 +13227,37 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-UpdateHub">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHub.html">
+                 UpdateHub
+                </a>
+               </td>
+               <td>
+                Grants permission to update hubs
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-hub">
+                  hub*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-UpdateImage">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateImage.html">
@@ -11966,6 +13288,68 @@
                 <p>
                  iam:PassRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-UpdateInferenceExperiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceExperiment.html">
+                 UpdateInferenceExperiment
+                </a>
+               </td>
+               <td>
+                Grants permission to update an inference experiment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-experiment">
+                  inference-experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-UpdateModelCard">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateModelCard.html">
+                 UpdateModelCard
+                </a>
+               </td>
+               <td>
+                Grants permission to update a model card
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-model-card">
+                  model-card*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -12018,6 +13402,50 @@
                   sagemaker:CustomerMetadataPropertiesToRemove
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-UpdateMonitoringAlert">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateMonitoringAlert.html">
+                 UpdateMonitoringAlert
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a monitoring alert
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-monitoring-schedule">
+                  monitoring-schedule*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-monitoring-schedule-alert">
+                  monitoring-schedule-alert*
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -12302,6 +13730,87 @@
                 <p>
                  <a href="#amazonsagemaker-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-UpdateSharedModel">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 UpdateSharedModel
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to update a shared model
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-shared-model">
+                  shared-model*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonsagemaker-UpdateSpace">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html">
+                 UpdateSpace
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a Space
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-space">
+                  space*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_InstanceTypes">
+                  sagemaker:InstanceTypes
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ImageArns">
+                  sagemaker:ImageArns
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ImageVersionArns">
+                  sagemaker:ImageVersionArns
                  </a>
                 </p>
                </td>
@@ -12877,6 +14386,78 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-hub">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-content-sharing.html">
+                 hub
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:hub/$
+                 <span>
+                  {
+                 </span>
+                 HubName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-hub-content">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-content-sharing.html">
+                 hub-content
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:hub-content/$
+                 <span>
+                  {
+                 </span>
+                 HubName}/$
+                 <span>
+                  {
+                 </span>
+                 HubContentType}/$
+                 <span>
+                  {
+                 </span>
+                 HubContentName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-inference-recommendations-job">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-recommender-recommendation-jobs.html">
@@ -12902,6 +14483,48 @@
                   {
                  </span>
                  InferenceRecommendationsJobName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ResourceTag___TagKey_">
+                  sagemaker:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-inference-experiment">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-experiment.html">
+                 inference-experiment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:inference-experiment/$
+                 <span>
+                  {
+                 </span>
+                 InferenceExperimentName}
                 </code>
                </td>
                <td>
@@ -13116,6 +14739,52 @@
                   {
                  </span>
                  UserProfileName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ResourceTag___TagKey_">
+                  sagemaker:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-space">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-entity-status.html">
+                 space
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:space/$
+                 <span>
+                  {
+                 </span>
+                 DomainId}/$
+                 <span>
+                  {
+                 </span>
+                 SpaceName}
                 </code>
                </td>
                <td>
@@ -14053,6 +15722,42 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonsagemaker-monitoring-schedule-alert">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-scheduling.html">
+                 monitoring-schedule-alert
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:monitoring-schedule/$
+                 <span>
+                  {
+                 </span>
+                 MonitoringScheduleName}/alert/$
+                 <span>
+                  {
+                 </span>
+                 MonitoringScheduleAlertName}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonsagemaker-data-quality-job-definition">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-quality.html">
@@ -14633,6 +16338,158 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-model-card">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelCard.html">
+                 model-card
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:model-card/$
+                 <span>
+                  {
+                 </span>
+                 ModelCardName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ResourceTag___TagKey_">
+                  sagemaker:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-model-card-export-job">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ModelCardExportJob.html">
+                 model-card-export-job
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:model-card/$
+                 <span>
+                  {
+                 </span>
+                 ModelCardName}/export-job/$
+                 <span>
+                  {
+                 </span>
+                 ExportJobName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ResourceTag___TagKey_">
+                  sagemaker:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-shared-model">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 shared-model
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:shared-model/$
+                 <span>
+                  {
+                 </span>
+                 SharedModelId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-shared-model-event">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
+                 shared-model-event
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:shared-model-event/$
+                 <span>
+                  {
+                 </span>
+                 EventId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -14806,6 +16663,51 @@
                </td>
                <td>
                 ARN
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-sagemaker_FeatureGroupDisableGlueTableCreation">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys">
+                 sagemaker:FeatureGroupDisableGlueTableCreation
+                </a>
+               </td>
+               <td>
+                Filters access by the DisableGlueTableCreation flag associated with the feature group resource in the request
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-sagemaker_FeatureGroupEnableOnlineStore">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys">
+                 sagemaker:FeatureGroupEnableOnlineStore
+                </a>
+               </td>
+               <td>
+                Filters access by the EnableOnlineStore flag associated with feature group in the request
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-sagemaker_FeatureGroupOfflineStoreConfig">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsagemaker.html#amazonsagemaker-policy-keys">
+                 sagemaker:FeatureGroupOfflineStoreConfig
+                </a>
+               </td>
+               <td>
+                Filters access by the presence of an OfflineStoreConfig in the feature group resource in the request. This access filter only supports the null-conditional operator
+               </td>
+               <td>
+                Bool
                </td>
               </tr>
               <tr>

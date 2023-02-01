@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Firewall Manager"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d562c11b9">
+             <table id="w43aab5b9d598c11b9">
               <thead>
                <tr>
                 <th>
@@ -260,6 +260,58 @@
                 Write
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsfirewallmanager-BatchAssociateResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_BatchAssociateResource.html">
+                 BatchAssociateResource
+                </a>
+               </td>
+               <td>
+                Grants permission to associate resources to an AWS Firewall Manager resource set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsfirewallmanager-BatchDisassociateResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_BatchDisassociateResource.html">
+                 BatchDisassociateResource
+                </a>
+               </td>
+               <td>
+                Grants permission to disassociate resources from an AWS Firewall Manager resource set
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -374,6 +426,45 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awsfirewallmanager-DeleteResourceSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeleteResourceSet.html">
+                 DeleteResourceSet
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to permanently delete an AWS Firewall Manager resource set
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -594,6 +685,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awsfirewallmanager-GetResourceSet">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetResourceSet.html">
+                 GetResourceSet
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve information about the specified AWS Firewall Manager resource set
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsfirewallmanager-GetThirdPartyFirewallAssociationStatus">
                 </a>
                 <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetThirdPartyFirewallAssociationStatus.html">
@@ -688,6 +805,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsfirewallmanager-ListDiscoveredResources">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListDiscoveredResources.html">
+                 ListDiscoveredResources
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an array of resources in the organization's accounts that are available to be associated with a resource set
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsfirewallmanager-ListMemberAccounts">
                 </a>
                 <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListMemberAccounts.html">
@@ -738,6 +876,53 @@
                </td>
                <td>
                 Grants permission to return an array of ProtocolsListDataSummary objects
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsfirewallmanager-ListResourceSetResources">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListResourceSetResources.html">
+                 ListResourceSetResources
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an array of resources that are currently associated to a resource set
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsfirewallmanager-ListResourceSets">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListResourceSets.html">
+                 ListResourceSets
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an array of ResourceSetSummary objects
                </td>
                <td>
                 List
@@ -951,22 +1136,22 @@
               </tr>
               <tr>
                <td rowspan="2">
-                <a id="awsfirewallmanager-TagResource">
+                <a id="awsfirewallmanager-PutResourceSet">
                 </a>
-                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_TagResource.html">
-                 TagResource
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.html">
+                 PutResourceSet
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to add a Tag to a given resource
+                Grants permission to create an AWS Firewall Manager resource set
                </td>
                <td rowspan="2">
-                Tagging
+                Write
                </td>
                <td>
                 <p>
-                 <a href="#awsfirewallmanager-policy">
-                  policy*
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set*
                  </a>
                 </p>
                </td>
@@ -994,23 +1179,145 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="5">
+                <a id="awsfirewallmanager-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="5">
+                Grants permission to add a Tag to a given resource
+               </td>
+               <td rowspan="5">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-applications-list">
+                  applications-list
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-policy">
+                  policy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-protocols-list">
+                  protocols-list
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsfirewallmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="5">
                 <a id="awsfirewallmanager-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="5">
                 Grants permission to remove a Tag from a given resource
                </td>
-               <td rowspan="2">
+               <td rowspan="5">
                 Tagging
                </td>
                <td>
                 <p>
+                 <a href="#awsfirewallmanager-applications-list">
+                  applications-list
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awsfirewallmanager-policy">
-                  policy*
+                  policy
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-protocols-list">
+                  protocols-list
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-resource-set">
+                  resource-set
                  </a>
                 </p>
                </td>
@@ -1055,7 +1362,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d562c13b5">
+             <table id="w43aab5b9d598c13b5">
               <thead>
                <tr>
                 <th>
@@ -1180,6 +1487,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsfirewallmanager-resource-set">
+                </a>
+                <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ResourceSet.html">
+                 resource-set
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:fms:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:resource-set/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsfirewallmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1206,7 +1550,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d562c15b7">
+             <table id="w43aab5b9d598c15b7">
               <thead>
                <tr>
                 <th>

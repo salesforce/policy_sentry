@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon MemoryDB"/>
@@ -219,7 +219,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d906c11c11">
+             <table id="w43aab5b9d966c11c11">
               <thead>
                <tr>
                 <th>
@@ -1160,6 +1160,66 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonmemorydb-DescribeReservedNodes">
+                </a>
+                <a href="https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeReservedNodes.html">
+                 DescribeReservedNodes
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to retrieve reserved nodes
+               </td>
+               <td rowspan="2">
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-reservednode">
+                  reservednode*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonmemorydb-DescribeReservedNodesOfferings">
+                </a>
+                <a href="https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeReservedNodesOfferings.html">
+                 DescribeReservedNodesOfferings
+                </a>
+               </td>
+               <td>
+                Grants permissions to retrieve reserved nodes offerings
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonmemorydb-DescribeServiceUpdates">
                 </a>
@@ -1496,6 +1556,58 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonmemorydb-PurchaseReservedNodesOffering">
+                </a>
+                <a href="https://docs.aws.amazon.com/memorydb/latest/APIReference/API_PurchaseReservedNodesOffering.html">
+                 PurchaseReservedNodesOffering
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permissions to purchase a new reserved node
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-reservednode">
+                  reservednode*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 memorydb:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmemorydb-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonmemorydb-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonmemorydb-ResetParameterGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ResetParameterGroup.html">
@@ -1534,17 +1646,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="7">
+               <td rowspan="8">
                 <a id="amazonmemorydb-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/memorydb/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Grants permissions to add up to 10 cost allocation tags to the named resource
                </td>
-               <td rowspan="7">
+               <td rowspan="8">
                 Tagging
                </td>
                <td>
@@ -1577,6 +1689,19 @@
                 <p>
                  <a href="#amazonmemorydb-parametergroup">
                   parametergroup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-reservednode">
+                  reservednode
                  </a>
                 </p>
                </td>
@@ -2028,7 +2153,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d906c13b5">
+             <table id="w43aab5b9d966c13b5">
               <thead>
                <tr>
                 <th>
@@ -2264,6 +2389,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonmemorydb-reservednode">
+                </a>
+                <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/WhatIs.Components.html">
+                 reservednode
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:memorydb:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:reservednode/$
+                 <span>
+                  {
+                 </span>
+                 ReservationID}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonmemorydb-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2290,7 +2452,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d906c15b7">
+             <table id="w43aab5b9d966c15b7">
               <thead>
                <tr>
                 <th>
@@ -2346,7 +2508,7 @@
                 Filters actions based on the tag keys that are passed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>

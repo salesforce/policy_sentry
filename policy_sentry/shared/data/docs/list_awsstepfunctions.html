@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Step Functions"/>
@@ -121,7 +121,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/step-functions/latest/dg/">
+               <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">
                 configure this service
                </a>
                .
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1218c11b9">
+             <table id="w43aab5b9e1314c11b9">
               <thead>
                <tr>
                 <th>
@@ -391,23 +391,62 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsstepfunctions-DescribeExecution">
                 </a>
                 <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeExecution.html">
                  DescribeExecution
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to describe an execution
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
                 <p>
                  <a href="#awsstepfunctions-execution">
                   execution*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsstepfunctions-express">
+                  express*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsstepfunctions-DescribeMapRun">
+                </a>
+                <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeMapRun.html">
+                 DescribeMapRun
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a map run
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsstepfunctions-maprun">
+                  maprun*
                  </a>
                 </p>
                </td>
@@ -542,23 +581,62 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsstepfunctions-ListExecutions">
                 </a>
                 <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListExecutions.html">
                  ListExecutions
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to list the executions of a state machine
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
                 <p>
+                 <a href="#awsstepfunctions-maprun">
+                  maprun*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#awsstepfunctions-statemachine">
                   statemachine*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsstepfunctions-ListMapRuns">
+                </a>
+                <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListMapRuns.html">
+                 ListMapRuns
+                </a>
+               </td>
+               <td>
+                Grants permission to list the map runs of an execution
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsstepfunctions-execution">
+                  execution*
                  </a>
                 </p>
                </td>
@@ -878,6 +956,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awsstepfunctions-UpdateMapRun">
+                </a>
+                <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_UpdateMapRun.html">
+                 UpdateMapRun
+                </a>
+               </td>
+               <td>
+                Grants permission to update a map run
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsstepfunctions-maprun">
+                  maprun*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="awsstepfunctions-UpdateStateMachine">
                 </a>
@@ -944,7 +1048,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1218c13b5">
+             <table id="w43aab5b9e1314c13b5">
               <thead>
                <tr>
                 <th>
@@ -1033,6 +1137,46 @@
               </tr>
               <tr>
                <td>
+                <a id="awsstepfunctions-express">
+                </a>
+                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-executions.html">
+                 express
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:states:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:express:$
+                 <span>
+                  {
+                 </span>
+                 StateMachineName}:$
+                 <span>
+                  {
+                 </span>
+                 ExecutionId}:$
+                 <span>
+                  {
+                 </span>
+                 ExpressId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsstepfunctions-statemachine">
                 </a>
                 <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">
@@ -1068,6 +1212,46 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsstepfunctions-maprun">
+                </a>
+                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">
+                 maprun
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:states:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:mapRun:$
+                 <span>
+                  {
+                 </span>
+                 StateMachineName}/$
+                 <span>
+                  {
+                 </span>
+                 MapRunLabel}:$
+                 <span>
+                  {
+                 </span>
+                 MapRunId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1094,7 +1278,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1218c15b7">
+             <table id="w43aab5b9e1314c15b7">
               <thead>
                <tr>
                 <th>
@@ -1150,7 +1334,7 @@
                 Filters access by a list of tag keys that are allowed in the request
                </td>
                <td>
-                String
+                ArrayOfString
                </td>
               </tr>
              </table>

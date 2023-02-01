@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon RDS"/>
@@ -306,17 +306,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="17">
+               <td rowspan="18">
                 <a id="amazonrds-AddTagsToResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td rowspan="17">
+               <td rowspan="18">
                 Grants permission to add metadata tags to an Amazon RDS resource
                </td>
-               <td rowspan="17">
+               <td rowspan="18">
                 Tagging
                </td>
                <td>
@@ -388,6 +388,19 @@
                 <p>
                  <a href="#amazonrds-db">
                   db
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -845,6 +858,11 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_CopyOptionGroup">
+                  rds:CopyOptionGroup
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -890,6 +908,187 @@
                 <p>
                  <a href="#amazonrds-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="6">
+                <a id="amazonrds-CreateBlueGreenDeployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateBlueGreenDeployment.html">
+                 CreateBlueGreenDeployment
+                </a>
+               </td>
+               <td rowspan="6">
+                Grants permission to create a blue-green deployment for a given source cluster or instance
+               </td>
+               <td rowspan="6">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 rds:AddTagsToResource
+                </p>
+                <p>
+                 rds:CreateDBCluster
+                </p>
+                <p>
+                 rds:CreateDBClusterEndpoint
+                </p>
+                <p>
+                 rds:CreateDBInstance
+                </p>
+                <p>
+                 rds:CreateDBInstanceReadReplica
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster-pg">
+                  cluster-pg
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-db">
+                  db
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-pg">
+                  pg
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_cluster-tag___TagKey_">
+                  rds:cluster-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_cluster-pg-tag___TagKey_">
+                  rds:cluster-pg-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_db-tag___TagKey_">
+                  rds:db-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_pg-tag___TagKey_">
+                  rds:pg-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_req-tag___TagKey_">
+                  rds:req-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseEngine">
+                  rds:DatabaseEngine
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseName">
+                  rds:DatabaseName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageEncrypted">
+                  rds:StorageEncrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_DatabaseClass">
+                  rds:DatabaseClass
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_StorageSize">
+                  rds:StorageSize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_MultiAz">
+                  rds:MultiAz
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Piops">
+                  rds:Piops
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_Vpc">
+                  rds:Vpc
                  </a>
                 </p>
                </td>
@@ -977,10 +1176,28 @@
                  iam:PassRole
                 </p>
                 <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
                  rds:AddTagsToResource
                 </p>
                 <p>
                  rds:CreateDBInstance
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -1096,6 +1313,11 @@
                 <p>
                  <a href="#amazonrds-rds_Piops">
                   rds:Piops
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
                  </a>
                 </p>
                </td>
@@ -1312,7 +1534,25 @@
                  iam:PassRole
                 </p>
                 <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -1403,6 +1643,11 @@
                 <p>
                  <a href="#amazonrds-rds_req-tag___TagKey_">
                   rds:req-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
                  </a>
                 </p>
                </td>
@@ -1954,7 +2199,7 @@
                <td>
                 <a id="amazonrds-CrossRegionCommunication">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
                  CrossRegionCommunication
                 </a>
                 [permission only]
@@ -1968,6 +2213,69 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonrds-DeleteBlueGreenDeployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteBlueGreenDeployment.html">
+                 DeleteBlueGreenDeployment
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to delete blue green deployments
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 rds:DeleteDBCluster
+                </p>
+                <p>
+                 rds:DeleteDBClusterEndpoint
+                </p>
+                <p>
+                 rds:DeleteDBInstance
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_req-tag___TagKey_">
+                  rds:req-tag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2479,6 +2787,32 @@
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-DescribeBlueGreenDeployments">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeBlueGreenDeployments.html">
+                 DescribeBlueGreenDeployments
+                </a>
+               </td>
+               <td>
+                Grants permission to describe blue green deployments
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -3398,7 +3732,7 @@
                <td>
                 <a id="amazonrds-DescribeRecommendationGroups">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Recommendations.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/USER_Recommendations.html">
                  DescribeRecommendationGroups
                 </a>
                 [permission only]
@@ -3420,7 +3754,7 @@
                <td>
                 <a id="amazonrds-DescribeRecommendations">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Recommendations.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/USER_Recommendations.html">
                  DescribeRecommendations
                 </a>
                 [permission only]
@@ -3536,7 +3870,7 @@
                <td>
                 <a id="amazonrds-DownloadCompleteDBLogFile">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/USER_LogAccess.html">
                  DownloadCompleteDBLogFile
                 </a>
                </td>
@@ -3997,7 +4331,28 @@
                  iam:PassRole
                 </p>
                 <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
                  rds:ModifyDBInstance
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:RotateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -4044,6 +4399,11 @@
                 <p>
                  <a href="#amazonrds-rds_Piops">
                   rds:Piops
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
                  </a>
                 </p>
                </td>
@@ -4129,17 +4489,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="4">
+               <td rowspan="5">
                 <a id="amazonrds-ModifyDBInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">
                  ModifyDBInstance
                 </a>
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Grants permission to modify settings for a DB instance
                </td>
-               <td rowspan="4">
+               <td rowspan="5">
                 Write
                </td>
                <td>
@@ -4154,6 +4514,27 @@
                <td>
                 <p>
                  iam:PassRole
+                </p>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:RotateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -4192,6 +4573,19 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -4466,7 +4860,7 @@
                <td>
                 <a id="amazonrds-ModifyRecommendation">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Recommendations.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/USER_Recommendations.html">
                  ModifyRecommendation
                 </a>
                 [permission only]
@@ -4785,17 +5179,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="17">
+               <td rowspan="18">
                 <a id="amazonrds-RemoveTagsFromResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td rowspan="17">
+               <td rowspan="18">
                 Grants permission to remove metadata tags from an Amazon RDS resource
                </td>
-               <td rowspan="17">
+               <td rowspan="18">
                 Tagging
                </td>
                <td>
@@ -4867,6 +5261,19 @@
                 <p>
                  <a href="#amazonrds-db">
                   db
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -5108,7 +5515,25 @@
                  iam:PassRole
                 </p>
                 <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -5183,6 +5608,11 @@
                 <p>
                  <a href="#amazonrds-rds_StorageEncrypted">
                   rds:StorageEncrypted
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
                  </a>
                 </p>
                </td>
@@ -5566,7 +5996,25 @@
                  iam:PassRole
                 </p>
                 <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 secretsmanager:CreateSecret
+                </p>
+                <p>
+                 secretsmanager:TagResource
                 </p>
                </td>
               </tr>
@@ -5626,6 +6074,11 @@
                 <p>
                  <a href="#amazonrds-rds_req-tag___TagKey_">
                   rds:req-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_ManageMasterUserPassword">
+                  rds:ManageMasterUserPassword
                  </a>
                 </p>
                </td>
@@ -6016,6 +6469,72 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonrds-SwitchoverBlueGreenDeployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_SwitchoverBlueGreenDeployment.html">
+                 SwitchoverBlueGreenDeployment
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to switch a blue-green deployment from source instance or cluster to target
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-deployment">
+                  deployment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 rds:ModifyDBCluster
+                </p>
+                <p>
+                 rds:ModifyDBInstance
+                </p>
+                <p>
+                 rds:PromoteReadReplica
+                </p>
+                <p>
+                 rds:PromoteReadReplicaDBCluster
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_req-tag___TagKey_">
+                  rds:req-tag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonrds-SwitchoverReadReplica">
                 </a>
@@ -6082,7 +6601,7 @@
                <td>
                 <a id="amazonrds-cluster">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.html">
                  cluster
                 </a>
                </td>
@@ -6124,7 +6643,7 @@
                <td>
                 <a id="amazonrds-cluster-endpoint">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Overview.Endpoints.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html">
                  cluster-endpoint
                 </a>
                </td>
@@ -6161,7 +6680,7 @@
                <td>
                 <a id="amazonrds-cluster-pg">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html">
                  cluster-pg
                 </a>
                </td>
@@ -6203,7 +6722,7 @@
                <td>
                 <a id="amazonrds-cluster-snapshot">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html">
                  cluster-snapshot
                 </a>
                </td>
@@ -6369,7 +6888,7 @@
                <td>
                 <a id="amazonrds-global-cluster">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.Aurora.GlobalDB.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">
                  global-cluster
                 </a>
                </td>
@@ -6481,7 +7000,7 @@
                <td>
                 <a id="amazonrds-proxy">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBProxy.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">
                  proxy
                 </a>
                </td>
@@ -6518,7 +7037,7 @@
                <td>
                 <a id="amazonrds-proxy-endpoint">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBProxy.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">
                  proxy-endpoint
                 </a>
                </td>
@@ -6597,7 +7116,7 @@
                <td>
                 <a id="amazonrds-secgrp">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithSecurityGroups.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html">
                  secgrp
                 </a>
                </td>
@@ -6723,7 +7242,7 @@
                <td>
                 <a id="amazonrds-target">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBProxy.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">
                  target
                 </a>
                </td>
@@ -6755,7 +7274,7 @@
                <td>
                 <a id="amazonrds-target-group">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBProxy.html">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">
                  target-group
                 </a>
                </td>
@@ -6823,6 +7342,43 @@
                   {
                  </span>
                  CustomDbEngineVersionId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-deployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">
+                 deployment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:deployment:$
+                 <span>
+                  {
+                 </span>
+                 BlueGreenDeploymentIdentifier}
                 </code>
                </td>
                <td>
@@ -6935,6 +7491,21 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonrds-rds_CopyOptionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:CopyOptionGroup
+                </a>
+               </td>
+               <td>
+                Filters access by the value that specifies whether the CopyDBSnapshot action requires copying the DB option group
+               </td>
+               <td>
+                Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonrds-rds_DatabaseClass">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
@@ -6991,6 +7562,21 @@
                </td>
                <td>
                 String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-rds_ManageMasterUserPassword">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:ManageMasterUserPassword
+                </a>
+               </td>
+               <td>
+                Filters access by the value that specifies whether RDS manages master user password in AWS Secrets Manager for the DB instance or cluster
+               </td>
+               <td>
+                Bool
                </td>
               </tr>
               <tr>
