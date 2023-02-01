@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon GameLift"/>
@@ -139,7 +139,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/access_permissions.html">
+               <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d582c11b9">
+             <table id="w43aab5b9d622c11b9">
               <thead>
                <tr>
                 <th>
@@ -452,6 +452,37 @@
                </td>
                <td>
                 Grants permission to set up a new queue for processing game session placement requests
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazongamelift-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazongamelift-CreateLocation">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateLocation.html">
+                 CreateLocation
+                </a>
+               </td>
+               <td>
+                Grants permission to define a new location for a fleet
                </td>
                <td>
                 Write
@@ -808,6 +839,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-DeleteLocation">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteLocation.html">
+                 DeleteLocation
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a location
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-location">
+                  location*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-DeleteMatchmakingConfiguration">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.html">
@@ -954,6 +1011,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-DeregisterCompute">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">
+                 DeregisterCompute
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister a compute against a fleet
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-DeregisterGameServer">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterGameServer.html">
@@ -1022,6 +1105,32 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazongamelift-DescribeCompute">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html">
+                 DescribeCompute
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
                  </a>
                 </p>
                </td>
@@ -1638,6 +1747,58 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-GetComputeAccess">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html">
+                 GetComputeAccess
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve access credentials of the compute
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazongamelift-GetComputeAuthToken">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAuthToken.html">
+                 GetComputeAuthToken
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-GetGameSessionLogUrl">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">
@@ -1692,7 +1853,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve all aliases that are defined in the current region
+                Grants permission to retrieve all aliases that are defined in the current Region
                </td>
                <td>
                 List
@@ -1713,12 +1874,38 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve all game build in the current region
+                Grants permission to retrieve all game build in the current Region
                </td>
                <td>
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazongamelift-ListCompute">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">
+                 ListCompute
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve all compute resources in the current Region
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1734,7 +1921,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve a list of fleet IDs for all fleets in the current region
+                Grants permission to retrieve a list of fleet IDs for all fleets in the current Region
                </td>
                <td>
                 List
@@ -1755,7 +1942,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to retrieve all game server groups that are defined in the current region
+                Grants permission to retrieve all game server groups that are defined in the current Region
                </td>
                <td>
                 List
@@ -1795,6 +1982,27 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-ListLocations">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListLocations.html">
+                 ListLocations
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve all locations in this account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-ListScripts">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListScripts.html">
@@ -1815,17 +2023,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="8">
+               <td rowspan="9">
                 <a id="amazongamelift-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Grants permission to retrieve tags for GameLift resources
                </td>
-               <td rowspan="8">
+               <td rowspan="9">
                 Read
                </td>
                <td>
@@ -1895,6 +2103,19 @@
               <tr>
                <td>
                 <p>
+                 <a href="#amazongamelift-location">
+                  location
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
                  <a href="#amazongamelift-matchmakingConfiguration">
                   matchmakingConfiguration
                  </a>
@@ -1941,6 +2162,32 @@
                </td>
                <td>
                 Grants permission to create or update a fleet auto-scaling policy
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazongamelift-RegisterCompute">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RegisterCompute.html">
+                 RegisterCompute
+                </a>
+               </td>
+               <td>
+                Grants permission to register a compute against a fleet
                </td>
                <td>
                 Write
@@ -2271,17 +2518,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="9">
+               <td rowspan="10">
                 <a id="amazongamelift-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Grants permission to tag GameLift resources
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Tagging
                </td>
                <td>
@@ -2340,6 +2587,19 @@
                 <p>
                  <a href="#amazongamelift-gameSessionQueue">
                   gameSessionQueue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazongamelift-location">
+                  location
                  </a>
                 </p>
                </td>
@@ -2406,17 +2666,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="9">
+               <td rowspan="10">
                 <a id="amazongamelift-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Grants permission to untag GameLift resources
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Tagging
                </td>
                <td>
@@ -2475,6 +2735,19 @@
                 <p>
                  <a href="#amazongamelift-gameSessionQueue">
                   gameSessionQueue
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazongamelift-location">
+                  location
                  </a>
                 </p>
                </td>
@@ -2886,7 +3159,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d582c13b5">
+             <table id="w43aab5b9d622c13b5">
               <thead>
                <tr>
                 <th>
@@ -2904,7 +3177,7 @@
                <td>
                 <a id="amazongamelift-alias">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_Alias.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-console-aliases.html">
                  alias
                 </a>
                </td>
@@ -2937,7 +3210,7 @@
                <td>
                 <a id="amazongamelift-build">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_Build.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-console-builds.html">
                  build
                 </a>
                </td>
@@ -2972,46 +3245,9 @@
               </tr>
               <tr>
                <td>
-                <a id="amazongamelift-script">
-                </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_Script.html">
-                 script
-                </a>
-               </td>
-               <td>
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:gamelift:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 AccountId}:script/$
-                 <span>
-                  {
-                 </span>
-                 ScriptId}
-                </code>
-               </td>
-               <td>
-                <p>
-                 <a href="#amazongamelift-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td>
                 <a id="amazongamelift-fleet">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_FleetAttributes.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-console-fleets.html">
                  fleet
                 </a>
                </td>
@@ -3046,9 +3282,46 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-gameServerGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-integrate-gameservergroup.html">
+                 gameServerGroup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:gamelift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:gameservergroup/$
+                 <span>
+                  {
+                 </span>
+                 GameServerGroupName}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-gameSessionQueue">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_GameSessionQueue.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
                  gameSessionQueue
                 </a>
                </td>
@@ -3083,9 +3356,42 @@
               </tr>
               <tr>
                <td>
+                <a id="amazongamelift-location">
+                </a>
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/locations-console.html">
+                 location
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:gamelift:$
+                 <span>
+                  {
+                 </span>
+                 Region}::location/$
+                 <span>
+                  {
+                 </span>
+                 LocationId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazongamelift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazongamelift-matchmakingConfiguration">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_MatchmakingConfiguration.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-create-configuration.html">
                  matchmakingConfiguration
                 </a>
                </td>
@@ -3122,7 +3428,7 @@
                <td>
                 <a id="amazongamelift-matchmakingRuleSet">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_MatchmakingRuleSet.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">
                  matchmakingRuleSet
                 </a>
                </td>
@@ -3157,10 +3463,10 @@
               </tr>
               <tr>
                <td>
-                <a id="amazongamelift-gameServerGroup">
+                <a id="amazongamelift-script">
                 </a>
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/API_GameServerGroup.html">
-                 gameServerGroup
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-console-scripts.html">
+                 script
                 </a>
                </td>
                <td>
@@ -3177,11 +3483,11 @@
                  <span>
                   {
                  </span>
-                 Account}:gameservergroup/$
+                 AccountId}:script/$
                  <span>
                   {
                  </span>
-                 GameServerGroupName}
+                 ScriptId}
                 </code>
                </td>
                <td>
@@ -3218,7 +3524,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d582c15b7">
+             <table id="w43aab5b9d622c15b7">
               <thead>
                <tr>
                 <th>
@@ -3241,7 +3547,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags that are passed in the request
+                Filters access by the tags that are passed in the request
                </td>
                <td>
                 String
@@ -3256,7 +3562,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tags associated with the resource
+                Filters access by the tags associated with the resource
                </td>
                <td>
                 String
@@ -3271,7 +3577,7 @@
                 </a>
                </td>
                <td>
-                Filters actions based on the tag keys that are passed in the request
+                Filters access by the tag keys that are passed in the request
                </td>
                <td>
                 ArrayOfString

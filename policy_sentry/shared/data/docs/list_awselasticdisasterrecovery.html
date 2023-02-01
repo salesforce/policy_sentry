@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Elastic Disaster Recovery"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d457c11b9">
+             <table id="w43aab5b9d485c11b9">
               <thead>
                <tr>
                 <th>
@@ -387,6 +387,12 @@
                 </p>
                </td>
                <td>
+                <p>
+                 drs:DescribeSourceServers
+                </p>
+                <p>
+                 drs:GetReplicationConfiguration
+                </p>
                </td>
               </tr>
               <tr>
@@ -463,27 +469,27 @@
                 </p>
                </td>
                <td>
-               </td>
-              </tr>
-              <tr>
-               <td>
-                <a id="awselasticdisasterrecovery-CreateSessionForDrs">
-                </a>
-                <a href="https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html">
-                 CreateSessionForDrs
-                </a>
-               </td>
-               <td>
-                Grants permission to create a session
-               </td>
-               <td>
-                Write
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:GetEbsDefaultKmsKeyId
+                </p>
+                <p>
+                 ec2:GetEbsEncryptionByDefault
+                </p>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
                </td>
               </tr>
               <tr>
@@ -688,6 +694,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 drs:DescribeSourceServers
+                </p>
                 <p>
                  ec2:DescribeInstances
                 </p>
@@ -1300,6 +1309,7 @@
                 <a href="https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html">
                  IssueAgentCertificateForDrs
                 </a>
+                [permission only]
                </td>
                <td rowspan="2">
                 Grants permission to issue an agent certificate
@@ -1351,6 +1361,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 drs:DescribeSourceServers
+                </p>
                </td>
               </tr>
               <tr>
@@ -1658,6 +1671,59 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="awselasticdisasterrecovery-ReverseReplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/drs/latest/APIReference/API_ReverseReplication.html">
+                 ReverseReplication
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to reverse replication
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselasticdisasterrecovery-RecoveryInstanceResource">
+                  RecoveryInstanceResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 drs:DescribeReplicationConfigurationTemplates
+                </p>
+                <p>
+                 drs:DescribeSourceServers
+                </p>
+                <p>
+                 ec2:DescribeInstances
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awselasticdisasterrecovery-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awselasticdisasterrecovery-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -2030,6 +2096,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awselasticdisasterrecovery-StartReplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/drs/latest/APIReference/API_StartReplication.html">
+                 StartReplication
+                </a>
+               </td>
+               <td>
+                Grants permission to start replication
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselasticdisasterrecovery-SourceServerResource">
+                  SourceServerResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awselasticdisasterrecovery-StopFailback">
                 </a>
                 <a href="https://docs.aws.amazon.com/drs/latest/APIReference/API_StopFailback.html">
@@ -2046,6 +2138,32 @@
                 <p>
                  <a href="#awselasticdisasterrecovery-RecoveryInstanceResource">
                   RecoveryInstanceResource*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awselasticdisasterrecovery-StopReplication">
+                </a>
+                <a href="https://docs.aws.amazon.com/drs/latest/APIReference/API_StopReplication.html">
+                 StopReplication
+                </a>
+               </td>
+               <td>
+                Grants permission to stop replication
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awselasticdisasterrecovery-SourceServerResource">
+                  SourceServerResource*
                  </a>
                 </p>
                </td>
@@ -2166,6 +2284,9 @@
                <td>
                </td>
                <td>
+                <p>
+                 drs:DescribeSourceServers
+                </p>
                 <p>
                  ec2:DeleteVolume
                 </p>
@@ -2633,6 +2754,27 @@
                <td>
                </td>
                <td>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:GetEbsDefaultKmsKeyId
+                </p>
+                <p>
+                 ec2:GetEbsEncryptionByDefault
+                </p>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
                </td>
               </tr>
               <tr>
@@ -2659,6 +2801,27 @@
                <td>
                </td>
                <td>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:GetEbsDefaultKmsKeyId
+                </p>
+                <p>
+                 ec2:GetEbsEncryptionByDefault
+                </p>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
                </td>
               </tr>
              </table>
@@ -2684,7 +2847,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d457c13b5">
+             <table id="w43aab5b9d485c13b5">
               <thead>
                <tr>
                 <th>
@@ -2877,7 +3040,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d457c15b7">
+             <table id="w43aab5b9d485c15b7">
               <thead>
                <tr>
                 <th>

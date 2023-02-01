@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon CloudWatch Logs"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d235c11b9">
+             <table id="w43aab5b9d243c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,7 +233,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to associate the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group
+                Grants permission to associate the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group
                </td>
                <td>
                 Write
@@ -259,7 +259,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to cancel an export task if it is in PENDING or RUNNING state
+                Grants permission to cancel an export task if it is in PENDING or RUNNING state
                </td>
                <td>
                 Write
@@ -280,7 +280,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create an ExportTask which allows you to efficiently export data from a Log Group to your Amazon S3 bucket
+                Grants permission to create an ExportTask which allows you to efficiently export data from a Log Group to your Amazon S3 bucket
                </td>
                <td>
                 Write
@@ -307,7 +307,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permissions to create the log delivery
+                Grants permission to create the log delivery
                </td>
                <td>
                 Write
@@ -320,15 +320,59 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncloudwatchlogs-CreateLogGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html">
                  CreateLogGroup
                 </a>
                </td>
+               <td rowspan="2">
+                Grants permission to create a new log group with the specified name
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
                <td>
-                Grants permissions to create a new log group with the specified name
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchlogs-CreateLogStream">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html">
+                 CreateLogStream
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new log stream with the specified name
                </td>
                <td>
                 Write
@@ -347,14 +391,14 @@
               </tr>
               <tr>
                <td>
-                <a id="amazoncloudwatchlogs-CreateLogStream">
+                <a id="amazoncloudwatchlogs-DeleteDataProtectionPolicy">
                 </a>
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html">
-                 CreateLogStream
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDataProtectionPolicy.html">
+                 DeleteDataProtectionPolicy
                 </a>
                </td>
                <td>
-                Grants permissions to create a new log stream with the specified name
+                Grants permission to delete a data protection policy attached to a log group
                </td>
                <td>
                 Write
@@ -380,12 +424,17 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete the destination with the specified name
+                Grants permission to delete the destination with the specified name
                </td>
                <td>
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -402,7 +451,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permissions to delete the log delivery information for specified log delivery
+                Grants permission to delete the log delivery information for specified log delivery
                </td>
                <td>
                 Write
@@ -423,7 +472,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete the log group with the specified name
+                Grants permission to delete the log group with the specified name
                </td>
                <td>
                 Write
@@ -449,7 +498,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a log stream
+                Grants permission to delete a log stream
                </td>
                <td>
                 Write
@@ -475,7 +524,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a metric filter associated with the specified log group
+                Grants permission to delete a metric filter associated with the specified log group
                </td>
                <td>
                 Write
@@ -501,7 +550,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a saved CloudWatch Logs Insights query definition
+                Grants permission to delete a saved CloudWatch Logs Insights query definition
                </td>
                <td>
                 Write
@@ -522,7 +571,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a resource policy from this account
+                Grants permission to delete a resource policy from this account
                </td>
                <td>
                 Permissions management
@@ -543,7 +592,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete the retention policy of the specified log group
+                Grants permission to delete the retention policy of the specified log group
                </td>
                <td>
                 Write
@@ -569,7 +618,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to delete a subscription filter associated with the specified log group
+                Grants permission to delete a subscription filter associated with the specified log group
                </td>
                <td>
                 Write
@@ -595,7 +644,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the destinations that are associated with the AWS account making the request
+                Grants permission to return all the destinations that are associated with the AWS account making the request
                </td>
                <td>
                 List
@@ -616,7 +665,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the export tasks that are associated with the AWS account making the request
+                Grants permission to return all the export tasks that are associated with the AWS account making the request
                </td>
                <td>
                 List
@@ -637,7 +686,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the log groups that are associated with the AWS account making the request
+                Grants permission to return all the log groups that are associated with the AWS account making the request
                </td>
                <td>
                 List
@@ -663,7 +712,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the log streams that are associated with the specified log group
+                Grants permission to return all the log streams that are associated with the specified log group
                </td>
                <td>
                 List
@@ -689,7 +738,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the metrics filters associated with the specified log group
+                Grants permission to return all the metrics filters associated with the specified log group
                </td>
                <td>
                 List
@@ -715,7 +764,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account
+                Grants permission to return a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account
                </td>
                <td>
                 List
@@ -736,7 +785,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return a paginated list of your saved CloudWatch Logs Insights query definitions
+                Grants permission to return a paginated list of your saved CloudWatch Logs Insights query definitions
                </td>
                <td>
                 List
@@ -757,7 +806,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the resource policies in this account
+                Grants permission to return all the resource policies in this account
                </td>
                <td>
                 List
@@ -778,7 +827,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return all the subscription filters associated with the specified log group
+                Grants permission to return all the subscription filters associated with the specified log group
                </td>
                <td>
                 List
@@ -804,7 +853,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to disassociate the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group
+                Grants permission to disassociate the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group
                </td>
                <td>
                 Write
@@ -830,7 +879,33 @@
                 </a>
                </td>
                <td>
-                Grants permissions to retrieve log events, optionally filtered by a filter pattern from the specified log group
+                Grants permission to retrieve log events, optionally filtered by a filter pattern from the specified log group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchlogs-GetDataProtectionPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDataProtectionPolicy.html">
+                 GetDataProtectionPolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve a data protection policy attached to a log group
                </td>
                <td>
                 Read
@@ -857,7 +932,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permissions to get the log delivery information for specified log delivery
+                Grants permission to get the log delivery information for specified log delivery
                </td>
                <td>
                 Read
@@ -878,7 +953,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to retrieve log events from the specified log stream
+                Grants permission to retrieve log events from the specified log stream
                </td>
                <td>
                 Read
@@ -904,7 +979,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field
+                Grants permission to return a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field
                </td>
                <td>
                 Read
@@ -930,7 +1005,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to retrieve all the fields and values of a single log event
+                Grants permission to retrieve all the fields and values of a single log event
                </td>
                <td>
                 Read
@@ -951,10 +1026,32 @@
                 </a>
                </td>
                <td>
-                Grants permissions to return the results from the specified query
+                Grants permission to return the results from the specified query
                </td>
                <td>
                 Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchlogs-Link">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions">
+                 Link
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to share CloudWatch resources with a monitoring account
+               </td>
+               <td>
+                Write
                </td>
                <td>
                </td>
@@ -973,12 +1070,51 @@
                 [permission only]
                </td>
                <td>
-                Grants permissions to list all the log deliveries for specified account and/or log source
+                Grants permission to list all the log deliveries for specified account and/or log source
                </td>
                <td>
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazoncloudwatchlogs-ListTagsForResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the tags for the specified resource
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -994,7 +1130,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to list the tags for the specified log group
+                Grants permission to list the tags for the specified log group
                </td>
                <td>
                 List
@@ -1013,19 +1149,50 @@
               </tr>
               <tr>
                <td>
+                <a id="amazoncloudwatchlogs-PutDataProtectionPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">
+                 PutDataProtectionPolicy
+                </a>
+               </td>
+               <td>
+                Grants permission to attach a data protection policy to detect and redact sensitive information from log events
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazoncloudwatchlogs-PutDestination">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">
                  PutDestination
                 </a>
                </td>
-               <td>
-                Grants permissions to create or update a Destination
+               <td rowspan="2">
+                Grants permission to create or update a Destination
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1037,6 +1204,24 @@
               </tr>
               <tr>
                <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazoncloudwatchlogs-PutDestinationPolicy">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">
@@ -1044,12 +1229,17 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create or update an access policy associated with an existing Destination
+                Grants permission to create or update an access policy associated with an existing Destination
                </td>
                <td>
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1065,7 +1255,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to upload a batch of log events to the specified log stream
+                Grants permission to upload a batch of log events to the specified log stream
                </td>
                <td>
                 Write
@@ -1091,7 +1281,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create or update a metric filter and associates it with the specified log group
+                Grants permission to create or update a metric filter and associates it with the specified log group
                </td>
                <td>
                 Write
@@ -1117,7 +1307,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create or update a query definition
+                Grants permission to create or update a query definition
                </td>
                <td>
                 Write
@@ -1138,7 +1328,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to create or update a resource policy allowing other AWS services to put log events to this account
+                Grants permission to create or update a resource policy allowing other AWS services to put log events to this account
                </td>
                <td>
                 Permissions management
@@ -1159,7 +1349,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to set the retention of the specified log group
+                Grants permission to set the retention of the specified log group
                </td>
                <td>
                 Write
@@ -1185,7 +1375,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permissions to create or update a subscription filter and associates it with the specified log group
+                Grants permission to create or update a subscription filter and associates it with the specified log group
                </td>
                <td rowspan="2">
                 Write
@@ -1227,7 +1417,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to schedules a query of a log group using CloudWatch Logs Insights
+                Grants permission to schedule a query of a log group using CloudWatch Logs Insights
                </td>
                <td>
                 Read
@@ -1253,7 +1443,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to stop a CloudWatch Logs Insights query that is in progress
+                Grants permission to stop a CloudWatch Logs Insights query that is in progress
                </td>
                <td>
                 Read
@@ -1266,17 +1456,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazoncloudwatchlogs-TagLogGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">
                  TagLogGroup
                 </a>
                </td>
-               <td>
-                Grants permissions to add or update the specified tags for the specified log group
+               <td rowspan="2">
+                Grants permission to add or update the specified tags for the specified log group
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -1287,6 +1477,81 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazoncloudwatchlogs-TagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to add or update the specified tags for the specified resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1300,7 +1565,7 @@
                 </a>
                </td>
                <td>
-                Grants permissions to test the filter pattern of a metric filter against a sample of log event messages
+                Grants permission to test the filter pattern of a metric filter against a sample of log event messages
                </td>
                <td>
                 Read
@@ -1314,16 +1579,43 @@
               </tr>
               <tr>
                <td>
+                <a id="amazoncloudwatchlogs-Unmask">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html">
+                 Unmask
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to fetch unmasked log events that have been redacted with a data protection policy
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazoncloudwatchlogs-UntagLogGroup">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">
                  UntagLogGroup
                 </a>
                </td>
-               <td>
-                Grants permissions to remove the specified tags from the specified log group
+               <td rowspan="2">
+                Grants permission to remove the specified tags from the specified log group
                </td>
-               <td>
+               <td rowspan="2">
                 Tagging
                </td>
                <td>
@@ -1334,6 +1626,71 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazoncloudwatchlogs-UntagResource">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="3">
+                Grants permission to remove the specified tags from the specified resource
+               </td>
+               <td rowspan="3">
+                Tagging
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-destination">
+                  destination
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1348,7 +1705,7 @@
                 [permission only]
                </td>
                <td>
-                Grants permissions to update the log delivery information for specified log delivery
+                Grants permission to update the log delivery information for specified log delivery
                </td>
                <td>
                 Write
@@ -1383,7 +1740,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d235c13b5">
+             <table id="w43aab5b9d243c13b5">
               <thead>
                <tr>
                 <th>
@@ -1500,6 +1857,11 @@
                 </code>
                </td>
                <td>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -1528,7 +1890,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d235c15b7">
+             <table id="w43aab5b9d243c15b7">
               <thead>
                <tr>
                 <th>
@@ -1544,6 +1906,21 @@
               </thead>
               <tr>
                <td>
+                <a id="amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td>
+                Filters access by the tags that are passed in the request
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazoncloudwatchlogs-aws_ResourceTag___TagKey_">
                 </a>
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
@@ -1551,10 +1928,25 @@
                 </a>
                </td>
                <td>
-                Filters access based on the tags associated with the resource
+                Filters access by the tags associated with the resource
                </td>
                <td>
                 String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazoncloudwatchlogs-aws_TagKeys">
+                </a>
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td>
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td>
+                ArrayOfString
                </td>
               </tr>
              </table>
@@ -1591,11 +1983,11 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_amazoncloudwatchevidently.html" id="previous">
-             Amazon CloudWatch Evidently
+            <div accesskey="p" class="prev-link" href="./list_amazoncloudwatchinternetmonitor.html" id="previous">
+             Amazon CloudWatch Internet Monitor
             </div>
-            <div accesskey="n" class="next-link" href="./list_awscloudwatchrum.html" id="next">
-             AWS CloudWatch RUM
+            <div accesskey="n" class="next-link" href="./list_amazoncloudwatchobservabilityaccessmanager.html" id="next">
+             Amazon CloudWatch Observability Access Manager
             </div>
            </div>
           </div>

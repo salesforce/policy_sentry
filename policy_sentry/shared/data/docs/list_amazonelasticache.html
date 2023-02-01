@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for Amazon ElastiCache"/>
@@ -591,6 +591,58 @@
                 <p>
                  <a href="#amazonelasticache-replicationgroup">
                   replicationgroup
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="3">
+                <a id="amazonelasticache-Connect">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth-iam.html">
+                 Connect
+                </a>
+               </td>
+               <td rowspan="3">
+                Allows an IAM user or role to connect as a specified ElastiCache user to a node in a replication group
+               </td>
+               <td rowspan="3">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonelasticache-replicationgroup">
+                  replicationgroup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonelasticache-user">
+                  user*
                  </a>
                 </p>
                </td>
@@ -1498,7 +1550,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to create a Redis user for Redis engine version 6.x and onwards
+                Grants permission to create a user for Redis. Users are supported from Redis 6.0 onwards
                </td>
                <td rowspan="2">
                 Write
@@ -1537,6 +1589,11 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_UserAuthenticationMode">
+                  elasticache:UserAuthenticationMode
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1550,7 +1607,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to create a Redis user group for Redis engine version 6.x and onwards
+                Grants permission to create a user group for Redis. Groups are supported from Redis 6.0 onwards
                </td>
                <td rowspan="3">
                 Write
@@ -3304,6 +3361,11 @@
                   elasticache:CacheParameterGroupName
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_TransitEncryptionEnabled">
+                  elasticache:TransitEncryptionEnabled
+                 </a>
+                </p>
                </td>
                <td>
                 <p>
@@ -3467,6 +3529,11 @@
                 <p>
                  <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_UserAuthenticationMode">
+                  elasticache:UserAuthenticationMode
                  </a>
                 </p>
                </td>
@@ -4590,6 +4657,11 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_UserAuthenticationMode">
+                  elasticache:UserAuthenticationMode
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -4815,7 +4887,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the the CacheParameterGroupName parameter in the request
+                Filters access by the CacheParameterGroupName parameter in the request
                </td>
                <td>
                 String
@@ -4845,7 +4917,7 @@
                 </a>
                </td>
                <td>
-                Filters access by the engine type present in creation requests. For replication group creations, default engine ‘redis’ is used as key if parameter is not present
+                Filters access by the engine type present in creation requests. For replication group creations, default engine 'redis' is used as key if parameter is not present
                </td>
                <td>
                 String
@@ -4950,10 +5022,25 @@
                 </a>
                </td>
                <td>
-                Filters access by the TransitEncryptionEnabled parameter present in the request or default false value if parameter is not present
+                Filters access by the TransitEncryptionEnabled parameter present in the request. For replication group creations, default value 'false' is used as key if parameter is not present
                </td>
                <td>
                 Bool
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonelasticache-elasticache_UserAuthenticationMode">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html#IAM.SpecifyingConditions">
+                 elasticache:UserAuthenticationMode
+                </a>
+               </td>
+               <td>
+                Filters access by the UserAuthenticationMode parameter in the request
+               </td>
+               <td>
+                String
                </td>
               </tr>
              </table>

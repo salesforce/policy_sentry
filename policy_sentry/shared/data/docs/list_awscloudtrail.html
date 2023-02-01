@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS CloudTrail"/>
@@ -139,7 +139,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/grant-custom-permissions-for-cloudtrail-users.html">
+               <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_service-with-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d219c11b9">
+             <table id="w43aab5b9d223c11b9">
               <thead>
                <tr>
                 <th>
@@ -233,7 +233,7 @@
                 </a>
                </td>
                <td rowspan="3">
-                Grants permission to add one or more tags to a trail, up to a limit of 10
+                Grants permission to add one or more tags to a trail or event data store, up to a limit of 50
                </td>
                <td rowspan="3">
                 Tagging
@@ -296,6 +296,11 @@
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -326,6 +331,24 @@
                <td>
                </td>
                <td>
+                <p>
+                 cloudtrail:AddTags
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
+                </p>
                </td>
               </tr>
               <tr>
@@ -398,7 +421,16 @@
                </td>
                <td>
                 <p>
-                 s3:PutObject
+                 cloudtrail:AddTags
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
                 </p>
                </td>
               </tr>
@@ -501,6 +533,33 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-DeregisterOrganizationDelegatedAdmin">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeregisterOrganizationDelegatedAdmin.html">
+                 DeregisterOrganizationDelegatedAdmin
+                </a>
+               </td>
+               <td>
+                Grants permission to deregister an AWS Organizations member account as a delegated administrator
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 organizations:DeregisterDelegatedAdministrator
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-DescribeQuery">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeQuery.html">
@@ -514,6 +573,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -543,6 +607,32 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-GetChannel">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetChannel.html">
+                 GetChannel
+                </a>
+               </td>
+               <td>
+                Grants permission to return information about a specific channel
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-channel">
+                  channel*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-GetEventDataStore">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetEventDataStore.html">
@@ -556,6 +646,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -582,6 +677,27 @@
                   trail*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-GetImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetImport.html">
+                 GetImport
+                </a>
+               </td>
+               <td>
+                Grants permission to return information about a specific import
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -629,10 +745,21 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
                <td>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
                </td>
               </tr>
               <tr>
@@ -677,6 +804,11 @@
                 Read
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-trail">
+                  trail*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -711,6 +843,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-ListChannels">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListChannels.html">
+                 ListChannels
+                </a>
+               </td>
+               <td>
+                Grants permission to list the channels in the current account, and their source names
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-ListEventDataStores">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListEventDataStores.html">
@@ -719,6 +872,48 @@
                </td>
                <td>
                 Grants permission to list event data stores associated with the current region for your account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-ListImportFailures">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListImportFailures.html">
+                 ListImportFailures
+                </a>
+               </td>
+               <td>
+                Grants permission to return a list of failures for the specified import
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-ListImports">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListImports.html">
+                 ListImports
+                </a>
+               </td>
+               <td>
+                Grants permission to return information on all imports, or a select set of imports by ImportStatus or Destination
                </td>
                <td>
                 List
@@ -766,6 +961,11 @@
                 List
                </td>
                <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -928,6 +1128,39 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awscloudtrail-RegisterOrganizationDelegatedAdmin">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RegisterOrganizationDelegatedAdmin.html">
+                 RegisterOrganizationDelegatedAdmin
+                </a>
+               </td>
+               <td>
+                Grants permission to register an AWS Organizations member account as a delegated administrator
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
+                </p>
+                <p>
+                 organizations:RegisterDelegatedAdministrator
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="3">
                 <a id="awscloudtrail-RemoveTags">
                 </a>
@@ -1007,6 +1240,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awscloudtrail-StartImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartImport.html">
+                 StartImport
+                </a>
+               </td>
+               <td>
+                Grants permission to start an import of logged trail events from a source S3 bucket to a destination event data store
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awscloudtrail-StartLogging">
                 </a>
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html">
@@ -1041,6 +1295,38 @@
                </td>
                <td>
                 Grants permission to start a new query on a specified event data store
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awscloudtrail-StopImport">
+                </a>
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopImport.html">
+                 StopImport
+                </a>
+               </td>
+               <td>
+                Grants permission to stop a specified import
                </td>
                <td>
                 Write
@@ -1102,6 +1388,21 @@
                <td>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
+                </p>
                </td>
               </tr>
               <tr>
@@ -1155,6 +1456,15 @@
                <td>
                </td>
                <td>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 organizations:ListAWSServiceAccessForOrganization
+                </p>
                </td>
               </tr>
              </table>
@@ -1189,8 +1499,8 @@
             <div class="awsdocs-note-text">
              <p>
               For policies that control access to CloudTrail actions, the Resource element is always set to "*". For information about using resource ARNs in an IAM policy, see
-              <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/controlling_access_granting_custom_permissions.html">
-               Granting Custom Permissions
+              <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_service-with-iam.html">
+               How AWS CloudTrail works with IAM
               </a>
               in the
               <em>
@@ -1202,7 +1512,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d219c13b7">
+             <table id="w43aab5b9d223c13b7">
               <thead>
                <tr>
                 <th>
@@ -1246,18 +1556,13 @@
                 </code>
                </td>
                <td>
-                <p>
-                 <a href="#awscloudtrail-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
                </td>
               </tr>
               <tr>
                <td>
                 <a id="awscloudtrail-eventdatastore">
                 </a>
-                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html">
                  eventdatastore
                 </a>
                </td>
@@ -1294,7 +1599,7 @@
                <td>
                 <a id="awscloudtrail-channel">
                 </a>
-                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">
                  channel
                 </a>
                </td>
@@ -1348,7 +1653,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9d219c15b7">
+             <table id="w43aab5b9d223c15b7">
               <thead>
                <tr>
                 <th>
@@ -1371,7 +1676,7 @@
                 </a>
                </td>
                <td>
-                Filters access by value associated with the resource
+                Filters access by a tag's key and value in a request
                </td>
                <td>
                 String
@@ -1386,7 +1691,7 @@
                 </a>
                </td>
                <td>
-                Filters access by value associated with the resource
+                Filters actions based on the presence of tag key-value pairs in the request
                </td>
                <td>
                 String
@@ -1401,7 +1706,7 @@
                 </a>
                </td>
                <td>
-                Filters access by value associated with the resource
+                Filters access by the tag keys in a request
                </td>
                <td>
                 ArrayOfString

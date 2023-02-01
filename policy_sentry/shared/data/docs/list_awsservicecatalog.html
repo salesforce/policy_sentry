@@ -35,7 +35,7 @@
   <link href="https://docs.aws.amazon.com/assets/r/vendor4.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-common.css?version=2021.12.02" rel="stylesheet"/>
   <link href="https://docs.aws.amazon.com/assets/r/awsdocs-doc-page.css?version=2021.12.02" rel="stylesheet"/>
-  <script data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
+  <script async="" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'iam'}" id="awsc-panorama-bundle" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" type="text/javascript">
   </script>
   <meta id="panorama-serviceSubSection" value="Service Authorization Reference"/>
   <meta id="panorama-serviceConsolePage" value="Actions, resources, and condition keys for AWS Service Catalog"/>
@@ -201,7 +201,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1158c11b9">
+             <table id="w43aab5b9e1250c11b9">
               <thead>
                <tr>
                 <th>
@@ -358,17 +358,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsservicecatalog-AssociateResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html">
                  AssociateResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to associate a resource with an application
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -384,6 +384,33 @@
                 <p>
                  cloudformation:DescribeStacks
                 </p>
+                <p>
+                 resource-groups:CreateGroup
+                </p>
+                <p>
+                 resource-groups:GetGroup
+                </p>
+                <p>
+                 resource-groups:Tag
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_ResourceType">
+                  servicecatalog:ResourceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_Resource">
+                  servicecatalog:Resource
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -1659,17 +1686,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsservicecatalog-DisassociateResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_DisassociateResource.html">
                  DisassociateResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to disassociate a resource from an application
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
@@ -1680,6 +1707,27 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+                <p>
+                 resource-groups:DeleteGroup
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_ResourceType">
+                  servicecatalog:ResourceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_Resource">
+                  servicecatalog:Resource
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1890,17 +1938,17 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsservicecatalog-GetAssociatedResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_GetAssociatedResource.html">
                  GetAssociatedResource
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to get information about a resource associated to an application
                </td>
-               <td>
+               <td rowspan="2">
                 Read
                </td>
                <td>
@@ -1911,6 +1959,24 @@
                 </p>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_ResourceType">
+                  servicecatalog:ResourceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsservicecatalog-servicecatalog_Resource">
+                  servicecatalog:Resource
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1935,6 +2001,27 @@
                   AttributeGroup*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsservicecatalog-GetConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_GetConfiguration.html">
+                 GetConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to read AppRegistry configurations
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -2651,6 +2738,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsservicecatalog-PutConfiguration">
+                </a>
+                <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_PutConfiguration.html">
+                 PutConfiguration
+                </a>
+               </td>
+               <td>
+                Grants permission to assign AppRegistry configurations
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsservicecatalog-RejectPortfolioShare">
                 </a>
                 <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_RejectPortfolioShare.html">
@@ -3301,7 +3409,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1158c13b5">
+             <table id="w43aab5b9e1250c13b5">
               <thead>
                <tr>
                 <th>
@@ -3498,12 +3606,12 @@
             <div class="awsdocs-note-text">
              <p>
               For example policies that show how these condition keys can be used in an IAM policy, see
-              <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/permissions-examples.html">
+              <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/controlling_access.html">
                Example Access Policies for Provisioned Product Management
               </a>
               in the
               <em>
-               AWS Service Catalog Administrator Guide
+               Service Catalog Administrator Guide
               </em>
               .
              </p>
@@ -3511,7 +3619,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w39aab5b9e1158c15b9">
+             <table id="w43aab5b9e1250c15b9">
               <thead>
                <tr>
                 <th>
@@ -3568,6 +3676,36 @@
                </td>
                <td>
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsservicecatalog-servicecatalog_Resource">
+                </a>
+                <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/permissions-examples.html">
+                 servicecatalog:Resource
+                </a>
+               </td>
+               <td>
+                Filters access by controlling what value can be specified as the Resource parameter in an AppRegistry associate resource API
+               </td>
+               <td>
+                String
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsservicecatalog-servicecatalog_ResourceType">
+                </a>
+                <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/permissions-examples.html">
+                 servicecatalog:ResourceType
+                </a>
+               </td>
+               <td>
+                Filters access by controlling what value can be specified as the ResourceType parameter in an AppRegistry associate resource API
+               </td>
+               <td>
+                String
                </td>
               </tr>
               <tr>
