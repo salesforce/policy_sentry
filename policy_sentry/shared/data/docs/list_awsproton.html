@@ -284,7 +284,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1143c11c11">
+             <table id="w43aab5b9e1161c11c11">
               <thead>
                <tr>
                 <th>
@@ -1190,6 +1190,32 @@
                </td>
               </tr>
               <tr>
+               <td>
+                <a id="awsproton-DeleteDeployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteDeployment.html">
+                 DeleteDeployment
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a deployment
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="awsproton-DeleteEnvironment">
                 </a>
@@ -1629,6 +1655,32 @@
                 <p>
                  <a href="#awsproton-component">
                   component*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsproton-GetDeployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_GetDeployment.html">
+                 GetDeployment
+                </a>
+               </td>
+               <td>
+                Grants permission to describe a deployment
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment*
                  </a>
                 </p>
                </td>
@@ -2144,23 +2196,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsproton-ListComponentOutputs">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponentOutputs.html">
                  ListComponentOutputs
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to list component outputs
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
                 <p>
                  <a href="#awsproton-component">
                   component*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -2249,6 +2314,27 @@
               </tr>
               <tr>
                <td>
+                <a id="awsproton-ListDeployments">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListDeployments.html">
+                 ListDeployments
+                </a>
+               </td>
+               <td>
+                Grants permission to list deployments
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsproton-ListEnvironmentAccountConnections">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentAccountConnections.html">
@@ -2269,23 +2355,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsproton-ListEnvironmentOutputs">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentOutputs.html">
                  ListEnvironmentOutputs
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to list environment outputs
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
                 <p>
                  <a href="#awsproton-environment">
                   environment*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -2483,17 +2582,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="awsproton-ListServiceInstanceOutputs">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstanceOutputs.html">
                  ListServiceInstanceOutputs
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to list service instance outputs
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 List
                </td>
                <td>
@@ -2513,6 +2612,19 @@
                 <p>
                  <a href="#awsproton-service-instance">
                   service-instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -2582,23 +2694,36 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="awsproton-ListServicePipelineOutputs">
                 </a>
                 <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServicePipelineOutputs.html">
                  ListServicePipelineOutputs
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to list service pipeline outputs
                </td>
-               <td>
+               <td rowspan="2">
                 List
                </td>
                <td>
                 <p>
                  <a href="#awsproton-service">
                   service*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#awsproton-deployment">
+                  deployment
                  </a>
                 </p>
                </td>
@@ -3987,7 +4112,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1143c13b5">
+             <table id="w43aab5b9e1161c13b5">
               <thead>
                <tr>
                 <th>
@@ -4567,6 +4692,43 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="awsproton-deployment">
+                </a>
+                <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-deployments.html">
+                 deployment
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:proton:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:deployment/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsproton-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -4593,7 +4755,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1143c15b7">
+             <table id="w43aab5b9e1161c15b7">
               <thead>
                <tr>
                 <th>

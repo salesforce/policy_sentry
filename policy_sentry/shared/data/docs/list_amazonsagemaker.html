@@ -2411,17 +2411,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonsagemaker-CreateEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">
                  CreateEndpoint
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to create an endpoint using the endpoint configuration specified in the request
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
                <td>
@@ -2442,6 +2442,24 @@
                 <p>
                  sagemaker:AddTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-endpoint-config">
+                  endpoint-config*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -4646,19 +4664,40 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
+               <td rowspan="3">
                 <a id="amazonsagemaker-CreateTrial">
                 </a>
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrial.html">
                  CreateTrial
                 </a>
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Grants permission to create a trial
                </td>
-               <td rowspan="2">
+               <td rowspan="3">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-experiment">
+                  experiment*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonsagemaker-experiment-trial">
@@ -4674,9 +4713,6 @@
                 </p>
                </td>
                <td>
-                <p>
-                 sagemaker:AddTags
-                </p>
                </td>
               </tr>
               <tr>
@@ -9428,6 +9464,37 @@
                <td>
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonsagemaker-GetScalingPolicyConfigurationRecommendation">
+                </a>
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetScalingPolicyConfigurationRecommendation.html">
+                 GetScalingPolicyConfigurationRecommendation
+                </a>
+               </td>
+               <td>
+                Grants permission to get a scaling policy configuration recommendation
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-inference-recommendations-job">
+                  inference-recommendations-job*
+                 </a>
+                </p>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td>
                </td>
