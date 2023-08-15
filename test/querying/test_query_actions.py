@@ -132,7 +132,20 @@ class QueryActionsTestCase(unittest.TestCase):
             "ram": [
                 {
                     "action": "ram:TagResource",
-                    "description": "Grants permission to tag the specified resource share",
+                    "description": "Grants permission to tag the specified resource share or permission",
+                    "access_level": "Tagging",
+                    "api_documentation_link": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
+                    "resource_arn_format": "arn:${Partition}:ram:${Region}:${Account}:permission/${ResourcePath}",
+                    "condition_keys": [
+                        "aws:ResourceTag/${TagKey}",
+                        "ram:PermissionArn",
+                        "ram:PermissionResourceType",
+                    ],
+                    "dependent_actions": [],
+                },
+                {
+                    "action": "ram:TagResource",
+                    "description": "Grants permission to tag the specified resource share or permission",
                     "access_level": "Tagging",
                     "api_documentation_link": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
                     "resource_arn_format": "arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath}",
@@ -145,7 +158,7 @@ class QueryActionsTestCase(unittest.TestCase):
                 },
                 {
                     "action": "ram:TagResource",
-                    "description": "Grants permission to tag the specified resource share",
+                    "description": "Grants permission to tag the specified resource share or permission",
                     "access_level": "Tagging",
                     "api_documentation_link": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
                     "resource_arn_format": "*",
