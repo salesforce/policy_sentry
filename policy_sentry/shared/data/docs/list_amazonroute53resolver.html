@@ -284,7 +284,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1241c11c11">
+             <table id="w43aab5b9e1259c11c11">
               <thead>
                <tr>
                 <th>
@@ -492,19 +492,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonroute53resolver-CreateFirewallRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateFirewallRule.html">
                  CreateFirewallRule
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a Firewall rule within a Firewall rule group
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-firewall-domain-list">
+                  firewall-domain-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group">
@@ -541,6 +554,53 @@
                <td>
                </td>
                <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonroute53resolver-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonroute53resolver-CreateOutpostResolver">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateOutpostResolver.html">
+                 CreateOutpostResolver
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a Route 53 Resolver on Outposts
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 outposts:GetOutpost
+                </p>
                </td>
               </tr>
               <tr>
@@ -722,19 +782,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonroute53resolver-DeleteFirewallRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteFirewallRule.html">
                  DeleteFirewallRule
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to delete a Firewall rule within a Firewall rule group
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-firewall-domain-list">
+                  firewall-domain-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group">
@@ -765,6 +838,32 @@
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group">
                   firewall-rule-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-DeleteOutpostResolver">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteOutpostResolver.html">
+                 DeleteOutpostResolver
+                </a>
+               </td>
+               <td>
+                Grants permission to delete a Route 53 Resolver on Outposts
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver*
                  </a>
                 </p>
                </td>
@@ -1102,6 +1201,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonroute53resolver-GetOutpostResolver">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetOutpostResolver.html">
+                 GetOutpostResolver
+                </a>
+               </td>
+               <td>
+                Grants permission to get information about a specified Route 53 Resolver on Outposts
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonroute53resolver-GetResolverConfig">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverConfig.html">
@@ -1376,11 +1501,6 @@
                 List
                </td>
                <td>
-                <p>
-                 <a href="#amazonroute53resolver-firewall-config">
-                  firewall-config*
-                 </a>
-                </p>
                </td>
                <td>
                </td>
@@ -1499,6 +1619,27 @@
                   firewall-rule-group*
                  </a>
                 </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-ListOutpostResolvers">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListOutpostResolvers.html">
+                 ListOutpostResolvers
+                </a>
+               </td>
+               <td>
+                Grants permission to list all instances of Route 53 Resolver on Outposts that were created using the current AWS account
+               </td>
+               <td>
+                List
+               </td>
+               <td>
                </td>
                <td>
                </td>
@@ -1701,17 +1842,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="6">
+               <td rowspan="7">
                 <a id="amazonroute53resolver-ListTagsForResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="6">
+               <td rowspan="7">
                 Grants permission to list the tags that you associated with the specified resource
                </td>
-               <td rowspan="6">
+               <td rowspan="7">
                 Read
                </td>
                <td>
@@ -1744,6 +1885,19 @@
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group-association">
                   firewall-rule-group-association
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver
                  </a>
                 </p>
                </td>
@@ -1870,17 +2024,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="9">
+               <td rowspan="10">
                 <a id="amazonroute53resolver-TagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Grants permission to add one or more tags to a specified resource
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Tagging
                </td>
                <td>
@@ -1926,6 +2080,19 @@
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group-association">
                   firewall-rule-group-association
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver
                  </a>
                 </p>
                </td>
@@ -2005,17 +2172,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="9">
+               <td rowspan="10">
                 <a id="amazonroute53resolver-UntagResource">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Grants permission to remove one or more tags from a specified resource
                </td>
-               <td rowspan="9">
+               <td rowspan="10">
                 Tagging
                </td>
                <td>
@@ -2061,6 +2228,19 @@
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group-association">
                   firewall-rule-group-association
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver
                  </a>
                 </p>
                </td>
@@ -2190,19 +2370,32 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonroute53resolver-UpdateFirewallRule">
                 </a>
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateFirewallRule.html">
                  UpdateFirewallRule
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to update selected settings for an Firewall rule in a Firewall rule group
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-firewall-domain-list">
+                  firewall-domain-list*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group">
@@ -2233,6 +2426,32 @@
                 <p>
                  <a href="#amazonroute53resolver-firewall-rule-group-association">
                   firewall-rule-group-association*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-UpdateOutpostResolver">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateOutpostResolver.html">
+                 UpdateOutpostResolver
+                </a>
+               </td>
+               <td>
+                Grants permission to update seletected settings for a specified Route 53 Resolver on Outposts
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-outpost-resolver">
+                  outpost-resolver*
                  </a>
                 </p>
                </td>
@@ -2386,7 +2605,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1241c13b5">
+             <table id="w43aab5b9e1259c13b5">
               <thead>
                <tr>
                 <th>
@@ -2728,6 +2947,43 @@
                <td>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonroute53resolver-outpost-resolver">
+                </a>
+                <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/access-control-overview.html#access-control-resources">
+                 outpost-resolver
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:route53resolver:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:outpost-resolver/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonroute53resolver-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2754,7 +3010,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1241c15b7">
+             <table id="w43aab5b9e1259c15b7">
               <thead>
                <tr>
                 <th>
