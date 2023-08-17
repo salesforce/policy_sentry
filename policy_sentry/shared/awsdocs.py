@@ -42,7 +42,7 @@ def header_matches(string, table):
 
 def get_links_from_base_actions_resources_conditions_page():
     """Gets the links from the actions, resources, and conditions keys page, and returns their filenames."""
-    html = requests.get(BASE_DOCUMENTATION_URL)
+    html = requests.get(BASE_DOCUMENTATION_URL, timeout=300)
     soup = BeautifulSoup(html.content, "html.parser")
     html_filenames = []
     for i in soup.find("div", {"class": "highlights"}).findAll("a"):
@@ -85,7 +85,7 @@ def update_html_docs_directory(html_docs_destination):
     # html_filenames = [sub.replace(".html", ".partial.html") for sub in html_filenames]
 
     for page in html_filenames:
-        response = requests.get(link_url_prefix + page, allow_redirects=False)
+        response = requests.get(link_url_prefix + page, allow_redirects=False, timeout=300)
         # Replace the CSS stuff. Basically this:
         """
         <link href='href="https://docs.aws.amazon.com/images/favicon.ico"' rel="icon" type="image/ico"/>

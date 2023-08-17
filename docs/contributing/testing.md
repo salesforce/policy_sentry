@@ -50,7 +50,6 @@ Available tasks:
                                function.
   test.lint                    Linting with `pylint` and `autopep8`
   test.security                Runs `bandit` and `safety check`
-  unit.nose                    Unit testing: Runs unit tests using `nosetests`
   unit.pytest                  Unit testing: Runs unit tests using `pytest`
 
 
@@ -64,8 +63,6 @@ invoke integration.query
 invoke integration.write-policy
 
 invoke test.security
-
-invoke unit.nose
 ```
 
 Local Unit Testing and Integration Testing:
@@ -95,89 +92,37 @@ just run that quick command on your machine.
 Running the Test Suite
 ----------------------
 
-We use [Nose](https://nose.readthedocs.io/en/latest/) for unit testing.
-All tests are placed in the `tests` folder.
+We use [pytest](https://docs.pytest.org/en//) for unit testing.
+All tests are placed in the `test` folder.
 
 -   Just run the following:
 
 ```bash
-nosetests -v
+pytest -v
 
 # This will output the print() statements in your test code
-nosetests -v --nocapture
+pytest -v --show-capture=no
 
 # This will include the debug logging statements in the test output
-nosetests -v --logging-level=DEBUG
+pytest -v --log-level=DEBUG
 ```
 
 -   Alternatively, you can use `invoke`, as mentioned above:
 
 ```bash
-invoke unit.nose
+invoke unit.pytest
 ```
 
 Output:
 
 ```text
-test_overrides_yml_config: Tests the format of the overrides yml file for the RAM service ... ok
-test_passing_overall_iam_action_override: Tests iam:CreateAccessKey ... ok
-test_get_dependent_actions_double (test_actions.ActionsTestCase) ... ok
-test_get_dependent_actions_several (test_actions.ActionsTestCase) ... ok
-test_get_dependent_actions_single (test_actions.ActionsTestCase) ... ok
-test_analyze_by_access_level: Test out calling this as a library ... ok
-test_determine_risky_actions_from_list: Test comparing requested actions to a list of risky actions ... ok
-test_get_actions_from_policy: Verify that the get_actions_from_policy function is grabbing the actions ... ok
-test_get_actions_from_policy_file_with_explicit_actions: Verify that we can get a list of actions from a ... ok
-test_get_actions_from_policy_file_with_wildcards: Verify that we can read the actions from a file, ... ok
-test_remove_actions_not_matching_access_level: Verify remove_actions_not_matching_access_level is working as expected ... ok
-test_get_findings: Ensure that finding.get_findings() combines two risk findings for one policy properly. ... ok
-test_get_findings_by_policy_name: Testing out the 'Findings' object ... ok
-test_add_s3_permissions_management_arn (test_arn_action_group.ArnActionGroupTestCase) ... ok
-test_get_policy_elements (test_arn_action_group.ArnActionGroupTestCase) ... ok
-test_update_actions_for_raw_arn_format (test_arn_action_group.ArnActionGroupTestCase) ... ok
-test_does_arn_match_case_1 (test_arns.ArnsTestCase) ... ok
-test_does_arn_match_case_2 (test_arns.ArnsTestCase) ... ok
-test_does_arn_match_case_4 (test_arns.ArnsTestCase) ... ok
-test_does_arn_match_case_5 (test_arns.ArnsTestCase) ... ok
-test_does_arn_match_case_6 (test_arns.ArnsTestCase) ... ok
-test_does_arn_match_case_bucket (test_arns.ArnsTestCase) ... ok
-test_determine_actions_to_expand: provide expanded list of actions, like ecr:* ... ok
-test_minimize_statement_actions (test_minimize_wildcard_actions.MinimizeWildcardActionsTestCase) ... ok
-test_get_action_data: Tests function that gets details on a specific IAM Action. ... ok
-test_get_actions_at_access_level_that_support_wildcard_arns_only: Test function that gets a list of ... ok
-test_get_actions_for_service: Tests function that gets a list of actions per AWS service. ... ok
-test_get_actions_matching_condition_crud_and_arn: Get a list of IAM Actions matching condition key, ... ok
-test_get_actions_matching_condition_crud_and_wildcard_arn: Get a list of IAM Actions matching condition key ... ok
-test_get_actions_matching_condition_key: Tests a function that gathers all instances in ... ok
-test_get_actions_that_support_wildcard_arns_only: Tests function that shows all ... ok
-test_get_actions_with_access_level: Tests function that gets a list of actions in a ... ok
-test_get_actions_with_arn_type_and_access_level: Tests a function that gets a list of ... ok
-test_get_all_actions_with_access_level: Get all actions with a given access level ... ok
-test_get_arn_type_details: Tests function that grabs details about a specific ARN name ... ok
-test_get_arn_types_for_service: Tests function that grabs arn_type and raw_arn pairs ... ok
-test_get_condition_key_details: Tests function that grabs details about a specific condition key ... ok
-test_get_condition_keys_for_service: Tests function that grabs a list of condition keys per service. ... ok
-test_get_raw_arns_for_service: Tests function that grabs a list of raw ARNs per service ... ok
-test_remove_actions_that_are_not_wildcard_arn_only: Tests function that removes actions from a list that ... ok
-test_actions_template (test_template.TemplateTestCase) ... ok
-test_crud_template (test_template.TemplateTestCase) ... ok
-test_actions_schema: Validates that the user-supplied YAML is working for CRUD mode ... ok
-test_actions_schema: Validates that the user-supplied YAML is working for CRUD mode ... ok
-test_print_policy_with_actions_having_dependencies (test_write_policy.WritePolicyActionsTestCase) ... ok
-test_write_policy (test_write_policy.WritePolicyCrudTestCase) ... ok
-test_write_policy_beijing: Tests ARNs with the partiion `aws-cn` instead of just `aws` ... ok
-test_write_policy_govcloud: Tests ARNs with the partition `aws-us-gov` instead of `aws` ... ok
-test_wildcard_when_not_necessary: Attempts bypass of CRUD mode wildcard-only ... ok
-test_write_actions_policy_with_library_only: Write an actions mode policy without using the command line at all (library only) ... ok
-test_write_crud_policy_with_library_only: Write an actions mode policy without using the command line at all (library only) ... ok
-test_actions_missing_actions: write-policy actions if the actions block is missing ... ok
-test_allow_missing_access_level_categories_in_cfg: write-policy when the YAML file ... ok
-test_allow_empty_access_level_categories_in_cfg: If the content of a list is an empty string, it should sysexit ... ok
-test_actions_missing_arn: write-policy actions command when YAML file block is missing an ARN ... ok
-test_actions_missing_description: write-policy when the YAML file is missing a description ... ok
-test_actions_missing_name: write-policy when the YAML file is missing a name ... ok
+test/analysis/test_analyze.py::AnalysisExpandWildcardActionsTestCase::test_a_determine_actions_to_expand_not_upper_camelcase PASSED  [  0%]
+test/analysis/test_analyze.py::AnalysisExpandWildcardActionsTestCase::test_analyze_by_access_level PASSED                            [  1%]
+test/analysis/test_analyze.py::AnalysisExpandWildcardActionsTestCase::test_analyze_statement_by_access_level PASSED                  [  2%]
+test/analysis/test_analyze.py::AnalysisExpandWildcardActionsTestCase::test_determine_actions_to_expand PASSED                        [  2%]
+test/analysis/test_analyze.py::AnalysisExpandWildcardActionsTestCase::test_gh_162 PASSED                                             [  3%]
+test/analysis/test_expand.py::PolicyExpansionTestCase::test_policy_expansion PASSED                                                  [  4%]
+...
 
-Ran 57 tests in 2.694s
-
-OK
+========================================================= 134 passed in 51.04s ============================================================
 ```

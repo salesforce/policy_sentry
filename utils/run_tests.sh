@@ -9,7 +9,6 @@ invoke build.uninstall-package
 invoke build.install-package
 invoke integration.clean
 invoke integration.version
-#invoke unit.nose
 invoke unit.pytest
 invoke integration.query
 invoke integration.query-yaml
