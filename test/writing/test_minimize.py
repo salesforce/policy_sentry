@@ -1,7 +1,10 @@
 import unittest
 import json
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry.writing.minimize import minimize_statement_actions
+from policy_sentry.writing.minimize import (
+    minimize_statement_actions,
+    check_min_permission_length,
+)
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.policy_files import get_sid_names_from_policy, get_statement_from_policy_using_sid
 
@@ -38,6 +41,35 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         minchars = None
         self.maxDiff = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)
+        self.assertListEqual(
+            sorted(
+                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
+            ),
+            sorted(desired_result),
+        )
+
+    def test_minimize_statement_actions_with_min_chars(self):
+        actions_to_minimize = [
+            "ec2:AuthorizeSecurityGroupEgress",
+            "ec2:AuthorizeSecurityGroupIngress",
+        ]
+        desired_result = ["ec2:authorizesecurity*"]
+        all_actions = get_all_actions(lowercase=True)
+        minchars = 17
+        self.maxDiff = None
+        self.assertListEqual(
+            sorted(
+                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
+            ),
+            sorted(desired_result),
+        )
+
+    def test_minimize_statement_actions_with_wildcard(self):
+        actions_to_minimize = ["ec2:*"]
+        desired_result = ["ec2:*"]
+        all_actions = get_all_actions(lowercase=True)
+        minchars = None
+        self.maxDiff = None
         self.assertListEqual(
             sorted(
                 minimize_statement_actions(actions_to_minimize, all_actions, minchars)
