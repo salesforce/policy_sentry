@@ -7,7 +7,6 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
 TESTS_REQUIRE = [
     'coverage',
-    'nose',
     'pytest'
 ]
 REQUIRED_PACKAGES = [

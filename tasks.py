@@ -244,20 +244,6 @@ def run_linter(c):
 
 # UNIT TESTING
 @task
-def run_nosetests(c):
-    """Unit testing: Runs unit tests using `nosetests`"""
-    c.run('echo "Running Unit tests"')
-    try:
-        c.run('nosetests -v  --logging-level=CRITICAL')
-    except UnexpectedExit as u_e:
-        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(1)
-    except Failure as f_e:
-        logger.critical(f"FAIL: Failure: {f_e}")
-        sys.exit(1)
-
-
-@task
 def run_pytest(c):
     """Unit testing: Runs unit tests using `pytest`"""
     c.run('echo "Running Unit tests"')
@@ -287,7 +273,6 @@ integration.add_task(write_policy, 'write-policy')
 integration.add_task(query, 'query')
 integration.add_task(query_with_yaml, 'query-yaml')
 
-unit.add_task(run_nosetests, 'nose')
 unit.add_task(run_pytest, 'pytest')
 
 docs.add_task(build_docs, "build-docs")
