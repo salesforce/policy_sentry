@@ -5,27 +5,27 @@ conditions-related workarounds
 
 
 # Borrowed from parliament. Altered with normalization for lowercase.
-def translate_condition_key_data_types(condition_str):
+def translate_condition_key_data_types(condition_str: str) -> str:
     """
     The docs use different type names, so this standardizes them.
     Example: The condition secretsmanager:RecoveryWindowInDays is listed as using a "Long"
     So return "Number"
     """
-
-    if condition_str.lower() in ["arn", "arn"]:
+    condition_lowercase = condition_str.lower()
+    if condition_lowercase in ("arn", "arn"):
         return "Arn"
-    elif condition_str.lower() in ["bool", "boolean"]:
+    elif condition_lowercase in ("bool", "boolean"):
         return "Bool"
-    elif condition_str.lower() in ["date"]:
+    elif condition_lowercase in ("date",):
         return "Date"
-    elif condition_str.lower() in ["long", "numeric"]:
+    elif condition_lowercase in ("long", "numeric"):
         return "Number"
-    elif condition_str.lower() in ["string", "string", "arrayofstring"]:
+    elif condition_lowercase in ("string", "string", "arrayofstring"):
         return "String"
-    elif condition_str.lower() in ["ip"]:
+    elif condition_lowercase in ("ip",):
         return "Ip"
     else:
-        raise Exception("Unknown data format: {}".format(str))
+        raise Exception(f"Unknown data format: {condition_lowercase}")
 
 
 def get_service_from_condition_key(condition_key):
