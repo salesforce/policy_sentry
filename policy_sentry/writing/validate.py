@@ -1,7 +1,6 @@
 """
 Validation for the Policy Sentry YML Templates.
 """
-from ast import Or
 import logging
 from schema import Optional, Schema, And, Use, Regex, SchemaError
 

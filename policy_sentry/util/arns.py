@@ -34,7 +34,7 @@ class ARN:
             self.account = elements[4]
             self.resource = elements[5]
         except IndexError as error:
-            raise Exception("The provided ARN is invalid. IndexError: %s. Please provide a valid ARN." % error) from error
+            raise Exception(f"The provided ARN is invalid. IndexError: {error}. Please provide a valid ARN.") from error
         if "/" in self.resource:
             self.resource, self.resource_path = self.resource.split("/", 1)
         elif ":" in self.resource:
@@ -170,7 +170,7 @@ def parse_arn(arn):
             "resource_path": None,
         }
     except IndexError as error:
-        raise Exception("IndexError: The provided ARN '%s' is invalid. Please provide a valid ARN." % arn)
+        raise Exception(f"IndexError: The provided ARN '{arn}' is invalid. Please provide a valid ARN.") from error
     if "/" in result["resource"]:
         result["resource"], result["resource_path"] = result["resource"].split("/", 1)
     elif ":" in result["resource"]:

@@ -49,8 +49,8 @@ def get_actions_from_policy(data):
     for action in actions_list:
         service, action_name = action.split(":")
         action_data = get_action_data(service, action_name)
-        if service in action_data.keys():
-            if len(action_data[service]) > 0:
+        if service in action_data:
+            if action_data[service]:
                 new_actions_list.append(action_data[service][0]["action"])
 
     new_actions_list.sort()

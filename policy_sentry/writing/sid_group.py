@@ -151,7 +151,7 @@ class SidGroup:
                         # Using a custom namespace and not gathering actions so no need to find
                         # dependent actions either, though we could do it here
 
-                        if sid_namespace in self.sids.keys():
+                        if sid_namespace in self.sids:
                             # If the ARN already exists there, skip it.
                             if arn not in self.sids[sid_namespace]["arn"]:
                                 self.sids[sid_namespace]["arn"].append(arn)
@@ -208,9 +208,9 @@ class SidGroup:
 
         # render the policy
         sids_to_be_changed = []
-        for sid in self.sids:
-            temp_actions = self.sids[sid]["actions"]
-            if len(temp_actions) == 0:
+        for sid, group in self.sids.items():
+            temp_actions = group["actions"]
+            if not temp_actions:
                 logger.debug(f"No actions for sid {sid}")
                 continue
             actions = []
@@ -236,7 +236,7 @@ class SidGroup:
                 # searching in the existing statements
                 # further minimizing the output
                 for stmt in statements:
-                    if stmt["Resource"] == self.sids[sid]["arn"]:
+                    if stmt["Resource"] == group["arn"]:
                         actions = [x for x in actions if x not in stmt["Action"]]
                         stmt["Action"].extend(actions)
                         match_found = True
@@ -245,14 +245,14 @@ class SidGroup:
                 actions = list(dict.fromkeys(actions))  # remove duplicates
             logger.debug(f"Adding statement with SID {sid}")
             logger.debug(f"{sid} SID has the actions: {actions}")
-            logger.debug(f"{sid} SID has the resources: {self.sids[sid]['arn']}")
+            logger.debug(f"{sid} SID has the resources: {group['arn']}")
             if not match_found:
                 statements.append(
                     {
                         "Sid": sid,
                         "Effect": "Allow",
                         "Action": actions,
-                        "Resource": self.sids[sid]["arn"],
+                        "Resource": group["arn"],
                     }
                 )
 
@@ -330,7 +330,7 @@ class SidGroup:
                             "actions": actions,
                             "conditions": [],  # TODO: Add conditions
                         }
-                        if sid_namespace in self.sids.keys():
+                        if sid_namespace in self.sids:
                             # If the ARN already exists there, skip it.
                             if arn not in self.sids[sid_namespace]["arn"]:
                                 self.sids[sid_namespace]["arn"].append(arn)
@@ -371,7 +371,7 @@ class SidGroup:
                 "'MultMultNone'."
             )
         if isinstance(action, str):
-            if sid_namespace in self.sids.keys():
+            if sid_namespace in self.sids:
                 if action not in self.sids[sid_namespace]["actions"]:
                     self.sids[sid_namespace]["actions"].append(action)
             else:
@@ -605,18 +605,17 @@ class SidGroup:
         """
         actions_to_keep = get_lowercase_action_list(actions_to_keep)
         actions_deleted = []
-        for sid in self.sids:
+        for sid, group in self.sids.items():
             placeholder_actions_list = []
-            for action in self.sids[sid]["actions"]:
+            for action in group["actions"]:
                 # if the action is not in the list of selected actions, don't copy it to the placeholder list
                 if action.lower() in actions_to_keep:
                     placeholder_actions_list.append(action)
                 elif action.lower() not in actions_to_keep:
                     logger.debug("%s not found in list of actions to keep: %s", action.lower(), actions_to_keep)
                     actions_deleted.append(action)
-            # Clear the list and then extend it to include the updated actions only
-            self.sids[sid]["actions"].clear()
-            self.sids[sid]["actions"].extend(placeholder_actions_list.copy())
+            # only include the updated actions
+            group["actions"] = placeholder_actions_list.copy()
         # Highlight the actions that you remove
         logger.debug("Actions deleted: %s", str(actions_deleted))
         # Now that we've removed a bunch of actions, if there are SID groups without any actions,
@@ -628,15 +627,15 @@ class SidGroup:
         Now that we've removed a bunch of actions, if there are SID groups without any actions, remove them so we don't get SIDs with empty action lists
         """
         sid_namespaces_to_delete = []
-        for sid in self.sids:
-            if len(self.sids[sid]["actions"]) > 0:
+        for sid, group in self.sids.items():
+            if len(group["actions"]) > 0:
                 pass
             # If the size is zero, add it to the indexes_to_delete list.
             else:
                 sid_namespaces_to_delete.append(sid)
         # Loop through sid_namespaces_to_delete in reverse order (so we delete index
         # 10 before index 8, for example)
-        if len(sid_namespaces_to_delete) > 0:
+        if sid_namespaces_to_delete:
             for i in reversed(range(len(sid_namespaces_to_delete))):
                 del self.sids[sid_namespaces_to_delete[i]]
 
@@ -650,27 +649,27 @@ class SidGroup:
         actions_under_wildcard_resources_to_nuke = []
 
         # Build a temporary list. Contains actions in MultMultNone SID (where resources = "*")
-        for sid in self.sids:
-            if self.sids[sid]["arn_format"] == "*":
-                actions_under_wildcard_resources.extend(self.sids[sid]["actions"])
+        for sid, group in self.sids.items():
+            if group["arn_format"] == "*":
+                actions_under_wildcard_resources.extend(group["actions"])
 
         # If the actions under the MultMultNone SID exist under other SIDs
         if len(actions_under_wildcard_resources) > 0:
-            for sid in self.sids:
-                if "*" not in self.sids[sid]["arn_format"]:
+            for sid, group in self.sids.items():
+                if "*" not in group["arn_format"]:
                     for action in actions_under_wildcard_resources:
-                        if action in self.sids[sid]["actions"]:
+                        if action in group["actions"]:
                             if action not in self.skip_resource_constraints:
                                 # add it to a list of actions to nuke when they are under other SIDs
                                 actions_under_wildcard_resources_to_nuke.append(action)
 
         # If there are actions that we need to remove from SIDs outside of MultMultNone SID
-        if len(actions_under_wildcard_resources_to_nuke) > 0:
-            for sid in self.sids:
-                if "*" in self.sids[sid]["arn_format"]:
+        if actions_under_wildcard_resources_to_nuke:
+            for sid, group in self.sids.items():
+                if "*" in group["arn_format"]:
                     for action in actions_under_wildcard_resources_to_nuke:
                         try:
-                            self.sids[sid]["actions"].remove(str(action))
+                            group["actions"].remove(str(action))
                         except BaseException:  # pylint: disable=broad-except
                             logger.debug("Removal not successful")
 

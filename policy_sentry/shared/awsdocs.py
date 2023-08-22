@@ -200,8 +200,7 @@ def create_database(destination_directory, access_level_overrides_file):
                     service_prefix = chomp(service_prefix.split("</code>")[0])
                     break
 
-            if service_prefix not in schema.keys():
-                schema[service_prefix] = {}
+            if service_prefix not in schema:
                 # The URL to that service's Actions, Resources, and Condition Keys page
                 service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
                 service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
@@ -359,9 +358,7 @@ def create_database(destination_directory, access_level_overrides_file):
 
                     if len(cells) != 3:
                         raise Exception(
-                            "Unexpected number of resource cells {} in {}".format(
-                                len(cells), filename
-                            )
+                            f"Unexpected number of resource cells {len(cells)} in {filename}"
                         )
 
                     resource = chomp(cells[0].text)
@@ -392,9 +389,7 @@ def create_database(destination_directory, access_level_overrides_file):
 
                     if len(cells) != 3:
                         raise Exception(
-                            "Unexpected number of condition cells {} in {}".format(
-                                len(cells), filename
-                            )
+                            f"Unexpected number of condition cells {len(cells)} in {filename}"
                         )
 
                     condition = no_white_space(cells[0].text)
