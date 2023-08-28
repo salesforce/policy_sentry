@@ -1,4 +1,6 @@
 """Functions to expand wilcard actions into a full list of actions."""
+from __future__ import annotations
+
 import logging
 import copy
 import fnmatch
@@ -8,7 +10,7 @@ from policy_sentry.util.policy_files import get_actions_from_statement
 logger = logging.getLogger(__name__)
 
 
-def expand(action):
+def expand(action: str | list[str]) -> list[str]:
     """
     expand the action wildcards into a full action
 
@@ -26,10 +28,11 @@ def expand(action):
             expanded_actions.extend(expand(item))
         return expanded_actions
 
-    if "*" in action:
+    if action == "*":
+        return all_actions.copy()
+    elif "*" in action:
         expanded = [
             expanded_action
-            # for expanded_action in all_permissions
             for expanded_action in all_actions
             if fnmatch.fnmatchcase(expanded_action.lower(), action.lower())
         ]
@@ -47,7 +50,7 @@ def expand(action):
     return [action]
 
 
-def determine_actions_to_expand(action_list):
+def determine_actions_to_expand(action_list: list[str]) -> list[str]:
     """
     Determine if an action needs to get expanded from its wildcard
 
@@ -57,13 +60,13 @@ def determine_actions_to_expand(action_list):
         List: A list of actions
     """
     new_action_list = []
-    for action in range(len(action_list)):
-        if "*" in action_list[action]:
-            expanded_action = expand(action_list[action])
+    for action in action_list:
+        if "*" in action:
+            expanded_action = expand(action)
             new_action_list.extend(expanded_action)
         else:
             # If there is no wildcard, copy that action name over to the new_action_list
-            new_action_list.append(action_list[action])
+            new_action_list.append(action)
     new_action_list.sort()
     return new_action_list
 

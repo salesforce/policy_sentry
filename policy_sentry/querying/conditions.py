@@ -2,6 +2,8 @@
 Methods that execute specific queries against the SQLite database for the CONDITIONS table.
 This supports the policy_sentry query functionality
 """
+from __future__ import annotations
+
 import logging
 import functools
 from policy_sentry.shared.iam_data import get_service_prefix_data
@@ -12,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=1024)
-def get_condition_keys_for_service(service_prefix):
+def get_condition_keys_for_service(service_prefix: str) -> list[str]:
     """
     Get a list of available conditions per AWS service
 
@@ -22,13 +24,15 @@ def get_condition_keys_for_service(service_prefix):
         List: A list of condition keys
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
-    results = list(dict.fromkeys(service_prefix_data["conditions"].keys()))
+    results = [condition for condition in service_prefix_data["conditions"]]
     return results
 
 
 # Per condition key name
 # pylint: disable=inconsistent-return-statements
-def get_condition_key_details(service_prefix, condition_key_name):
+def get_condition_key_details(
+    service_prefix: str, condition_key_name: str
+) -> dict[str, str]:
     """
     Get details about a specific condition key in JSON format
 
@@ -40,16 +44,16 @@ def get_condition_key_details(service_prefix, condition_key_name):
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     for condition_name, condition_data in service_prefix_data["conditions"].items():
-        if is_condition_key_match(condition_data["condition"], condition_key_name):
+        if is_condition_key_match(condition_name, condition_key_name):
             output = {
-                "name": condition_data["condition"],
+                "name": condition_name,
                 "description": condition_data["description"],
                 "condition_value_type": condition_data["type"].lower(),
             }
             return output
 
 
-def get_conditions_for_action_and_raw_arn(action, raw_arn):
+def get_conditions_for_action_and_raw_arn(action: str, raw_arn: str) -> list[str]:
     """
     Get a list of conditions available to an action.
 
@@ -68,7 +72,7 @@ def get_conditions_for_action_and_raw_arn(action, raw_arn):
     return conditions
 
 
-def get_condition_keys_available_to_raw_arn(raw_arn):
+def get_condition_keys_available_to_raw_arn(raw_arn: str) -> list[str]:
     """
     Get a list of condition keys available to a RAW ARN
 
@@ -77,19 +81,19 @@ def get_condition_keys_available_to_raw_arn(raw_arn):
     Returns:
         List: A list of condition keys
     """
-    results = []
+    results = set()
     elements = raw_arn.split(":", 5)
     service_prefix = elements[2]
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"].values():
         if resource_data["arn"] == raw_arn:
-            results.extend(resource_data["condition_keys"])
-    results = list(dict.fromkeys(results))
-    return results
+            results.update(resource_data["condition_keys"])
+
+    return list(results)
 
 
 # pylint: disable=inconsistent-return-statements
-def get_condition_value_type(condition_key):
+def get_condition_value_type(condition_key: str) -> str | None:
     """
     Get the data type of the condition key - like Date, String, etc.
 
@@ -101,6 +105,10 @@ def get_condition_value_type(condition_key):
     service_prefix, condition_name = condition_key.split(":")
     service_prefix_data = get_service_prefix_data(service_prefix)
 
-    for condition_key_entry, condition_key_data in service_prefix_data["conditions"].items():
-        if is_condition_key_match(condition_key_data["condition"], condition_key):
+    for condition_key_entry, condition_key_data in service_prefix_data[
+        "conditions"
+    ].items():
+        if is_condition_key_match(condition_key_entry, condition_key):
             return condition_key_data["type"].lower()
+
+    return None

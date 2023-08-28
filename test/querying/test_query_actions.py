@@ -33,7 +33,9 @@ class QueryActionsTestCase(unittest.TestCase):
                 "service_authorization_url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloud9.html",
                 "prefix": "cloud9",
                 "privileges": dict,
+                "privileges_lower_name": dict,
                 "resources": dict,
+                "resources_lower_name": dict,
                 "conditions": dict
             }
         )
@@ -341,7 +343,7 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_matching_arn_type_case_2(self):
         """querying.actions.get_actions_matching_arn_type"""
         output = get_actions_matching_arn_type('all', 'object')
-        self.assertTrue('all:AbortMultipartUpload' in output)
+        self.assertTrue('s3:AbortMultipartUpload' in output)
 
     def test_get_actions_matching_arn_type_case_3(self):
         """querying.actions.get_actions_matching_arn_type"""
@@ -487,11 +489,11 @@ class QueryActionsTestCase(unittest.TestCase):
             get_dependent_actions(dependent_actions_single),
             ["iam:PassRole"],
         )
-        self.assertEqual(
+        self.assertCountEqual(
             get_dependent_actions(dependent_actions_double),
             ["s3:GetBucketPolicy", "s3:PutBucketPolicy"],
         )
-        self.assertEqual(
+        self.assertCountEqual(
             get_dependent_actions(dependent_actions_several),
             [
                 "s3:GetBucketAcl",
@@ -521,7 +523,7 @@ class QueryActionsTestCase(unittest.TestCase):
             provided_actions_list
         )
         self.maxDiff = None
-        self.assertListEqual(desired_output, output)
+        self.assertCountEqual(desired_output, output)
 
 
     def test_weird_lowercase_uppercase(self):
@@ -544,7 +546,7 @@ class QueryActionsTestCase(unittest.TestCase):
         )
         print(json.dumps(output))
         self.maxDiff = None
-        self.assertListEqual(desired_output, output)
+        self.assertCountEqual(desired_output, output)
 
     def test_get_actions_matching_arn(self):
         """querying.actions.get_actions_matching_arn"""

@@ -20,6 +20,8 @@ from policy_sentry.shared.constants import (
     BASE_DOCUMENTATION_URL,
     BUNDLED_HTML_DIRECTORY_PATH,
     BUNDLED_ACCESS_OVERRIDES_FILE,
+    POLICY_SENTRY_SCHEMA_VERSION_NAME,
+    POLICY_SENTRY_SCHEMA_VERSION_LATEST,
 )
 from policy_sentry.util.access_levels import determine_access_level_override
 from policy_sentry.util.file import read_yaml_file
@@ -162,7 +164,9 @@ def create_database(destination_directory, access_level_overrides_file):
     )
 
     # This holds the entire IAM definition
-    schema = {}
+    schema = {
+        POLICY_SENTRY_SCHEMA_VERSION_NAME: POLICY_SENTRY_SCHEMA_VERSION_LATEST
+    }
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
@@ -209,7 +213,9 @@ def create_database(destination_directory, access_level_overrides_file):
                     "prefix": service_prefix,
                     "service_authorization_url": service_authorization_url,
                     "privileges": {},
+                    "privileges_lower_name": {},  # used for faster lookups
                     "resources": {},
+                    "resources_lower_name": {},  # used for faster lookups
                     "conditions": {},
                 }
 
@@ -285,6 +291,7 @@ def create_database(destination_directory, access_level_overrides_file):
                     # else:
                     #     access_level = access_level
                     resource_types = {}
+                    resource_types_lower_name = {}
                     resource_cell = 3
 
                     while rowspan > 0:
@@ -322,6 +329,7 @@ def create_database(destination_directory, access_level_overrides_file):
                                 "condition_keys": condition_keys,
                                 "dependent_actions": dependent_actions,
                             }
+                            resource_types_lower_name[resource_type.lower()] = resource_type
                         rowspan -= 1
                         if rowspan > 0:
                             row_number += 1
@@ -337,10 +345,12 @@ def create_database(destination_directory, access_level_overrides_file):
                         "description": description,
                         "access_level": access_level,
                         "resource_types": resource_types,
+                        "resource_types_lower_name": resource_types_lower_name,
                         "api_documentation_link": api_documentation_link
                     }
 
                     schema[service_prefix]["privileges"][priv] = privilege_schema
+                    schema[service_prefix]["privileges_lower_name"][priv.lower()] = priv
                     row_number += 1
 
             # Get resource table
@@ -373,6 +383,7 @@ def create_database(destination_directory, access_level_overrides_file):
                         "arn": arn,
                         "condition_keys": conditions
                     }
+                    schema[service_prefix]["resources_lower_name"][resource.lower()] = resource
 
             # Get condition keys table
             for table in tables:
@@ -408,5 +419,5 @@ def create_database(destination_directory, access_level_overrides_file):
 
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
     with open(iam_definition_file, "w") as file:
-        json.dump(schema, file, indent=4)
+        json.dump(schema, file, indent=2)
     logger.info("Wrote IAM definition file to path: ", iam_definition_file)
