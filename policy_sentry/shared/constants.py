@@ -24,10 +24,8 @@ BASE_DOCUMENTATION_URL = "https://docs.aws.amazon.com/service-authorization/late
 
 # Data json file
 # On initialization, load the IAM data
-BUNDLED_DATASTORE_FILE_PATH = os.path.join(
-    str(Path(os.path.dirname(__file__))), "data", "iam-definition.json"
-)
-LOCAL_DATASTORE_FILE_PATH = os.path.join(CONFIG_DIRECTORY, "iam-definition.json")
+BUNDLED_DATASTORE_FILE_PATH = str(Path(__file__).parent / "data/iam-definition.json")
+LOCAL_DATASTORE_FILE_PATH = str(Path(CONFIG_DIRECTORY) / "iam-definition.json")
 # Check for the existence of the local datastore first.
 if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
     # If it exists, leverage that datastore instead of the one bundled with the python package
@@ -58,3 +56,9 @@ LOCAL_ACCESS_OVERRIDES_FILE = os.path.join(
 # Policy constants
 # https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html
 POLICY_LANGUAGE_VERSION = "2012-10-17"
+
+# IAM datastore schema versions
+POLICY_SENTRY_SCHEMA_VERSION_NAME = "policy_sentry_schema_version"
+POLICY_SENTRY_SCHEMA_VERSION_V1 = "v1"
+POLICY_SENTRY_SCHEMA_VERSION_V2 = "v2"
+POLICY_SENTRY_SCHEMA_VERSION_LATEST = POLICY_SENTRY_SCHEMA_VERSION_V2

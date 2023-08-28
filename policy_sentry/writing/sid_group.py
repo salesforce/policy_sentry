@@ -243,6 +243,7 @@ class SidGroup:
                         sids_to_be_changed.append(stmt["Sid"])
                         break
                 actions = list(dict.fromkeys(actions))  # remove duplicates
+            actions.sort()
             logger.debug(f"Adding statement with SID {sid}")
             logger.debug(f"{sid} SID has the actions: {actions}")
             logger.debug(f"{sid} SID has the resources: {group['arn']}")
