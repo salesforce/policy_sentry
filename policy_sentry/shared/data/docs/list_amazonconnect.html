@@ -18,7 +18,7 @@
   <meta content="Service Authorization Reference" name="guide"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
-  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="toc-contents.json;toc-list_amazonconnect.json" name="tocs"/>
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html" rel="canonical"/>
   <link href="https://docs.aws.amazon.com/id_id/service-authorization/latest/reference/list_amazonconnect.html" hreflang="id-id" rel="alternative"/>
   <link href="https://docs.aws.amazon.com/id_id/service-authorization/latest/reference/list_amazonconnect.html" hreflang="id" rel="alternative"/>
@@ -78,7 +78,6 @@
         <title>
          Actions, resources, and condition keys for Amazon Connect - Service Authorization Reference
         </title>
-        <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonconnect" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonconnect.html" name="feedback-yes"/>
@@ -109,20 +108,8 @@
       {
         "@type" : "ListItem",
         "position" : 4,
-        "name" : "Reference",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html"
-      },
-      {
-        "@type" : "ListItem",
-        "position" : 5,
-        "name" : "Actions, resources, and condition keys for AWS services",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
-      },
-      {
-        "@type" : "ListItem",
-        "position" : 6,
         "name" : "Actions, resources, and condition keys for Amazon Connect",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
+        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html"
       }
     ]
 }
@@ -131,8 +118,6 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonconnect" rel="noopener noreferrer" target="_blank" title="Open PDF">
-          </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
           <a href="https://aws.amazon.com">
@@ -144,7 +129,7 @@
           <a href="/iam/index.html">
            Service Authorization Reference
           </a>
-          <a href="reference.html">
+          <a href="list_amazonconnect.html">
            Service Authorization Reference
           </a>
          </div>
@@ -197,7 +182,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/">
-                API operations available for this          service
+                API operations available for this        service
                </a>
                .
               </p>
@@ -205,8 +190,8 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/console/connect/security/access-control/">
-                using          IAM
+               <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-iam.html">
+                using        IAM
                </a>
                permission policies.
               </p>
@@ -275,6 +260,32 @@
             </b>
             column of the Resource types table.
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <h6>
+              Note
+             </h6>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Resource condition keys are listed in the
+              <a href="#amazonconnect-resources-for-iam-policies">
+               Resource types
+              </a>
+              table. You        can find a link to the resource type that applies to an action in the
+              <b>
+               Resource          types (*required)
+              </b>
+              column of the Actions table. The resource type in the        Resource types table includes the
+              <b>
+               Condition keys
+              </b>
+              column, which are the        resource condition keys that apply to an action in the Actions table.
+             </p>
+            </div>
+           </div>
            <p>
             For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
@@ -284,7 +295,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d362c11c11">
+             <table id="w60aab7c11c13">
               <thead>
                <tr>
                 <th>
@@ -901,6 +912,87 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="4">
+                <a id="amazonconnect-AssociateTrafficDistributionGroupUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateTrafficDistributionGroupUser.html">
+                 AssociateTrafficDistributionGroupUser
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to associate a user to a traffic distribution group in the specified Amazon Connect instance
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+                <p>
+                 connect:DescribeUser
+                </p>
+                <p>
+                 connect:SearchUsers
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-user">
+                  user*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_SearchTag___TagKey_">
+                  connect:SearchTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-BatchAssociateAnalyticsDataSet">
                 </a>
@@ -1411,6 +1503,9 @@
                 </p>
                 <p>
                  wisdom:GetKnowledgeBase
+                </p>
+                <p>
+                 wisdom:TagResource
                 </p>
                </td>
               </tr>
@@ -4611,6 +4706,76 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="4">
+                <a id="amazonconnect-DisassociateTrafficDistributionGroupUser">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateTrafficDistributionGroupUser.html">
+                 DisassociateTrafficDistributionGroupUser
+                </a>
+               </td>
+               <td rowspan="4">
+                Grants permission to disassociate a user from a traffic distribution group in the specified Amazon Connect instance
+               </td>
+               <td rowspan="4">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonconnect-user">
+                  user*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td rowspan="2">
                 <a id="amazonconnect-DismissUserContact">
                 </a>
@@ -4866,7 +5031,7 @@
                <td>
                 <a id="amazonconnect-GetFederationTokens">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/emergency-admin-login.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetFederationToken.html">
                  GetFederationTokens
                 </a>
                </td>
@@ -6500,6 +6665,45 @@
                </td>
               </tr>
               <tr>
+               <td rowspan="2">
+                <a id="amazonconnect-ListTrafficDistributionGroupUsers">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTrafficDistributionGroupUsers.html">
+                 ListTrafficDistributionGroupUsers
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to list the active user associations for a traffic distribution group
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-traffic-distribution-group">
+                  traffic-distribution-group*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
                <td>
                 <a id="amazonconnect-ListTrafficDistributionGroups">
                 </a>
@@ -6833,32 +7037,27 @@
                </td>
               </tr>
               <tr>
-               <td>
+               <td rowspan="2">
                 <a id="amazonconnect-ReplicateInstance">
                 </a>
                 <a href="https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions">
                  ReplicateInstance
                 </a>
                </td>
-               <td>
+               <td rowspan="2">
                 Grants permission to create a replica of an Amazon Connect instance
                </td>
-               <td>
+               <td rowspan="2">
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
                </td>
                <td>
-                <p>
-                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonconnect-aws_TagKeys">
-                  aws:TagKeys
-                 </a>
-                </p>
                </td>
                <td>
                 <p>
@@ -6894,6 +7093,29 @@
                 <p>
                  iam:PutRolePolicy
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -7145,7 +7367,7 @@
                 </a>
                </td>
                <td rowspan="2">
-                Grants permission to search tags used in an Amazon Connect instance
+                Grants permission to search tags that are used in an Amazon Connect instance
                </td>
                <td rowspan="2">
                 List
@@ -9744,6 +9966,50 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="amazonconnect-UpdateRoutingProfileAgentAvailabilityTimer">
+                </a>
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileAgentAvailabilityTimer.html">
+                 UpdateRoutingProfileAgentAvailabilityTimer
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to update a routing profile agent availability timer in an Amazon Connect instance
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-routing-profile">
+                  routing-profile*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="amazonconnect-UpdateRoutingProfileConcurrency">
                 </a>
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileConcurrency.html">
@@ -10449,7 +10715,7 @@
             <a href="#amazonconnect-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
              Resource types table
             </a>
@@ -10457,7 +10723,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d362c13b5">
+             <table id="w60aab7c13b5">
               <thead>
                <tr>
                 <th>
@@ -11127,7 +11393,7 @@
                <td>
                 <a id="amazonconnect-legacy-phone-number">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ag-overview-numbers.html">
                  legacy-phone-number
                 </a>
                </td>
@@ -11163,7 +11429,7 @@
                <td>
                 <a id="amazonconnect-wildcard-legacy-phone-number">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ag-overview-numbers.html">
                  wildcard-legacy-phone-number
                 </a>
                </td>
@@ -11195,7 +11461,7 @@
                <td>
                 <a id="amazonconnect-phone-number">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ag-overview-numbers.html">
                  phone-number
                 </a>
                </td>
@@ -11232,7 +11498,7 @@
                <td>
                 <a id="amazonconnect-wildcard-phone-number">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ag-overview-numbers.html">
                  wildcard-phone-number
                 </a>
                </td>
@@ -11265,7 +11531,7 @@
                <td>
                 <a id="amazonconnect-integration-association">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_IntegrationAssociationSummary.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-rules.html">
                  integration-association
                 </a>
                </td>
@@ -11306,7 +11572,7 @@
                <td>
                 <a id="amazonconnect-use-case">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_UseCase.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/add-rules-task-creation.html">
                  use-case
                 </a>
                </td>
@@ -11347,7 +11613,7 @@
                <td>
                 <a id="amazonconnect-vocabulary">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/API_Vocabulary.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/add-custom-vocabulary.html">
                  vocabulary
                 </a>
                </td>
@@ -11388,7 +11654,7 @@
                <td>
                 <a id="amazonconnect-traffic-distribution-group">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/traffic-distribution-groups.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">
                  traffic-distribution-group
                 </a>
                </td>
@@ -11466,7 +11732,7 @@
                <td>
                 <a id="amazonconnect-evaluation-form">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/evaluation-form.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html">
                  evaluation-form
                 </a>
                </td>
@@ -11507,7 +11773,7 @@
                <td>
                 <a id="amazonconnect-contact-evaluation">
                 </a>
-                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-evaluation.html">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/evaluations.html">
                  contact-evaluation
                 </a>
                </td>
@@ -11611,7 +11877,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d362c15b7">
+             <table id="w60aab7c15b7">
               <thead>
                <tr>
                 <th>
@@ -11779,11 +12045,11 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_awsconfig.html" id="previous">
-             AWS Config
+            <div accesskey="p" class="prev-link" href="list_amazonconnect.previous" id="previous" target="_self">
+             Previous
             </div>
-            <div accesskey="n" class="next-link" href="./list_amazonconnectcases.html" id="next">
-             Amazon Connect Cases
+            <div accesskey="n" class="next-link" href="list_amazonconnect.next" id="next" target="_self">
+             Next
             </div>
            </div>
           </div>
