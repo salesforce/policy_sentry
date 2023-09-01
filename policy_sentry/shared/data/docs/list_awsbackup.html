@@ -275,6 +275,32 @@
             </b>
             column of the Resource types table.
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <h6>
+              Note
+             </h6>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Resource condition keys are listed in the
+              <a href="#awsbackup-resources-for-iam-policies">
+               Resource types
+              </a>
+              table. You        can find a link to the resource type that applies to an action in the
+              <b>
+               Resource          types (*required)
+              </b>
+              column of the Actions table. The resource type in the        Resource types table includes the
+              <b>
+               Condition keys
+              </b>
+              column, which are the        resource condition keys that apply to an action in the Actions table.
+             </p>
+            </div>
+           </div>
            <p>
             For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
@@ -284,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d135c11c11">
+             <table id="w43aab5b9d135c11c13">
               <thead>
                <tr>
                 <th>
@@ -599,6 +625,60 @@
               </tr>
               <tr>
                <td rowspan="2">
+                <a id="awsbackup-CreateLogicallyAirGappedBackupVault">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateLogicallyAirGappedBackupVault.html">
+                 CreateLogicallyAirGappedBackupVault
+                </a>
+               </td>
+               <td rowspan="2">
+                This request grants permission to create a new logically air-gapped backup vault, a logical container where backups are stored
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-backupVault">
+                  backupVault*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbackup-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbackup-backup_MinRetentionDays">
+                  backup:MinRetentionDays
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbackup-backup_MaxRetentionDays">
+                  backup:MaxRetentionDays
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
                 <a id="awsbackup-CreateReportPlan">
                 </a>
                 <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateReportPlan.html">
@@ -789,6 +869,33 @@
                </td>
                <td>
                 Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-backupVault">
+                  backupVault*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbackup-DeleteBackupVaultSharingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html">
+                 DeleteBackupVaultSharingPolicy
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to delete backup vault sharing policy
+               </td>
+               <td>
+                Permissions management
                </td>
                <td>
                 <p>
@@ -1352,6 +1459,33 @@
               </tr>
               <tr>
                <td>
+                <a id="awsbackup-GetBackupVaultSharingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html">
+                 GetBackupVaultSharingPolicy
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to get backup vault sharing policy
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-backupVault">
+                  backupVault*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="awsbackup-GetLegalHold">
                 </a>
                 <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_GetLegalHold.html">
@@ -1637,6 +1771,32 @@
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbackup-ListProtectedResourcesByBackupVault">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListProtectedResourcesByBackupVault.html">
+                 ListProtectedResourcesByBackupVault
+                </a>
+               </td>
+               <td>
+                Grants permission to list protected resources inside a backup vault
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-backupVault">
+                  backupVault*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1931,6 +2091,16 @@
                   backup:ChangeableForDays
                  </a>
                 </p>
+                <p>
+                 <a href="#awsbackup-backup_MinRetentionDays">
+                  backup:MinRetentionDays
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbackup-backup_MaxRetentionDays">
+                  backup:MaxRetentionDays
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -1948,6 +2118,33 @@
                </td>
                <td>
                 Write
+               </td>
+               <td>
+                <p>
+                 <a href="#awsbackup-backupVault">
+                  backupVault*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbackup-PutBackupVaultSharingPolicy">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html">
+                 PutBackupVaultSharingPolicy
+                </a>
+                [permission only]
+               </td>
+               <td>
+                Grants permission to add a sharing policy to the backup vault
+               </td>
+               <td>
+                Permissions management
                </td>
                <td>
                 <p>
@@ -2881,6 +3078,36 @@
                </td>
                <td>
                 ArrayOfARN
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbackup-backup_MaxRetentionDays">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#amazon-backup-keys">
+                 backup:MaxRetentionDays
+                </a>
+               </td>
+               <td>
+                Filters access by the value of the MaxRetentionDays parameter
+               </td>
+               <td>
+                Numeric
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="awsbackup-backup_MinRetentionDays">
+                </a>
+                <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#amazon-backup-keys">
+                 backup:MinRetentionDays
+                </a>
+               </td>
+               <td>
+                Filters access by the value of the MinRetentionDays parameter
+               </td>
+               <td>
+                Numeric
                </td>
               </tr>
              </table>

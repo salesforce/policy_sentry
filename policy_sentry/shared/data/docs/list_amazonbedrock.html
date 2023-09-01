@@ -275,6 +275,32 @@
             </b>
             column of the Resource types table.
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <h6>
+              Note
+             </h6>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Resource condition keys are listed in the
+              <a href="#amazonbedrock-resources-for-iam-policies">
+               Resource types
+              </a>
+              table. You        can find a link to the resource type that applies to an action in the
+              <b>
+               Resource          types (*required)
+              </b>
+              column of the Actions table. The resource type in the        Resource types table includes the
+              <b>
+               Condition keys
+              </b>
+              column, which are the        resource condition keys that apply to an action in the Actions table.
+             </p>
+            </div>
+           </div>
            <p>
             For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
@@ -284,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d151c11c11">
+             <table id="w43aab5b9d151c11c13">
               <thead>
                <tr>
                 <th>
@@ -307,6 +333,123 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonbedrock-CreateAgent">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAgent
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version
+               </td>
+               <td rowspan="2">
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent-alias">
+                  agent-alias*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-CreateAgentActionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAgentActionGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new action group in an existing agent
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-CreateAgentAlias">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAgentAlias
+                </a>
+               </td>
+               <td>
+                Grants permission to create a new alias for an agent
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent-alias">
+                  agent-alias*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-CreateAgentDraftSnapshot">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAgentDraftSnapshot
+                </a>
+               </td>
+               <td>
+                Grants permission to create a draft version snapshot for an agent
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
               <tr>
                <td rowspan="4">
                 <a id="amazonbedrock-CreateModelCustomizationJob">
@@ -405,19 +548,102 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonbedrock-DeletePrompt">
+                <a id="amazonbedrock-GetAgent">
                 </a>
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeletePrompt.html">
-                 DeletePrompt
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAgent
                 </a>
                </td>
                <td>
-                Grants permission to delete a saved prompt
+                Grants permission to retrieve an existing agent
                </td>
                <td>
-                Write
+                Read
                </td>
                <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-GetAgentActionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAgentActionGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an existing action group
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-GetAgentAlias">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAgentAlias
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an existing alias
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent-alias">
+                  agent-alias*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-GetAgentVersion">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAgentVersion
+                </a>
+               </td>
+               <td>
+                Grants permission to retrieve an existing version of an agent
+               </td>
+               <td>
+                Read
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -478,19 +704,24 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonbedrock-GetPrompt">
+                <a id="amazonbedrock-InvokeAgent">
                 </a>
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetPrompt.html">
-                 GetPrompt
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 InvokeAgent
                 </a>
                </td>
                <td>
-                Grants permission to get a saved prompt
+                Grants permission to send user input (text-only) to the alias of an agent for Bedrock
                </td>
                <td>
-                Read
+                Write
                </td>
                <td>
+                <p>
+                 <a href="#amazonbedrock-agent-alias">
+                  agent-alias*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -577,6 +808,105 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonbedrock-ListAgentActionGroups">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAgentActionGroups
+                </a>
+               </td>
+               <td>
+                Grants permission to list action groups in an agent
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-ListAgentAliases">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAgentAliases
+                </a>
+               </td>
+               <td>
+                Grants permission to list aliases for an agent
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-ListAgentVersions">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAgentVersions
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing versions of an agent
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-ListAgents">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAgents
+                </a>
+               </td>
+               <td>
+                Grants permission to list existing agents
+               </td>
+               <td>
+                List
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonbedrock-ListCustomModels">
                 </a>
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html">
@@ -639,27 +969,6 @@
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonbedrock-ListPrompts">
-                </a>
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListPrompts.html">
-                 ListPrompts
-                </a>
-               </td>
-               <td>
-                Grants permission to lists all prompts saved to a playground
-               </td>
-               <td>
-                List
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-               <td>
-               </td>
-              </tr>
-              <tr>
                <td rowspan="2">
                 <a id="amazonbedrock-ListTagsForResource">
                 </a>
@@ -671,7 +980,7 @@
                 Grants permission to list tags for a Bedrock resource
                </td>
                <td rowspan="2">
-                List
+                Read
                </td>
                <td>
                 <p>
@@ -835,19 +1144,76 @@
               </tr>
               <tr>
                <td>
-                <a id="amazonbedrock-UpdatePrompt">
+                <a id="amazonbedrock-UpdateAgent">
                 </a>
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdatePrompt.html">
-                 UpdatePrompt
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAgent
                 </a>
                </td>
                <td>
-                Grants permission to updates a saved prompt
+                Grants permission to update an existing agent
                </td>
                <td>
                 Write
                </td>
                <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-UpdateAgentActionGroup">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAgentActionGroup
+                </a>
+               </td>
+               <td>
+                Grants permission to update an existing action group
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-UpdateAgentAlias">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAgentAlias
+                </a>
+               </td>
+               <td>
+                Grants permission to update an existing alias
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonbedrock-agent-alias">
+                  agent-alias*
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -993,6 +1359,74 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-agent">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 agent
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:agent/$
+                 <span>
+                  {
+                 </span>
+                 AgentId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonbedrock-agent-alias">
+                </a>
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 agent-alias
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:agent-alias/$
+                 <span>
+                  {
+                 </span>
+                 AgentId}/$
+                 <span>
+                  {
+                 </span>
+                 AgentAliasId}
+                </code>
+               </td>
+               <td>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1115,7 +1549,7 @@
             <div accesskey="p" class="prev-link" href="./list_awsbatch.html" id="previous">
              AWS Batch
             </div>
-            <div accesskey="n" class="next-link" href="./list_awsbilling_.html" id="next">
+            <div accesskey="n" class="next-link" href="./list_awsbilling.html" id="next">
              AWS Billing and Cost Management
             </div>
            </div>

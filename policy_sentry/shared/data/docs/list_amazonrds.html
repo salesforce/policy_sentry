@@ -260,6 +260,32 @@
             </b>
             column of the Resource types table.
            </p>
+           <div class="awsdocs-note">
+            <div class="awsdocs-note-title">
+             <awsui-icon name="status-info" variant="link">
+             </awsui-icon>
+             <h6>
+              Note
+             </h6>
+            </div>
+            <div class="awsdocs-note-text">
+             <p>
+              Resource condition keys are listed in the
+              <a href="#amazonrds-resources-for-iam-policies">
+               Resource types
+              </a>
+              table. You        can find a link to the resource type that applies to an action in the
+              <b>
+               Resource          types (*required)
+              </b>
+              column of the Actions table. The resource type in the        Resource types table includes the
+              <b>
+               Condition keys
+              </b>
+              column, which are the        resource condition keys that apply to an action in the Actions table.
+             </p>
+            </div>
+           </div>
            <p>
             For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#actions_table" rel="noopener noreferrer" target="_blank">
@@ -269,7 +295,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w55aab7c11c11">
+             <table id="w60aab7c11c13">
               <thead>
                <tr>
                 <th>
@@ -2421,6 +2447,32 @@
               </tr>
               <tr>
                <td>
+                <a id="amazonrds-DeleteDBClusterAutomatedBackup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterAutomatedBackup.html">
+                 DeleteDBClusterAutomatedBackup
+                </a>
+               </td>
+               <td>
+                Grants permission to delete cluster automated backups based on the source cluster's DbClusterResourceId value or the restorable cluster's resource ID
+               </td>
+               <td>
+                Write
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster-auto-backup">
+                  cluster-auto-backup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
                 <a id="amazonrds-DeleteDBClusterEndpoint">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterEndpoint.html">
@@ -2532,7 +2584,7 @@
                 </a>
                </td>
                <td>
-                Grants permission to deletes automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID
+                Grants permission to delete automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID
                </td>
                <td>
                 Write
@@ -2905,6 +2957,45 @@
                 List
                </td>
                <td>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td rowspan="2">
+                <a id="amazonrds-DescribeDBClusterAutomatedBackups">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterAutomatedBackups.html">
+                 DescribeDBClusterAutomatedBackups
+                </a>
+               </td>
+               <td rowspan="2">
+                Grants permission to return a list of cluster automated backups for both current and deleted clusters
+               </td>
+               <td rowspan="2">
+                List
+               </td>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster-auto-backup">
+                  cluster-auto-backup*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster
+                 </a>
+                </p>
                </td>
                <td>
                </td>
@@ -5829,17 +5920,17 @@
                </td>
               </tr>
               <tr>
-               <td rowspan="5">
+               <td rowspan="6">
                 <a id="amazonrds-RestoreDBClusterToPointInTime">
                 </a>
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html">
                  RestoreDBClusterToPointInTime
                 </a>
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Grants permission to restore a DB cluster to an arbitrary point in time
                </td>
-               <td rowspan="5">
+               <td rowspan="6">
                 Write
                </td>
                <td>
@@ -5894,6 +5985,19 @@
                 <p>
                  <a href="#amazonrds-subgrp">
                   subgrp*
+                 </a>
+                </p>
+               </td>
+               <td>
+               </td>
+               <td>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <p>
+                 <a href="#amazonrds-cluster-auto-backup">
+                  cluster-auto-backup
                  </a>
                 </p>
                </td>
@@ -6667,7 +6771,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w55aab7c13b5">
+             <table id="w60aab7c13b5">
               <thead>
                <tr>
                 <th>
@@ -6721,6 +6825,38 @@
                   rds:cluster-tag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td>
+                <a id="amazonrds-cluster-auto-backup">
+                </a>
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html">
+                 cluster-auto-backup
+                </a>
+               </td>
+               <td>
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:cluster-auto-backup:$
+                 <span>
+                  {
+                 </span>
+                 DbClusterAutomatedBackupId}
+                </code>
+               </td>
+               <td>
                </td>
               </tr>
               <tr>
@@ -7499,7 +7635,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w55aab7c15b7">
+             <table id="w60aab7c15b7">
               <thead>
                <tr>
                 <th>
