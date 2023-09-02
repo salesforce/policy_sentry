@@ -1,13 +1,18 @@
 """
 Functions that relate to manipulating files, loading files, and managing filepaths.
 """
+from __future__ import annotations
+
 import logging
+from pathlib import Path
+from typing import Any, cast
+
 import yaml
 
 logger = logging.getLogger(__name__)
 
 
-def read_yaml_file(filename):
+def read_yaml_file(filename: str | Path) -> dict[str, Any]:
     """
     Reads a YAML file, safe loads, and returns the dictionary
 
@@ -16,7 +21,7 @@ def read_yaml_file(filename):
     """
     with open(filename, "r") as yaml_file:
         try:
-            cfg = yaml.safe_load(yaml_file)
+            cfg = cast("dict[str, Any]", yaml.safe_load(yaml_file))
         except yaml.YAMLError as exc:
             logger.critical(exc)
     return cfg
