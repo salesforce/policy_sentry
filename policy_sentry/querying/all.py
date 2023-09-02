@@ -68,7 +68,7 @@ def get_all_actions_v2(
     :param lowercase: Set to true to have the list of actions be in all lowercase strings.
     :return: A list of all actions present in the database.
     """
-    all_actions = set()
+    all_actions: set[str] = set()
 
     for service_prefix in all_service_prefixes:
         service_prefix_data = get_service_prefix_data(service_prefix)
@@ -88,5 +88,5 @@ def get_service_authorization_url(service_prefix: str) -> str | None:
     """
     Gets the URL to the Actions, Resources, and Condition Keys page for a particular service.
     """
-    result = iam_definition.get(service_prefix, {}).get("service_authorization_url")
+    result: str = iam_definition.get(service_prefix, {}).get("service_authorization_url")
     return result
