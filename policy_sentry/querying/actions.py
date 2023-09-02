@@ -44,7 +44,7 @@ def get_actions_for_service(service_prefix: str) -> list[str]:
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
-    if isinstance(service_prefix_data, dict):
+    if service_prefix_data and isinstance(service_prefix_data, dict):
         results = [
             f"{service_prefix}:{item}" for item in service_prefix_data["privileges"]
         ]
@@ -406,6 +406,9 @@ def get_actions_matching_arn_v2(arn: str) -> list[str]:
     results = set()
     for raw_arn in raw_arns:
         resource_type_name = get_resource_type_name_with_raw_arn(raw_arn)
+        if resource_type_name is None:
+            continue
+
         service_prefix = get_service_from_arn(raw_arn)
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
@@ -415,7 +418,7 @@ def get_actions_matching_arn_v2(arn: str) -> list[str]:
     return list(results)
 
 
-def get_actions_matching_condition_key(service_prefix: str, condition_key: str):
+def get_actions_matching_condition_key(service_prefix: str, condition_key: str) -> list[str]:
     """
     Get a list of actions under a service that allow the use of a specified condition key
 
@@ -610,7 +613,7 @@ def get_privilege_info(service_prefix: str, action: str) -> dict[str, Any]:
         List: The info from the docs about that action, along with some of the info from the docs
     """
     try:
-        privilege_info = iam_definition[service_prefix]["privileges"][action]
+        privilege_info: dict[str, Any] = iam_definition[service_prefix]["privileges"][action]
         privilege_info["service_resources"] = iam_definition[service_prefix][
             "resources"
         ]
@@ -637,22 +640,22 @@ def get_api_documentation_link_for_action(
         List: Link to the documentation about that API call
     """
     rows = get_action_data(service_prefix, action_name)
-    for row in rows.get(service_prefix):
-        doc_link = row.get("api_documentation_link")
+    for row in rows.get(service_prefix, []):
+        doc_link: str | None = row.get("api_documentation_link")
         if doc_link:
             return doc_link
     return None
 
 
 @functools.lru_cache(maxsize=1024)
-def get_all_action_links() -> dict[str, str]:
+def get_all_action_links() -> dict[str, str | None]:
     """
     Gets a huge list of the links to all AWS IAM actions. This is meant for use by Cloudsplaining.
 
     :return: A dictionary of all actions present in the database, with the values being the API documentation links.
     """
     all_actions = get_all_actions()
-    results = {}
+    results: dict[str, str | None] = {}
     for action in all_actions:
         try:
             service_prefix, action_name = action.split(":")

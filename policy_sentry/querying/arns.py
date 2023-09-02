@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import functools
 import warnings
-from typing import Any
+from typing import Any, cast
 
 from policy_sentry.querying.arns_v1 import get_arn_type_details_v1
 from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
@@ -146,7 +146,7 @@ def get_resource_type_name_with_raw_arn(raw_arn: str) -> str | None:
 
     for resource_name, resource_data in service_data["resources"].items():
         if resource_data["arn"].lower() == raw_arn.lower():
-            return resource_name
+            return cast("str", resource_name)
 
     return None
 

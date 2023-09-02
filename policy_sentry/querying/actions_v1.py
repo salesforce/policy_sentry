@@ -227,6 +227,9 @@ def get_actions_matching_arn_v1(arn: str) -> list[str]:
     results = []
     for raw_arn in raw_arns:
         resource_type_name = get_resource_type_name_with_raw_arn(raw_arn)
+        if resource_type_name is None:
+            continue
+
         service_prefix = get_service_from_arn(raw_arn)
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
