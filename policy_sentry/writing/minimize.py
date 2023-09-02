@@ -90,9 +90,19 @@ def minimize_statement_actions(
     This is a condensed version of policyuniverse's minimize_statement_actions, changed for our purposes.
     https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L123
     """
-    desired_actions = [x.lower() for x in desired_actions]
     minimized_actions = set()
-    denied_prefixes = get_denied_prefixes_from_desired(desired_actions, all_actions)
+
+    desired_actions = [x.lower() for x in desired_actions]
+    desired_services = {f"{action.split(':')[0]}:" for action in desired_actions}
+    filtered_actions = {
+        action
+        for action in all_actions
+        if any(action.startswith(service) for service in desired_services)
+    }
+
+    denied_prefixes = get_denied_prefixes_from_desired(
+        desired_actions, filtered_actions
+    )
     for action in desired_actions:
         if action in denied_prefixes:
             # print("Action is a denied prefix. Action: {}".format(action))
