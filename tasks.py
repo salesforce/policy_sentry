@@ -247,7 +247,7 @@ def run_linter(c):
 def run_mypy(c):
     """Type checking with `mypy`"""
     try:
-        c.run('mypy policy_sentry/')
+        c.run('mypy')
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")
         sys.exit(1)

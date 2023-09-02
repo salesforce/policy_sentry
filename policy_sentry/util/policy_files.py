@@ -1,15 +1,20 @@
 """A few methods for parsing policies."""
+from __future__ import annotations
+
 import json
 import logging
-from operator import itemgetter
+from pathlib import Path
+from typing import Any
+
+
 from policy_sentry.querying.actions import get_action_data
 
 logger = logging.getLogger(__name__)
 
 
-def get_actions_from_statement(statement):
+def get_actions_from_statement(statement: dict[str, Any]) -> list[str]:
     """Given a statement dictionary, create a list of the actions"""
-    actions_list = []
+    actions_list: list[str] = []
     # We only want to evaluate policies that have Effect = "Allow"
     if statement.get("Effect") == "Deny":
         return actions_list
@@ -30,7 +35,7 @@ def get_actions_from_statement(statement):
 
 
 # pylint: disable=too-many-branches,too-many-statements
-def get_actions_from_policy(data):
+def get_actions_from_policy(data: dict[str, Any]) -> list[str]:
     """Given a policy dictionary, create a list of the actions"""
     actions_list = []
     statement_clause = data.get("Statement")
@@ -43,22 +48,20 @@ def get_actions_from_policy(data):
             actions_list.extend(get_actions_from_statement(statement))
     else:
         logger.critical("Unknown error: The 'Statement' is neither a dict nor a list")
-    actions_list = [x.lower() for x in actions_list]
 
     new_actions_list = []
     for action in actions_list:
         service, action_name = action.split(":")
         action_data = get_action_data(service, action_name)
-        if service in action_data:
-            if action_data[service]:
-                new_actions_list.append(action_data[service][0]["action"])
+        if service in action_data and action_data[service]:
+            new_actions_list.append(action_data[service][0]["action"])
 
     new_actions_list.sort()
     return new_actions_list
 
 
 # pylint: disable=too-many-branches,too-many-statements
-def get_actions_from_json_policy_file(file):
+def get_actions_from_json_policy_file(file: str | Path) -> list[str]:
     """
     read the json policy file and return a list of actions
     """
@@ -77,17 +80,23 @@ def get_actions_from_json_policy_file(file):
     return actions_list
 
 
-def get_sid_names_from_policy(policy_json):
+def get_sid_names_from_policy(policy_json: dict[str, Any]) -> list[str]:
     """
     Given a Policy JSON, get a list of the Statement IDs. This is helpful in unit tests.
     """
-    sid_names = list(map(itemgetter("Sid"), policy_json.get("Statement")))
+    sid_names = [
+        statement["Sid"]
+        for statement in policy_json.get("Statement", [])
+        if "Sid" in statement
+    ]
     return sid_names
 
 
-def get_statement_from_policy_using_sid(policy_json, sid):
+def get_statement_from_policy_using_sid(
+    policy_json: dict[str, Any], sid: str
+) -> dict[str, Any] | None:
     """
     Helper function to get a statement just by providing the policy JSON and the Statement ID
     """
-    res = next((sub for sub in policy_json["Statement"] if sub['Sid'] == sid), None)
+    res = next((sub for sub in policy_json["Statement"] if sub.get("Sid") == sid), None)
     return res
