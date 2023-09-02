@@ -28,23 +28,22 @@ def translate_condition_key_data_types(condition_str: str) -> str:
         raise Exception(f"Unknown data format: {condition_lowercase}")
 
 
-def get_service_from_condition_key(condition_key):
+def get_service_from_condition_key(condition_key: str) -> str:
     """Given a condition key, return the service prefix"""
-    elements = condition_key.split(":", 2)
-    return elements[0]
+    return condition_key.split(":", 2)[0]
 
 
-def get_comma_separated_condition_keys(condition_keys):
+def get_comma_separated_condition_keys(condition_keys: str) -> str:
     """
     :param condition_keys: String containing multiple condition keys, separated by double spaces
     :return: result: String containing multiple condition keys, comma-separated
     """
 
-    result = condition_keys.replace("  ", ",")  # replace the double spaces with a comma
-    return result
+    # replace the double spaces with a comma
+    return condition_keys.replace("  ", ",")
 
 
-def is_condition_key_match(document_key, some_str):
+def is_condition_key_match(document_key: str, some_str: str) -> bool:
     """ Given a documented condition key and one from a policy, determine if they match
     Examples:
     - s3:prefix and s3:prefix obviously match

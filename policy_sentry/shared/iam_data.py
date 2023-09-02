@@ -22,11 +22,13 @@ iam_definition = json.loads(Path(iam_definition_path).read_bytes())
 
 @functools.lru_cache(maxsize=1)
 def get_iam_definition_schema_version() -> str:
-    return iam_definition.get(POLICY_SENTRY_SCHEMA_VERSION_NAME, POLICY_SENTRY_SCHEMA_VERSION_V1)
+    return iam_definition.get(
+        POLICY_SENTRY_SCHEMA_VERSION_NAME, POLICY_SENTRY_SCHEMA_VERSION_V1
+    )
 
 
 @functools.lru_cache(maxsize=1024)
-def get_service_prefix_data(service_prefix: str) -> dict[str, Any] | None:
+def get_service_prefix_data(service_prefix: str) -> dict[str, Any]:
     """
     Given an AWS service prefix, return a large dictionary of IAM privilege data for processing and analysis.
 
@@ -41,5 +43,5 @@ def get_service_prefix_data(service_prefix: str) -> dict[str, Any] | None:
         return result
     # pylint: disable=bare-except, inconsistent-return-statements
     except:
-        logger.debug("Service prefix not %s found.", service_prefix)
-        return None
+        logger.info(f"Service prefix not {service_prefix} found.")
+        return {}

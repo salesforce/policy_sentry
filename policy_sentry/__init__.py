@@ -1,4 +1,6 @@
 # pylint: disable=missing-module-docstring
+from __future__ import annotations
+
 import logging
 from logging import NullHandler
 
@@ -6,7 +8,11 @@ from logging import NullHandler
 logging.getLogger(__name__).addHandler(NullHandler())
 
 
-def set_stream_logger(name='policy_sentry', level=logging.DEBUG, format_string=None):
+def set_stream_logger(
+    name: str = "policy_sentry",
+    level: int = logging.DEBUG,
+    format_string: str | None = None,
+) -> None:
     """
     Add a stream handler for the given name and level to the logging module.
     By default, this logs all policy_sentry messages to ``stdout``.

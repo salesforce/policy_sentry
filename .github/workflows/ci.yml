@@ -31,6 +31,7 @@ jobs:
 
       - run: invoke build.install-package
       - run: invoke test.format
+      - run: invoke test.type-check
       - run: invoke integration.clean
       - run: invoke integration.version
       - run: invoke integration.initialize
