@@ -44,7 +44,7 @@ def get_comma_separated_condition_keys(condition_keys: str) -> str:
 
 
 def is_condition_key_match(document_key: str, some_str: str) -> bool:
-    """ Given a documented condition key and one from a policy, determine if they match
+    """Given a documented condition key and one from a policy, determine if they match
     Examples:
     - s3:prefix and s3:prefix obviously match
     - s3:ExistingObjectTag/<key> and s3:ExistingObjectTag/backup match
