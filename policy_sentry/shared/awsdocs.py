@@ -8,14 +8,18 @@ We store the HTML files in this manner so that the user can be more confident in
 that it has not been altered in any way. The user can reproduce our steps with the original content at any time,
 or update the HTML files on their own.
 """
+from __future__ import annotations
 
 import os
 import logging
 import re
 import json
 from pathlib import Path
+from typing import Any
+
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag, PageElement
+
 from policy_sentry.shared.constants import (
     BASE_DOCUMENTATION_URL,
     BUNDLED_HTML_DIRECTORY_PATH,
@@ -29,7 +33,7 @@ from policy_sentry.util.file import read_yaml_file
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
-def header_matches(string, table):
+def header_matches(string: str, table: Tag) -> bool:
     """checks if the string is found in the table header"""
     headers = [chomp(str(x)).lower() for x in table.find_all("th")]
     match_found = False
@@ -42,19 +46,20 @@ def header_matches(string, table):
     return True
 
 
-def get_links_from_base_actions_resources_conditions_page():
+def get_links_from_base_actions_resources_conditions_page() -> list[str]:
     """Gets the links from the actions, resources, and conditions keys page, and returns their filenames."""
     html = requests.get(BASE_DOCUMENTATION_URL, timeout=300)
     soup = BeautifulSoup(html.content, "html.parser")
     html_filenames = []
-    for i in soup.find("div", {"class": "highlights"}).findAll("a"):
-        html_filenames.append(i["href"])
+    div = soup.find("div", {"class": "highlights"})
+    if isinstance(div, Tag):
+        html_filenames = [elem["href"] for elem in div.findAll("a")]
     return html_filenames
 
 
 def get_action_access_level_overrides_from_yml(
-    service, access_level_overrides_file_path=None
-):
+    service: str, access_level_overrides_file_path: str | Path | None = None
+) -> dict[str, list[str]] | None:
     """
     Read the YML overrides file, which is formatted like:
         ['ec2']['permissions-management'][action_name].
@@ -63,21 +68,26 @@ def get_action_access_level_overrides_from_yml(
     """
     if not access_level_overrides_file_path:
         access_level_overrides_file_path = BUNDLED_ACCESS_OVERRIDES_FILE
-    cfg = read_yaml_file(access_level_overrides_file_path)
+
+    cfg: dict[str, dict[str, list[str]]] = read_yaml_file(
+        access_level_overrides_file_path
+    )
     if service in cfg:
         return cfg[service]
-    else:
-        return False
+
+    return None
 
 
-def update_html_docs_directory(html_docs_destination):
+def update_html_docs_directory(html_docs_destination: str) -> None:
     """
     Updates the HTML docs from remote location to either:
     (1) local directory (i.e., this repository, or
     (2) the config directory
     :return:
     """
-    link_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference/"
+    link_url_prefix = (
+        "https://docs.aws.amazon.com/service-authorization/latest/reference/"
+    )
     initial_html_filenames_list = (
         get_links_from_base_actions_resources_conditions_page()
     )
@@ -87,7 +97,9 @@ def update_html_docs_directory(html_docs_destination):
     # html_filenames = [sub.replace(".html", ".partial.html") for sub in html_filenames]
 
     for page in html_filenames:
-        response = requests.get(link_url_prefix + page, allow_redirects=False, timeout=300)
+        response = requests.get(
+            link_url_prefix + page, allow_redirects=False, timeout=300
+        )
         # Replace the CSS stuff. Basically this:
         """
         <link href='href="https://docs.aws.amazon.com/images/favicon.ico"' rel="icon" type="image/ico"/>
@@ -130,26 +142,19 @@ def update_html_docs_directory(html_docs_destination):
 
 # Borrowed from Parliament:
 # https://github.com/duo-labs/parliament/commit/2979e131ff3af9c79137817eaa57a05ae5007706#diff-1669fdcc34b13c17017fb2aae433801dR22
-def chomp(string):
+def chomp(string: str) -> str:
     """This chomp cleans up all white-space, not just at the ends"""
-    string = str(string)
-    response = string.replace("\n", " ")  # Convert line ends to spaces
-    response = re.sub(
-        " [ ]*", " ", response
-    )  # Truncate multiple spaces to single space
-    response = re.sub("^[ ]*", "", response)  # Clean start
-    return re.sub("[ ]*$", "", response)  # Clean end
+    return " ".join(str(string).split())
 
 
-def no_white_space(string):
+def no_white_space(string: str) -> str:
     """Remove all whitespaces"""
-    string = str(string)
-    response = string.replace("\n", "")  # Convert line ends to spaces
-    response = re.sub("[ ]*", "", response)
-    return response
+    return "".join(str(string).split())
 
 
-def create_database(destination_directory, access_level_overrides_file):
+def create_database(
+    destination_directory: str, access_level_overrides_file: str
+) -> None:
     """
     Create the JSON Data source that holds the IAM data.
 
@@ -159,12 +164,10 @@ def create_database(destination_directory, access_level_overrides_file):
     """
 
     # Create the docs directory if it doesn't exist
-    Path(os.path.join(destination_directory, "docs")).mkdir(
-        parents=True, exist_ok=True
-    )
+    Path(os.path.join(destination_directory, "docs")).mkdir(parents=True, exist_ok=True)
 
     # This holds the entire IAM definition
-    schema = {
+    schema: dict[str, Any] = {
         POLICY_SENTRY_SCHEMA_VERSION_NAME: POLICY_SENTRY_SCHEMA_VERSION_LATEST
     }
 
@@ -183,21 +186,29 @@ def create_database(destination_directory, access_level_overrides_file):
         with open(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename), "r") as f:
             soup = BeautifulSoup(f.read(), "html.parser")
             main_content = soup.find(id="main-content")
-            if main_content is None:
+            if not isinstance(main_content, Tag):
                 continue
 
             # Get service name
-            title = main_content.find("h1", class_="topictitle").text
-            title = re.sub(
-                ".*Actions, resources, and condition Keys for *", "", str(title),
-                flags=re.IGNORECASE
-            )
+            topic_title = main_content.find("h1", class_="topictitle")
+            if not isinstance(topic_title, PageElement):
+                continue
 
+            title = re.sub(
+                ".*Actions, resources, and condition Keys for *",
+                "",
+                topic_title.text,
+                flags=re.IGNORECASE,
+            )
             title = title.replace("</h1>", "")
             service_name = chomp(title)
 
             service_prefix = ""
-            for c in main_content.find("h1", class_="topictitle").parent.children:
+            title_parent = topic_title.parent
+            if title_parent is None:
+                continue
+
+            for c in title_parent.children:
                 if "prefix" in str(c):
                     service_prefix = str(c)
                     service_prefix = service_prefix.split('<code class="code">')[1]
@@ -206,8 +217,12 @@ def create_database(destination_directory, access_level_overrides_file):
 
             if service_prefix not in schema:
                 # The URL to that service's Actions, Resources, and Condition Keys page
-                service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
-                service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
+                service_authorization_url_prefix = (
+                    "https://docs.aws.amazon.com/service-authorization/latest/reference"
+                )
+                service_authorization_url = (
+                    f"{service_authorization_url_prefix}/{filename}"
+                )
                 schema[service_prefix] = {
                     "service_name": service_name,
                     "prefix": service_prefix,
@@ -228,7 +243,9 @@ def create_database(destination_directory, access_level_overrides_file):
             for table in tables:
                 # There can be 3 tables, the actions table, an ARN table, and a condition key table
                 # Example: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssecuritytokenservice.html
-                if not header_matches("actions", table) or not header_matches("description", table):
+                if not header_matches("actions", table) or not header_matches(
+                    "description", table
+                ):
                     continue
 
                 rows = table.find_all("tr")
@@ -260,7 +277,7 @@ def create_database(destination_directory, access_level_overrides_file):
                             api_documentation_link = None
                             continue
                         else:
-                            api_documentation_link = link.attrs.get('href')
+                            api_documentation_link = link.attrs.get("href")
                             logger.debug(api_documentation_link)
                         priv = chomp(link.text)
                     if priv == "":
@@ -273,10 +290,10 @@ def create_database(destination_directory, access_level_overrides_file):
                     # in the overrides YML file
                     if access_level_overrides_cfg:
                         override_result = determine_access_level_override(
-                            service_prefix,
-                            action_name,
-                            access_level,
-                            access_level_overrides_cfg,
+                            service=service_prefix,
+                            action_name=action_name,
+                            provided_access_level=access_level,
+                            service_override_config=access_level_overrides_cfg,
                         )
                         if override_result:
                             access_level = override_result
@@ -329,7 +346,9 @@ def create_database(destination_directory, access_level_overrides_file):
                                 "condition_keys": condition_keys,
                                 "dependent_actions": dependent_actions,
                             }
-                            resource_types_lower_name[resource_type.lower()] = resource_type
+                            resource_types_lower_name[
+                                resource_type.lower()
+                            ] = resource_type
                         rowspan -= 1
                         if rowspan > 0:
                             row_number += 1
@@ -346,7 +365,7 @@ def create_database(destination_directory, access_level_overrides_file):
                         "access_level": access_level,
                         "resource_types": resource_types,
                         "resource_types_lower_name": resource_types_lower_name,
-                        "api_documentation_link": api_documentation_link
+                        "api_documentation_link": api_documentation_link,
                     }
 
                     schema[service_prefix]["privileges"][priv] = privilege_schema
@@ -355,7 +374,9 @@ def create_database(destination_directory, access_level_overrides_file):
 
             # Get resource table
             for table in tables:
-                if not header_matches("resource types", table) or not header_matches("arn", table):
+                if not header_matches("resource types", table) or not header_matches(
+                    "arn", table
+                ):
                     continue
 
                 rows = table.find_all("tr")
@@ -381,13 +402,18 @@ def create_database(destination_directory, access_level_overrides_file):
                     schema[service_prefix]["resources"][resource] = {
                         "resource": resource,
                         "arn": arn,
-                        "condition_keys": conditions
+                        "condition_keys": conditions,
                     }
-                    schema[service_prefix]["resources_lower_name"][resource.lower()] = resource
+                    schema[service_prefix]["resources_lower_name"][
+                        resource.lower()
+                    ] = resource
 
             # Get condition keys table
             for table in tables:
-                if not (header_matches("<th> condition keys </th>", table) and header_matches("<th> type </th>", table)):
+                if not (
+                    header_matches("<th> condition keys </th>", table)
+                    and header_matches("<th> type </th>", table)
+                ):
                     continue
 
                 rows = table.find_all("tr")
