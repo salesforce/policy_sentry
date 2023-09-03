@@ -6,7 +6,9 @@ IAM Least Privilege Policy Generator.
 [![Documentation Status](https://readthedocs.org/projects/policy-sentry/badge/?version=latest)](https://policy-sentry.readthedocs.io/en/latest/?badge=latest)
 [![Join the chat at https://gitter.im/salesforce/policy_sentry](https://badges.gitter.im/salesforce/policy_sentry.svg)](https://gitter.im/salesforce/policy_sentry?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/kmcquade3.svg?style=social&label=Follow%20the%20author)](https://twitter.com/kmcquade3)
-[![Downloads](https://pepy.tech/badge/policy-sentry)](https://pepy.tech/project/policy-sentry)
+[![PyPI](https://img.shields.io/pypi/v/policy-sentry)](https://pypi.org/project/policy-sentry)
+[![Python Version](https://img.shields.io/pypi/pyversions/policy-sentry)](#)
+[![Downloads](https://static.pepy.tech/badge/policy-sentry)](https://pepy.tech/project/policy-sentry)
 
 ![](https://raw.githubusercontent.com/salesforce/policy_sentry/master/examples/asciinema/policy_sentry.gif)
 
