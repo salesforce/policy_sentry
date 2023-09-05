@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import logging
 import functools
+from typing import cast
+
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.util.conditions import is_condition_key_match
 from policy_sentry.querying.actions import get_action_data
@@ -51,6 +53,8 @@ def get_condition_key_details(
                 "condition_value_type": condition_data["type"].lower(),
             }
             return output
+
+    return {}
 
 
 def get_conditions_for_action_and_raw_arn(action: str, raw_arn: str) -> list[str]:
@@ -109,6 +113,6 @@ def get_condition_value_type(condition_key: str) -> str | None:
         "conditions"
     ].items():
         if is_condition_key_match(condition_key_entry, condition_key):
-            return condition_key_data["type"].lower()
+            return cast("str", condition_key_data["type"]).lower()
 
     return None
