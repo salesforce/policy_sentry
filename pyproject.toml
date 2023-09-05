@@ -4,9 +4,40 @@ strict = true
 pretty = true
 
 exclude = [
-    '^policy_sentry/analysis',
     '^policy_sentry/bin',
     '^policy_sentry/command',
-    '^policy_sentry/querying',
     '^policy_sentry/writing',
 ]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test",
+    "test/analysis",
+    "test/command",
+    "test/querying",
+    "test/util",
+    "test/writing",
+]
+norecursedirs = [
+    "_build",
+    "tmp*",
+    "__pycache__",
+]
+
+# supported from version 7.3.0
+#[tool.coverage]
+#omit = [
+#    "policy_sentry/shared/awsdocs.py",
+#    # ignore v1 variants
+#    "policy_sentry/querying/actions_v1.py",
+#    "policy_sentry/querying/all_v1.py",
+#    "policy_sentry/querying/arns_v1.py",
+#    # omit anything in a .local directory anywhere
+#    "*/.local/*",
+#    "*/virtualenv/*",
+#    "*/venv/*",
+#    "*/.venv/*",
+#    "*/docs/*",
+#    "*/examples/*",
+#    "utils/*",
+#]
