@@ -4,6 +4,8 @@ from __future__ import annotations
 import logging
 import copy
 import fnmatch
+from typing import Any
+
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.policy_files import get_actions_from_statement
 
@@ -29,7 +31,7 @@ def expand(action: str | list[str]) -> list[str]:
         return expanded_actions
 
     if action == "*":
-        return all_actions.copy()
+        return list(all_actions)
     elif "*" in action:
         expanded = [
             expanded_action
@@ -71,7 +73,7 @@ def determine_actions_to_expand(action_list: list[str]) -> list[str]:
     return new_action_list
 
 
-def get_expanded_policy(policy):
+def get_expanded_policy(policy: dict[str, Any]) -> dict[str, Any]:
     """
     Given a policy, expand the * Actions in IAM policy files to improve readability
 
@@ -82,38 +84,31 @@ def get_expanded_policy(policy):
     """
     modified_policy = copy.deepcopy(policy)
 
-    if isinstance(modified_policy["Statement"], dict):
-        requested_actions = get_actions_from_statement(modified_policy["Statement"])
+    modified_statement = modified_policy["Statement"]
+    if isinstance(modified_statement, dict):
+        requested_actions = get_actions_from_statement(modified_statement)
         expanded_actions = determine_actions_to_expand(requested_actions)
-        if "NotAction" in modified_policy["Statement"]:
-            if isinstance(modified_policy["Statement"]["NotAction"], list):
-                modified_policy["Statement"]["NotAction"].clear()
-                modified_policy["Statement"]["NotAction"].extend(expanded_actions)
-            elif isinstance(modified_policy["Statement"]["NotAction"], str):
-                modified_policy["Statement"]["NotAction"] = []
+        if "NotAction" in modified_statement:
+            if isinstance(modified_statement["NotAction"], list):
+                modified_statement["NotAction"] = expanded_actions
+            elif isinstance(modified_statement["NotAction"], str):
+                modified_statement["NotAction"] = []
             logger.warning(
                 "NotAction is in the statement. Policy Sentry will expand any wildcard actions "
                 "that are in the NotAction list, but it will not factor the NotAction actions into any analysis about "
                 "whether or not the actions are allowed by the policy. "
                 "If you are concerned about this, please review this specific policy manually."
             )
-        elif "Action" in modified_policy["Statement"]:
-            if isinstance(modified_policy["Statement"]["Action"], list):
-                modified_policy["Statement"]["Action"].clear()
-                modified_policy["Statement"]["Action"].extend(expanded_actions)
-            elif isinstance(modified_policy["Statement"]["Action"], str):
-                modified_policy["Statement"]["Action"] = []
+        elif "Action" in modified_statement:
+            modified_statement["Action"] = expanded_actions
     # Otherwise it will be a list of Sids
-    elif isinstance(modified_policy["Statement"], list):
-        for statement in modified_policy["Statement"]:
+    elif isinstance(modified_statement, list):
+        for statement in modified_statement:
             requested_actions = get_actions_from_statement(statement)
-            expanded_actions = determine_actions_to_expand(
-                requested_actions
-            )
+            expanded_actions = determine_actions_to_expand(requested_actions)
             if "NotAction" in statement:
                 if isinstance(statement["NotAction"], list):
-                    statement["NotAction"].clear()
-                    statement["NotAction"].extend(expanded_actions)
+                    statement["NotAction"] = expanded_actions
                 elif isinstance(statement["NotAction"], str):
                     statement["NotAction"] = []
                 logger.warning(
@@ -123,11 +118,7 @@ def get_expanded_policy(policy):
                     "If you are concerned about this, please review this specific policy manually."
                 )
             elif "Action" in statement:
-                if isinstance(statement["Action"], list):
-                    statement["Action"].clear()
-                elif isinstance(statement["Action"], str):
-                    statement["Action"] = []
-                statement["Action"].extend(expanded_actions)
+                statement["Action"] = expanded_actions
     else:
         logger.critical("Unknown error: The 'Statement' is neither a dict nor a list")
     return modified_policy

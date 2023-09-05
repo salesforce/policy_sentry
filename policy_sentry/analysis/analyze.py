@@ -1,8 +1,15 @@
 """
 Functions to support the analyze capability in this tool
 """
+from __future__ import annotations
+
 import logging
-from policy_sentry.analysis.expand import determine_actions_to_expand, get_expanded_policy
+from typing import Any
+
+from policy_sentry.analysis.expand import (
+    determine_actions_to_expand,
+    get_expanded_policy,
+)
 from policy_sentry.querying.actions import remove_actions_not_matching_access_level
 from policy_sentry.util.policy_files import (
     get_actions_from_policy,
@@ -12,7 +19,9 @@ from policy_sentry.util.policy_files import (
 logger = logging.getLogger(__name__)
 
 
-def analyze_by_access_level(policy_json, access_level):
+def analyze_by_access_level(
+    policy_json: dict[str, Any], access_level: str
+) -> list[str]:
     """
     Determine if a policy has any actions with a given access level. This is particularly useful when determining who
     has 'Permissions management' level access
@@ -32,7 +41,9 @@ def analyze_by_access_level(policy_json, access_level):
     return actions_by_level
 
 
-def analyze_statement_by_access_level(statement_json, access_level):
+def analyze_statement_by_access_level(
+    statement_json: dict[str, Any], access_level: str
+) -> list[str]:
     """
     Determine if a statement has any actions with a given access level.
 
