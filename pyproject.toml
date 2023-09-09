@@ -6,8 +6,13 @@ pretty = true
 exclude = [
     '^policy_sentry/bin',
     '^policy_sentry/command',
-    '^policy_sentry/writing',
 ]
+
+[[tool.mypy.overrides]]
+module = [
+    "schema"
+]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = [

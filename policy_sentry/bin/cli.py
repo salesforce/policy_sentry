@@ -9,7 +9,7 @@ from policy_sentry.bin.version import __version__
 
 @click.group()
 @click.version_option(version=__version__)
-def policy_sentry():
+def policy_sentry() -> None:
     """
     Policy Sentry is a tool for generating least-privilege IAM Policies.
     """
@@ -21,7 +21,7 @@ policy_sentry.add_command(command.create_template.create_template)
 policy_sentry.add_command(command.query.query)
 
 
-def main():
+def main() -> None:
     """Policy Sentry is a tool for generating least-privilege IAM Policies."""
     policy_sentry()
 
