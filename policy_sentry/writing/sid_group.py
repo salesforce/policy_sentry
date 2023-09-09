@@ -60,17 +60,17 @@ class SidGroup:
     def __init__(self) -> None:
         # Dict instead of list
         # sids instead of ARN
-        self.sids = {}
-        self.universal_conditions = {}
-        self.skip_resource_constraints = []
-        self.exclude_actions = []
-        self.wildcard_only_single_actions = []
+        self.sids: dict[str, dict[str, Any]] = {}
+        self.universal_conditions: dict[str, Any] = {}
+        self.skip_resource_constraints: list[str] = []
+        self.exclude_actions: list[str] = []
+        self.wildcard_only_single_actions: list[str] = []
         # When a user requests all wildcard-only actions available under a service at a specific access level
-        self.wildcard_only_service_read = []
-        self.wildcard_only_service_write = []
-        self.wildcard_only_service_list = []
-        self.wildcard_only_service_tagging = []
-        self.wildcard_only_service_permissions_management = []
+        self.wildcard_only_service_read: list[str] = []
+        self.wildcard_only_service_write: list[str] = []
+        self.wildcard_only_service_list: list[str] = []
+        self.wildcard_only_service_tagging: list[str] = []
+        self.wildcard_only_service_permissions_management: list[str] = []
 
     def get_sid_group(self) -> dict[str, dict[str, Any]]:
         """
@@ -172,7 +172,7 @@ class SidGroup:
                                 self.sids[sid_namespace] = temp_sid_dict
 
     def add_requested_service_wide(
-        self, service_prefixes: str, access_level: str
+        self, service_prefixes: list[str], access_level: str
     ) -> None:
         """
         When a user requests all wildcard-only actions available under a service at a specific access level
@@ -226,7 +226,7 @@ class SidGroup:
         Returns:
             Dictionary: The IAM Policy JSON
         """
-        statements = []
+        statements: list[dict[str, Any]] = []
         # Only set the actions to lowercase if minimize is provided
         all_actions = get_all_actions(lowercase=True)
 
@@ -330,6 +330,9 @@ class SidGroup:
                         resource_type_name = get_resource_type_name_with_raw_arn(
                             raw_arn_format
                         )
+                        if resource_type_name is None:
+                            continue
+
                         sid_namespace = create_policy_sid_namespace(
                             service_prefix, access_level, resource_type_name
                         )

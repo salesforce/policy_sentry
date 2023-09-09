@@ -1,6 +1,9 @@
 """Templates for the policy_sentry YML files.
 These can be used for generating policies
 """
+from __future__ import annotations
+
+from typing import Any
 
 ACTIONS_TEMPLATE = """mode: actions
 name: ''
@@ -71,8 +74,8 @@ CRUD_TEMPLATE_DICT = {
     "skip-resource-constraints": [],
     "exclude-actions": [],
     "sts": {
-        "assume-role": [], 
-        "assume-role-with-saml": [], 
+        "assume-role": [],
+        "assume-role-with-saml": [],
         "assume-role-with-web-identity": []
     }
 }
@@ -80,21 +83,21 @@ CRUD_TEMPLATE_DICT = {
 ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}
 
 
-def create_crud_template():
+def create_crud_template() -> str:
     """Generate the CRUD YML Template """
     return CRUD_TEMPLATE
 
 
-def create_actions_template():
+def create_actions_template() -> str:
     """Generate the Actions YML template"""
     return ACTIONS_TEMPLATE
 
 
-def get_crud_template_dict():
+def get_crud_template_dict() -> dict[str, Any]:
     """Generate the CRUD template in dict format"""
     return CRUD_TEMPLATE_DICT
 
 
-def get_actions_template_dict():
+def get_actions_template_dict() -> dict[str, Any]:
     """Get the Actions template in dict format."""
     return ACTIONS_TEMPLATE_DICT

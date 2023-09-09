@@ -1,13 +1,17 @@
 """
 Validation for the Policy Sentry YML Templates.
 """
+from __future__ import annotations
+
 import logging
+from typing import Any
+
 from schema import Optional, Schema, And, Use, Regex, SchemaError
 
 logger = logging.getLogger(__name__)
 
 
-def check(conf_schema, conf):
+def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
     """
     Validates a user-supplied JSON vs a defined schema.
 
@@ -60,7 +64,7 @@ ACTIONS_SCHEMA = Schema(
 )
 
 
-def check_actions_schema(cfg):
+def check_actions_schema(cfg: dict[str, Any]) -> bool:
     """
     Determines whether the user-provided config matches the required schema for Actions mode
     """
@@ -75,7 +79,7 @@ def check_actions_schema(cfg):
         )
 
 
-def check_crud_schema(cfg):
+def check_crud_schema(cfg: dict[str, Any]) -> bool:
     """
     Determines whether the user-provided config matches the required schema for CRUD mode
     """
@@ -90,7 +94,7 @@ def check_crud_schema(cfg):
         )
 
 
-def validate_condition_block(condition_block):
+def validate_condition_block(condition_block: dict[str, Any]) -> bool:
     """
     Validates the format of the condition block that should be supplied in the template.
 
