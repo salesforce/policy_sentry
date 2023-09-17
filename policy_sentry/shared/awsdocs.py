@@ -183,7 +183,7 @@ def create_database(
         if not filename.startswith("list_"):
             continue
 
-        with open(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename), "r") as f:
+        with open(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename)) as f:
             soup = BeautifulSoup(f.read(), "html.parser")
             main_content = soup.find(id="main-content")
             if not isinstance(main_content, Tag):
@@ -357,7 +357,7 @@ def create_database(
                             cells = row.find_all("td")
 
                     if "[permission only]" in priv:
-                        priv = priv.split(" ")[0]
+                        priv = priv.split(" ", maxsplit=1)[0]
 
                     privilege_schema = {
                         "privilege": priv,

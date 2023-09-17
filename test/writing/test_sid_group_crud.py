@@ -16,7 +16,7 @@ crud_with_override_template = os.path.abspath(
     )
 )
 
-with open(crud_with_override_template, "r") as yaml_file:
+with open(crud_with_override_template) as yaml_file:
     crud_with_override_template_cfg = yaml.safe_load(yaml_file)
 
 
@@ -446,7 +446,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "crud-with-exclude-actions.yml",
             )
         )
-        with open(crud_with_exclude_actions, "r") as this_yaml_file:
+        with open(crud_with_exclude_actions) as this_yaml_file:
             crud_with_exclude_actions_cfg = yaml.safe_load(this_yaml_file)
         sid_group.process_template(crud_with_exclude_actions_cfg)
         result = sid_group.get_rendered_policy(crud_with_exclude_actions_cfg)
@@ -557,7 +557,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             )
         )
 
-        with open(crud_with_exclude_actions_empty_sid, "r") as this_yaml_file:
+        with open(crud_with_exclude_actions_empty_sid) as this_yaml_file:
             crud_with_exclude_actions_empty_sid_cfg = yaml.safe_load(this_yaml_file)
         # crud_with_exclude_actions_empty_sid_cfg = {
         #     "mode": "crud",

@@ -22,6 +22,10 @@ iam_definition = json.loads(Path(iam_definition_path).read_bytes())
 
 @functools.lru_cache(maxsize=1)
 def get_iam_definition_schema_version() -> str:
+    """
+    Returns the schema version of the IAM datastore
+    """
+
     return cast(
         "str",
         iam_definition.get(

@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 @click.command(
-    context_settings=dict(max_content_width=160),
+    context_settings={"max_content_width": 160},
     short_help="Create write-policy YML template files",
 )
 @click.option(

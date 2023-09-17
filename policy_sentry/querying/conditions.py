@@ -26,7 +26,7 @@ def get_condition_keys_for_service(service_prefix: str) -> list[str]:
         List: A list of condition keys
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
-    results = [condition for condition in service_prefix_data["conditions"]]
+    results = list(service_prefix_data["conditions"])
     return results
 
 
