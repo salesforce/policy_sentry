@@ -2,6 +2,8 @@
 Create YML Template files for the write-policy command.
 Users don't have to remember exactly how to phrase the yaml files, so this command creates it for them.
 """
+from __future__ import annotations
+
 from pathlib import Path
 import logging
 import click
@@ -16,22 +18,27 @@ logger = logging.getLogger(__name__)
     short_help="Create write-policy YML template files",
 )
 @click.option(
-    "--output-file", "-o",
+    "--output-file",
+    "-o",
     type=str,
     required=True,
     help="Relative path to output file where we want to store policy_sentry YML files.",
 )
 @click.option(
-    "--template-type", "-t",
+    "--template-type",
+    "-t",
     type=click.Choice(["actions", "crud"], case_sensitive=False),
     required=True,
     help="Type of write_policy template to create - actions or CRUD. Case insensitive.",
 )
 @click.option(
-    '--verbose', '-v',
-    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-    case_sensitive=False))
-def create_template(output_file, template_type, verbose):
+    "--verbose",
+    "-v",
+    type=click.Choice(
+        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
+    ),
+)
+def create_template(output_file: str | Path, template_type: str, verbose: str) -> None:
     """
     Writes YML file templates for use in the write-policy
     command, so users can fill out the fields
