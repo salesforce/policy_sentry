@@ -2,6 +2,8 @@
 Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
 Create the SQLite datastore and fill it with the tables scraped from the AWS Docs
 """
+from __future__ import annotations
+
 import os
 import shutil
 import logging
@@ -26,7 +28,10 @@ from policy_sentry import set_stream_logger
 logger = logging.getLogger(__name__)
 
 
-@click.command(name="initialize", short_help="Create a local datastore to store AWS IAM information.")
+@click.command(
+    name="initialize",
+    short_help="Create a local datastore to store AWS IAM information.",
+)
 @click.option(
     "--access-level-overrides-file",
     type=str,
@@ -39,8 +44,8 @@ logger = logging.getLogger(__name__)
     required=False,
     default=False,
     help="Specify this flag to fetch the HTML Docs directly from the AWS website. This will be helpful if the docs "
-         "in the Git repository are behind the live docs and you need to use the latest version of the docs right "
-         "now.",
+    "in the Git repository are behind the live docs and you need to use the latest version of the docs right "
+    "now.",
 )
 @click.option(
     "--build",
@@ -48,13 +53,21 @@ logger = logging.getLogger(__name__)
     required=False,
     default=False,
     help="Build the IAM data file from the HTML files rather than copying the data file from "
-         "the python package. Defaults to false",
+    "the python package. Defaults to false",
 )
 @click.option(
-    '--verbose', '-v',
-    type=click.Choice(['critical', 'error', 'warning', 'info', 'debug'],
-                      case_sensitive=False))
-def initialize_command(access_level_overrides_file, fetch, build, verbose):
+    "--verbose",
+    "-v",
+    type=click.Choice(
+        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
+    ),
+)
+def initialize_command(
+    access_level_overrides_file: str | None,
+    fetch: bool,
+    build: bool,
+    verbose: str | None,
+) -> None:
     """
     CLI command for initializing the local data file
     """
@@ -65,7 +78,11 @@ def initialize_command(access_level_overrides_file, fetch, build, verbose):
     initialize(access_level_overrides_file, fetch, build)
 
 
-def initialize(access_level_overrides_file=None, fetch=False, build=False):
+def initialize(
+    access_level_overrides_file: str | None = None,
+    fetch: bool = False,
+    build: bool = False,
+) -> None:
     """
     Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
@@ -117,7 +134,7 @@ def initialize(access_level_overrides_file=None, fetch=False, build=False):
     logger.debug(", ".join(all_aws_service_prefixes))
 
 
-def create_policy_sentry_config_directory():
+def create_policy_sentry_config_directory() -> str:
     """
     Creates a config directory at $HOME/.policy_sentry/
     :return: the path of the database file
@@ -126,7 +143,9 @@ def create_policy_sentry_config_directory():
     logger.debug(f"We will store the new database here: {DATASTORE_FILE_PATH}")
     # If the database file already exists, remove it
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
-        logger.debug(f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it.")
+        logger.debug(
+            f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it."
+        )
         os.remove(LOCAL_DATASTORE_FILE_PATH)
     elif os.path.exists(CONFIG_DIRECTORY):
         pass
@@ -136,7 +155,7 @@ def create_policy_sentry_config_directory():
     return LOCAL_DATASTORE_FILE_PATH
 
 
-def create_html_docs_directory():
+def create_html_docs_directory() -> None:
     """
     Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
     Essentially:
