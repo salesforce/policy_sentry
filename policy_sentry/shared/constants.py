@@ -29,8 +29,10 @@ LOCAL_DATASTORE_FILE_PATH = str(Path(CONFIG_DIRECTORY) / "iam-definition.json")
 # Check for the existence of the local datastore first.
 if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
     # If it exists, leverage that datastore instead of the one bundled with the python package
-    logger.info(f"Leveraging the local IAM definition at the path: {LOCAL_DATASTORE_FILE_PATH} "
-                f"To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/")
+    logger.info(
+        f"Leveraging the local IAM definition at the path: {LOCAL_DATASTORE_FILE_PATH} "
+        f"To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/"
+    )
     DATASTORE_FILE_PATH = LOCAL_DATASTORE_FILE_PATH
 else:
     # Otherwise, leverage the datastore inside the python package
@@ -39,7 +41,7 @@ else:
 
 # Overrides
 if "CUSTOM_ACCESS_OVERRIDES_FILE" in os.environ:
-    CUSTOM_ACCESS_OVERRIDES_FILE=os.environ['CUSTOM_ACCESS_OVERRIDES_FILE']
+    CUSTOM_ACCESS_OVERRIDES_FILE = os.environ["CUSTOM_ACCESS_OVERRIDES_FILE"]
     BUNDLED_ACCESS_OVERRIDES_FILE = os.path.join(
         os.path.abspath(os.path.dirname(__file__)), CUSTOM_ACCESS_OVERRIDES_FILE
     )

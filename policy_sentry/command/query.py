@@ -157,7 +157,8 @@ def query_action_table(
             print_dict(output=output, fmt=fmt)
         else:
             print("All services in the database:\n")
-            output = all_services  # type:ignore[assignment]  # it is a set here, which is ok
+            # it is a set here, which is ok
+            output = all_services  # type:ignore[assignment]
             print_list(output=output, fmt=fmt)
     elif name is None and access_level and not resource_type:
         print(
@@ -250,7 +251,9 @@ def arn_table(
     query_arn_table(name, service, list_arn_types, fmt)
 
 
-def query_arn_table(name: str, service: str, list_arn_types: bool, fmt: str) -> list[str] | dict[str, str]:
+def query_arn_table(
+    name: str, service: str, list_arn_types: bool, fmt: str
+) -> list[str] | dict[str, str]:
     """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
         logger.info(
@@ -309,7 +312,9 @@ def condition_table(name: str, service: str, fmt: str, verbose: str | None) -> N
     query_condition_table(name, service, fmt)
 
 
-def query_condition_table(name: str, service: str, fmt: str = "json") -> list[str] | dict[str, str]:
+def query_condition_table(
+    name: str, service: str, fmt: str = "json"
+) -> list[str] | dict[str, str]:
     """Query the condition table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
     if os.path.exists(LOCAL_DATASTORE_FILE_PATH):

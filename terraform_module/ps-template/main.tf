@@ -34,8 +34,8 @@ resource "local_file" "template" {
 }
 
 resource "random_string" "random_template_name" {
-  length           = 24
-  special          = false
+  length  = 24
+  special = false
 }
 
 data "external" "policy" {
