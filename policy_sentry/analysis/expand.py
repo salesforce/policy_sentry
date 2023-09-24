@@ -6,6 +6,7 @@ import copy
 import fnmatch
 from typing import Any
 
+from policy_sentry.querying.actions import get_actions_for_service
 from policy_sentry.querying.all import get_all_actions
 from policy_sentry.util.policy_files import get_actions_from_statement
 
@@ -22,8 +23,6 @@ def expand(action: str | list[str]) -> list[str]:
         List: A list of all the expanded actions (like actions matching s3:Get*)
     """
 
-    all_actions = get_all_actions()
-
     if isinstance(action, list):
         expanded_actions = []
         for item in action:
@@ -31,11 +30,13 @@ def expand(action: str | list[str]) -> list[str]:
         return expanded_actions
 
     if action == "*":
-        return list(all_actions)
+        return list(get_all_actions())
     elif "*" in action:
+        service_prefix = action.split(":", maxsplit=1)[0]
+        service_actions = get_actions_for_service(service_prefix=service_prefix)
         expanded = [
             expanded_action
-            for expanded_action in all_actions
+            for expanded_action in service_actions
             if fnmatch.fnmatchcase(expanded_action.lower(), action.lower())
         ]
 

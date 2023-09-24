@@ -14,6 +14,7 @@ from policy_sentry.querying.actions_v1 import (
     get_actions_with_arn_type_and_access_level_v1,
     get_actions_matching_arn_type_v1,
     get_actions_matching_arn_v1,
+    get_actions_for_service_v1,
 )
 from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
 from policy_sentry.shared.iam_data import (
@@ -33,21 +34,49 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=1024)
-def get_actions_for_service(service_prefix: str) -> list[str]:
+def get_actions_for_service(service_prefix: str, lowercase: bool = False) -> list[str]:
     """
     Get a list of available actions per AWS service
 
     Arguments:
         service_prefix: List: An AWS service prefix, like `s3` or `kms`
+        lowercase: Set to true to have the list of actions be in all lowercase strings.
+    Returns:
+        List: A list of actions
+    """
+
+    schema_version = get_iam_definition_schema_version()
+    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
+        return get_actions_for_service_v2(
+            service_prefix=service_prefix, lowercase=lowercase
+        )
+
+    return get_actions_for_service_v1(
+        service_prefix=service_prefix, lowercase=lowercase
+    )
+
+
+def get_actions_for_service_v2(
+    service_prefix: str, lowercase: bool = False
+) -> list[str]:
+    """
+    Get a list of available actions per AWS service (v2)
+
+    Arguments:
+        service_prefix: List: An AWS service prefix, like `s3` or `kms`
+        lowercase: Set to true to have the list of actions be in all lowercase strings.
     Returns:
         List: A list of actions
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
     if service_prefix_data and isinstance(service_prefix_data, dict):
-        results = [
-            f"{service_prefix}:{item}" for item in service_prefix_data["privileges"]
-        ]
+        if lowercase:
+            privileges = service_prefix_data["privileges_lower_name"]
+        else:
+            privileges = service_prefix_data["privileges_lower_name"].values()
+        results = [f"{service_prefix}:{action}" for action in privileges]
+
     return results
 
 
@@ -75,7 +104,9 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
     return {}
 
 
-def get_action_data_v2(service: str, action_name: str) -> dict[str, list[dict[str, Any]]]:
+def get_action_data_v2(
+    service: str, action_name: str
+) -> dict[str, list[dict[str, Any]]]:
     """
     Get details about an IAM Action in JSON format (v2).
 
@@ -91,7 +122,9 @@ def get_action_data_v2(service: str, action_name: str) -> dict[str, list[dict[st
         service_prefix_data = get_service_prefix_data(service)
         if action_name == "*":
             results = []
-            for this_action_name, this_action_data in service_prefix_data["privileges"].items():
+            for this_action_name, this_action_data in service_prefix_data[
+                "privileges"
+            ].items():
                 if this_action_data:
                     entries = create_action_data_entries(
                         service_prefix_data=service_prefix_data,
@@ -102,7 +135,9 @@ def get_action_data_v2(service: str, action_name: str) -> dict[str, list[dict[st
             action_data_results[service] = results
             return action_data_results
         else:
-            this_action_name = service_prefix_data["privileges_lower_name"].get(action_name.lower())
+            this_action_name = service_prefix_data["privileges_lower_name"].get(
+                action_name.lower()
+            )
             if this_action_name:
                 this_action_data = service_prefix_data["privileges"][this_action_name]
                 entries = create_action_data_entries(
@@ -285,7 +320,10 @@ def get_actions_with_arn_type_and_access_level_v2(
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
             if action_data["access_level"] == access_level:
-                if resource_type_name.lower() in action_data["resource_types_lower_name"]:
+                if (
+                    resource_type_name.lower()
+                    in action_data["resource_types_lower_name"]
+                ):
                     results.append(f"{service_prefix}:{action_name}")
 
     return results
@@ -418,7 +456,9 @@ def get_actions_matching_arn_v2(arn: str) -> list[str]:
     return list(results)
 
 
-def get_actions_matching_condition_key(service_prefix: str, condition_key: str) -> list[str]:
+def get_actions_matching_condition_key(
+    service_prefix: str, condition_key: str
+) -> list[str]:
     """
     Get a list of actions under a service that allow the use of a specified condition key
 
@@ -542,7 +582,9 @@ def get_action_matching_access_level_v2(
     """
     service_prefix_data = get_service_prefix_data(service_prefix.lower())
     if service_prefix_data:
-        this_action_name = service_prefix_data["privileges_lower_name"].get(action_name.lower())
+        this_action_name = service_prefix_data["privileges_lower_name"].get(
+            action_name.lower()
+        )
         if this_action_name:
             action_data = service_prefix_data["privileges"][this_action_name]
             if action_data["access_level"] == access_level:
@@ -613,7 +655,9 @@ def get_privilege_info(service_prefix: str, action: str) -> dict[str, Any]:
         List: The info from the docs about that action, along with some of the info from the docs
     """
     try:
-        privilege_info: dict[str, Any] = iam_definition[service_prefix]["privileges"][action]
+        privilege_info: dict[str, Any] = iam_definition[service_prefix]["privileges"][
+            action
+        ]
         privilege_info["service_resources"] = iam_definition[service_prefix][
             "resources"
         ]
