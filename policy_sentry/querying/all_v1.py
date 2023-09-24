@@ -5,7 +5,9 @@ import warnings
 from policy_sentry.shared.iam_data import get_service_prefix_data
 
 
-def get_all_actions_v1(all_service_prefixes: set[str] ,lowercase: bool = False) -> set[str]:
+def get_all_actions_v1(
+    all_service_prefixes: set[str], lowercase: bool = False
+) -> set[str]:
     """
     DEPRECATED: Please recreate the IAM datastore file!
 
@@ -23,12 +25,8 @@ def get_all_actions_v1(all_service_prefixes: set[str] ,lowercase: bool = False) 
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name in service_prefix_data["privileges"]:
             if lowercase:
-                all_actions.add(
-                    f"{service_prefix}:{action_name.lower()}"
-                )
+                all_actions.add(f"{service_prefix}:{action_name.lower()}")
             else:
-                all_actions.add(
-                    f"{service_prefix}:{action_name}"
-                )
+                all_actions.add(f"{service_prefix}:{action_name}")
 
     return all_actions

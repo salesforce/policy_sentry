@@ -76,15 +76,15 @@ CRUD_TEMPLATE_DICT = {
     "sts": {
         "assume-role": [],
         "assume-role-with-saml": [],
-        "assume-role-with-web-identity": []
-    }
+        "assume-role-with-web-identity": [],
+    },
 }
 
 ACTIONS_TEMPLATE_DICT = {"mode": "actions", "name": "", "actions": []}
 
 
 def create_crud_template() -> str:
-    """Generate the CRUD YML Template """
+    """Generate the CRUD YML Template"""
     return CRUD_TEMPLATE
 
 
