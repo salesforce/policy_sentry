@@ -78,9 +78,9 @@ jobs:
           pip install policy_sentry -U
           git fetch origin
           git checkout --track origin/master
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          latest_tag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
           echo "latest tag: $latest_tag"
-          git pull origin $latest_tag
+          git pull origin "$latest_tag"
           poet -f policy_sentry > HomebrewFormula/policy_sentry.rb
           git add .
           git commit -m "update brew formula" policy_sentry/bin/cli.py HomebrewFormula/policy_sentry.rb || echo "No brew changes to commit"
@@ -102,12 +102,12 @@ jobs:
           git config --local user.name "GitHub Action"
           git fetch --tags
           git pull origin master
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          latest_tag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
           echo "latest tag: $latest_tag"
-          new_tag=$(echo $latest_tag | awk -F. -v a="$1" -v b="$2" -v c="$3" '{printf("%d.%d.%d", $1+a, $2+b , $3+1)}')
+          new_tag=$(echo "$latest_tag" | awk -F. -v a="$1" -v b="$2" -v c="$3" '{printf("%d.%d.%d", $1+a, $2+b , $3+1)}')
           echo "new tag: $new_tag"
 
-          printf "# pylint: disable=missing-module-docstring\n__version__ = '$new_tag'""" > $version_file
+          printf "# pylint: disable=missing-module-docstring\n__version__ = '%s'""" "$new_tag" > $version_file
 
           git commit -m "Bump to ${new_tag}"  $version_file || echo "No changes to commit"
           git push origin

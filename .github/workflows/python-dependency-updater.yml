@@ -21,5 +21,5 @@ jobs:
         run: |
           pip install pyupio
           pip install -r requirements.txt
-          default_branch=`git remote show origin | grep 'HEAD branch' | cut -d' ' -f5`
-          pyup --provider github --provider_url https://api.github.com --repo=$GITHUB_REPOSITORY --user-token=${{ secrets.PYUP_GITHUB_ACCESS_TOKEN }} --branch $default_branch
+          default_branch=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+          pyup --provider github --provider_url https://api.github.com --repo="$GITHUB_REPOSITORY" --user-token=${{ secrets.PYUP_GITHUB_ACCESS_TOKEN }} --branch "$default_branch"
