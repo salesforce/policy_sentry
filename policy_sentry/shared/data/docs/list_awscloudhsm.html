@@ -205,7 +205,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/iam-policy.html">
+               <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/identity-access-management.html">
                 using          IAM
                </a>
                permission policies.
@@ -334,56 +334,61 @@
                </tr>
               </thead>
               <tr>
-               <td>
-                <a id="awscloudhsm-AddTagsToResource">
-                </a>
+               <td id="awscloudhsm-AddTagsToResource" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Adds or overwrites one or more tags for the specified AWS CloudHSM resource
                </td>
-               <td>
+               <td tabindex="-1">
                 Tagging
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
-                <a id="awscloudhsm-CopyBackupToRegion">
-                </a>
+               <td id="awscloudhsm-CopyBackupToRegion" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CopyBackupToRegion.html">
                  CopyBackupToRegion
                 </a>
                </td>
-               <td rowspan="2">
-                Creates a copy of a backup in the specified region
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a copy of a backup in the specified region
                </td>
-               <td rowspan="2">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
+                <p>
+                 cloudhsm:CopyBackupToRegion
+                </p>
+                <p>
+                 cloudhsm:TagResource
+                </p>
+                <p>
+                 cloudhsm:UntagResource
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -395,39 +400,61 @@
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
-                <a id="awscloudhsm-CreateCluster">
-                </a>
+               <td id="awscloudhsm-CreateCluster" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateCluster.html">
                  CreateCluster
                 </a>
                </td>
-               <td rowspan="2">
-                Creates a new AWS CloudHSM cluster
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new AWS CloudHSM cluster
                </td>
-               <td rowspan="2">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
+                <p>
+                 cloudhsm:TagResource
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupEgress
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:RevokeSecurityGroupEgress
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -439,693 +466,671 @@
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-CreateHapg">
-                </a>
+               <td id="awscloudhsm-CreateHapg" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_CreateHapg.html">
                  CreateHapg
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Creates a high-availability partition group
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-CreateHsm">
-                </a>
+               <td id="awscloudhsm-CreateHsm" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">
                  CreateHsm
                 </a>
                </td>
-               <td>
-                Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster
+               <td tabindex="-1">
+                Grants permission to create a new hardware security module (HSM) in the specified AWS CloudHSM cluster
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupEgress
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateNetworkInterface
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DeleteNetworkInterface
+                </p>
+                <p>
+                 ec2:DescribeNetworkInterfaces
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:RevokeSecurityGroupEgress
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-CreateLunaClient">
-                </a>
+               <td id="awscloudhsm-CreateLunaClient" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_CreateLunaClient.html">
                  CreateLunaClient
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Creates an HSM client
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DeleteBackup">
-                </a>
+               <td id="awscloudhsm-DeleteBackup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteBackup.html">
                  DeleteBackup
                 </a>
                </td>
-               <td>
-                Deletes the specified CloudHSM backup
+               <td tabindex="-1">
+                Grants permission to delete the specified CloudHSM backup
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DeleteCluster">
-                </a>
+               <td id="awscloudhsm-DeleteCluster" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteCluster.html">
                  DeleteCluster
                 </a>
                </td>
-               <td>
-                Deletes the specified AWS CloudHSM cluster
+               <td tabindex="-1">
+                Grants permission to delete the specified AWS CloudHSM cluster
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DeleteNetworkInterface
+                </p>
+                <p>
+                 ec2:DeleteSecurityGroup
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DeleteHapg">
-                </a>
+               <td id="awscloudhsm-DeleteHapg" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DeleteHapg.html">
                  DeleteHapg
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Deletes a high-availability partition group
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DeleteHsm">
-                </a>
+               <td id="awscloudhsm-DeleteHsm" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteHsm.html">
                  DeleteHsm
                 </a>
                </td>
-               <td>
-                Deletes the specified HSM
+               <td tabindex="-1">
+                Grants permission to delete the specified HSM
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DeleteNetworkInterface
+                </p>
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DeleteLunaClient">
-                </a>
+               <td id="awscloudhsm-DeleteLunaClient" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DeleteLunaClient.html">
                  DeleteLunaClient
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Deletes a client
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DescribeBackups">
-                </a>
+               <td id="awscloudhsm-DescribeBackups" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeBackups.html">
                  DescribeBackups
                 </a>
                </td>
-               <td>
-                Gets information about backups of AWS CloudHSM clusters
+               <td tabindex="-1">
+                Grants permission to get information about backups of AWS CloudHSM clusters
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DescribeClusters">
-                </a>
+               <td id="awscloudhsm-DescribeClusters" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">
                  DescribeClusters
                 </a>
                </td>
-               <td>
-                Gets information about AWS CloudHSM clusters
+               <td tabindex="-1">
+                Grants permission to get information about AWS CloudHSM clusters
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DescribeHapg">
-                </a>
+               <td id="awscloudhsm-DescribeHapg" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeHapg.html">
                  DescribeHapg
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Retrieves information about a high-availability partition group
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DescribeHsm">
-                </a>
+               <td id="awscloudhsm-DescribeHsm" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeHsm.html">
                  DescribeHsm
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-DescribeLunaClient">
-                </a>
+               <td id="awscloudhsm-DescribeLunaClient" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeLunaClient.html">
                  DescribeLunaClient
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Retrieves information about an HSM client
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-GetConfig">
-                </a>
+               <td id="awscloudhsm-GetConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_GetConfig.html">
                  GetConfig
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Gets the configuration files necessary to connect to all high availability partition groups the client is associated with
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-InitializeCluster">
-                </a>
+               <td id="awscloudhsm-InitializeCluster" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_InitializeCluster.html">
                  InitializeCluster
                 </a>
                </td>
-               <td>
-                Claims an AWS CloudHSM cluster
+               <td tabindex="-1">
+                Grants permission to claim an AWS CloudHSM cluster
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ListAvailableZones">
-                </a>
+               <td id="awscloudhsm-ListAvailableZones" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListAvailableZones.html">
                  ListAvailableZones
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Lists the Availability Zones that have available AWS CloudHSM capacity
                </td>
-               <td>
+               <td tabindex="-1">
                 List
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ListHapgs">
-                </a>
+               <td id="awscloudhsm-ListHapgs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListHapgs.html">
                  ListHapgs
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Lists the high-availability partition groups for the account
                </td>
-               <td>
+               <td tabindex="-1">
                 List
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ListHsms">
-                </a>
+               <td id="awscloudhsm-ListHsms" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListHsms.html">
                  ListHsms
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Retrieves the identifiers of all of the HSMs provisioned for the current customer
                </td>
-               <td>
+               <td tabindex="-1">
                 List
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ListLunaClients">
-                </a>
+               <td id="awscloudhsm-ListLunaClients" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListLunaClients.html">
                  ListLunaClients
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Lists all of the clients
                </td>
-               <td>
+               <td tabindex="-1">
                 List
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td rowspan="2">
-                <a id="awscloudhsm-ListTags">
-                </a>
+               <td id="awscloudhsm-ListTags" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td rowspan="2">
-                Gets a list of tags for the specified AWS CloudHSM cluster
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get a list of tags for the specified AWS CloudHSM cluster
                </td>
-               <td rowspan="2">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ListTagsForResource">
-                </a>
+               <td id="awscloudhsm-ListTagsForResource" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Returns a list of all tags for the specified AWS CloudHSM resource
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ModifyBackupAttributes">
-                </a>
+               <td id="awscloudhsm-ModifyBackupAttributes" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ModifyBackupAttributes.html">
                  ModifyBackupAttributes
                 </a>
                </td>
-               <td>
-                Modifies attributes for AWS CloudHSM backup
+               <td tabindex="-1">
+                Grants permission to modify attributes for an AWS CloudHSM backup
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ModifyCluster">
-                </a>
+               <td id="awscloudhsm-ModifyCluster" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ModifyCluster.html">
                  ModifyCluster
                 </a>
                </td>
-               <td>
-                Modifies AWS CloudHSM cluster
+               <td tabindex="-1">
+                Grants permission to modify AWS CloudHSM cluster
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ModifyHapg">
-                </a>
+               <td id="awscloudhsm-ModifyHapg" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyHapg.html">
                  ModifyHapg
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Modifies an existing high-availability partition group
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ModifyHsm">
-                </a>
+               <td id="awscloudhsm-ModifyHsm" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyHsm.html">
                  ModifyHsm
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Modifies an HSM
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-ModifyLunaClient">
-                </a>
+               <td id="awscloudhsm-ModifyLunaClient" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyLunaClient.html">
                  ModifyLunaClient
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Modifies the certificate used by the client
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-RemoveTagsFromResource">
-                </a>
+               <td id="awscloudhsm-RemoveTagsFromResource" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Removes one or more tags from the specified AWS CloudHSM resource
                </td>
-               <td>
+               <td tabindex="-1">
                 Tagging
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-RestoreBackup">
-                </a>
+               <td id="awscloudhsm-RestoreBackup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_RestoreBackup.html">
                  RestoreBackup
                 </a>
                </td>
-               <td>
-                Restores the specified CloudHSM backup
+               <td tabindex="-1">
+                Grants permission to restore the specified CloudHSM backup
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup*
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
-                <a id="awscloudhsm-TagResource">
-                </a>
+               <td id="awscloudhsm-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3">
-                Adds or overwrites one or more tags for the specified AWS CloudHSM cluster
+               <td rowspan="3" tabindex="-1">
+                Grants permission to add or overwrite one or more tags for the specified AWS CloudHSM cluster
                </td>
-               <td rowspan="3">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
@@ -1137,59 +1142,57 @@
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td rowspan="3">
-                <a id="awscloudhsm-UntagResource">
-                </a>
+               <td id="awscloudhsm-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3">
-                Removes the specified tag or tags from the specified AWS CloudHSM cluster
+               <td rowspan="3" tabindex="-1">
+                Grants permission to remove the specified tag or tags from the specified AWS CloudHSM cluster
                </td>
-               <td rowspan="3">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-backup">
                   backup
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-cluster">
                   cluster
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_TagKeys">
                   aws:TagKeys
                  </a>
                 </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
              </table>
@@ -1230,14 +1233,12 @@
                </tr>
               </thead>
               <tr>
-               <td>
-                <a id="awscloudhsm-backup">
-                </a>
+               <td id="awscloudhsm-backup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/backups.html">
                  backup
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 <code class="code">
                  arn:$
                  <span>
@@ -1258,7 +1259,7 @@
                  CloudHsmBackupInstanceName}
                 </code>
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
@@ -1267,14 +1268,12 @@
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-cluster">
-                </a>
+               <td id="awscloudhsm-cluster" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">
                  cluster
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 <code class="code">
                  arn:$
                  <span>
@@ -1295,7 +1294,7 @@
                  CloudHsmClusterInstanceName}
                 </code>
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#awscloudhsm-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
@@ -1344,47 +1343,41 @@
                </tr>
               </thead>
               <tr>
-               <td>
-                <a id="awscloudhsm-aws_RequestTag___TagKey_">
-                </a>
+               <td id="awscloudhsm-aws_RequestTag___TagKey_" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
                  aws:RequestTag/${TagKey}
                 </a>
                </td>
-               <td>
-                Filters actions based on the presence of tag key-value pairs in the request
+               <td tabindex="-1">
+                Filters access by the presence of tag key-value pairs in the request
                </td>
-               <td>
+               <td tabindex="-1">
                 String
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-aws_ResourceTag___TagKey_">
-                </a>
+               <td id="awscloudhsm-aws_ResourceTag___TagKey_" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
                  aws:ResourceTag/${TagKey}
                 </a>
                </td>
-               <td>
-                Filters actions based on tag key-value pairs attached to the resource
+               <td tabindex="-1">
+                Filters access by tag key-value pairs attached to the resource
                </td>
-               <td>
+               <td tabindex="-1">
                 String
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="awscloudhsm-aws_TagKeys">
-                </a>
+               <td id="awscloudhsm-aws_TagKeys" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
                  aws:TagKeys
                 </a>
                </td>
-               <td>
-                Filters actions based on the presence of tag keys in the request
+               <td tabindex="-1">
+                Filters access by the presence of tag keys in the request
                </td>
-               <td>
+               <td tabindex="-1">
                 ArrayOfString
                </td>
               </tr>

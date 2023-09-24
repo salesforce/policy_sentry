@@ -187,7 +187,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html">
+               <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">
                 configure this service
                </a>
                .
@@ -334,139 +334,137 @@
                </tr>
               </thead>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-AcknowledgeMessage">
-                </a>
+               <td id="amazonmessagedeliveryservice-AcknowledgeMessage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  AcknowledgeMessage
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to acknowledge a message, ensuring it will not be delivered again
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-DeleteMessage">
-                </a>
+               <td id="amazonmessagedeliveryservice-DeleteMessage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  DeleteMessage
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to delete a message
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-FailMessage">
-                </a>
+               <td id="amazonmessagedeliveryservice-FailMessage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  FailMessage
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to fail a message, signifying the message could not be processed successfully, ensuring it cannot be replied to or delivered again
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-GetEndpoint">
-                </a>
+               <td id="amazonmessagedeliveryservice-GetEndpoint" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  GetEndpoint
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to route traffic to the correct endpoint based on the given destination for the messages
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-GetMessages">
-                </a>
+               <td id="amazonmessagedeliveryservice-GetMessages" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  GetMessages
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to deliver messages to clients/instances using long polling
                </td>
-               <td>
+               <td tabindex="-1">
                 Read
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonmessagedeliveryservice-ssm_SourceInstanceARN">
                   ssm:SourceInstanceARN
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonmessagedeliveryservice-ec2_SourceInstanceARN">
+                  ec2:SourceInstanceARN
+                 </a>
+                </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-SendReply">
-                </a>
+               <td id="amazonmessagedeliveryservice-SendReply" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html">
                  SendReply
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Grants permission to send replies from clients/instances to upstream service
                </td>
-               <td>
+               <td tabindex="-1">
                 Write
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
-               <td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonmessagedeliveryservice-ssm_SourceInstanceARN">
                   ssm:SourceInstanceARN
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonmessagedeliveryservice-ec2_SourceInstanceARN">
+                  ec2:SourceInstanceARN
+                 </a>
+                </p>
                </td>
-               <td>
+               <td tabindex="-1">
                </td>
               </tr>
              </table>
@@ -524,18 +522,29 @@
                </tr>
               </thead>
               <tr>
-               <td>
-                <a id="amazonmessagedeliveryservice-ssm_SourceInstanceARN">
+               <td id="amazonmessagedeliveryservice-ec2_SourceInstanceARN" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                 ec2:SourceInstanceARN
                 </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of the instance from which the request originated
+               </td>
+               <td tabindex="-1">
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonmessagedeliveryservice-ssm_SourceInstanceARN" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-policy-keys">
                  ssm:SourceInstanceARN
                 </a>
                </td>
-               <td>
+               <td tabindex="-1">
                 Filters access by verifying the Amazon Resource Name (ARN) of the AWS Systems Manager's managed instance from which the request is made. This key is not present when the request comes from the managed instance authenticated with an IAM role associated with EC2 instance profile
                </td>
-               <td>
-                String
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
              </table>
