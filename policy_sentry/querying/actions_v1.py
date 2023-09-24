@@ -16,6 +16,37 @@ all_service_prefixes = get_all_service_prefixes()
 logger = logging.getLogger(__name__)
 
 
+def get_actions_for_service_v1(
+    service_prefix: str, lowercase: bool = False
+) -> list[str]:
+    """
+    DEPRECATED: Please recreate the IAM datastore file!
+
+    Get a list of available actions per AWS service (v1)
+
+    Arguments:
+        service_prefix: List: An AWS service prefix, like `s3` or `kms`
+    Returns:
+        List: A list of actions
+    """
+    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+
+    service_prefix_data = get_service_prefix_data(service_prefix)
+    results = []
+    if service_prefix_data and isinstance(service_prefix_data, dict):
+        if lowercase:
+            results = [
+                f"{service_prefix}:{item}".lower()
+                for item in service_prefix_data["privileges"]
+            ]
+        else:
+            results = [
+                f"{service_prefix}:{item}" for item in service_prefix_data["privileges"]
+            ]
+
+    return results
+
+
 def get_action_data_v1(
     service: str, action_name: str
 ) -> dict[str, list[dict[str, Any]]]:
