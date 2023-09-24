@@ -6,7 +6,9 @@ from typing import Any
 from policy_sentry.shared.iam_data import get_service_prefix_data
 
 
-def get_arn_type_details_v1(service_prefix: str, resource_type_name: str) -> dict[str, Any]:
+def get_arn_type_details_v1(
+    service_prefix: str, resource_type_name: str
+) -> dict[str, Any]:
     """
     DEPRECATED: Please recreate the IAM datastore file!
 

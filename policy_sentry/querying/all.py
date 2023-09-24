@@ -88,5 +88,7 @@ def get_service_authorization_url(service_prefix: str) -> str | None:
     """
     Gets the URL to the Actions, Resources, and Condition Keys page for a particular service.
     """
-    result: str = iam_definition.get(service_prefix, {}).get("service_authorization_url")
+    result: str = iam_definition.get(service_prefix, {}).get(
+        "service_authorization_url"
+    )
     return result

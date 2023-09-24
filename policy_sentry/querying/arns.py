@@ -118,7 +118,9 @@ def get_arn_type_details_v2(
     """
     output = {}
     service_prefix_data = get_service_prefix_data(service_prefix)
-    this_resource_type_name = service_prefix_data["resources_lower_name"].get(resource_type_name.lower())
+    this_resource_type_name = service_prefix_data["resources_lower_name"].get(
+        resource_type_name.lower()
+    )
     if this_resource_type_name:
         resource_data = service_prefix_data["resources"][this_resource_type_name]
         output = {
