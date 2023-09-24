@@ -22,8 +22,8 @@ from bs4 import BeautifulSoup, Tag, PageElement
 
 from policy_sentry.shared.constants import (
     BASE_DOCUMENTATION_URL,
-    BUNDLED_HTML_DIRECTORY_PATH,
     BUNDLED_ACCESS_OVERRIDES_FILE,
+    LOCAL_HTML_DIRECTORY_PATH,
     POLICY_SENTRY_SCHEMA_VERSION_NAME,
     POLICY_SENTRY_SCHEMA_VERSION_LATEST,
 )
@@ -173,8 +173,8 @@ def create_database(
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
-    for filename in os.listdir(BUNDLED_HTML_DIRECTORY_PATH):
-        if os.path.isfile(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename)):
+    for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):
+        if os.path.isfile(os.path.join(LOCAL_HTML_DIRECTORY_PATH, filename)):
             if filename not in file_list:
                 file_list.append(filename)
 
@@ -183,7 +183,7 @@ def create_database(
         if not filename.startswith("list_"):
             continue
 
-        with open(os.path.join(BUNDLED_HTML_DIRECTORY_PATH, filename)) as f:
+        with open(os.path.join(LOCAL_HTML_DIRECTORY_PATH, filename)) as f:
             soup = BeautifulSoup(f.read(), "html.parser")
             main_content = soup.find(id="main-content")
             if not isinstance(main_content, Tag):
