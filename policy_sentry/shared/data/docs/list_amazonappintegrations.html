@@ -334,6 +334,57 @@
                </tr>
               </thead>
               <tr>
+               <td id="amazonappintegrations-CreateApplication" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateApplication.html">
+                 CreateApplication
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new Application
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:AttachRolePolicy
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PutRolePolicy
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonappintegrations-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonappintegrations-CreateDataIntegration" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">
                  CreateDataIntegration
@@ -373,6 +424,15 @@
                 <p>
                  kms:CreateGrant
                 </p>
+                <p>
+                 s3:GetBucketNotification
+                </p>
+                <p>
+                 s3:GetEncryptionConfiguration
+                </p>
+                <p>
+                 s3:PutBucketNotification
+                </p>
                </td>
               </tr>
               <tr>
@@ -394,16 +454,16 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonappintegrations-CreateDataIntegrationAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegrationAssociation.html">
+               <td id="amazonappintegrations-CreateDataIntegrationAssociation" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">
                  CreateDataIntegrationAssociation
                 </a>
                 [permission only]
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create a DataIntegrationAssociation
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -434,6 +494,24 @@
                 <p>
                  appflow:UseConnectorProfile
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonappintegrations-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -488,16 +566,16 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonappintegrations-CreateEventIntegrationAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegrationAssociation.html">
+               <td id="amazonappintegrations-CreateEventIntegrationAssociation" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegration.html">
                  CreateEventIntegrationAssociation
                 </a>
                 [permission only]
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create an EventIntegrationAssociation
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -516,6 +594,24 @@
                 <p>
                  events:PutTargets
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonappintegrations-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -557,7 +653,7 @@
               </tr>
               <tr>
                <td id="amazonappintegrations-DeleteDataIntegrationAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegrationAssociation.html">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">
                  DeleteDataIntegrationAssociation
                 </a>
                 [permission only]
@@ -640,7 +736,7 @@
               </tr>
               <tr>
                <td id="amazonappintegrations-DeleteEventIntegrationAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegrationAssociation.html">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegration.html">
                  DeleteEventIntegrationAssociation
                 </a>
                 [permission only]
@@ -670,6 +766,43 @@
                 <p>
                  events:RemoveTargets
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonappintegrations-GetApplication" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetApplication.html">
+                 GetApplication
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to view details about Application
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -747,6 +880,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonappintegrations-ListApplications" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListApplications.html">
+                 ListApplications
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list Applications
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonappintegrations-ListDataIntegrationAssociations" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationAssociations.html">
                  ListDataIntegrationAssociations
@@ -786,7 +938,7 @@
               </tr>
               <tr>
                <td id="amazonappintegrations-ListEventIntegrationAssociations" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrationAssociations">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrationAssociations.html">
                  ListEventIntegrationAssociations
                 </a>
                </td>
@@ -823,17 +975,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonappintegrations-ListTagsForResource" rowspan="5" tabindex="-1">
+               <td id="amazonappintegrations-ListTagsForResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to lists tag for an Amazon AppIntegration resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonappintegrations-data-integration">
@@ -899,17 +1064,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonappintegrations-TagResource" rowspan="5" tabindex="-1">
+               <td id="amazonappintegrations-TagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to tag an Amazon AppIntegration resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonappintegrations-data-integration">
@@ -985,17 +1163,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonappintegrations-UntagResource" rowspan="5" tabindex="-1">
+               <td id="amazonappintegrations-UntagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to untag an Amazon AppIntegration resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonappintegrations-data-integration">
@@ -1056,6 +1247,43 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonappintegrations-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonappintegrations-UpdateApplication" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateApplication.html">
+                 UpdateApplication
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to modify an Application
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-application">
+                  application*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonappintegrations-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
@@ -1314,6 +1542,41 @@
                   {
                  </span>
                  ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonappintegrations-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonappintegrations-application" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_Application.html">
+                 application
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:app-integrations:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:application/$
+                 <span>
+                  {
+                 </span>
+                 ApplicationId}
                 </code>
                </td>
                <td tabindex="-1">

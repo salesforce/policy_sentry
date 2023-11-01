@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d151c11c13">
+             <table id="w43aab5b9d155c11c13">
               <thead>
                <tr>
                 <th>
@@ -334,13 +334,13 @@
                </tr>
               </thead>
               <tr>
-               <td id="amazonbedrock-CreateAgent" rowspan="2" tabindex="-1">
+               <td id="amazonbedrock-AssociateAgentKnowledgeBase" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
-                 CreateAgent
+                 AssociateAgentKnowledgeBase
                 </a>
                </td>
                <td rowspan="2" tabindex="-1">
-                Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version
+                Grants permission to associate a knowledge base with an agent
                </td>
                <td rowspan="2" tabindex="-1">
                 Write
@@ -360,10 +360,54 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-agent-alias">
-                  agent-alias*
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-AssociateThirdPartyKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 AssociateThirdPartyKnowledgeBase
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to use 3rd party platform to store knowledge data
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-bedrock_ThirdPartyKnowledgeBaseCredentialsSecretArn">
+                  bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateAgent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAgent
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -408,8 +452,8 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-agent-alias">
-                  agent-alias*
+                 <a href="#amazonbedrock-agent">
+                  agent*
                  </a>
                 </p>
                </td>
@@ -443,15 +487,77 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-CreateModelCustomizationJob" rowspan="4" tabindex="-1">
+               <td id="amazonbedrock-CreateDataSource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateDataSource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a data source
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateFoundationModelAgreement" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 CreateFoundationModelAgreement
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new foundation model agreement
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateKnowledgeBase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a knowledge base
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateModelCustomizationJob" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html">
                  CreateModelCustomizationJob
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to create a job for customizing the model with your custom training data
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -481,9 +587,51 @@
               </tr>
               <tr>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-model-customization-job">
-                  model-customization-job*
+                 <a href="#amazonbedrock-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrock-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateProvisionedModelThroughput" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html">
+                 CreateProvisionedModelThroughput
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create a new provisioned model throughput
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-custom-model">
+                  custom-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-foundation-model">
+                  foundation-model*
                  </a>
                 </p>
                </td>
@@ -526,6 +674,153 @@
                 <p>
                  <a href="#amazonbedrock-custom-model">
                   custom-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteDataSource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DeleteDataSource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a data source
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteFoundationModelAgreement" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 DeleteFoundationModelAgreement
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a foundation model agreement that you created earlier
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DeleteKnowledgeBase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a knowledge base
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteModelInvocationLoggingConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteModelInvocationLoggingConfiguration.html">
+                 DeleteModelInvocationLoggingConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an existing Invocation logging configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteProvisionedModelThroughput" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteProvisionedModelThroughput.html">
+                 DeleteProvisionedModelThroughput
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a provisioned model throughput that you created earlier
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DisassociateAgentKnowledgeBase" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DisassociateAgentKnowledgeBase
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to disassociate a knowledge base from the agent
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
                  </a>
                 </p>
                </td>
@@ -607,6 +902,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-GetAgentKnowledgeBase" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAgentKnowledgeBase
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to describe a knowledge base associated with an agent
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-GetAgentVersion" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  GetAgentVersion
@@ -655,6 +987,121 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-GetDataSource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetDataSource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve an existing data source
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetFoundationModel" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">
+                 GetFoundationModel
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the properties associated with a Bedrock foundation model
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-foundation-model">
+                  foundation-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetFoundationModelAvailability" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 GetFoundationModelAvailability
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the availability of a foundation model
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetIngestionJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetIngestionJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve an existing ingestion job
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetKnowledgeBase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve an existing knowledge base
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-GetModelCustomizationJob" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCustomizationJob.html">
                  GetModelCustomizationJob
@@ -679,6 +1126,68 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-GetModelInvocationLoggingConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelInvocationLoggingConfiguration.html">
+                 GetModelInvocationLoggingConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve an existing Invocation logging configuration
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetProvisionedModelThroughput" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html">
+                 GetProvisionedModelThroughput
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a provisioned model throughput
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetUseCaseForModelAccess" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 GetUseCaseForModelAccess
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a use case for model access
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-InvokeAgent" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  InvokeAgent
@@ -688,7 +1197,7 @@
                 Grants permission to send user input (text-only) to the alias of an agent for Bedrock
                </td>
                <td tabindex="-1">
-                Write
+                Read
                </td>
                <td tabindex="-1">
                 <p>
@@ -704,7 +1213,7 @@
               </tr>
               <tr>
                <td id="amazonbedrock-InvokeModel" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModel.html">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html">
                  InvokeModel
                 </a>
                </td>
@@ -712,12 +1221,12 @@
                 Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body
                </td>
                <td rowspan="2" tabindex="-1">
-                Write
+                Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-custom-model">
-                  custom-model*
+                 <a href="#amazonbedrock-foundation-model">
+                  foundation-model*
                  </a>
                 </p>
                </td>
@@ -729,8 +1238,8 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-foundation-model">
-                  foundation-model*
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
                  </a>
                 </p>
                </td>
@@ -741,7 +1250,7 @@
               </tr>
               <tr>
                <td id="amazonbedrock-InvokeModelWithResponseStream" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModelWithResponseStream.html">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html">
                  InvokeModelWithResponseStream
                 </a>
                </td>
@@ -749,12 +1258,12 @@
                 Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response
                </td>
                <td rowspan="2" tabindex="-1">
-                Write
+                Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-custom-model">
-                  custom-model*
+                 <a href="#amazonbedrock-foundation-model">
+                  foundation-model*
                  </a>
                 </p>
                </td>
@@ -766,8 +1275,8 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonbedrock-foundation-model">
-                  foundation-model*
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
                  </a>
                 </p>
                </td>
@@ -808,6 +1317,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list aliases for an agent
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListAgentKnowledgeBases" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAgentKnowledgeBases
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list knowledge bases associated with an agent
                </td>
                <td tabindex="-1">
                 List
@@ -887,6 +1420,49 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-ListDataSources" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListDataSources
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list existing data sources in an knowledge base
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListFoundationModelAgreementOffers" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 ListFoundationModelAgreementOffers
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a list of foundation model agreement offers
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-ListFoundationModels" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html">
                  ListFoundationModels
@@ -894,6 +1470,49 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list Bedrock foundation models that you can use
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListIngestionJobs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListIngestionJobs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list ingestion jobs in a data source
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListKnowledgeBases" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListKnowledgeBases
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list existing knowledge bases
                </td>
                <td tabindex="-1">
                 List
@@ -925,15 +1544,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-ListTagsForResource" rowspan="2" tabindex="-1">
+               <td id="amazonbedrock-ListProvisionedModelThroughputs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html">
+                 ListProvisionedModelThroughputs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list provisioned model throughputs that you created earlier
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListTagsForResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list tags for a Bedrock resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -953,6 +1591,125 @@
                 <p>
                  <a href="#amazonbedrock-model-customization-job">
                   model-customization-job*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-PutFoundationModelEntitlement" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 PutFoundationModelEntitlement
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to put entitlement to access a foundation model
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-PutModelInvocationLoggingConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html">
+                 PutModelInvocationLoggingConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create an existing Invocation logging configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-PutUseCaseForModelAccess" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html">
+                 PutUseCaseForModelAccess
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to put a use case for model access
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-QueryKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 QueryKnowledgeBase
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve ingested data from a knowledge base.
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-StartIngestionJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 StartIngestionJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start an ingestion job
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
                  </a>
                 </p>
                </td>
@@ -986,15 +1743,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-TagResource" rowspan="3" tabindex="-1">
+               <td id="amazonbedrock-TagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to Tag a Bedrock resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1014,6 +1771,19 @@
                 <p>
                  <a href="#amazonbedrock-model-customization-job">
                   model-customization-job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model
                  </a>
                 </p>
                </td>
@@ -1041,15 +1811,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-UntagResource" rowspan="3" tabindex="-1">
+               <td id="amazonbedrock-UntagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to Untag a Bedrock resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1069,6 +1839,19 @@
                 <p>
                  <a href="#amazonbedrock-model-customization-job">
                   model-customization-job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model
                  </a>
                 </p>
                </td>
@@ -1162,6 +1945,141 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateAgentKnowledgeBase" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAgentKnowledgeBase
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update a knowledge base associated with an agent
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-agent">
+                  agent*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateDataSource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateDataSource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a data source
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateKnowledgeBase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateKnowledgeBase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a knowledge base
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-knowledge-base">
+                  knowledge-base*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateProvisionedModelThroughput" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateProvisionedModelThroughput.html">
+                 UpdateProvisionedModelThroughput
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to update a provisioned model throughput that you created earlier
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-custom-model">
+                  custom-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-foundation-model">
+                  foundation-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-provisioned-model">
+                  provisioned-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1185,7 +2103,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d151c13b5">
+             <table id="w43aab5b9d155c13b5">
               <thead>
                <tr>
                 <th>
@@ -1246,6 +2164,41 @@
                   {
                  </span>
                  Account}:custom-model/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-provisioned-model" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 provisioned-model
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:provisioned-model/$
                  <span>
                   {
                  </span>
@@ -1359,6 +2312,36 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazonbedrock-knowledge-base" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 knowledge-base
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:knowledge-base/$
+                 <span>
+                  {
+                 </span>
+                 KnowledgeBaseId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1385,7 +2368,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d151c15b7">
+             <table id="w43aab5b9d155c15b7">
               <thead>
                <tr>
                 <th>
@@ -1436,6 +2419,19 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-bedrock_ThirdPartyKnowledgeBaseCredentialsSecretArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-globally-available">
+                 bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the secretArn containing the credentials of the third party platform
+               </td>
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
              </table>

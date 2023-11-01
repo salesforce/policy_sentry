@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d187c11c13">
+             <table id="w43aab5b9d191c11c13">
               <thead>
                <tr>
                 <th>
@@ -1527,6 +1527,98 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-CreateMediaPipelineKinesisVideoStreamPool" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaPipelineKinesisVideoStreamPool.html">
+                 CreateMediaPipelineKinesisVideoStreamPool
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create kinesis video stream pool
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonchime-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 kinesis:DescribeStream
+                </p>
+                <p>
+                 kinesisvideo:CreateStream
+                </p>
+                <p>
+                 kinesisvideo:GetDataEndpoint
+                </p>
+                <p>
+                 kinesisvideo:ListStreams
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-CreateMediaStreamPipeline" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaStreamPipeline.html">
+                 CreateMediaStreamPipeline
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a media stream pipeline
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 kinesisvideo:DescribeStream
+                </p>
+                <p>
+                 kinesisvideo:GetDataEndpoint
+                </p>
+                <p>
+                 kinesisvideo:PutMedia
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonchime-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-CreateMeeting" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html">
                  CreateMeeting
@@ -2561,6 +2653,30 @@
                 <p>
                  <a href="#amazonchime-media-pipeline">
                   media-pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-DeleteMediaPipelineKinesisVideoStreamPool" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipelineKinesisVideoStreamPool.html">
+                 DeleteMediaPipelineKinesisVideoStreamPool
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete kinesis video stream pool
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool*
                  </a>
                 </p>
                </td>
@@ -4126,6 +4242,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-GetMediaPipelineKinesisVideoStreamPool" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipelineKinesisVideoStreamPool.html">
+                 GetMediaPipelineKinesisVideoStreamPool
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get an existing media pipeline
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-GetMeeting" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_GetMeeting.html">
                  GetMeeting
@@ -4422,21 +4562,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-GetSpeakerSearchTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSpeakerSearchTask.html">
+               <td id="amazonchime-GetSpeakerSearchTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetSpeakerSearchTask.html">
                  GetSpeakerSearchTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to get a speaker search task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get a speaker search task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                  voice-connector
                  </a>
                 </p>
                </td>
@@ -4800,21 +4953,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-GetVoiceToneAnalysisTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceToneAnalysisTask.html">
+               <td id="amazonchime-GetVoiceToneAnalysisTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetVoiceToneAnalysisTask.html">
                  GetVoiceToneAnalysisTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to get a voice tone analysis task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get a voice tone analysis task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                  voice-connector
                  </a>
                 </p>
                </td>
@@ -5687,6 +5853,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-ListMediaPipelineKinesisVideoStreamPools" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelineKinesisVideoStreamPools.html">
+                 ListMediaPipelineKinesisVideoStreamPools
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list media pipelines
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-ListMediaPipelines" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.html">
                  ListMediaPipelines
@@ -5999,15 +6184,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-ListTagsForResource" rowspan="11" tabindex="-1">
+               <td id="amazonchime-ListTagsForResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to list the tags applied to an Amazon Chime resource
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -6092,6 +6277,19 @@
                 <p>
                  <a href="#amazonchime-media-pipeline">
                   media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool
                  </a>
                 </p>
                </td>
@@ -7159,21 +7357,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-StartSpeakerSearchTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartSpeakerSearchTask.html">
+               <td id="amazonchime-StartSpeakerSearchTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartSpeakerSearchTask.html">
                  StartSpeakerSearchTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to start a speaker search task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to start a speaker search task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
                  </a>
                 </p>
                </td>
@@ -7183,21 +7381,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-StartVoiceToneAnalysisTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartVoiceToneAnalysisTask.html">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-voice-connector">
+                  voice-connector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-StartVoiceToneAnalysisTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartVoiceToneAnalysisTask.html">
                  StartVoiceToneAnalysisTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to start a voice tone analysis task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to start a voice tone analysis task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                  voice-connector
                  </a>
                 </p>
                </td>
@@ -7226,21 +7450,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-StopSpeakerSearchTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopSpeakerSearchTask.html">
+               <td id="amazonchime-StopSpeakerSearchTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopSpeakerSearchTask.html">
                  StopSpeakerSearchTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to stop a speaker search task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to stop a speaker search task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
                  </a>
                 </p>
                </td>
@@ -7250,21 +7474,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-StopVoiceToneAnalysisTask" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopVoiceToneAnalysisTask.html">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-voice-connector">
+                  voice-connector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-StopVoiceToneAnalysisTask" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopVoiceToneAnalysisTask.html">
                  StopVoiceToneAnalysisTask
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to stop a voice tone analysis task
+               <td rowspan="2" tabindex="-1">
+                Grants permission to stop a voice tone analysis task on the specified Amazon Chime resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonchime-media-pipeline">
+                  media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonchime-voice-connector">
-                  voice-connector*
+                  voice-connector
                  </a>
                 </p>
                </td>
@@ -7383,15 +7633,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-TagResource" rowspan="12" tabindex="-1">
+               <td id="amazonchime-TagResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to apply the specified tags to the specified Amazon Chime resource
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -7476,6 +7726,19 @@
                 <p>
                  <a href="#amazonchime-media-pipeline">
                   media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool
                  </a>
                 </p>
                </td>
@@ -7627,15 +7890,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonchime-UntagResource" rowspan="12" tabindex="-1">
+               <td id="amazonchime-UntagResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to untag the specified tags from the specified Amazon Chime resource
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -7720,6 +7983,19 @@
                 <p>
                  <a href="#amazonchime-media-pipeline">
                   media-pipeline
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool
                  </a>
                 </p>
                </td>
@@ -8290,6 +8566,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-UpdateMediaPipelineKinesisVideoStreamPool" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaPipelineKinesisVideoStreamPool.html">
+                 UpdateMediaPipelineKinesisVideoStreamPool
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update kinesis video stream pool
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-media-pipeline-kinesis-video-stream-pool">
+                  media-pipeline-kinesis-video-stream-pool*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-UpdatePhoneNumber" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdatePhoneNumber.html">
                  UpdatePhoneNumber
@@ -8694,7 +8994,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d187c13b5">
+             <table id="w43aab5b9d191c13b5">
               <thead>
                <tr>
                 <th>
@@ -9001,6 +9301,41 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-media-pipeline-kinesis-video-stream-pool" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_KinesisVideoStreamPoolConfiguration.html">
+                 media-pipeline-kinesis-video-stream-pool
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:chime:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 AccountId}:media-pipeline-kinesis-video-stream-pool/$
+                 <span>
+                  {
+                 </span>
+                 PoolName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-voice-profile-domain" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.html">
                  voice-profile-domain
@@ -9161,7 +9496,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d187c15b7">
+             <table id="w43aab5b9d191c15b7">
               <thead>
                <tr>
                 <th>
