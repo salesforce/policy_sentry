@@ -379,6 +379,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 globalaccelerator:UpdateEndpointGroup
+                </p>
                </td>
               </tr>
               <tr>
@@ -432,6 +435,35 @@
                </td>
                <td tabindex="-1">
                 Grants permission to create a standard accelerator
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsglobalaccelerator-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-CreateCrossAccountAttachment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCrossAccountAttachment.html">
+                 CreateCrossAccountAttachment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a CrossAccountAttachment
                </td>
                <td tabindex="-1">
                 Write
@@ -594,6 +626,30 @@
                 <p>
                  <a href="#awsglobalaccelerator-accelerator">
                   accelerator*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-DeleteCrossAccountAttachment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteCrossAccountAttachment.html">
+                 DeleteCrossAccountAttachment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a CrossAccountAttachment
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment*
                  </a>
                 </p>
                </td>
@@ -814,6 +870,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awsglobalaccelerator-DescribeCrossAccountAttachment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCrossAccountAttachment.html">
+                 DescribeCrossAccountAttachment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permissions to describe a CrossAccountAttachment
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsglobalaccelerator-DescribeCustomRoutingAccelerator" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCustomRoutingAccelerator.html">
                  DescribeCustomRoutingAccelerator
@@ -996,6 +1076,63 @@
                </td>
               </tr>
               <tr>
+               <td id="awsglobalaccelerator-ListCrossAccountAttachments" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountAttachments.html">
+                 ListCrossAccountAttachments
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all CrossAccountAttachments
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-ListCrossAccountResourceAccounts" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountResourceAccounts.html">
+                 ListCrossAccountResourceAccounts
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list accounts with CrossAccountAttachments listing caller as a principal
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-ListCrossAccountResources" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountResources.html">
+                 ListCrossAccountResources
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all CrossAccountAttachment resources usable by caller
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsglobalaccelerator-ListCustomRoutingAccelerators" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingAccelerators.html">
                  ListCustomRoutingAccelerators
@@ -1154,21 +1291,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awsglobalaccelerator-ListTagsForResource" tabindex="-1">
+               <td id="awsglobalaccelerator-ListTagsForResource" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to list tags for a globalaccelerator resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awsglobalaccelerator-accelerator">
                   accelerator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment
                  </a>
                 </p>
                </td>
@@ -1242,24 +1392,40 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 globalaccelerator:UpdateEndpointGroup
+                </p>
                </td>
               </tr>
               <tr>
-               <td id="awsglobalaccelerator-TagResource" rowspan="2" tabindex="-1">
+               <td id="awsglobalaccelerator-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to add tags to a globalaccelerator resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awsglobalaccelerator-accelerator">
                   accelerator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment
                  </a>
                 </p>
                </td>
@@ -1287,21 +1453,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awsglobalaccelerator-UntagResource" rowspan="2" tabindex="-1">
+               <td id="awsglobalaccelerator-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove tags from a globalaccelerator resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awsglobalaccelerator-accelerator">
                   accelerator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment
                  </a>
                 </p>
                </td>
@@ -1363,6 +1542,30 @@
                 <p>
                  <a href="#awsglobalaccelerator-accelerator">
                   accelerator*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-UpdateCrossAccountAttachment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateCrossAccountAttachment.html">
+                 UpdateCrossAccountAttachment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a CrossAccountAttachment
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-attachment">
+                  attachment*
                  </a>
                 </p>
                </td>
@@ -1567,7 +1770,7 @@
                  <span>
                   {
                  </span>
-                 AcceleratorId}
+                 ResourceId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -1598,7 +1801,7 @@
                  <span>
                   {
                  </span>
-                 AcceleratorId}/listener/$
+                 ResourceId}/listener/$
                  <span>
                   {
                  </span>
@@ -1633,7 +1836,7 @@
                  <span>
                   {
                  </span>
-                 AcceleratorId}/listener/$
+                 ResourceId}/listener/$
                  <span>
                   {
                  </span>
@@ -1642,6 +1845,37 @@
                   {
                  </span>
                  EndpointGroupId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsglobalaccelerator-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awsglobalaccelerator-attachment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CrossAccountAttachment.html">
+                 attachment
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:globalaccelerator::$
+                 <span>
+                  {
+                 </span>
+                 Account}:attachment/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
                 </code>
                </td>
                <td tabindex="-1">
