@@ -397,15 +397,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-AddTagsToResource" rowspan="18" tabindex="-1">
+               <td id="amazonrds-AddTagsToResource" rowspan="21" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td rowspan="18" tabindex="-1">
+               <td rowspan="21" tabindex="-1">
                 Grants permission to add metadata tags to an Amazon RDS resource
                </td>
-               <td rowspan="18" tabindex="-1">
+               <td rowspan="21" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -514,6 +514,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-integration">
+                  integration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-og">
                   og
                  </a>
@@ -605,6 +618,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-snapshot-tenant-database">
+                  snapshot-tenant-database
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-subgrp">
                   subgrp
                  </a>
@@ -620,6 +646,19 @@
                 <p>
                  <a href="#amazonrds-target-group">
                   target-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database
                  </a>
                 </p>
                </td>
@@ -1606,6 +1645,9 @@
                  rds:AddTagsToResource
                 </p>
                 <p>
+                 rds:CreateTenantDatabase
+                </p>
+                <p>
                  secretsmanager:CreateSecret
                 </p>
                 <p>
@@ -1707,26 +1749,31 @@
                   rds:ManageMasterUserPassword
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_MultiTenant">
+                  rds:MultiTenant
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-CreateDBInstanceReadReplica" rowspan="4" tabindex="-1">
+               <td id="amazonrds-CreateDBInstanceReadReplica" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html">
                  CreateDBInstanceReadReplica
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to create a DB instance that acts as a Read Replica of a source DB instance
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-db">
-                  db*
+                 <a href="#amazonrds-cluster">
+                  cluster*
                  </a>
                 </p>
                </td>
@@ -1744,8 +1791,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-db">
+                  db*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-og">
                   og*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-pg">
+                  pg*
                  </a>
                 </p>
                </td>
@@ -1978,15 +2051,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-CreateDBSnapshot" rowspan="3" tabindex="-1">
+               <td id="amazonrds-CreateDBSnapshot" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html">
                  CreateDBSnapshot
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create a DBSnapshot
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -2009,6 +2082,19 @@
                 <p>
                  <a href="#amazonrds-snapshot">
                   snapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot-tenant-database">
+                  snapshot-tenant-database*
                  </a>
                 </p>
                </td>
@@ -2183,6 +2269,75 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-CreateIntegration" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateIntegration.html">
+                 CreateIntegration
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create an Aurora zero-ETL integration with Redshift
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 rds:AddTagsToResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_req-tag___TagKey_">
+                  rds:req-tag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-CreateOptionGroup" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html">
                  CreateOptionGroup
@@ -2226,6 +2381,69 @@
                 <p>
                  <a href="#amazonrds-rds_req-tag___TagKey_">
                   rds:req-tag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-CreateTenantDatabase" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateTenantDatabase.html">
+                 CreateTenantDatabase
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create a new tenant database
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-db">
+                  db*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 rds:AddTagsToResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_TenantDatabaseName">
+                  rds:TenantDatabaseName
                  </a>
                 </p>
                </td>
@@ -2495,6 +2713,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 rds:DeleteTenantDatabase
+                </p>
                </td>
               </tr>
               <tr>
@@ -2510,6 +2731,11 @@
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-auto-backup">
+                  auto-backup*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2709,6 +2935,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-DeleteIntegration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteIntegration.html">
+                 DeleteIntegration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete an Aurora zero-ETL integration with Redshift
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-DeleteOptionGroup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html">
                  DeleteOptionGroup
@@ -2724,6 +2987,43 @@
                 <p>
                  <a href="#amazonrds-og">
                   og*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-DeleteTenantDatabase" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteTenantDatabase.html">
+                 DeleteTenantDatabase
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a tenant database
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-db">
+                  db*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database*
                  </a>
                 </p>
                </td>
@@ -3095,17 +3395,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-DescribeDBInstanceAutomatedBackups" tabindex="-1">
+               <td id="amazonrds-DescribeDBInstanceAutomatedBackups" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstanceAutomatedBackups.html">
                  DescribeDBInstanceAutomatedBackups
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to return a list of automated backups for both current and deleted instances
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 List
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-auto-backup">
+                  auto-backup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-db">
@@ -3472,6 +3785,56 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-DescribeDbSnapshotTenantDatabases" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotTenantDatabases.html">
+                 DescribeDbSnapshotTenantDatabases
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot
+               </td>
+               <td rowspan="3" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot-tenant-database">
+                  snapshot-tenant-database*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-db">
+                  db
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot">
+                  snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-DescribeEngineDefaultClusterParameters" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultClusterParameters.html">
                  DescribeEngineDefaultClusterParameters
@@ -3610,6 +3973,43 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-DescribeIntegrations" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeIntegrations.html">
+                 DescribeIntegrations
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to describe an Aurora zero-ETL integration with Redshift
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3821,6 +4221,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-DescribeTenantDatabases" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeTenantDatabases.html">
+                 DescribeTenantDatabases
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to return information about provisioned tenant databases. You can filter by Region or snapshot
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-db">
+                  db
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-DescribeValidDBInstanceModifications" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeValidDBInstanceModifications.html">
                  DescribeValidDBInstanceModifications
@@ -3954,15 +4391,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-ListTagsForResource" rowspan="16" tabindex="-1">
+               <td id="amazonrds-ListTagsForResource" rowspan="19" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="19" tabindex="-1">
                 Grants permission to list all tags on an Amazon RDS resource
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="19" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -4047,6 +4484,19 @@
                 <p>
                  <a href="#amazonrds-es">
                   es
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-integration">
+                  integration
                  </a>
                 </p>
                </td>
@@ -4149,6 +4599,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-snapshot-tenant-database">
+                  snapshot-tenant-database
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-subgrp">
                   subgrp
                  </a>
@@ -4164,6 +4627,19 @@
                 <p>
                  <a href="#amazonrds-target-group">
                   target-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database
                  </a>
                 </p>
                </td>
@@ -4478,6 +4954,12 @@
                  kms:GenerateDataKey
                 </p>
                 <p>
+                 rds:AddTagsToResource
+                </p>
+                <p>
+                 rds:CreateTenantDatabase
+                </p>
+                <p>
                  secretsmanager:CreateSecret
                 </p>
                 <p>
@@ -4534,6 +5016,11 @@
                 <p>
                  <a href="#amazonrds-rds_ManageMasterUserPassword">
                   rds:ManageMasterUserPassword
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_MultiTenant">
+                  rds:MultiTenant
                  </a>
                 </p>
                </td>
@@ -4820,6 +5307,56 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-ModifyTenantDatabase" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyTenantDatabase.html">
+                 ModifyTenantDatabase
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to modify a tenant database
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-db">
+                  db*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-rds_TenantDatabaseName">
+                  rds:TenantDatabaseName
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-PromoteReadReplica" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html">
                  PromoteReadReplica
@@ -5100,15 +5637,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-RemoveTagsFromResource" rowspan="18" tabindex="-1">
+               <td id="amazonrds-RemoveTagsFromResource" rowspan="21" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td rowspan="18" tabindex="-1">
+               <td rowspan="21" tabindex="-1">
                 Grants permission to remove metadata tags from an Amazon RDS resource
                </td>
-               <td rowspan="18" tabindex="-1">
+               <td rowspan="21" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -5217,6 +5754,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-integration">
+                  integration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-og">
                   og
                  </a>
@@ -5308,6 +5858,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-snapshot-tenant-database">
+                  snapshot-tenant-database
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-subgrp">
                   subgrp
                  </a>
@@ -5323,6 +5886,19 @@
                 <p>
                  <a href="#amazonrds-target-group">
                   target-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-tenant-database">
+                  tenant-database
                  </a>
                 </p>
                </td>
@@ -5806,6 +6382,9 @@
                 <p>
                  rds:AddTagsToResource
                 </p>
+                <p>
+                 rds:CreateTenantDatabase
+                </p>
                </td>
               </tr>
               <tr>
@@ -6004,15 +6583,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-RestoreDBInstanceToPointInTime" rowspan="5" tabindex="-1">
+               <td id="amazonrds-RestoreDBInstanceToPointInTime" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html">
                  RestoreDBInstanceToPointInTime
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to restore a DB instance to an arbitrary point in time
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -6030,6 +6609,9 @@
                 </p>
                 <p>
                  rds:AddTagsToResource
+                </p>
+                <p>
+                 rds:CreateTenantDatabase
                 </p>
                </td>
               </tr>
@@ -6064,6 +6646,19 @@
                 <p>
                  <a href="#amazonrds-subgrp">
                   subgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-auto-backup">
+                  auto-backup
                  </a>
                 </p>
                </td>
@@ -6210,17 +6805,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-StartDBInstanceAutomatedBackupsReplication" tabindex="-1">
+               <td id="amazonrds-StartDBInstanceAutomatedBackupsReplication" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html">
                  StartDBInstanceAutomatedBackupsReplication
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to start replication of automated backups to a different AWS Region
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-auto-backup">
+                  auto-backup*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-db">
@@ -6591,6 +7199,36 @@
                   {
                  </span>
                  DbClusterAutomatedBackupId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-auto-backup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html">
+                 auto-backup
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:auto-backup:$
+                 <span>
+                  {
+                 </span>
+                 DbInstanceAutomatedBackupId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -7310,6 +7948,115 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonrds-integration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html">
+                 integration
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:integration:$
+                 <span>
+                  {
+                 </span>
+                 IntegrationIdentifier}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-snapshot-tenant-database" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.single-tenant.snapshots.html#br-cdb.db-snapshots">
+                 snapshot-tenant-database
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:snapshot-tenant-database:$
+                 <span>
+                  {
+                 </span>
+                 SnapshotName}:$
+                 <span>
+                  {
+                 </span>
+                 TenantResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-tenant-database" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.CDBs.html#multi-tenant-configuration">
+                 tenant-database
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:tenant-database:$
+                 <span>
+                  {
+                 </span>
+                 TenantResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -7494,6 +8241,19 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-rds_MultiTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:MultiTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the value that specifies whether the DB instance is in the multi-tenant configuration
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-rds_Piops" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
                  rds:Piops
@@ -7530,6 +8290,19 @@
                </td>
                <td tabindex="-1">
                 Numeric
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-rds_TenantDatabaseName" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:TenantDatabaseName
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tenant database name in CreateTenantDatabase and by the new tenant database name in ModifyTenantDatabase
+               </td>
+               <td tabindex="-1">
+                String
                </td>
               </tr>
               <tr>

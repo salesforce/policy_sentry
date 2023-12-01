@@ -30667,6 +30667,63 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-GetSecurityGroupsForVpc" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSecurityGroupsForVpc.html">
+                 GetSecurityGroupsForVpc
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve a list of security groups for a specified VPC
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-vpc">
+                  vpc*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Tenancy">
+                  ec2:Tenancy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VpcID">
+                  ec2:VpcID
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-GetSerialConsoleAccessStatus" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSerialConsoleAccessStatus.html">
                  GetSerialConsoleAccessStatus
@@ -31936,6 +31993,41 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-InjectApiError" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 InjectApiError
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to temporarily inject errors for target API requests
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_FisActionId">
+                  ec2:FisActionId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_FisTargetArns">
+                  ec2:FisTargetArns
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonec2-ec2_Region">
                   ec2:Region
@@ -35102,16 +35194,6 @@
                 <p>
                  <a href="#amazonec2-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_Attribute">
-                  ec2:Attribute
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
-                  ec2:Attribute/${AttributeName}
                  </a>
                 </p>
                 <p>
@@ -50328,6 +50410,32 @@
                </td>
                <td tabindex="-1">
                 Bool
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ec2_FisActionId" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 ec2:FisActionId
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ID of an AWS FIS action
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ec2_FisTargetArns" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 ec2:FisTargetArns
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of an AWS FIS target
+               </td>
+               <td tabindex="-1">
+                ArrayOfARN
                </td>
               </tr>
               <tr>

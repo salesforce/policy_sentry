@@ -420,15 +420,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonsagemaker-AddTags" rowspan="45" tabindex="-1">
+               <td id="amazonsagemaker-AddTags" rowspan="46" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td rowspan="45" tabindex="-1">
+               <td rowspan="46" tabindex="-1">
                 Grants permission to add or overwrite one or more tags for the specified Amazon SageMaker resource
                </td>
-               <td rowspan="45" tabindex="-1">
+               <td rowspan="46" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -867,6 +867,24 @@
                 <p>
                  <a href="#amazonsagemaker-image">
                   image
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component
                  </a>
                 </p>
                </td>
@@ -2486,6 +2504,9 @@
                </td>
                <td tabindex="-1">
                 <p>
+                 iam:PassRole
+                </p>
+                <p>
                  sagemaker:AddTags
                 </p>
                </td>
@@ -2532,6 +2553,21 @@
                 <p>
                  <a href="#amazonsagemaker-sagemaker_ServerlessMemorySize">
                   sagemaker:ServerlessMemorySize
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_NetworkIsolation">
+                  sagemaker:NetworkIsolation
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_VpcSecurityGroupIds">
+                  sagemaker:VpcSecurityGroupIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_VpcSubnets">
+                  sagemaker:VpcSubnets
                  </a>
                 </p>
                </td>
@@ -3023,6 +3059,79 @@
                 <p>
                  <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-CreateInferenceComponent" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceComponent.html">
+                 CreateInferenceComponent
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create an inference component on an endpoint
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-endpoint">
+                  endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sagemaker:AddTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ModelArn">
+                  sagemaker:ModelArn
                  </a>
                 </p>
                </td>
@@ -5659,6 +5768,35 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-DeleteInferenceComponent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceComponent.html">
+                 DeleteInferenceComponent
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an inference component. Amazon SageMaker frees up the resources that were reserved when the inference component was created
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-DeleteInferenceExperiment" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceExperiment.html">
                  DeleteInferenceExperiment
@@ -6161,15 +6299,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonsagemaker-DeleteTags" rowspan="45" tabindex="-1">
+               <td id="amazonsagemaker-DeleteTags" rowspan="46" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="45" tabindex="-1">
+               <td rowspan="46" tabindex="-1">
                 Grants permission to delete the specified set of tags from an Amazon SageMaker resource
                </td>
-               <td rowspan="45" tabindex="-1">
+               <td rowspan="46" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -6608,6 +6746,24 @@
                 <p>
                  <a href="#amazonsagemaker-image">
                   image
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component
                  </a>
                 </p>
                </td>
@@ -8000,6 +8156,35 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-DescribeInferenceComponent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceComponent.html">
+                 DescribeInferenceComponent
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return the description of an inference component
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-DescribeInferenceExperiment" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">
                  DescribeInferenceExperiment
@@ -9247,15 +9432,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonsagemaker-InvokeEndpoint" rowspan="2" tabindex="-1">
+               <td id="amazonsagemaker-InvokeEndpoint" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">
                  InvokeEndpoint
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to invoke an endpoint. After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -9266,6 +9451,29 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -9303,6 +9511,58 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-InvokeEndpointWithResponseStream" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html">
+                 InvokeEndpointWithResponseStream
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get the inference response as a stream from the specified endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-endpoint">
+                  endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -9951,6 +10211,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list SageMaker Images in your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-ListInferenceComponents" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceComponents.html">
+                 ListInferenceComponents
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list inference components
                </td>
                <td tabindex="-1">
                 List
@@ -10715,15 +10994,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonsagemaker-ListTags" rowspan="44" tabindex="-1">
+               <td id="amazonsagemaker-ListTags" rowspan="45" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td rowspan="44" tabindex="-1">
+               <td rowspan="45" tabindex="-1">
                 Grants permission to list the tag set associated with the specified resource
                </td>
-               <td rowspan="44" tabindex="-1">
+               <td rowspan="45" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -11162,6 +11441,24 @@
                 <p>
                  <a href="#amazonsagemaker-image">
                   image
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component
                  </a>
                 </p>
                </td>
@@ -13059,6 +13356,64 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-UpdateInferenceComponent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceComponent.html">
+                 UpdateInferenceComponent
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an inference component to use the specification and configurations specified in the request
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-UpdateInferenceComponentRuntimeConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceComponentRuntimeConfig.html">
+                 UpdateInferenceComponentRuntimeConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the runtime config of a given inference component
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-inference-component">
+                  inference-component*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -15204,6 +15559,46 @@
                   {
                  </span>
                  EndpointName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonsagemaker-sagemaker_ResourceTag___TagKey_">
+                  sagemaker:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-inference-component" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html">
+                 inference-component
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:sagemaker:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:inference-component/$
+                 <span>
+                  {
+                 </span>
+                 InferenceComponentName}
                 </code>
                </td>
                <td tabindex="-1">
