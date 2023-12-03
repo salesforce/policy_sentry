@@ -1,6 +1,6 @@
 import unittest
-import os
 import json
+
 from policy_sentry.querying.arns import (
     get_arn_data,
     get_raw_arns_for_service,
@@ -74,7 +74,7 @@ class QueryArnsTestCase(unittest.TestCase):
         self.assertEqual(get_matching_raw_arns("arn:aws:ssm:us-east-1:123456789012:parameter/test"), ["arn:${Partition}:ssm:${Region}:${Account}:parameter/${ParameterNameWithoutLeadingSlash}"])
         self.assertEqual(get_matching_raw_arns("arn:aws:batch:region:account-id:job-definition/job-name:revision"), ["arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}", "arn:${Partition}:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}"])
         self.assertEqual(get_matching_raw_arns("arn:aws:states:region:account-id:stateMachine:stateMachineName"), ["arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}", "arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}:${StateMachineVersionId}", "arn:${Partition}:states:${Region}:${Account}:stateMachine:${StateMachineName}:${StateMachineAliasName}"])
-        self.assertEqual(get_matching_raw_arns("arn:aws:states:region:account-id:execution:stateMachineName:executionName"), ["arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}"])
+        self.assertEqual(get_matching_raw_arns("arn:aws:states:region:account-id:execution:stateMachineName:executionName"), ["arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}", "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}/${MapRunLabel}:${ExecutionId}"])
         # self.assertEqual(get_matching_raw_arns("arn:aws:greengrass:region:account-id:/greengrass/definition/devices/1234567/versions/1"), ["arn:aws:greengrass:${Region}:${Account}:/greengrass/definition/devices/${DeviceDefinitionId}/versions/${VersionId}"])
         self.assertEqual(get_matching_raw_arns("arn:${Partition}:rds:region:account-id:db:mydatabase"), ["arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"])
         self.assertIn("arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}", get_matching_raw_arns("arn:${Partition}:rds:region:account-id:*:*"))
