@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1195c11c13">
+             <table id="w43aab5b9e1261c11c13">
               <thead>
                <tr>
                 <th>
@@ -404,6 +404,11 @@
                   redshift:ConsumerArn
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonredshift-redshift_AllowWrites">
+                  redshift:AllowWrites
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -476,6 +481,11 @@
                 <p>
                  <a href="#amazonredshift-redshift_ConsumerIdentifier">
                   redshift:ConsumerIdentifier
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-redshift_AllowWrites">
+                  redshift:AllowWrites
                  </a>
                 </p>
                </td>
@@ -1113,6 +1123,25 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-CreateRedshiftIdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateRedshiftIdcApplication.html">
+                 CreateRedshiftIdcApplication
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a redshift idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1823,6 +1852,30 @@
                 Write
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-DeleteRedshiftIdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteRedshiftIdcApplication.html">
+                 DeleteRedshiftIdcApplication
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a redshift idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-redshiftidcapplication">
+                  redshiftidcapplication*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2757,6 +2810,30 @@
                 Read
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-DescribeRedshiftIdcApplications" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeRedshiftIdcApplications.html">
+                 DescribeRedshiftIdcApplications
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe redshift idc applications
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-redshiftidcapplication">
+                  redshiftidcapplication*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -4009,6 +4086,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-ModifyRedshiftIdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyRedshiftIdcApplication.html">
+                 ModifyRedshiftIdcApplication
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to modify a redshift idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-redshiftidcapplication">
+                  redshiftidcapplication*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-ModifySavedQuery" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
                  ModifySavedQuery
@@ -4579,7 +4680,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1195c13b5">
+             <table id="w43aab5b9e1261c13b5">
               <thead>
                <tr>
                 <th>
@@ -5263,6 +5364,36 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonredshift-redshiftidcapplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 redshiftidcapplication
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:redshiftidcapplication:$
+                 <span>
+                  {
+                 </span>
+                 RedshiftIdcApplicationId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -5289,7 +5420,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1195c15b7">
+             <table id="w43aab5b9e1261c15b7">
               <thead>
                <tr>
                 <th>
@@ -5343,6 +5474,19 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-redshift_AllowWrites" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:AllowWrites
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the allowWrites input parameter
+               </td>
+               <td tabindex="-1">
+                Bool
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-redshift_ConsumerArn" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
                  redshift:ConsumerArn
@@ -5352,7 +5496,7 @@
                 Filters access by the datashare consumer arn
                </td>
                <td tabindex="-1">
-                String
+                ARN
                </td>
               </tr>
               <tr>

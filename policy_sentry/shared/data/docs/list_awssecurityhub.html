@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1299c11c13">
+             <table id="w43aab5b9e1369c11c13">
               <thead>
                <tr>
                 <th>
@@ -471,6 +471,25 @@
                   automation-rule*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-BatchGetConfigurationPolicyAssociations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetConfigurationPolicyAssociations.html">
+                 BatchGetConfigurationPolicyAssociations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve information about configuration policies associated with a specific list of member accounts and organizational units of the calling account's organization
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -720,6 +739,35 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecurityhub-CreateConfigurationPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConfigurationPolicy.html">
+                 CreateConfigurationPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a configuration policy to manage organization member settings in Security Hub
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecurityhub-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssecurityhub-CreateFindingAggregator" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindingAggregator.html">
                  CreateFindingAggregator
@@ -826,6 +874,30 @@
                 <p>
                  <a href="#awssecurityhub-hub">
                   hub
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-DeleteConfigurationPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.html">
+                 DeleteConfigurationPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an existing configuration policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy*
                  </a>
                 </p>
                </td>
@@ -1370,6 +1442,49 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecurityhub-GetConfigurationPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicy.html">
+                 GetConfigurationPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a complete overview of one configuration policy created by the calling account
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-GetConfigurationPolicyAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicyAssociation.html">
+                 GetConfigurationPolicyAssociation
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssecurityhub-GetControlFindingSummary" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetControlFindingSummary.html">
                  GetControlFindingSummary
@@ -1686,6 +1801,28 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecurityhub-GetSecurityControlDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSecurityControlDefinition.html">
+                 GetSecurityControlDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the definition details of a specific security control identified by ID
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 securityhub:DescribeStandardsControls
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awssecurityhub-GetUsage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetUsage.html">
                  GetUsage
@@ -1742,6 +1879,44 @@
                </td>
                <td tabindex="-1">
                 Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-ListConfigurationPolicies" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicies.html">
+                 ListConfigurationPolicies
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the summaries of all configuration policies created by the calling account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-ListConfigurationPolicyAssociations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.html">
+                 ListConfigurationPolicyAssociations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization
                </td>
                <td tabindex="-1">
                 List
@@ -1938,21 +2113,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awssecurityhub-ListTagsForResource" rowspan="2" tabindex="-1">
+               <td id="awssecurityhub-ListTagsForResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list of tags associated with a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awssecurityhub-automation-rule">
                   automation-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy
                  </a>
                 </p>
                </td>
@@ -2025,21 +2213,82 @@
                </td>
               </tr>
               <tr>
-               <td id="awssecurityhub-TagResource" rowspan="2" tabindex="-1">
+               <td id="awssecurityhub-StartConfigurationPolicyAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyAssociation.html">
+                 StartConfigurationPolicyAssociation
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate a configuration policy with a member account or organizational unit in the calling account's organization
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-StartConfigurationPolicyDisassociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.html">
+                 StartConfigurationPolicyDisassociation
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to add tags to a Security Hub resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awssecurityhub-automation-rule">
                   automation-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy
                  </a>
                 </p>
                </td>
@@ -2062,21 +2311,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awssecurityhub-UntagResource" rowspan="2" tabindex="-1">
+               <td id="awssecurityhub-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove tags from a Security Hub resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awssecurityhub-automation-rule">
                   automation-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy
                  </a>
                 </p>
                </td>
@@ -2114,6 +2376,30 @@
                 <p>
                  <a href="#awssecurityhub-hub">
                   hub
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecurityhub-UpdateConfigurationPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.html">
+                 UpdateConfigurationPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an existing configuration policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecurityhub-configuration-policy">
+                  configuration-policy*
                  </a>
                 </p>
                </td>
@@ -2219,6 +2505,28 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecurityhub-UpdateSecurityControl" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityControl.html">
+                 UpdateSecurityControl
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update properties of a specific security control identified by ID or ARN
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 securityhub:UpdateStandardsControl
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awssecurityhub-UpdateSecurityHubConfiguration" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html">
                  UpdateSecurityHubConfiguration
@@ -2289,7 +2597,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1299c13b5">
+             <table id="w43aab5b9e1369c13b5">
               <thead>
                <tr>
                 <th>
@@ -2428,6 +2736,36 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awssecurityhub-configuration-policy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html">
+                 configuration-policy
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:securityhub:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:configuration-policy/$
+                 <span>
+                  {
+                 </span>
+                 ConfigurationPolicyId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2454,7 +2792,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1299c15b7">
+             <table id="w43aab5b9e1369c15b7">
               <thead>
                <tr>
                 <th>

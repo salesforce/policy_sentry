@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d490c11c13">
+             <table id="w43aab5b9d514c11c13">
               <thead>
                <tr>
                 <th>
@@ -349,6 +349,30 @@
                 <p>
                  <a href="#amazonec2imagebuilder-image">
                   image*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-CancelLifecycleExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CancelLifecycleExecution.html">
+                 CancelLifecycleExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to cancel a lifecycle execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecycleExecution">
+                  lifecycleExecution*
                  </a>
                 </p>
                </td>
@@ -570,6 +594,9 @@
                  iam:CreateServiceLinkedRole
                 </p>
                 <p>
+                 iam:PassRole
+                </p>
+                <p>
                  imagebuilder:GetContainerRecipe
                 </p>
                 <p>
@@ -580,6 +607,9 @@
                 </p>
                 <p>
                  imagebuilder:GetInfrastructureConfiguration
+                </p>
+                <p>
+                 imagebuilder:GetWorkflow
                 </p>
                 <p>
                  imagebuilder:TagResource
@@ -630,10 +660,22 @@
                  iam:CreateServiceLinkedRole
                 </p>
                 <p>
+                 iam:PassRole
+                </p>
+                <p>
                  imagebuilder:GetContainerRecipe
                 </p>
                 <p>
+                 imagebuilder:GetDistributionConfiguration
+                </p>
+                <p>
                  imagebuilder:GetImageRecipe
+                </p>
+                <p>
+                 imagebuilder:GetInfrastructureConfiguration
+                </p>
+                <p>
+                 imagebuilder:GetWorkflow
                 </p>
                 <p>
                  imagebuilder:TagResource
@@ -783,6 +825,119 @@
                 <p>
                  <a href="#amazonec2imagebuilder-imagebuilder_StatusTopicArn">
                   imagebuilder:StatusTopicArn
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-CreateLifecyclePolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html">
+                 CreateLifecyclePolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new lifecycle policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
+                <p>
+                 imagebuilder:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2imagebuilder-imagebuilder_LifecyclePolicyResourceType">
+                  imagebuilder:LifecyclePolicyResourceType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-CreateWorkflow" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateWorkflow.html">
+                 CreateWorkflow
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new workflow
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 imagebuilder:TagResource
+                </p>
+                <p>
+                 kms:Encrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+                <p>
+                 kms:GenerateDataKeyWithoutPlaintext
+                </p>
+                <p>
+                 s3:GetObject
+                </p>
+                <p>
+                 s3:ListBucket
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -949,6 +1104,54 @@
                 <p>
                  <a href="#amazonec2imagebuilder-infrastructureConfiguration">
                   infrastructureConfiguration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-DeleteLifecyclePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteLifecyclePolicy.html">
+                 DeleteLifecyclePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a lifecycle policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-DeleteWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteWorkflow.html">
+                 DeleteWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a workflow
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow*
                  </a>
                 </p>
                </td>
@@ -1235,6 +1438,81 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-GetLifecycleExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetLifecycleExecution.html">
+                 GetLifecycleExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view details about a lifecycle execution
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecycleExecution">
+                  lifecycleExecution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-GetLifecyclePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetLifecyclePolicy.html">
+                 GetLifecyclePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view details about a lifecycle policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-GetWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflow.html">
+                 GetWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view details about a workflow
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 kms:Decrypt
+                </p>
                </td>
               </tr>
               <tr>
@@ -1723,15 +2001,95 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2imagebuilder-ListTagsForResource" rowspan="8" tabindex="-1">
+               <td id="amazonec2imagebuilder-ListLifecycleExecutionResources" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecycleExecutionResources.html">
+                 ListLifecycleExecutionResources
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list resources for the specified lifecycle execution
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecycleExecution">
+                  lifecycleExecution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListLifecycleExecutions" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecycleExecutions.html">
+                 ListLifecycleExecutions
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list lifecycle executions for the specified resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-image">
+                  image
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListLifecyclePolicies" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecyclePolicies.html">
+                 ListLifecyclePolicies
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the lifecycle policies in your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListTagsForResource" rowspan="10" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Grants permission to list tags for an Image Builder resource
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -1826,6 +2184,32 @@
               </tr>
               <tr>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                 <p>
@@ -1833,6 +2217,49 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListWaitingWorkflowSteps" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWaitingWorkflowSteps.html">
+                 ListWaitingWorkflowSteps
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list waiting workflow steps for the caller account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListWorkflowBuildVersions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowBuildVersions.html">
+                 ListWorkflowBuildVersions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the workflow build versions in your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflowVersion">
+                  workflowVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1879,6 +2306,25 @@
                   workflowExecution*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-ListWorkflows" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflows.html">
+                 ListWorkflows
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the workflow versions owned by or shared with your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1982,6 +2428,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2imagebuilder-SendWorkflowStepAction" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_SendWorkflowStepAction.html">
+                 SendWorkflowStepAction
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to send an action to a workflow step
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-image">
+                  image*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflowStepExecution">
+                  workflowStepExecution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2imagebuilder-StartImagePipelineExecution" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html">
                  StartImagePipelineExecution
@@ -2012,15 +2495,39 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2imagebuilder-TagResource" rowspan="8" tabindex="-1">
+               <td id="amazonec2imagebuilder-StartResourceStateUpdate" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartResourceStateUpdate.html">
+                 StartResourceStateUpdate
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a state update for the specified resource
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-image">
+                  image*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-TagResource" rowspan="10" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Grants permission to tag an Image Builder resource
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2105,6 +2612,32 @@
                 <p>
                  <a href="#amazonec2imagebuilder-infrastructureConfiguration">
                   infrastructureConfiguration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow
                  </a>
                 </p>
                </td>
@@ -2137,15 +2670,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2imagebuilder-UntagResource" rowspan="8" tabindex="-1">
+               <td id="amazonec2imagebuilder-UntagResource" rowspan="10" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Grants permission to untag an Image Builder resource
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2230,6 +2763,32 @@
                 <p>
                  <a href="#amazonec2imagebuilder-infrastructureConfiguration">
                   infrastructureConfiguration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-workflow">
+                  workflow
                  </a>
                 </p>
                </td>
@@ -2302,6 +2861,27 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+                <p>
+                 imagebuilder:GetContainerRecipe
+                </p>
+                <p>
+                 imagebuilder:GetDistributionConfiguration
+                </p>
+                <p>
+                 imagebuilder:GetImageRecipe
+                </p>
+                <p>
+                 imagebuilder:GetInfrastructureConfiguration
+                </p>
+                <p>
+                 imagebuilder:GetWorkflow
+                </p>
                </td>
               </tr>
               <tr>
@@ -2367,6 +2947,46 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-UpdateLifecyclePolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UpdateLifecyclePolicy.html">
+                 UpdateLifecyclePolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update an existing lifecycle policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-lifecyclePolicy">
+                  lifecyclePolicy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-imagebuilder_LifecyclePolicyResourceType">
+                  imagebuilder:LifecyclePolicyResourceType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2390,7 +3010,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d490c13b5">
+             <table id="w43aab5b9d514c13b5">
               <thead>
                <tr>
                 <th>
@@ -2782,6 +3402,161 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2imagebuilder-lifecycleExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_LifecycleExecution.html">
+                 lifecycleExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:imagebuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:lifecycle-execution/$
+                 <span>
+                  {
+                 </span>
+                 LifecycleExecutionId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-lifecyclePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_LifecyclePolicy.html">
+                 lifecyclePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:imagebuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:lifecycle-policy/$
+                 <span>
+                  {
+                 </span>
+                 LifecyclePolicyName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-workflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_Workflow.html">
+                 workflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:imagebuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:workflow/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowType}/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowName}/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowVersion}/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowBuildVersion}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-workflowVersion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_WorkflowVersion.html">
+                 workflowVersion
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:imagebuilder:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:workflow/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowType}/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowName}/$
+                 <span>
+                  {
+                 </span>
+                 WorkflowVersion}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2imagebuilder-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2imagebuilder-workflowExecution" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_WorkflowExecutionMetadata.html">
                  workflowExecution
@@ -2867,7 +3642,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d490c15b7">
+             <table id="w43aab5b9d514c15b7">
               <thead>
                <tr>
                 <th>
@@ -2954,6 +3729,19 @@
                </td>
                <td tabindex="-1">
                 Filters access by the EC2 Instance Metadata HTTP Token Requirement specified in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2imagebuilder-imagebuilder_LifecyclePolicyResourceType" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/security_iam_service-with-iam.html#image-builder-security-ec2metadatahttptokens">
+                 imagebuilder:LifecyclePolicyResourceType
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the Lifecycle Policy Resource Type specified in the request
                </td>
                <td tabindex="-1">
                 String
