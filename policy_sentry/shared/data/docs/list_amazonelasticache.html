@@ -18,7 +18,7 @@
   <meta content="Service Authorization Reference" name="guide"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
-  <meta content="toc-contents.json" name="tocs"/>
+  <meta content="toc-contents.json;toc-list_amazonelasticache.json" name="tocs"/>
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticache.html" rel="canonical"/>
   <link href="https://docs.aws.amazon.com/id_id/service-authorization/latest/reference/list_amazonelasticache.html" hreflang="id-id" rel="alternative"/>
   <link href="https://docs.aws.amazon.com/id_id/service-authorization/latest/reference/list_amazonelasticache.html" hreflang="id" rel="alternative"/>
@@ -78,7 +78,6 @@
         <title>
          Actions, resources, and condition keys for Amazon ElastiCache - Service Authorization Reference
         </title>
-        <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonelasticache" name="pdf"/>
         <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonelasticache.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=http://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonelasticache.html" name="feedback-yes"/>
@@ -109,20 +108,8 @@
       {
         "@type" : "ListItem",
         "position" : 4,
-        "name" : "Reference",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html"
-      },
-      {
-        "@type" : "ListItem",
-        "position" : 5,
-        "name" : "Actions, resources, and condition keys for AWS services",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
-      },
-      {
-        "@type" : "ListItem",
-        "position" : 6,
         "name" : "Actions, resources, and condition keys for Amazon ElastiCache",
-        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
+        "item" : "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticache.html"
       }
     ]
 }
@@ -131,8 +118,6 @@
        <body>
         <div id="main">
          <div style="display: none">
-          <a href="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonelasticache" rel="noopener noreferrer" target="_blank" title="Open PDF">
-          </a>
          </div>
          <div class="breadcrumb" id="breadcrumbs">
           <a href="https://aws.amazon.com">
@@ -144,7 +129,7 @@
           <a href="/iam/index.html">
            Service Authorization Reference
           </a>
-          <a href="reference.html">
+          <a href="list_amazonelasticache.html">
            Service Authorization Reference
           </a>
          </div>
@@ -197,7 +182,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_Operations.html">
-                API operations available for this          service
+                API operations available for this        service
                </a>
                .
               </p>
@@ -206,7 +191,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.html">
-                using          IAM
+                using        IAM
                </a>
                permission policies.
               </p>
@@ -332,7 +317,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c11c15">
+             <table id="w63aab7c11c15">
               <thead>
                <tr>
                 <th>
@@ -356,15 +341,15 @@
                </tr>
               </thead>
               <tr>
-               <td id="amazonelasticache-AddTagsToResource" rowspan="10" tabindex="-1">
+               <td id="amazonelasticache-AddTagsToResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to add tags to an ElastiCache resource
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -423,6 +408,32 @@
                 <p>
                  <a href="#amazonelasticache-securitygroup">
                   securitygroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot
                  </a>
                 </p>
                </td>
@@ -715,21 +726,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonelasticache-Connect" rowspan="3" tabindex="-1">
+               <td id="amazonelasticache-Connect" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth-iam.html">
                  Connect
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
-                Allows an IAM user or role to connect as a specified ElastiCache user to a node in a replication group
+               <td rowspan="4" tabindex="-1">
+                Grants permission to connect as a specified ElastiCache user to an ElastiCache Replication Group or ElastiCache serverless cache
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonelasticache-replicationgroup">
-                  replicationgroup*
+                 <a href="#amazonelasticache-user">
+                  user*
                  </a>
                 </p>
                </td>
@@ -741,8 +752,21 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonelasticache-user">
-                  user*
+                 <a href="#amazonelasticache-replicationgroup">
+                  replicationgroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache
                  </a>
                 </p>
                </td>
@@ -758,6 +782,61 @@
                 <p>
                  <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-CopyServerlessCacheSnapshot" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopyServerlessCacheSnapshot.html">
+                 CopyServerlessCacheSnapshot
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to make a copy of an existing serverless cache snapshot
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_KmsKeyId">
+                  elasticache:KmsKeyId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 elasticache:AddTagsToResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -1536,6 +1615,245 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-CreateServerlessCache" rowspan="5" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateServerlessCache.html">
+                 CreateServerlessCache
+                </a>
+               </td>
+               <td rowspan="5" tabindex="-1">
+                Grants permission to create a serverless cache
+               </td>
+               <td rowspan="5" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_EngineType">
+                  elasticache:EngineType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_EngineVersion">
+                  elasticache:EngineVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_SnapshotRetentionLimit">
+                  elasticache:SnapshotRetentionLimit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_KmsKeyId">
+                  elasticache:KmsKeyId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumDataStorage">
+                  elasticache:MaximumDataStorage
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_DataStorageUnit">
+                  elasticache:DataStorageUnit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumECPUPerSecond">
+                  elasticache:MaximumECPUPerSecond
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+                <p>
+                 ec2:CreateVpcEndpoint
+                </p>
+                <p>
+                 ec2:DeleteVpcEndpoints
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:DescribeTags
+                </p>
+                <p>
+                 ec2:DescribeVpcEndpoints
+                </p>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+                <p>
+                 elasticache:AddTagsToResource
+                </p>
+                <p>
+                 s3:GetObject
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-snapshot">
+                  snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-usergroup">
+                  usergroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-CreateServerlessCacheSnapshot" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateServerlessCacheSnapshot.html">
+                 CreateServerlessCacheSnapshot
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create a copy of a serverless cache at a specific moment in time
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 elasticache:AddTagsToResource
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_KmsKeyId">
+                  elasticache:KmsKeyId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-CreateSnapshot" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html">
                  CreateSnapshot
@@ -2107,6 +2425,80 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-DeleteServerlessCache" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteServerlessCache.html">
+                 DeleteServerlessCache
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a serverless cache
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DescribeTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-DeleteServerlessCacheSnapshot" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteServerlessCacheSnapshot.html">
+                 DeleteServerlessCacheSnapshot
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a serverless cache snapshot
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-DeleteSnapshot" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html">
                  DeleteSnapshot
@@ -2577,6 +2969,82 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-DescribeServerlessCacheSnapshots" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServerlessCacheSnapshots.html">
+                 DescribeServerlessCacheSnapshots
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list information about serverless cache snapshots
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-DescribeServerlessCaches" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServerlessCaches.html">
+                 DescribeServerlessCaches
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list serverless caches
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-DescribeServiceUpdates" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html">
                  DescribeServiceUpdates
@@ -2781,6 +3249,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-ExportServerlessCacheSnapshot" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ExportServerlessCacheSnapshot.html">
+                 ExportServerlessCacheSnapshot
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to export a copy of a serverless cache at a specific moment in time to s3 bucket
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:DeleteObject
+                </p>
+                <p>
+                 s3:ListAllMyBuckets
+                </p>
+                <p>
+                 s3:PutObject
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-FailoverGlobalReplicationGroup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_FailoverGlobalReplicationGroup.html">
                  FailoverGlobalReplicationGroup
@@ -2899,6 +3405,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-InterruptClusterAzPower" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#elasticache-actions-reference">
+                 InterruptClusterAzPower
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to test an AZ power interruption for an ElastiCache resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-replicationgroup">
+                  replicationgroup*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-ListAllowedNodeTypeModifications" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListAllowedNodeTypeModifications.html">
                  ListAllowedNodeTypeModifications
@@ -2949,15 +3493,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonelasticache-ListTagsForResource" rowspan="10" tabindex="-1">
+               <td id="amazonelasticache-ListTagsForResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to list tags for an ElastiCache resource
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -3016,6 +3560,32 @@
                 <p>
                  <a href="#amazonelasticache-securitygroup">
                   securitygroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot
                  </a>
                 </p>
                </td>
@@ -3502,6 +4072,84 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-ModifyServerlessCache" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyServerlessCache.html">
+                 ModifyServerlessCache
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to modify parameters for a serverless cache
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_EngineVersion">
+                  elasticache:EngineVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_SnapshotRetentionLimit">
+                  elasticache:SnapshotRetentionLimit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumDataStorage">
+                  elasticache:MaximumDataStorage
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_DataStorageUnit">
+                  elasticache:DataStorageUnit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumECPUPerSecond">
+                  elasticache:MaximumECPUPerSecond
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-usergroup">
+                  usergroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-ModifyUser" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html">
                  ModifyUser
@@ -3705,15 +4353,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonelasticache-RemoveTagsFromResource" rowspan="10" tabindex="-1">
+               <td id="amazonelasticache-RemoveTagsFromResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to remove tags from a ElastiCache resource
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -3772,6 +4420,32 @@
                 <p>
                  <a href="#amazonelasticache-securitygroup">
                   securitygroup
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscache">
+                  serverlesscache
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-serverlesscachesnapshot">
+                  serverlesscachesnapshot
                  </a>
                 </p>
                </td>
@@ -4070,7 +4744,7 @@
             <a href="#amazonelasticache-actions-as-permissions">
              Actions table
             </a>
-            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      table. For details about the columns in the following table, see
             <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
              Resource types table
             </a>
@@ -4078,7 +4752,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c13b5">
+             <table id="w63aab7c13b5">
               <thead>
                <tr>
                 <th>
@@ -4713,6 +5387,136 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonelasticache-serverlesscache" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html">
+                 serverlesscache
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:elasticache:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:serverlesscache:$
+                 <span>
+                  {
+                 </span>
+                 ServerlessCacheName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_DataStorageUnit">
+                  elasticache:DataStorageUnit
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_EngineType">
+                  elasticache:EngineType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_EngineVersion">
+                  elasticache:EngineVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_KmsKeyId">
+                  elasticache:KmsKeyId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumDataStorage">
+                  elasticache:MaximumDataStorage
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_MaximumECPUPerSecond">
+                  elasticache:MaximumECPUPerSecond
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_SnapshotRetentionLimit">
+                  elasticache:SnapshotRetentionLimit
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-serverlesscachesnapshot" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html">
+                 serverlesscachesnapshot
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:elasticache:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:serverlesscachesnapshot:$
+                 <span>
+                  {
+                 </span>
+                 ServerlessCacheSnapshotName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticache-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonelasticache-elasticache_KmsKeyId">
+                  elasticache:KmsKeyId
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -4761,7 +5565,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c15b9">
+             <table id="w63aab7c15b9">
               <thead>
                <tr>
                 <th>
@@ -4893,6 +5697,19 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticache-elasticache_DataStorageUnit" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html#IAM.SpecifyingConditions">
+                 elasticache:DataStorageUnit
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the CacheUsageLimits.DataStorage.Unit parameter in the CreateServerlessCache and ModifyServerlessCache request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticache-elasticache_EngineType" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html#IAM.SpecifyingConditions">
                  elasticache:EngineType
@@ -4929,6 +5746,32 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-elasticache_MaximumDataStorage" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html#IAM.SpecifyingConditions">
+                 elasticache:MaximumDataStorage
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the CacheUsageLimits.DataStorage.Maximum parameter in the CreateServerlessCache and ModifyServerlessCache request
+               </td>
+               <td tabindex="-1">
+                Numeric
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticache-elasticache_MaximumECPUPerSecond" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ConditionKeys.html#IAM.SpecifyingConditions">
+                 elasticache:MaximumECPUPerSecond
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the CacheUsageLimits.ECPUPerSecond.Maximum parameter in the CreateServerlessCache and ModifyServerlessCache request
+               </td>
+               <td tabindex="-1">
+                Numeric
                </td>
               </tr>
               <tr>
@@ -5043,11 +5886,11 @@
             </a>
            </div>
            <div class="prev-next">
-            <div accesskey="p" class="prev-link" href="./list_amazonelastictranscoder.html" id="previous">
-             Amazon Elastic Transcoder
+            <div accesskey="p" class="prev-link" href="list_amazonelasticache.previous" id="previous" target="_self">
+             Previous
             </div>
-            <div accesskey="n" class="next-link" href="./list_awselementalappliancesandsoftware.html" id="next">
-             AWS Elemental Appliances and Software
+            <div accesskey="n" class="next-link" href="list_amazonelasticache.next" id="next" target="_self">
+             Next
             </div>
            </div>
           </div>

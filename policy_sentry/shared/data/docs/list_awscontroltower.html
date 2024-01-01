@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d396c11c13">
+             <table id="w43aab5b9d412c11c13">
               <thead>
                <tr>
                 <th>
@@ -334,6 +334,38 @@
                </tr>
               </thead>
               <tr>
+               <td id="awscontroltower-CreateLandingZone" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_CreateLandingZone.html">
+                 CreateLandingZone
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a landing zone
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscontroltower-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 controltower:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awscontroltower-CreateManagedAccount" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html">
                  CreateManagedAccount
@@ -355,10 +387,9 @@
               </tr>
               <tr>
                <td id="awscontroltower-DeleteLandingZone" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/controltower/latest/userguide/decommission-landing-zone.html">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_DeleteLandingZone.html">
                  DeleteLandingZone
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to delete AWS Control Tower landing zone
@@ -367,6 +398,11 @@
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -826,6 +862,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awscontroltower-GetLandingZone" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZone.html">
+                 GetLandingZone
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the current status of the landing zone setup
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscontroltower-GetLandingZoneDriftStatus" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/userguide/drift.html">
                  GetLandingZoneDriftStatus
@@ -833,6 +893,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to get the current landing zone drift status
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscontroltower-GetLandingZoneOperation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZoneOperation.html">
+                 GetLandingZoneOperation
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the current status of a particular landing zone operation
                </td>
                <td tabindex="-1">
                 Read
@@ -1042,6 +1121,25 @@
                </td>
               </tr>
               <tr>
+               <td id="awscontroltower-ListLandingZones" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListLandingZones.html">
+                 ListLandingZones
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all landing zones
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscontroltower-ListManagedAccounts" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html">
                  ListManagedAccounts
@@ -1142,21 +1240,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awscontroltower-ListTagsForResource" tabindex="-1">
+               <td id="awscontroltower-ListTagsForResource" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to list the tags for a resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscontroltower-EnabledControl">
                   EnabledControl
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone
                  </a>
                 </p>
                </td>
@@ -1206,6 +1317,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awscontroltower-ResetLandingZone" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetLandingZone.html">
+                 ResetLandingZone
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to reset a landing zone
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscontroltower-SetupLandingZone" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#step-two">
                  SetupLandingZone
@@ -1226,21 +1361,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awscontroltower-TagResource" rowspan="2" tabindex="-1">
+               <td id="awscontroltower-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to add tags to a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscontroltower-EnabledControl">
-                  EnabledControl*
+                  EnabledControl
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone
                  </a>
                 </p>
                </td>
@@ -1268,21 +1416,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awscontroltower-UntagResource" rowspan="2" tabindex="-1">
+               <td id="awscontroltower-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove tags from a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscontroltower-EnabledControl">
-                  EnabledControl*
+                  EnabledControl
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone
                  </a>
                 </p>
                </td>
@@ -1324,6 +1485,54 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awscontroltower-UpdateEnabledControl" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledControl.html">
+                 UpdateEnabledControl
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an enabled control for an organizational unit
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-EnabledControl">
+                  EnabledControl*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscontroltower-UpdateLandingZone" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateLandingZone.html">
+                 UpdateLandingZone
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a landing zone
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-LandingZone">
+                  LandingZone*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1347,7 +1556,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d396c13b5">
+             <table id="w43aab5b9d412c13b5">
               <thead>
                <tr>
                 <th>
@@ -1396,6 +1605,41 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="awscontroltower-LandingZone" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_CreateLandingZone.html">
+                 LandingZone
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:controltower:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:landingzone/$
+                 <span>
+                  {
+                 </span>
+                 LandingZoneId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscontroltower-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1422,7 +1666,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d396c15b7">
+             <table id="w43aab5b9d412c15b7">
               <thead>
                <tr>
                 <th>

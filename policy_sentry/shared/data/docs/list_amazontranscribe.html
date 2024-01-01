@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1447c11c13">
+             <table id="w43aab5b9e1519c11c13">
               <thead>
                <tr>
                 <th>
@@ -546,6 +546,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazontranscribe-DeleteMedicalScribeJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteMedicalScribeJob.html">
+                 DeleteMedicalScribeJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a previously submitted Medical Scribe job
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazontranscribe-medicalscribejob">
+                  medicalscribejob*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazontranscribe-DeleteMedicalTranscriptionJob" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteMedicalTranscriptionJob.html">
                  DeleteMedicalTranscriptionJob
@@ -728,6 +752,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazontranscribe-GetMedicalScribeJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_GetMedicalScribeJob.html">
+                 GetMedicalScribeJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return information about a Medical Scribe job
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazontranscribe-medicalscribejob">
+                  medicalscribejob*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazontranscribe-GetMedicalTranscriptionJob" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_GetMedicalTranscriptionJob.html">
                  GetMedicalTranscriptionJob
@@ -893,6 +941,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list custom language models
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazontranscribe-ListMedicalScribeJobs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_ListMedicalScribeJobs.html">
+                 ListMedicalScribeJobs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list Medical Scribe jobs with the specified status
                </td>
                <td tabindex="-1">
                 List
@@ -1086,6 +1153,48 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazontranscribe-StartMedicalScribeJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_StartMedicalScribeJob.html">
+                 StartMedicalScribeJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start an asynchronous job to transcribe patient-clinician conversations and generates clinical notes
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazontranscribe-transcribe_OutputBucketName">
+                  transcribe:OutputBucketName
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazontranscribe-transcribe_OutputEncryptionKMSKeyId">
+                  transcribe:OutputEncryptionKMSKeyId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazontranscribe-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazontranscribe-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:GetObject
+                </p>
                </td>
               </tr>
               <tr>
@@ -1434,7 +1543,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1447c13b5">
+             <table id="w43aab5b9e1519c13b5">
               <thead>
                <tr>
                 <th>
@@ -1718,6 +1827,41 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazontranscribe-medicalscribejob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_MedicalScribeJob.html">
+                 medicalscribejob
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:transcribe:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:medical-scribe-job/$
+                 <span>
+                  {
+                 </span>
+                 JobName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazontranscribe-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1744,7 +1888,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1447c15b7">
+             <table id="w43aab5b9e1519c15b7">
               <thead>
                <tr>
                 <th>

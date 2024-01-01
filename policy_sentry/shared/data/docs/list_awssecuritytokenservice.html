@@ -918,6 +918,49 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecuritytokenservice-SetContext" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-sts">
+                 SetContext
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to set context keys on a STS session
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecuritytokenservice-role">
+                  role
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecuritytokenservice-sts_RequestContext___ContextKey_">
+                  sts:RequestContext/${ContextKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssecuritytokenservice-sts_RequestContextProviders">
+                  sts:RequestContextProviders
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssecuritytokenservice-SetSourceIdentity" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html#id_credentials_temp_control-access_monitor-perms">
                  SetSourceIdentity
@@ -1777,6 +1820,32 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecuritytokenservice-sts_RequestContext___ContextKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-sts">
+                 sts:RequestContext/${ContextKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the session context key-value pairs embedded in the signed context assertion retrieved from a trusted context provider
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecuritytokenservice-sts_RequestContextProviders" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-sts">
+                 sts:RequestContextProviders
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the context provider ARNs
+               </td>
+               <td tabindex="-1">
+                ArrayOfARN
                </td>
               </tr>
               <tr>

@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d262c11c13">
+             <table id="w43aab5b9d278c11c13">
               <thead>
                <tr>
                 <th>
@@ -464,6 +464,48 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchlogs-CreateLogAnomalyDetector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html">
+                 CreateLogAnomalyDetector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a log anomaly detector
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -709,6 +751,30 @@
                 <p>
                  <a href="#amazoncloudwatchlogs-destination">
                   destination*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchlogs-DeleteLogAnomalyDetector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogAnomalyDetector.html">
+                 DeleteLogAnomalyDetector
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a log anomaly detector
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector*
                  </a>
                 </p>
                </td>
@@ -1326,6 +1392,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchlogs-GetLogAnomalyDetector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogAnomalyDetector.html">
+                 GetLogAnomalyDetector
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a log anomaly detector
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchlogs-GetLogDelivery" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">
                  GetLogDelivery
@@ -1462,6 +1552,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchlogs-ListAnomalies" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">
+                 ListAnomalies
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all anomalies detected in the AWS account making the request
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchlogs-ListLogAnomalyDetectors" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">
+                 ListLogAnomalyDetectors
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return all the anomaly detectors that are associated with the AWS account making the request
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchlogs-ListLogDeliveries" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">
                  ListLogDeliveries
@@ -1482,17 +1620,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchlogs-ListTagsForResource" rowspan="5" tabindex="-1">
+               <td id="amazoncloudwatchlogs-ListTagsForResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to list the tags for the specified resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 List
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchlogs-delivery">
@@ -1963,18 +2114,22 @@
               </tr>
               <tr>
                <td id="amazoncloudwatchlogs-StartLiveTail" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html">
                  StartLiveTail
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
-                Grants permission to start a livetail session in CloudWatch Logs
+                Grants permission to start a Live Tail session in CloudWatch Logs
                </td>
                <td tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-log-group">
+                  log-group*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2013,7 +2168,7 @@
                 [permission only]
                </td>
                <td tabindex="-1">
-                Grants permission to stop a CloudWatch Logs livetail session that is in progress
+                Grants permission to stop a Live Tail session that is in progress
                </td>
                <td tabindex="-1">
                 Read
@@ -2087,17 +2242,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchlogs-TagResource" rowspan="6" tabindex="-1">
+               <td id="amazoncloudwatchlogs-TagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to add or update the specified tags for the specified resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchlogs-delivery">
@@ -2262,17 +2430,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchlogs-UntagResource" rowspan="6" tabindex="-1">
+               <td id="amazoncloudwatchlogs-UntagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to remove the specified tags from the specified resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchlogs-delivery">
@@ -2351,6 +2532,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchlogs-UpdateAnomaly" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">
+                 UpdateAnomaly
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an anomaly reported by a log anomaly detector
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchlogs-UpdateLogAnomalyDetector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">
+                 UpdateLogAnomalyDetector
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a log anomaly detector
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-anomaly-detector">
+                  anomaly-detector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchlogs-UpdateLogDelivery" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">
                  UpdateLogDelivery
@@ -2393,7 +2622,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d262c13b5">
+             <table id="w43aab5b9d278c13b5">
               <thead>
                <tr>
                 <th>
@@ -2621,6 +2850,41 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazoncloudwatchlogs-anomaly-detector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_AnomalyDetector.html">
+                 anomaly-detector
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:logs:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:anomaly-detector:$
+                 <span>
+                  {
+                 </span>
+                 DetectorId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchlogs-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2647,7 +2911,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d262c15b7">
+             <table id="w43aab5b9d278c15b7">
               <thead>
                <tr>
                 <th>
@@ -2763,8 +3027,8 @@
             <div accesskey="p" class="prev-link" href="./list_amazoncloudwatchinternetmonitor.html" id="previous">
              Amazon CloudWatch Internet Monitor
             </div>
-            <div accesskey="n" class="next-link" href="./list_amazoncloudwatchobservabilityaccessmanager.html" id="next">
-             Amazon CloudWatch Observability Access Manager
+            <div accesskey="n" class="next-link" href="./list_amazoncloudwatchnetworkmonitor.html" id="next">
+             Amazon CloudWatch Network Monitor
             </div>
            </div>
           </div>

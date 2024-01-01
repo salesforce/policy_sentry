@@ -187,7 +187,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/admin_what-is-monitron.html">
+               <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.html">
                 configure this service
                </a>
                .
@@ -196,7 +196,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/">
+               <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/">
                 API operations available for this          service
                </a>
                .
@@ -205,7 +205,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/security_iam_service-with-iam.html">
+               <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/security_iam_service-with-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1057c11c13">
+             <table id="w43aab5b9e1095c11c13">
               <thead>
                <tr>
                 <th>
@@ -335,7 +335,7 @@
               </thead>
               <tr>
                <td id="amazonmonitron-AssociateProjectAdminUser" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/user-management-chapter.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html">
                  AssociateProjectAdminUser
                 </a>
                 [permission only]
@@ -381,7 +381,7 @@
               </tr>
               <tr>
                <td id="amazonmonitron-CreateProject" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-creating-project.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-creating-project.html">
                  CreateProject
                 </a>
                 [permission only]
@@ -419,11 +419,103 @@
                 <p>
                  sso:DeleteManagedApplicationInstance
                 </p>
+                <p>
+                 sso:DescribeRegisteredRegions
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonmonitron-CreateProjectUserAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/adding-user.html">
+                 CreateProjectUserAssociation
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate a user with the project
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonmonitron-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso-directory:DescribeUsers
+                </p>
+                <p>
+                 sso:AssociateProfile
+                </p>
+                <p>
+                 sso:GetManagedApplicationInstance
+                </p>
+                <p>
+                 sso:GetProfile
+                </p>
+                <p>
+                 sso:ListDirectoryAssociations
+                </p>
+                <p>
+                 sso:ListProfileAssociations
+                </p>
+                <p>
+                 sso:ListProfiles
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonmonitron-CreateUserAccessRoleAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/adding-user.html">
+                 CreateUserAccessRoleAssociation
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate an access role with the user
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonmonitron-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso-directory:DescribeUsers
+                </p>
+                <p>
+                 sso:GetManagedApplicationInstance
+                </p>
+                <p>
+                 sso:GetProfile
+                </p>
+                <p>
+                 sso:ListDirectoryAssociations
+                </p>
+                <p>
+                 sso:ListProfileAssociations
+                </p>
+                <p>
+                 sso:ListProfiles
+                </p>
                </td>
               </tr>
               <tr>
                <td id="amazonmonitron-DeleteProject" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-delete-project.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-delete-project.html">
                  DeleteProject
                 </a>
                 [permission only]
@@ -450,8 +542,76 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonmonitron-DeleteProjectUserAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/deleting-user.html">
+                 DeleteProjectUserAssociation
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to disassociate a user from the project
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonmonitron-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso-directory:DescribeUsers
+                </p>
+                <p>
+                 sso:DisassociateProfile
+                </p>
+                <p>
+                 sso:GetManagedApplicationInstance
+                </p>
+                <p>
+                 sso:GetProfile
+                </p>
+                <p>
+                 sso:ListDirectoryAssociations
+                </p>
+                <p>
+                 sso:ListProfiles
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonmonitron-DeleteUserAccessRoleAssociation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/deleting-user.html">
+                 DeleteUserAccessRoleAssociation
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to disassociate an access role from the user
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonmonitron-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonmonitron-DisassociateProjectAdminUser" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mu-remove-project-admin.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mu-remove-project-admin.html">
                  DisassociateProjectAdminUser
                 </a>
                 [permission only]
@@ -494,7 +654,7 @@
               </tr>
               <tr>
                <td id="amazonmonitron-GetProject" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-project-tasks.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html">
                  GetProject
                 </a>
                 [permission only]
@@ -519,7 +679,7 @@
               </tr>
               <tr>
                <td id="amazonmonitron-GetProjectAdminUser" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-project-tasks.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html">
                  GetProjectAdminUser
                 </a>
                 [permission only]
@@ -553,7 +713,7 @@
               </tr>
               <tr>
                <td id="amazonmonitron-ListProjectAdminUsers" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/user-management-chapter.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html">
                  ListProjectAdminUsers
                 </a>
                 [permission only]
@@ -583,8 +743,48 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonmonitron-ListProjectUserAssociations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html">
+                 ListProjectUserAssociations
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all users associated with the project
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonmonitron-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso:GetManagedApplicationInstance
+                </p>
+                <p>
+                 sso:GetProfile
+                </p>
+                <p>
+                 sso:ListDirectoryAssociations
+                </p>
+                <p>
+                 sso:ListProfileAssociations
+                </p>
+                <p>
+                 sso:ListProfiles
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonmonitron-ListProjects" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-project-tasks.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html">
                  ListProjects
                 </a>
                 [permission only]
@@ -603,16 +803,16 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonmonitron-ListTagsForResource" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/tagging.html">
+               <td id="amazonmonitron-ListTagsForResource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html">
                  ListTagsForResource
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to list all tags for a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -628,26 +828,33 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonmonitron-ListUserAccessRoleAssociations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html">
+                 ListUserAccessRoleAssociations
+                </a>
+                [permission only]
+               </td>
                <td tabindex="-1">
+                Grants permission to list all access roles associated with the user
+               </td>
+               <td tabindex="-1">
+                List
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonmonitron-aws_TagKeys">
-                  aws:TagKeys
+                 <a href="#amazonmonitron-project">
+                  project*
                  </a>
                 </p>
-                <p>
-                 <a href="#amazonmonitron-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
               </tr>
               <tr>
                <td id="amazonmonitron-TagResource" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/tagging.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html">
                  TagResource
                 </a>
                 [permission only]
@@ -690,7 +897,7 @@
               </tr>
               <tr>
                <td id="amazonmonitron-UntagResource" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/tagging.html#modify-tag-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html#modify-tag-1">
                  UntagResource
                 </a>
                 [permission only]
@@ -727,16 +934,16 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonmonitron-UpdateProject" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/mp-updating-project.html">
+               <td id="amazonmonitron-UpdateProject" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-updating-project.html">
                  UpdateProject
                 </a>
                 [permission only]
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to update a project
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -747,24 +954,6 @@
                 </p>
                </td>
                <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonmonitron-aws_TagKeys">
-                  aws:TagKeys
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonmonitron-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -792,7 +981,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1057c13b5">
+             <table id="w43aab5b9e1095c13b5">
               <thead>
                <tr>
                 <th>
@@ -808,7 +997,7 @@
               </thead>
               <tr>
                <td id="amazonmonitron-project" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/Monitron/latest/admin-guide/projects-chapter.html">
+                <a href="https://docs.aws.amazon.com/Monitron/latest/user-guide/projects-chapter.html">
                  project
                 </a>
                </td>
@@ -867,7 +1056,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1057c15b7">
+             <table id="w43aab5b9e1095c15b7">
               <thead>
                <tr>
                 <th>
@@ -914,7 +1103,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions by the tag keys in the request
+                Filters access by the tag keys that are passed in the request
                </td>
                <td tabindex="-1">
                 ArrayOfString
