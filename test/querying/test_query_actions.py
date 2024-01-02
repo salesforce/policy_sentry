@@ -182,13 +182,13 @@ class QueryActionsTestCase(unittest.TestCase):
         """querying.actions.get_actions_that_support_wildcard_arns_only"""
         # Variant 1: Secrets manager
         expected_results = [
+            'secretsmanager:BatchGetSecretValue',
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
         results = get_actions_that_support_wildcard_arns_only("secretsmanager")
         self.maxDiff = None
-        for result in results:
-            self.assertTrue(result in expected_results)
+        self.assertCountEqual(expected_results, results)
 
         # Variant 2: ECR
         results = get_actions_that_support_wildcard_arns_only("ecr")
@@ -232,7 +232,7 @@ class QueryActionsTestCase(unittest.TestCase):
         # print(json.dumps(tagging_output, indent=4))
         # print(json.dumps(permissions_output, indent=4))
         self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
-        self.assertListEqual(list_output, ['secretsmanager:ListSecrets'])
+        self.assertListEqual(list_output, ['secretsmanager:BatchGetSecretValue', 'secretsmanager:ListSecrets'])
         self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
         for item in ["s3:PutAccountPublicAccessBlock"]:
@@ -309,12 +309,13 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_4(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
-            'secretsmanager:ListSecrets'
+            'secretsmanager:BatchGetSecretValue',
+            'secretsmanager:ListSecrets',
         ]
         output = get_actions_with_arn_type_and_access_level(
             "secretsmanager", "*", "List"
         )
-        self.assertListEqual(desired_output, output)
+        self.assertCountEqual(desired_output, output)
 
     def test_get_actions_with_arn_type_and_access_level_case_5(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
