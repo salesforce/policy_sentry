@@ -1261,7 +1261,7 @@
                 </a>
                </td>
                <td rowspan="7" tabindex="-1">
-                Grants permission to create a new Amazon Aurora DB cluster
+                Grants permission to create a new DB cluster
                </td>
                <td rowspan="7" tabindex="-1">
                 Write
@@ -2051,6 +2051,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-CreateDBShardGroup" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBShardGroup.html">
+                 CreateDBShardGroup
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new Aurora Limitless Database DB shard group
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-shardgrp">
+                  shardgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-CreateDBSnapshot" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html">
                  CreateDBSnapshot
@@ -2815,6 +2852,30 @@
                 <p>
                  <a href="#amazonrds-secgrp">
                   secgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-DeleteDBShardGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBShardGroup.html">
+                 DeleteDBShardGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an Aurora Limitless Database DB shard group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-shardgrp">
+                  shardgrp*
                  </a>
                 </p>
                </td>
@@ -3669,6 +3730,30 @@
                 <p>
                  <a href="#amazonrds-secgrp">
                   secgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-DescribeDBShardGroups" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBShardGroups.html">
+                 DescribeDBShardGroups
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return information about all Aurora Limitless Database DB shard groups for this account. You can filter by shard group(s)
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-shardgrp">
+                  shardgrp*
                  </a>
                 </p>
                </td>
@@ -4724,7 +4809,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to modify current cluster capacity for an Amazon Aurora Severless DB cluster
+                Grants permission to modify current cluster capacity for an Amazon Aurora Serverless DB cluster
                </td>
                <td tabindex="-1">
                 Write
@@ -5172,6 +5257,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-ModifyDBShardGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBShardGroup.html">
+                 ModifyDBShardGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to modify properties of an Aurora Limitless Database DB shard group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-shardgrp">
+                  shardgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-ModifyDBSnapshot" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshot.html">
                  ModifyDBSnapshot
@@ -5534,6 +5643,30 @@
                 <p>
                  <a href="#amazonrds-db">
                   db*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-RebootDBShardGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBShardGroup.html">
+                 RebootDBShardGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to reboot an Aurora Limitless Database DB shard group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-shardgrp">
+                  shardgrp*
                  </a>
                 </p>
                </td>
@@ -7205,6 +7338,36 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonrds-shardgrp" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Overview.DBShardGroup.html">
+                 shardgrp
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:rds:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:shard-group:$
+                 <span>
+                  {
+                 </span>
+                 DbShardGroupResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonrds-cluster-auto-backup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html">
                  cluster-auto-backup
@@ -7833,36 +7996,6 @@
                   rds:subgrp-tag/${TagKey}
                  </a>
                 </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="amazonrds-target" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html">
-                 target
-                </a>
-               </td>
-               <td tabindex="-1">
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:rds:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}:target:$
-                 <span>
-                  {
-                 </span>
-                 TargetId}
-                </code>
-               </td>
-               <td tabindex="-1">
                </td>
               </tr>
               <tr>
