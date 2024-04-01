@@ -1128,6 +1128,38 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-CreateQev2IdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 CreateQev2IdcApplication
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a qev2 idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso:CreateApplication
+                </p>
+                <p>
+                 sso:PutApplicationAccessScope
+                </p>
+                <p>
+                 sso:PutApplicationAuthenticationMethod
+                </p>
+                <p>
+                 sso:PutApplicationGrant
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-CreateRedshiftIdcApplication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateRedshiftIdcApplication.html">
                  CreateRedshiftIdcApplication
@@ -1144,6 +1176,18 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 sso:CreateApplication
+                </p>
+                <p>
+                 sso:PutApplicationAccessScope
+                </p>
+                <p>
+                 sso:PutApplicationAuthenticationMethod
+                </p>
+                <p>
+                 sso:PutApplicationGrant
+                </p>
                </td>
               </tr>
               <tr>
@@ -1859,6 +1903,34 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-DeleteQev2IdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 DeleteQev2IdcApplication
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a qev2 idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-qev2idcapplication">
+                  qev2idcapplication*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso:DeleteApplication
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-DeleteRedshiftIdcApplication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteRedshiftIdcApplication.html">
                  DeleteRedshiftIdcApplication
@@ -1880,6 +1952,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 sso:DeleteApplication
+                </p>
                </td>
               </tr>
               <tr>
@@ -2797,6 +2872,26 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-DescribeQev2IdcApplications" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 DescribeQev2IdcApplications
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe qev2 idc applications
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-DescribeQuery" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">
                  DescribeQuery
@@ -2829,15 +2924,16 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
-                 <a href="#amazonredshift-redshiftidcapplication">
-                  redshiftidcapplication*
-                 </a>
+                 sso:GetApplicationGrant
                 </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
+                <p>
+                 sso:ListApplicationAccessScopes
+                </p>
                </td>
               </tr>
               <tr>
@@ -4105,6 +4201,34 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-ModifyQev2IdcApplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 ModifyQev2IdcApplication
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to modify a qev2 idc application
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-qev2idcapplication">
+                  qev2idcapplication*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sso:UpdateApplication
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-ModifyRedshiftIdcApplication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyRedshiftIdcApplication.html">
                  ModifyRedshiftIdcApplication
@@ -4126,6 +4250,27 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 sso:DeleteApplicationAccessScope
+                </p>
+                <p>
+                 sso:DeleteApplicationGrant
+                </p>
+                <p>
+                 sso:GetApplicationGrant
+                </p>
+                <p>
+                 sso:ListApplicationAccessScopes
+                </p>
+                <p>
+                 sso:PutApplicationAccessScope
+                </p>
+                <p>
+                 sso:PutApplicationGrant
+                </p>
+                <p>
+                 sso:UpdateApplication
+                </p>
                </td>
               </tr>
               <tr>
@@ -5408,6 +5553,36 @@
                   {
                  </span>
                  RedshiftIdcApplicationId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-qev2idcapplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
+                 qev2idcapplication
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:qev2idcapplication:$
+                 <span>
+                  {
+                 </span>
+                 Qev2IdcApplicationId}
                 </code>
                </td>
                <td tabindex="-1">
