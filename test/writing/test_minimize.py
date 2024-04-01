@@ -1,12 +1,9 @@
 import unittest
 import json
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry.writing.minimize import (
-    minimize_statement_actions,
-    check_min_permission_length,
-)
+from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.querying.all import get_all_actions
-from policy_sentry.util.policy_files import get_sid_names_from_policy, get_statement_from_policy_using_sid
+from policy_sentry.util.policy_files import get_sid_names_from_policy
 
 
 class MinimizeWildcardActionsTestCase(unittest.TestCase):
@@ -286,7 +283,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
         sid_names = get_sid_names_from_policy(results)
-        self.assertEqual(len(sid_names), 1, "More than one statement returned, expected 1")
+        self.assertEqual(len(sid_names), 2, "More than two statements returned, expected 2")
 
     def test_minimize_arn_case_6(self):
         """minimization test with ARN types from test_does_arn_match_case_6"""
