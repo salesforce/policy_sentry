@@ -297,6 +297,16 @@ class SidGroupCrudTestCase(unittest.TestCase):
         # print(json.dumps(output, indent=4))
         self.assertDictEqual(output, desired_output)
 
+    def test_add_by_arn_and_access_level_ignores_placeholder_services(self):
+        # https://github.com/salesforce/policy_sentry/issues/448
+
+        sid_group = SidGroup()
+        sid_group.add_by_arn_and_access_level(
+            ["arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}"], "Read"
+        )
+
+        self.assertTrue(not sid_group.sids)
+
     def test_add_by_list_of_actions(self):
         actions_test_data_1 = ["kms:CreateCustomKeyStore", "kms:CreateGrant"]
         sid_group = SidGroup()
