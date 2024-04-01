@@ -320,6 +320,12 @@ class SidGroup:
         """
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
+            if "$" in service_prefix:
+                logger.debug(
+                    f"Not supported service {service_prefix} found in ARN {arn}"
+                )
+                continue
+
             service_action_data = get_action_data(service_prefix, "*")
             for service_prefix, action_data in service_action_data.items():
                 for row in action_data:

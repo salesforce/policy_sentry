@@ -45,8 +45,13 @@ def get_service_prefix_data(service_prefix: str) -> dict[str, Any]:
         List: A list of metadata about that service
     """
     try:
-        return cast("dict[str, Any]", iam_definition.get(service_prefix, {}))
+        return cast("dict[str, Any]", iam_definition[service_prefix])
     # pylint: disable=bare-except, inconsistent-return-statements
     except:
+        if service_prefix == "catalog":
+            # the resource types "Portfolio" and "Product" have the service name "catalog" in their ARN
+            # https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsservicecatalog.html#awsservicecatalog-resources-for-iam-policies
+            return cast("dict[str, Any]", iam_definition["servicecatalog"])
+
         logger.info(f"Service prefix not {service_prefix} found.")
         return {}
