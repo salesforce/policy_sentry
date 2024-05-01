@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d496c11c13">
+             <table id="w43aab5b9d508c11c13">
               <thead>
                <tr>
                 <th>
@@ -333,6 +333,68 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="amazondocumentdbelasticclusters-CopyClusterSnapshot" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CopyClusterSnapshot.html">
+                 CopyClusterSnapshot
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to copy a new Amazon DocDB-Elastic cluster snapshot
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-cluster-snapshot">
+                  cluster-snapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 docdb-elastic:CreateClusterSnapshot
+                </p>
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="amazondocumentdbelasticclusters-CreateCluster" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CreateCluster.html">
@@ -420,15 +482,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazondocumentdbelasticclusters-CreateClusterSnapshot" rowspan="2" tabindex="-1">
+               <td id="amazondocumentdbelasticclusters-CreateClusterSnapshot" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CreateClusterSnapshot.html">
                  CreateClusterSnapshot
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to create a new Amazon DocDB-Elastic cluster snapshot
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -498,6 +560,19 @@
                 <p>
                  secretsmanager:ListSecrets
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-cluster-snapshot">
+                  cluster-snapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -808,27 +883,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazondocumentdbelasticclusters-RestoreClusterFromSnapshot" rowspan="2" tabindex="-1">
+               <td id="amazondocumentdbelasticclusters-RestoreClusterFromSnapshot" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_RestoreClusterFromSnapshot.html">
                  RestoreClusterFromSnapshot
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to restore cluster from a Amazon DocDB-Elastic cluster snapshot
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazondocumentdbelasticclusters-cluster-snapshot">
-                  cluster-snapshot*
+                 <a href="#amazondocumentdbelasticclusters-cluster">
+                  cluster*
                  </a>
                 </p>
                </td>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 docdb-elastic:CreateCluster
+                </p>
                 <p>
                  ec2:CreateVpcEndpoint
                 </p>
@@ -890,6 +968,19 @@
               </tr>
               <tr>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-cluster-snapshot">
+                  cluster-snapshot*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                 <p>
@@ -902,6 +993,80 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondocumentdbelasticclusters-StartCluster" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_StartCluster.html">
+                 StartCluster
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to start a stopped Amazon DocDB-Elastic cluster
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondocumentdbelasticclusters-StopCluster" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_StopCluster.html">
+                 StopCluster
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to stop an existing Amazon DocDB-Elastic cluster
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondocumentdbelasticclusters-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazondocumentdbelasticclusters-aws_ResourceTag___TagKey_">
                   aws:ResourceTag/${TagKey}
@@ -1135,7 +1300,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d496c13b5">
+             <table id="w43aab5b9d508c13b5">
               <thead>
                <tr>
                 <th>
@@ -1245,7 +1410,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d496c15b7">
+             <table id="w43aab5b9d508c15b7">
               <thead>
                <tr>
                 <th>
