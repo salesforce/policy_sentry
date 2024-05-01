@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1587c11c13">
+             <table id="w43aab5b9e1611c11c13">
               <thead>
                <tr>
                 <th>
@@ -950,6 +950,26 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonworkdocs-DescribeInstanceExports" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/migration-tool.html">
+                 DescribeInstanceExports
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe the export history for an instance
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonworkdocs-DescribeInstances" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/getting_started.html">
                  DescribeInstances
@@ -1354,6 +1374,31 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonworkdocs-StartInstanceExport" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/migration-tool.html">
+                 StartInstanceExport
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to start an export for an instance
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonworkdocs-organization">
+                  organization*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonworkdocs-UpdateDocument" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/workdocs/latest/APIReference/API_UpdateDocument.html">
                  UpdateDocument
@@ -1476,16 +1521,69 @@
             Resource types defined by        Amazon WorkDocs
            </h2>
            <p>
-            Amazon WorkDocs does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      Amazon WorkDocs, specify
-            <code class="code">
-             "Resource": "*"
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#amazonworkdocs-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w43aab5b9e1611c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="amazonworkdocs-organization" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/migration-tool.html">
+                 organization
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:workdocs:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:organization/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="amazonworkdocs-policy-keys">
             Condition keys for        Amazon WorkDocs
            </h2>

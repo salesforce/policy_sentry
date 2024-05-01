@@ -1072,6 +1072,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awskeymanagementservice-kms_RotationPeriodInDays">
+                  kms:RotationPeriodInDays
+                 </a>
+                </p>
+                <p>
                  <a href="#awskeymanagementservice-kms_ViaService">
                   kms:ViaService
                  </a>
@@ -1530,7 +1535,7 @@
                 </a>
                </td>
                <td rowspan="2" tabindex="-1">
-                Controls permission to determine whether automatic key rotation is enabled on the AWS KMS key
+                Controls permission to view the key rotation status for an AWS KMS key
                </td>
                <td rowspan="2" tabindex="-1">
                 Read
@@ -1790,6 +1795,48 @@
                </td>
                <td rowspan="2" tabindex="-1">
                 Controls permission to view the names of key policies for an AWS KMS key
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awskeymanagementservice-ListKeyRotations" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyRotations.html">
+                 ListKeyRotations
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Controls permission to view the list of completed key rotations for an AWS KMS key
                </td>
                <td rowspan="2" tabindex="-1">
                 List
@@ -2204,6 +2251,48 @@
                 <p>
                  <a href="#awskeymanagementservice-kms_GrantIsForAWSResource">
                   kms:GrantIsForAWSResource
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awskeymanagementservice-RotateKeyOnDemand" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html">
+                 RotateKeyOnDemand
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Controls permission to invoke on-demand rotation of the cryptographic material in an AWS KMS key
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
                  </a>
                 </p>
                 <p>
@@ -3293,6 +3382,19 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="awskeymanagementservice-kms_RotationPeriodInDays" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days">
+                 kms:RotationPeriodInDays
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access to the EnableKeyRotation operation based on the value of the RotationPeriodInDays parameter in the request
+               </td>
+               <td tabindex="-1">
+                Numeric
                </td>
               </tr>
               <tr>

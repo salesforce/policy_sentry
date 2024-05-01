@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d695c11c13">
+             <table id="w43aab5b9d707c11c13">
               <thead>
                <tr>
                 <th>
@@ -443,6 +443,47 @@
                 </p>
                 <p>
                  s3:GetObject
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-CreateContainerGroupDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">
+                 CreateContainerGroupDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new container group definition for a container fleet
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazongamelift-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ecr:BatchGetImage
+                </p>
+                <p>
+                 ecr:DescribeImages
+                </p>
+                <p>
+                 ecr:GetDownloadUrlForLayer
+                </p>
+                <p>
+                 gamelift:TagResource
                 </p>
                </td>
               </tr>
@@ -907,6 +948,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazongamelift-DeleteContainerGroupDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteContainerGroupDefinition.html">
+                 DeleteContainerGroupDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a container group definition that is not being used in a fleet
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazongamelift-DeleteFleet" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteFleet.html">
                  DeleteFleet
@@ -1290,6 +1355,30 @@
                 <p>
                  <a href="#amazongamelift-fleet">
                   fleet*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-DescribeContainerGroupDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html">
+                 DescribeContainerGroupDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve general properties, including status, for a container group definition
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition*
                  </a>
                 </p>
                </td>
@@ -2006,6 +2095,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazongamelift-ListContainerGroupDefinitions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html">
+                 ListContainerGroupDefinitions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of names for all container group definitions in the current Region
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazongamelift-ListFleets" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleets.html">
                  ListFleets
@@ -2106,15 +2214,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-ListTagsForResource" rowspan="9" tabindex="-1">
+               <td id="amazongamelift-ListTagsForResource" rowspan="10" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Grants permission to retrieve tags for GameLift resources
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="10" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -2134,6 +2242,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition
                  </a>
                 </p>
                </td>
@@ -2569,15 +2690,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-TagResource" rowspan="10" tabindex="-1">
+               <td id="amazongamelift-TagResource" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to tag GameLift resources
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2597,6 +2718,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition
                  </a>
                 </p>
                </td>
@@ -2715,15 +2849,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-UntagResource" rowspan="10" tabindex="-1">
+               <td id="amazongamelift-UntagResource" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to untag GameLift resources
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2743,6 +2877,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition
                  </a>
                 </p>
                </td>
@@ -3189,7 +3336,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d695c13b5">
+             <table id="w43aab5b9d707c13b5">
               <thead>
                <tr>
                 <th>
@@ -3259,6 +3406,41 @@
                   {
                  </span>
                  BuildId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-containerGroupDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">
+                 containerGroupDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:gamelift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:containergroupdefinition/$
+                 <span>
+                  {
+                 </span>
+                 Name}
                 </code>
                </td>
                <td tabindex="-1">
@@ -3540,7 +3722,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d695c15b7">
+             <table id="w43aab5b9d707c15b7">
               <thead>
                <tr>
                 <th>
