@@ -1,6 +1,7 @@
 """
 Just a common storage space for storing some constants.
 """
+
 from pathlib import Path
 import os
 import logging

@@ -1,6 +1,7 @@
 """
 Util methods for handling operations relating to access levels.
 All of these access_levels methods are specific to policy sentry internals."""
+
 from __future__ import annotations
 
 import sys

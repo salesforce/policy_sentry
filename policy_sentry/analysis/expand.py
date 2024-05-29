@@ -1,4 +1,5 @@
 """Functions to expand wilcard actions into a full list of actions."""
+
 from __future__ import annotations
 
 import logging

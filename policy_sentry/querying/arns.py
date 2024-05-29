@@ -2,6 +2,7 @@
 Methods that execute specific queries against the SQLite database for the ARN table.
 This supports the policy_sentry query functionality
 """
+
 from __future__ import annotations
 
 import logging

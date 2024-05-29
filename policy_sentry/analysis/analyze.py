@@ -1,6 +1,7 @@
 """
 Functions to support the analyze capability in this tool
 """
+
 from __future__ import annotations
 
 import logging

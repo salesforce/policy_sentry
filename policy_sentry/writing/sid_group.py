@@ -1,6 +1,7 @@
 """
 sid_group indicates that this is a collection of policy-related data organized by their SIDs
 """
+
 from __future__ import annotations
 
 import logging

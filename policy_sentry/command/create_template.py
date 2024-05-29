@@ -2,6 +2,7 @@
 Create YML Template files for the write-policy command.
 Users don't have to remember exactly how to phrase the yaml files, so this command creates it for them.
 """
+
 from __future__ import annotations
 
 from pathlib import Path

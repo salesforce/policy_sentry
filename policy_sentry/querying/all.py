@@ -1,4 +1,5 @@
 """IAM Database queries that are not specific to either the Actions, ARNs, or Condition Keys tables."""
+
 from __future__ import annotations
 
 import logging

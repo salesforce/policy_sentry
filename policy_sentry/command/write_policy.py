@@ -1,6 +1,7 @@
 """
 Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD mode or Actions mode.
 """
+
 from __future__ import annotations
 
 import sys

@@ -21,6 +21,7 @@ Q: How many policies can I attach to an IAM role?
 * For managed policies: You can add up to 10 managed policies to a user, role, or group.
 * The size of each managed policy cannot exceed 6,144 characters.
 """
+
 from __future__ import annotations
 
 import logging
@@ -63,9 +64,7 @@ def get_denied_prefixes_from_desired(
 
 # Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
-def check_min_permission_length(
-    permission: str, minchars: int | None = None
-) -> bool:  # pylint: disable=missing-function-docstring
+def check_min_permission_length(permission: str, minchars: int | None = None) -> bool:  # pylint: disable=missing-function-docstring
     """
     Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
     https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
