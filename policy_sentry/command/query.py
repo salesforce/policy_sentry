@@ -1,6 +1,7 @@
 """
 Allow users to use specific pre-compiled queries against the action, arn, and condition tables from command line.
 """
+
 from __future__ import annotations
 
 import os

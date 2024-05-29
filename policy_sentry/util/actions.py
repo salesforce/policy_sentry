@@ -1,6 +1,7 @@
 """
 Text operations specific to IAM actions
 """
+
 from __future__ import annotations
 
 

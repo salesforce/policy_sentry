@@ -1,6 +1,7 @@
 """
 Validation for the Policy Sentry YML Templates.
 """
+
 from __future__ import annotations
 
 import logging

@@ -2,6 +2,7 @@
 Create the Policy Sentry config folder (~/.policy_sentry/) and the contents within
 Create the SQLite datastore and fill it with the tables scraped from the AWS Docs
 """
+
 from __future__ import annotations
 
 import os

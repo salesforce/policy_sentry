@@ -1,6 +1,7 @@
 """Templates for the policy_sentry YML files.
 These can be used for generating policies
 """
+
 from __future__ import annotations
 
 from typing import Any

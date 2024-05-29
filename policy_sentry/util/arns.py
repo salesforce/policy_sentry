@@ -1,6 +1,7 @@
 """
 Functions to use for parsing ARNs, matching ARN types, and getting the right fragment/component from an ARN string,
 """
+
 #     Case 1: arn:partition:service:region:account-id:resource
 #     Case 2: arn:partition:service:region:account-id:resourcetype/resource
 #     Case 3: arn:partition:service:region:account-id:resourcetype/resource/qualifier

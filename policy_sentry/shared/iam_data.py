@@ -1,4 +1,5 @@
 """Used for loading the IAM data"""
+
 from __future__ import annotations
 
 import json

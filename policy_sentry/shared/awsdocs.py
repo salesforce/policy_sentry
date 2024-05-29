@@ -8,6 +8,7 @@ We store the HTML files in this manner so that the user can be more confident in
 that it has not been altered in any way. The user can reproduce our steps with the original content at any time,
 or update the HTML files on their own.
 """
+
 from __future__ import annotations
 
 import os
@@ -346,9 +347,9 @@ def create_database(
                                 "condition_keys": condition_keys,
                                 "dependent_actions": dependent_actions,
                             }
-                            resource_types_lower_name[
-                                resource_type.lower()
-                            ] = resource_type
+                            resource_types_lower_name[resource_type.lower()] = (
+                                resource_type
+                            )
                         rowspan -= 1
                         if rowspan > 0:
                             row_number += 1
@@ -404,9 +405,9 @@ def create_database(
                         "arn": arn,
                         "condition_keys": conditions,
                     }
-                    schema[service_prefix]["resources_lower_name"][
-                        resource.lower()
-                    ] = resource
+                    schema[service_prefix]["resources_lower_name"][resource.lower()] = (
+                        resource
+                    )
 
             # Get condition keys table
             for table in tables:

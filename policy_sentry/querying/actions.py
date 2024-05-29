@@ -2,6 +2,7 @@
 Methods that execute specific queries against the database for the ACTIONS table.
 This supports the Policy Sentry query functionality
 """
+
 from __future__ import annotations
 
 import logging

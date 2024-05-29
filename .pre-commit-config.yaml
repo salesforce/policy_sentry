@@ -9,10 +9,10 @@ repos:
       - id: terraform_fmt
 #      - id: terraform_docs
 #        args: ['--sort-by-required', '--no-providers']
-  - repo: https://github.com/psf/black
-    rev: 23.9.1
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.6
     hooks:
-      - id: black
+      - id: ruff-format
         files: ^policy_sentry/
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.11.0

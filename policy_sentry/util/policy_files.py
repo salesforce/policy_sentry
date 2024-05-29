@@ -1,4 +1,5 @@
 """A few methods for parsing policies."""
+
 from __future__ import annotations
 
 import json
