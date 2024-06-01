@@ -187,7 +187,7 @@
              <li class="listitem">
               <p>
                Learn how to
-               <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/">
+               <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html">
                 configure this service
                </a>
                .
@@ -196,7 +196,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/api-reference.html">
+               <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Budgets.html">
                 API operations available for this          service
                </a>
                .
@@ -205,7 +205,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+               <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/billing-permissions-ref.html#user-permissions">
                 using          IAM
                </a>
                permission policies.
@@ -348,15 +348,15 @@
                </tr>
               </thead>
               <tr>
-               <td id="awsbudgetservice-CreateBudgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+               <td id="awsbudgetservice-CreateBudgetAction" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudgetAction.html">
                  CreateBudgetAction
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to create and define a response that you can configure to execute once your budget has exceeded a specific budget threshold
+               <td rowspan="2" tabindex="-1">
+                Grants permission to configure a response that executes once your budget exceeds a specific budget threshold. Creating a budget action with tags also requires the 'budgets:TagResource' permission
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -375,8 +375,31 @@
                </td>
               </tr>
               <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsbudgetservice-DeleteBudgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DeleteBudgetAction.html">
                  DeleteBudgetAction
                 </a>
                </td>
@@ -400,7 +423,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-DescribeBudgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgetAction.html">
                  DescribeBudgetAction
                 </a>
                </td>
@@ -424,7 +447,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-DescribeBudgetActionHistories" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgetActionHistories.html">
                  DescribeBudgetActionHistories
                 </a>
                </td>
@@ -448,7 +471,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-DescribeBudgetActionsForAccount" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgetActionsForAccount.html">
                  DescribeBudgetActionsForAccount
                 </a>
                </td>
@@ -467,7 +490,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-DescribeBudgetActionsForBudget" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgetActionsForBudget.html">
                  DescribeBudgetActionsForBudget
                 </a>
                </td>
@@ -491,7 +514,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-ExecuteBudgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_ExecuteBudgetAction.html">
                  ExecuteBudgetAction
                 </a>
                </td>
@@ -514,13 +537,50 @@
                </td>
               </tr>
               <tr>
+               <td id="awsbudgetservice-ListTagsForResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to view resource tags for a budget or budget action
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budget">
+                  budget
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budgetAction">
+                  budgetAction
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsbudgetservice-ModifyBudget" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Budgets.html">
                  ModifyBudget
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to modify budgets and budget details
+                Grants permission to create and modify budgets, and edit budget details. Creating a budget with tags also requires the 'budgets:TagResource' permission
                </td>
                <td tabindex="-1">
                 Write
@@ -538,8 +598,113 @@
                </td>
               </tr>
               <tr>
+               <td id="awsbudgetservice-TagResource" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to apply resource tags to a budget or budget action. Also needed to create a budget or budget action with tags
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budget">
+                  budget
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budgetAction">
+                  budgetAction
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbudgetservice-UntagResource" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to remove resource tags from a budget or budget action
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budget">
+                  budget
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-budgetAction">
+                  budgetAction
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsbudgetservice-UpdateBudgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudgetAction.html">
                  UpdateBudgetAction
                 </a>
                </td>
@@ -566,7 +731,7 @@
               </tr>
               <tr>
                <td id="awsbudgetservice-ViewBudget" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Budgets.html">
                  ViewBudget
                 </a>
                </td>
@@ -627,7 +792,7 @@
               </thead>
               <tr>
                <td id="awsbudgetservice-budget" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">
+                <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html">
                  budget
                 </a>
                </td>
@@ -649,11 +814,26 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
                <td id="awsbudgetservice-budgetAction" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">
+                <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-controls.html">
                  budgetAction
                 </a>
                </td>
@@ -679,6 +859,21 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsbudgetservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbudgetservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -688,16 +883,81 @@
             Condition keys for        AWS Budget Service
            </h2>
            <p>
-            Budget has no service-specific context keys that can be used in the
+            AWS Budget Service defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w43aab5b9d183c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awsbudgetservice-aws_RequestTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access based on the tags that are passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbudgetservice-aws_ResourceTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access based on the tags associated with the resource
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbudgetservice-aws_TagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access based on the tag keys that are passed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

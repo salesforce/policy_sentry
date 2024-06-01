@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1187c11c13">
+             <table id="w43aab5b9e1191c11c13">
               <thead>
                <tr>
                 <th>
@@ -338,7 +338,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
                  CreatePaymentInstrument
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to create a payment instrument
@@ -349,6 +348,16 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awspayments-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -378,7 +387,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
                  GetPaymentInstrument
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to get information about a payment instrument
@@ -387,6 +395,11 @@
                 List
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-payment-instrument">
+                  payment-instrument
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -405,6 +418,26 @@
                </td>
                <td tabindex="-1">
                 Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-ListPaymentInstruments" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+                 ListPaymentInstruments
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to list payment instrument metadata
+               </td>
+               <td tabindex="-1">
+                List
                </td>
                <td tabindex="-1">
                </td>
@@ -434,6 +467,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awspayments-ListTagsForResource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list tags on a payment resource
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-payment-instrument">
+                  payment-instrument
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awspayments-MakePayment" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
                  MakePayment
@@ -442,6 +499,105 @@
                </td>
                <td tabindex="-1">
                 Grants permission to make a payment, authenticate a payment, verify a payment method, and generate a funding request document for Advance Pay
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-TagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to tag a payment resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-payment-instrument">
+                  payment-instrument
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awspayments-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-UntagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to untag a payment resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-payment-instrument">
+                  payment-instrument
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspayments-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-UpdatePaymentInstrument" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+                 UpdatePaymentInstrument
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a payment instrument
                </td>
                <td tabindex="-1">
                 Write
@@ -480,30 +636,144 @@
             Resource types defined by        AWS Payments
            </h2>
            <p>
-            AWS Payments does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      AWS Payments, specify
-            <code class="code">
-             "Resource": "*"
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#awspayments-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w43aab5b9e1191c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awspayments-payment-instrument" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                 payment-instrument
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:payments::$
+                 <span>
+                  {
+                 </span>
+                 Account}:payment-instrument:$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awspayments-policy-keys">
             Condition keys for        AWS Payments
            </h2>
            <p>
-            Payments has no service-specific context keys that can be used in the
+            AWS Payments defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w43aab5b9e1191c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awspayments-aws_RequestTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tags that are passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-aws_ResourceTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tags associated with the resource
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awspayments-aws_TagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
