@@ -8016,6 +8016,80 @@
                </td>
               </tr>
               <tr>
+               <td id="amazons3-PauseReplication" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#bucket-pause-replication">
+                 PauseReplication
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to pause S3 Replication from target source buckets to destination buckets
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 S3:GetReplicationConfiguration
+                </p>
+                <p>
+                 S3:PutReplicationConfiguration
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-s3_destinationRegion">
+                  s3:destinationRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_authType">
+                  s3:authType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_ResourceAccount">
+                  s3:ResourceAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureAge">
+                  s3:signatureAge
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureversion">
+                  s3:signatureversion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_TlsVersion">
+                  s3:TlsVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-content-sha256">
+                  s3:x-amz-content-sha256
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazons3-PutAccelerateConfiguration" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html">
                  PutAccelerateConfiguration
@@ -10593,6 +10667,11 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_isReplicationPauseRequest">
+                  s3:isReplicationPauseRequest
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -12343,6 +12422,32 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_destinationRegion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">
+                 s3:destinationRegion
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by a specific replication destination region for targeted buckets of the AWS FIS action aws:s3:bucket-pause-replication
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_isReplicationPauseRequest" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/security_iam_id-based-policy-examples.html#security-iam-policy-examples-s3">
+                 s3:isReplicationPauseRequest
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by request made via AWS FIS action aws:s3:bucket-pause-replication
+               </td>
+               <td tabindex="-1">
+                Bool
                </td>
               </tr>
               <tr>

@@ -818,6 +818,63 @@
                </td>
               </tr>
               <tr>
+               <td id="awskeymanagementservice-DeriveSharedSecret" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html">
+                 DeriveSharedSecret
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Controls permission to use the specified AWS KMS key to derive shared secrets
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awskeymanagementservice-kms_CallerAccount">
+                  kms:CallerAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_KeyAgreementAlgorithm">
+                  kms:KeyAgreementAlgorithm
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RecipientAttestation_ImageSha384">
+                  kms:RecipientAttestation:ImageSha384
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_RequestAlias">
+                  kms:RequestAlias
+                 </a>
+                </p>
+                <p>
+                 <a href="#awskeymanagementservice-kms_ViaService">
+                  kms:ViaService
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awskeymanagementservice-DescribeCustomKeyStores" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html">
                  DescribeCustomKeyStores
@@ -3190,6 +3247,19 @@
                </td>
               </tr>
               <tr>
+               <td id="awskeymanagementservice-kms_KeyAgreementAlgorithm" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-key-agreement-algorithm">
+                 kms:KeyAgreementAlgorithm
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access to the DeriveSharedSecret operation based on the value of the KeyAgreementAlgorithm parameter in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
                <td id="awskeymanagementservice-kms_KeyOrigin" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-key-origin">
                  kms:KeyOrigin
@@ -3313,7 +3383,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters access to the Decrypt, GenerateDataKey, and GenerateRandom operations based on the image hash in the attestation document in the request
+                Filters access to the Decrypt, DeriveSharedSecret, GenerateDataKey, GenerateDataKeyPair, and GenerateRandom operations based on the image hash in the attestation document in the request
                </td>
                <td tabindex="-1">
                 String
