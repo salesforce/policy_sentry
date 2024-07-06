@@ -620,7 +620,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         print(json.dumps(result, indent=4))
         expected_actions = expected_result["Statement"][0]["Action"]
         for action in expected_actions:
-            self.assertTrue(action in result["Statement"][0]["Action"])
+            self.assertIn(action, result["Statement"][0]["Action"])
         # self.assertDictEqual(result, expected_result)
 
 

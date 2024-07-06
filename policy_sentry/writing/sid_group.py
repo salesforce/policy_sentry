@@ -507,7 +507,7 @@ class SidGroup:
             check_crud_schema(cfg)
             # EXCLUDE ACTIONS
             cfg_exclude = cfg.get("exclude-actions")
-            if cfg_exclude and cfg_exclude[0] != "":
+            if cfg_exclude and cfg_exclude[0]:
                 self.add_exclude_actions(cfg_exclude)
             # WILDCARD ONLY SECTION
             cfg_wildcard = cfg.get("wildcard-only")
@@ -520,28 +520,28 @@ class SidGroup:
                     self.wildcard_only_single_actions = provided_wildcard_actions
 
                 service_read = cfg_wildcard.get("service-read")
-                if service_read and service_read[0] != "":
+                if service_read and service_read[0]:
                     logger.debug(
                         f"Requested wildcard-only actions: {str(service_read)}"
                     )
                     self.wildcard_only_service_read = service_read
 
                 service_write = cfg_wildcard.get("service-write")
-                if service_write and service_write[0] != "":
+                if service_write and service_write[0]:
                     logger.debug(
                         f"Requested wildcard-only actions: {str(service_write)}"
                     )
                     self.wildcard_only_service_write = service_write
 
                 service_list = cfg_wildcard.get("service-list")
-                if service_list and service_list[0] != "":
+                if service_list and service_list[0]:
                     logger.debug(
                         f"Requested wildcard-only actions: {str(service_list)}"
                     )
                     self.wildcard_only_service_list = service_list
 
                 service_tagging = cfg_wildcard.get("service-tagging")
-                if service_tagging and service_tagging[0] != "":
+                if service_tagging and service_tagging[0]:
                     logger.debug(
                         f"Requested wildcard-only actions: {str(service_tagging)}"
                     )
@@ -550,10 +550,7 @@ class SidGroup:
                 service_permissions_management = cfg_wildcard.get(
                     "service-permissions-management"
                 )
-                if (
-                    service_permissions_management
-                    and service_permissions_management[0] != ""
-                ):
+                if service_permissions_management and service_permissions_management[0]:
                     logger.debug(
                         f"Requested wildcard-only actions: {str(service_permissions_management)}"
                     )
@@ -566,29 +563,29 @@ class SidGroup:
 
             # Standard access levels
             cfg_read = cfg.get("read")
-            if cfg_read and cfg_read[0] != "":
+            if cfg_read and cfg_read[0]:
                 logger.debug(f"Requested access to arns: {str(cfg_read)}")
                 self.add_by_arn_and_access_level(cfg_read, "Read")
             cfg_write = cfg.get("write")
-            if cfg_write and cfg_write[0] != "":
+            if cfg_write and cfg_write[0]:
                 logger.debug(f"Requested access to arns: {str(cfg_write)}")
-                self.add_by_arn_and_access_level(cfg["write"], "Write")
+                self.add_by_arn_and_access_level(cfg_write, "Write")
             cfg_list = cfg.get("list")
-            if cfg_list and cfg_list[0] != "":
+            if cfg_list and cfg_list[0]:
                 logger.debug(f"Requested access to arns: {str(cfg_list)}")
                 self.add_by_arn_and_access_level(cfg_list, "List")
             tagging = cfg.get("tagging")
-            if tagging and tagging[0] != "":
+            if tagging and tagging[0]:
                 logger.debug(f"Requested access to arns: {str(tagging)}")
                 self.add_by_arn_and_access_level(tagging, "Tagging")
             cfg_mgmt = cfg.get("permissions-management")
-            if cfg_mgmt and cfg_mgmt[0] != "":
+            if cfg_mgmt and cfg_mgmt[0]:
                 logger.debug(f"Requested access to arns: {str(cfg_mgmt)}")
                 self.add_by_arn_and_access_level(cfg_mgmt, "Permissions management")
 
             # SKIP RESOURCE CONSTRAINTS
             cfg_skip = cfg.get("skip-resource-constraints")
-            if cfg_skip and cfg_skip[0] != "":
+            if cfg_skip and cfg_skip[0]:
                 logger.debug(
                     f"Requested override: the actions {str(cfg_skip)} will "
                     f"skip resource constraints."

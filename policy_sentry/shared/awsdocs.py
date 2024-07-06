@@ -153,6 +153,11 @@ def no_white_space(string: str) -> str:
     return "".join(str(string).split())
 
 
+def sanitize_service_name(action: str) -> str:
+    service, action_name = action.split(":")
+    return f"{service.lower()}:{action_name}"
+
+
 def create_database(
     destination_directory: str, access_level_overrides_file: str
 ) -> None:
@@ -334,7 +339,10 @@ def create_database(
                                 for (
                                     action_element
                                 ) in dependent_actions_element.find_all("p"):
-                                    dependent_actions.append(chomp(action_element.text))
+                                    chomped_action = chomp(action_element.text)
+                                    dependent_actions.append(
+                                        sanitize_service_name(chomped_action)
+                                    )
                             if "*" in resource_type:
                                 required = True
                                 resource_type = resource_type.strip("*")
