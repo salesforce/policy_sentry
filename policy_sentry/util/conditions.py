@@ -16,13 +16,13 @@ def translate_condition_key_data_types(condition_str: str) -> str:
         return "Arn"
     elif condition_lowercase in ("bool", "boolean"):
         return "Bool"
-    elif condition_lowercase in ("date",):
+    elif condition_lowercase == "date":
         return "Date"
     elif condition_lowercase in ("long", "numeric"):
         return "Number"
     elif condition_lowercase in ("string", "string", "arrayofstring"):
         return "String"
-    elif condition_lowercase in ("ip",):
+    elif condition_lowercase == "ip":
         return "Ip"
     else:
         raise Exception(f"Unknown data format: {condition_lowercase}")
@@ -63,7 +63,7 @@ def is_condition_key_match(document_key: str, some_str: str) -> bool:
         # Some services use a format like s3:ExistingObjectTag/<key>
         if some_str.startswith(document_key.split("<")[0]):
             return True
-    elif "tag-key" in document_key:
+    elif "tag-key" in document_key:  # noqa: SIM102
         # Some services use a format like secretsmanager:ResourceTag/tag-key
         if some_str.startswith(document_key.split("tag-key")[0]):
             return True

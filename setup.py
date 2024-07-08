@@ -1,38 +1,29 @@
 """Setup script for Policy Sentry"""
+
 import setuptools
 import os
 import re
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
-TESTS_REQUIRE = [
-    'coverage',
-    'pytest'
-]
+VERSION_RE = re.compile(r"""__version__ = ['"]([0-9.]+)['"]""")
+TESTS_REQUIRE = ["coverage", "pytest"]
 REQUIRED_PACKAGES = [
-    'beautifulsoup4',
-    'click',
-    'requests',
-    'schema',
-    'PyYAML',
+    "beautifulsoup4",
+    "click",
+    "requests",
+    "schema",
+    "PyYAML",
 ]
 PROJECT_URLS = {
     "Documentation": "https://policy-sentry.readthedocs.io/",
     "Code": "https://github.com/salesforce/policy_sentry/",
     "Twitter": "https://twitter.com/kmcquade3",
-    "Red Team Report": "https://opensource.salesforce.com/policy_sentry"
+    "Red Team Report": "https://opensource.salesforce.com/policy_sentry",
 }
 
 
 def get_version():
-    init = open(
-        os.path.join(
-            HERE,
-            "policy_sentry",
-            "bin",
-            "version.py"
-        )
-    ).read()
+    init = open(os.path.join(HERE, "policy_sentry", "bin", "version.py")).read()
     return VERSION_RE.search(init).group(1)
 
 
@@ -52,7 +43,7 @@ setuptools.setup(
     long_description=get_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/salesforce/policy_sentry",
-    packages=setuptools.find_packages(exclude=['test*']),
+    packages=setuptools.find_packages(exclude=["test*"]),
     tests_require=TESTS_REQUIRE,
     install_requires=REQUIRED_PACKAGES,
     project_urls=PROJECT_URLS,
@@ -70,6 +61,6 @@ setuptools.setup(
     ],
     entry_points={"console_scripts": "policy_sentry=policy_sentry.bin.cli:main"},
     zip_safe=True,
-    keywords='aws iam roles policy policies privileges security',
-    python_requires='>=3.6',
+    keywords="aws iam roles policy policies privileges security",
+    python_requires=">=3.6",
 )

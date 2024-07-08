@@ -5,26 +5,28 @@ Create the SQLite datastore and fill it with the tables scraped from the AWS Doc
 
 from __future__ import annotations
 
+import logging
 import os
 import shutil
-import logging
+
 import click
+
+from policy_sentry import set_stream_logger
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.awsdocs import (
-    update_html_docs_directory,
     create_database,
+    update_html_docs_directory,
 )
 from policy_sentry.shared.constants import (
-    LOCAL_HTML_DIRECTORY_PATH,
+    BUNDLED_DATA_DIRECTORY,
+    BUNDLED_DATASTORE_FILE_PATH,
+    BUNDLED_HTML_DIRECTORY_PATH,
     CONFIG_DIRECTORY,
-    LOCAL_DATASTORE_FILE_PATH,
     DATASTORE_FILE_PATH,
     LOCAL_ACCESS_OVERRIDES_FILE,
-    BUNDLED_HTML_DIRECTORY_PATH,
-    BUNDLED_DATASTORE_FILE_PATH,
-    BUNDLED_DATA_DIRECTORY,
+    LOCAL_DATASTORE_FILE_PATH,
+    LOCAL_HTML_DIRECTORY_PATH,
 )
-from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
 

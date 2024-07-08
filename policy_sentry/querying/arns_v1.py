@@ -20,11 +20,13 @@ def get_arn_type_details_v1(
     Returns:
         Dictionary: Metadata about an ARN type
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     service_prefix_data = get_service_prefix_data(service_prefix)
     output = {}
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"].values():
         if resource_data["resource"].lower() == resource_type_name.lower():
             output = {
                 "resource_type_name": resource_data["resource"],

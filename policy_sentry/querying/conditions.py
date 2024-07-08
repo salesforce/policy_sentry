@@ -5,13 +5,13 @@ This supports the policy_sentry query functionality
 
 from __future__ import annotations
 
-import logging
 import functools
+import logging
 from typing import cast
 
+from policy_sentry.querying.actions import get_action_data
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.util.conditions import is_condition_key_match
-from policy_sentry.querying.actions import get_action_data
 
 logger = logging.getLogger(__name__)
 
@@ -107,7 +107,7 @@ def get_condition_value_type(condition_key: str) -> str | None:
     Returns:
         String: type of the condition key, like Bool, Date, String, etc.
     """
-    service_prefix, condition_name = condition_key.split(":")
+    service_prefix, _ = condition_key.split(":")
     service_prefix_data = get_service_prefix_data(service_prefix)
 
     for condition_key_entry, condition_key_data in service_prefix_data[

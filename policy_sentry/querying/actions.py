@@ -5,28 +5,28 @@ This supports the Policy Sentry query functionality
 
 from __future__ import annotations
 
-import logging
 import functools
+import logging
 from typing import Any
 
 from policy_sentry.querying.actions_v1 import (
     get_action_data_v1,
     get_action_matching_access_level_v1,
-    get_actions_with_arn_type_and_access_level_v1,
+    get_actions_for_service_v1,
     get_actions_matching_arn_type_v1,
     get_actions_matching_arn_v1,
-    get_actions_for_service_v1,
+    get_actions_with_arn_type_and_access_level_v1,
 )
-from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
-from policy_sentry.shared.iam_data import (
-    iam_definition,
-    get_service_prefix_data,
-    get_iam_definition_schema_version,
-)
-from policy_sentry.querying.all import get_all_service_prefixes, get_all_actions
+from policy_sentry.querying.all import get_all_actions, get_all_service_prefixes
 from policy_sentry.querying.arns import (
     get_matching_raw_arns,
     get_resource_type_name_with_raw_arn,
+)
+from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
+from policy_sentry.shared.iam_data import (
+    get_iam_definition_schema_version,
+    get_service_prefix_data,
+    iam_definition,
 )
 from policy_sentry.util.arns import get_service_from_arn
 
@@ -320,12 +320,12 @@ def get_actions_with_arn_type_and_access_level_v2(
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
-            if action_data["access_level"] == access_level:
-                if (
-                    resource_type_name.lower()
-                    in action_data["resource_types_lower_name"]
-                ):
-                    results.append(f"{service_prefix}:{action_name}")
+            if (
+                action_data["access_level"] == access_level
+                and resource_type_name.lower()
+                in action_data["resource_types_lower_name"]
+            ):
+                results.append(f"{service_prefix}:{action_name}")
 
     return results
 
@@ -352,9 +352,10 @@ def get_actions_that_support_wildcard_arns_only(service_prefix: str) -> list[str
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
         for action_name, action_data in service_prefix_data["privileges"].items():
-            if len(action_data["resource_types"]) == 1:
-                if action_data["resource_types"].get(""):
-                    results.append(f"{service_prefix}:{action_name}")
+            if len(action_data["resource_types"]) == 1 and action_data[
+                "resource_types"
+            ].get(""):
+                results.append(f"{service_prefix}:{action_name}")
     return results
 
 
@@ -469,8 +470,8 @@ def get_actions_matching_condition_key(
     Returns:
         List: A list of actions
     """
-    results = []
     if service_prefix == "all":
+        results = []
         for some_prefix in all_service_prefixes:
             actions = get_actions_matching_condition_key(
                 service_prefix=some_prefix,
@@ -480,10 +481,12 @@ def get_actions_matching_condition_key(
                 results.extend(actions)
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            for resource_data in action_data["resource_types"].values():
-                if condition_key in resource_data["condition_keys"]:
-                    results.append(f"{service_prefix}:{action_name}")
+        results = [
+            f"{service_prefix}:{action_name}"
+            for action_name, action_data in service_prefix_data["privileges"].items()
+            for resource_data in action_data["resource_types"].values()
+            if condition_key in resource_data["condition_keys"]
+        ]
     return results
 
 
@@ -637,10 +640,12 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
     for action in actions_list_unique:
         service_prefix, action_name = action.split(":")
         action_data = get_action_data(service_prefix, action_name)
-        if len(action_data[service_prefix]) == 1:
-            if action_data[service_prefix][0]["resource_arn_format"] == "*":
-                # Let's return the CamelCase action name format
-                results.append(action_data[service_prefix][0]["action"])
+        if (
+            len(action_data[service_prefix]) == 1
+            and action_data[service_prefix][0]["resource_arn_format"] == "*"
+        ):
+            # Let's return the CamelCase action name format
+            results.append(action_data[service_prefix][0]["action"])
     return results
 
 

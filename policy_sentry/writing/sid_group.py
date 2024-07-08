@@ -9,21 +9,21 @@ import re
 from typing import Any
 
 from policy_sentry.analysis.expand import determine_actions_to_expand
-from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.actions import (
     get_action_data,
+    get_actions_at_access_level_that_support_wildcard_arns_only,
+    get_actions_that_support_wildcard_arns_only,
     get_actions_with_arn_type_and_access_level,
     get_dependent_actions,
-    get_actions_that_support_wildcard_arns_only,
-    get_actions_at_access_level_that_support_wildcard_arns_only,
 )
+from policy_sentry.querying.all import get_all_actions
 from policy_sentry.querying.arns import get_resource_type_name_with_raw_arn
+from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
+from policy_sentry.util.actions import get_lowercase_action_list
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn, parse_arn
 from policy_sentry.util.text import capitalize_first_character, strip_special_characters
 from policy_sentry.writing.minimize import minimize_statement_actions
 from policy_sentry.writing.validate import check_actions_schema, check_crud_schema
-from policy_sentry.shared.constants import POLICY_LANGUAGE_VERSION
-from policy_sentry.util.actions import get_lowercase_action_list
 
 SANITIZE_NAME_PATTERN = re.compile(r"[^A-Za-z0-9]+")
 
@@ -308,7 +308,7 @@ class SidGroup:
         self,
         arn_list: list[str],
         access_level: str,
-        conditions_block: dict[str, Any] | None = None,
+        _conditions_block: dict[str, Any] | None = None,
     ) -> None:
         """
         This adds the user-supplied ARN(s), service prefixes, access levels, and condition keys (if applicable) given
@@ -426,8 +426,8 @@ class SidGroup:
             if action not in supplied_actions
         ]
         logger.debug("Adding by list of actions")
-        logger.debug(f"Supplied actions: {str(supplied_actions)}")
-        logger.debug(f"Dependent actions: {str(dependent_actions)}")
+        logger.debug(f"Supplied actions: {supplied_actions}")
+        logger.debug(f"Dependent actions: {dependent_actions}")
         arns_matching_supplied_actions = []
 
         # arns_matching_supplied_actions is a list of dicts.
@@ -471,8 +471,8 @@ class SidGroup:
         logger.debug(
             "Purging actions that do not match the requested actions and dependent actions"
         )
-        logger.debug(f"Supplied actions: {str(supplied_actions)}")
-        logger.debug(f"Dependent actions: {str(dependent_actions)}")
+        logger.debug(f"Supplied actions: {supplied_actions}")
+        logger.debug(f"Dependent actions: {dependent_actions}")
         self.remove_actions_not_matching_these(supplied_actions + dependent_actions)
         for action in actions_without_resource_constraints:
             logger.debug(
@@ -515,36 +515,28 @@ class SidGroup:
                 provided_wildcard_actions = cfg_wildcard.get("single-actions")
                 if provided_wildcard_actions and provided_wildcard_actions[0] != "":
                     logger.debug(
-                        f"Requested wildcard-only actions: {str(provided_wildcard_actions)}"
+                        f"Requested wildcard-only actions: {provided_wildcard_actions}"
                     )
                     self.wildcard_only_single_actions = provided_wildcard_actions
 
                 service_read = cfg_wildcard.get("service-read")
                 if service_read and service_read[0]:
-                    logger.debug(
-                        f"Requested wildcard-only actions: {str(service_read)}"
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {service_read}")
                     self.wildcard_only_service_read = service_read
 
                 service_write = cfg_wildcard.get("service-write")
                 if service_write and service_write[0]:
-                    logger.debug(
-                        f"Requested wildcard-only actions: {str(service_write)}"
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {service_write}")
                     self.wildcard_only_service_write = service_write
 
                 service_list = cfg_wildcard.get("service-list")
                 if service_list and service_list[0]:
-                    logger.debug(
-                        f"Requested wildcard-only actions: {str(service_list)}"
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {service_list}")
                     self.wildcard_only_service_list = service_list
 
                 service_tagging = cfg_wildcard.get("service-tagging")
                 if service_tagging and service_tagging[0]:
-                    logger.debug(
-                        f"Requested wildcard-only actions: {str(service_tagging)}"
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {service_tagging}")
                     self.wildcard_only_service_tagging = service_tagging
 
                 service_permissions_management = cfg_wildcard.get(
@@ -552,7 +544,7 @@ class SidGroup:
                 )
                 if service_permissions_management and service_permissions_management[0]:
                     logger.debug(
-                        f"Requested wildcard-only actions: {str(service_permissions_management)}"
+                        f"Requested wildcard-only actions: {service_permissions_management}"
                     )
                     self.wildcard_only_service_permissions_management = (
                         service_permissions_management
@@ -564,30 +556,30 @@ class SidGroup:
             # Standard access levels
             cfg_read = cfg.get("read")
             if cfg_read and cfg_read[0]:
-                logger.debug(f"Requested access to arns: {str(cfg_read)}")
+                logger.debug(f"Requested access to arns: {cfg_read}")
                 self.add_by_arn_and_access_level(cfg_read, "Read")
             cfg_write = cfg.get("write")
             if cfg_write and cfg_write[0]:
-                logger.debug(f"Requested access to arns: {str(cfg_write)}")
+                logger.debug(f"Requested access to arns: {cfg_write}")
                 self.add_by_arn_and_access_level(cfg_write, "Write")
             cfg_list = cfg.get("list")
             if cfg_list and cfg_list[0]:
-                logger.debug(f"Requested access to arns: {str(cfg_list)}")
+                logger.debug(f"Requested access to arns: {cfg_list}")
                 self.add_by_arn_and_access_level(cfg_list, "List")
             tagging = cfg.get("tagging")
             if tagging and tagging[0]:
-                logger.debug(f"Requested access to arns: {str(tagging)}")
+                logger.debug(f"Requested access to arns: {tagging}")
                 self.add_by_arn_and_access_level(tagging, "Tagging")
             cfg_mgmt = cfg.get("permissions-management")
             if cfg_mgmt and cfg_mgmt[0]:
-                logger.debug(f"Requested access to arns: {str(cfg_mgmt)}")
+                logger.debug(f"Requested access to arns: {cfg_mgmt}")
                 self.add_by_arn_and_access_level(cfg_mgmt, "Permissions management")
 
             # SKIP RESOURCE CONSTRAINTS
             cfg_skip = cfg.get("skip-resource-constraints")
             if cfg_skip and cfg_skip[0]:
                 logger.debug(
-                    f"Requested override: the actions {str(cfg_skip)} will "
+                    f"Requested override: the actions {cfg_skip} will "
                     f"skip resource constraints."
                 )
                 self.add_skip_resource_constraints(cfg_skip)
@@ -600,13 +592,13 @@ class SidGroup:
             cfg_sts = cfg.get("sts")
             if cfg_sts:
                 logger.debug(
-                    f"STS section detected. Building assume role policy statement"
+                    "STS section detected. Building assume role policy statement"
                 )
                 self.add_sts_actions(cfg_sts)
 
         elif cfg_mode == "actions":
             check_actions_schema(cfg)
-            if "actions" in cfg.keys():
+            if "actions" in cfg:
                 cfg_actions = cfg["actions"]
                 if cfg_actions is not None and cfg_actions[0] != "":
                     self.add_by_list_of_actions(cfg_actions)
@@ -657,7 +649,7 @@ class SidGroup:
         """
         actions_to_keep = get_lowercase_action_list(actions_to_keep)
         actions_deleted = []
-        for sid, group in self.sids.items():
+        for group in self.sids.values():
             placeholder_actions_list = []
             for action in group["actions"]:
                 # if the action is not in the list of selected actions, don't copy it to the placeholder list
@@ -712,10 +704,12 @@ class SidGroup:
             for group in self.sids.values():
                 if "*" not in group["arn_format"]:
                     for action in actions_under_wildcard_resources:
-                        if action in group["actions"]:
-                            if action not in self.skip_resource_constraints:
-                                # add it to a list of actions to nuke when they are under other SIDs
-                                actions_under_wildcard_resources_to_nuke.append(action)
+                        if (
+                            action in group["actions"]
+                            and action not in self.skip_resource_constraints
+                        ):
+                            # add it to a list of actions to nuke when they are under other SIDs
+                            actions_under_wildcard_resources_to_nuke.append(action)  # noqa: PERF401
 
         # If there are actions that we need to remove from SIDs outside of MultMultNone SID
         if actions_under_wildcard_resources_to_nuke:
@@ -741,7 +735,7 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
 
     for action in actions_set:
         try:
-            service_name, action_name = action.split(":")
+            service_name, _ = action.split(":")
         except ValueError as v_e:
             # We will skip the action because this likely means that the wildcard action provided is not valid.
             logger.debug(v_e)
@@ -754,7 +748,7 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
         rows = get_actions_that_support_wildcard_arns_only(service_name)
         for row in rows:
             if row.lower() == action_lower:
-                actions_list_placeholder.append(action)
+                actions_list_placeholder.append(action)  # noqa: PERF401
     return actions_list_placeholder
 
 

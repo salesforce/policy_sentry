@@ -5,16 +5,16 @@ This supports the policy_sentry query functionality
 
 from __future__ import annotations
 
-import logging
 import functools
+import logging
 import warnings
 from typing import Any, cast
 
 from policy_sentry.querying.arns_v1 import get_arn_type_details_v1
 from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
 from policy_sentry.shared.iam_data import (
-    get_service_prefix_data,
     get_iam_definition_schema_version,
+    get_service_prefix_data,
 )
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 
@@ -33,11 +33,13 @@ def get_arn_data(service_prefix: str, resource_type_name: str) -> list[dict[str,
     Returns:
         Dictionary: Metadata about an ARN type
     """
-    warnings.warn("Please use get_arn_type_details() instead", DeprecationWarning)
+    warnings.warn(
+        "Please use get_arn_type_details() instead", DeprecationWarning, stacklevel=2
+    )
 
     results = []
     service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_name, resource_data in service_prefix_data["resources"].items():
+    for resource_data in service_prefix_data["resources"].values():
         if resource_data["resource"].lower() == resource_type_name.lower():
             output = {
                 "resource_type_name": resource_data["resource"],

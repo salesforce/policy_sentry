@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from schema import Optional, Schema, And, Use, Regex, SchemaError
+from schema import And, Optional, Regex, Schema, SchemaError, Use
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
             detailed_error_message = schema_error.autos[2]
             print(detailed_error_message.split(" in {'")[0])
             # for error in schema_error.autos:
-        except:  # pylint: disable=bare-except
+        except:  # noqa: E722
             logger.critical(schema_error)
         return False
 
@@ -80,9 +80,9 @@ def check_actions_schema(cfg: dict[str, Any]) -> bool:
         return result
     else:
         raise Exception(
-            f"The provided template does not match the required schema for ACTIONS mode. "
-            f"Please use the create-template command to generate a valid YML template that "
-            f"Policy Sentry will accept."
+            "The provided template does not match the required schema for ACTIONS mode. "
+            "Please use the create-template command to generate a valid YML template that "
+            "Policy Sentry will accept."
         )
 
 
@@ -95,9 +95,9 @@ def check_crud_schema(cfg: dict[str, Any]) -> bool:
         return result
     else:
         raise Exception(
-            f"The provided template does not match the required schema for CRUD mode. "
-            f"Please use the create-template command to generate a valid YML template that "
-            f"Policy Sentry will accept."
+            "The provided template does not match the required schema for CRUD mode. "
+            "Please use the create-template command to generate a valid YML template that "
+            "Policy Sentry will accept."
         )
 
 
@@ -112,7 +112,7 @@ def validate_condition_block(condition_block: dict[str, Any]) -> bool:
     """
 
     # TODO: Validate that the values are legit somehow
-    CONDITION_BLOCK_SCHEMA = Schema(
+    condition_block_schema = Schema(
         {
             "condition_key_string": And(Use(str)),
             "condition_type_string": And(Use(str)),
@@ -120,7 +120,7 @@ def validate_condition_block(condition_block: dict[str, Any]) -> bool:
         }
     )
     try:
-        CONDITION_BLOCK_SCHEMA.validate(condition_block)
+        condition_block_schema.validate(condition_block)
         # TODO: Try to validate whether or not the condition keys are legit
         return True
     except SchemaError as s_e:

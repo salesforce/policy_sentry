@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import logging
 import functools
+import logging
 
 from policy_sentry.querying.all_v1 import get_all_actions_v1
 from policy_sentry.shared.constants import (
@@ -11,9 +11,9 @@ from policy_sentry.shared.constants import (
     POLICY_SENTRY_SCHEMA_VERSION_V2,
 )
 from policy_sentry.shared.iam_data import (
-    iam_definition,
-    get_service_prefix_data,
     get_iam_definition_schema_version,
+    get_service_prefix_data,
+    iam_definition,
 )
 
 logger = logging.getLogger(__name__)
@@ -31,8 +31,7 @@ def get_all_service_prefixes() -> set[str]:
         List: A list of all AWS service prefixes present in the table.
     """
     results = set(iam_definition.keys())
-    if POLICY_SENTRY_SCHEMA_VERSION_NAME in results:
-        results.remove(POLICY_SENTRY_SCHEMA_VERSION_NAME)
+    results.discard(POLICY_SENTRY_SCHEMA_VERSION_NAME)
 
     return results
 

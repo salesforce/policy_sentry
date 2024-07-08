@@ -29,7 +29,9 @@ def get_actions_for_service_v1(
     Returns:
         List: A list of actions
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
@@ -62,7 +64,9 @@ def get_action_data_v1(
     Returns:
         List: A dictionary containing metadata about an IAM Action.
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     results = []
     action_data_results = {}
@@ -74,17 +78,17 @@ def get_action_data_v1(
             # Get the baseline conditions and dependent actions
             condition_keys = []
             dependent_actions = []
-            rows = []
             if action_name == "*":
-                # rows = this_action_data["resource_types"]
-                for resource_type_entry in this_action_data["resource_types"]:
-                    rows.append(this_action_data["resource_types"][resource_type_entry])
+                rows = [
+                    this_action_data["resource_types"][resource_type_entry]
+                    for resource_type_entry in this_action_data["resource_types"]
+                ]
             else:
-                for resource_type_entry in this_action_data["resource_types"]:
-                    if this_action_name.lower() == action_name.lower():
-                        rows.append(
-                            this_action_data["resource_types"][resource_type_entry]
-                        )
+                rows = [
+                    this_action_data["resource_types"][resource_type_entry]
+                    for resource_type_entry in this_action_data["resource_types"]
+                    if this_action_name.lower() == action_name.lower()
+                ]
             for row in rows:
                 # Set default value for if no other matches are found
                 resource_arn_format = "*"
@@ -92,9 +96,7 @@ def get_action_data_v1(
                 if row["dependent_actions"]:
                     dependent_actions.extend(row["dependent_actions"])
                 # Get the condition keys
-                for service_resource_name, service_resource_data in service_prefix_data[
-                    "resources"
-                ].items():
+                for service_resource_data in service_prefix_data["resources"].values():
                     if row["resource_type"] == "":
                         continue
                     if (
@@ -138,7 +140,9 @@ def get_action_matching_access_level_v1(
     Returns:
         List: action or None
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     result = None
     service_prefix_data = get_service_prefix_data(service_prefix.lower())
@@ -146,10 +150,12 @@ def get_action_matching_access_level_v1(
         privileges = service_prefix_data.get("privileges")
         if privileges:
             for this_action_name, action_data in privileges.items():
-                if action_data["access_level"] == access_level:
-                    if this_action_name.lower() == action_name.lower():
-                        result = f"{service_prefix}:{this_action_name}"
-                        break
+                if (
+                    action_data["access_level"] == access_level
+                    and this_action_name.lower() == action_name.lower()
+                ):
+                    result = f"{service_prefix}:{this_action_name}"
+                    break
 
     return result
 
@@ -169,7 +175,9 @@ def get_actions_with_arn_type_and_access_level_v1(
     Return:
         List: A list of actions that have that ARN type and Access level
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
@@ -177,11 +185,9 @@ def get_actions_with_arn_type_and_access_level_v1(
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
+            for action_data in service_prefix_data["privileges"].values():
                 if action_data["access_level"] == access_level:
-                    for resource_name, resource_data in action_data[
-                        "resource_types"
-                    ].items():
+                    for resource_data in action_data["resource_types"].values():
                         this_resource_type = resource_data["resource_type"].strip("*")
                         if this_resource_type.lower() == resource_type_name.lower():
                             results.append(
@@ -189,11 +195,9 @@ def get_actions_with_arn_type_and_access_level_v1(
                             )
                             break
     else:
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"].values():
             if action_data["access_level"] == access_level:
-                for resource_name, resource_data in action_data[
-                    "resource_types"
-                ].items():
+                for resource_data in action_data["resource_types"].values():
                     this_resource_type = resource_data["resource_type"].strip("*")
                     if this_resource_type.lower() == resource_type_name.lower():
                         results.append(f"{service_prefix}:{action_data['privilege']}")
@@ -215,7 +219,9 @@ def get_actions_matching_arn_type_v1(
     Return:
         List: A list of actions that have that ARN type
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
@@ -223,17 +229,15 @@ def get_actions_matching_arn_type_v1(
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
             service_prefix_data = get_service_prefix_data(some_prefix)
-            for action_name, action_data in service_prefix_data["privileges"].items():
-                for resource_name, resource_data in action_data[
-                    "resource_types"
-                ].items():
+            for action_data in service_prefix_data["privileges"].values():
+                for resource_data in action_data["resource_types"].values():
                     this_resource_type = resource_data["resource_type"].strip("*")
                     if this_resource_type.lower() == resource_type_name.lower():
                         results.append(f"{service_prefix}:{action_data['privilege']}")
                         break
     else:
-        for action_name, action_data in service_prefix_data["privileges"].items():
-            for resource_name, resource_data in action_data["resource_types"].items():
+        for action_data in service_prefix_data["privileges"].values():
+            for resource_data in action_data["resource_types"].values():
                 this_resource_type = resource_data["resource_type"].strip("*")
                 if this_resource_type.lower() == resource_type_name.lower():
                     results.append(f"{service_prefix}:{action_data['privilege']}")
@@ -252,7 +256,9 @@ def get_actions_matching_arn_v1(arn: str) -> list[str]:
     Returns:
         List: A list of all actions that can match it.
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     raw_arns = get_matching_raw_arns(arn)
     results = []
@@ -263,9 +269,9 @@ def get_actions_matching_arn_v1(arn: str) -> list[str]:
 
         service_prefix = get_service_from_arn(raw_arn)
         service_prefix_data = get_service_prefix_data(service_prefix)
-        for action_name, action_data in service_prefix_data["privileges"].items():
+        for action_data in service_prefix_data["privileges"].values():
             # for some_action in service_prefix_data["privileges"]:
-            for resource_name, resource_data in action_data["resource_types"].items():
+            for resource_data in action_data["resource_types"].values():
                 this_resource_type = resource_data["resource_type"].strip("*")
                 if this_resource_type.lower() == resource_type_name.lower():
                     results.append(f"{service_prefix}:{action_data['privilege']}")

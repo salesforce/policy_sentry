@@ -136,9 +136,10 @@ class ARN:
             # and length of the arn_format_list should be the same as split_resource_string_to_test
             # If all conditions match, then the ARN format is the same.
             if elem:
-                if elem == split_resource_string_to_test[idx]:
-                    pass
-                elif split_resource_string_to_test[idx] == "*":
+                if (
+                    elem == split_resource_string_to_test[idx]
+                    or split_resource_string_to_test[idx] == "*"
+                ):
                     pass
                 else:
                     return False
@@ -158,10 +159,10 @@ class ARN:
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
-            elif "/" in self.resource_string and "/" in elements[5]:
+            elif "/" in self.resource_string and "/" in elements[5]:  # noqa: SIM114
                 return True
             # / not being present in either means it's a bucket in both so it matches
-            elif "/" not in self.resource_string and "/" not in elements[5]:
+            elif "/" not in self.resource_string and "/" not in elements[5]:  # noqa: SIM103
                 return True
             # If there is a / in one but not in the other, it does not match
             else:
