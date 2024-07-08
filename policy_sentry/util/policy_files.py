@@ -7,7 +7,6 @@ import logging
 from pathlib import Path
 from typing import Any
 
-
 from policy_sentry.querying.actions import get_action_data
 
 logger = logging.getLogger(__name__)
@@ -54,8 +53,9 @@ def get_actions_from_policy(data: dict[str, Any]) -> list[str]:
     for action in actions_list:
         service, action_name = action.split(":")
         action_data = get_action_data(service, action_name)
-        if service in action_data and action_data[service]:
-            new_actions_list.append(action_data[service][0]["action"])
+        service_data = action_data.get(service)
+        if service_data:
+            new_actions_list.append(service_data[0]["action"])
 
     new_actions_list.sort()
     return new_actions_list
@@ -74,8 +74,7 @@ def get_actions_from_json_policy_file(file: str | Path) -> list[str]:
             # in this tool. [MJ]
             data = json.load(json_file)
             actions_list = get_actions_from_policy(data)
-
-    except:  # pylint: disable=bare-except
+    except:  # noqa: E722
         logger.debug("General Error at get_actions_from_json_policy_file.")
         actions_list = []
     return actions_list

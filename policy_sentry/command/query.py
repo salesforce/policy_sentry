@@ -4,51 +4,51 @@ Allow users to use specific pre-compiled queries against the action, arn, and co
 
 from __future__ import annotations
 
-import os
 import json
 import logging
+import os
 from typing import Any
 
 import click
 import yaml
 
-from policy_sentry.querying.services import get_services_data
-from policy_sentry.util.access_levels import transform_access_level_text
+from policy_sentry import set_stream_logger
+from policy_sentry.querying.actions import (
+    get_action_data,
+    get_actions_for_service,
+    get_actions_matching_arn_type,
+    get_actions_matching_condition_key,
+    get_actions_that_support_wildcard_arns_only,
+    get_actions_with_access_level,
+    get_actions_with_arn_type_and_access_level,
+)
 from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.querying.arns import (
     get_arn_type_details,
     get_arn_types_for_service,
     get_raw_arns_for_service,
 )
-from policy_sentry.querying.actions import (
-    get_actions_for_service,
-    get_actions_with_access_level,
-    get_action_data,
-    get_actions_matching_condition_key,
-    get_actions_with_arn_type_and_access_level,
-    get_actions_matching_arn_type,
-    get_actions_that_support_wildcard_arns_only,
-)
 from policy_sentry.querying.conditions import (
-    get_condition_keys_for_service,
     get_condition_key_details,
+    get_condition_keys_for_service,
 )
+from policy_sentry.querying.services import get_services_data
 from policy_sentry.shared.constants import (
     DATASTORE_FILE_PATH,
     LOCAL_DATASTORE_FILE_PATH,
 )
-from policy_sentry import set_stream_logger
+from policy_sentry.util.access_levels import transform_access_level_text
 
 logger = logging.getLogger(__name__)
 iam_definition_path = DATASTORE_FILE_PATH
 
 
-def print_list(output: Any, fmt: str = "json") -> None:
+def print_list(output: list[Any], fmt: str = "json") -> None:
     """Common method on how to print a list, depending on whether the user requests JSON or YAML output"""
     print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
 
 
-def print_dict(output: Any, fmt: str = "json") -> None:
+def print_dict(output: list[Any] | dict[Any, Any], fmt: str = "json") -> None:
     """Common method on how to print a dict, depending on whether the user requests JSON, YAML or CSV output"""
     if fmt == "csv":
         if not output:

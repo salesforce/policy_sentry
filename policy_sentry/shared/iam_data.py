@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import functools
 import json
 import logging
-import functools
 from pathlib import Path
 from typing import Any, cast
 
@@ -47,8 +47,7 @@ def get_service_prefix_data(service_prefix: str) -> dict[str, Any]:
     """
     try:
         return cast("dict[str, Any]", iam_definition[service_prefix])
-    # pylint: disable=bare-except, inconsistent-return-statements
-    except:
+    except:  # noqa: E722
         if service_prefix == "catalog":
             # the resource types "Portfolio" and "Product" have the service name "catalog" in their ARN
             # https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsservicecatalog.html#awsservicecatalog-resources-for-iam-policies

@@ -7,5 +7,5 @@ constants.LOCAL_HTML_DIRECTORY_PATH = "/tmp/.policy_sentry/data/docs"
 
 from policy_sentry.command.initialize import initialize
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     initialize(None, True, True)

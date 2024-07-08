@@ -4,9 +4,9 @@ Given a Policy Sentry YML template, write a least-privilege IAM Policy in CRUD m
 
 from __future__ import annotations
 
-import sys
 import json
 import logging
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -14,9 +14,9 @@ import click
 import yaml
 from click import Context
 
+from policy_sentry import set_stream_logger
 from policy_sentry.util.file import read_yaml_file
 from policy_sentry.writing.sid_group import SidGroup
-from policy_sentry import set_stream_logger
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ class RegisterMinimizeLengthCommand(click.Command):
 
     def parse_args(self, ctx: Context, args: list[str]) -> list[str]:
         options = [o for o in ctx.command.params if getattr(o, "register_length", None)]
-        prefixes = {p for p in sum([o.opts for o in options], []) if p.startswith("--")}
+        prefixes = {p for p in sum([o.opts for o in options], []) if p.startswith("--")}  # noqa: RUF017
         for i, a in enumerate(args):
             a_tuple = a.split("=")
             if a_tuple[0] in prefixes:

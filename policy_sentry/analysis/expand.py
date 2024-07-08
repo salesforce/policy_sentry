@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import logging
 import copy
 import fnmatch
+import logging
 from typing import Any
 
 from policy_sentry.querying.actions import get_actions_for_service

@@ -24,8 +24,8 @@ Q: How many policies can I attach to an IAM role?
 
 from __future__ import annotations
 
-import logging
 import functools
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -69,15 +69,7 @@ def check_min_permission_length(permission: str, minchars: int | None = None) ->
     Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
     https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L111
     """
-    if minchars and permission and len(permission) < int(minchars):
-        # print(
-        #     "Skipping prefix {} because length of {}".format(
-        #         permission, len(permission)
-        #     ),
-        #     file=sys.stderr,
-        # )
-        return True
-    return False
+    return bool(minchars and permission and len(permission) < int(minchars))
 
 
 # This is a condensed version of policyuniverse's minimize_statement_actions, changed for our purposes.
@@ -115,13 +107,12 @@ def minimize_statement_actions(
             if check_min_permission_length(permission, minchars=minchars):
                 continue
             # If the action name is not empty
-            if prefix not in denied_prefixes:
-                if permission:
-                    if prefix not in desired_actions:
-                        prefix = f"{prefix}*"
-                    minimized_actions.add(prefix)
-                    found_prefix = True
-                    break
+            if prefix not in denied_prefixes and permission:
+                if prefix not in desired_actions:
+                    prefix = f"{prefix}*"
+                minimized_actions.add(prefix)
+                found_prefix = True
+                break
 
         if not found_prefix:
             logger.debug(

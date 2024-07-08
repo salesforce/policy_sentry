@@ -9,6 +9,34 @@ module = [
 ]
 ignore_missing_imports = true
 
+[tool.ruff]
+target-version = "py37"
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "A",
+    "ANN",
+    "ARG",
+    "B",
+    "E",
+    "F",
+    "FURB",
+    "I",
+    "ISC",
+    "N",
+    "PERF",
+    "PIE",
+    "RUF",
+    "S",
+    "SIM",
+    "T10",
+    "UP",
+    "W",
+    "YTT",
+]
+ignore = ["E501"] # ruff fromat takes care of it
+
 [tool.pytest.ini_options]
 testpaths = [
     "test",

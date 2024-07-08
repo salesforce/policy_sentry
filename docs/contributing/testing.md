@@ -48,8 +48,7 @@ Available tasks:
   integration.version          Print the version
   integration.write-policy     Integration testing: Tests the `write-policy`
                                function.
-  test.lint                    Linting with `pylint` and `autopep8`
-  test.security                Runs `bandit` and `safety check`
+  test.security                Runs `safety check`
   unit.pytest                  Unit testing: Runs unit tests using `pytest`
 
 

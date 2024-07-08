@@ -5,11 +5,13 @@ Users don't have to remember exactly how to phrase the yaml files, so this comma
 
 from __future__ import annotations
 
-from pathlib import Path
 import logging
+from pathlib import Path
+
 import click
-from policy_sentry.writing.template import create_actions_template, create_crud_template
+
 from policy_sentry import set_stream_logger
+from policy_sentry.writing.template import create_actions_template, create_crud_template
 
 logger = logging.getLogger(__name__)
 

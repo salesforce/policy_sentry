@@ -17,7 +17,9 @@ def get_all_actions_v1(
     :param lowercase: Set to true to have the list of actions be in all lowercase strings.
     :return: A list of all actions present in the database.
     """
-    warnings.warn("Please recreate the IAM datastore file!", DeprecationWarning)
+    warnings.warn(
+        "Please recreate the IAM datastore file!", DeprecationWarning, stacklevel=2
+    )
 
     all_actions = set()
 

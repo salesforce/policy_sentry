@@ -4,8 +4,8 @@ All of these access_levels methods are specific to policy sentry internals."""
 
 from __future__ import annotations
 
-import sys
 import logging
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -38,11 +38,10 @@ def override_access_level(
         )
     # first index will contain the access level given in the override config for that action.
     # since we break the loop, we know it only contains one value.
-    if real_access_level:
+    if real_access_level and real_access_level != provided_access_level:
         # If AWS hasn't fixed their documentation yet, then our YAML override cfg will not match their documentation.
         # Therefore, accept our override instead.
-        if real_access_level != provided_access_level:
-            return real_access_level
+        return real_access_level
         # Otherwise, they have fixed their documentation because our override file matches their documentation.
         # Therefore, return false because we don't need to override
 
