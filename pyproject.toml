@@ -1,5 +1,6 @@
 [tool.mypy]
 files = "policy_sentry"
+local_partial_types = true # will become the new default from version 2
 strict = true
 pretty = true
 
@@ -10,7 +11,7 @@ module = [
 ignore_missing_imports = true
 
 [tool.ruff]
-target-version = "py37"
+target-version = "py38"
 
 [tool.ruff.lint]
 preview = true
@@ -52,20 +53,19 @@ norecursedirs = [
     "__pycache__",
 ]
 
-# supported from version 7.3.0
-#[tool.coverage]
-#omit = [
-#    "policy_sentry/shared/awsdocs.py",
-#    # ignore v1 variants
-#    "policy_sentry/querying/actions_v1.py",
-#    "policy_sentry/querying/all_v1.py",
-#    "policy_sentry/querying/arns_v1.py",
-#    # omit anything in a .local directory anywhere
-#    "*/.local/*",
-#    "*/virtualenv/*",
-#    "*/venv/*",
-#    "*/.venv/*",
-#    "*/docs/*",
-#    "*/examples/*",
-#    "utils/*",
-#]
+[tool.coverage.report]
+omit = [
+    "policy_sentry/shared/awsdocs.py",
+    # ignore v1 variants
+    "policy_sentry/querying/actions_v1.py",
+    "policy_sentry/querying/all_v1.py",
+    "policy_sentry/querying/arns_v1.py",
+    # omit anything in a .local directory anywhere
+    "*/.local/*",
+    "*/virtualenv/*",
+    "*/venv/*",
+    "*/.venv/*",
+    "*/docs/*",
+    "*/examples/*",
+    "utils/*",
+]

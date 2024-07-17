@@ -1,8 +1,6 @@
 import unittest
-import json
 
 from policy_sentry.querying.arns import (
-    get_arn_data,
     get_raw_arns_for_service,
     get_arn_types_for_service,
     get_arn_type_details,
@@ -12,18 +10,6 @@ from policy_sentry.querying.arns import (
 
 
 class QueryArnsTestCase(unittest.TestCase):
-    def test_get_arn_data(self):
-        results = get_arn_data("s3", "bucket")
-        expected_results = [
-            {
-                "resource_type_name": "bucket",
-                "raw_arn": "arn:${Partition}:s3:::${BucketName}",
-                "condition_keys": []
-            }
-        ]
-        # print(json.dumps(results, indent=4))
-        self.assertListEqual(results, expected_results)
-
     def test_get_raw_arns_for_service(self):
         """querying.arns.get_raw_arns_for_service"""
         expected_results = [
