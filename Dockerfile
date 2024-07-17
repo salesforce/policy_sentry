@@ -1,4 +1,4 @@
-ARG FROM_TAG=3.7-slim-buster
+ARG FROM_TAG=3.8-slim-buster
 FROM python:${FROM_TAG}
 MAINTAINER Kinnaird McQuade "kinnairdm@gmail.com"
 
