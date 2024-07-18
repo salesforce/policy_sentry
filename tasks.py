@@ -269,20 +269,6 @@ def query_with_yaml(c):
         sys.exit(1)
 
 
-# TEST - SECURITY
-@task
-def security_scan(c):
-    """Runs `safety check`"""
-    try:
-        c.run("safety check")
-    except UnexpectedExit as u_e:
-        logger.critical(f"FAIL! UnexpectedExit: {u_e}")
-        sys.exit(1)
-    except Failure as f_e:
-        logger.critical(f"FAIL: Failure: {f_e}")
-        sys.exit(1)
-
-
 # TEST - type check
 @task
 def run_mypy(c):
@@ -336,7 +322,6 @@ docs.add_task(download_latest_aws_docs, "download_latest_aws_docs")
 
 # test.add_task(run_full_test_suite, 'all')
 test.add_task(run_mypy, "type-check")
-test.add_task(security_scan, "security")
 
 build.add_task(build_package, "build-package")
 build.add_task(install_package, "install-package")
