@@ -13,6 +13,7 @@ REQUIRED_PACKAGES = [
     "requests",
     "schema",
     "PyYAML",
+    "orjson",
 ]
 PROJECT_URLS = {
     "Documentation": "https://policy-sentry.readthedocs.io/",

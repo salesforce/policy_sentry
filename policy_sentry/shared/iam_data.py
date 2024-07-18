@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import functools
-import json
+import gc
 import logging
 from pathlib import Path
 from typing import Any, cast
+
+import orjson
 
 from policy_sentry.shared.constants import (
     DATASTORE_FILE_PATH,
@@ -18,7 +20,23 @@ logger = logging.getLogger()
 # On initialization, load the IAM data
 iam_definition_path = DATASTORE_FILE_PATH
 logger.debug(f"Leveraging the IAM definition at {iam_definition_path}")
-iam_definition = json.loads(Path(iam_definition_path).read_bytes())
+
+
+def load_iam_definition() -> dict[str, Any]:
+    gc_enabled = gc.isenabled()
+    if gc_enabled:
+        # https://github.com/msgpack/msgpack-python?tab=readme-ov-file#performance-tips
+        gc.disable()
+
+    data: dict[str, Any] = orjson.loads(Path(iam_definition_path).read_bytes())
+
+    if gc_enabled:
+        gc.enable()
+
+    return data
+
+
+iam_definition = load_iam_definition()
 
 
 @functools.lru_cache(maxsize=1)

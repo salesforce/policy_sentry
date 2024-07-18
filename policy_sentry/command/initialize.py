@@ -13,10 +13,6 @@ import click
 
 from policy_sentry import set_stream_logger
 from policy_sentry.querying.all import get_all_service_prefixes
-from policy_sentry.shared.awsdocs import (
-    create_database,
-    update_html_docs_directory,
-)
 from policy_sentry.shared.constants import (
     BUNDLED_DATA_DIRECTORY,
     BUNDLED_DATASTORE_FILE_PATH,
@@ -90,6 +86,13 @@ def initialize(
     Initialize the local data file to store AWS IAM information, which can be used to generate IAM policies, and for
     querying the database.
     """
+
+    # importing 'awsdocs' is quite pricey, when it is actually only used for initialize the IAM DB
+    from policy_sentry.shared.awsdocs import (
+        create_database,
+        update_html_docs_directory,
+    )
+
     if not access_level_overrides_file:
         overrides_file = LOCAL_ACCESS_OVERRIDES_FILE
     else:
