@@ -53,12 +53,12 @@ class RegisterMinimizeLengthCommand(click.Command):
             if a_tuple[0] in prefixes:
                 if len(a_tuple) > 1:
                     args[i] = a_tuple[0]
-                    args.insert(i + 1, a_tuple[0] + "_length=" + a_tuple[1])
+                    args.insert(i + 1, a_tuple[0] + "_length=" + a_tuple[1])  # noqa: B909
                 else:
                     # check if next argument is naked
                     if len(args) > i + 1 and not args[i + 1].startswith("--"):
                         value = args[i + 1]
-                        args[i + 1] = a_tuple[0] + "_length=" + value
+                        args[i + 1] = a_tuple[0] + "_length=" + value  # noqa: B909
         return super().parse_args(ctx, args)
 
 

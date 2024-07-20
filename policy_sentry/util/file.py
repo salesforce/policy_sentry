@@ -20,7 +20,7 @@ def read_yaml_file(filename: str | Path) -> dict[str, Any]:
     :param filename: name of the yaml file
     :return: dictionary of YAML file contents
     """
-    with open(filename) as yaml_file:
+    with open(filename, encoding="utf-8") as yaml_file:
         try:
             cfg = cast("dict[str, Any]", yaml.safe_load(yaml_file))
         except yaml.YAMLError as exc:
