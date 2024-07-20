@@ -131,7 +131,9 @@ def update_html_docs_directory(html_docs_destination: str) -> None:
                 logger.warning(a_e)
                 logger.warning(script)
 
-        with open(os.path.join(html_docs_destination, page), "w") as file:
+        with open(
+            os.path.join(html_docs_destination, page), "w", encoding="utf-8"
+        ) as file:
             # file.write(str(soup.html))
             file.write(str(soup.prettify()))
             file.close()
@@ -449,6 +451,6 @@ def create_database(
         # schema.update(this_service_schema)
 
     iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
-    with open(iam_definition_file, "w") as file:
+    with open(iam_definition_file, "w", encoding="utf-8") as file:
         json.dump(schema, file, indent=2)
-    logger.info("Wrote IAM definition file to path: ", iam_definition_file)
+    logger.info(f"Wrote IAM definition file to path: {iam_definition_file}")

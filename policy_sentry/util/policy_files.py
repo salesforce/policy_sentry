@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-import json
 import logging
 from pathlib import Path
 from typing import Any
+
+import orjson
 
 from policy_sentry.querying.actions import get_action_data
 
@@ -69,11 +70,10 @@ def get_actions_from_json_policy_file(file: str | Path) -> list[str]:
 
     # FIXME use a try/expect here to validate the json file. I would create a generic json
     try:
-        with open(file) as json_file:
-            # validation function/parser as there is a lot of json floating around
-            # in this tool. [MJ]
-            data = json.load(json_file)
-            actions_list = get_actions_from_policy(data)
+        # validation function/parser as there is a lot of json floating around
+        # in this tool. [MJ]
+        data = orjson.loads(Path(file).read_bytes())
+        actions_list = get_actions_from_policy(data)
     except:  # noqa: E722
         logger.debug("General Error at get_actions_from_json_policy_file.")
         actions_list = []

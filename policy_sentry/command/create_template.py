@@ -54,13 +54,13 @@ def create_template(output_file: str | Path, template_type: str, verbose: str) -
     filename = Path(output_file).resolve()
     if template_type == "actions":
         actions_template = create_actions_template()
-        with open(filename, "a") as file_obj:
+        with open(filename, "a", encoding="utf-8") as file_obj:
             for line in actions_template:
                 file_obj.write(line)
 
     if template_type == "crud":
         crud_template = create_crud_template()
-        with open(filename, "a") as file_obj:
+        with open(filename, "a", encoding="utf-8") as file_obj:
             for line in crud_template:
                 file_obj.write(line)
 

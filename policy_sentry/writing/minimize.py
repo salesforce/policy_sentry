@@ -108,9 +108,9 @@ def minimize_statement_actions(
                 continue
             # If the action name is not empty
             if prefix not in denied_prefixes and permission:
-                if prefix not in desired_actions:
-                    prefix = f"{prefix}*"
-                minimized_actions.add(prefix)
+                minimized_actions.add(
+                    prefix if prefix in desired_actions else f"{prefix}*"
+                )
                 found_prefix = True
                 break
 
