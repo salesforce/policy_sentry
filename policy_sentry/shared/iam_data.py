@@ -13,7 +13,6 @@ import orjson
 from policy_sentry.shared.constants import (
     DATASTORE_FILE_PATH,
     POLICY_SENTRY_SCHEMA_VERSION_NAME,
-    POLICY_SENTRY_SCHEMA_VERSION_V1,
 )
 
 logger = logging.getLogger()
@@ -47,9 +46,7 @@ def get_iam_definition_schema_version() -> str:
 
     return cast(
         "str",
-        iam_definition.get(
-            POLICY_SENTRY_SCHEMA_VERSION_NAME, POLICY_SENTRY_SCHEMA_VERSION_V1
-        ),
+        iam_definition[POLICY_SENTRY_SCHEMA_VERSION_NAME],
     )
 
 

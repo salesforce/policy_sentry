@@ -9,22 +9,12 @@ import functools
 import logging
 from typing import Any
 
-from policy_sentry.querying.actions_v1 import (
-    get_action_data_v1,
-    get_action_matching_access_level_v1,
-    get_actions_for_service_v1,
-    get_actions_matching_arn_type_v1,
-    get_actions_matching_arn_v1,
-    get_actions_with_arn_type_and_access_level_v1,
-)
 from policy_sentry.querying.all import get_all_actions, get_all_service_prefixes
 from policy_sentry.querying.arns import (
     get_matching_raw_arns,
     get_resource_type_name_with_raw_arn,
 )
-from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
 from policy_sentry.shared.iam_data import (
-    get_iam_definition_schema_version,
     get_service_prefix_data,
     iam_definition,
 )
@@ -38,30 +28,6 @@ logger = logging.getLogger(__name__)
 def get_actions_for_service(service_prefix: str, lowercase: bool = False) -> list[str]:
     """
     Get a list of available actions per AWS service
-
-    Arguments:
-        service_prefix: List: An AWS service prefix, like `s3` or `kms`
-        lowercase: Set to true to have the list of actions be in all lowercase strings.
-    Returns:
-        List: A list of actions
-    """
-
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_actions_for_service_v2(
-            service_prefix=service_prefix, lowercase=lowercase
-        )
-
-    return get_actions_for_service_v1(
-        service_prefix=service_prefix, lowercase=lowercase
-    )
-
-
-def get_actions_for_service_v2(
-    service_prefix: str, lowercase: bool = False
-) -> list[str]:
-    """
-    Get a list of available actions per AWS service (v2)
 
     Arguments:
         service_prefix: List: An AWS service prefix, like `s3` or `kms`
@@ -85,31 +51,6 @@ def get_actions_for_service_v2(
 def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, Any]]]:
     """
     Get details about an IAM Action in JSON format.
-
-    Arguments:
-        service: An AWS service prefix, like `s3` or `kms`. Case insensitive.
-        action_name: The name of an AWS IAM action, like `GetObject`. To get data about all actions in a service, specify "*". Case insensitive.
-
-    Returns:
-        List: A dictionary containing metadata about an IAM Action.
-    """
-    try:
-        schema_version = get_iam_definition_schema_version()
-        if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-            return get_action_data_v2(service=service, action_name=action_name)
-        else:
-            return get_action_data_v1(service=service, action_name=action_name)
-    except TypeError as t_e:
-        logger.debug(t_e)
-
-    return {}
-
-
-def get_action_data_v2(
-    service: str, action_name: str
-) -> dict[str, list[dict[str, Any]]]:
-    """
-    Get details about an IAM Action in JSON format (v2).
 
     Arguments:
         service: An AWS service prefix, like `s3` or `kms`. Case insensitive.
@@ -279,34 +220,6 @@ def get_actions_with_arn_type_and_access_level(
             service_prefix=service_prefix, access_level=access_level
         )
 
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_actions_with_arn_type_and_access_level_v2(
-            service_prefix=service_prefix,
-            resource_type_name=resource_type_name,
-            access_level=access_level,
-        )
-
-    return get_actions_with_arn_type_and_access_level_v1(
-        service_prefix=service_prefix,
-        resource_type_name=resource_type_name,
-        access_level=access_level,
-    )
-
-
-def get_actions_with_arn_type_and_access_level_v2(
-    service_prefix: str, resource_type_name: str, access_level: str
-) -> list[str]:
-    """
-    Get a list of actions in a service under different access levels, specific to an ARN format (v2).
-
-    Arguments:
-        service_prefix: A single AWS service prefix, like `s3` or `kms`
-        resource_type_name: The ARN type name, like `bucket` or `key`
-        access_level: Access level like "Read" or "List" or "Permissions management"
-    Return:
-        List: A list of actions that have that ARN type and Access level
-    """
     results = []
     if service_prefix == "all":
         for some_prefix in all_service_prefixes:
@@ -374,31 +287,6 @@ def get_actions_matching_arn_type(
     if resource_type_name == "*":
         return get_actions_that_support_wildcard_arns_only(service_prefix)
 
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_actions_matching_arn_type_v2(
-            service_prefix=service_prefix,
-            resource_type_name=resource_type_name,
-        )
-
-    return get_actions_matching_arn_type_v1(
-        service_prefix=service_prefix,
-        resource_type_name=resource_type_name,
-    )
-
-
-def get_actions_matching_arn_type_v2(
-    service_prefix: str, resource_type_name: str
-) -> list[str]:
-    """
-    Get a list of actions in a service specific to ARN type.
-
-    Arguments:
-        service_prefix: A single AWS service prefix, like `s3` or `kms`
-        resource_type_name: The ARN type name, like `bucket` or `key`
-    Return:
-        List: A list of actions that have that ARN type
-    """
     results = []
 
     if service_prefix == "all":
@@ -420,22 +308,6 @@ def get_actions_matching_arn_type_v2(
 def get_actions_matching_arn(arn: str) -> list[str]:
     """
     Given a user-supplied ARN, get a list of all actions that correspond to that ARN.
-
-    Arguments:
-        arn: A user-supplied arn
-    Returns:
-        List: A list of all actions that can match it.
-    """
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_actions_matching_arn_v2(arn=arn)
-
-    return get_actions_matching_arn_v1(arn=arn)
-
-
-def get_actions_matching_arn_v2(arn: str) -> list[str]:
-    """
-    Given a user-supplied ARN, get a list of all actions that correspond to that ARN (v2).
 
     Arguments:
         arn: A user-supplied arn
@@ -548,34 +420,6 @@ def get_action_matching_access_level(
 ) -> str | None:
     """
     Get the action under a service that match the given access level
-
-    Arguments:
-        service_prefix: A single AWS service prefix
-        action_name: Name of the action
-        access_level: Access level like "Read" or "List" or "Permissions management"
-    Returns:
-        List: action or None
-    """
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_action_matching_access_level_v2(
-            service_prefix=service_prefix,
-            action_name=action_name,
-            access_level=access_level,
-        )
-
-    return get_action_matching_access_level_v1(
-        service_prefix=service_prefix,
-        action_name=action_name,
-        access_level=access_level,
-    )
-
-
-def get_action_matching_access_level_v2(
-    service_prefix: str, action_name: str, access_level: str
-) -> str | None:
-    """
-    Get the action under a service that match the given access level (v2)
 
     Arguments:
         service_prefix: A single AWS service prefix
