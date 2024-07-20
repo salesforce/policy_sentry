@@ -5,13 +5,10 @@ from __future__ import annotations
 import functools
 import logging
 
-from policy_sentry.querying.all_v1 import get_all_actions_v1
 from policy_sentry.shared.constants import (
     POLICY_SENTRY_SCHEMA_VERSION_NAME,
-    POLICY_SENTRY_SCHEMA_VERSION_V2,
 )
 from policy_sentry.shared.iam_data import (
-    get_iam_definition_schema_version,
     get_service_prefix_data,
     iam_definition,
 )
@@ -47,27 +44,6 @@ def get_all_actions(lowercase: bool = False) -> set[str]:
     """
     all_service_prefixes = get_all_service_prefixes()
 
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_all_actions_v2(
-            all_service_prefixes=all_service_prefixes, lowercase=lowercase
-        )
-
-    return get_all_actions_v1(
-        all_service_prefixes=all_service_prefixes, lowercase=lowercase
-    )
-
-
-def get_all_actions_v2(
-    all_service_prefixes: set[str], lowercase: bool = False
-) -> set[str]:
-    """
-    Gets a huge list of all IAM actions. This is used as part of the policyuniverse approach to minimizing
-    IAM Policies to meet AWS-mandated character limits on policies (v2).
-
-    :param lowercase: Set to true to have the list of actions be in all lowercase strings.
-    :return: A list of all actions present in the database.
-    """
     all_actions: set[str] = set()
 
     for service_prefix in all_service_prefixes:

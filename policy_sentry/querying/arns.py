@@ -7,47 +7,14 @@ from __future__ import annotations
 
 import functools
 import logging
-import warnings
 from typing import Any, cast
 
-from policy_sentry.querying.arns_v1 import get_arn_type_details_v1
-from policy_sentry.shared.constants import POLICY_SENTRY_SCHEMA_VERSION_V2
 from policy_sentry.shared.iam_data import (
-    get_iam_definition_schema_version,
     get_service_prefix_data,
 )
 from policy_sentry.util.arns import does_arn_match, get_service_from_arn
 
 logger = logging.getLogger(__name__)
-
-
-def get_arn_data(service_prefix: str, resource_type_name: str) -> list[dict[str, Any]]:
-    """
-    DEPRECATED: Please use get_arn_type_details() instead!
-
-    Get details about ARNs in JSON format.
-
-    Arguments:
-        service_prefix: An AWS service prefix, like `s3` or `kms`
-        resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
-    Returns:
-        Dictionary: Metadata about an ARN type
-    """
-    warnings.warn(
-        "Please use get_arn_type_details() instead", DeprecationWarning, stacklevel=2
-    )
-
-    results = []
-    service_prefix_data = get_service_prefix_data(service_prefix)
-    for resource_data in service_prefix_data["resources"].values():
-        if resource_data["resource"].lower() == resource_type_name.lower():
-            output = {
-                "resource_type_name": resource_data["resource"],
-                "raw_arn": resource_data["arn"],
-                "condition_keys": resource_data["condition_keys"],
-            }
-            results.append(output)
-    return results
 
 
 @functools.lru_cache(maxsize=1024)
@@ -89,29 +56,6 @@ def get_arn_type_details(
 ) -> dict[str, Any]:
     """
     Get details about ARNs in JSON format.
-
-    Arguments:
-        service_prefix: An AWS service prefix, like `s3` or `kms`
-        resource_type_name: The name of a resource type, like `bucket` or `object`. To get details on ALL arns in a service, specify "*" here.
-    Returns:
-        Dictionary: Metadata about an ARN type
-    """
-    schema_version = get_iam_definition_schema_version()
-    if schema_version == POLICY_SENTRY_SCHEMA_VERSION_V2:
-        return get_arn_type_details_v2(
-            service_prefix=service_prefix, resource_type_name=resource_type_name
-        )
-
-    return get_arn_type_details_v1(
-        service_prefix=service_prefix, resource_type_name=resource_type_name
-    )
-
-
-def get_arn_type_details_v2(
-    service_prefix: str, resource_type_name: str
-) -> dict[str, Any]:
-    """
-    Get details about ARNs in JSON format (v2).
 
     Arguments:
         service_prefix: An AWS service prefix, like `s3` or `kms`
