@@ -5,7 +5,6 @@ from __future__ import annotations
 import functools
 import gc
 import logging
-from pathlib import Path
 from typing import Any, cast
 
 import orjson
@@ -27,7 +26,7 @@ def load_iam_definition() -> dict[str, Any]:
         # https://github.com/msgpack/msgpack-python?tab=readme-ov-file#performance-tips
         gc.disable()
 
-    data: dict[str, Any] = orjson.loads(Path(iam_definition_path).read_bytes())
+    data: dict[str, Any] = orjson.loads(iam_definition_path.read_bytes())
 
     if gc_enabled:
         gc.enable()

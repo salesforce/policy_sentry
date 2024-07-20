@@ -77,7 +77,7 @@ def get_action_access_level_overrides_from_yml(
     return None
 
 
-def update_html_docs_directory(html_docs_destination: str) -> None:
+def update_html_docs_directory(html_docs_destination: Path) -> None:
     """
     Updates the HTML docs from remote location to either:
     (1) local directory (i.e., this repository, or
@@ -131,9 +131,7 @@ def update_html_docs_directory(html_docs_destination: str) -> None:
                 logger.warning(a_e)
                 logger.warning(script)
 
-        with open(
-            os.path.join(html_docs_destination, page), "w", encoding="utf-8"
-        ) as file:
+        with open(html_docs_destination / page, "w", encoding="utf-8") as file:
             # file.write(str(soup.html))
             file.write(str(soup.prettify()))
             file.close()
@@ -158,7 +156,7 @@ def sanitize_service_name(action: str) -> str:
 
 
 def create_database(
-    destination_directory: str, access_level_overrides_file: str
+    destination_directory: str | Path, access_level_overrides_file: Path
 ) -> None:
     """
     Create the JSON Data source that holds the IAM data.

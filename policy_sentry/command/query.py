@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 from typing import Any
 
 import click
@@ -144,7 +143,7 @@ def query_action_table(
 ) -> list[str] | dict[str, list[dict[str, Any]]]:
     """Query the Action Table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
-    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.info(
             f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/"
         )
@@ -267,7 +266,7 @@ def query_arn_table(
     name: str, service: str, list_arn_types: bool, fmt: str
 ) -> list[str] | dict[str, str]:
     """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
-    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.info(
             f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/"
         )
@@ -329,7 +328,7 @@ def query_condition_table(
 ) -> list[str] | dict[str, str]:
     """Query the condition table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
-    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.info(
             f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/"
         )
@@ -373,7 +372,7 @@ def service_table(fmt: str, verbose: str | None) -> None:
 def query_service_table(fmt: str = "json") -> list[dict[str, str]]:
     """Query the service table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
-    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.info(
             f"Using the Local IAM definition: {LOCAL_DATASTORE_FILE_PATH}. To leverage the bundled definition instead, remove the folder $HOME/.policy_sentry/"
         )

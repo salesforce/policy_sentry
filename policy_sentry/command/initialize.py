@@ -8,6 +8,7 @@ from __future__ import annotations
 import logging
 import os
 import shutil
+from pathlib import Path
 
 import click
 
@@ -96,7 +97,7 @@ def initialize(
     if not access_level_overrides_file:
         overrides_file = LOCAL_ACCESS_OVERRIDES_FILE
     else:
-        overrides_file = access_level_overrides_file
+        overrides_file = Path(access_level_overrides_file)
     # Create the config directory
     database_path = create_policy_sentry_config_directory()
 
@@ -107,15 +108,15 @@ def initialize(
     # provided by AWS documentation
     file_list = [
         f
-        for f in os.listdir(BUNDLED_DATA_DIRECTORY)
-        if os.path.isfile(os.path.join(BUNDLED_DATA_DIRECTORY, f))
+        for f in BUNDLED_DATA_DIRECTORY.iterdir()
+        if (BUNDLED_DATA_DIRECTORY / f).is_file()
     ]
 
     for file in file_list:
-        if file.endswith(".yml"):
-            shutil.copy(os.path.join(BUNDLED_DATA_DIRECTORY, file), CONFIG_DIRECTORY)
+        if file.suffix == ".yml":
+            shutil.copy(BUNDLED_DATA_DIRECTORY / file, CONFIG_DIRECTORY)
             logger.debug("copying overrides file %s to %s", file, CONFIG_DIRECTORY)
-    print("Database will be stored here: " + database_path)
+    print(f"Database will be stored here: {database_path}")
 
     if not build and not fetch:
         # copy from the bundled database location to the destination path
@@ -140,7 +141,7 @@ def initialize(
     logger.debug(", ".join(all_aws_service_prefixes))
 
 
-def create_policy_sentry_config_directory() -> str:
+def create_policy_sentry_config_directory() -> Path:
     """
     Creates a config directory at $HOME/.policy_sentry/
     :return: the path of the database file
@@ -148,16 +149,13 @@ def create_policy_sentry_config_directory() -> str:
     print("Creating the database...")
     logger.debug(f"We will store the new database here: {DATASTORE_FILE_PATH}")
     # If the database file already exists, remove it
-    if os.path.exists(LOCAL_DATASTORE_FILE_PATH):
+    if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.debug(
             f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it."
         )
-        os.remove(LOCAL_DATASTORE_FILE_PATH)
-    elif os.path.exists(CONFIG_DIRECTORY):
-        pass
-    # If the config directory does not exist
+        LOCAL_DATASTORE_FILE_PATH.unlink()
     else:
-        os.mkdir(CONFIG_DIRECTORY)
+        CONFIG_DIRECTORY.mkdir(exist_ok=True)
     return LOCAL_DATASTORE_FILE_PATH
 
 
