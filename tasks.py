@@ -1,8 +1,11 @@
 #!/usr/bin/env python
+import shutil
 import sys
 import os
 import logging
 from invoke import task, Collection, UnexpectedExit, Failure
+
+from policy_sentry.shared.constants import LOCAL_HTML_DIRECTORY_PATH, BUNDLED_HTML_DIRECTORY_PATH
 
 sys.path.append(
     os.path.abspath(
@@ -63,7 +66,7 @@ def build_package(c):
 @task(pre=[build_package])
 def install_package(c):
     """Install the policy_sentry package built from the current directory contents (not PyPi)"""
-    c.run("pip3 install -q dist/policy_sentry-*.tar.gz")
+    c.run("pip3 install -q dist/policy_sentry-*.whl")
 
 
 @task
@@ -110,6 +113,9 @@ def clean_config_directory(c):
 def create_db(c):
     """Integration testing: Initialize the policy_sentry database"""
     try:
+        LOCAL_HTML_DIRECTORY_PATH.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(BUNDLED_HTML_DIRECTORY_PATH, LOCAL_HTML_DIRECTORY_PATH, dirs_exist_ok=True)
+
         initialize.initialize("")
     except UnexpectedExit as u_e:
         logger.critical(f"FAIL! UnexpectedExit: {u_e}")

@@ -6,7 +6,6 @@ Create the SQLite datastore and fill it with the tables scraped from the AWS Doc
 from __future__ import annotations
 
 import logging
-import os
 import shutil
 from pathlib import Path
 
@@ -17,7 +16,6 @@ from policy_sentry.querying.all import get_all_service_prefixes
 from policy_sentry.shared.constants import (
     BUNDLED_DATA_DIRECTORY,
     BUNDLED_DATASTORE_FILE_PATH,
-    BUNDLED_HTML_DIRECTORY_PATH,
     CONFIG_DIRECTORY,
     DATASTORE_FILE_PATH,
     LOCAL_ACCESS_OVERRIDES_FILE,
@@ -101,8 +99,8 @@ def initialize(
     # Create the config directory
     database_path = create_policy_sentry_config_directory()
 
-    # Copy over the html docs, which will be used to build the database
-    create_html_docs_directory()
+    # Create local html docs folder, if it doesn't exist
+    LOCAL_HTML_DIRECTORY_PATH.mkdir(parents=True, exist_ok=True)
 
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
@@ -126,6 +124,9 @@ def initialize(
     if fetch:
         # `wget` the html docs to the local directory
         update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
+    elif not next(LOCAL_HTML_DIRECTORY_PATH.glob("*.html"), None):
+        print("No HTML docs found, fetching from AWS!")
+        update_html_docs_directory(LOCAL_HTML_DIRECTORY_PATH)
 
     # --build
     if build or access_level_overrides_file or fetch:
@@ -134,9 +135,8 @@ def initialize(
 
     # Query the database for all the services that are now in the database.
     all_aws_service_prefixes = get_all_service_prefixes()
-    total_count_of_services = str(len(all_aws_service_prefixes))
     print("Initialization complete!")
-    print(f"Total AWS services in the IAM database: {total_count_of_services}")
+    print(f"Total AWS services in the IAM database: {len(all_aws_service_prefixes)}")
     logger.debug("\nService prefixes:")
     logger.debug(", ".join(all_aws_service_prefixes))
 
@@ -157,22 +157,3 @@ def create_policy_sentry_config_directory() -> Path:
     else:
         CONFIG_DIRECTORY.mkdir(exist_ok=True)
     return LOCAL_DATASTORE_FILE_PATH
-
-
-def create_html_docs_directory() -> None:
-    """
-    Copies the HTML files from the pip package over to its own folder in the CONFIG_DIRECTORY.
-    Essentially:
-    mkdir -p ~/.policy_sentry/data/docs
-    cp -r $MODULE_DIR/policy_sentry/shared/data/docs ~/.policy_sentry/data/docs
-    :return:
-    """
-    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
-        pass
-    else:
-        os.makedirs(LOCAL_HTML_DIRECTORY_PATH)
-    # Copy from the existing html docs folder - the path ./policy_sentry/shared/data/docs within this repository
-    logger.debug(BUNDLED_HTML_DIRECTORY_PATH)
-    if os.path.exists(LOCAL_HTML_DIRECTORY_PATH):
-        shutil.rmtree(LOCAL_HTML_DIRECTORY_PATH)
-    shutil.copytree(BUNDLED_HTML_DIRECTORY_PATH, LOCAL_HTML_DIRECTORY_PATH)
