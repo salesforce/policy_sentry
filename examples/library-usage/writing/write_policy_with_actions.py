@@ -1,16 +1,19 @@
 #!/usr/bin/env python
 
-from policy_sentry.writing.template import get_actions_template_dict
-from policy_sentry.command.write_policy import write_policy_with_template
 import json
 
+from policy_sentry.command.write_policy import write_policy_with_template
+from policy_sentry.writing.template import get_actions_template_dict
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     actions_template = get_actions_template_dict()
-    actions_to_add = ['kms:CreateGrant', 'kms:CreateCustomKeyStore', 'ec2:AuthorizeSecurityGroupEgress',
-                      'ec2:AuthorizeSecurityGroupIngress']
-    actions_template['actions'].extend(actions_to_add)
+    actions_to_add = [
+        "kms:CreateGrant",
+        "kms:CreateCustomKeyStore",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+    ]
+    actions_template["actions"].extend(actions_to_add)
     policy = write_policy_with_template(actions_template)
     print(json.dumps(policy, indent=4))
 

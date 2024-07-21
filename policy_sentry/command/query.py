@@ -70,9 +70,7 @@ def query() -> None:
     short_help="Query the action table based on access levels, conditions, or actions that only support wildcard "
     "resources."
 )
-@click.option(
-    "--service", "-s", type=str, required=True, help="Filter according to AWS service."
-)
+@click.option("--service", "-s", type=str, required=True, help="Filter according to AWS service.")
 @click.option(
     "--name",
     "-n",
@@ -85,8 +83,7 @@ def query() -> None:
     "-a",
     type=click.Choice(["read", "write", "list", "tagging", "permissions-management"]),
     required=False,
-    help="Filter according to CRUD levels. "
-    "Acceptable values are read, write, list, tagging, permissions-management",
+    help="Filter according to CRUD levels. Acceptable values are read, write, list, tagging, permissions-management",
 )
 @click.option(
     "--condition",
@@ -112,9 +109,7 @@ def query() -> None:
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def action_table(
     name: str,
@@ -172,34 +167,24 @@ def query_action_table(
             output = all_services  # type:ignore[assignment]
             print_list(output=output, fmt=fmt)
     elif name is None and access_level and not resource_type:
-        print(
-            f"All IAM actions under the {service} service that have the access level {access_level}:"
-        )
+        print(f"All IAM actions under the {service} service that have the access level {access_level}:")
         level = transform_access_level_text(access_level)
         output = get_actions_with_access_level(service, level)
         print_dict(output=output, fmt=fmt)
     elif name is None and access_level and resource_type:
-        print(
-            f"{service} {access_level.upper()} actions that have the resource type {resource_type.upper()}:"
-        )
+        print(f"{service} {access_level.upper()} actions that have the resource type {resource_type.upper()}:")
         access_level = transform_access_level_text(access_level)
-        output = get_actions_with_arn_type_and_access_level(
-            service, resource_type, access_level
-        )
+        output = get_actions_with_arn_type_and_access_level(service, resource_type, access_level)
         print_list(output=output, fmt=fmt)
     # Get a list of all IAM actions under the service that support the specified condition key.
     elif condition:
-        print(
-            f"IAM actions under {service} service that support the {condition} condition only:"
-        )
+        print(f"IAM actions under {service} service that support the {condition} condition only:")
         output = get_actions_matching_condition_key(service, condition)
         print_list(output=output, fmt=fmt)
     # Get a list of IAM Actions under the service that only support resources = "*"
     # (i.e., you cannot restrict it according to ARN)
     elif resource_type:
-        print(
-            f"IAM actions under {service} service that have the resource type {resource_type}:"
-        )
+        print(f"IAM actions under {service} service that have the resource type {resource_type}:")
         output = get_actions_matching_arn_type(service, resource_type)
         print_dict(output=output, fmt=fmt)
     elif name and access_level is None:
@@ -217,9 +202,7 @@ def query_action_table(
     short_help="Query the ARN table to show RAW ARNs, like `aws:s3:::bucket/object`. "
     "Use --list-arn-types ARN types, like `object`."
 )
-@click.option(
-    "--service", "-s", type=str, required=True, help="Filter according to AWS service."
-)
+@click.option("--service", "-s", type=str, required=True, help="Filter according to AWS service.")
 @click.option(
     "--name",
     "-n",
@@ -244,9 +227,7 @@ def query_action_table(
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def arn_table(
     name: str,
@@ -262,9 +243,7 @@ def arn_table(
     query_arn_table(name, service, list_arn_types, fmt)
 
 
-def query_arn_table(
-    name: str, service: str, list_arn_types: bool, fmt: str
-) -> list[str] | dict[str, str]:
+def query_arn_table(name: str, service: str, list_arn_types: bool, fmt: str) -> list[str] | dict[str, str]:
     """Query the ARN Table from the Policy Sentry database. Use this one when leveraging Policy Sentry as a library."""
     if LOCAL_DATASTORE_FILE_PATH.exists():
         logger.info(
@@ -298,9 +277,7 @@ def query_arn_table(
     help="Get details on a specific condition key. Leave this blank to get a list of all condition keys "
     "available to the service.",
 )
-@click.option(
-    "--service", "-s", type=str, required=True, help="Filter according to AWS service."
-)
+@click.option("--service", "-s", type=str, required=True, help="Filter according to AWS service.")
 @click.option(
     "--fmt",
     type=click.Choice(["yaml", "json"]),
@@ -311,9 +288,7 @@ def query_arn_table(
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def condition_table(name: str, service: str, fmt: str, verbose: str | None) -> None:
     """Query the condition table from the Policy Sentry database"""
@@ -323,9 +298,7 @@ def condition_table(name: str, service: str, fmt: str, verbose: str | None) -> N
     query_condition_table(name, service, fmt)
 
 
-def query_condition_table(
-    name: str, service: str, fmt: str = "json"
-) -> list[str] | dict[str, str]:
+def query_condition_table(name: str, service: str, fmt: str = "json") -> list[str] | dict[str, str]:
     """Query the condition table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
     if LOCAL_DATASTORE_FILE_PATH.exists():
@@ -357,9 +330,7 @@ def query_condition_table(
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def service_table(fmt: str, verbose: str | None) -> None:
     """Query the service table from the Policy Sentry database"""

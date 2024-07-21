@@ -15,13 +15,8 @@ desired_crud_policy = {
         {
             "Sid": "MultMultNone",
             "Effect": "Allow",
-            "Action": [
-                "cloudhsm:DescribeClusters",
-                "kms:CreateCustomKeyStore"
-            ],
-            "Resource": [
-                "*"
-            ]
+            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
+            "Resource": ["*"],
         },
         {
             "Sid": "SecretsmanagerReadSecret",
@@ -30,11 +25,9 @@ desired_crud_policy = {
                 "secretsmanager:DescribeSecret",
                 "secretsmanager:GetResourcePolicy",
                 "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecretVersionIds"
+                "secretsmanager:ListSecretVersionIds",
             ],
-            "Resource": [
-                "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-            ]
+            "Resource": ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
         },
         {
             "Sid": "SecretsmanagerWriteSecret",
@@ -47,32 +40,21 @@ desired_crud_policy = {
                 "secretsmanager:RestoreSecret",
                 "secretsmanager:RotateSecret",
                 "secretsmanager:UpdateSecret",
-                "secretsmanager:UpdateSecretVersionStage"
+                "secretsmanager:UpdateSecretVersionStage",
             ],
-            "Resource": [
-                "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-            ]
+            "Resource": ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
         },
         {
             "Sid": "S3ListObject",
             "Effect": "Allow",
-            "Action": [
-                "s3:ListMultipartUploadParts"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-org-sbx-vmimport/stuff"
-            ]
+            "Action": ["s3:ListMultipartUploadParts"],
+            "Resource": ["arn:aws:s3:::example-org-sbx-vmimport/stuff"],
         },
         {
             "Sid": "SsmTaggingParameter",
             "Effect": "Allow",
-            "Action": [
-                "ssm:AddTagsToResource",
-                "ssm:RemoveTagsFromResource"
-            ],
-            "Resource": [
-                "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-            ]
+            "Action": ["ssm:AddTagsToResource", "ssm:RemoveTagsFromResource"],
+            "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
         },
         {
             "Sid": "KmsPermissionsmanagementKey",
@@ -81,23 +63,17 @@ desired_crud_policy = {
                 "kms:CreateGrant",
                 "kms:PutKeyPolicy",
                 "kms:RetireGrant",
-                "kms:RevokeGrant"
+                "kms:RevokeGrant",
             ],
-            "Resource": [
-                "arn:aws:kms:us-east-1:123456789012:key/123456"
-            ]
+            "Resource": ["arn:aws:kms:us-east-1:123456789012:key/123456"],
         },
         {
             "Sid": "AssumeRole",
             "Effect": "Allow",
-            "Action": [
-                "sts:AssumeRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::123456789012:role/demo"
-            ]
-        }
-    ]
+            "Action": ["sts:AssumeRole"],
+            "Resource": ["arn:aws:iam::123456789012:role/demo"],
+        },
+    ],
 }
 
 desired_actions_policy = {
@@ -106,36 +82,25 @@ desired_actions_policy = {
         {
             "Sid": "KmsPermissionsmanagementKey",
             "Effect": "Allow",
-            "Action": [
-                "kms:CreateGrant"
-            ],
-            "Resource": [
-                "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
-            ]
+            "Action": ["kms:CreateGrant"],
+            "Resource": ["arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"],
         },
         {
             "Sid": "MultMultNone",
             "Effect": "Allow",
-            "Action": [
-                "cloudhsm:DescribeClusters",
-                "kms:CreateCustomKeyStore"
-            ],
-            "Resource": [
-                "*"
-            ]
+            "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
+            "Resource": ["*"],
         },
         {
             "Sid": "Ec2WriteSecuritygroup",
             "Effect": "Allow",
             "Action": [
                 "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress"
+                "ec2:AuthorizeSecurityGroupIngress",
             ],
-            "Resource": [
-                "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
-            ]
-        }
-    ]
+            "Resource": ["arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"],
+        },
+    ],
 }
 
 
@@ -155,16 +120,14 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         # Modify it
         sid_group = SidGroup()
         minimize = None
-        policy = sid_group.process_template(
-            actions_template, minimize=minimize
-        )
+        policy = sid_group.process_template(actions_template, minimize=minimize)
         self.maxDiff = None
         print(json.dumps(policy, indent=4))
         expected_statement_ids = [
             "KmsPermissionsmanagementKey",
             "MultMultNone",
             "Ec2WriteSecuritygroup",
-            "Ec2WriteSecuritygrouprule"
+            "Ec2WriteSecuritygrouprule",
         ]
         # self.assertDictEqual(policy, desired_actions_policy)
         for statement in policy.get("Statement"):
@@ -178,27 +141,17 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             # "cloudhsm:describeclusters",
         ]
         another_crud_template["mode"] = "crud"
-        another_crud_template["read"].append(
-            "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-        )
-        another_crud_template["write"].append(
-            "arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"
-        )
+        another_crud_template["read"].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        another_crud_template["write"].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
         another_crud_template["list"].append("arn:aws:s3:::example-org-sbx-vmimport/stuff")
-        another_crud_template["permissions-management"].append(
-            "arn:aws:kms:us-east-1:123456789012:key/123456"
-        )
-        another_crud_template["tagging"].append(
-            "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-        )
+        another_crud_template["permissions-management"].append("arn:aws:kms:us-east-1:123456789012:key/123456")
+        another_crud_template["tagging"].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
         another_crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
         another_crud_template["sts"]["assume-role"].append("arn:aws:iam::123456789012:role/demo")
         # Modify it
         sid_group = SidGroup()
         # minimize = None
-        result = sid_group.process_template(
-            another_crud_template
-        )
+        result = sid_group.process_template(another_crud_template)
         expected_statement_ids = [
             "MultMultNone",
             "SecretsmanagerReadSecret",
@@ -206,7 +159,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
             "S3ListObject",
             "SsmTaggingParameter",
             "KmsPermissionsmanagementKey",
-            "AssumeRole"
+            "AssumeRole",
         ]
         self.maxDiff = None
         print(json.dumps(result, indent=4))
@@ -215,14 +168,17 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
 
     def test_gh_211_write_with_empty_access_level_lists(self):
         crud_template = get_crud_template_dict()
-        crud_template['read'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
-        crud_template['write'].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template["read"].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
+        crud_template["write"].append("arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret")
         # crud_template['list'].append("arn:aws:s3:::mybucket/stuff")
         # by commenting out the line below, you should not get an IndexError
         # crud_template['permissions-management'].append("arn:aws:kms:us-east-1:123456789012:key/123456")
         # crud_template['tagging'].append("arn:aws:ssm:us-east-1:123456789012:parameter/test")
-        wildcard_actions_to_add = ["kms:createcustomkeystore", "cloudhsm:describeclusters"]
-        crud_template['wildcard-only']['single-actions'].extend(wildcard_actions_to_add)
+        wildcard_actions_to_add = [
+            "kms:createcustomkeystore",
+            "cloudhsm:describeclusters",
+        ]
+        crud_template["wildcard-only"]["single-actions"].extend(wildcard_actions_to_add)
         result = write_policy_with_template(crud_template)
         # print(json.dumps(result, indent=4))
         expected_statement_ids = [
@@ -237,9 +193,9 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         """test_gh_204_multiple_resource_types_wildcards: Address github issue #204 not having unit tests"""
         crud_template = {
             "mode": "crud",
-            'read': ["arn:aws:rds:us-east-1:123456789012:*:*"],
-            'write': ["arn:aws:rds:us-east-1:123456789012:*:*"],
-            'list': ["arn:aws:rds:us-east-1:123456789012:*:*"]
+            "read": ["arn:aws:rds:us-east-1:123456789012:*:*"],
+            "write": ["arn:aws:rds:us-east-1:123456789012:*:*"],
+            "list": ["arn:aws:rds:us-east-1:123456789012:*:*"],
         }
 
         # Let's only check the read level ones, or that will get exhausting.
@@ -272,7 +228,7 @@ class WritePolicyWithLibraryOnly(unittest.TestCase):
         """test_gh_237_ssm_arns_with_paths: Test GitHub issue #204 with resource ARN paths"""
         crud_template = {
             "mode": "crud",
-            'read': ["arn:aws:ssm:::parameter/dev/foo/bar*"]
+            "read": ["arn:aws:ssm:::parameter/dev/foo/bar*"],
         }
         # result = write_policy_with_template(crud_template)
         # print(json.dumps(result, indent=4))

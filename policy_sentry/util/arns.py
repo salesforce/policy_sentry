@@ -33,9 +33,7 @@ class ARN:
 
     def __init__(self, provided_arn: str) -> None:
         self.arn = provided_arn
-        follows_arn_format = re.search(
-            r"^arn:([^:]*):([^:]*):([^:]*):([^:]*):(.+)$", provided_arn
-        )
+        follows_arn_format = re.search(r"^arn:([^:]*):([^:]*):([^:]*):([^:]*):(.+)$", provided_arn)
 
         if not follows_arn_format:
             raise Exception("The provided value does not follow required ARN format.")
@@ -47,9 +45,7 @@ class ARN:
             self.account = elements[4]
             self.resource = elements[5]
         except IndexError as error:
-            raise Exception(
-                f"The provided ARN is invalid. IndexError: {error}. Please provide a valid ARN."
-            ) from error
+            raise Exception(f"The provided ARN is invalid. IndexError: {error}. Please provide a valid ARN.") from error
         if "/" in self.resource:
             self.resource, self.resource_path = self.resource.split("/", 1)
         elif ":" in self.resource:
@@ -102,9 +98,7 @@ class ARN:
         # table/${TableName} should not match `table/${TableName}/backup/${BackupName}`
         resource_string_arn_in_database = get_resource_string(arn_in_database)
 
-        split_resource_string_in_database = re.split(
-            ARN_SEPARATOR_PATTERN, resource_string_arn_in_database
-        )
+        split_resource_string_in_database = re.split(ARN_SEPARATOR_PATTERN, resource_string_arn_in_database)
         # logger.debug(str(split_resource_string_in_database))
         arn_format_list = []
         for elem in split_resource_string_in_database:
@@ -114,9 +108,7 @@ class ARN:
                 # If an element says something like ${TableName}, normalize it to an empty string
                 arn_format_list.append("")
 
-        split_resource_string_to_test = re.split(
-            ARN_SEPARATOR_PATTERN, self.resource_string
-        )
+        split_resource_string_to_test = re.split(ARN_SEPARATOR_PATTERN, self.resource_string)
         # 4b: If we have a confusing resource string, the length of the split resource string list
         #  should at least be the same
         # Again, table/${TableName} (len of 2) should not match `table/${TableName}/backup/${BackupName}` (len of 4)
@@ -136,10 +128,7 @@ class ARN:
             # and length of the arn_format_list should be the same as split_resource_string_to_test
             # If all conditions match, then the ARN format is the same.
             if elem:
-                if (
-                    elem == split_resource_string_to_test[idx]
-                    or split_resource_string_to_test[idx] == "*"
-                ):
+                if elem == split_resource_string_to_test[idx] or split_resource_string_to_test[idx] == "*":
                     pass
                 else:
                     return False
@@ -153,9 +142,7 @@ class ARN:
                 "table/${TableName}",
                 "${BucketName}",
             ):
-                return len(self.resource_string.split("/")) == len(
-                    elements[5].split("/")
-                )
+                return len(self.resource_string.split("/")) == len(elements[5].split("/"))
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
@@ -188,9 +175,7 @@ def parse_arn(arn: str) -> dict[str, str]:
             "resource_path": "",
         }
     except IndexError as error:
-        raise Exception(
-            f"IndexError: The provided ARN '{arn}' is invalid. Please provide a valid ARN."
-        ) from error
+        raise Exception(f"IndexError: The provided ARN '{arn}' is invalid. Please provide a valid ARN.") from error
     if "/" in result["resource"]:
         result["resource"], result["resource_path"] = result["resource"].split("/", 1)
     elif ":" in result["resource"]:

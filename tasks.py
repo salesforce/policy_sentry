@@ -5,13 +5,12 @@ import os
 import logging
 from invoke import task, Collection, UnexpectedExit, Failure
 
-from policy_sentry.shared.constants import LOCAL_HTML_DIRECTORY_PATH, BUNDLED_HTML_DIRECTORY_PATH
-
-sys.path.append(
-    os.path.abspath(
-        os.path.join(os.path.dirname(__file__), os.path.pardir, "policy_sentry")
-    )
+from policy_sentry.shared.constants import (
+    LOCAL_HTML_DIRECTORY_PATH,
+    BUNDLED_HTML_DIRECTORY_PATH,
 )
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir, "policy_sentry")))
 from policy_sentry.command import initialize
 
 logger = logging.getLogger(__name__)
@@ -79,12 +78,8 @@ def uninstall_package(c):
 def upload_to_pypi_test_server(c):
     """Upload the package to the TestPyPi server (requires credentials)"""
     c.run("python -m pip install --upgrade twine")
-    c.run(
-        "python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*"
-    )
-    c.run(
-        "python -m pip install --index-url https://test.pypi.org/simple/ --no-deps policy_sentry"
-    )
+    c.run("python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*")
+    c.run("python -m pip install --index-url https://test.pypi.org/simple/ --no-deps policy_sentry")
 
 
 @task
@@ -175,8 +170,7 @@ def query(c):
             pty=True,
         )
         c.run(
-            "./policy_sentry/bin/cli.py query action-table "
-            "--service ram --access-level permissions-management",
+            "./policy_sentry/bin/cli.py query action-table " "--service ram --access-level permissions-management",
             pty=True,
         )
         c.run(

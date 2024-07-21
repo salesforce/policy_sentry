@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-from policy_sentry.querying.actions import get_action_data
 import json
 
-if __name__ == '__main__':
+from policy_sentry.querying.actions import get_action_data
 
-    output = get_action_data('ram', 'createresourceshare')
+if __name__ == "__main__":
+    output = get_action_data("ram", "createresourceshare")
     print(json.dumps(output, indent=4))
 
 """

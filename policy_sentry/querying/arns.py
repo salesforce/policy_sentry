@@ -28,10 +28,7 @@ def get_raw_arns_for_service(service_prefix: str) -> list[str]:
         List: A list of raw ARNs
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
-    return [
-        resource_data["arn"]
-        for resource_data in service_prefix_data["resources"].values()
-    ]
+    return [resource_data["arn"] for resource_data in service_prefix_data["resources"].values()]
 
 
 @functools.lru_cache(maxsize=1024)
@@ -46,14 +43,11 @@ def get_arn_types_for_service(service_prefix: str) -> dict[str, str]:
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
     return {
-        resource_name: resource_data["arn"]
-        for resource_name, resource_data in service_prefix_data["resources"].items()
+        resource_name: resource_data["arn"] for resource_name, resource_data in service_prefix_data["resources"].items()
     }
 
 
-def get_arn_type_details(
-    service_prefix: str, resource_type_name: str
-) -> dict[str, Any]:
+def get_arn_type_details(service_prefix: str, resource_type_name: str) -> dict[str, Any]:
     """
     Get details about ARNs in JSON format.
 
@@ -65,9 +59,7 @@ def get_arn_type_details(
     """
     output = {}
     service_prefix_data = get_service_prefix_data(service_prefix)
-    this_resource_type_name = service_prefix_data["resources_lower_name"].get(
-        resource_type_name.lower()
-    )
+    this_resource_type_name = service_prefix_data["resources_lower_name"].get(resource_type_name.lower())
     if this_resource_type_name:
         resource_data = service_prefix_data["resources"][this_resource_type_name]
         output = {

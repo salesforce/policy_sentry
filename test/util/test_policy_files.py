@@ -63,7 +63,7 @@ class PolicyFilesTestCase(unittest.TestCase):
             "iam:CreateAccessKey",
             "iam:DeleteAccessKey",
             "iam:ListAccessKeys",
-            "iam:UpdateAccessKey"
+            "iam:UpdateAccessKey",
         ]
         self.maxDiff = None
         print(json.dumps(actions_list, indent=4))
@@ -102,7 +102,7 @@ class PolicyFilesTestCase(unittest.TestCase):
             "iam:CreateAccessKey",
             "iam:DeleteAccessKey",
             "iam:ListAccessKeys",
-            "iam:UpdateAccessKey"
+            "iam:UpdateAccessKey",
         ]
         self.assertListEqual(requested_actions, desired_actions)
 
@@ -120,11 +120,9 @@ class PolicyFilesTestCase(unittest.TestCase):
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
-                        "s3:ListAccessPoints"
+                        "s3:ListAccessPoints",
                     ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "S3PermissionsmanagementBucket",
@@ -133,13 +131,11 @@ class PolicyFilesTestCase(unittest.TestCase):
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
                         "s3:PutBucketPolicy",
-                        "s3:PutBucketPublicAccessBlock"
+                        "s3:PutBucketPublicAccessBlock",
                     ],
-                    "Resource": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
-                    ]
-                }
-            ]
+                    "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
+                },
+            ],
         }
         expected_result = ["MultMultNone", "S3PermissionsmanagementBucket"]
         result = get_sid_names_from_policy(policy_json)
@@ -159,11 +155,9 @@ class PolicyFilesTestCase(unittest.TestCase):
                         "ecr:GetAuthorizationToken",
                         "s3:GetAccessPoint",
                         "s3:GetAccountPublicAccessBlock",
-                        "s3:ListAccessPoints"
+                        "s3:ListAccessPoints",
                     ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "S3PermissionsmanagementBucket",
@@ -172,23 +166,25 @@ class PolicyFilesTestCase(unittest.TestCase):
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
                         "s3:PutBucketPolicy",
-                        "s3:PutBucketPublicAccessBlock"
+                        "s3:PutBucketPublicAccessBlock",
                     ],
-                    "Resource": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
-                    ]
-                }
-            ]
+                    "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
+                },
+            ],
         }
 
         expected_result = {
-            'Sid': 'MultMultNone',
-            'Effect': 'Allow',
-            'Action': [
-                'ram:EnableSharingWithAwsOrganization', 'ram:GetResourcePolicies', 'ecr:GetAuthorizationToken',
-                's3:GetAccessPoint', 's3:GetAccountPublicAccessBlock', 's3:ListAccessPoints'
+            "Sid": "MultMultNone",
+            "Effect": "Allow",
+            "Action": [
+                "ram:EnableSharingWithAwsOrganization",
+                "ram:GetResourcePolicies",
+                "ecr:GetAuthorizationToken",
+                "s3:GetAccessPoint",
+                "s3:GetAccountPublicAccessBlock",
+                "s3:ListAccessPoints",
             ],
-            'Resource': ['*']
+            "Resource": ["*"],
         }
 
         result = get_statement_from_policy_using_sid(policy_json, "MultMultNone")

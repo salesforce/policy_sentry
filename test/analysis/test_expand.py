@@ -45,9 +45,7 @@ class PolicyExpansionTestCase(unittest.TestCase):
                 }
             ],
         }
-        expected_statement_ids = [
-            "TestSID"
-        ]
+        expected_statement_ids = ["TestSID"]
         for statement in output.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
         expected_actions = [

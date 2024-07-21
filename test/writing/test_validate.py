@@ -4,17 +4,19 @@ from policy_sentry.writing.validate import check_actions_schema, check_crud_sche
 valid_cfg_for_crud = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "read": ["arn:aws:s3:::example-org-sbx-vmimport",],
-    "write": ["arn:aws:s3:::example-org-s3-access-logs",],
+    "read": [
+        "arn:aws:s3:::example-org-sbx-vmimport",
+    ],
+    "write": [
+        "arn:aws:s3:::example-org-s3-access-logs",
+    ],
     "list": [
         "arn:aws:s3:::example-org-flow-logs",
         "arn:aws:s3:::example-org-sbx-vmimport/stuff",
     ],
     "tagging": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
     "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-    "wildcard-only": {
-        "service-read": ["s3"]
-    },
+    "wildcard-only": {"service-read": ["s3"]},
 }
 
 valid_cfg_for_actions = {
@@ -31,27 +33,43 @@ valid_cfg_for_actions = {
 valid_crud_with_one_item_only = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "read": ["arn:aws:s3:::example-org-sbx-vmimport",],
+    "read": [
+        "arn:aws:s3:::example-org-sbx-vmimport",
+    ],
 }
 
 invalid_crud_with_mispelled_category = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "reed": ["arn:aws:s3:::example-org-sbx-vmimport",],
-    "right": ["arn:aws:s3:::example-org-sbx-vmimport",],
-    "wrist": ["arn:aws:s3:::example-org-sbx-vmimport",],
+    "reed": [
+        "arn:aws:s3:::example-org-sbx-vmimport",
+    ],
+    "right": [
+        "arn:aws:s3:::example-org-sbx-vmimport",
+    ],
+    "wrist": [
+        "arn:aws:s3:::example-org-sbx-vmimport",
+    ],
 }
 
 valid_crud_with_sts_actions = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "sts": {"assume-role": ["arn:aws:iam::123456789012:role/demo",]}
+    "sts": {
+        "assume-role": [
+            "arn:aws:iam::123456789012:role/demo",
+        ]
+    },
 }
 
 invalid_crud_with_invalid_sts_action = {
     "mode": "crud",
     "name": "RoleNameWithCRUD",
-    "sts": {"assume-role-fake-something": ["arn:aws:iam::123456789012:role/demo",]}
+    "sts": {
+        "assume-role-fake-something": [
+            "arn:aws:iam::123456789012:role/demo",
+        ]
+    },
 }
 
 

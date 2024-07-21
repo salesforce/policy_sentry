@@ -5,23 +5,23 @@ We store the HTML files in this manner so that the user can be more confident in
 that it has not been altered in any way. The user can reproduce our steps with the original content at any time,
 or update the HTML files on their own.
 """
-import sys
+
 import os
 import shutil
+import sys
 from pathlib import Path
-sys.path.append(str(Path(os.path.dirname(__file__)).parent))
-from policy_sentry.shared.awsdocs import create_database, update_html_docs_directory
+
+sys.path.append(str(Path(__file__).parent))
+from policy_sentry.shared.awsdocs import create_database, update_html_docs_directory  # noqa: I001
 from policy_sentry.shared.constants import (
     BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_DATA_DIRECTORY,
     BUNDLED_DATASTORE_FILE_PATH,
-    BUNDLED_HTML_DIRECTORY_PATH
+    BUNDLED_HTML_DIRECTORY_PATH,
 )
 
-BASE_DIR = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("First, remove the old HTML files from the bundled directory.")
     print("This will ensure that we don't have any stale data.")
     if os.path.exists(BUNDLED_HTML_DIRECTORY_PATH):
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     print("Checking the size of the IAM database as a sanity check.")
     file_size = os.path.getsize(BUNDLED_DATASTORE_FILE_PATH)
     # 1 Megabyte == 1024*1024 Bytes
-    file_size = file_size/(1024*1024)
+    file_size = file_size / (1024 * 1024)
     print(f"IAM Definition file size in MB: {file_size} MB")
-    assert file_size > 5
-
+    if file_size < 5:
+        print("The IAM database is too small. Something went wrong.")

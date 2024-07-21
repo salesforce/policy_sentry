@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from policy_sentry.querying.arns import get_arn_type_details
 import json
 
-if __name__ == '__main__':
+from policy_sentry.querying.arns import get_arn_type_details
 
+if __name__ == "__main__":
     output = get_arn_type_details("cloud9", "environment")
     print(json.dumps(output, indent=4))
 

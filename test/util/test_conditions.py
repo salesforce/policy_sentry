@@ -1,6 +1,7 @@
 import unittest
 from policy_sentry.util.conditions import is_condition_key_match
 
+
 class ConditionsTestCase(unittest.TestCase):
     def test_is_condition_key_match_case_1(self):
         """exact match. return True"""

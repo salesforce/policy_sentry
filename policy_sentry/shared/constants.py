@@ -44,9 +44,7 @@ if "CUSTOM_ACCESS_OVERRIDES_FILE" in os.environ:
     BUNDLED_ACCESS_OVERRIDES_FILE = Path(__file__).parent / CUSTOM_ACCESS_OVERRIDES_FILE
 
 else:
-    BUNDLED_ACCESS_OVERRIDES_FILE = (
-        Path(__file__).parent / "data/access-level-overrides.yml"
-    )
+    BUNDLED_ACCESS_OVERRIDES_FILE = Path(__file__).parent / "data/access-level-overrides.yml"
 
 LOCAL_ACCESS_OVERRIDES_FILE = CONFIG_DIRECTORY / "access-level-overrides.yml"
 

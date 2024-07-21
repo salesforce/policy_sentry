@@ -37,9 +37,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def create_template(output_file: str | Path, template_type: str, verbose: str) -> None:
     """

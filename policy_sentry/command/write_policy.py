@@ -100,9 +100,7 @@ class RegisterMinimizeLengthCommand(click.Command):
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def write_policy(
     input_file: str | Path,
@@ -143,9 +141,7 @@ def write_policy(
     print(policy_str)
 
 
-def write_policy_with_template(
-    cfg: dict[str, Any], minimize: int | None = None
-) -> dict[str, Any]:
+def write_policy_with_template(cfg: dict[str, Any], minimize: int | None = None) -> dict[str, Any]:
     """
     This function is called by write-policy so the config can be passed in as a dict without running into a Click-related error. Use this function, rather than the write-policy function, if you are using Policy Sentry as a python library.
 

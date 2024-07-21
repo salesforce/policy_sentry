@@ -84,17 +84,11 @@ def get_sid_names_from_policy(policy_json: dict[str, Any]) -> list[str]:
     """
     Given a Policy JSON, get a list of the Statement IDs. This is helpful in unit tests.
     """
-    sid_names = [
-        statement["Sid"]
-        for statement in policy_json.get("Statement", [])
-        if "Sid" in statement
-    ]
+    sid_names = [statement["Sid"] for statement in policy_json.get("Statement", []) if "Sid" in statement]
     return sid_names
 
 
-def get_statement_from_policy_using_sid(
-    policy_json: dict[str, Any], sid: str
-) -> dict[str, Any] | None:
+def get_statement_from_policy_using_sid(policy_json: dict[str, Any], sid: str) -> dict[str, Any] | None:
     """
     Helper function to get a statement just by providing the policy JSON and the Statement ID
     """

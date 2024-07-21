@@ -88,9 +88,15 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         crud_file_input = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
-            "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
-            "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "read": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
+            "write": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
+            "list": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
         }
         result = write_policy_with_template(crud_file_input)
         print(json.dumps(result, indent=4))
@@ -104,9 +110,15 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         crud_file_input = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
-            "read": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
-            "write": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
-            "list": ["arn:aws:ssm:us-east-1:123456789012:parameter/test",],
+            "read": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
+            "write": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
+            "list": [
+                "arn:aws:ssm:us-east-1:123456789012:parameter/test",
+            ],
             "tagging": [""],
             "permissions-management": [""],
         }
@@ -120,11 +132,9 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                         "ssm:GetParameter",
                         "ssm:GetParameterHistory",
                         "ssm:GetParameters",
-                        "ssm:GetParametersByPath"
+                        "ssm:GetParametersByPath",
                     ],
-                    "Resource": [
-                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-                    ]
+                    "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
                 },
                 {
                     "Sid": "SsmWriteParameter",
@@ -133,23 +143,17 @@ class YamlValidationCrudTestCase(unittest.TestCase):
                         "ssm:DeleteParameter",
                         "ssm:DeleteParameters",
                         "ssm:LabelParameterVersion",
-                        "ssm:PutParameter"
+                        "ssm:PutParameter",
                     ],
-                    "Resource": [
-                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-                    ]
+                    "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
                 },
                 {
                     "Sid": "SsmListParameter",
                     "Effect": "Allow",
-                    "Action": [
-                        "ssm:ListTagsForResource"
-                    ],
-                    "Resource": [
-                        "arn:aws:ssm:us-east-1:123456789012:parameter/test"
-                    ]
-                }
-            ]
+                    "Action": ["ssm:ListTagsForResource"],
+                    "Resource": ["arn:aws:ssm:us-east-1:123456789012:parameter/test"],
+                },
+            ],
         }
         # with self.assertRaises(Exception):
         result = write_policy_with_template(crud_file_input)
@@ -157,8 +161,18 @@ class YamlValidationCrudTestCase(unittest.TestCase):
         # self.assertDictEqual(desired_output, result)
         # Future proofing tests - just checking if the ones we expect in the past are available in the future, even if we add on new ones.
         expected_sids = ["SsmReadParameter", "SsmWriteParameter", "SsmListParameter"]
-        expected_write_actions = ["ssm:DeleteParameter", "ssm:DeleteParameters", "ssm:LabelParameterVersion", "ssm:PutParameter"]
-        expected_read_actions = ["ssm:GetParameter", "ssm:GetParameterHistory", "ssm:GetParameters", "ssm:GetParametersByPath"]
+        expected_write_actions = [
+            "ssm:DeleteParameter",
+            "ssm:DeleteParameters",
+            "ssm:LabelParameterVersion",
+            "ssm:PutParameter",
+        ]
+        expected_read_actions = [
+            "ssm:GetParameter",
+            "ssm:GetParameterHistory",
+            "ssm:GetParameters",
+            "ssm:GetParametersByPath",
+        ]
         expected_list_actions = ["ssm:ListTagsForResource"]
         for statement in result["Statement"]:
             self.assertTrue(statement["Sid"] in expected_sids)

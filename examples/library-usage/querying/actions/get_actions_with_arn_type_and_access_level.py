@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from policy_sentry.querying.actions import get_actions_with_arn_type_and_access_level
 import json
 
-if __name__ == '__main__':
+from policy_sentry.querying.actions import get_actions_with_arn_type_and_access_level
 
+if __name__ == "__main__":
     output = get_actions_with_arn_type_and_access_level("ram", "resource-share", "Permissions management")
     print(json.dumps(output, indent=4))
 

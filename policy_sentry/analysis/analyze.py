@@ -20,9 +20,7 @@ from policy_sentry.util.policy_files import (
 logger = logging.getLogger(__name__)
 
 
-def analyze_by_access_level(
-    policy_json: dict[str, Any], access_level: str
-) -> list[str]:
+def analyze_by_access_level(policy_json: dict[str, Any], access_level: str) -> list[str]:
     """
     Determine if a policy has any actions with a given access level. This is particularly useful when determining who
     has 'Permissions management' level access
@@ -36,15 +34,11 @@ def analyze_by_access_level(
     expanded_policy = get_expanded_policy(policy_json)
     requested_actions = get_actions_from_policy(expanded_policy)
     # expanded_actions = determine_actions_to_expand(requested_actions)
-    actions_by_level = remove_actions_not_matching_access_level(
-        requested_actions, access_level
-    )
+    actions_by_level = remove_actions_not_matching_access_level(requested_actions, access_level)
     return actions_by_level
 
 
-def analyze_statement_by_access_level(
-    statement_json: dict[str, Any], access_level: str
-) -> list[str]:
+def analyze_statement_by_access_level(statement_json: dict[str, Any], access_level: str) -> list[str]:
     """
     Determine if a statement has any actions with a given access level.
 
@@ -56,7 +50,5 @@ def analyze_statement_by_access_level(
     """
     requested_actions = get_actions_from_statement(statement_json)
     expanded_actions = determine_actions_to_expand(requested_actions)
-    actions_by_level = remove_actions_not_matching_access_level(
-        expanded_actions, access_level
-    )
+    actions_by_level = remove_actions_not_matching_access_level(expanded_actions, access_level)
     return actions_by_level

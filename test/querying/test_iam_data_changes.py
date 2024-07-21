@@ -174,7 +174,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "greengrass:UpdateLoggerDefinition",
             "greengrass:UpdateResourceDefinition",
             "greengrass:UpdateSubscriptionDefinition",
-            "greengrass:UpdateThingRuntimeConfiguration"
+            "greengrass:UpdateThingRuntimeConfiguration",
         ]
         for action in actions:
             self.assertTrue(action in results)
@@ -396,7 +396,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "datasync:UpdateLocationNfs",
             "datasync:UpdateLocationObjectStorage",
             "datasync:UpdateLocationSmb",
-            "datasync:UpdateTaskExecution"
+            "datasync:UpdateTaskExecution",
         ]
         for action in actions:
             self.assertTrue(action in results)
@@ -430,7 +430,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
         results = get_actions_for_service("elemental-activations")
         actions = [
             "elemental-activations:CompleteAccountRegistration",
-            "elemental-activations:StartAccountRegistration"
+            "elemental-activations:StartAccountRegistration",
         ]
         for action in actions:
             self.assertTrue(action in results)
@@ -516,7 +516,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "kafka:UpdateBrokerType",
             "kafka:UpdateConfiguration",
             "kafka:UpdateConnectivity",
-            "kafka:UpdateSecurity"
+            "kafka:UpdateSecurity",
         ]
 
         for action in actions:

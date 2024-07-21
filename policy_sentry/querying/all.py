@@ -53,9 +53,7 @@ def get_all_actions(lowercase: bool = False) -> set[str]:
         else:
             action_names = service_prefix_data["privileges_lower_name"].values()
 
-        all_actions.update(
-            f"{service_prefix}:{action_name}" for action_name in action_names
-        )
+        all_actions.update(f"{service_prefix}:{action_name}" for action_name in action_names)
 
     return all_actions
 
@@ -64,7 +62,5 @@ def get_service_authorization_url(service_prefix: str) -> str | None:
     """
     Gets the URL to the Actions, Resources, and Condition Keys page for a particular service.
     """
-    result: str = iam_definition.get(service_prefix, {}).get(
-        "service_authorization_url"
-    )
+    result: str = iam_definition.get(service_prefix, {}).get("service_authorization_url")
     return result

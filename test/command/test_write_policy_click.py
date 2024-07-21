@@ -5,13 +5,7 @@ from click.testing import CliRunner
 from policy_sentry.command.write_policy import write_policy
 from policy_sentry.util.policy_files import get_sid_names_from_policy
 
-test_file_directory = os.path.join(
-    os.path.dirname(__file__),
-    os.path.pardir,
-    os.path.pardir,
-    "examples",
-    "yml"
-)
+test_file_directory = os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir, "examples", "yml")
 
 
 class PolicySentryClickUnitTests(unittest.TestCase):

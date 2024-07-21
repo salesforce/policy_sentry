@@ -3,7 +3,7 @@ import json
 from policy_sentry.querying.all import (
     get_all_service_prefixes,
     get_all_actions,
-    get_service_authorization_url
+    get_service_authorization_url,
 )
 from policy_sentry.command.query import query_action_table
 
@@ -35,7 +35,7 @@ class QueryActionsTestCase(unittest.TestCase):
             resource_type=resource_type,
             name=None,
             access_level="permissions-management",
-            condition=None
+            condition=None,
         )
         print(len(result))
         self.assertTrue(len(result) > 200)
@@ -48,13 +48,14 @@ class QueryActionsTestCase(unittest.TestCase):
             resource_type=resource_type,
             name=None,
             access_level=None,
-            condition=None
+            condition=None,
         )
         self.assertTrue(len(result) > 3000)
 
     def test_get_service_authorization_url(self):
         result = get_service_authorization_url("a4b")
         print(result)
-        expected_result = "https://docs.aws.amazon.com/service-authorization/latest/reference/list_alexaforbusiness.html"
+        expected_result = (
+            "https://docs.aws.amazon.com/service-authorization/latest/reference/list_alexaforbusiness.html"
+        )
         self.assertTrue(result == expected_result)
-

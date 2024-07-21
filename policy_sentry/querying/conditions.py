@@ -33,9 +33,7 @@ def get_condition_keys_for_service(service_prefix: str) -> list[str]:
 
 # Per condition key name
 # pylint: disable=inconsistent-return-statements
-def get_condition_key_details(
-    service_prefix: str, condition_key_name: str
-) -> dict[str, str]:
+def get_condition_key_details(service_prefix: str, condition_key_name: str) -> dict[str, str]:
     """
     Get details about a specific condition key in JSON format
 
@@ -110,9 +108,7 @@ def get_condition_value_type(condition_key: str) -> str | None:
     service_prefix, _ = condition_key.split(":")
     service_prefix_data = get_service_prefix_data(service_prefix)
 
-    for condition_key_entry, condition_key_data in service_prefix_data[
-        "conditions"
-    ].items():
+    for condition_key_entry, condition_key_data in service_prefix_data["conditions"].items():
         if is_condition_key_match(condition_key_entry, condition_key):
             return cast("str", condition_key_data["type"]).lower()
 
