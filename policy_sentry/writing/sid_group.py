@@ -103,9 +103,7 @@ class SidGroup:
         else:
             self.exclude_actions = []
 
-    def add_skip_resource_constraints(
-        self, skip_resource_constraints_actions: str | list[str]
-    ) -> None:
+    def add_skip_resource_constraints(self, skip_resource_constraints_actions: str | list[str]) -> None:
         """
         To override resource constraint requirements - i.e., instead of restricting `s3:PutObject` to a path and
         allowing `s3:PutObject` to `*` resources, put `s3:GetObject` here.
@@ -115,9 +113,7 @@ class SidGroup:
         elif isinstance(skip_resource_constraints_actions, str):
             self.skip_resource_constraints.append(skip_resource_constraints_actions)
         else:
-            raise Exception(
-                "Please provide 'skip_resource_constraints' as a list of IAM actions."
-            )
+            raise Exception("Please provide 'skip_resource_constraints' as a list of IAM actions.")
 
     def add_sts_actions(self, sts_actions: dict[str, list[str]]) -> None:
         """
@@ -129,24 +125,18 @@ class SidGroup:
             access_level = "Write"
 
             for action, arns in sts_actions.items():
-                clean_action = action.replace(
-                    "-", ""
-                )  # Convention to follow adding dashes instead of CamelCase
+                clean_action = action.replace("-", "")  # Convention to follow adding dashes instead of CamelCase
                 service_action_data = get_action_data(service_prefix, clean_action)
 
                 # Schema validation takes care of this, but just in case. No data returned for the action
                 if not service_action_data:
-                    raise Exception(
-                        f"Could not find service action data for {service_prefix} - {clean_action}"
-                    )
+                    raise Exception(f"Could not find service action data for {service_prefix} - {clean_action}")
 
                 for row in service_action_data[service_prefix]:
                     for arn in arns:
                         if not arn:  # skip the - '' situation
                             continue
-                        if row["access_level"] == access_level and does_arn_match(
-                            arn, row["resource_arn_format"]
-                        ):
+                        if row["access_level"] == access_level and does_arn_match(arn, row["resource_arn_format"]):
                             raw_arn_format = row["resource_arn_format"]
 
                             # Each action will get its own namespace sts:AssumeRole -> AssumeRole
@@ -172,9 +162,7 @@ class SidGroup:
                             else:
                                 self.sids[sid_namespace] = temp_sid_dict
 
-    def add_requested_service_wide(
-        self, service_prefixes: list[str], access_level: str
-    ) -> None:
+    def add_requested_service_wide(self, service_prefixes: list[str], access_level: str) -> None:
         """
         When a user requests all wildcard-only actions available under a service at a specific access level
 
@@ -199,15 +187,9 @@ class SidGroup:
         """
         provided_wildcard_actions = (
             self.wildcard_only_single_actions
-            + get_wildcard_only_actions_matching_services_and_access_level(
-                self.wildcard_only_service_read, "Read"
-            )
-            + get_wildcard_only_actions_matching_services_and_access_level(
-                self.wildcard_only_service_list, "List"
-            )
-            + get_wildcard_only_actions_matching_services_and_access_level(
-                self.wildcard_only_service_write, "Write"
-            )
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_read, "Read")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_list, "List")
+            + get_wildcard_only_actions_matching_services_and_access_level(self.wildcard_only_service_write, "Write")
             + get_wildcard_only_actions_matching_services_and_access_level(
                 self.wildcard_only_service_tagging, "Tagging"
             )
@@ -254,16 +236,12 @@ class SidGroup:
             match_found = False
             if minimize is not None and isinstance(minimize, int):
                 logger.debug("Minimizing statements...")
-                actions = minimize_statement_actions(
-                    actions, all_actions, minchars=minimize
-                )
+                actions = minimize_statement_actions(actions, all_actions, minchars=minimize)
                 # searching in the existing statements
                 # further minimizing the output
                 for stmt in statements:
                     if stmt["Resource"] == group["arn"]:
-                        stmt["Action"].extend(
-                            x for x in actions if x not in stmt["Action"]
-                        )
+                        stmt["Action"].extend(x for x in actions if x not in stmt["Action"])
                         match_found = True
                         sids_to_be_changed.append(stmt["Sid"])
                         break
@@ -287,17 +265,11 @@ class SidGroup:
                 if stmt["Sid"] in sids_to_be_changed:
                     arn_details = parse_arn(stmt["Resource"][0])
                     resource_path = arn_details.get("resource_path")
-                    resource_sid_segment = strip_special_characters(
-                        f"{arn_details['resource']}{resource_path}"
-                    )
-                    stmt["Sid"] = create_policy_sid_namespace(
-                        arn_details["service"], "Mult", resource_sid_segment
-                    )
+                    resource_sid_segment = strip_special_characters(f"{arn_details['resource']}{resource_path}")
+                    stmt["Sid"] = create_policy_sid_namespace(arn_details["service"], "Mult", resource_sid_segment)
                     # If we have combined the statements, minimize it again
                     if minimize is not None and isinstance(minimize, int):
-                        actions = minimize_statement_actions(
-                            stmt["Action"], all_actions, minchars=minimize
-                        )
+                        actions = minimize_statement_actions(stmt["Action"], all_actions, minchars=minimize)
                         actions.sort()
                         stmt["Action"] = actions
         policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
@@ -322,35 +294,25 @@ class SidGroup:
         for arn in arn_list:
             service_prefix = get_service_from_arn(arn)
             if "$" in service_prefix:
-                logger.debug(
-                    f"Not supported service {service_prefix} found in ARN {arn}"
-                )
+                logger.debug(f"Not supported service {service_prefix} found in ARN {arn}")
                 continue
 
             service_action_data = get_action_data(service_prefix, "*")
             for service_prefix, action_data in service_action_data.items():
                 for row in action_data:
                     raw_arn_format = row["resource_arn_format"]
-                    if row["access_level"] == access_level and does_arn_match(
-                        arn, raw_arn_format
-                    ):
-                        resource_type_name = get_resource_type_name_with_raw_arn(
-                            raw_arn_format
-                        )
+                    if row["access_level"] == access_level and does_arn_match(arn, raw_arn_format):
+                        resource_type_name = get_resource_type_name_with_raw_arn(raw_arn_format)
                         if resource_type_name is None:
                             continue
 
-                        sid_namespace = create_policy_sid_namespace(
-                            service_prefix, access_level, resource_type_name
-                        )
+                        sid_namespace = create_policy_sid_namespace(service_prefix, access_level, resource_type_name)
                         actions = get_actions_with_arn_type_and_access_level(
                             service_prefix, resource_type_name, access_level
                         )
                         # List comprehension to get all dependent actions that are not in the supplied actions.
                         dependent_actions = [
-                            action
-                            for action in get_dependent_actions(actions)
-                            if action not in actions
+                            action for action in get_dependent_actions(actions) if action not in actions
                         ]
                         for dep_action in dependent_actions:
                             self.add_action_without_resource_constraint(dep_action)
@@ -399,10 +361,7 @@ class SidGroup:
                 "actions": [action],
             }
         else:
-            raise Exception(
-                "Please specify the sid_namespace as either 'SkipResourceConstraints' or "
-                "'MultMultNone'."
-            )
+            raise Exception("Please specify the sid_namespace as either 'SkipResourceConstraints' or 'MultMultNone'.")
         if isinstance(action, str):
             if sid_namespace in self.sids:
                 if action not in self.sids[sid_namespace]["actions"]:
@@ -421,9 +380,7 @@ class SidGroup:
             supplied_actions: A list of supplied actions
         """
         dependent_actions = [
-            action
-            for action in get_dependent_actions(supplied_actions)
-            if action not in supplied_actions
+            action for action in get_dependent_actions(supplied_actions) if action not in supplied_actions
         ]
         logger.debug("Adding by list of actions")
         logger.debug(f"Supplied actions: {supplied_actions}")
@@ -454,9 +411,7 @@ class SidGroup:
         actions_without_resource_constraints = []
         for item in arns_matching_supplied_actions:
             if item["resource_arn_format"] != "*":
-                self.add_by_arn_and_access_level(
-                    [item["resource_arn_format"]], item["access_level"]
-                )
+                self.add_by_arn_and_access_level([item["resource_arn_format"]], item["access_level"])
             else:
                 actions_without_resource_constraints.append(item["action"])
 
@@ -468,16 +423,12 @@ class SidGroup:
             self.add_action_without_resource_constraint(dep_action)
         # Now, because add_by_arn_and_access_level() adds all actions under an access level, we have to
         # remove all actions that do not match the supplied_actions. This is done in-place.
-        logger.debug(
-            "Purging actions that do not match the requested actions and dependent actions"
-        )
+        logger.debug("Purging actions that do not match the requested actions and dependent actions")
         logger.debug(f"Supplied actions: {supplied_actions}")
         logger.debug(f"Dependent actions: {dependent_actions}")
         self.remove_actions_not_matching_these(supplied_actions + dependent_actions)
         for action in actions_without_resource_constraints:
-            logger.debug(
-                f"Deliberately adding the action {action} without resource constraints"
-            )
+            logger.debug(f"Deliberately adding the action {action} without resource constraints")
             self.add_action_without_resource_constraint(action)
         logger.debug(
             "Removing actions that are in the wildcard arn (Resources = '*') as well as other statements that have "
@@ -488,9 +439,7 @@ class SidGroup:
         rendered_policy = self.get_rendered_policy()
         return rendered_policy
 
-    def process_template(
-        self, cfg: dict[str, Any], minimize: int | None = None
-    ) -> dict[str, Any]:
+    def process_template(self, cfg: dict[str, Any], minimize: int | None = None) -> dict[str, Any]:
         """
         Process the Policy Sentry template as a dict. This auto-detects whether or not the file is in CRUD mode or
         Actions mode.
@@ -514,9 +463,7 @@ class SidGroup:
             if cfg_wildcard:
                 provided_wildcard_actions = cfg_wildcard.get("single-actions")
                 if provided_wildcard_actions and provided_wildcard_actions[0] != "":
-                    logger.debug(
-                        f"Requested wildcard-only actions: {provided_wildcard_actions}"
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {provided_wildcard_actions}")
                     self.wildcard_only_single_actions = provided_wildcard_actions
 
                 service_read = cfg_wildcard.get("service-read")
@@ -539,16 +486,10 @@ class SidGroup:
                     logger.debug(f"Requested wildcard-only actions: {service_tagging}")
                     self.wildcard_only_service_tagging = service_tagging
 
-                service_permissions_management = cfg_wildcard.get(
-                    "service-permissions-management"
-                )
+                service_permissions_management = cfg_wildcard.get("service-permissions-management")
                 if service_permissions_management and service_permissions_management[0]:
-                    logger.debug(
-                        f"Requested wildcard-only actions: {service_permissions_management}"
-                    )
-                    self.wildcard_only_service_permissions_management = (
-                        service_permissions_management
-                    )
+                    logger.debug(f"Requested wildcard-only actions: {service_permissions_management}")
+                    self.wildcard_only_service_permissions_management = service_permissions_management
 
             # Process the wildcard-only section
             self.process_wildcard_only_actions()
@@ -578,10 +519,7 @@ class SidGroup:
             # SKIP RESOURCE CONSTRAINTS
             cfg_skip = cfg.get("skip-resource-constraints")
             if cfg_skip and cfg_skip[0]:
-                logger.debug(
-                    f"Requested override: the actions {cfg_skip} will "
-                    f"skip resource constraints."
-                )
+                logger.debug(f"Requested override: the actions {cfg_skip} will skip resource constraints.")
                 self.add_skip_resource_constraints(cfg_skip)
                 for skip_resource_constraints_action in self.skip_resource_constraints:
                     self.add_action_without_resource_constraint(
@@ -591,9 +529,7 @@ class SidGroup:
             # STS Section
             cfg_sts = cfg.get("sts")
             if cfg_sts:
-                logger.debug(
-                    "STS section detected. Building assume role policy statement"
-                )
+                logger.debug("STS section detected. Building assume role policy statement")
                 self.add_sts_actions(cfg_sts)
 
         elif cfg_mode == "actions":
@@ -614,17 +550,11 @@ class SidGroup:
             provided_wildcard_actions: list actions provided by the user.
         """
         if isinstance(provided_wildcard_actions, list):
-            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(
-                provided_wildcard_actions
-            )
+            verified_wildcard_actions = remove_actions_that_are_not_wildcard_arn_only(provided_wildcard_actions)
             if verified_wildcard_actions:
-                logger.debug(
-                    f"Attempting to add the following actions to the policy: {verified_wildcard_actions}"
-                )
+                logger.debug(f"Attempting to add the following actions to the policy: {verified_wildcard_actions}")
                 self.add_by_list_of_actions(verified_wildcard_actions)
-                logger.debug(
-                    f"Added the following wildcard-only actions to the policy: {verified_wildcard_actions}"
-                )
+                logger.debug(f"Added the following wildcard-only actions to the policy: {verified_wildcard_actions}")
 
     def add_wildcard_only_actions_matching_services_and_access_level(
         self, services: list[str], access_level: str
@@ -636,9 +566,7 @@ class SidGroup:
         """
         wildcard_only_actions_to_add = []
         for service in services:
-            actions = get_actions_at_access_level_that_support_wildcard_arns_only(
-                service, access_level
-            )
+            actions = get_actions_at_access_level_that_support_wildcard_arns_only(service, access_level)
             wildcard_only_actions_to_add.extend(actions)
         self.add_wildcard_only_actions(wildcard_only_actions_to_add)
 
@@ -657,9 +585,7 @@ class SidGroup:
                 if action_lower in actions_to_keep:
                     placeholder_actions_list.append(action)
                 else:
-                    logger.debug(
-                        f"{action_lower} not found in list of actions to keep: {actions_to_keep}"
-                    )
+                    logger.debug(f"{action_lower} not found in list of actions to keep: {actions_to_keep}")
                     actions_deleted.append(action)
             # only include the updated actions
             group["actions"] = placeholder_actions_list
@@ -676,9 +602,7 @@ class SidGroup:
         sid_namespaces_to_delete = [
             sid
             for sid, group in self.sids.items()
-            if not group[
-                "actions"
-            ]  # If the size is zero, add it to the indexes_to_delete list.
+            if not group["actions"]  # If the size is zero, add it to the indexes_to_delete list.
         ]
         # Loop through sid_namespaces_to_delete in reverse order (so we delete index
         # 10 before index 8, for example)
@@ -704,10 +628,7 @@ class SidGroup:
             for group in self.sids.values():
                 if "*" not in group["arn_format"]:
                     for action in actions_under_wildcard_resources:
-                        if (
-                            action in group["actions"]
-                            and action not in self.skip_resource_constraints
-                        ):
+                        if action in group["actions"] and action not in self.skip_resource_constraints:
                             # add it to a list of actions to nuke when they are under other SIDs
                             actions_under_wildcard_resources_to_nuke.append(action)  # noqa: PERF401
 
@@ -739,9 +660,7 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
         except ValueError as v_e:
             # We will skip the action because this likely means that the wildcard action provided is not valid.
             logger.debug(v_e)
-            logger.debug(
-                "The value provided in wildcard-only section is not formatted properly."
-            )
+            logger.debug("The value provided in wildcard-only section is not formatted properly.")
             continue
 
         action_lower = action.lower()
@@ -752,9 +671,7 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
     return actions_list_placeholder
 
 
-def get_wildcard_only_actions_matching_services_and_access_level(
-    services: list[str], access_level: str
-) -> list[str]:
+def get_wildcard_only_actions_matching_services_and_access_level(services: list[str], access_level: str) -> list[str]:
     """
     Get a list of wildcard-only actions matching the services and access level
 
@@ -766,9 +683,7 @@ def get_wildcard_only_actions_matching_services_and_access_level(
     """
     wildcard_only_actions_to_add = []
     for service in services:
-        actions = get_actions_at_access_level_that_support_wildcard_arns_only(
-            service, access_level
-        )
+        actions = get_actions_at_access_level_that_support_wildcard_arns_only(service, access_level)
         wildcard_only_actions_to_add.extend(actions)
     return wildcard_only_actions_to_add
 
@@ -807,13 +722,9 @@ def create_policy_sid_namespace(
     )
 
     if condition_block:
-        condition_key_namespace = re.sub(
-            SANITIZE_NAME_PATTERN, "", condition_block["condition_key_string"]
-        )
+        condition_key_namespace = re.sub(SANITIZE_NAME_PATTERN, "", condition_block["condition_key_string"])
         condition_type_namespace = condition_block["condition_type_string"]
-        condition_value_namespace = re.sub(
-            SANITIZE_NAME_PATTERN, "", condition_block["condition_value"]
-        )
+        condition_value_namespace = re.sub(SANITIZE_NAME_PATTERN, "", condition_block["condition_value"])
         sid_namespace_condition_suffix = (
             f"{capitalize_first_character(condition_key_namespace)}"
             f"{capitalize_first_character(condition_type_namespace)}"

@@ -33,9 +33,7 @@ def override_access_level(
                 real_access_level = access_level
                 break
     except AttributeError as a_e:
-        logger.debug(
-            f"AttributeError: {a_e}\nService overrides config is {service_override_config}"
-        )
+        logger.debug(f"AttributeError: {a_e}\nService overrides config is {service_override_config}")
     # first index will contain the access level given in the override config for that action.
     # since we break the loop, we know it only contains one value.
     if real_access_level and real_access_level != provided_access_level:
@@ -88,25 +86,17 @@ def determine_access_level_override(
     # minor capitalization differences
     provided_access_level_lower = provided_access_level.lower()
     if provided_access_level_lower == "read":
-        override_decision = override_access_level(
-            service_override_config, action_name.lower(), "Read"
-        )
+        override_decision = override_access_level(service_override_config, action_name.lower(), "Read")
     elif provided_access_level_lower == "write":
-        override_decision = override_access_level(
-            service_override_config, action_name.lower(), "Write"
-        )
+        override_decision = override_access_level(service_override_config, action_name.lower(), "Write")
     elif provided_access_level_lower == "list":
-        override_decision = override_access_level(
-            service_override_config, action_name.lower(), "List"
-        )
+        override_decision = override_access_level(service_override_config, action_name.lower(), "List")
     elif provided_access_level_lower == "permissions management":
         override_decision = override_access_level(
             service_override_config, action_name.lower(), "Permissions management"
         )
     elif provided_access_level_lower == "tagging":
-        override_decision = override_access_level(
-            service_override_config, action_name.lower(), "Tagging"
-        )
+        override_decision = override_access_level(service_override_config, action_name.lower(), "Tagging")
     else:
         logger.debug(
             "Unknown error - determine_override_status() can't determine the access level of %s:%s during "

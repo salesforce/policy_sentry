@@ -36,46 +36,33 @@ class SidGroupActionsTestCase(unittest.TestCase):
                 {
                     "Sid": "CodestarconnectionsReadConnection",
                     "Effect": "Allow",
-                    "Action": [
-                        "codestar-connections:UseConnection"
-                    ],
+                    "Action": ["codestar-connections:UseConnection"],
                     "Resource": [
                         "arn:${Partition}:codestar-connections:${Region}:${Account}:connection/${ConnectionId}"
-                    ]
+                    ],
                 },
                 {
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
-                    "Action": [
-                        "kms:CreateGrant"
-                    ],
-                    "Resource": [
-                        "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
-                    ]
+                    "Action": ["kms:CreateGrant"],
+                    "Resource": ["arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"],
                 },
                 {
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
-                    "Action": [
-                        "cloudhsm:DescribeClusters",
-                        "kms:CreateCustomKeyStore"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Action": ["cloudhsm:DescribeClusters", "kms:CreateCustomKeyStore"],
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "Ec2WriteSecuritygroup",
                     "Effect": "Allow",
                     "Action": [
                         "ec2:AuthorizeSecurityGroupEgress",
-                        "ec2:AuthorizeSecurityGroupIngress"
+                        "ec2:AuthorizeSecurityGroupIngress",
                     ],
-                    "Resource": [
-                        "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
-                    ]
-                }
-            ]
+                    "Resource": ["arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"],
+                },
+            ],
         }
         expected_statement_ids = [
             "CodestarconnectionsReadConnection",
@@ -86,4 +73,3 @@ class SidGroupActionsTestCase(unittest.TestCase):
         ]
         for statement in output.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
-

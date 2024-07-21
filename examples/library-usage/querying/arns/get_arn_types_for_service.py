@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from policy_sentry.querying.arns import get_arn_types_for_service
 import json
 
-if __name__ == '__main__':
+from policy_sentry.querying.arns import get_arn_types_for_service
 
+if __name__ == "__main__":
     output = get_arn_types_for_service("s3")
     print(json.dumps(output, indent=4))
 

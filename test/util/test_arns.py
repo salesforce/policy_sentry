@@ -25,9 +25,7 @@ class ArnsTestCase(unittest.TestCase):
     def test_does_arn_match_case_1(self):
         # Case 1: arn:partition:service:region:account-id:resource
         arn_to_test = "arn:aws:codecommit:us-east-1:123456789012:MyDemoRepo"
-        arn_in_database = (
-            "arn:${Partition}:codecommit:${Region}:${Account}:${RepositoryName}"
-        )
+        arn_in_database = "arn:${Partition}:codecommit:${Region}:${Account}:${RepositoryName}"
         this_arn = ARN(arn_to_test)
         self.assertTrue(this_arn.same_resource_type(arn_in_database))
 
@@ -62,9 +60,7 @@ class ArnsTestCase(unittest.TestCase):
 
     def test_does_arn_match_case_6(self):
         # Case 6: arn:partition:service:region:account-id:resourcetype:resource:qualifier
-        arn_to_test = (
-            "arn:aws:states:region:account-id:execution:stateMachineName:executionName"
-        )
+        arn_to_test = "arn:aws:states:region:account-id:execution:stateMachineName:executionName"
         arn_in_database = "arn:${Partition}:states:${Region}:${Account}:execution:${StateMachineName}:${ExecutionId}"
         this_arn = ARN(arn_to_test)
         self.assertTrue(this_arn.same_resource_type(arn_in_database))
@@ -92,7 +88,7 @@ class ArnsTestCase(unittest.TestCase):
             "arn:${Partition}:rds:${Region}:${Account}:snapshot:${SnapshotName}",
             "arn:${Partition}:rds:${Region}:${Account}:subgrp:${SubnetGroupName}",
             "arn:${Partition}:rds:${Region}:${Account}:target:${TargetId}",
-            "arn:${Partition}:rds:${Region}:${Account}:target-group:${TargetGroupId}"
+            "arn:${Partition}:rds:${Region}:${Account}:target-group:${TargetGroupId}",
         ]
         arn_in_database = "arn:${Partition}:rds:${Region}:${Account}:db:${DbInstanceName}"
         for arn in arns_to_test:

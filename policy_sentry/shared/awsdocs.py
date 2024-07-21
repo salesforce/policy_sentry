@@ -68,9 +68,7 @@ def get_action_access_level_overrides_from_yml(
     if not access_level_overrides_file_path:
         access_level_overrides_file_path = BUNDLED_ACCESS_OVERRIDES_FILE
 
-    cfg: dict[str, dict[str, list[str]]] = read_yaml_file(
-        access_level_overrides_file_path
-    )
+    cfg: dict[str, dict[str, list[str]]] = read_yaml_file(access_level_overrides_file_path)
     if service in cfg:
         return cfg[service]
 
@@ -84,21 +82,15 @@ def update_html_docs_directory(html_docs_destination: Path) -> None:
     (2) the config directory
     :return:
     """
-    link_url_prefix = (
-        "https://docs.aws.amazon.com/service-authorization/latest/reference/"
-    )
-    initial_html_filenames_list = (
-        get_links_from_base_actions_resources_conditions_page()
-    )
+    link_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference/"
+    initial_html_filenames_list = get_links_from_base_actions_resources_conditions_page()
     # Remove the relative path so we can download it
     html_filenames = [sub.replace("./", "") for sub in initial_html_filenames_list]
     # Replace '.html' with '.partial.html' because that's where the current docs live
     # html_filenames = [sub.replace(".html", ".partial.html") for sub in html_filenames]
 
     for page in html_filenames:
-        response = requests.get(
-            link_url_prefix + page, allow_redirects=False, timeout=300
-        )
+        response = requests.get(link_url_prefix + page, allow_redirects=False, timeout=300)
         # Replace the CSS stuff. Basically this:
         """
         <link href='href="https://docs.aws.amazon.com/images/favicon.ico"' rel="icon" type="image/ico"/>
@@ -113,17 +105,13 @@ def update_html_docs_directory(html_docs_destination: Path) -> None:
         for link in soup.find_all("link"):
             if link.get("href").startswith("/"):
                 temp = link.attrs["href"]
-                link.attrs["href"] = link.attrs["href"].replace(
-                    temp, f"https://docs.aws.amazon.com{temp}"
-                )
+                link.attrs["href"] = link.attrs["href"].replace(temp, f"https://docs.aws.amazon.com{temp}")
 
         for script in soup.find_all("script"):
             try:
                 if "src" in script.attrs and script.get("src").startswith("/"):
                     temp = script.attrs["src"]
-                    script.attrs["src"] = script.attrs["src"].replace(
-                        temp, f"https://docs.aws.amazon.com{temp}"
-                    )
+                    script.attrs["src"] = script.attrs["src"].replace(temp, f"https://docs.aws.amazon.com{temp}")
             except TypeError as t_e:  # noqa: PERF203
                 logger.warning(t_e)
                 logger.warning(script)
@@ -155,9 +143,7 @@ def sanitize_service_name(action: str) -> str:
     return f"{service.lower()}:{action_name}"
 
 
-def create_database(
-    destination_directory: str | Path, access_level_overrides_file: Path
-) -> None:
+def create_database(destination_directory: str | Path, access_level_overrides_file: Path) -> None:
     """
     Create the JSON Data source that holds the IAM data.
 
@@ -170,17 +156,12 @@ def create_database(
     Path(os.path.join(destination_directory, "docs")).mkdir(parents=True, exist_ok=True)
 
     # This holds the entire IAM definition
-    schema: dict[str, Any] = {
-        POLICY_SENTRY_SCHEMA_VERSION_NAME: POLICY_SENTRY_SCHEMA_VERSION_LATEST
-    }
+    schema: dict[str, Any] = {POLICY_SENTRY_SCHEMA_VERSION_NAME: POLICY_SENTRY_SCHEMA_VERSION_LATEST}
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
     for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):
-        if (
-            os.path.isfile(os.path.join(LOCAL_HTML_DIRECTORY_PATH, filename))
-            and filename not in file_list
-        ):
+        if os.path.isfile(os.path.join(LOCAL_HTML_DIRECTORY_PATH, filename)) and filename not in file_list:
             file_list.append(filename)
 
     file_list.sort()
@@ -222,9 +203,7 @@ def create_database(
 
         if service_prefix not in schema:
             # The URL to that service's Actions, Resources, and Condition Keys page
-            service_authorization_url_prefix = (
-                "https://docs.aws.amazon.com/service-authorization/latest/reference"
-            )
+            service_authorization_url_prefix = "https://docs.aws.amazon.com/service-authorization/latest/reference"
             service_authorization_url = f"{service_authorization_url_prefix}/{filename}"
             schema[service_prefix] = {
                 "service_name": service_name,
@@ -246,9 +225,7 @@ def create_database(
         for table in tables:
             # There can be 3 tables, the actions table, an ARN table, and a condition key table
             # Example: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssecuritytokenservice.html
-            if not header_matches("actions", table) or not header_matches(
-                "description", table
-            ):
+            if not header_matches("actions", table) or not header_matches("description", table):
                 continue
 
             rows = table.find_all("tr")
@@ -334,13 +311,9 @@ def create_database(
                         dependent_actions_element = cells[resource_cell + 2]
                         dependent_actions = []
                         if dependent_actions_element.text != "":
-                            for action_element in dependent_actions_element.find_all(
-                                "p"
-                            ):
+                            for action_element in dependent_actions_element.find_all("p"):
                                 chomped_action = chomp(action_element.text)
-                                dependent_actions.append(
-                                    sanitize_service_name(chomped_action)
-                                )
+                                dependent_actions.append(sanitize_service_name(chomped_action))
                         if "*" in resource_type:
                             required = True
                             resource_type = resource_type.strip("*")
@@ -379,9 +352,7 @@ def create_database(
 
         # Get resource table
         for table in tables:
-            if not header_matches("resource types", table) or not header_matches(
-                "arn", table
-            ):
+            if not header_matches("resource types", table) or not header_matches("arn", table):
                 continue
 
             rows = table.find_all("tr")
@@ -393,32 +364,23 @@ def create_database(
                     continue
 
                 if len(cells) != 3:
-                    raise Exception(
-                        f"Unexpected number of resource cells {len(cells)} in {filename}"
-                    )
+                    raise Exception(f"Unexpected number of resource cells {len(cells)} in {filename}")
 
                 resource = chomp(cells[0].text)
 
                 arn = no_white_space(cells[1].text)
-                conditions = [
-                    chomp(condition.text) for condition in cells[2].find_all("p")
-                ]
+                conditions = [chomp(condition.text) for condition in cells[2].find_all("p")]
 
                 schema[service_prefix]["resources"][resource] = {
                     "resource": resource,
                     "arn": arn,
                     "condition_keys": conditions,
                 }
-                schema[service_prefix]["resources_lower_name"][resource.lower()] = (
-                    resource
-                )
+                schema[service_prefix]["resources_lower_name"][resource.lower()] = resource
 
         # Get condition keys table
         for table in tables:
-            if not (
-                header_matches("<th> condition keys </th>", table)
-                and header_matches("<th> type </th>", table)
-            ):
+            if not (header_matches("<th> condition keys </th>", table) and header_matches("<th> type </th>", table)):
                 continue
 
             rows = table.find_all("tr")
@@ -430,9 +392,7 @@ def create_database(
                     continue
 
                 if len(cells) != 3:
-                    raise Exception(
-                        f"Unexpected number of condition cells {len(cells)} in {filename}"
-                    )
+                    raise Exception(f"Unexpected number of condition cells {len(cells)} in {filename}")
 
                 condition = no_white_space(cells[0].text)
                 description = chomp(cells[1].text)

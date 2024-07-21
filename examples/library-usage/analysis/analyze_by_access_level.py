@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-from policy_sentry.analysis.analyze import analyze_by_access_level
 import json
 
-if __name__ == '__main__':
+from policy_sentry.analysis.analyze import analyze_by_access_level
+
+if __name__ == "__main__":
     permissions_management_policy = {
         "Version": "2012-10-17",
         "Statement": [
@@ -19,9 +20,9 @@ if __name__ == '__main__':
                     "ecr:ListImages",
                     "ecr:DescribeImages",
                 ],
-                "Resource": "*"
+                "Resource": "*",
             }
-        ]
+        ],
     }
     permissions_management_actions = analyze_by_access_level(permissions_management_policy, "Permissions management")
     print(json.dumps(permissions_management_actions, indent=4))

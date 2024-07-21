@@ -16,11 +16,31 @@ class QueryClickUnitTests(unittest.TestCase):
     def test_click_query_action_table(self):
         """command.query.query_action_table: click testing"""
         cases = [
-            ["action-table", "--service", "all", "--access-level", "permissions-management"],
+            [
+                "action-table",
+                "--service",
+                "all",
+                "--access-level",
+                "permissions-management",
+            ],
             ["action-table", "--service", "all", "--resource-type", "*"],
             ["action-table", "--service", "all"],
-            ["action-table", "--service", "ram", "--access-level", "permissions-management"],
-            ["action-table", "--service", "ram", "--access-level", "permissions-management", "--resource-type", "resource-share"],
+            [
+                "action-table",
+                "--service",
+                "ram",
+                "--access-level",
+                "permissions-management",
+            ],
+            [
+                "action-table",
+                "--service",
+                "ram",
+                "--access-level",
+                "permissions-management",
+                "--resource-type",
+                "resource-share",
+            ],
             ["action-table", "--service", "ses", "--condition", "ses:FeedbackAddress"],
             ["action-table", "--service", "ssm", "--resource-type", "*"],
             ["action-table", "--service", "ram", "--name", "tagresource"],
@@ -48,7 +68,7 @@ class QueryClickUnitTests(unittest.TestCase):
         """command.query.query_condition_table: click testing"""
         cases = [
             ["condition-table", "--service", "cloud9"],
-            ["condition-table",  "--service", "cloud9", "--name", "cloud9:Permissions"],
+            ["condition-table", "--service", "cloud9", "--name", "cloud9:Permissions"],
         ]
         for case in cases:
             result = self.runner.invoke(query, case)

@@ -1,25 +1,25 @@
 #!/usr/bin/env python
 
-from policy_sentry.util.policy_files import get_actions_from_policy
-from policy_sentry.analysis.analyze import determine_actions_to_expand
 import json
 
+from policy_sentry.analysis.analyze import determine_actions_to_expand
+from policy_sentry.util.policy_files import get_actions_from_policy
+
 POLICY_JSON_TO_EXPAND = {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "cloud9:*",
-      ],
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloud9:*",
+            ],
+            "Resource": "*",
+        }
+    ],
 }
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     requested_actions = get_actions_from_policy(POLICY_JSON_TO_EXPAND)
     expanded_actions = determine_actions_to_expand(requested_actions)
     print(json.dumps(expanded_actions, indent=4))

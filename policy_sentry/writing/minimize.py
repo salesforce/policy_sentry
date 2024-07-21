@@ -46,17 +46,13 @@ def _get_prefixes_for_action(action: str) -> list[str]:
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:
 # https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L101
-def get_denied_prefixes_from_desired(
-    desired_actions: list[str], all_actions: set[str]
-) -> set[str]:  # pylint: disable=missing-function-docstring
+def get_denied_prefixes_from_desired(desired_actions: list[str], all_actions: set[str]) -> set[str]:  # pylint: disable=missing-function-docstring
     """
     Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here: https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L101
     """
     denied_actions = all_actions.difference(desired_actions)
     denied_prefixes = {
-        denied_prefix
-        for denied_action in denied_actions
-        for denied_prefix in _get_prefixes_for_action(denied_action)
+        denied_prefix for denied_action in denied_actions for denied_prefix in _get_prefixes_for_action(denied_action)
     }
 
     return denied_prefixes
@@ -86,14 +82,10 @@ def minimize_statement_actions(
     desired_actions = [x.lower() for x in desired_actions]
     desired_services = {f"{action.split(':')[0]}:" for action in desired_actions}
     filtered_actions = {
-        action
-        for action in all_actions
-        if any(action.startswith(service) for service in desired_services)
+        action for action in all_actions if any(action.startswith(service) for service in desired_services)
     }
 
-    denied_prefixes = get_denied_prefixes_from_desired(
-        desired_actions, filtered_actions
-    )
+    denied_prefixes = get_denied_prefixes_from_desired(desired_actions, filtered_actions)
     for action in desired_actions:
         if action in denied_prefixes:
             # print("Action is a denied prefix. Action: {}".format(action))
@@ -108,16 +100,12 @@ def minimize_statement_actions(
                 continue
             # If the action name is not empty
             if prefix not in denied_prefixes and permission:
-                minimized_actions.add(
-                    prefix if prefix in desired_actions else f"{prefix}*"
-                )
+                minimized_actions.add(prefix if prefix in desired_actions else f"{prefix}*")
                 found_prefix = True
                 break
 
         if not found_prefix:
-            logger.debug(
-                f"Could not find suitable prefix. Defaulting to {prefixes[-1]}"
-            )
+            logger.debug(f"Could not find suitable prefix. Defaulting to {prefixes[-1]}")
             minimized_actions.add(prefixes[-1])
     # sort the actions
     minimized_actions_list = sorted(minimized_actions)

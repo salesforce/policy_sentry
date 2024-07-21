@@ -5,7 +5,7 @@ from policy_sentry.querying.conditions import (
     get_condition_key_details,
     get_condition_keys_available_to_raw_arn,
     get_conditions_for_action_and_raw_arn,
-    get_condition_value_type
+    get_condition_value_type,
 )
 
 
@@ -24,7 +24,7 @@ class QueryConditionsTestCase(unittest.TestCase):
             "ram:RequestedResourceType",
             "ram:ResourceArn",
             "ram:ResourceShareName",
-            "ram:ShareOwnerAccountId"
+            "ram:ShareOwnerAccountId",
         ]
         results = get_condition_keys_for_service("ram")
         for expected_result in expected_results:
@@ -35,12 +35,12 @@ class QueryConditionsTestCase(unittest.TestCase):
 
     def test_get_condition_keys_available_to_raw_arn(self):
         expected_results = [
-            'aws:RequestTag/${TagKey}',
-            'aws:ResourceTag/${TagKey}',
-            'aws:TagKeys',
-            'ec2:Region',
-            'ec2:ResourceTag/${TagKey}',
-            'ec2:Vpc'
+            "aws:RequestTag/${TagKey}",
+            "aws:ResourceTag/${TagKey}",
+            "aws:TagKeys",
+            "ec2:Region",
+            "ec2:ResourceTag/${TagKey}",
+            "ec2:Vpc",
         ]
         raw_arn = "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
         result = get_condition_keys_available_to_raw_arn(raw_arn)
@@ -62,16 +62,16 @@ class QueryConditionsTestCase(unittest.TestCase):
     def test_get_conditions_for_action_and_raw_arn(self):
         """querying.conditions.get_conditions_for_action_and_raw_arn"""
         desired_condition_keys_list = [
-            'aws:RequestTag/${TagKey}',
-            'aws:ResourceTag/${TagKey}',
-            'aws:TagKeys',
-            'ec2:Region',
-            'ec2:ResourceTag/${TagKey}',
-            'ec2:Vpc'
+            "aws:RequestTag/${TagKey}",
+            "aws:ResourceTag/${TagKey}",
+            "aws:TagKeys",
+            "ec2:Region",
+            "ec2:ResourceTag/${TagKey}",
+            "ec2:Vpc",
         ]
         output = get_conditions_for_action_and_raw_arn(
             "ec2:AuthorizeSecurityGroupEgress",
-            "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
+            "arn:${Partition}:ec2:${Region}:${Account}:security-group/${SecurityGroupId}",
         )
         self.maxDiff = None
         # print(output)
@@ -133,8 +133,10 @@ class QueryConditionsTestCase(unittest.TestCase):
             "s3:x-amz-server-side-encryption",
             "s3:x-amz-server-side-encryption-aws-kms-key-id",
             "s3:x-amz-storage-class",
-            "s3:x-amz-website-redirect-location"
+            "s3:x-amz-website-redirect-location",
         ]
+
+
 #         for expected_result in expected_results:
 #             self.assertTrue(expected_result in results)
-        # self.assertListEqual(results, expected_results)
+# self.assertListEqual(results, expected_results)

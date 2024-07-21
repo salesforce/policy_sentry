@@ -61,7 +61,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             "ecr:StartLifecyclePolicyPreview",
             "ecr:TagResource",
             "ecr:UntagResource",
-            "ecr:UploadLayerPart"
+            "ecr:UploadLayerPart",
         ]
         # print(determine_actions_to_expand(action_list))
         self.maxDiff = None
@@ -133,9 +133,7 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
             ],
             "Resource": "*",
         }
-        result = analyze_statement_by_access_level(
-            permissions_management_statement, "Permissions management"
-        )
+        result = analyze_statement_by_access_level(permissions_management_statement, "Permissions management")
         # print(permissions_management_actions)
         desired_result = [
             "ecr:SetRepositoryPolicy",
@@ -150,38 +148,32 @@ class AnalysisExpandWildcardActionsTestCase(unittest.TestCase):
         permissions_management_policy = {
             "Statement": [
                 {
-                    "Action": [
-                        "s3:GetObject*",
-                        "s3:PutObject*"
-                    ],
+                    "Action": ["s3:GetObject*", "s3:PutObject*"],
                     "Effect": "Allow",
-                    "Resource": [
-                        "*"
-                    ]
+                    "Resource": ["*"],
                 }
             ],
-            "Version": "2012-10-17"
+            "Version": "2012-10-17",
         }
-        print('********* READ ***********')
+        print("********* READ ***********")
         results = analyze_by_access_level(permissions_management_policy, "Read")
         print(json.dumps(results, indent=4))
         # Rather than maintaining a large list as AWS keeps adding new actions,
         # just verify that an expanded action exists in the list
         self.assertTrue("s3:GetObjectAcl" in results)
-        print('********* LIST ***********')
+        print("********* LIST ***********")
         results = analyze_by_access_level(permissions_management_policy, "List")
         print(json.dumps(results, indent=4))
         self.assertListEqual(results, [])
-        print('********* WRITE ***********')
+        print("********* WRITE ***********")
         results = analyze_by_access_level(permissions_management_policy, "Write")
         print(json.dumps(results, indent=4))
         self.assertTrue("s3:PutObjectLegalHold" in results)
-        print('********* TAGGING ***********')
+        print("********* TAGGING ***********")
         results = analyze_by_access_level(permissions_management_policy, "Tagging")
         print(json.dumps(results, indent=4))
         self.assertTrue("s3:PutObjectTagging" in results)
-        print('********* PERMISSIONS-MANAGEMENT ***********')
+        print("********* PERMISSIONS-MANAGEMENT ***********")
         results = analyze_by_access_level(permissions_management_policy, "Permissions management")
         print(json.dumps(results, indent=4))
         self.assertTrue("s3:PutObjectAcl" in results)
-

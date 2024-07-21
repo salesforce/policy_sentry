@@ -20,9 +20,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)
         self.assertListEqual(
-            sorted(
-                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
-            ),
+            sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)),
             sorted(desired_result),
         )
 
@@ -39,9 +37,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         # minimized_actions_list = minimize_statement_actions(desired_actions, all_actions, minchars)
         self.assertListEqual(
-            sorted(
-                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
-            ),
+            sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)),
             sorted(desired_result),
         )
 
@@ -55,9 +51,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         minchars = 17
         self.maxDiff = None
         self.assertListEqual(
-            sorted(
-                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
-            ),
+            sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)),
             sorted(desired_result),
         )
 
@@ -68,9 +62,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         minchars = None
         self.maxDiff = None
         self.assertListEqual(
-            sorted(
-                minimize_statement_actions(actions_to_minimize, all_actions, minchars)
-            ),
+            sorted(minimize_statement_actions(actions_to_minimize, all_actions, minchars)),
             sorted(desired_result),
         )
 
@@ -83,7 +75,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             ],
             "write": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter",
-            ]
+            ],
         }
         sid_grp = SidGroup()
         write_format = sid_grp.process_template(cfg, minimize=0)
@@ -120,12 +112,12 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             "name": "",
             "read": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter",
-                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2"
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2",
             ],
             "write": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter",
-                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2"
-            ]
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2",
+            ],
         }
         sid_grp = SidGroup()
         write_format = sid_grp.process_template(cfg, minimize=1)
@@ -160,11 +152,15 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
 
         # (2) Check for the presence of certain actions that we know will be there
         self.assertEqual(
-            write_format['Statement'][0]['Action'],
-            ["ssm:deletepar*", "ssm:getpar*", "ssm:la*", "ssm:putp*", 'ssm:un*'],
-            "extra actions are returned"
+            write_format["Statement"][0]["Action"],
+            ["ssm:deletepar*", "ssm:getpar*", "ssm:la*", "ssm:putp*", "ssm:un*"],
+            "extra actions are returned",
         )
-        self.assertEqual(write_format['Statement'][0]['Resource'], cfg['read'], "Wrong resources were returned")
+        self.assertEqual(
+            write_format["Statement"][0]["Resource"],
+            cfg["read"],
+            "Wrong resources were returned",
+        )
 
     def test_minimize_rw_different(self):
         cfg = {
@@ -172,12 +168,12 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             "name": "",
             "read": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter",
-                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2"
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter2",
             ],
             "write": [
                 "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter",
-                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter10"
-            ]
+                "arn:aws:ssm:us-east-1:123456789012:parameter/myparameter10",
+            ],
         }
         sid_grp = SidGroup()
         write_format = sid_grp.process_template(cfg, minimize=1)
@@ -214,18 +210,37 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             ]
         }
         """
-        self.assertEqual(len(write_format['Statement']), 2, "More than two statements returned, expected 2")
-        self.assertEqual(write_format['Statement'][0]['Action'], ['ssm:getpar*'], "extra actions are returned")
-        self.assertEqual(write_format['Statement'][0]['Resource'], cfg['read'], "Wrong resources were returned")
-        self.assertEqual(write_format['Statement'][1]['Action'], ['ssm:deletepar*', 'ssm:la*', 'ssm:putp*', 'ssm:un*'],
-                         "extra actions are returned")
-        self.assertEqual(write_format['Statement'][1]['Resource'], cfg['write'], "Wrong resources were returned")
+        self.assertEqual(
+            len(write_format["Statement"]),
+            2,
+            "More than two statements returned, expected 2",
+        )
+        self.assertEqual(
+            write_format["Statement"][0]["Action"],
+            ["ssm:getpar*"],
+            "extra actions are returned",
+        )
+        self.assertEqual(
+            write_format["Statement"][0]["Resource"],
+            cfg["read"],
+            "Wrong resources were returned",
+        )
+        self.assertEqual(
+            write_format["Statement"][1]["Action"],
+            ["ssm:deletepar*", "ssm:la*", "ssm:putp*", "ssm:un*"],
+            "extra actions are returned",
+        )
+        self.assertEqual(
+            write_format["Statement"][1]["Resource"],
+            cfg["write"],
+            "Wrong resources were returned",
+        )
 
     def test_minimize_arn_case_bucket(self):
         cfg = {
             "mode": "crud",
             "read": ["arn:aws:s3:::bucket_name"],
-            "write": ["arn:aws:s3:::bucket_name"]
+            "write": ["arn:aws:s3:::bucket_name"],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -242,7 +257,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "read": ["arn:aws:codecommit:us-east-1:123456789012:MyDemoRepo"],
-            "write": ["arn:aws:codecommit:us-east-1:123456789012:MyDemoRepo"]
+            "write": ["arn:aws:codecommit:us-east-1:123456789012:MyDemoRepo"],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -253,8 +268,12 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         """minimization test with ARN types from test_does_arn_match_case_3"""
         cfg = {
             "mode": "crud",
-            "read": ["arn:aws:kinesis:us-east-1:account-id:firehose/myfirehose/consumer/someconsumer:${ConsumerCreationTimpstamp}"],
-            "write": ["arn:aws:kinesis:us-east-1:account-id:firehose/myfirehose/consumer/someconsumer:${ConsumerCreationTimpstamp}"]
+            "read": [
+                "arn:aws:kinesis:us-east-1:account-id:firehose/myfirehose/consumer/someconsumer:${ConsumerCreationTimpstamp}"
+            ],
+            "write": [
+                "arn:aws:kinesis:us-east-1:account-id:firehose/myfirehose/consumer/someconsumer:${ConsumerCreationTimpstamp}"
+            ],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -266,7 +285,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "read": ["arn:aws:batch:region:account-id:job-definition/job-name:revision"],
-            "write": ["arn:aws:batch:region:account-id:job-definition/job-name:revision"]
+            "write": ["arn:aws:batch:region:account-id:job-definition/job-name:revision"],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -278,7 +297,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "read": ["arn:aws:states:region:account-id:stateMachine:stateMachineName"],
-            "write": ["arn:aws:states:region:account-id:stateMachine:stateMachineName"]
+            "write": ["arn:aws:states:region:account-id:stateMachine:stateMachineName"],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -290,7 +309,7 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         cfg = {
             "mode": "crud",
             "read": ["arn:aws:states:region:account-id:execution:stateMachineName:executionName"],
-            "write": ["arn:aws:states:region:account-id:execution:stateMachineName:executionName"]
+            "write": ["arn:aws:states:region:account-id:execution:stateMachineName:executionName"],
         }
         sid_group = SidGroup()
         results = sid_group.process_template(cfg, minimize=0)
@@ -325,4 +344,8 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
         print(json.dumps(results, indent=4))
         actions = results["Statement"][0]["Action"]
         actions_set = set(actions)
-        self.assertEqual(len(actions_set), len(actions), "There should be no duplicate strings in the actions.")
+        self.assertEqual(
+            len(actions_set),
+            len(actions),
+            "There should be no duplicate strings in the actions.",
+        )

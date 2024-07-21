@@ -18,7 +18,7 @@ from policy_sentry.querying.actions import (
     get_actions_matching_arn,
     get_actions_matching_arn_type,
     get_api_documentation_link_for_action,
-    get_all_action_links
+    get_all_action_links,
     # get_actions_matching_condition_crud_and_arn
 )
 from policy_sentry.writing.validate import check
@@ -36,7 +36,7 @@ class QueryActionsTestCase(unittest.TestCase):
                 "privileges_lower_name": dict,
                 "resources": dict,
                 "resources_lower_name": dict,
-                "conditions": dict
+                "conditions": dict,
             }
         )
         valid_output = check(desired_output_schema, result)
@@ -67,7 +67,7 @@ class QueryActionsTestCase(unittest.TestCase):
             "ram:RejectResourceShareInvitation",
             "ram:TagResource",
             "ram:UntagResource",
-            "ram:UpdateResourceShare"
+            "ram:UpdateResourceShare",
         ]
         results = get_actions_for_service("ram")
         print(json.dumps(results, indent=4))
@@ -82,7 +82,7 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_for_invalid_service(self):
         """querying.actions.get_actions_for_service
-           for invalid service
+        for invalid service
         """
         output = get_actions_for_service("invalid_service")
         self.assertListEqual([], output)
@@ -102,23 +102,26 @@ class QueryActionsTestCase(unittest.TestCase):
         # Future proofing the unit tests
         self.assertEqual(results["privilege"], expected_results["privilege"])
         self.assertEqual(results["access_level"], expected_results["access_level"])
-        self.assertEqual(results["resource_types"][""]["resource_type"], expected_results["resource_types"][""]["resource_type"])
+        self.assertEqual(
+            results["resource_types"][""]["resource_type"],
+            expected_results["resource_types"][""]["resource_type"],
+        )
         self.assertTrue("aws:RequestTag/${TagKey}" in results["resource_types"][""]["condition_keys"])
         self.assertTrue("ec2:DescribeSubnets" in results["resource_types"][""]["dependent_actions"])
         self.assertTrue("ec2:DescribeVpcs" in results["resource_types"][""]["dependent_actions"])
         self.assertTrue("iam:CreateServiceLinkedRole" in results["resource_types"][""]["dependent_actions"])
         self.assertTrue("environment" in results["service_resources"].keys())
         expected_service_conditions = [
-            'aws:RequestTag/${TagKey}',
-            'aws:ResourceTag/${TagKey}',
-            'aws:TagKeys',
-            'cloud9:EnvironmentId',
-            'cloud9:EnvironmentName',
-            'cloud9:InstanceType',
-            'cloud9:OwnerArn',
-            'cloud9:Permissions',
-            'cloud9:SubnetId',
-            'cloud9:UserArn'
+            "aws:RequestTag/${TagKey}",
+            "aws:ResourceTag/${TagKey}",
+            "aws:TagKeys",
+            "cloud9:EnvironmentId",
+            "cloud9:EnvironmentName",
+            "cloud9:InstanceType",
+            "cloud9:OwnerArn",
+            "cloud9:Permissions",
+            "cloud9:SubnetId",
+            "cloud9:UserArn",
         ]
         for expected_condition in expected_service_conditions:
             self.assertTrue(expected_condition in results["service_conditions"].keys())
@@ -154,9 +157,9 @@ class QueryActionsTestCase(unittest.TestCase):
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
                         "ram:AllowsExternalPrincipals",
-                        "ram:ResourceShareName"
+                        "ram:ResourceShareName",
                     ],
-                    "dependent_actions": []
+                    "dependent_actions": [],
                 },
                 {
                     "action": "ram:TagResource",
@@ -167,10 +170,10 @@ class QueryActionsTestCase(unittest.TestCase):
                     "condition_keys": [
                         "aws:ResourceTag/${TagKey}",
                         "ram:AllowsExternalPrincipals",
-                        "ram:ResourceShareName"
+                        "ram:ResourceShareName",
                     ],
-                    "dependent_actions": []
-                }
+                    "dependent_actions": [],
+                },
             ]
         }
         output = get_action_data("ram", "TagResource")
@@ -182,7 +185,7 @@ class QueryActionsTestCase(unittest.TestCase):
         """querying.actions.get_actions_that_support_wildcard_arns_only"""
         # Variant 1: Secrets manager
         expected_results = [
-            'secretsmanager:BatchGetSecretValue',
+            "secretsmanager:BatchGetSecretValue",
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
@@ -198,7 +201,7 @@ class QueryActionsTestCase(unittest.TestCase):
             "ecr:GetAuthorizationToken",
             "ecr:GetRegistryPolicy",
             "ecr:PutRegistryPolicy",
-            "ecr:PutReplicationConfiguration"
+            "ecr:PutReplicationConfiguration",
         ]
         # print(json.dumps(results, indent=4))
         for item in expected_results:
@@ -211,28 +214,21 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_at_access_level_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_at_access_level_that_support_wildcard_arns_only"""
-        read_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "secretsmanager", "Read"
-        )
-        list_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "secretsmanager", "List"
-        )
-        write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "secretsmanager", "Write"
-        )
-        tagging_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "secretsmanager", "Tagging"
-        )
-        permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "s3", "Permissions management"
-        )
+        read_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "Read")
+        list_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "List")
+        write_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "Write")
+        tagging_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "Tagging")
+        permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only("s3", "Permissions management")
         # print(json.dumps(read_output, indent=4))
         # print(json.dumps(list_output, indent=4))
         # print(json.dumps(write_output, indent=4))
         # print(json.dumps(tagging_output, indent=4))
         # print(json.dumps(permissions_output, indent=4))
-        self.assertListEqual(read_output, ['secretsmanager:GetRandomPassword'])
-        self.assertListEqual(list_output, ['secretsmanager:BatchGetSecretValue', 'secretsmanager:ListSecrets'])
+        self.assertListEqual(read_output, ["secretsmanager:GetRandomPassword"])
+        self.assertListEqual(
+            list_output,
+            ["secretsmanager:BatchGetSecretValue", "secretsmanager:ListSecrets"],
+        )
         self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
         for item in ["s3:PutAccountPublicAccessBlock"]:
@@ -240,9 +236,7 @@ class QueryActionsTestCase(unittest.TestCase):
         all_permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only(
             "all", "Permissions management"
         )
-        all_write_output = get_actions_at_access_level_that_support_wildcard_arns_only(
-            "all", "Write"
-        )
+        all_write_output = get_actions_at_access_level_that_support_wildcard_arns_only("all", "Write")
 
         print(len(all_permissions_output) + len(all_write_output))
         # print(len(all_write_output))
@@ -251,10 +245,8 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_with_access_level(self):
         """querying.actions.get_actions_with_access_level"""
-        desired_output = ['workspaces:CreateTags', 'workspaces:DeleteTags']
-        output = get_actions_with_access_level(
-            "workspaces", "Tagging"
-        )
+        desired_output = ["workspaces:CreateTags", "workspaces:DeleteTags"]
+        output = get_actions_with_access_level("workspaces", "Tagging")
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
         # output = get_actions_with_access_level(
@@ -265,14 +257,16 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_1(self):
         """querying.actions.get_actions_with_arn_type_and_access_level"""
         desired_output = [
-            's3:DeleteBucketPolicy',
-            's3:PutBucketAcl',
-            's3:PutBucketPolicy',
-            's3:PutBucketPublicAccessBlock'
+            "s3:DeleteBucketPolicy",
+            "s3:PutBucketAcl",
+            "s3:PutBucketPolicy",
+            "s3:PutBucketPublicAccessBlock",
         ]
         output = get_actions_with_arn_type_and_access_level(
             # "ram", "resource-share", "Write"
-            "s3", "bucket", "Permissions management"
+            "s3",
+            "bucket",
+            "Permissions management",
         )
         self.maxDiff = None
         self.assertListEqual(desired_output, output)
@@ -280,26 +274,26 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_2(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
-            'ssm:DeleteParameter',
-            'ssm:DeleteParameters',
-            'ssm:LabelParameterVersion',
-            'ssm:PutParameter'
-]
-        output = get_actions_with_arn_type_and_access_level(
-            "ssm", "parameter", "Write"
-        )
+            "ssm:DeleteParameter",
+            "ssm:DeleteParameters",
+            "ssm:LabelParameterVersion",
+            "ssm:PutParameter",
+        ]
+        output = get_actions_with_arn_type_and_access_level("ssm", "parameter", "Write")
         for item in desired_output:
             self.assertTrue(item in output)
 
     def test_get_actions_with_arn_type_and_access_level_case_3(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
-            's3:PutAccountPublicAccessBlock',
-            's3:PutAccessPointPublicAccessBlock'
+            "s3:PutAccountPublicAccessBlock",
+            "s3:PutAccessPointPublicAccessBlock",
         ]
         output = get_actions_with_arn_type_and_access_level(
             # "ram", "resource-share", "Write"
-            "s3", "*", "Permissions management"
+            "s3",
+            "*",
+            "Permissions management",
         )
         print(output)
         for item in desired_output:
@@ -309,20 +303,16 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_with_arn_type_and_access_level_case_4(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
         desired_output = [
-            'secretsmanager:BatchGetSecretValue',
-            'secretsmanager:ListSecrets',
+            "secretsmanager:BatchGetSecretValue",
+            "secretsmanager:ListSecrets",
         ]
-        output = get_actions_with_arn_type_and_access_level(
-            "secretsmanager", "*", "List"
-        )
+        output = get_actions_with_arn_type_and_access_level("secretsmanager", "*", "List")
         self.assertCountEqual(desired_output, output)
 
     def test_get_actions_with_arn_type_and_access_level_case_5(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
 
-        output = get_actions_with_arn_type_and_access_level(
-            "s3", "object", "List"
-        )
+        output = get_actions_with_arn_type_and_access_level("s3", "object", "List")
         self.assertTrue("s3:ListMultipartUploadParts" in output)
 
     def test_get_actions_matching_arn_type_case_1(self):
@@ -333,9 +323,9 @@ class QueryActionsTestCase(unittest.TestCase):
             "ecr:GetAuthorizationToken",
             "ecr:GetRegistryPolicy",
             "ecr:PutRegistryPolicy",
-            "ecr:PutReplicationConfiguration"
+            "ecr:PutReplicationConfiguration",
         ]
-        results = get_actions_matching_arn_type('ecr', '*')
+        results = get_actions_matching_arn_type("ecr", "*")
         print(json.dumps(results, indent=4))
         for item in expected_results:
             self.assertTrue(item in results)
@@ -343,21 +333,21 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_matching_arn_type_case_2(self):
         """querying.actions.get_actions_matching_arn_type"""
-        output = get_actions_matching_arn_type('all', 'object')
-        self.assertTrue('s3:AbortMultipartUpload' in output)
+        output = get_actions_matching_arn_type("all", "object")
+        self.assertTrue("s3:AbortMultipartUpload" in output)
 
     def test_get_actions_matching_arn_type_case_3(self):
         """querying.actions.get_actions_matching_arn_type"""
-        output = get_actions_matching_arn_type('rds', 'object')
+        output = get_actions_matching_arn_type("rds", "object")
         self.assertTrue(len(output) == 0)
 
     def test_get_actions_matching_arn_type_case_4(self):
         """querying.actions.get_actions_matching_arn_type"""
 
         desired_output = [
-            'codestar:CreateUserProfile',
-            'codestar:DeleteUserProfile',
-            'codestar:UpdateUserProfile'
+            "codestar:CreateUserProfile",
+            "codestar:DeleteUserProfile",
+            "codestar:UpdateUserProfile",
         ]
 
         output = get_actions_matching_arn_type("codestar", "user")
@@ -367,13 +357,11 @@ class QueryActionsTestCase(unittest.TestCase):
     def test_get_actions_matching_condition_key(self):
         """querying.actions.get_actions_matching_condition_key"""
 
-        results = get_actions_matching_condition_key(
-            "ses", "ses:FeedbackAddress"
-        )
+        results = get_actions_matching_condition_key("ses", "ses:FeedbackAddress")
         expected_results = [
             # 'ses:SendBulkTemplatedEmail',
             # 'ses:SendCustomVerificationEmail',
-            'ses:SendEmail',
+            "ses:SendEmail",
             # 'ses:SendRawEmail',
             # 'ses:SendTemplatedEmail'
         ]
@@ -442,34 +430,24 @@ class QueryActionsTestCase(unittest.TestCase):
         ]
         self.maxDiff = None
         # Read
-        result = remove_actions_not_matching_access_level(
-            actions_list, "Read"
-        )
+        result = remove_actions_not_matching_access_level(actions_list, "Read")
         expected = ["ecr:BatchGetImage"]
         self.assertListEqual(result, ["ecr:BatchGetImage", "ecr:DescribeRepositories"])
         # Write
-        result = remove_actions_not_matching_access_level(
-            actions_list, "Write"
-        )
+        result = remove_actions_not_matching_access_level(actions_list, "Write")
 
         self.assertListEqual(result, ["ecr:CreateRepository"])
         # List
-        result = remove_actions_not_matching_access_level(
-            actions_list, "List"
-        )
+        result = remove_actions_not_matching_access_level(actions_list, "List")
         # self.assertListEqual(result, ["ecr:DescribeRepositories"])
         # DescribeRepositories is no longer considered a "list" action.
         self.assertListEqual(result, [])
 
         # Tagging
-        result = remove_actions_not_matching_access_level(
-            actions_list, "Tagging"
-        )
+        result = remove_actions_not_matching_access_level(actions_list, "Tagging")
         self.assertListEqual(result, ["ecr:TagResource"])
         # Permissions management
-        result = remove_actions_not_matching_access_level(
-            actions_list, "Permissions management"
-        )
+        result = remove_actions_not_matching_access_level(actions_list, "Permissions management")
         self.assertListEqual(result, ["ecr:SetRepositoryPolicy"])
 
         bad_actions_list = [
@@ -520,12 +498,9 @@ class QueryActionsTestCase(unittest.TestCase):
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
-        output = remove_actions_that_are_not_wildcard_arn_only(
-            provided_actions_list
-        )
+        output = remove_actions_that_are_not_wildcard_arn_only(provided_actions_list)
         self.maxDiff = None
         self.assertCountEqual(desired_output, output)
-
 
     def test_weird_lowercase_uppercase(self):
         """test_weird_lowercase_uppercase: Same as test_remove_actions_that_are_not_wildcard_arn_only, but with wEiRd cases"""
@@ -542,9 +517,7 @@ class QueryActionsTestCase(unittest.TestCase):
             "secretsmanager:GetRandomPassword",
             "secretsmanager:ListSecrets",
         ]
-        output = remove_actions_that_are_not_wildcard_arn_only(
-            provided_actions_list
-        )
+        output = remove_actions_that_are_not_wildcard_arn_only(provided_actions_list)
         print(json.dumps(output))
         self.maxDiff = None
         self.assertCountEqual(desired_output, output)

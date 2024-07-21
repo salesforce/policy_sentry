@@ -35,9 +35,7 @@ class PreBuildCommand(build_py):
         build_iam_data_path = Path(self.build_lib) / src_iam_data_path
 
         self.mkpath(str(build_iam_data_path.parent))
-        minified = json.dumps(
-            json.loads(src_iam_data_path.read_bytes()), separators=(",", ":")
-        )
+        minified = json.dumps(json.loads(src_iam_data_path.read_bytes()), separators=(",", ":"))
         build_iam_data_path.write_text(minified)
 
     def run(self) -> None:

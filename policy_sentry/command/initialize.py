@@ -56,9 +56,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     "--verbose",
     "-v",
-    type=click.Choice(
-        ["critical", "error", "warning", "info", "debug"], case_sensitive=False
-    ),
+    type=click.Choice(["critical", "error", "warning", "info", "debug"], case_sensitive=False),
 )
 def initialize_command(
     access_level_overrides_file: str | None,
@@ -104,11 +102,7 @@ def initialize(
 
     # Create overrides file, which allows us to override the Access Levels
     # provided by AWS documentation
-    file_list = [
-        f
-        for f in BUNDLED_DATA_DIRECTORY.iterdir()
-        if (BUNDLED_DATA_DIRECTORY / f).is_file()
-    ]
+    file_list = [f for f in BUNDLED_DATA_DIRECTORY.iterdir() if (BUNDLED_DATA_DIRECTORY / f).is_file()]
 
     for file in file_list:
         if file.suffix == ".yml":
@@ -150,9 +144,7 @@ def create_policy_sentry_config_directory() -> Path:
     logger.debug(f"We will store the new database here: {DATASTORE_FILE_PATH}")
     # If the database file already exists, remove it
     if LOCAL_DATASTORE_FILE_PATH.exists():
-        logger.debug(
-            f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it."
-        )
+        logger.debug(f"The database at {DATASTORE_FILE_PATH} already exists. Removing and replacing it.")
         LOCAL_DATASTORE_FILE_PATH.unlink()
     else:
         CONFIG_DIRECTORY.mkdir(exist_ok=True)

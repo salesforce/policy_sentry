@@ -28,9 +28,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             "arn:aws:kms:us-east-1:123456789012:key/123456",
         ]
         access_level = "Permissions management"
-        sid_group.add_by_arn_and_access_level(
-            arn_list_from_user, access_level
-        )
+        sid_group.add_by_arn_and_access_level(arn_list_from_user, access_level)
         output = sid_group.get_sid_group()
         # print(json.dumps(output, indent=4))
         desired_output = {
@@ -113,9 +111,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         sid_group = SidGroup()
         arn_list_from_user = ["arn:aws:s3:::example-org-s3-access-logs"]
         access_level = "Permissions management"
-        sid_group.add_by_arn_and_access_level(
-            arn_list_from_user, access_level
-        )
+        sid_group.add_by_arn_and_access_level(arn_list_from_user, access_level)
         status = sid_group.get_sid_group()
         self.maxDiff = None
         # print(json.dumps(status, indent=4))
@@ -152,9 +148,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
             "Read",
         )
-        sid_group.add_by_arn_and_access_level(
-            ["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging"
-        )
+        sid_group.add_by_arn_and_access_level(["arn:aws:s3:::example-org-sbx-vmimport/stuff"], "Tagging")
         sid_group.add_by_arn_and_access_level(
             ["arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret"],
             "Write",
@@ -167,9 +161,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             ["arn:aws:kms:us-east-1:123456789012:key/123456"],
             "Permissions management",
         )
-        sid_group.add_by_arn_and_access_level(
-            ["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List"
-        )
+        sid_group.add_by_arn_and_access_level(["arn:aws:ssm:us-east-1:123456789012:parameter/test"], "List")
 
         result = sid_group.get_rendered_policy()
         expected_statement_ids = [
@@ -177,7 +169,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             "S3TaggingObject",
             "SecretsmanagerWriteSecret",
             "KmsPermissionsmanagementKey",
-            "SsmListParameter"
+            "SsmListParameter",
         ]
         # print(json.dumps(output, indent=4))
         self.maxDiff = None
@@ -190,9 +182,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             "mode": "crud",
             "name": "RoleNameWithCRUD",
             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-            "list": [
-                "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
-            ],
+            "list": ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"],
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(cfg)
@@ -247,9 +237,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "IamReadAccessreport",
                     "Effect": "Allow",
                     "Action": ["iam:GenerateOrganizationsAccessReport"],
-                    "Resource": [
-                        "arn:${Partition}:iam::${Account}:access-report/${EntityPath}"
-                    ],
+                    "Resource": ["arn:${Partition}:iam::${Account}:access-report/${EntityPath}"],
                 },
             ],
         }
@@ -266,9 +254,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         #  organizations:ListPoliciesForTarget,organizations:ListRoots,organizations:ListTargetsForPolicy
 
         sid_group = SidGroup()
-        sid_group.add_by_arn_and_access_level(
-            ["arn:aws:iam::000000000000:access-report/somepath"], "Read"
-        )
+        sid_group.add_by_arn_and_access_level(["arn:aws:iam::000000000000:access-report/somepath"], "Read")
         output = sid_group.get_rendered_policy()
         desired_output = {
             "Version": "2012-10-17",
@@ -302,7 +288,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
         sid_group = SidGroup()
         sid_group.add_by_arn_and_access_level(
-            ["arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}"], "Read"
+            ["arn:${Partition}:${Vendor}:${Region}:*:${ResourceType}:${RecoveryPointId}"],
+            "Read",
         )
 
         self.assertTrue(not sid_group.sids)
@@ -319,9 +306,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Sid": "KmsPermissionsmanagementKey",
                     "Effect": "Allow",
                     "Action": ["kms:CreateGrant"],
-                    "Resource": [
-                        "arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"
-                    ],
+                    "Resource": ["arn:${Partition}:kms:${Region}:${Account}:key/${KeyId}"],
                 },
                 {
                     "Sid": "MultMultNone",
@@ -339,56 +324,56 @@ class SidGroupCrudTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertDictEqual(output, desired_output)
 
-#     def test_add_crud_with_wildcard(self):
-#         cfg = {
-#             "mode": "crud",
-#             "name": "RoleNameWithCRUD",
-#             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
-#             "wildcard-only": {
-#                 "single-actions": [
-#                     # The first three are legitimately wildcard only.
-#                     # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
-#                     "ram:enablesharingwithawsorganization",
-#                     "ram:getresourcepolicies",
-#                     "secretsmanager:createsecret",
-#                     # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
-#                     # bypassing this mechanism, while allowing them to explicitly
-#                     # request specific privs that require wildcard mode. This next value -
-#                     # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
-#                     "secretsmanager:putsecretvalue",
-#                 ],
-#             }
-#         }
-#         sid_group = SidGroup()
-#         output = sid_group.process_template(cfg)
-#         desired_output = {
-#             "Version": "2012-10-17",
-#             "Statement": [
-#                 {
-#                     "Sid": "MultMultNone",
-#                     "Effect": "Allow",
-#                     "Action": [
-#                         "ram:EnableSharingWithAwsOrganization",
-#                         "ram:GetResourcePolicies",
-#                     ],
-#                     "Resource": ["*"],
-#                 },
-#                 {
-#                     "Sid": "S3PermissionsmanagementBucket",
-#                     "Effect": "Allow",
-#                     "Action": [
-#                         "s3:DeleteBucketPolicy",
-#                         "s3:PutBucketAcl",
-#                         "s3:PutBucketPolicy",
-#                         "s3:PutBucketPublicAccessBlock",
-#                     ],
-#                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
-#                 },
-#             ],
-#         }
-#         self.maxDiff = None
-#         # print(json.dumps(output, indent=4))
-#         self.assertDictEqual(output, desired_output)
+    #     def test_add_crud_with_wildcard(self):
+    #         cfg = {
+    #             "mode": "crud",
+    #             "name": "RoleNameWithCRUD",
+    #             "permissions-management": ["arn:aws:s3:::example-org-s3-access-logs"],
+    #             "wildcard-only": {
+    #                 "single-actions": [
+    #                     # The first three are legitimately wildcard only.
+    #                     # Verify with `policy_sentry query action-table --service secretsmanager --wildcard-only`
+    #                     "ram:enablesharingwithawsorganization",
+    #                     "ram:getresourcepolicies",
+    #                     "secretsmanager:createsecret",
+    #                     # This last one can be "secret" ARN type OR wildcard. We want to prevent people from
+    #                     # bypassing this mechanism, while allowing them to explicitly
+    #                     # request specific privs that require wildcard mode. This next value -
+    #                     # secretsmanager:putsecretvalue - is an example of someone trying to beat the tool.
+    #                     "secretsmanager:putsecretvalue",
+    #                 ],
+    #             }
+    #         }
+    #         sid_group = SidGroup()
+    #         output = sid_group.process_template(cfg)
+    #         desired_output = {
+    #             "Version": "2012-10-17",
+    #             "Statement": [
+    #                 {
+    #                     "Sid": "MultMultNone",
+    #                     "Effect": "Allow",
+    #                     "Action": [
+    #                         "ram:EnableSharingWithAwsOrganization",
+    #                         "ram:GetResourcePolicies",
+    #                     ],
+    #                     "Resource": ["*"],
+    #                 },
+    #                 {
+    #                     "Sid": "S3PermissionsmanagementBucket",
+    #                     "Effect": "Allow",
+    #                     "Action": [
+    #                         "s3:DeleteBucketPolicy",
+    #                         "s3:PutBucketAcl",
+    #                         "s3:PutBucketPolicy",
+    #                         "s3:PutBucketPublicAccessBlock",
+    #                     ],
+    #                     "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
+    #                 },
+    #             ],
+    #         }
+    #         self.maxDiff = None
+    #         # print(json.dumps(output, indent=4))
+    #         self.assertDictEqual(output, desired_output)
 
     def test_sid_group_override(self):
         sid_group = SidGroup()
@@ -400,12 +385,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 {
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
-                    "Action": [
-                        "ram:GetResourcePolicies"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Action": ["ram:GetResourcePolicies"],
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "S3PermissionsmanagementBucket",
@@ -414,11 +395,9 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
                         "s3:PutBucketPolicy",
-                        "s3:PutBucketPublicAccessBlock"
+                        "s3:PutBucketPublicAccessBlock",
                     ],
-                    "Resource": [
-                        "arn:aws:s3:::example-org-s3-access-logs"
-                    ]
+                    "Resource": ["arn:aws:s3:::example-org-s3-access-logs"],
                 },
                 {
                     "Sid": "SkipResourceConstraints",
@@ -426,19 +405,17 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "ssm:GetParameter",
                         "ssm:GetParameters",
-                        "ssm:GetParametersByPath"
+                        "ssm:GetParametersByPath",
                     ],
-                    "Resource": [
-                        "*"
-                    ]
-                }
-            ]
+                    "Resource": ["*"],
+                },
+            ],
         }
         # print(json.dumps(output, indent=4))
         expected_statement_ids = [
             "MultMultNone",
             "S3PermissionsmanagementBucket",
-            "SkipResourceConstraints"
+            "SkipResourceConstraints",
         ]
         for statement in output.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
@@ -460,10 +437,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
             crud_with_exclude_actions_cfg = yaml.safe_load(this_yaml_file)
         sid_group.process_template(crud_with_exclude_actions_cfg)
         result = sid_group.get_rendered_policy(crud_with_exclude_actions_cfg)
-        expected_statement_ids = [
-            "MultMultNone",
-            "KmsWriteKey"
-        ]
+        expected_statement_ids = ["MultMultNone", "KmsWriteKey"]
         expected_result = {
             "Version": "2012-10-17",
             "Statement": [
@@ -487,13 +461,11 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "kms:Sign",
                         "kms:UpdateAlias",
                         "kms:UpdateKeyDescription",
-                        "kms:Verify"
+                        "kms:Verify",
                     ],
-                    "Resource": [
-                        "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
-                    ]
+                    "Resource": ["arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"],
                 }
-            ]
+            ],
         }
         # print(json.dumps(result, indent=4))
         for statement in result.get("Statement"):
@@ -502,9 +474,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
 
         crud_with_exclude_actions_cfg = {
             "mode": "crud",
-            "write": [
-                "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
-            ],
+            "write": ["arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"],
             # This is really only because KMS is a special case.
             "exclude-actions": [
                 "kms:Delete*",
@@ -518,8 +488,8 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "kms:Sign*",
                 "kms:Schedule*",
                 "kms:Update*",
-                "kms:Verify*"
-            ]
+                "kms:Verify*",
+            ],
         }
         sid_group.process_template(crud_with_exclude_actions_cfg)
         results = sid_group.get_rendered_policy()
@@ -533,26 +503,17 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 {
                     "Sid": "KmsWriteKey",
                     "Effect": "Allow",
-                    "Action": [
-                        "kms:Decrypt",
-                        "kms:Encrypt"
-                    ],
-                    "Resource": [
-                        "arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"
-                    ]
+                    "Action": ["kms:Decrypt", "kms:Encrypt"],
+                    "Resource": ["arn:aws:kms:us-east-1:123456789012:key/aaaa-bbbb-cccc"],
                 }
-            ]
+            ],
         }
-        expected_statement_ids = [
-            "KmsWriteKey",
-            "MultMultNone"
-        ]
+        expected_statement_ids = ["KmsWriteKey", "MultMultNone"]
         for statement in result.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
         print(json.dumps(results, indent=4))
         self.maxDiff = None
         # self.assertDictEqual(results, expected_result)
-
 
     def test_exclude_actions_empty_sid_from_crud_output(self):
         sid_group = SidGroup()
@@ -608,13 +569,11 @@ class SidGroupCrudTestCase(unittest.TestCase):
                         "s3:PutInventoryConfiguration",
                         "s3:PutLifecycleConfiguration",
                         "s3:PutMetricsConfiguration",
-                        "s3:PutReplicationConfiguration"
+                        "s3:PutReplicationConfiguration",
                     ],
-                    "Resource": [
-                        "arn:aws:s3:::test"
-                    ]
+                    "Resource": ["arn:aws:s3:::test"],
                 }
-            ]
+            ],
         }
         self.maxDiff = None
         print(json.dumps(result, indent=4))
@@ -623,15 +582,12 @@ class SidGroupCrudTestCase(unittest.TestCase):
             self.assertIn(action, result["Statement"][0]["Action"])
         # self.assertDictEqual(result, expected_result)
 
-
     def test_write_template_with_sts_actions(self):
         cfg = {
             "mode": "crud",
             "name": "RoleNameWithCRUD",
             "sts": {"assume-role-with-web-identity": ["arn:aws:iam::123456789012:role/demo"]},
-            "list": [
-                "arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"
-            ],
+            "list": ["arn:aws:secretsmanager:us-east-1:123456789012:secret:anothersecret"],
         }
         sid_group = SidGroup()
         rendered_policy = sid_group.process_template(cfg)
@@ -641,14 +597,10 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 {
                     "Sid": "AssumeRoleWithWebIdentity",
                     "Effect": "Allow",
-                    "Action": [
-                        "sts:AssumeRoleWithWebIdentity"
-                    ],
-                    "Resource": [
-                        "arn:aws:iam::123456789012:role/demo"
-                    ]
+                    "Action": ["sts:AssumeRoleWithWebIdentity"],
+                    "Resource": ["arn:aws:iam::123456789012:role/demo"],
                 }
-            ]
+            ],
         }
 
         # print(json.dumps(rendered_policy, indent=4))

@@ -3,7 +3,10 @@ import json
 import os
 from policy_sentry.command.write_policy import write_policy_with_template
 from policy_sentry.util.file import read_yaml_file
-from policy_sentry.util.policy_files import get_sid_names_from_policy, get_statement_from_policy_using_sid
+from policy_sentry.util.policy_files import (
+    get_sid_names_from_policy,
+    get_statement_from_policy_using_sid,
+)
 
 
 # class WritePolicyPreventWildcardEscalation(unittest.TestCase):
@@ -73,10 +76,11 @@ from policy_sentry.util.policy_files import get_sid_names_from_policy, get_state
 #         policy = write_policy_with_template(cfg)
 #         print(policy)
 
+
 class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
     def test_add_wildcard_only_actions_matching_services_and_access_level(self):
         """test_add_wildcard_only_actions_matching_services_and_access_level: We'd never write a policy like this
-        IRL but doing this as a quality check against how it handles the database """
+        IRL but doing this as a quality check against how it handles the database"""
         policy_file_path = os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
@@ -134,8 +138,16 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
         # To future-proof this unit test...
         # (1) check the Sid names
         sid_names = get_sid_names_from_policy(results)
-        self.assertIn("MultMultNone", sid_names, "Sid is not in the list of expected Statement Ids")
-        self.assertIn("S3PermissionsmanagementBucket", sid_names, "Sid is not in the list of expected Statement Ids")
+        self.assertIn(
+            "MultMultNone",
+            sid_names,
+            "Sid is not in the list of expected Statement Ids",
+        )
+        self.assertIn(
+            "S3PermissionsmanagementBucket",
+            sid_names,
+            "Sid is not in the list of expected Statement Ids",
+        )
 
         # (2) Check for the presence of certain actions that we know will be there
         statement_1 = get_statement_from_policy_using_sid(results, "MultMultNone")
@@ -173,13 +185,11 @@ class WildcardOnlyServiceLevelTestCase(unittest.TestCase):
                     "Action": [
                         "eks:ListClusters",
                         "eks:CreateCluster",
-                        "eks:RegisterCluster"
+                        "eks:RegisterCluster",
                     ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Resource": ["*"],
                 }
-            ]
+            ],
         }
         self.assertEqual(result["Statement"][0]["Sid"], expected_results["Statement"][0]["Sid"])
         self.assertTrue("eks:ListClusters" in result["Statement"][0]["Action"])
@@ -231,29 +241,24 @@ class RdsWritingTestCase(unittest.TestCase):
                     "Action": [
                         "rds:DownloadCompleteDBLogFile",
                         "rds:DownloadDBLogFilePortion",
-                        "rds:ListTagsForResource"
+                        "rds:ListTagsForResource",
                     ],
-                    "Resource": [
-                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
-                    ]
+                    "Resource": ["arn:aws:rds:us-east-1:123456789012:db:mydatabase"],
                 }
-            ]
+            ],
         }
         expected_actions = [
             "rds:DownloadCompleteDBLogFile",
             "rds:DownloadDBLogFilePortion",
-            "rds:ListTagsForResource"
+            "rds:ListTagsForResource",
         ]
         output = write_policy_with_template(cfg)
         print(json.dumps(output, indent=4))
-        expected_statement_ids = [
-            "RdsReadDb"
-        ]
+        expected_statement_ids = ["RdsReadDb"]
         for statement in output.get("Statement"):
             self.assertTrue(statement.get("Sid") in expected_statement_ids)
         for action in expected_actions:
             self.assertTrue(action in output["Statement"][0]["Action"])
-
 
     def test_rds_policy_read_write_list(self):
         """test_rds_policy_read_write_list: Make sure that the RDS Policies work properly for multiple levels"""
@@ -276,21 +281,15 @@ class RdsWritingTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "rds:DownloadDBLogFilePortion",
-                        "rds:ListTagsForResource"
+                        "rds:ListTagsForResource",
                     ],
-                    "Resource": [
-                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
-                    ]
+                    "Resource": ["arn:aws:rds:us-east-1:123456789012:db:mydatabase"],
                 },
                 {
                     "Sid": "MultMultNone",
                     "Effect": "Allow",
-                    "Action": [
-                        "iam:PassRole"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
+                    "Action": ["iam:PassRole"],
+                    "Resource": ["*"],
                 },
                 {
                     "Sid": "RdsWriteDb",
@@ -311,11 +310,9 @@ class RdsWritingTestCase(unittest.TestCase):
                         "rds:RestoreDBInstanceFromS3",
                         "rds:RestoreDBInstanceToPointInTime",
                         "rds:StartDBInstance",
-                        "rds:StopDBInstance"
+                        "rds:StopDBInstance",
                     ],
-                    "Resource": [
-                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
-                    ]
+                    "Resource": ["arn:aws:rds:us-east-1:123456789012:db:mydatabase"],
                 },
                 {
                     "Sid": "RdsListDb",
@@ -325,19 +322,17 @@ class RdsWritingTestCase(unittest.TestCase):
                         "rds:DescribeDBProxyTargets",
                         "rds:DescribeDBSnapshots",
                         "rds:DescribePendingMaintenanceActions",
-                        "rds:DescribeValidDBInstanceModifications"
+                        "rds:DescribeValidDBInstanceModifications",
                     ],
-                    "Resource": [
-                        "arn:aws:rds:us-east-1:123456789012:db:mydatabase"
-                    ]
-                }
-            ]
+                    "Resource": ["arn:aws:rds:us-east-1:123456789012:db:mydatabase"],
+                },
+            ],
         }
         expected_statement_ids = [
             "RdsReadDb",
             "MultMultNone",
             "RdsWriteDb",
-            "RdsListDb"
+            "RdsListDb",
         ]
         policy = write_policy_with_template(cfg)
         for statement in policy.get("Statement"):
