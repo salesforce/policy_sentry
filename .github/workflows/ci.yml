@@ -19,11 +19,27 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
       - uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f  # v5.1.1
         with:
-          python-version: '3.8' # needed for 'pyupgrade'
+          python-version: '3.8'
       - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd  # v3.0.1
 
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+      - uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f  # v5.1.1
+        with:
+          python-version: '3.8'
+      - run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install invoke
+
+      - run: invoke build.build-package
+      - run: invoke sanity.validate-sdist
+      - run: invoke sanity.validate-wheel
+
   ci:
-    needs: pre-commit
+    needs: [pre-commit, sanity]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -48,10 +64,9 @@ jobs:
       - run: invoke unit.pytest
       - run: invoke integration.query
       - run: invoke integration.write-policy
-      - run: invoke build.uninstall-package
 
   python-version:
-    needs: pre-commit
+    needs: [pre-commit, sanity]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -78,4 +93,3 @@ jobs:
       - run: invoke unit.pytest
       - run: invoke integration.query
       - run: invoke integration.write-policy
-      - run: invoke build.uninstall-package
