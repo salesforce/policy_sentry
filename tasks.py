@@ -35,6 +35,9 @@ ns.add_collection(build)
 docker = Collection("docker")
 ns.add_collection(docker)
 
+sanity = Collection("sanity")
+ns.add_collection(sanity)
+
 
 @task
 def build_docs(c):
@@ -59,7 +62,7 @@ def download_latest_aws_docs(c):
 def build_package(c):
     """Build the policy_sentry package from the current directory contents for use with PyPi"""
     c.run("python -m pip install --upgrade setuptools wheel")
-    c.run("python setup.py -q sdist bdist_wheel")
+    c.run("python setup.py sdist bdist_wheel")
 
 
 @task(pre=[build_package])
@@ -306,6 +309,21 @@ def build_docker(c):
     c.run("docker build -t kmcquade/policy_sentry .")
 
 
+# Sanity checks
+@task(post=[uninstall_package])
+def validate_wheel(c):
+    """Validate the wheel can be installed and works properly"""
+    c.run("pip3 install dist/policy_sentry-*.whl")
+    c.run("policy_sentry query service-table --fmt csv", pty=True)
+
+
+@task(post=[uninstall_package])
+def validate_sdist(c):
+    """Validate the sdist archive can be installed and works properly"""
+    c.run("pip3 install dist/policy_sentry-*.tar.gz")
+    c.run("policy_sentry query service-table --fmt csv", pty=True)
+
+
 # Add all testing tasks to the test collection
 integration.add_task(clean_config_directory, "clean")
 integration.add_task(version_check, "version")
@@ -331,3 +349,6 @@ build.add_task(upload_to_pypi_prod_server, "upload-prod")
 build.add_task(upload_to_pypi_prod_server, "upload-prod")
 
 docker.add_task(build_docker, "build-docker")
+
+sanity.add_task(validate_wheel, "validate-wheel")
+sanity.add_task(validate_sdist, "validate-sdist")
