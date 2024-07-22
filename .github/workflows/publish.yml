@@ -45,6 +45,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
       - name: create python package
@@ -53,7 +54,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git fetch --tags
           git pull origin master
-          pip install setuptools wheel twine
+          pip install --upgrade setuptools wheel twine
           python setup.py sdist bdist_wheel
 
       - run: invoke sanity.validate-sdist
