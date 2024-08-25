@@ -47,7 +47,7 @@ class RegisterMinimizeLengthCommand(click.Command):
 
     def parse_args(self, ctx: Context, args: list[str]) -> list[str]:
         options = [o for o in ctx.command.params if getattr(o, "register_length", None)]
-        prefixes = {p for p in sum([o.opts for o in options], []) if p.startswith("--")}  # noqa: RUF017
+        prefixes = {p for p in sum((o.opts for o in options), []) if p.startswith("--")}  # noqa: RUF017
         for i, a in enumerate(args):
             a_tuple = a.split("=")
             if a_tuple[0] in prefixes:
