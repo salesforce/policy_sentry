@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c11c13">
+             <table id="w43aab5b9d554c11c13">
               <thead>
                <tr>
                 <th>
@@ -496,17 +496,33 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonelasticcontainerregistry-CreateRepository" tabindex="-1">
+               <td id="amazonelasticcontainerregistry-CreateRepository" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_CreateRepository.html">
                  CreateRepository
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create an image repository
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonelasticcontainerregistry-repository">
+                  repository*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ecr:TagResource
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -522,9 +538,6 @@
                 </p>
                </td>
                <td tabindex="-1">
-                <p>
-                 ecr:TagResource
-                </p>
                </td>
               </tr>
               <tr>
@@ -545,10 +558,19 @@
                </td>
                <td tabindex="-1">
                 <p>
+                 ecr:CreateRepository
+                </p>
+                <p>
                  ecr:PutLifecyclePolicy
                 </p>
                 <p>
                  ecr:SetRepositoryPolicy
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
                 </p>
                </td>
               </tr>
@@ -806,7 +828,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonelasticcontainerregistry-repository">
-                  repository
+                  repository*
                  </a>
                 </p>
                </td>
@@ -816,13 +838,32 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonelasticcontainerregistry-DescribeRepositoryCreationTemplate" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DescribeRepositoryCreationTemplate.html">
-                 DescribeRepositoryCreationTemplate
+               <td id="amazonelasticcontainerregistry-DescribeRepositoryCreationTemplates" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DescribeRepositoryCreationTemplates.html">
+                 DescribeRepositoryCreationTemplates
                 </a>
                </td>
                <td tabindex="-1">
                 Grants permission to describe the repository creation template
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonelasticcontainerregistry-GetAccountSetting" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_GetAccountSetting.html">
+                 GetAccountSetting
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve account settings
                </td>
                <td tabindex="-1">
                 Read
@@ -1078,6 +1119,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticcontainerregistry-PutAccountSetting" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutAccountSetting.html">
+                 PutAccountSetting
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update account settings
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticcontainerregistry-PutImage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutImage.html">
                  PutImage
@@ -1228,6 +1288,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -1426,6 +1489,40 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonelasticcontainerregistry-UpdateRepositoryCreationTemplate" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_UpdateRepositoryCreationTemplate.html">
+                 UpdateRepositoryCreationTemplate
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the repository creation template
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ecr:CreateRepository
+                </p>
+                <p>
+                 ecr:PutLifecyclePolicy
+                </p>
+                <p>
+                 ecr:SetRepositoryPolicy
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonelasticcontainerregistry-UploadLayerPart" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_UploadLayerPart.html">
                  UploadLayerPart
@@ -1491,7 +1588,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c13b5">
+             <table id="w43aab5b9d554c13b5">
               <thead>
                <tr>
                 <th>
@@ -1571,7 +1668,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d550c15b7">
+             <table id="w43aab5b9d554c15b7">
               <thead>
                <tr>
                 <th>
