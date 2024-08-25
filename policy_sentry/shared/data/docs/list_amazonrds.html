@@ -1749,11 +1749,6 @@
                   rds:ManageMasterUserPassword
                  </a>
                 </p>
-                <p>
-                 <a href="#amazonrds-rds_MultiTenant">
-                  rds:MultiTenant
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3265,8 +3260,8 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-cluster-endpoint">
-                  cluster-endpoint*
+                 <a href="#amazonrds-cluster">
+                  cluster
                  </a>
                 </p>
                </td>
@@ -3278,8 +3273,8 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-cluster">
-                  cluster
+                 <a href="#amazonrds-cluster-endpoint">
+                  cluster-endpoint
                  </a>
                 </p>
                </td>
@@ -3361,21 +3356,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-DescribeDBClusterSnapshots" tabindex="-1">
+               <td id="amazonrds-DescribeDBClusterSnapshots" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterSnapshots.html">
                  DescribeDBClusterSnapshots
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to return information about DB cluster snapshots
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrds-cluster">
+                  cluster
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrds-cluster-snapshot">
-                  cluster-snapshot*
+                  cluster-snapshot
                  </a>
                 </p>
                </td>
@@ -3787,8 +3795,8 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-snapshot">
-                  snapshot*
+                 <a href="#amazonrds-db">
+                  db
                  </a>
                 </p>
                </td>
@@ -3800,8 +3808,8 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-db">
-                  db
+                 <a href="#amazonrds-snapshot">
+                  snapshot
                  </a>
                 </p>
                </td>
@@ -3985,18 +3993,49 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-DescribeExportTasks" tabindex="-1">
+               <td id="amazonrds-DescribeExportTasks" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeExportTasks.html">
                  DescribeExportTasks
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return information about the export tasks
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster-snapshot">
+                  cluster-snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot">
+                  snapshot
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -4077,11 +4116,6 @@
                 List
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazonrds-og">
-                  og*
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -4892,7 +4926,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-cluster-pg">
-                  cluster-pg*
+                  cluster-pg
                  </a>
                 </p>
                </td>
@@ -4905,7 +4939,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-og">
-                  og*
+                  og
                  </a>
                 </p>
                </td>
@@ -5015,15 +5049,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-ModifyDBInstance" rowspan="5" tabindex="-1">
+               <td id="amazonrds-ModifyDBInstance" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">
                  ModifyDBInstance
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to modify settings for a DB instance
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -5072,7 +5106,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-og">
-                  og*
+                  og
                  </a>
                 </p>
                </td>
@@ -5085,7 +5119,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-pg">
-                  pg*
+                  pg
                  </a>
                 </p>
                </td>
@@ -5098,7 +5132,20 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrds-secgrp">
-                  secgrp*
+                  secgrp
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-subgrp">
+                  subgrp
                  </a>
                 </p>
                </td>
@@ -5114,11 +5161,6 @@
                 <p>
                  <a href="#amazonrds-rds_ManageMasterUserPassword">
                   rds:ManageMasterUserPassword
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonrds-rds_MultiTenant">
-                  rds:MultiTenant
                  </a>
                 </p>
                </td>
@@ -6298,15 +6340,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-RestoreDBClusterFromSnapshot" rowspan="6" tabindex="-1">
+               <td id="amazonrds-RestoreDBClusterFromSnapshot" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.html">
                  RestoreDBClusterFromSnapshot
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to create a new DB cluster from a DB cluster snapshot
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -6346,19 +6388,6 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-cluster-snapshot">
-                  cluster-snapshot*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-                <p>
                  <a href="#amazonrds-og">
                   og*
                  </a>
@@ -6374,6 +6403,32 @@
                 <p>
                  <a href="#amazonrds-subgrp">
                   subgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster-snapshot">
+                  cluster-snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot">
+                  snapshot
                  </a>
                 </p>
                </td>
@@ -6544,15 +6599,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-RestoreDBInstanceFromDBSnapshot" rowspan="6" tabindex="-1">
+               <td id="amazonrds-RestoreDBInstanceFromDBSnapshot" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html">
                  RestoreDBInstanceFromDBSnapshot
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to create a new DB instance from a DB snapshot
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -6605,8 +6660,8 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-snapshot">
-                  snapshot*
+                 <a href="#amazonrds-subgrp">
+                  subgrp*
                  </a>
                 </p>
                </td>
@@ -6618,8 +6673,21 @@
               <tr>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrds-subgrp">
-                  subgrp*
+                 <a href="#amazonrds-cluster-snapshot">
+                  cluster-snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot">
+                  snapshot
                  </a>
                 </p>
                </td>
@@ -6657,15 +6725,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-RestoreDBInstanceFromS3" rowspan="5" tabindex="-1">
+               <td id="amazonrds-RestoreDBInstanceFromS3" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromS3.html">
                  RestoreDBInstanceFromS3
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to create a new DB instance from an Amazon S3 bucket
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -6735,6 +6803,19 @@
                 <p>
                  <a href="#amazonrds-subgrp">
                   subgrp*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-secgrp">
+                  secgrp
                  </a>
                 </p>
                </td>
@@ -7031,18 +7112,23 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrds-StartExportTask" tabindex="-1">
+               <td id="amazonrds-StartExportTask" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html">
                  StartExportTask
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to start a new Export task for a DB snapshot
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster">
+                  cluster
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -7050,6 +7136,32 @@
                 <p>
                  iam:PassRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-cluster-snapshot">
+                  cluster-snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrds-snapshot">
+                  snapshot
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -8412,19 +8524,6 @@
                </td>
                <td tabindex="-1">
                 Bool
-               </td>
-              </tr>
-              <tr>
-               <td id="amazonrds-rds_MultiTenant" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
-                 rds:MultiTenant
-                </a>
-               </td>
-               <td tabindex="-1">
-                Filters access by the value that specifies whether the DB instance is in the multi-tenant configuration
-               </td>
-               <td tabindex="-1">
-                String
                </td>
               </tr>
               <tr>
