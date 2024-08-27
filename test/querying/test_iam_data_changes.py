@@ -430,7 +430,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
         results = get_actions_for_service("elemental-activations")
         actions = [
             "elemental-activations:CompleteAccountRegistration",
-            "elemental-activations:StartAccountRegistration",
+            "elemental-activations:StartFileUpload",
         ]
         for action in actions:
             self.assertTrue(action in results)
