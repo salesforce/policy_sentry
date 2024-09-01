@@ -79,7 +79,7 @@
          Actions, resources, and condition keys for Amazon Bedrock - Service Authorization Reference
         </title>
         <meta content="/pdfs/service-authorization/latest/reference/service-authorization.pdf#list_amazonbedrock" name="pdf"/>
-        <meta content="http://forums.aws.amazon.com/forum.jspa?forumID=76" name="forums"/>
+        <meta content="https://repost.aws/tags/TAO7Z4bI5hQVWMiYFs34QhIA" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonbedrock.html" name="feedback"/>
         <meta content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonbedrock.html" name="feedback-yes"/>
         <meta content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonbedrock.html" name="feedback-no"/>
@@ -1009,6 +1009,35 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-CreateModelImportJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">
+                 CreateModelImportJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a job for importing model into Bedrock
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrock-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-CreateModelInvocationJob" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelInvocationJob.html">
                  CreateModelInvocationJob
@@ -1477,6 +1506,30 @@
                 <p>
                  <a href="#amazonbedrock-guardrail">
                   guardrail*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteImportedModel" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteImportedModel.html">
+                 DeleteImportedModel
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete previously created Bedrock imported model
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model*
                  </a>
                 </p>
                </td>
@@ -2044,6 +2097,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-GetImportedModel" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetImportedModel.html">
+                 GetImportedModel
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the properties associated with Bedrock imported model
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetInferenceProfile" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html">
+                 GetInferenceProfile
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the properties associated with an inference profile
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-inference-profile">
+                  inference-profile*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-GetIngestionJob" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html">
                  GetIngestionJob
@@ -2155,6 +2256,30 @@
                 <p>
                  <a href="#amazonbedrock-model-evaluation-job">
                   model-evaluation-job*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetModelImportJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelImportJob.html">
+                 GetModelImportJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the properties associated with a model import job and is used to get the status of a model import job
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-model-import-job">
+                  model-import-job*
                  </a>
                 </p>
                </td>
@@ -2360,21 +2485,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-InvokeModel" rowspan="2" tabindex="-1">
+               <td id="amazonbedrock-InvokeModel" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html">
                  InvokeModel
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonbedrock-foundation-model">
                   foundation-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-inference-profile">
+                  inference-profile*
                  </a>
                 </p>
                </td>
@@ -2397,15 +2548,28 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-InvokeModelWithResponseStream" rowspan="2" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-bedrock_InferenceProfileArn">
+                  bedrock:InferenceProfileArn
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-InvokeModelWithResponseStream" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html">
                  InvokeModelWithResponseStream
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -2423,12 +2587,51 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-inference-profile">
+                  inference-profile*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonbedrock-provisioned-model">
                   provisioned-model*
                  </a>
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-bedrock_InferenceProfileArn">
+                  bedrock:InferenceProfileArn
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2740,6 +2943,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-ListImportedModels" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListImportedModels.html">
+                 ListImportedModels
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get list of Bedrock imported models
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListInferenceProfiles" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html">
+                 ListInferenceProfiles
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list inference profiles that you can use
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-ListIngestionJobs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html">
                  ListIngestionJobs
@@ -2840,6 +3081,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-ListModelImportJobs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelImportJobs.html">
+                 ListModelImportJobs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get list of model import jobs
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-ListModelInvocationJobs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelInvocationJobs.html">
                  ListModelInvocationJobs
@@ -2902,15 +3162,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-ListTagsForResource" rowspan="15" tabindex="-1">
+               <td id="amazonbedrock-ListTagsForResource" rowspan="17" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="15" tabindex="-1">
+               <td rowspan="17" tabindex="-1">
                 Grants permission to list tags for a Bedrock resource
                </td>
-               <td rowspan="15" tabindex="-1">
+               <td rowspan="17" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -3006,6 +3266,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonbedrock-knowledge-base">
                   knowledge-base*
                  </a>
@@ -3047,6 +3320,19 @@
                 <p>
                  <a href="#amazonbedrock-model-evaluation-job">
                   model-evaluation-job*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-model-import-job">
+                  model-import-job*
                  </a>
                 </p>
                </td>
@@ -3395,15 +3681,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-TagResource" rowspan="16" tabindex="-1">
+               <td id="amazonbedrock-TagResource" rowspan="18" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="18" tabindex="-1">
                 Grants permission to Tag a Bedrock resource
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="18" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -3499,6 +3785,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonbedrock-knowledge-base">
                   knowledge-base
                  </a>
@@ -3540,6 +3839,19 @@
                 <p>
                  <a href="#amazonbedrock-model-evaluation-job">
                   model-evaluation-job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-model-import-job">
+                  model-import-job
                  </a>
                 </p>
                </td>
@@ -3619,15 +3931,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-UntagResource" rowspan="16" tabindex="-1">
+               <td id="amazonbedrock-UntagResource" rowspan="18" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="18" tabindex="-1">
                 Grants permission to Untag a Bedrock resource
                </td>
-               <td rowspan="16" tabindex="-1">
+               <td rowspan="18" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -3723,6 +4035,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonbedrock-imported-model">
+                  imported-model
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonbedrock-knowledge-base">
                   knowledge-base
                  </a>
@@ -3764,6 +4089,19 @@
                 <p>
                  <a href="#amazonbedrock-model-evaluation-job">
                   model-evaluation-job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-model-import-job">
+                  model-import-job
                  </a>
                 </p>
                </td>
@@ -4194,6 +4532,36 @@
                   {
                  </span>
                  Region}::foundation-model/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-inference-profile" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 inference-profile
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:inference-profile/$
                  <span>
                   {
                  </span>
@@ -4740,6 +5108,76 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonbedrock-model-import-job" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 model-import-job
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:model-import-job/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-imported-model" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 imported-model
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:imported-model/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -4817,6 +5255,19 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-bedrock_InferenceProfileArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-globally-available">
+                 bedrock:InferenceProfileArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the specified inference profile
+               </td>
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
               <tr>
