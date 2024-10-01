@@ -438,6 +438,16 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -460,6 +470,16 @@
                 <p>
                  <a href="#awslambda-lambda_FunctionArn">
                   lambda:FunctionArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -860,6 +880,33 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-DeleteResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteResourcePolicy.html">
+                 DeleteResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete the resource-based policy for an AWS Lambda function, version, or alias
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 lambda:RemovePermission
+                </p>
                </td>
               </tr>
               <tr>
@@ -1312,6 +1359,57 @@
                </td>
               </tr>
               <tr>
+               <td id="awslambda-GetPublicAccessBlockConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetPublicAccessBlockConfig.html">
+                 GetPublicAccessBlockConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view the PublicAccessBlockConfig of an AWS Lambda function
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-GetResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetResourcePolicy.html">
+                 GetResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view the resource-based policy for an AWS Lambda function, version, or alias
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 lambda:GetPolicy
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awslambda-GetRuntimeManagementConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetRuntimeManagementConfig.html">
                  GetRuntimeManagementConfig
@@ -1673,21 +1771,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-ListTags" tabindex="-1">
+               <td id="awslambda-ListTags" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to retrieve a list of tags for an AWS Lambda function
+               <td rowspan="3" tabindex="-1">
+                Grants permission to retrieve a list of tags for an AWS Lambda function, event source mapping or code signing configuration resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#awslambda-codesigningconfig">
+                  code signing config
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-eventSourceMapping">
+                  eventSourceMapping
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awslambda-function">
-                  function*
+                  function
                  </a>
                 </p>
                </td>
@@ -1928,6 +2052,60 @@
                </td>
               </tr>
               <tr>
+               <td id="awslambda-PutPublicAccessBlockConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_PutPublicAccessBlockConfig.html">
+                 PutPublicAccessBlockConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the PublicAccessBlockConfig of an AWS Lambda function
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-PutResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_PutResourcePolicy.html">
+                 PutResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the resource-based policy for an AWS Lambda function, version, or alias
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 lambda:AddPermission
+                </p>
+                <p>
+                 lambda:RemovePermission
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awslambda-PutRuntimeManagementConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_PutRuntimeManagementConfig.html">
                  PutRuntimeManagementConfig
@@ -2018,21 +2196,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-TagResource" rowspan="2" tabindex="-1">
+               <td id="awslambda-TagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TagResources.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
-                Grants permission to add tags to an AWS Lambda function
+               <td rowspan="4" tabindex="-1">
+                Grants permission to add tags to an AWS Lambda function, event source mapping or code signing configuration resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#awslambda-codesigningconfig">
+                  code signing config
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-eventSourceMapping">
+                  eventSourceMapping
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awslambda-function">
-                  function*
+                  function
                  </a>
                 </p>
                </td>
@@ -2060,21 +2264,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-UntagResource" rowspan="2" tabindex="-1">
+               <td id="awslambda-UntagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
-                Grants permission to remove tags from an AWS Lambda function
+               <td rowspan="4" tabindex="-1">
+                Grants permission to remove tags from an AWS Lambda function, event source mapping or code signing configuration resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#awslambda-codesigningconfig">
+                  code signing config
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-eventSourceMapping">
+                  eventSourceMapping
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awslambda-function">
-                  function*
+                  function
                  </a>
                 </p>
                </td>
@@ -2425,6 +2655,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -2455,6 +2690,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
