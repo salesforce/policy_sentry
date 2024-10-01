@@ -205,7 +205,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-access-overview.html">
+               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -389,6 +389,16 @@
                 <p>
                  <a href="#amazons3express-s3express_x-amz-content-sha256">
                   s3express:x-amz-content-sha256
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_x-amz-server-side-encryption">
+                  s3express:x-amz-server-side-encryption
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_x-amz-server-side-encryption-aws-kms-key-id">
+                  s3express:x-amz-server-side-encryption-aws-kms-key-id
                  </a>
                 </p>
                </td>
@@ -634,6 +644,63 @@
                </td>
               </tr>
               <tr>
+               <td id="amazons3express-GetEncryptionConfiguration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html">
+                 GetEncryptionConfiguration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to return the default encryption configuration for a directory bucket
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3express-bucket">
+                  bucket*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3express-s3express_authType">
+                  s3express:authType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_ResourceAccount">
+                  s3express:ResourceAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_signatureversion">
+                  s3express:signatureversion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_TlsVersion">
+                  s3express:TlsVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_x-amz-content-sha256">
+                  s3express:x-amz-content-sha256
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazons3express-ListAllMyDirectoryBuckets" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html">
                  ListAllMyDirectoryBuckets
@@ -734,6 +801,63 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazons3express-PutEncryptionConfiguration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html">
+                 PutEncryptionConfiguration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to set the encryption configuration for a directory bucket
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3express-bucket">
+                  bucket*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3express-s3express_authType">
+                  s3express:authType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_ResourceAccount">
+                  s3express:ResourceAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_signatureversion">
+                  s3express:signatureversion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_TlsVersion">
+                  s3express:TlsVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_x-amz-content-sha256">
+                  s3express:x-amz-content-sha256
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -773,7 +897,7 @@
               </thead>
               <tr>
                <td id="amazons3express-bucket" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-zonal-buckets.html">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">
                  bucket
                 </a>
                </td>
@@ -943,6 +1067,32 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3express-s3express_x-amz-server-side-encryption" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-data-protection.html">
+                 s3express:x-amz-server-side-encryption
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by server-side encryption
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3express-s3express_x-amz-server-side-encryption-aws-kms-key-id" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-UsingKMSEncryption.html#s3-express-require-sse-kms">
+                 s3express:x-amz-server-side-encryption-aws-kms-key-id
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by AWS KMS customer managed key for server-side encryption
+               </td>
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
              </table>
