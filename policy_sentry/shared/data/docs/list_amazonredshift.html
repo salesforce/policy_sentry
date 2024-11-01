@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1303c11c13">
+             <table id="w43aab5b9e1311c11c13">
               <thead>
                <tr>
                 <th>
@@ -505,6 +505,31 @@
                 Permissions management
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-AuthorizeInboundIntegration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.setting-up.html">
+                 AuthorizeInboundIntegration
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to Amazon Redshift to continuously validate that the target data warehouse can receive data replicated from the source ARN
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1164,6 +1189,84 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-CreateInboundIntegration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.setting-up.html">
+                 CreateInboundIntegration
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target data warehouse
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-CreateIntegration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateIntegration.html">
+                 CreateIntegration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create an Amazon Redshift zero-ETL integration
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 kms:CreateGrant
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-redshift_IntegrationSourceArn">
+                  redshift:IntegrationSourceArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonredshift-redshift_IntegrationTargetArn">
+                  redshift:IntegrationTargetArn
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-CreateQev2IdcApplication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
                  CreateQev2IdcApplication
@@ -1350,15 +1453,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonredshift-CreateTags" rowspan="14" tabindex="-1">
+               <td id="amazonredshift-CreateTags" rowspan="15" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html">
                  CreateTags
                 </a>
                </td>
-               <td rowspan="14" tabindex="-1">
+               <td rowspan="15" tabindex="-1">
                 Grants permission to add one or more tags to a specified resource
                </td>
-               <td rowspan="14" tabindex="-1">
+               <td rowspan="15" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1404,6 +1507,19 @@
                 <p>
                  <a href="#amazonredshift-hsmconfiguration">
                   hsmconfiguration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration
                  </a>
                 </p>
                </td>
@@ -1881,6 +1997,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-DeleteIntegration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteIntegration.html">
+                 DeleteIntegration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete an Amazon Redshift zero-ETL integration
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-DeletePartner" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeletePartner.html">
                  DeletePartner
@@ -2066,15 +2219,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonredshift-DeleteTags" rowspan="14" tabindex="-1">
+               <td id="amazonredshift-DeleteTags" rowspan="15" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="14" tabindex="-1">
+               <td rowspan="15" tabindex="-1">
                 Grants permission to delete a tag or tags from a resource
                </td>
-               <td rowspan="14" tabindex="-1">
+               <td rowspan="15" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2120,6 +2273,19 @@
                 <p>
                  <a href="#amazonredshift-hsmconfiguration">
                   hsmconfiguration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration
                  </a>
                 </p>
                </td>
@@ -2749,6 +2915,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-DescribeIntegrations" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeIntegrations.html">
+                 DescribeIntegrations
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to describe an Amazon Redshift zero-ETL integration
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-DescribeLoggingStatus" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html">
                  DescribeLoggingStatus
@@ -3116,15 +3319,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonredshift-DescribeTags" rowspan="13" tabindex="-1">
+               <td id="amazonredshift-DescribeTags" rowspan="14" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html">
                  DescribeTags
                 </a>
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Grants permission to describe tags
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -3170,6 +3373,19 @@
                 <p>
                  <a href="#amazonredshift-hsmconfiguration">
                   hsmconfiguration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration
                  </a>
                 </p>
                </td>
@@ -4156,6 +4372,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonredshift-ModifyIntegration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyIntegration.html">
+                 ModifyIntegration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to modify an Amazon Redshift zero-ETL integration
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-integration">
+                  integration*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonredshift-ModifyQev2IdcApplication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html">
                  ModifyQev2IdcApplication
@@ -4835,7 +5088,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1303c13b5">
+             <table id="w43aab5b9e1311c13b5">
               <thead>
                <tr>
                 <th>
@@ -5120,6 +5373,41 @@
                   {
                  </span>
                  HSMConfigurationId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonredshift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-integration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.html">
+                 integration
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:redshift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:integration:$
+                 <span>
+                  {
+                 </span>
+                 IntegrationIdentifier}
                 </code>
                </td>
                <td tabindex="-1">
@@ -5590,7 +5878,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9e1303c15b7">
+             <table id="w43aab5b9e1311c15b7">
               <thead>
                <tr>
                 <th>
@@ -5731,7 +6019,33 @@
                 Filters access by the ARN of an inbound zero-ETL Integration resource
                </td>
                <td tabindex="-1">
-                String
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-redshift_IntegrationSourceArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:IntegrationSourceArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of a zero-ETL Integration source
+               </td>
+               <td tabindex="-1">
+                ARN
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonredshift-redshift_IntegrationTargetArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-policy-resources.conditions">
+                 redshift:IntegrationTargetArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of a zero-ETL Integration target
+               </td>
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
              </table>
