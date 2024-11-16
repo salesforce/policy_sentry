@@ -124,13 +124,13 @@ pip3 install --user policy_sentry
 To enable Bash completion, put this in your `.bashrc`:
 
 ```bash
-eval "$(_POLICY_SENTRY_COMPLETE=source policy_sentry)"
+eval "$(_POLICY_SENTRY_COMPLETE=bash_source policy_sentry)"
 ```
 
 To enable ZSH completion, put this in your `.zshrc`:
 
 ```
-eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
+eval "$(_POLICY_SENTRY_COMPLETE=zsh_source policy_sentry)"
 ```
 
 ### Step 1: Create the Template
