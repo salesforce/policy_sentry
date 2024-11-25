@@ -62,9 +62,12 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
     action_data_results = {}
     try:
         service_prefix_data = get_service_prefix_data(service)
-        if action_name == "*":
+        if action_name.endswith("*"):
+            stripped_action_name = action_name.removesuffix("*")
             results = []
             for this_action_name, this_action_data in service_prefix_data["privileges"].items():
+                if not this_action_name.startswith(stripped_action_name):
+                    continue
                 if this_action_data:
                     entries = create_action_data_entries(
                         service_prefix_data=service_prefix_data,

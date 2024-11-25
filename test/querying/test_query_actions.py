@@ -181,6 +181,33 @@ class QueryActionsTestCase(unittest.TestCase):
         self.maxDiff = None
         self.assertDictEqual(desired_output, output)
 
+    def test_get_action_data_with_glob(self):
+        """Query action-table with glob."""
+        desired_output = {
+            "sns": [
+                {
+                    "action": "sns:ListSubscriptions",
+                    "description": "Grants permission to return a list of the requester's subscriptions",
+                    "access_level": "List",
+                    "api_documentation_link": "https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html",
+                    "resource_arn_format": "*",
+                    "condition_keys": [],
+                    "dependent_actions": [],
+                },
+                {
+                    "action": "sns:ListSubscriptionsByTopic",
+                    "description": "Grants permission to return a list of the subscriptions to a specific topic",
+                    "access_level": "List",
+                    "api_documentation_link": "https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html",
+                    "resource_arn_format": "arn:${Partition}:sns:${Region}:${Account}:${TopicName}",
+                    "condition_keys": ["aws:ResourceTag/${TagKey}"],
+                    "dependent_actions": [],
+                },
+            ]
+        }
+        results = get_action_data("sns", "ListSubscriptions*")
+        self.assertDictEqual(desired_output, results)
+
     def test_get_actions_that_support_wildcard_arns_only(self):
         """querying.actions.get_actions_that_support_wildcard_arns_only"""
         # Variant 1: Secrets manager
