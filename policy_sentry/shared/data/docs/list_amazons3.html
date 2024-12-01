@@ -5667,6 +5667,16 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_if-match">
+                  s3:if-match
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_if-none-match">
+                  s3:if-none-match
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -8119,10 +8129,10 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 S3:GetReplicationConfiguration
+                 s3:GetReplicationConfiguration
                 </p>
                 <p>
-                 S3:PutReplicationConfiguration
+                 s3:PutReplicationConfiguration
                 </p>
                </td>
               </tr>
@@ -10068,6 +10078,21 @@
                 <p>
                  <a href="#amazons3-s3_object-lock-legal-hold">
                   s3:object-lock-legal-hold
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_if-match">
+                  s3:if-match
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_if-none-match">
+                  s3:if-none-match
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_ObjectCreationOperation">
+                  s3:ObjectCreationOperation
                  </a>
                 </p>
                </td>
@@ -12401,6 +12426,19 @@
                </td>
               </tr>
               <tr>
+               <td id="amazons3-s3_ObjectCreationOperation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes-enforce.html">
+                 s3:ObjectCreationOperation
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by whether or not the operation creates an object
+               </td>
+               <td tabindex="-1">
+                Bool
+               </td>
+              </tr>
+              <tr>
                <td id="amazons3-s3_RequestJobOperation" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-job-tags-examples.html">
                  s3:RequestJobOperation
@@ -12512,6 +12550,32 @@
                </td>
                <td tabindex="-1">
                 Filters access by a specific replication destination region for targeted buckets of the AWS FIS action aws:s3:bucket-pause-replication
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_if-match" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes-enforce.html">
+                 s3:if-match
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the request's 'If-Match' conditional header
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_if-none-match" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes-enforce.html">
+                 s3:if-none-match
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the request's 'If-None-Match' conditional header
                </td>
                <td tabindex="-1">
                 String
