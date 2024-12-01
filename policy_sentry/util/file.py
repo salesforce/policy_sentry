@@ -5,10 +5,13 @@ Functions that relate to manipulating files, loading files, and managing filepat
 from __future__ import annotations
 
 import logging
-from pathlib import Path
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 import yaml
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
 
 logger = logging.getLogger(__name__)
 

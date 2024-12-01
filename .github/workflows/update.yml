@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  MIN_PYTHON_VERSION: "3.9"
+
 jobs:
   update-actions:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
-          python-version: '3.8'
+          python-version: ${{ env.MIN_PYTHON_VERSION }}
       - name: install dependencies
         run: |
           pip install -r requirements.txt
@@ -58,7 +61,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
-          python-version: '3.8'
+          python-version: ${{ env.MIN_PYTHON_VERSION }}
       - name: Install dependencies
         run: |
           pip install -r requirements.txt

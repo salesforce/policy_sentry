@@ -6,6 +6,12 @@ on:
     - cron: '0 0 1 * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+env:
+  MIN_PYTHON_VERSION: "3.9"
+
 jobs:
   python-dependency-updater:
     runs-on: ubuntu-latest
@@ -15,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
-          python-version: '3.8'
+          python-version: ${{ env.MIN_PYTHON_VERSION }}
 
       - name: Run Pyup.io Dependency updater
         run: |
