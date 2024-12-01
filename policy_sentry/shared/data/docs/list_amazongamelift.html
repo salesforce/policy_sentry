@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d725c11c13">
+             <table id="w44aab5b9d739c11c13">
               <thead>
                <tr>
                 <th>
@@ -447,13 +447,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazongamelift-CreateContainerFleet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">
+                 CreateContainerFleet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new container fleet of computing resources to run your game servers
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazongamelift-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DescribeAvailabilityZones
+                </p>
+                <p>
+                 ec2:DescribeRegions
+                </p>
+                <p>
+                 gamelift:TagResource
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazongamelift-CreateContainerGroupDefinition" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">
                  CreateContainerGroupDefinition
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to create a new container group definition for a container fleet
+                Grants permission to create a new container group definition using images stored in an Amazon ECR repository
                </td>
                <td tabindex="-1">
                 Write
@@ -478,6 +519,9 @@
                 </p>
                 <p>
                  ecr:DescribeImages
+                </p>
+                <p>
+                 ecr:GetAuthorizationToken
                 </p>
                 <p>
                  ecr:GetDownloadUrlForLayer
@@ -529,21 +573,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-CreateFleetLocations" tabindex="-1">
+               <td id="amazongamelift-CreateFleetLocations" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleetLocations.html">
                  CreateFleetLocations
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to specify additional locations for a fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -556,6 +600,19 @@
                 <p>
                  ec2:DescribeRegions
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -954,13 +1011,37 @@
                </td>
               </tr>
               <tr>
+               <td id="amazongamelift-DeleteContainerFleet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteContainerFleet.html">
+                 DeleteContainerFleet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a container fleet
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazongamelift-DeleteContainerGroupDefinition" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteContainerGroupDefinition.html">
                  DeleteContainerGroupDefinition
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to delete a container group definition that is not being used in a fleet
+                Grants permission to delete a container group definition
                </td>
                <td tabindex="-1">
                 Write
@@ -1002,21 +1083,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DeleteFleetLocations" tabindex="-1">
+               <td id="amazongamelift-DeleteFleetLocations" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteFleetLocations.html">
                  DeleteFleetLocations
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to delete locations for a fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -1164,21 +1258,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DeleteScalingPolicy" tabindex="-1">
+               <td id="amazongamelift-DeleteScalingPolicy" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteScalingPolicy.html">
                  DeleteScalingPolicy
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to delete a set of auto-scaling rules
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -1346,21 +1453,58 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeCompute" tabindex="-1">
+               <td id="amazongamelift-DescribeCompute" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html">
                  DescribeCompute
                 </a>
                </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve information for a compute in a fleet
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
                <td tabindex="-1">
-                Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-DescribeContainerFleet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerFleet.html">
+                 DescribeContainerFleet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the properties of an existing container fleet
                </td>
                <td tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet*
                  </a>
                 </p>
                </td>
@@ -1376,7 +1520,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve general properties, including status, for a container group definition
+                Grants permission to retrieve the properties of an existing container group definition
                </td>
                <td tabindex="-1">
                 Read
@@ -1438,7 +1582,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve the current capacity setting for fleets
+                Grants permission to retrieve the current capacity settings for managed fleets
                </td>
                <td tabindex="-1">
                 Read
@@ -1451,21 +1595,45 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeFleetEvents" tabindex="-1">
+               <td id="amazongamelift-DescribeFleetDeployment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html">
+                 DescribeFleetDeployment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the properties of an existing fleet deployment
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-DescribeFleetEvents" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">
                  DescribeFleetEvents
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to retrieve entries from a fleet's event log
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -1475,21 +1643,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeFleetLocationAttributes" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-DescribeFleetLocationAttributes" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationAttributes.html">
                  DescribeFleetLocationAttributes
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to retrieve general properties, including statuses, for a fleet's locations
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -1499,21 +1680,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeFleetLocationCapacity" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-DescribeFleetLocationCapacity" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">
                  DescribeFleetLocationCapacity
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to retrieve the current capacity setting for a fleet's location
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -1738,21 +1945,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeInstances" tabindex="-1">
+               <td id="amazongamelift-DescribeInstances" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">
                  DescribeInstances
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to retrieve information about instances in a fleet
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve information about instances in a managed fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -1862,21 +2082,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-DescribeScalingPolicies" tabindex="-1">
+               <td id="amazongamelift-DescribeScalingPolicies" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeScalingPolicies.html">
                  DescribeScalingPolicies
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to retrieve all scaling policies that are applied to a fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -1948,21 +2181,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-GetComputeAccess" tabindex="-1">
+               <td id="amazongamelift-GetComputeAccess" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html">
                  GetComputeAccess
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to retrieve access credentials of the compute
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve credentials to remotely access a compute in a managed fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -1972,21 +2205,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-GetComputeAuthToken" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-GetComputeAuthToken" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAuthToken.html">
                  GetComputeAuthToken
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve an authentication token that allows processes on a compute to send requests to the Amazon GameLift service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -2077,21 +2336,77 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-ListCompute" tabindex="-1">
+               <td id="amazongamelift-ListCompute" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">
                  ListCompute
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to retrieve all compute resources in the current Region
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-fleet">
+                  fleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-ListContainerFleets" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerFleets.html">
+                 ListContainerFleets
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the properties of all existing container fleets in the current Region
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-ListContainerGroupDefinitionVersions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">
+                 ListContainerGroupDefinitionVersions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the properties of all versions of an existing container group definition
                </td>
                <td tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazongamelift-fleet">
-                  fleet*
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition*
                  </a>
                 </p>
                </td>
@@ -2107,7 +2422,26 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve a list of names for all container group definitions in the current Region
+                Grants permission to retrieve the properties of all existing container group definitions in the current Region
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-ListFleetDeployments" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">
+                 ListFleetDeployments
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the properties of all existing fleet deployments in the current Region
                </td>
                <td tabindex="-1">
                 List
@@ -2220,15 +2554,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-ListTagsForResource" rowspan="10" tabindex="-1">
+               <td id="amazongamelift-ListTagsForResource" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to retrieve tags for GameLift resources
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -2248,6 +2582,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -2361,21 +2708,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-PutScalingPolicy" tabindex="-1">
+               <td id="amazongamelift-PutScalingPolicy" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PutScalingPolicy.html">
                  PutScalingPolicy
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create or update a fleet auto-scaling policy
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -2524,21 +2884,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-StartFleetActions" tabindex="-1">
+               <td id="amazongamelift-StartFleetActions" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartFleetActions.html">
                  StartFleetActions
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to resume auto-scaling activity on a fleet after it was suspended with StopFleetActions()
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -2610,21 +2983,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-StopFleetActions" tabindex="-1">
+               <td id="amazongamelift-StopFleetActions" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">
                  StopFleetActions
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to suspend auto-scaling activity on a fleet
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -2696,15 +3082,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-TagResource" rowspan="11" tabindex="-1">
+               <td id="amazongamelift-TagResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to tag GameLift resources
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2724,6 +3110,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -2855,15 +3254,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-UntagResource" rowspan="11" tabindex="-1">
+               <td id="amazongamelift-UntagResource" rowspan="12" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Grants permission to untag GameLift resources
                </td>
-               <td rowspan="11" tabindex="-1">
+               <td rowspan="12" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2883,6 +3282,19 @@
                 <p>
                  <a href="#amazongamelift-build">
                   build
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
                  </a>
                 </p>
                </td>
@@ -3057,6 +3469,66 @@
                </td>
               </tr>
               <tr>
+               <td id="amazongamelift-UpdateContainerFleet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerFleet.html">
+                 UpdateContainerFleet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an existing container fleet
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-UpdateContainerGroupDefinition" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">
+                 UpdateContainerGroupDefinition
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the properties of an existing container group definition
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-containerGroupDefinition">
+                  containerGroupDefinition*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ecr:BatchGetImage
+                </p>
+                <p>
+                 ecr:DescribeImages
+                </p>
+                <p>
+                 ecr:GetAuthorizationToken
+                </p>
+                <p>
+                 ecr:GetDownloadUrlForLayer
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazongamelift-UpdateFleetAttributes" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetAttributes.html">
                  UpdateFleetAttributes
@@ -3081,21 +3553,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazongamelift-UpdateFleetCapacity" tabindex="-1">
+               <td id="amazongamelift-UpdateFleetCapacity" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">
                  UpdateFleetCapacity
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to adjust a fleet's capacity settings
+               <td rowspan="2" tabindex="-1">
+                Grants permission to adjust a managed fleet's capacity settings
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazongamelift-containerFleet">
+                  containerFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazongamelift-fleet">
-                  fleet*
+                  fleet
                  </a>
                 </p>
                </td>
@@ -3342,7 +3827,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d725c13b5">
+             <table id="w44aab5b9d739c13b5">
               <thead>
                <tr>
                 <th>
@@ -3424,7 +3909,7 @@
               </tr>
               <tr>
                <td id="amazongamelift-containerGroupDefinition" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-intro.html">
                  containerGroupDefinition
                 </a>
                </td>
@@ -3447,6 +3932,41 @@
                   {
                  </span>
                  Name}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazongamelift-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazongamelift-containerFleet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-intro.html">
+                 containerFleet
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:gamelift:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:containerfleet/$
+                 <span>
+                  {
+                 </span>
+                 FleetId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -3728,7 +4248,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d725c15b7">
+             <table id="w44aab5b9d739c15b7">
               <thead>
                <tr>
                 <th>

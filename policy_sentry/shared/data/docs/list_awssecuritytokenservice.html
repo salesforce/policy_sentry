@@ -770,6 +770,43 @@
                </td>
               </tr>
               <tr>
+               <td id="awssecuritytokenservice-AssumeRoot" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html">
+                 AssumeRoot
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to obtain a set of temporary security credentials that you can use to perform privileged tasks in member accounts in your organization
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecuritytokenservice-root-user">
+                  root-user*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssecuritytokenservice-sts_TaskPolicyArn">
+                  sts:TaskPolicyArn
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssecuritytokenservice-DecodeAuthorizationMessage" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html">
                  DecodeAuthorizationMessage
@@ -1184,6 +1221,28 @@
                   {
                  </span>
                  UserNameWithPath}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecuritytokenservice-root-user" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html">
+                 root-user
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:iam::$
+                 <span>
+                  {
+                 </span>
+                 Account}:root
                 </code>
                </td>
                <td tabindex="-1">
@@ -1909,6 +1968,19 @@
                </td>
                <td tabindex="-1">
                 Filters access by the source identity that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awssecuritytokenservice-sts_TaskPolicyArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-sts">
+                 sts:TaskPolicyArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by TaskPolicyARN
                </td>
                <td tabindex="-1">
                 String

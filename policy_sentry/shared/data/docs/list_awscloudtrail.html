@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d258c11c13">
+             <table id="w44aab5b9d266c11c13">
               <thead>
                <tr>
                 <th>
@@ -334,21 +334,34 @@
                </tr>
               </thead>
               <tr>
-               <td id="awscloudtrail-AddTags" rowspan="4" tabindex="-1">
+               <td id="awscloudtrail-AddTags" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
-                Grants permission to add one or more tags to a trail, event data store, or channel, up to a limit of 50
+               <td rowspan="5" tabindex="-1">
+                Grants permission to add one or more tags to a trail, event data store, channel or dashboard, up to a limit of 50
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
                   channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
                  </a>
                 </p>
                </td>
@@ -463,6 +476,57 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudtrail-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudtrail-CreateDashboard" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateDashboard.html">
+                 CreateDashboard
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a dashboard
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 cloudtrail:AddTags
+                </p>
+                <p>
+                 cloudtrail:StartDashboardRefresh
+                </p>
+                <p>
+                 cloudtrail:StartQuery
+                </p>
                </td>
               </tr>
               <tr>
@@ -647,6 +711,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awscloudtrail-DeleteDashboard" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteDashboard.html">
+                 DeleteDashboard
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a dashboard
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscloudtrail-DeleteEventDataStore" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteEventDataStore.html">
                  DeleteEventDataStore
@@ -671,21 +759,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudtrail-DeleteResourcePolicy" tabindex="-1">
+               <td id="awscloudtrail-DeleteResourcePolicy" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteResourcePolicy.html">
                  DeleteResourcePolicy
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to delete a resource policy from the provided resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
-                  channel*
+                  channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore
                  </a>
                 </p>
                </td>
@@ -917,6 +1031,40 @@
                </td>
               </tr>
               <tr>
+               <td id="awscloudtrail-GenerateQueryResultsSummary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-results-summary.html">
+                 GenerateQueryResultsSummary
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to generate a results summary for specified queries using the CloudTrail natural language generator
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 cloudtrail:GetQueryResults
+                </p>
+                <p>
+                 kms:Decrypt
+                </p>
+                <p>
+                 kms:GenerateDataKey
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awscloudtrail-GetChannel" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetChannel.html">
                  GetChannel
@@ -932,6 +1080,30 @@
                 <p>
                  <a href="#awscloudtrail-channel">
                   channel*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudtrail-GetDashboard" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetDashboard.html">
+                 GetDashboard
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list settings for the dashboard
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard*
                  </a>
                 </p>
                </td>
@@ -1105,21 +1277,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudtrail-GetResourcePolicy" tabindex="-1">
+               <td id="awscloudtrail-GetResourcePolicy" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetResourcePolicy.html">
                  GetResourcePolicy
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to get the resource policy attached to the provided resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
-                  channel*
+                  channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore
                  </a>
                 </p>
                </td>
@@ -1209,6 +1407,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list the channels in the current account, and their source names
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudtrail-ListDashboards" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListDashboards.html">
+                 ListDashboards
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list dashboards associated with the current region for your account
                </td>
                <td tabindex="-1">
                 List
@@ -1341,21 +1558,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudtrail-ListTags" rowspan="3" tabindex="-1">
+               <td id="awscloudtrail-ListTags" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
-                Grants permission to list the tags for trails, event data stores, or channels in the current region
+               <td rowspan="4" tabindex="-1">
+                Grants permission to list the tags for trails, event data stores, channels or dashboards in the current region
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
                   channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
                  </a>
                 </p>
                </td>
@@ -1490,21 +1720,47 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudtrail-PutResourcePolicy" tabindex="-1">
+               <td id="awscloudtrail-PutResourcePolicy" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_PutResourcePolicy.html">
                  PutResourcePolicy
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to attach a resource policy to the provided resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
-                  channel*
+                  channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-eventdatastore">
+                  eventdatastore
                  </a>
                 </p>
                </td>
@@ -1545,21 +1801,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudtrail-RemoveTags" rowspan="4" tabindex="-1">
+               <td id="awscloudtrail-RemoveTags" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RemoveTags.html">
                  RemoveTags
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
-                Grants permission to remove tags from a trail, event data store, or channel
+               <td rowspan="5" tabindex="-1">
+                Grants permission to remove tags from a trail, event data store, channel or dashboard
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudtrail-channel">
                   channel
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard
                  </a>
                 </p>
                </td>
@@ -1629,6 +1898,33 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudtrail-StartDashboardRefresh" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartDashboardRefresh.html">
+                 StartDashboardRefresh
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a refresh on the specified dashboard
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 cloudtrail:StartQuery
+                </p>
                </td>
               </tr>
               <tr>
@@ -1820,6 +2116,36 @@
                </td>
               </tr>
               <tr>
+               <td id="awscloudtrail-UpdateDashboard" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateDashboard.html">
+                 UpdateDashboard
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a dashboard
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-dashboard">
+                  dashboard*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 cloudtrail:StartDashboardRefresh
+                </p>
+                <p>
+                 cloudtrail:StartQuery
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awscloudtrail-UpdateEventDataStore" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateEventDataStore.html">
                  UpdateEventDataStore
@@ -1961,7 +2287,7 @@
            </div>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d258c13b7">
+             <table id="w44aab5b9d266c13b7">
               <thead>
                <tr>
                 <th>
@@ -2080,6 +2406,41 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="awscloudtrail-dashboard" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-dashboard.html">
+                 dashboard
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cloudtrail:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dashboard/$
+                 <span>
+                  {
+                 </span>
+                 DashboardName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudtrail-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2106,7 +2467,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w43aab5b9d258c15b7">
+             <table id="w44aab5b9d266c15b7">
               <thead>
                <tr>
                 <th>
