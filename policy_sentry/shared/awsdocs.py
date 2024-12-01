@@ -181,7 +181,7 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
             continue
 
         title = re.sub(
-            ".*Actions, resources, and condition Keys for *",
+            r".*Actions, resources, and condition Keys for *",
             "",
             topic_title.text,
             flags=re.IGNORECASE,

@@ -1,18 +1,19 @@
 repos:
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.1
+    rev: v1.7.4
     hooks:
       - id: actionlint-docker
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.92.0
+    rev: v1.96.2
     hooks:
       - id: terraform_fmt
 #      - id: terraform_docs
 #        args: ['--sort-by-required', '--no-providers']
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.2
+    rev: v0.8.1
     hooks:
       - id: ruff
+        args: [--fix]
         files: ^(examples/|policy_sentry/|utils/|setup.py)
       - id: ruff-format
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
