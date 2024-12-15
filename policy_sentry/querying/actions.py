@@ -109,11 +109,17 @@ def create_action_data_entries(
     """
 
     results = []
-    condition_keys = []
     dependent_actions = []
+
+    # check for condition keys, which can be used with any allowed resource type
+    wildcard_condition_keys = []
+    if wildcard_resource_type := action_data["resource_types"].get(""):
+        wildcard_condition_keys = wildcard_resource_type["condition_keys"]
+
     for resource_type, resource_type_entry in action_data["resource_types"].items():
         # Set default value for if no other matches are found
         resource_arn_format = "*"
+        condition_keys = []
         # Get the dependent actions
         resource_dependent_actions = resource_type_entry["dependent_actions"]
         if resource_dependent_actions:
@@ -123,7 +129,11 @@ def create_action_data_entries(
             service_resource_data = service_prefix_data["resources"].get(resource_type)
             if service_resource_data:
                 resource_arn_format = service_resource_data.get("arn", "*")
-                condition_keys = service_resource_data.get("condition_keys")
+                if resource_condition_keys := service_resource_data.get("condition_keys"):
+                    condition_keys.extend(resource_condition_keys)
+
+        if wildcard_condition_keys:
+            condition_keys.extend(wildcard_condition_keys)
 
         temp_dict = {
             "action": f"{service_prefix_data['prefix']}:{action_name}",
