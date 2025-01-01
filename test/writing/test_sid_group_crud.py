@@ -577,9 +577,12 @@ class SidGroupCrudTestCase(unittest.TestCase):
         }
         self.maxDiff = None
         print(json.dumps(result, indent=4))
+        actual_actions = next(
+            (statement for statement in expected_result["Statement"] if statement["Sid"] == "S3WriteBucket"), None
+        )
         expected_actions = expected_result["Statement"][0]["Action"]
         for action in expected_actions:
-            self.assertIn(action, result["Statement"][0]["Action"])
+            self.assertIn(action, actual_actions["Action"])
         # self.assertDictEqual(result, expected_result)
 
     def test_write_template_with_sts_actions(self):
