@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d211c11c13">
+             <table id="w44aab5b9d223c11c13">
               <thead>
                <tr>
                 <th>
@@ -542,6 +542,26 @@
                </td>
                <td tabindex="-1">
                 Grants permission to associate the specified sign-in delegate groups with the specified Amazon Chime account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-AssociateVoiceConnectorConnect" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">
+                 AssociateVoiceConnectorConnect
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate the specified Amazon Connect instance with an Amazon Chime Voice Connector
                </td>
                <td tabindex="-1">
                 Write
@@ -1345,6 +1365,72 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-CreateConnectAnalyticsConnector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html">
+                 CreateConnectAnalyticsConnector
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create an Amazon Connect Analytics Connector in the AWS account (tag-based access controls are only supported on voice-chime.&lt;region&gt;.amazonaws.com endpoints)
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonchime-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 chime:CreateVoiceConnector
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-CreateConnectCallTransferConnector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html">
+                 CreateConnectCallTransferConnector
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create an Amazon Connect Call Transfer Connector in the AWS account (tag-based access controls are only supported on voice-chime.&lt;region&gt;.amazonaws.com endpoints)
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonchime-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 chime:CreateVoiceConnector
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-CreateMediaCapturePipeline" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.html">
                  CreateMediaCapturePipeline
@@ -1879,7 +1965,7 @@
               </tr>
               <tr>
                <td id="amazonchime-CreateVoiceConnector" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateVoiceConnector.html">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html">
                  CreateVoiceConnector
                 </a>
                </td>
@@ -1904,6 +1990,12 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 chime:CreateConnectAnalyticsConnector
+                </p>
+                <p>
+                 chime:CreateConnectCallTransferConnector
+                </p>
                </td>
               </tr>
               <tr>
@@ -2918,6 +3010,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonchime-DeleteVoiceConnectorExternalSystemsConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorExternalSystemsConfiguration.html">
+                 DeleteVoiceConnectorExternalSystemsConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-voice-connector">
+                  voice-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonchime-DeleteVoiceConnectorGroup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorGroup.html">
                  DeleteVoiceConnectorGroup
@@ -3731,6 +3847,26 @@
                </td>
                <td tabindex="-1">
                 Grants permission to disassociate the specified sign-in delegate groups from the specified Amazon Chime account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-DisassociateVoiceConnectorConnect" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">
+                 DisassociateVoiceConnectorConnect
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to disassociate the Amazon Connect instance from the specified Amazon Chime Voice Connector
                </td>
                <td tabindex="-1">
                 Write
@@ -4725,6 +4861,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to get details of the emergency calling configuration for the specified Amazon Chime Voice Connector
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-voice-connector">
+                  voice-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-GetVoiceConnectorExternalSystemsConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorExternalSystemsConfiguration.html">
+                 GetVoiceConnectorExternalSystemsConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
                </td>
                <td tabindex="-1">
                 Read
@@ -6770,6 +6930,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to add emergency calling configuration for the specified Amazon Chime Voice Connector
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonchime-voice-connector">
+                  voice-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonchime-PutVoiceConnectorExternalSystemsConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorExternalSystemsConfiguration.html">
+                 PutVoiceConnectorExternalSystemsConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
                </td>
                <td tabindex="-1">
                 Write
@@ -8994,7 +9178,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d211c13b5">
+             <table id="w44aab5b9d223c13b5">
               <thead>
                <tr>
                 <th>
@@ -9496,7 +9680,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d211c15b7">
+             <table id="w44aab5b9d223c15b7">
               <thead>
                <tr>
                 <th>

@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d402c11c13">
+             <table id="w44aab5b9d418c11c13">
               <thead>
                <tr>
                 <th>
@@ -333,6 +333,30 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="awsconfig-AssociateResourceTypes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">
+                 AssociateResourceTypes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to add all specified resource types to the RecordingGroup of configuration recorder and includes those resource types when recording
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="awsconfig-BatchGetAggregateResourceConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_BatchGetAggregateResourceConfig.html">
@@ -455,12 +479,17 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to delete the configuration recorder
+                Grants permission to delete the customer managed configuration recorder
                </td>
                <td tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -678,6 +707,43 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-DeleteServiceLinkedConfigurationRecorder" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">
+                 DeleteServiceLinkedConfigurationRecorder
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete the service-linked configuration recorder
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-config_ConfigurationRecorderServicePrincipal">
+                  config:ConfigurationRecorderServicePrincipal
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -912,18 +978,23 @@
                </td>
               </tr>
               <tr>
-               <td id="awsconfig-DescribeConfigurationRecorderStatus" tabindex="-1">
+               <td id="awsconfig-DescribeConfigurationRecorderStatus" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">
                  DescribeConfigurationRecorderStatus
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to return the current status of the specified configuration recorder
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -931,20 +1002,51 @@
                </td>
               </tr>
               <tr>
-               <td id="awsconfig-DescribeConfigurationRecorders" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-config_ConfigurationRecorderServicePrincipal">
+                  config:ConfigurationRecorderServicePrincipal
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-DescribeConfigurationRecorders" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">
                  DescribeConfigurationRecorders
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to return the names of one or more specified configuration recorders
                </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
                <td tabindex="-1">
-                List
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-config_ConfigurationRecorderServicePrincipal">
+                  config:ConfigurationRecorderServicePrincipal
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1224,6 +1326,30 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-DisassociateResourceTypes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">
+                 DisassociateResourceTypes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to remove all specified resource types from the RecordingGroup of configuration recorder and excludes these resource types when recording
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1681,6 +1807,25 @@
                </td>
               </tr>
               <tr>
+               <td id="awsconfig-ListConfigurationRecorders" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ListConfigurationRecorders.html">
+                 ListConfigurationRecorders
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the configuration recorder summaries for an AWS account in an AWS Region
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsconfig-ListConformancePackComplianceScores" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ListConformancePackComplianceScores.html">
                  ListConformancePackComplianceScores
@@ -1757,15 +1902,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsconfig-ListTagsForResource" rowspan="7" tabindex="-1">
+               <td id="awsconfig-ListTagsForResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to list the tags for AWS Config resource
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -1798,6 +1943,19 @@
                 <p>
                  <a href="#awsconfig-ConfigurationAggregator">
                   ConfigurationAggregator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder
                  </a>
                 </p>
                </td>
@@ -2000,7 +2158,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to create a new configuration recorder to record the selected resource configurations
+                Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations
                </td>
                <td tabindex="-1">
                 Write
@@ -2008,8 +2166,21 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -2273,6 +2444,46 @@
                </td>
               </tr>
               <tr>
+               <td id="awsconfig-PutServiceLinkedConfigurationRecorder" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">
+                 PutServiceLinkedConfigurationRecorder
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new service-linked configuration recorder to record the resource configurations in scope for the linked service
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-config_ConfigurationRecorderServicePrincipal">
+                  config:ConfigurationRecorderServicePrincipal
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awsconfig-PutStoredQuery" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">
                  PutStoredQuery
@@ -2388,12 +2599,17 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to start recording configurations of the AWS resources you have selected to record in your AWS account
+                Grants permission to the customer managed configuration recorder to start recording configurations of the AWS resources you have selected to record in your AWS account
                </td>
                <td tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2451,12 +2667,17 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to stop recording configurations of the AWS resources you have selected to record in your AWS account
+                Grants permission to the customer managed configuration recorder to stop recording configurations of the AWS resources you have selected to record in your AWS account
                </td>
                <td tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2464,15 +2685,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsconfig-TagResource" rowspan="8" tabindex="-1">
+               <td id="awsconfig-TagResource" rowspan="9" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to associate the specified tags to a resource with the specified resourceArn
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2505,6 +2726,19 @@
                 <p>
                  <a href="#awsconfig-ConfigurationAggregator">
                   ConfigurationAggregator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder
                  </a>
                 </p>
                </td>
@@ -2584,15 +2818,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsconfig-UntagResource" rowspan="8" tabindex="-1">
+               <td id="awsconfig-UntagResource" rowspan="9" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to delete specified tags from a resource
                </td>
-               <td rowspan="8" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2625,6 +2859,19 @@
                 <p>
                  <a href="#awsconfig-ConfigurationAggregator">
                   ConfigurationAggregator
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-ConfigurationRecorder">
+                  ConfigurationRecorder
                  </a>
                 </p>
                </td>
@@ -2721,7 +2968,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d402c13b5">
+             <table id="w44aab5b9d418c13b5">
               <thead>
                <tr>
                 <th>
@@ -3022,6 +3269,45 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="awsconfig-ConfigurationRecorder" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationRecorder.html">
+                 ConfigurationRecorder
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:config:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:configuration-recorder/$
+                 <span>
+                  {
+                 </span>
+                 RecorderName}/$
+                 <span>
+                  {
+                 </span>
+                 RecorderId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -3048,7 +3334,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d402c15b7">
+             <table id="w44aab5b9d418c15b7">
               <thead>
                <tr>
                 <th>
@@ -3099,6 +3385,19 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-config_ConfigurationRecorderServicePrincipal" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys">
+                 config:ConfigurationRecorderServicePrincipal
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by service principal of the configuration recorder
+               </td>
+               <td tabindex="-1">
+                String
                </td>
               </tr>
              </table>

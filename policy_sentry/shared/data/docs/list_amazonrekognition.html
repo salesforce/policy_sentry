@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1345c11c13">
+             <table id="w44aab5b9e1369c11c13">
               <thead>
                <tr>
                 <th>
@@ -432,21 +432,50 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-CreateCollection" rowspan="2" tabindex="-1">
+               <td id="amazonrekognition-CreateCollection" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html">
                  CreateCollection
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to create a collection in an AWS Region
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrekognition-CreateDataset" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">
+                 CreateDataset
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new Amazon Rekognition Custom Labels dataset
                </td>
                <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonrekognition-collection">
-                  collection*
+                 <a href="#amazonrekognition-project">
+                  project*
                  </a>
                 </p>
                </td>
@@ -474,30 +503,6 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-CreateDataset" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html">
-                 CreateDataset
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to create a new Amazon Rekognition Custom Labels dataset
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonrekognition-project">
-                  project*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="amazonrekognition-CreateFaceLivenessSession" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html">
                  CreateFaceLivenessSession
@@ -517,15 +522,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-CreateProject" tabindex="-1">
+               <td id="amazonrekognition-CreateProject" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html">
                  CreateProject
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create an Amazon Rekognition Custom Labels project
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -536,6 +541,24 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrekognition-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1519,21 +1542,73 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-ListTagsForResource" tabindex="-1">
+               <td id="amazonrekognition-ListTagsForResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to return a list of tags associated with a resource
                </td>
-               <td tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonrekognition-collection">
+                  collection
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-project">
+                  project
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonrekognition-projectversion">
-                  projectversion*
+                  projectversion
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-streamprocessor">
+                  streamprocessor
                  </a>
                 </p>
                </td>
@@ -2002,21 +2077,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-TagResource" rowspan="4" tabindex="-1">
+               <td id="amazonrekognition-TagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to add one or more tags to a resource
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrekognition-collection">
                   collection
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-project">
+                  project
                  </a>
                 </p>
                </td>
@@ -2070,21 +2171,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonrekognition-UntagResource" rowspan="4" tabindex="-1">
+               <td id="amazonrekognition-UntagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to remove one or more tags from a resource
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonrekognition-collection">
                   collection
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-project">
+                  project
                  </a>
                 </p>
                </td>
@@ -2203,7 +2330,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1345c13b5">
+             <table id="w44aab5b9e1369c13b5">
               <thead>
                <tr>
                 <th>
@@ -2319,6 +2446,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -2400,6 +2532,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonrekognition-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -2428,7 +2565,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1345c15b7">
+             <table id="w44aab5b9e1369c15b7">
               <thead>
                <tr>
                 <th>
