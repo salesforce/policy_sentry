@@ -1935,6 +1935,18 @@
                  cases:GetDomain
                 </p>
                 <p>
+                 chime:AssociateVoiceConnectorConnect
+                </p>
+                <p>
+                 chime:DisassociateVoiceConnectorConnect
+                </p>
+                <p>
+                 chime:TagResource
+                </p>
+                <p>
+                 chime:UntagResource
+                </p>
+                <p>
                  connect:DescribeInstance
                 </p>
                 <p>
@@ -2192,6 +2204,43 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-CreatePushNotificationRegistration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePushNotificationRegistration.html">
+                 CreatePushNotificationRegistration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a push notification registration for an Amazon Connect instance
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
@@ -3506,6 +3555,43 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-DeletePushNotificationRegistration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeletePushNotificationRegistration.html">
+                 DeletePushNotificationRegistration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a push notification registration for an Amazon Connect instance
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
@@ -6508,6 +6594,12 @@
                 <p>
                  sms-voice:DescribePhoneNumbers
                 </p>
+                <p>
+                 social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber
+                </p>
+                <p>
+                 social-messaging:TagResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -6822,15 +6914,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonconnect-ListContactFlows" tabindex="-1">
+               <td id="amazonconnect-ListContactFlows" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactFlows.html">
                  ListContactFlows
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to list contact flow resources in an Amazon Connect instance
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -6841,6 +6933,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -9669,6 +9774,26 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonconnect-SendIntegrationEvent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/whatsapp-integration.html">
+                 SendIntegrationEvent
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to send integration events using the Amazon Connect API
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonconnect-SendOutboundEmail" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html">
                  SendOutboundEmail
@@ -9917,6 +10042,61 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-StartEmailContact" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html">
+                 StartEmailContact
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to initiate an inbound email using the Amazon Connect API
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-contact-flow">
+                  contact-flow
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -11955,6 +12135,43 @@
                   connect:StorageResourceType
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-UpdateParticipantAuthentication" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateParticipantAuthentication.html">
+                 UpdateParticipantAuthentication
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update and continue authentication for a specific contact
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId

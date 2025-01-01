@@ -196,7 +196,7 @@
              <li class="listitem">
               <p>
                View a list of the
-               <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html">
+               <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref">
                 API operations available for this          service
                </a>
                .
@@ -310,7 +310,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d847c11c13">
+             <table id="w44aab5b9d863c11c13">
               <thead>
                <tr>
                 <th>
@@ -334,8 +334,93 @@
                </tr>
               </thead>
               <tr>
+               <td id="awsinvoicingservice-BatchGetInvoiceProfile" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_BatchGetInvoiceProfile.html">
+                 BatchGetInvoiceProfile
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get invoice profile details for an account in your organization
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-CreateInvoiceUnit" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_CreateInvoiceUnit.html">
+                 CreateInvoiceUnit
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create an invoice unit for your organization
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsinvoicingservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-DeleteInvoiceUnit" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_DeleteInvoiceUnit.html">
+                 DeleteInvoiceUnit
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update an invoice unit for your organization
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsinvoicingservice-GetInvoiceEmailDeliveryPreferences" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref">
                  GetInvoiceEmailDeliveryPreferences
                 </a>
                 [permission only]
@@ -355,7 +440,7 @@
               </tr>
               <tr>
                <td id="awsinvoicingservice-GetInvoicePDF" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref">
                  GetInvoicePDF
                 </a>
                 [permission only]
@@ -374,8 +459,32 @@
                </td>
               </tr>
               <tr>
+               <td id="awsinvoicingservice-GetInvoiceUnit" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_GetInvoiceUnit.html">
+                 GetInvoiceUnit
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get invoice units for your organization
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsinvoicingservice-ListInvoiceSummaries" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref">
                  ListInvoiceSummaries
                 </a>
                 [permission only]
@@ -394,8 +503,64 @@
                </td>
               </tr>
               <tr>
+               <td id="awsinvoicingservice-ListInvoiceUnits" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_ListInvoiceUnits.html">
+                 ListInvoiceUnits
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list invoice units for your organization
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-ListTagsForResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list tags for a resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsinvoicingservice-PutInvoiceEmailDeliveryPreferences" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref">
                  PutInvoiceEmailDeliveryPreferences
                 </a>
                 [permission only]
@@ -413,6 +578,132 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awsinvoicingservice-TagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to tag a resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsinvoicingservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-UntagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to untag a resource
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-UpdateInvoiceUnit" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_UpdateInvoiceUnit.html">
+                 UpdateInvoiceUnit
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update an invoice unit for your organization
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-invoice-unit">
+                  invoice-unit*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -420,30 +711,149 @@
             Resource types defined by        AWS Invoicing Service
            </h2>
            <p>
-            AWS Invoicing Service does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      AWS Invoicing Service, specify
-            <code class="code">
-             "Resource": "*"
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsinvoicingservice-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b9d863c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awsinvoicingservice-invoice-unit" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_invoicing_InvoiceUnit.html">
+                 invoice-unit
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:invoicing::$
+                 <span>
+                  {
+                 </span>
+                 Account}:invoice-unit/$
+                 <span>
+                  {
+                 </span>
+                 Identifier}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsinvoicingservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awsinvoicingservice-policy-keys">
             Condition keys for        AWS Invoicing Service
            </h2>
            <p>
-            Invoicing Service has no service-specific context keys that can be used in the
+            AWS Invoicing Service defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available keys for conditions
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
             </a>
             .
            </p>
+           <p>
+            To view the global condition keys that are available to all services, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
+             Available global condition keys
+            </a>
+            .
+           </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b9d863c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awsinvoicingservice-aws_RequestTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by allowed set of values for each of the tags
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-aws_ResourceTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by tag-value associated with the resource
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awsinvoicingservice-aws_TagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by presence of mandatory tags in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
