@@ -289,6 +289,7 @@ class QueryActionsTestCase(unittest.TestCase):
         desired_output = [
             "s3:DeleteBucketPolicy",
             "s3:PutBucketAcl",
+            "s3:PutBucketOwnershipControls",
             "s3:PutBucketPolicy",
             "s3:PutBucketPublicAccessBlock",
         ]
