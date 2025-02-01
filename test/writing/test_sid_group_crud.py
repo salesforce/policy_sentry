@@ -40,6 +40,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "actions": [
                     "s3:DeleteBucketPolicy",
                     "s3:PutBucketAcl",
+                    "s3:PutBucketOwnershipControls",
                     "s3:PutBucketPolicy",
                     "s3:PutBucketPublicAccessBlock",
                 ],
@@ -70,6 +71,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
+                        "s3:PutBucketOwnershipControls",
                         "s3:PutBucketPolicy",
                         "s3:PutBucketPublicAccessBlock",
                     ],
@@ -102,6 +104,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                 "actions": [
                     "s3:DeleteBucketPolicy",
                     "s3:PutBucketAcl",
+                    "s3:PutBucketOwnershipControls",
                     "s3:PutBucketPolicy",
                     "s3:PutBucketPublicAccessBlock",
                 ],
@@ -126,6 +129,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
+                        "s3:PutBucketOwnershipControls",
                         "s3:PutBucketPolicy",
                         "s3:PutBucketPublicAccessBlock",
                     ],
@@ -195,6 +199,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Action": [
                         "s3:DeleteBucketPolicy",
                         "s3:PutBucketAcl",
+                        "s3:PutBucketOwnershipControls",
                         "s3:PutBucketPolicy",
                         "s3:PutBucketPublicAccessBlock",
                     ],
