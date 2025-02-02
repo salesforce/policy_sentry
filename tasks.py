@@ -173,7 +173,7 @@ def query(c):
             pty=True,
         )
         c.run(
-            "./policy_sentry/bin/cli.py query action-table " "--service ram --access-level permissions-management",
+            "./policy_sentry/bin/cli.py query action-table --service ram --access-level permissions-management",
             pty=True,
         )
         c.run(
