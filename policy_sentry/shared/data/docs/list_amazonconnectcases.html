@@ -216,19 +216,25 @@
             </h6>
             <ul>
              <li>
-              <a href="#amazonconnectcases-actions-as-permissions">
-               Actions defined by        Amazon Connect Cases
-              </a>
+              <p>
+               <a href="#amazonconnectcases-actions-as-permissions">
+                Actions defined by        Amazon Connect Cases
+               </a>
+              </p>
              </li>
              <li>
-              <a href="#amazonconnectcases-resources-for-iam-policies">
-               Resource types defined by        Amazon Connect Cases
-              </a>
+              <p>
+               <a href="#amazonconnectcases-resources-for-iam-policies">
+                Resource types defined by        Amazon Connect Cases
+               </a>
+              </p>
              </li>
              <li>
-              <a href="#amazonconnectcases-policy-keys">
-               Condition keys for        Amazon Connect Cases
-              </a>
+              <p>
+               <a href="#amazonconnectcases-policy-keys">
+                Condition keys for        Amazon Connect Cases
+               </a>
+              </p>
              </li>
             </ul>
            </div>
@@ -330,6 +336,43 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="amazonconnectcases-BatchGetCaseRule" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_BatchGetCaseRule.html">
+                 BatchGetCaseRule
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve information about the case rules in the case domain
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="amazonconnectcases-BatchGetField" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_BatchGetField.html">
@@ -476,6 +519,43 @@
                   connect:UserArn
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnectcases-CreateCaseRule" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_CreateCaseRule.html">
+                 CreateCaseRule
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a case rule in the case domain
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -678,6 +758,43 @@
                 <p>
                  <a href="#amazonconnectcases-Template">
                   Template*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnectcases-DeleteCaseRule" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_DeleteCaseRule.html">
+                 DeleteCaseRule
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete the case rule in the case domain
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-Domain">
+                  Domain*
                  </a>
                 </p>
                </td>
@@ -1082,6 +1199,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonconnectcases-ListCaseRules" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_ListCaseRules.html">
+                 ListCaseRules
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list case rules in the case domain
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonconnectcases-ListCasesForContact" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_ListCasesForContact.html">
                  ListCasesForContact
@@ -1338,21 +1479,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonconnectcases-TagResource" rowspan="7" tabindex="-1">
+               <td id="amazonconnectcases-TagResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to add the specified tags to the specified resource
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonconnectcases-Case">
                   Case
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule
                  </a>
                 </p>
                </td>
@@ -1445,21 +1599,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonconnectcases-UntagResource" rowspan="7" tabindex="-1">
+               <td id="amazonconnectcases-UntagResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to remove the specified tags from the specified resource
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonconnectcases-Case">
                   Case
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule
                  </a>
                 </p>
                </td>
@@ -1605,6 +1772,43 @@
                   connect:UserArn
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnectcases-UpdateCaseRule" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cases/latest/APIReference/API_UpdateCaseRule.html">
+                 UpdateCaseRule
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update the case rule in the case domain
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-CaseRule">
+                  CaseRule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-Domain">
+                  Domain*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1981,6 +2185,45 @@
                   {
                  </span>
                  TemplateId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnectcases-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnectcases-CaseRule" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-rules.html">
+                 CaseRule
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cases:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:domain/$
+                 <span>
+                  {
+                 </span>
+                 DomainId}/case-rule/$
+                 <span>
+                  {
+                 </span>
+                 CaseRuleId}
                 </code>
                </td>
                <td tabindex="-1">
