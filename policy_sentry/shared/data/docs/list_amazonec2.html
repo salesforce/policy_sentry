@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   Actions, resources, and condition keys for Amazon EC2 - Service Authorization Reference
+   Actions, resources, and condition keys for Amazon EC2 - AWS Identity and Access Management
   </title>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="/assets" name="assets_root"/>
@@ -14,7 +14,7 @@
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html" rel="canonical"/>
   <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon EC2." name="description"/>
   <meta content="IAD" name="deployment_region"/>
-  <meta content="Service Authorization Reference" name="product"/>
+  <meta content="AWS Identity and Access Management" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
@@ -42,7 +42,7 @@
   <link href="https://docs.aws.amazon.com/zh_tw/service-authorization/latest/reference/list_amazonec2.html" hreflang="zh-tw" rel="alternative"/>
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html" hreflang="x-default" rel="alternative"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
-  <meta content="Service Authorization Reference" name="this_doc_product"/>
+  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
@@ -76,7 +76,7 @@
       <div id="awsdocs-content">
        <head>
         <title>
-         Actions, resources, and condition keys for Amazon EC2 - Service Authorization Reference
+         Actions, resources, and condition keys for Amazon EC2 - AWS Identity and Access Management
         </title>
         <meta content="https://repost.aws/tags/TAO7Z4bI5hQVWMiYFs34QhIA" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2.html" name="feedback"/>
@@ -96,7 +96,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -124,7 +124,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="list_amazonec2.html">
            Service Authorization Reference
@@ -179,7 +179,7 @@
               <p>
                View a list of the
                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">
-                API operations available for this        service
+                API operations available for this          service
                </a>
                .
               </p>
@@ -188,7 +188,7 @@
               <p>
                Learn how to secure this service and its resources by
                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-iam.html">
-                using        IAM
+                using          IAM
                </a>
                permission policies.
               </p>
@@ -232,6 +232,17 @@
              Action
             </code>
             element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
            </p>
            <p>
             The
@@ -298,7 +309,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c11c13">
+             <table id="w62aab7c11c15">
               <thead>
                <tr>
                 <th>
@@ -2407,6 +2418,96 @@
                 <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-AssociateRouteServer" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateRouteServer.html">
+                 AssociateRouteServer
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to associate a route server with a VPC
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-vpc">
+                  vpc*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv4IpamPoolId">
+                  ec2:Ipv4IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv6IpamPoolId">
+                  ec2:Ipv6IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Tenancy">
+                  ec2:Tenancy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VpcID">
+                  ec2:VpcID
                  </a>
                 </p>
                </td>
@@ -5072,8 +5173,73 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZoneId">
+                  ec2:AvailabilityZoneId
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_CapacityReservationFleet">
                   ec2:CapacityReservationFleet
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EbsOptimized">
+                  ec2:EbsOptimized
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EndDate">
+                  ec2:EndDate
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EndDateType">
+                  ec2:EndDateType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EphemeralStorage">
+                  ec2:EphemeralStorage
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceCount">
+                  ec2:InstanceCount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceMatchCriteria">
+                  ec2:InstanceMatchCriteria
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstancePlatform">
+                  ec2:InstancePlatform
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_InstanceType">
+                  ec2:InstanceType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_OutpostArn">
+                  ec2:OutpostArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_PlacementGroup">
+                  ec2:PlacementGroup
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Tenancy">
+                  ec2:Tenancy
                  </a>
                 </p>
                </td>
@@ -9643,6 +9809,276 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-CreateRouteServer" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServer.html">
+                 CreateRouteServer
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a route server
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+                <p>
+                 sns:CreateTopic
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-CreateRouteServerEndpoint" rowspan="4" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServerEndpoint.html">
+                 CreateRouteServerEndpoint
+                </a>
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Grants permission to create a route server endpoint
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateNetworkInterface
+                </p>
+                <p>
+                 ec2:CreateNetworkInterfacePermission
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:CreateTags
+                </p>
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server-endpoint">
+                  route-server-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-subnet">
+                  subnet*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SubnetID">
+                  ec2:SubnetID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-CreateRouteServerPeer" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServerPeer.html">
+                 CreateRouteServerPeer
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create a route server peer
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server-endpoint">
+                  route-server-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server-peer">
+                  route-server-peer*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
                  </a>
                 </p>
                </td>
@@ -19055,6 +19491,172 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DeleteRouteServer" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServer.html">
+                 DeleteRouteServer
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a route server
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 sns:DeleteTopic
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DeleteRouteServerEndpoint" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServerEndpoint.html">
+                 DeleteRouteServerEndpoint
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a route server endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server-endpoint">
+                  route-server-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DeleteNetworkInterface
+                </p>
+                <p>
+                 ec2:DeleteSecurityGroup
+                </p>
+                <p>
+                 ec2:RevokeSecurityGroupIngress
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DeleteRouteServerPeer" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServerPeer.html">
+                 DeleteRouteServerPeer
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a route server peer
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server-peer">
+                  route-server-peer*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:RevokeSecurityGroupIngress
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DeleteRouteTable" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteTable.html">
                  DeleteRouteTable
@@ -24520,115 +25122,17 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-DescribeCapacityBlockExtensionHistory" rowspan="2" tabindex="-1">
+               <td id="amazonec2-DescribeCapacityBlockExtensionHistory" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockExtensionHistory.html">
                  DescribeCapacityBlockExtensionHistory
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to describe Capacity Block extensions history
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 List
                </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-capacity-reservation">
-                  capacity-reservation
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_AvailabilityZone">
-                  ec2:AvailabilityZone
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CapacityReservationFleet">
-                  ec2:CapacityReservationFleet
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CreateDate">
-                  ec2:CreateDate
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_DestinationCapacityReservationId">
-                  ec2:DestinationCapacityReservationId
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_EbsOptimized">
-                  ec2:EbsOptimized
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_EndDate">
-                  ec2:EndDate
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_EndDateType">
-                  ec2:EndDateType
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_InstanceCount">
-                  ec2:InstanceCount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_InstanceMatchCriteria">
-                  ec2:InstanceMatchCriteria
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_InstancePlatform">
-                  ec2:InstancePlatform
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_InstanceType">
-                  ec2:InstanceType
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_OutpostArn">
-                  ec2:OutpostArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_PlacementGroup">
-                  ec2:PlacementGroup
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_SourceCapacityReservationId">
-                  ec2:SourceCapacityReservationId
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_Tenancy">
-                  ec2:Tenancy
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -25032,70 +25536,17 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-DescribeClientVpnEndpoints" rowspan="2" tabindex="-1">
+               <td id="amazonec2-DescribeClientVpnEndpoints" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html">
                  DescribeClientVpnEndpoints
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to describe one or more Client VPN endpoints
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 List
                </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-client-vpn-endpoint">
-                  client-vpn-endpoint
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ClientRootCertificateChainArn">
-                  ec2:ClientRootCertificateChainArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CloudwatchLogGroupArn">
-                  ec2:CloudwatchLogGroupArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_CloudwatchLogStreamArn">
-                  ec2:CloudwatchLogStreamArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_DirectoryArn">
-                  ec2:DirectoryArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_SamlProviderArn">
-                  ec2:SamlProviderArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ServerCertificateArn">
-                  ec2:ServerCertificateArn
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -27422,6 +27873,78 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DescribeRouteServerEndpoints" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServerEndpoints.html">
+                 DescribeRouteServerEndpoints
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe one or more route server endpoints
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DescribeRouteServerPeers" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServerPeers.html">
+                 DescribeRouteServerPeers
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe one or more route server peers
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DescribeRouteServers" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServers.html">
+                 DescribeRouteServers
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe one or more route servers
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DescribeRouteTables" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html">
                  DescribeRouteTables
@@ -28866,50 +29389,17 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-DescribeVpcEndpointAssociations" rowspan="2" tabindex="-1">
+               <td id="amazonec2-DescribeVpcEndpointAssociations" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointAssociations.html">
                  DescribeVpcEndpointAssociations
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to describe the VPC endpoint associations
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 List
                </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-vpc-endpoint">
-                  vpc-endpoint
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
-                  aws:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
-                  ec2:ResourceTag/${TagKey}
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_VpceServiceName">
-                  ec2:VpceServiceName
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazonec2-ec2_VpceServiceOwner">
-                  ec2:VpceServiceOwner
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -30531,6 +31021,86 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DisableRouteServerPropagation" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableRouteServerPropagation.html">
+                 DisableRouteServerPropagation
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to disable route server propagation
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-table">
+                  route-table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RouteTableID">
+                  ec2:RouteTableID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DisableSerialConsoleAccess" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableSerialConsoleAccess.html">
                  DisableSerialConsoleAccess
@@ -31618,6 +32188,96 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DisassociateRouteServer" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateRouteServer.html">
+                 DisassociateRouteServer
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to disassociate a route server from a VPC
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-vpc">
+                  vpc*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv4IpamPoolId">
+                  ec2:Ipv4IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Ipv6IpamPoolId">
+                  ec2:Ipv6IpamPoolId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Tenancy">
+                  ec2:Tenancy
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VpcID">
+                  ec2:VpcID
                  </a>
                 </p>
                </td>
@@ -33066,6 +33726,86 @@
                 <p>
                  organizations:EnableAWSServiceAccess
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-EnableRouteServerPropagation" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableRouteServerPropagation.html">
+                 EnableRouteServerPropagation
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to enable route server propagation
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-table">
+                  route-table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RouteTableID">
+                  ec2:RouteTableID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -35804,6 +36544,180 @@
                 <p>
                  <a href="#amazonec2-verified-access-group">
                   verified-access-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-GetRouteServerAssociations" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerAssociations.html">
+                 GetRouteServerAssociations
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get associations for a route server
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-GetRouteServerPropagations" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerPropagations.html">
+                 GetRouteServerPropagations
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to get propagations for a route server
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-table">
+                  route-table
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RouteTableID">
+                  ec2:RouteTableID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Vpc">
+                  ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-GetRouteServerRoutingDatabase" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerRoutingDatabase.html">
+                 GetRouteServerRoutingDatabase
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get the routing database for a route server
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
                  </a>
                 </p>
                </td>
@@ -40843,6 +41757,53 @@
                 <p>
                  <a href="#amazonec2-ec2_Tenancy">
                   ec2:Tenancy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ModifyRouteServer" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyRouteServer.html">
+                 ModifyRouteServer
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to modify a route server
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-route-server">
+                  route-server*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -50985,7 +51946,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c13b5">
+             <table id="w62aab7c13b5">
               <thead>
                <tr>
                 <th>
@@ -51203,6 +52164,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_AvailabilityZoneId">
+                  ec2:AvailabilityZoneId
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_CapacityReservationFleet">
                   ec2:CapacityReservationFleet
                  </a>
@@ -51230,6 +52196,11 @@
                 <p>
                  <a href="#amazonec2-ec2_EndDateType">
                   ec2:EndDateType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_EphemeralStorage">
+                  ec2:EphemeralStorage
                  </a>
                 </p>
                 <p>
@@ -54598,6 +55569,181 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-route-server-endpoint" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/route-server-terms.html">
+                 route-server-endpoint
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:route-server-endpoint/$
+                 <span>
+                  {
+                 </span>
+                 RouteServerEndpointId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-route-server" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/route-server-terms.html">
+                 route-server
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:route-server/$
+                 <span>
+                  {
+                 </span>
+                 RouteServerId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-route-server-peer" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/route-server-terms.html">
+                 route-server-peer
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:route-server-peer/$
+                 <span>
+                  {
+                 </span>
+                 RouteServerPeerId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_AvailabilityZone">
+                  ec2:AvailabilityZone
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-route-table" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">
                  route-table
@@ -57187,14 +58333,14 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c15b7">
+             <table id="w62aab7c15b7">
               <thead>
                <tr>
                 <th>
@@ -57398,6 +58544,19 @@
                </td>
                <td tabindex="-1">
                 Filters access by the name of an Availability Zone in an AWS Region
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ec2_AvailabilityZoneId" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                 ec2:AvailabilityZoneId
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ID of an Availability Zone in an AWS Region
                </td>
                <td tabindex="-1">
                 String
@@ -57622,6 +58781,19 @@
                </td>
                <td tabindex="-1">
                 String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ec2_EphemeralStorage" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                 ec2:EphemeralStorage
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by whether the instance is enabled for ephemeral storage
+               </td>
+               <td tabindex="-1">
+                Bool
                </td>
               </tr>
               <tr>

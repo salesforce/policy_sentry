@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1607c11c13">
+             <table id="w44aab5b9e1607c11c15">
               <thead>
                <tr>
                 <th>
@@ -809,6 +820,11 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1062,15 +1078,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-DeleteDocument" tabindex="-1">
+               <td id="awssystemsmanager-DeleteDocument" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteDocument.html">
                  DeleteDocument
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to delete a specified SSM document and its instance associations
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -1081,6 +1097,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1715,15 +1744,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-DescribeDocument" tabindex="-1">
+               <td id="awssystemsmanager-DescribeDocument" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html">
                  DescribeDocument
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to view details about a specified SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -1734,6 +1763,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1763,15 +1805,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-DescribeDocumentPermission" tabindex="-1">
+               <td id="awssystemsmanager-DescribeDocumentPermission" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocumentPermission.html">
                  DescribeDocumentPermission
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to view the permissions for a specified SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -1782,6 +1824,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2688,6 +2743,11 @@
                   ssm:DocumentCategories
                  </a>
                 </p>
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3368,15 +3428,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-ListDocumentMetadataHistory" tabindex="-1">
+               <td id="awssystemsmanager-ListDocumentMetadataHistory" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListDocumentMetadataHistory.html">
                  ListDocumentMetadataHistory
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to view metadata history about a specified SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -3392,15 +3452,28 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-ListDocumentVersions" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-ListDocumentVersions" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListDocumentVersions.html">
                  ListDocumentVersions
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to list all versions of a specified document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -3411,6 +3484,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3793,15 +3879,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-ModifyDocumentPermission" tabindex="-1">
+               <td id="awssystemsmanager-ModifyDocumentPermission" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ModifyDocumentPermission.html">
                  ModifyDocumentPermission
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to share a custom SSM document publicly or privately with specified AWS accounts
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Permissions management
                </td>
                <td tabindex="-1">
@@ -3812,6 +3898,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -4543,21 +4642,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-StartAutomationExecution" rowspan="2" tabindex="-1">
+               <td id="awssystemsmanager-StartAutomationExecution" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAutomationExecution.html">
                  StartAutomationExecution
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to initiate the execution of an Automation document
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awssystemsmanager-automation-definition">
                   automation-definition*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
                  </a>
                 </p>
                </td>
@@ -4585,21 +4697,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-StartChangeRequestExecution" rowspan="2" tabindex="-1">
+               <td id="awssystemsmanager-StartChangeRequestExecution" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html">
                  StartChangeRequestExecution
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to initiate the execution of an Automation Change Template document
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awssystemsmanager-automation-definition">
                   automation-definition*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-document">
+                  document*
                  </a>
                 </p>
                </td>
@@ -4997,15 +5122,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-UpdateDocument" tabindex="-1">
+               <td id="awssystemsmanager-UpdateDocument" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocument.html">
                  UpdateDocument
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update one or more values for an SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -5021,15 +5146,28 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-UpdateDocumentDefaultVersion" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-UpdateDocumentDefaultVersion" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocumentDefaultVersion.html">
                  UpdateDocumentDefaultVersion
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to change the default version of an SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -5045,15 +5183,28 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-UpdateDocumentMetadata" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-UpdateDocumentMetadata" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocumentMetadata.html">
                  UpdateDocumentMetadata
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update the metadata of an SSM document
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -5064,6 +5215,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -5703,6 +5867,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#awssystemsmanager-ssm_DocumentType">
+                  ssm:DocumentType
+                 </a>
+                </p>
+                <p>
                  <a href="#awssystemsmanager-ssm_resourceTag___TagKey_">
                   ssm:resourceTag/${TagKey}
                  </a>
@@ -6300,8 +6469,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>
@@ -6397,6 +6566,19 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-ssm_DocumentType" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#policy-conditions">
+                 ssm:DocumentType
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by verifying that a user has permission to access a document belonging to a specific document type. Only available in "aws", "aws-cn", and "aws-us-gov" partitions
+               </td>
+               <td tabindex="-1">
+                String
                </td>
               </tr>
               <tr>

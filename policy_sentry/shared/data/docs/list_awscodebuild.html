@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d334c11c13">
+             <table id="w44aab5b9d334c11c15">
               <thead>
                <tr>
                 <th>
@@ -400,6 +411,30 @@
                 <p>
                  <a href="#awscodebuild-project">
                   project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-BatchGetCommandExecutions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetCommandExecutions.html">
+                 BatchGetCommandExecutions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about one or more command executions
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-sandbox">
+                  sandbox*
                  </a>
                 </p>
                </td>
@@ -496,6 +531,30 @@
                 <p>
                  <a href="#awscodebuild-report-group">
                   report-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-BatchGetSandboxes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetSandboxes.html">
+                 BatchGetSandboxes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about one or more sandboxes
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-project">
+                  project*
                  </a>
                 </p>
                </td>
@@ -1188,6 +1247,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awscodebuild-ListCommandExecutionsForSandbox" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListCommandExecutionsForSandbox.html">
+                 ListCommandExecutionsForSandbox
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a list of command execution IDs for the specified sandbox, with each command execution ID representing a single command execution
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-sandbox">
+                  sandbox*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscodebuild-ListConnectedOAuthAccounts" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#console-policies">
                  ListConnectedOAuthAccounts
@@ -1340,6 +1423,49 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-ListSandboxes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListSandboxes.html">
+                 ListSandboxes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a list of sandbox IDs, with each sandbox ID representing a single sandbox
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-ListSandboxesForProject" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListSandboxesForProject.html">
+                 ListSandboxesForProject
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a list of sandbox IDs for the specified sandbox project, with each sandbox ID representing a single sandbox
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-project">
+                  project*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1557,6 +1683,78 @@
                </td>
               </tr>
               <tr>
+               <td id="awscodebuild-StartCommandExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartCommandExecution.html">
+                 StartCommandExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start running a command execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-sandbox">
+                  sandbox*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-StartSandbox" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartSandbox.html">
+                 StartSandbox
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start running a sandbox
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-StartSandboxConnection" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartSandboxConnection.html">
+                 StartSandboxConnection
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to establish a connection to the sandbox
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-sandbox">
+                  sandbox*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscodebuild-StopBuild" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StopBuild.html">
                  StopBuild
@@ -1588,6 +1786,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to attempt to stop running a build batch
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscodebuild-project">
+                  project*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscodebuild-StopSandbox" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StopSandbox.html">
+                 StopSandbox
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to attempt to stop running a sandbox
                </td>
                <td tabindex="-1">
                 Write
@@ -2056,6 +2278,36 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awscodebuild-sandbox" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
+                 sandbox
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:codebuild:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:sandbox/$
+                 <span>
+                  {
+                 </span>
+                 SandboxId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2075,8 +2327,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>

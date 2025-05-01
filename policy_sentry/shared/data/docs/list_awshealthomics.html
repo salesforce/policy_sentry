@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d791c11c13">
+             <table id="w44aab5b9d791c11c15">
               <thead>
                <tr>
                 <th>
@@ -778,6 +789,48 @@
                </td>
               </tr>
               <tr>
+               <td id="awshealthomics-CreateWorkflowVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_CreateWorkflowVersion.html">
+                 CreateWorkflowVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new workflow version with a workflow definition and template of workflow parameters
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awshealthomics-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awshealthomics-DeleteAnnotationStore" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_DeleteAnnotationStore.html">
                  DeleteAnnotationStore
@@ -1074,6 +1127,43 @@
                <td tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-DeleteWorkflowVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_DeleteWorkflowVersion.html">
+                 DeleteWorkflowVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a workflow version
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-WorkflowVersion">
+                  WorkflowVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awshealthomics-workflow">
@@ -1665,6 +1755,43 @@
                </td>
               </tr>
               <tr>
+               <td id="awshealthomics-GetWorkflowVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_GetWorkflowVersion.html">
+                 GetWorkflowVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve workflow version details
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-WorkflowVersion">
+                  WorkflowVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awshealthomics-ListAnnotationImportJobs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_ListAnnotationImportJobs.html">
                  ListAnnotationImportJobs
@@ -2114,6 +2241,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awshealthomics-ListWorkflowVersions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflowVersions.html">
+                 ListWorkflowVersions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of available versions for a workflow
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awshealthomics-ListWorkflows" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflows.html">
                  ListWorkflows
@@ -2398,15 +2549,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awshealthomics-TagResource" rowspan="12" tabindex="-1">
+               <td id="awshealthomics-TagResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to add AWS tags to a resource
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2439,6 +2590,19 @@
                 <p>
                  <a href="#awshealthomics-VariantStore">
                   VariantStore
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-WorkflowVersion">
+                  WorkflowVersion
                  </a>
                 </p>
                </td>
@@ -2570,15 +2734,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awshealthomics-UntagResource" rowspan="12" tabindex="-1">
+               <td id="awshealthomics-UntagResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to remove resource AWS tags
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2611,6 +2775,19 @@
                 <p>
                  <a href="#awshealthomics-VariantStore">
                   VariantStore
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-WorkflowVersion">
+                  WorkflowVersion
                  </a>
                 </p>
                </td>
@@ -2892,6 +3069,43 @@
                <td tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-workflow">
+                  workflow*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-UpdateWorkflowVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_UpdateWorkflowVersion.html">
+                 UpdateWorkflowVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update workflow version details
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-WorkflowVersion">
+                  WorkflowVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awshealthomics-workflow">
@@ -3422,6 +3636,45 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="awshealthomics-WorkflowVersion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_WorkflowVersionListItem.html">
+                 WorkflowVersion
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:omics:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:workflow/$
+                 <span>
+                  {
+                 </span>
+                 Id}/version/$
+                 <span>
+                  {
+                 </span>
+                 VersionName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -3441,8 +3694,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>

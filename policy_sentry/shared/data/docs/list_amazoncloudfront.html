@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d258c11c13">
+             <table id="w44aab5b9d258c11c15">
               <thead>
                <tr>
                 <th>
@@ -369,6 +380,54 @@
                </td>
                <td tabindex="-1">
                 Grants permission to associate an alias to a CloudFront distribution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution">
+                  distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-AssociateDistributionTenantWebACL" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_AssociateDistributionTenantWebACL.html">
+                 AssociateDistributionTenantWebACL
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate a distribution tenant with an AWS WAF web ACL
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-AssociateDistributionWebACL" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_AssociateDistributionWebACL.html">
+                 AssociateDistributionWebACL
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to associate a distribution with an AWS WAF web ACL
                </td>
                <td tabindex="-1">
                 Write
@@ -509,6 +568,35 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-CreateConnectionGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateConnectionGroup.html">
+                 CreateConnectionGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a connection group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudfront-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-CreateContinuousDeploymentPolicy" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateContinuousDeploymentPolicy.html">
                  CreateContinuousDeploymentPolicy
@@ -552,6 +640,38 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 cloudfront:CreateConnectionGroup
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-CreateDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistributionTenant.html">
+                 CreateDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudfront-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -634,6 +754,30 @@
                 <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-CreateInvalidationForDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateInvalidationForDistributionTenant.html">
+                 CreateInvalidationForDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create an invalidation for a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
                  </a>
                 </p>
                </td>
@@ -1002,6 +1146,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-DeleteConnectionGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteConnectionGroup.html">
+                 DeleteConnectionGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a connection group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-DeleteContinuousDeploymentPolicy" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteContinuousDeploymentPolicy.html">
                  DeleteContinuousDeploymentPolicy
@@ -1041,6 +1209,30 @@
                 <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-DeleteDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteDistributionTenant.html">
+                 DeleteDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
                  </a>
                 </p>
                </td>
@@ -1395,6 +1587,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-DisassociateDistributionTenantWebACL" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DisassociateDistributionTenantWebACL.html">
+                 DisassociateDistributionTenantWebACL
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to disassociate a distribution tenant from an AWS WAF web ACL
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-DisassociateDistributionWebACL" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DisassociateDistributionWebACL.html">
+                 DisassociateDistributionWebACL
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to disassociate a distribution from an AWS WAF web ACL
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution">
+                  distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-GetAnycastIpList" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetAnycastIpList.html">
                  GetAnycastIpList
@@ -1515,6 +1755,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-GetConnectionGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetConnectionGroup.html">
+                 GetConnectionGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about a connection group
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-GetConnectionGroupByRoutingEndpoint" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetConnectionGroupByRoutingEndpoint.html">
+                 GetConnectionGroupByRoutingEndpoint
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about a connection group by the specified routing endpoint
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-GetContinuousDeploymentPolicy" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetContinuousDeploymentPolicy.html">
                  GetContinuousDeploymentPolicy
@@ -1602,6 +1890,54 @@
                 <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-GetDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionTenant.html">
+                 GetDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-GetDistributionTenantByDomain" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionTenantByDomain.html">
+                 GetDistributionTenantByDomain
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about a distribution tenant by the associated domain
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
                  </a>
                 </p>
                </td>
@@ -1755,6 +2091,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-GetInvalidationForDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetInvalidationForDistributionTenant.html">
+                 GetInvalidationForDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get information about an invalidation for a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-GetKeyGroup" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetKeyGroup.html">
                  GetKeyGroup
@@ -1786,6 +2146,30 @@
                 Read
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-GetManagedCertificateDetails" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetManagedCertificateDetails.html">
+                 GetManagedCertificateDetails
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get details about a CloudFront managed certificate
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2191,6 +2575,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-ListConnectionGroups" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListConnectionGroups.html">
+                 ListConnectionGroups
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the connection groups in your AWS account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-ListContinuousDeploymentPolicies" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListContinuousDeploymentPolicies.html">
                  ListContinuousDeploymentPolicies
@@ -2198,6 +2601,44 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list all continuous-deployment policies in the account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-ListDistributionTenants" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionTenants.html">
+                 ListDistributionTenants
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the distribution tenants in your AWS account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-ListDistributionTenantsByCustomization" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionTenantsByCustomization.html">
+                 ListDistributionTenantsByCustomization
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the distribution tenants by the customization that you specify
                </td>
                <td tabindex="-1">
                 List
@@ -2255,6 +2696,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified cache policy
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-ListDistributionsByConnectionMode" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByConnectionMode.html">
+                 ListDistributionsByConnectionMode
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the distributions by the specified connection mode
                </td>
                <td tabindex="-1">
                 List
@@ -2401,6 +2861,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-ListDomainConflicts" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDomainConflicts.html">
+                 ListDomainConflicts
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list domain conflicts for a specified domain
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution">
+                  distribution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-ListFieldLevelEncryptionConfigs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListFieldLevelEncryptionConfigs.html">
                  ListFieldLevelEncryptionConfigs
@@ -2473,6 +2970,30 @@
                 <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-ListInvalidationsForDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListInvalidationsForDistributionTenant.html">
+                 ListInvalidationsForDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the invalidations for a distribution tenant
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
                  </a>
                 </p>
                </td>
@@ -2674,15 +3195,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudfront-ListTagsForResource" rowspan="3" tabindex="-1">
+               <td id="amazoncloudfront-ListTagsForResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to list tags for a CloudFront resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -2700,8 +3221,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
                  </a>
                 </p>
                </td>
@@ -2787,15 +3334,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudfront-TagResource" rowspan="5" tabindex="-1">
+               <td id="amazoncloudfront-TagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to add tags to a CloudFront resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2813,8 +3360,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
                  </a>
                 </p>
                </td>
@@ -2892,15 +3465,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudfront-UntagResource" rowspan="5" tabindex="-1">
+               <td id="amazoncloudfront-UntagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to remove tags from a CloudFront resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2918,8 +3491,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
                  </a>
                 </p>
                </td>
@@ -3016,6 +3615,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-UpdateConnectionGroup" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateConnectionGroup.html">
+                 UpdateConnectionGroup
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a connection group
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-connection-group">
+                  connection-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-UpdateContinuousDeploymentPolicy" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateContinuousDeploymentPolicy.html">
                  UpdateContinuousDeploymentPolicy
@@ -3064,6 +3687,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudfront-UpdateDistributionTenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionTenant.html">
+                 UpdateDistributionTenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a distribution tenant
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudfront-UpdateDistributionWithStagingConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionWithStagingConfig.html">
                  UpdateDistributionWithStagingConfig
@@ -3079,6 +3726,43 @@
                 <p>
                  <a href="#amazoncloudfront-distribution">
                   distribution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-UpdateDomainAssociation" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDomainAssociation.html">
+                 UpdateDomainAssociation
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update a domain association
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution">
+                  distribution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
                  </a>
                 </p>
                </td>
@@ -3372,6 +4056,30 @@
                 <p>
                  <a href="#amazoncloudfront-vpcorigin">
                   vpcorigin*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-VerifyDnsConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_VerifyDnsConfiguration.html">
+                 VerifyDnsConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to verify the DNS configuration for a specified domain
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-distribution-tenant">
+                  distribution-tenant
                  </a>
                 </p>
                </td>
@@ -3827,6 +4535,68 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazoncloudfront-distribution-tenant" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/API_DistributionTenant.html">
+                 distribution-tenant
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cloudfront::$
+                 <span>
+                  {
+                 </span>
+                 Account}:distribution-tenant/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudfront-connection-group" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/API_ConnectionGroup.html">
+                 connection-group
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cloudfront::$
+                 <span>
+                  {
+                 </span>
+                 Account}:connection-group/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudfront-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -3846,8 +4616,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>

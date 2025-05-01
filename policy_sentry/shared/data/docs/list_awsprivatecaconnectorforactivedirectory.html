@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -202,7 +202,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.htmlassets.html">
+               <a href="https://docs.aws.amazon.com/privateca/latest/userguide/security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -247,6 +247,17 @@
              Action
             </code>
             element of an IAM      policy statement. Use policies to grant permissions to perform an operation in AWS. When you      use an action in a policy, you usually allow or deny access to the API operation or CLI      command with the same name. However, in some cases, a single action controls access to more      than one operation. Alternatively, some operations require several different actions.
+           </p>
+           <p>
+            The
+            <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
            </p>
            <p>
             The
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1295c11c13">
+             <table id="w44aab5b9e1295c11c15">
               <thead>
                <tr>
                 <th>
@@ -354,6 +365,11 @@
                 <p>
                  <a href="#awsprivatecaconnectorforactivedirectory-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsprivatecaconnectorforactivedirectory-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                 <p>
@@ -404,6 +420,11 @@
                 <p>
                  <a href="#awsprivatecaconnectorforactivedirectory-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsprivatecaconnectorforactivedirectory-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                 <p>
@@ -479,6 +500,11 @@
                 <p>
                  <a href="#awsprivatecaconnectorforactivedirectory-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsprivatecaconnectorforactivedirectory-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                 <p>
@@ -1185,36 +1211,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsprivatecaconnectorforactivedirectory-ServicePrincipalName" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ServicePrincipalName.html">
-                 ServicePrincipalName
-                </a>
-               </td>
-               <td tabindex="-1">
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:pca-connector-ad:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}:directory-registration/$
-                 <span>
-                  {
-                 </span>
-                 DirectoryId}
-                </code>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsprivatecaconnectorforactivedirectory-Template" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_Template.html">
                  Template
@@ -1253,40 +1249,6 @@
                 </p>
                </td>
               </tr>
-              <tr>
-               <td id="awsprivatecaconnectorforactivedirectory-TemplateGroupAccessControlEntry" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_AccessControlEntry.html">
-                 TemplateGroupAccessControlEntry
-                </a>
-               </td>
-               <td tabindex="-1">
-                <code class="code">
-                 arn:$
-                 <span>
-                  {
-                 </span>
-                 Partition}:pca-connector-ad:$
-                 <span>
-                  {
-                 </span>
-                 Region}:$
-                 <span>
-                  {
-                 </span>
-                 Account}:connector/$
-                 <span>
-                  {
-                 </span>
-                 ConnectorId}/template/$
-                 <span>
-                  {
-                 </span>
-                 TemplateId}
-                </code>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
              </table>
             </div>
            </div>
@@ -1306,8 +1268,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>
@@ -1329,7 +1291,7 @@
               </thead>
               <tr>
                <td id="awsprivatecaconnectorforactivedirectory-aws_RequestTag___TagKey_" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.htmlreference_policies_iam-condition-keys.html#condition-keys-requesttag">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-requesttag">
                  aws:RequestTag/${TagKey}
                 </a>
                </td>
@@ -1342,7 +1304,7 @@
               </tr>
               <tr>
                <td id="awsprivatecaconnectorforactivedirectory-aws_ResourceTag___TagKey_" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.htmlreference_policies_iam-condition-keys.html#condition-keys-resourcetag">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-resourcetag">
                  aws:ResourceTag/${TagKey}
                 </a>
                </td>
@@ -1355,7 +1317,7 @@
               </tr>
               <tr>
                <td id="awsprivatecaconnectorforactivedirectory-aws_TagKeys" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.htmlreference_policies_iam-condition-keys.html#condition-keys-tagkeys">
+                <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-tagkeys">
                  aws:TagKeys
                 </a>
                </td>

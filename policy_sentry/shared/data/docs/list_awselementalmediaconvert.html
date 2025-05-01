@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d636c11c13">
+             <table id="w44aab5b9d636c11c15">
               <thead>
                <tr>
                 <th>
@@ -542,6 +553,11 @@
                   aws:TagKeys
                  </a>
                 </p>
+                <p>
+                 <a href="#awselementalmediaconvert-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -569,6 +585,11 @@
                 <p>
                  <a href="#awselementalmediaconvert-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awselementalmediaconvert-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -901,17 +922,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awselementalmediaconvert-ListTagsForResource" rowspan="3" tabindex="-1">
+               <td id="awselementalmediaconvert-ListTagsForResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/mediaconvert/latest/apireference/tags-arn.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to retrieve the tags for a MediaConvert queue, preset, or job template
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalmediaconvert-Job">
+                  Job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awselementalmediaconvert-JobTemplate">
@@ -1032,17 +1066,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awselementalmediaconvert-TagResource" rowspan="4" tabindex="-1">
+               <td id="awselementalmediaconvert-TagResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/mediaconvert/latest/apireference/tags.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to add tags to a MediaConvert queue, preset, or job template
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalmediaconvert-Job">
+                  Job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awselementalmediaconvert-JobTemplate">
@@ -1100,17 +1147,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awselementalmediaconvert-UntagResource" rowspan="4" tabindex="-1">
+               <td id="awselementalmediaconvert-UntagResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/mediaconvert/latest/apireference/tags-arn.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to remove tags from a MediaConvert queue, preset, or job template
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalmediaconvert-Job">
+                  Job
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awselementalmediaconvert-JobTemplate">
@@ -1486,8 +1546,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>

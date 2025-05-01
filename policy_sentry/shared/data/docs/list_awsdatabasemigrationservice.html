@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d488c11c13">
+             <table id="w44aab5b9d488c11c15">
               <thead>
                <tr>
                 <th>
@@ -570,7 +581,7 @@
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-AssociateExtensionPack" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartExtensionPackAssociation.html">
                  AssociateExtensionPack
                 </a>
                </td>
@@ -590,9 +601,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:StartExtensionPackAssociation
-                </p>
                </td>
               </tr>
               <tr>
@@ -608,78 +616,6 @@
                 Write
                </td>
                <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-CancelMetadataModelAssessment" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
-                 CancelMetadataModelAssessment
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to cancel a single metadata model assessment run
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-CancelMetadataModelConversion" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
-                 CancelMetadataModelConversion
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to cancel a single metadata model conversion run
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-CancelMetadataModelExport" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
-                 CancelMetadataModelExport
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to cancel a single metadata model export run
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1719,34 +1655,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-DescribeDataProviders" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeDataProviders.html">
-                 DescribeDataProviders
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a data providers. Note. This action should be added along with ListDataProviders, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-DataProvider">
-                  DataProvider
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListDataProviders
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-DescribeEndpointSettings" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEndpointSettings.html">
                  DescribeEndpointSettings
@@ -1880,34 +1788,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-DescribeExtensionPackAssociations" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html">
-                 DescribeExtensionPackAssociations
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for extension packs. Note. This action should be added along with ListExtensionPacks, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListExtensionPacks
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-DescribeFleetAdvisorCollectors" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeFleetAdvisorCollectors.html">
                  DescribeFleetAdvisorCollectors
@@ -2003,146 +1883,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-DescribeInstanceProfiles" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeInstanceProfiles.html">
-                 DescribeInstanceProfiles
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a instance profiles. Note. This action should be added along with ListInstanceProfiles, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-InstanceProfile">
-                  InstanceProfile
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListInstanceProfiles
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-DescribeMetadataModelAssessments" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelAssessments.html">
-                 DescribeMetadataModelAssessments
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for metadata model assessments. Note. This action should be added along with ListMetadataModelAssessments, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListMetadataModelAssessments
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-DescribeMetadataModelConversions" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelConversions.html">
-                 DescribeMetadataModelConversions
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a metadata model conversions. Note. This action should be added along with ListMetadataModelConversions, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListMetadataModelConversions
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-DescribeMetadataModelExportsAsScript" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsAsScript.html">
-                 DescribeMetadataModelExportsAsScript
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListMetadataModelExports
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-DescribeMetadataModelExportsToTarget" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsToTarget.html">
-                 DescribeMetadataModelExportsToTarget
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListMetadataModelExports
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-DescribeMetadataModelImports" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelImports.html">
                  DescribeMetadataModelImports
@@ -2158,60 +1898,6 @@
                 <p>
                  <a href="#awsdatabasemigrationservice-MigrationProject">
                   MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-DescribeMigrationProjects" rowspan="3" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMigrationProjects.html">
-                 DescribeMigrationProjects
-                </a>
-                [permission only]
-               </td>
-               <td rowspan="3" tabindex="-1">
-                Grants permission to list the AWS DMS attributes for a migration projects. Note. This action should be added along with ListMigrationProjects, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td rowspan="3" tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-DataProvider">
-                  DataProvider
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:ListMigrationProjects
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-InstanceProfile">
-                  InstanceProfile
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject
                  </a>
                 </p>
                </td>
@@ -2641,30 +2327,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-DisassociateExtensionPack" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
-                 DisassociateExtensionPack
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to disassociate a extension pack
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-ExportMetadataModelAssessment" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">
                  ExportMetadataModelAssessment
@@ -2686,33 +2348,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-GetMetadataModel" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
-                 GetMetadataModel
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to list all of the AWS DMS attributes for a metadata model. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:StartMetadataModelImport
-                </p>
                </td>
               </tr>
               <tr>
@@ -2751,7 +2386,7 @@
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-ListDataProviders" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeDataProviders.html">
                  ListDataProviders
                 </a>
                </td>
@@ -2771,14 +2406,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeDataProviders
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-ListExtensionPacks" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html">
                  ListExtensionPacks
                 </a>
                </td>
@@ -2798,14 +2430,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeExtensionPackAssociations
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-ListInstanceProfiles" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeInstanceProfiles.html">
                  ListInstanceProfiles
                 </a>
                </td>
@@ -2825,9 +2454,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeInstanceProfiles
-                </p>
                </td>
               </tr>
               <tr>
@@ -2835,6 +2461,7 @@
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
                  ListMetadataModelAssessmentActionItems
                 </a>
+                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to list the AWS DMS attributes for a metadata model assessment action items. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation
@@ -2859,7 +2486,7 @@
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-ListMetadataModelAssessments" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ListMetadataModelExports.html">
                  ListMetadataModelAssessments
                 </a>
                </td>
@@ -2879,14 +2506,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeMetadataModelAssessments
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-ListMetadataModelConversions" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelConversions.html">
                  ListMetadataModelConversions
                 </a>
                </td>
@@ -2906,9 +2530,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeMetadataModelConversions
-                </p>
                </td>
               </tr>
               <tr>
@@ -2933,12 +2554,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:DescribeMetadataModelExportsAsScript
-                </p>
-                <p>
-                 dms:DescribeMetadataModelExportsToTarget
-                </p>
                </td>
               </tr>
               <tr>
@@ -2965,9 +2580,6 @@
                <td tabindex="-1">
                 <p>
                  dms:DescribeConversionConfiguration
-                </p>
-                <p>
-                 dms:DescribeMigrationProjects
                 </p>
                </td>
               </tr>
@@ -3178,34 +2790,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-ModifyConversionConfiguration" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html">
-                 ModifyConversionConfiguration
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to update a conversion configuration. Note. This action should be added along with UpdateConversionConfiguration, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:UpdateConversionConfiguration
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-ModifyDataMigration" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
                  ModifyDataMigration
@@ -3227,37 +2811,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 iam:PassRole
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-ModifyDataProvider" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyDataProvider.html">
-                 ModifyDataProvider
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to modify the specified data provider. Note. This action should be added along with UpdateDataProvider, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-DataProvider">
-                  DataProvider*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:UpdateDataProvider
-                </p>
                 <p>
                  iam:PassRole
                 </p>
@@ -3360,68 +2913,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-ModifyInstanceProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyInstanceProfile.html">
-                 ModifyInstanceProfile
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to modify the specified instance profile. Note. This action should be added along with UpdateInstanceProfile, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-InstanceProfile">
-                  InstanceProfile*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:UpdateInstanceProfile
-                </p>
-                <p>
-                 iam:PassRole
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td id="awsdatabasemigrationservice-ModifyMigrationProject" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyMigrationProject.html">
-                 ModifyMigrationProject
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to modify the specified migration project. Note. This action should be added along with UpdateMigrationProject, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:UpdateMigrationProject
-                </p>
-                <p>
-                 iam:PassRole
-                </p>
                </td>
               </tr>
               <tr>
@@ -3908,34 +3399,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-StartExtensionPackAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartExtensionPackAssociation.html">
-                 StartExtensionPackAssociation
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to associate an extension pack. Note. This action should be added along with AssociateExtensionPack, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:AssociateExtensionPack
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-StartMetadataModelAssessment" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html">
                  StartMetadataModelAssessment
@@ -3984,36 +3447,8 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdatabasemigrationservice-StartMetadataModelExportAsScript" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html">
-                 StartMetadataModelExportAsScript
-                </a>
-                [permission only]
-               </td>
-               <td tabindex="-1">
-                Grants permission to start a new export of metadata model as script. Note. This action should be added along with StartMetadataModelExportAsScripts, but does not currently authorize the described Schema Conversion operation
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsdatabasemigrationservice-MigrationProject">
-                  MigrationProject*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dms:StartMetadataModelExportAsScripts
-                </p>
-               </td>
-              </tr>
-              <tr>
                <td id="awsdatabasemigrationservice-StartMetadataModelExportAsScripts" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html">
                  StartMetadataModelExportAsScripts
                 </a>
                </td>
@@ -4033,9 +3468,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:StartMetadataModelExportAsScript
-                </p>
                </td>
               </tr>
               <tr>
@@ -4315,7 +3747,7 @@
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-UpdateConversionConfiguration" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html">
                  UpdateConversionConfiguration
                 </a>
                </td>
@@ -4335,14 +3767,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:ModifyConversionConfiguration
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-UpdateDataProvider" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyDataProvider.html">
                  UpdateDataProvider
                 </a>
                </td>
@@ -4362,14 +3791,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:ModifyDataProvider
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-UpdateInstanceProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyInstanceProfile.html">
                  UpdateInstanceProfile
                 </a>
                </td>
@@ -4389,14 +3815,11 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:ModifyInstanceProfile
-                </p>
                </td>
               </tr>
               <tr>
                <td id="awsdatabasemigrationservice-UpdateMigrationProject" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html">
+                <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyMigrationProject.html">
                  UpdateMigrationProject
                 </a>
                </td>
@@ -4416,9 +3839,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dms:ModifyMigrationProject
-                </p>
                </td>
               </tr>
               <tr>
@@ -4984,8 +4404,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>
