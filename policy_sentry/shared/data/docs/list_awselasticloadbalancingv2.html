@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d608c11c13">
+             <table id="w44aab5b9d608c11c15">
               <thead>
                <tr>
                 <th>
@@ -392,15 +403,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-AddTags" rowspan="9" tabindex="-1">
+               <td id="awselasticloadbalancingv2-AddTags" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_AddTags.html">
                  AddTags
                 </a>
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to add the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -444,6 +455,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#awselasticloadbalancingv2-listener_gwy">
+                  listener/gwy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awselasticloadbalancingv2-listener_net">
                   listener/net
                  </a>
@@ -459,6 +483,19 @@
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -582,15 +619,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-CreateListener" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-CreateListener" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateListener.html">
                  CreateListener
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create a listener for the specified Application Load Balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -606,6 +643,19 @@
                 <p>
                  elasticloadbalancing:AddTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -660,15 +710,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-CreateLoadBalancer" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-CreateLoadBalancer" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateLoadBalancer.html">
                  CreateLoadBalancer
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create a load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -684,6 +734,19 @@
                 <p>
                  elasticloadbalancing:AddTags
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -921,21 +984,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-DeleteListener" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-DeleteListener" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteListener.html">
                  DeleteListener
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to delete the specified listener
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-listener_app">
                   listener/app*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-listener_gwy">
+                  listener/gwy*
                  </a>
                 </p>
                </td>
@@ -976,21 +1052,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-DeleteLoadBalancer" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-DeleteLoadBalancer" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteLoadBalancer.html">
                  DeleteLoadBalancer
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to delete the specified load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -1684,21 +1773,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-ModifyCapacityReservation" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-ModifyCapacityReservation" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyCapacityReservation.html">
                  ModifyCapacityReservation
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to modify the capacity reservation for a load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -1781,21 +1883,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-ModifyListener" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-ModifyListener" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyListener.html">
                  ModifyListener
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to modify the specified properties of the specified listener
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-listener_app">
                   listener/app*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-listener_gwy">
+                  listener/gwy*
                  </a>
                 </p>
                </td>
@@ -1846,21 +1961,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-ModifyListenerAttributes" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-ModifyListenerAttributes" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyListenerAttributes.html">
                  ModifyListenerAttributes
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to modify the attributes of the specified listener
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-listener_app">
                   listener/app*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-listener_gwy">
+                  listener/gwy*
                  </a>
                 </p>
                </td>
@@ -1901,21 +2029,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-ModifyLoadBalancerAttributes" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-ModifyLoadBalancerAttributes" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html">
                  ModifyLoadBalancerAttributes
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to modify the attributes of the specified load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -2234,15 +2375,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-RemoveTags" rowspan="9" tabindex="-1">
+               <td id="awselasticloadbalancingv2-RemoveTags" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RemoveTags.html">
                  RemoveTags
                 </a>
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to remove one or more tags from the specified load balancer
                </td>
-               <td rowspan="9" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2286,6 +2427,19 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#awselasticloadbalancingv2-listener_gwy">
+                  listener/gwy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awselasticloadbalancingv2-listener_net">
                   listener/net
                  </a>
@@ -2301,6 +2455,19 @@
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -2419,21 +2586,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-SetIpAddressType" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-SetIpAddressType" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_SetIpAddressType.html">
                  SetIpAddressType
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to set the type of IP addresses used by the subnets of the specified load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -2571,21 +2751,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awselasticloadbalancingv2-SetSubnets" rowspan="3" tabindex="-1">
+               <td id="awselasticloadbalancingv2-SetSubnets" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_SetSubnets.html">
                  SetSubnets
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to enable the Availability Zone for the specified subnets for the specified load balancer
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awselasticloadbalancingv2-loadbalancer_app_">
                   loadbalancer/app/
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-loadbalancer_gwy_">
+                  loadbalancer/gwy/
                  </a>
                 </p>
                </td>
@@ -2687,6 +2880,54 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="awselasticloadbalancingv2-listener_gwy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">
+                 listener/gwy
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:elasticloadbalancing:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:listener/gwy/$
+                 <span>
+                  {
+                 </span>
+                 LoadBalancerName}/$
+                 <span>
+                  {
+                 </span>
+                 LoadBalancerId}/$
+                 <span>
+                  {
+                 </span>
+                 ListenerId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awselasticloadbalancingv2-elasticloadbalancing_ResourceTag___TagKey_">
+                  elasticloadbalancing:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td id="awselasticloadbalancingv2-listener_app" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">
@@ -2872,6 +3113,50 @@
                   {
                  </span>
                  ListenerRuleId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselasticloadbalancingv2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awselasticloadbalancingv2-elasticloadbalancing_ResourceTag___TagKey_">
+                  elasticloadbalancing:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awselasticloadbalancingv2-loadbalancer_gwy_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html">
+                 loadbalancer/gwy/
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:elasticloadbalancing:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:loadbalancer/gwy/$
+                 <span>
+                  {
+                 </span>
+                 LoadBalancerName}/$
+                 <span>
+                  {
+                 </span>
+                 LoadBalancerId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -3082,8 +3367,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>

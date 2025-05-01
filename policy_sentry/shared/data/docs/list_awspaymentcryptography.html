@@ -97,7 +97,7 @@
       {
         "@type" : "ListItem",
         "position" : 2,
-        "name" : "Service Authorization Reference",
+        "name" : "Identity and Access Management",
         "item" : "https://docs.aws.amazon.com/iam/index.html"
       },
       {
@@ -139,7 +139,7 @@
            Documentation
           </a>
           <a href="/iam/index.html">
-           Service Authorization Reference
+           Identity and Access Management
           </a>
           <a href="reference.html">
            Service Authorization Reference
@@ -251,6 +251,17 @@
            <p>
             The
             <b>
+             Access level
+            </b>
+            column of the Actions table describes how the action      is classified (List, Read, Permissions management, or Tagging). This classification can help      you understand the level of access that an action grants when you use it in a policy. For more      information about access levels, see
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html">
+             Access levels in policy summaries
+            </a>
+            .
+           </p>
+           <p>
+            The
+            <b>
              Resource types
             </b>
             column of the Actions table indicates whether each      action supports resource-level permissions. If there is no value for this column, you must      specify all resources ("*") to which the policy applies in the
@@ -313,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1259c11c13">
+             <table id="w44aab5b9e1259c11c15">
               <thead>
                <tr>
                 <th>
@@ -406,18 +417,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-DecryptData" tabindex="-1">
+               <td id="awspaymentcryptography-DecryptData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_DecryptData.html">
                  DecryptData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to decrypt ciphertext data to plaintext using symmetric, asymmetric or DUKPT data encryption key
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -491,18 +520,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-EncryptData" tabindex="-1">
+               <td id="awspaymentcryptography-EncryptData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_EncryptData.html">
                  EncryptData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to encrypt plaintext data to ciphertext using symmetric, asymmetric or DUKPT data encryption key
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -534,18 +581,23 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-GenerateCardValidationData" tabindex="-1">
+               <td id="awspaymentcryptography-GenerateCardValidationData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GenerateCardValidationData.html">
                  GenerateCardValidationData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to generate card-related data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) or Card Security Codes (CSC) that check the validity of a magnetic stripe card
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -553,18 +605,49 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-GenerateMac" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspaymentcryptography-GenerateMac" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GenerateMac.html">
                  GenerateMac
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to generate a MAC (Message Authentication Code) cryptogram
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -609,18 +692,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-GeneratePinData" tabindex="-1">
+               <td id="awspaymentcryptography-GeneratePinData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GeneratePinData.html">
                  GeneratePinData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to generate pin-related data such as PIN, PIN Verification Value (PVV), PIN Block and PIN Offset during new card issuance or card re-issuance
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -863,18 +964,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-ReEncryptData" tabindex="-1">
+               <td id="awspaymentcryptography-ReEncryptData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_ReEncryptData.html">
                  ReEncryptData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to re-encrypt ciphertext using DUKPT, Symmetric and Asymmetric Data Encryption Keys
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -996,18 +1115,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-TranslatePinData" tabindex="-1">
+               <td id="awspaymentcryptography-TranslatePinData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_TranslatePinData.html">
                  TranslatePinData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to translate encrypted PIN block from and to ISO 9564 formats 0,1,3,4
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1107,18 +1244,23 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-VerifyAuthRequestCryptogram" tabindex="-1">
+               <td id="awspaymentcryptography-VerifyAuthRequestCryptogram" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_VerifyAuthRequestCryptogram.html">
                  VerifyAuthRequestCryptogram
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to verify Authorization Request Cryptogram (ARQC) for a EMV chip payment card authorization
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1126,18 +1268,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-VerifyCardValidationData" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspaymentcryptography-VerifyCardValidationData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_VerifyCardValidationData.html">
                  VerifyCardValidationData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to verify card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) and Card Security Codes (CSC)
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1145,18 +1305,36 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-VerifyMac" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspaymentcryptography-VerifyMac" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_VerifyMac.html">
                  VerifyMac
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to verify MAC (Message Authentication Code) of input data against a provided MAC
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1164,18 +1342,49 @@
                </td>
               </tr>
               <tr>
-               <td id="awspaymentcryptography-VerifyPinData" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspaymentcryptography-VerifyPinData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_VerifyPinData.html">
                  VerifyPinData
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to verify pin-related data such as PIN and PIN Offset using algorithms including VISA PVV and IBM3624
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-alias">
+                  alias*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspaymentcryptography-key">
+                  key*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1313,8 +1522,8 @@
            </p>
            <p>
             To view the global condition keys that are available to all services, see
-            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys">
-             Available global condition keys
+            <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
+             AWS        global condition context keys
             </a>
             .
            </p>
