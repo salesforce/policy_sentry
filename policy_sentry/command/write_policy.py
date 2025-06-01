@@ -41,7 +41,7 @@ class RegisterLengthOptionHelp(click.Option):
         if help_text is None:
             return None
 
-        return (help_text[0].replace("_length ", " "),) + help_text[1:]
+        return (help_text[0].replace("_length ", " "), *help_text[1:])
 
 
 class RegisterMinimizeLengthCommand(click.Command):

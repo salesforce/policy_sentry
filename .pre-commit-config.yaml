@@ -10,14 +10,14 @@ repos:
 #      - id: terraform_docs
 #        args: ['--sort-by-required', '--no-providers']
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.4
+    rev: v0.11.12
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
         files: ^(examples/|policy_sentry/|utils/|setup.py)
       - id: ruff-format
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.3.3
+    rev: v1.4.2
     hooks:
       - id: python-safety-dependencies-check
         files: ^requirements.txt
