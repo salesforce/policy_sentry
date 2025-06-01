@@ -3,7 +3,7 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
   <title>
-   Actions, resources, and condition keys for Amazon EC2 - AWS Identity and Access Management
+   Actions, resources, and condition keys for Amazon EC2 - Identity and Access Management
   </title>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="/assets" name="assets_root"/>
@@ -14,7 +14,7 @@
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html" rel="canonical"/>
   <meta content="Lists all of the available service-specific resources, actions, and condition keys that can be used in IAM policies to control access to Amazon EC2." name="description"/>
   <meta content="IAD" name="deployment_region"/>
-  <meta content="AWS Identity and Access Management" name="product"/>
+  <meta content="Identity and Access Management" name="product"/>
   <meta content="Service Authorization Reference" name="guide"/>
   <meta content="Provides a list of the actions, resources, and condition keys supported by each AWS service that can be used in an IAM policy." name="abstract"/>
   <meta content="en_us" name="guide-locale"/>
@@ -42,7 +42,7 @@
   <link href="https://docs.aws.amazon.com/zh_tw/service-authorization/latest/reference/list_amazonec2.html" hreflang="zh-tw" rel="alternative"/>
   <link href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html" hreflang="x-default" rel="alternative"/>
   <meta content="Service Authorization Docs" name="feedback-item"/>
-  <meta content="AWS Identity and Access Management" name="this_doc_product"/>
+  <meta content="Identity and Access Management" name="this_doc_product"/>
   <meta content="Service Authorization Reference" name="this_doc_guide"/>
   <script defer="" src="https://docs.aws.amazon.com/assets/r/vendor4.js?version=2021.12.02">
   </script>
@@ -76,7 +76,7 @@
       <div id="awsdocs-content">
        <head>
         <title>
-         Actions, resources, and condition keys for Amazon EC2 - AWS Identity and Access Management
+         Actions, resources, and condition keys for Amazon EC2 - Identity and Access Management
         </title>
         <meta content="https://repost.aws/tags/TAO7Z4bI5hQVWMiYFs34QhIA" name="forums"/>
         <meta content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Service%20Authorization%20Docs&amp;topic_url=https://docs.aws.amazon.com/en_us/service-authorization/latest/reference/list_amazonec2.html" name="feedback"/>
@@ -5089,7 +5089,7 @@
                 </a>
                </td>
                <td rowspan="2" tabindex="-1">
-                Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to the new snapshot only. They do not apply to the source snapshot
+                Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to both the snapshot copy and the source snapshot
                </td>
                <td rowspan="2" tabindex="-1">
                 Write
@@ -5113,13 +5113,43 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_Encrypted">
+                  ec2:Encrypted
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_OutpostArn">
                   ec2:OutpostArn
                  </a>
                 </p>
                 <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentSnapshot">
+                  ec2:ParentSnapshot
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentVolume">
+                  ec2:ParentVolume
+                 </a>
+                </p>
+                <p>
                  <a href="#amazonec2-ec2_SnapshotID">
                   ec2:SnapshotID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_SnapshotTime">
+                  ec2:SnapshotTime
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_VolumeSize">
+                  ec2:VolumeSize
                  </a>
                 </p>
                </td>
@@ -8333,6 +8363,175 @@
                 <p>
                  <a href="#amazonec2-ec2_VpcID">
                   ec2:VpcID
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-CreateLocalGatewayVirtualInterface" rowspan="4" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.html">
+                 CreateLocalGatewayVirtualInterface
+                </a>
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Grants permission to create a local gateway virtual interface
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface">
+                  local-gateway-virtual-interface*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface-group">
+                  local-gateway-virtual-interface-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-outpost-lag">
+                  outpost-lag*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-CreateLocalGatewayVirtualInterfaceGroup" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterfaceGroup.html">
+                 CreateLocalGatewayVirtualInterfaceGroup
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create a local gateway virtual interface group
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway">
+                  local-gateway*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface-group">
+                  local-gateway-virtual-interface-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -18662,6 +18861,100 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DeleteLocalGatewayVirtualInterface" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterface.html">
+                 DeleteLocalGatewayVirtualInterface
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a local gateway virtual interface
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface">
+                  local-gateway-virtual-interface*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DeleteLocalGatewayVirtualInterfaceGroup" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterfaceGroup.html">
+                 DeleteLocalGatewayVirtualInterfaceGroup
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a local gateway virtual interface group
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-local-gateway-virtual-interface-group">
+                  local-gateway-virtual-interface-group*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DeleteManagedPrefixList" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteManagedPrefixList.html">
                  DeleteManagedPrefixList
@@ -27633,6 +27926,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DescribeOutpostLags" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeOutpostLags.html">
+                 DescribeOutpostLags
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe Outpost LAGs
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DescribePlacementGroups" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePlacementGroups.html">
                  DescribePlacementGroups
@@ -28129,6 +28446,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to describe one or more security groups
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DescribeServiceLinkVirtualInterfaces" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html">
+                 DescribeServiceLinkVirtualInterfaces
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe service link virtual interfaces
                </td>
                <td tabindex="-1">
                 List
@@ -55233,6 +55574,61 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-outpost-lag" tabindex="-1">
+                <a href="outposts-lag.html#outpostlag" rel="noopener noreferrer" target="_blank">
+                 outpost-lag
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:outpost-lag/$
+                 <span>
+                  {
+                 </span>
+                 OutpostLagId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-placement-group" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">
                  placement-group
@@ -56040,6 +56436,11 @@
                 <p>
                  <a href="#amazonec2-ec2_Owner">
                   ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ParentSnapshot">
+                  ec2:ParentSnapshot
                  </a>
                 </p>
                 <p>
@@ -58408,7 +58809,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Add_group" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Add/group
                 </a>
                </td>
@@ -58421,7 +58822,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Add_userId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Add/userId
                 </a>
                </td>
@@ -58434,7 +58835,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AllocationId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AllocationId
                 </a>
                </td>
@@ -58447,7 +58848,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AssociatePublicIpAddress" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AssociatePublicIpAddress
                 </a>
                </td>
@@ -58499,7 +58900,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AuthorizedService" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AuthorizedService
                 </a>
                </td>
@@ -58512,7 +58913,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AuthorizedUser" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AuthorizedUser
                 </a>
                </td>
@@ -58525,7 +58926,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AutoPlacement" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AutoPlacement
                 </a>
                </td>
@@ -58538,7 +58939,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AvailabilityZone" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AvailabilityZone
                 </a>
                </td>
@@ -58551,7 +58952,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_AvailabilityZoneId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:AvailabilityZoneId
                 </a>
                </td>
@@ -58564,7 +58965,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_CapacityReservationFleet" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:CapacityReservationFleet
                 </a>
                </td>
@@ -58577,7 +58978,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ClientRootCertificateChainArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ClientRootCertificateChainArn
                 </a>
                </td>
@@ -58590,7 +58991,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_CloudwatchLogGroupArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:CloudwatchLogGroupArn
                 </a>
                </td>
@@ -58603,7 +59004,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_CloudwatchLogStreamArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:CloudwatchLogStreamArn
                 </a>
                </td>
@@ -58642,7 +59043,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_CreateDate" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:CreateDate
                 </a>
                </td>
@@ -58668,7 +59069,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_DestinationCapacityReservationId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:DestinationCapacityReservationId
                 </a>
                </td>
@@ -58681,7 +59082,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_DhcpOptionsID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:DhcpOptionsID
                 </a>
                </td>
@@ -58694,7 +59095,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_DirectoryArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:DirectoryArn
                 </a>
                </td>
@@ -58707,7 +59108,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Domain" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Domain
                 </a>
                </td>
@@ -58720,7 +59121,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_EbsOptimized" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:EbsOptimized
                 </a>
                </td>
@@ -58733,7 +59134,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ElasticGpuType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ElasticGpuType
                 </a>
                </td>
@@ -58746,7 +59147,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Encrypted" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Encrypted
                 </a>
                </td>
@@ -58759,7 +59160,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_EndDate" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:EndDate
                 </a>
                </td>
@@ -58772,7 +59173,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_EndDateType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:EndDateType
                 </a>
                </td>
@@ -58785,7 +59186,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_EphemeralStorage" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:EphemeralStorage
                 </a>
                </td>
@@ -58837,7 +59238,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_HostRecovery" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:HostRecovery
                 </a>
                </td>
@@ -58863,7 +59264,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ImageID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:ImageID
                 </a>
                </td>
@@ -58876,7 +59277,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ImageType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ImageType
                 </a>
                </td>
@@ -58915,7 +59316,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceAutoRecovery" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceAutoRecovery
                 </a>
                </td>
@@ -58928,7 +59329,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceBandwidthWeighting" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:InstanceBandwidthWeighting
                 </a>
                </td>
@@ -58941,7 +59342,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceCount" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceCount
                 </a>
                </td>
@@ -58954,7 +59355,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:InstanceID
                 </a>
                </td>
@@ -58967,7 +59368,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceMarketType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceMarketType
                 </a>
                </td>
@@ -58980,7 +59381,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceMatchCriteria" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceMatchCriteria
                 </a>
                </td>
@@ -58993,7 +59394,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceMetadataTags" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceMetadataTags
                 </a>
                </td>
@@ -59006,7 +59407,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstancePlatform" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstancePlatform
                 </a>
                </td>
@@ -59019,7 +59420,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceProfile
                 </a>
                </td>
@@ -59032,7 +59433,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InstanceType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:InstanceType
                 </a>
                </td>
@@ -59045,7 +59446,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_InternetGatewayID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:InternetGatewayID
                 </a>
                </td>
@@ -59058,7 +59459,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Ipv4IpamPoolId" tabindex="-1">
-                <a href="iam-policy-structure.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
                  ec2:Ipv4IpamPoolId
                 </a>
                </td>
@@ -59071,7 +59472,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Ipv6IpamPoolId" tabindex="-1">
-                <a href="iam-policy-structure.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
                  ec2:Ipv6IpamPoolId
                 </a>
                </td>
@@ -59084,7 +59485,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_IsLaunchTemplateResource" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:IsLaunchTemplateResource
                 </a>
                </td>
@@ -59097,7 +59498,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_KeyPairName" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:KeyPairName
                 </a>
                </td>
@@ -59110,7 +59511,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_KeyPairType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:KeyPairType
                 </a>
                </td>
@@ -59123,7 +59524,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_KmsKeyId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:KmsKeyId
                 </a>
                </td>
@@ -59136,7 +59537,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_LaunchTemplate" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:LaunchTemplate
                 </a>
                </td>
@@ -59149,7 +59550,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Location" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Location
                 </a>
                </td>
@@ -59162,7 +59563,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ManagedResourceOperator" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ManagedResourceOperator
                 </a>
                </td>
@@ -59175,7 +59576,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_MetadataHttpEndpoint" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:MetadataHttpEndpoint
                 </a>
                </td>
@@ -59188,7 +59589,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_MetadataHttpPutResponseHopLimit" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:MetadataHttpPutResponseHopLimit
                 </a>
                </td>
@@ -59201,7 +59602,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_MetadataHttpTokens" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:MetadataHttpTokens
                 </a>
                </td>
@@ -59214,7 +59615,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_NetworkAclID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:NetworkAclID
                 </a>
                </td>
@@ -59227,7 +59628,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_NetworkInterfaceID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:NetworkInterfaceID
                 </a>
                </td>
@@ -59240,7 +59641,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_NewInstanceProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:NewInstanceProfile
                 </a>
                </td>
@@ -59253,7 +59654,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_OutpostArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:OutpostArn
                 </a>
                </td>
@@ -59266,7 +59667,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Owner" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Owner
                 </a>
                </td>
@@ -59279,7 +59680,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ParentSnapshot" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ParentSnapshot
                 </a>
                </td>
@@ -59292,7 +59693,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ParentVolume" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ParentVolume
                 </a>
                </td>
@@ -59305,7 +59706,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Permission" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Permission
                 </a>
                </td>
@@ -59422,7 +59823,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_PlacementGroup" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:PlacementGroup
                 </a>
                </td>
@@ -59435,7 +59836,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_PlacementGroupName" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:PlacementGroupName
                 </a>
                </td>
@@ -59448,7 +59849,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_PlacementGroupStrategy" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:PlacementGroupStrategy
                 </a>
                </td>
@@ -59461,7 +59862,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ProductCode" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ProductCode
                 </a>
                </td>
@@ -59474,7 +59875,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Public" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Public
                 </a>
                </td>
@@ -59487,7 +59888,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_PublicIpAddress" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:PublicIpAddress
                 </a>
                </td>
@@ -59500,7 +59901,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Quantity" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Quantity
                 </a>
                </td>
@@ -59513,7 +59914,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Region" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Region
                 </a>
                </td>
@@ -59552,7 +59953,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Remove_group" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Remove/group
                 </a>
                </td>
@@ -59565,7 +59966,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Remove_userId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Remove/userId
                 </a>
                </td>
@@ -59578,7 +59979,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ReplayWindowSizePackets" tabindex="-1">
-                <a href="iam-policy-structure.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#amazon-ec2-keys" rel="noopener noreferrer" target="_blank">
                  ec2:ReplayWindowSizePackets
                 </a>
                </td>
@@ -59630,7 +60031,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_RoleDelivery" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:RoleDelivery
                 </a>
                </td>
@@ -59643,7 +60044,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_RootDeviceType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:RootDeviceType
                 </a>
                </td>
@@ -59656,7 +60057,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_RouteTableID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:RouteTableID
                 </a>
                </td>
@@ -59682,7 +60083,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SamlProviderArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SamlProviderArn
                 </a>
                </td>
@@ -59695,7 +60096,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SecurityGroupID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:SecurityGroupID
                 </a>
                </td>
@@ -59708,7 +60109,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_ServerCertificateArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:ServerCertificateArn
                 </a>
                </td>
@@ -59721,7 +60122,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SnapshotCoolOffPeriod" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SnapshotCoolOffPeriod
                 </a>
                </td>
@@ -59734,7 +60135,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SnapshotID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:SnapshotID
                 </a>
                </td>
@@ -59747,7 +60148,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SnapshotLockDuration" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SnapshotLockDuration
                 </a>
                </td>
@@ -59760,7 +60161,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SnapshotTime" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SnapshotTime
                 </a>
                </td>
@@ -59773,7 +60174,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SourceAvailabilityZone" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SourceAvailabilityZone
                 </a>
                </td>
@@ -59786,7 +60187,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SourceCapacityReservationId" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SourceCapacityReservationId
                 </a>
                </td>
@@ -59799,7 +60200,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SourceInstanceARN" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SourceInstanceARN
                 </a>
                </td>
@@ -59812,7 +60213,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SourceOutpostArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:SourceOutpostArn
                 </a>
                </td>
@@ -59825,7 +60226,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Subnet" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Subnet
                 </a>
                </td>
@@ -59838,7 +60239,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_SubnetID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:SubnetID
                 </a>
                </td>
@@ -59851,7 +60252,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Tenancy" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Tenancy
                 </a>
                </td>
@@ -59864,7 +60265,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VolumeID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:VolumeID
                 </a>
                </td>
@@ -59877,7 +60278,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VolumeIops" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:VolumeIops
                 </a>
                </td>
@@ -59890,7 +60291,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VolumeSize" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:VolumeSize
                 </a>
                </td>
@@ -59903,7 +60304,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VolumeThroughput" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:VolumeThroughput
                 </a>
                </td>
@@ -59916,7 +60317,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VolumeType" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:VolumeType
                 </a>
                </td>
@@ -59929,7 +60330,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_Vpc" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#amazon-ec2-keys">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys">
                  ec2:Vpc
                 </a>
                </td>
@@ -59942,7 +60343,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VpcID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:VpcID
                 </a>
                </td>
@@ -59955,7 +60356,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_VpcPeeringConnectionID" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:VpcPeeringConnectionID
                 </a>
                </td>
@@ -60007,7 +60408,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayAttachmentId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayAttachmentId
                 </a>
                </td>
@@ -60020,7 +60421,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayConnectPeerId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayConnectPeerId
                 </a>
                </td>
@@ -60033,7 +60434,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayId
                 </a>
                </td>
@@ -60046,7 +60447,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayMulticastDomainId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayMulticastDomainId
                 </a>
                </td>
@@ -60059,7 +60460,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayPolicyTableId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayPolicyTableId
                 </a>
                </td>
@@ -60072,7 +60473,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayRouteTableAnnouncementId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayRouteTableAnnouncementId
                 </a>
                </td>
@@ -60085,7 +60486,7 @@
               </tr>
               <tr>
                <td id="amazonec2-ec2_transitGatewayRouteTableId" tabindex="-1">
-                <a href="iam-policy-structure.html#imageId-key" rel="noopener noreferrer" target="_blank">
+                <a href="iam-policies-for-amazon-ec2.html#imageId-key" rel="noopener noreferrer" target="_blank">
                  ec2:transitGatewayRouteTableId
                 </a>
                </td>

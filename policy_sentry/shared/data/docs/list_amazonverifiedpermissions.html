@@ -324,7 +324,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1691c11c15">
+             <table id="w44aab5b9e1695c11c15">
               <thead>
                <tr>
                 <th>
@@ -410,6 +410,21 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -604,6 +619,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 verifiedpermissions:ListTagsForResource
+                </p>
                </td>
               </tr>
               <tr>
@@ -794,6 +812,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonverifiedpermissions-ListTagsForResource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListTagsForResource.html">
+                 ListTagsForResource
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view a list of resource tags for the specified policy store
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-policy-store">
+                  policy-store*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonverifiedpermissions-PutSchema" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">
                  PutSchema
@@ -813,6 +855,85 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonverifiedpermissions-TagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_TagResource.html">
+                 TagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to add tags to the specified policy store
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-policy-store">
+                  policy-store*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonverifiedpermissions-UntagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UntagResource.html">
+                 UntagResource
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to remove tags from the specified policy store
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-policy-store">
+                  policy-store*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -936,7 +1057,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1691c13b5">
+             <table id="w44aab5b9e1695c13b5">
               <thead>
                <tr>
                 <th>
@@ -974,6 +1095,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonverifiedpermissions-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -983,16 +1109,81 @@
             Condition keys for        Amazon Verified Permissions
            </h2>
            <p>
-            Verified Permissions has no service-specific context keys that can be used in the
+            Amazon Verified Permissions defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
              AWS        global condition context keys
             </a>
             .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b9e1695c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="amazonverifiedpermissions-aws_RequestTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by a tag key and value pair that is allowed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonverifiedpermissions-aws_ResourceTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag">
+                 aws:ResourceTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by a tag key and value pair of a resource
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonverifiedpermissions-aws_TagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by a list of tag keys that are allowed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

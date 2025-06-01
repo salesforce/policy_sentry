@@ -433,15 +433,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoneventbridge-CreateArchive" rowspan="2" tabindex="-1">
+               <td id="amazoneventbridge-CreateArchive" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">
                  CreateArchive
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create a new archive
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -461,6 +461,32 @@
                 <p>
                  <a href="#amazoneventbridge-event-bus">
                   event-bus*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoneventbridge-alias">
+                  alias
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoneventbridge-key">
+                  key
                  </a>
                 </p>
                </td>
@@ -2129,21 +2155,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoneventbridge-UpdateArchive" tabindex="-1">
+               <td id="amazoneventbridge-UpdateArchive" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdateArchive.html">
                  UpdateArchive
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to update an archive
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoneventbridge-archive">
                   archive*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoneventbridge-alias">
+                  alias
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoneventbridge-key">
+                  key
                  </a>
                 </p>
                </td>
@@ -2658,6 +2710,66 @@
                   {
                  </span>
                  Account}:target/terminate-instance
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoneventbridge-alias" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">
+                 alias
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:kms:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:alias/$
+                 <span>
+                  {
+                 </span>
+                 Alias}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoneventbridge-key" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">
+                 key
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:kms:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:key/$
+                 <span>
+                  {
+                 </span>
+                 KeyId}
                 </code>
                </td>
                <td tabindex="-1">
