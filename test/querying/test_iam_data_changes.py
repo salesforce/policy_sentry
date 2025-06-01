@@ -50,13 +50,11 @@ class IAMDefinitionQA(unittest.TestCase):
             "aws-marketplace:BatchMeterUsage",
             "aws-marketplace:CancelAgreementRequest",
             "aws-marketplace:CancelChangeSet",
-            "aws-marketplace:CompleteTask",
             "aws-marketplace:DescribeAgreement",
             "aws-marketplace:DescribeBuilds",
             "aws-marketplace:DescribeChangeSet",
             "aws-marketplace:DescribeEntity",
             "aws-marketplace:DescribeProcurementSystemConfiguration",
-            "aws-marketplace:DescribeTask",
             "aws-marketplace:GetAgreementApprovalRequest",
             "aws-marketplace:GetAgreementRequest",
             "aws-marketplace:GetAgreementTerms",
@@ -66,7 +64,6 @@ class IAMDefinitionQA(unittest.TestCase):
             "aws-marketplace:ListBuilds",
             "aws-marketplace:ListChangeSets",
             "aws-marketplace:ListEntities",
-            "aws-marketplace:ListTasks",
             "aws-marketplace:MeterUsage",
             "aws-marketplace:PutProcurementSystemConfiguration",
             "aws-marketplace:RegisterUsage",
@@ -78,11 +75,10 @@ class IAMDefinitionQA(unittest.TestCase):
             "aws-marketplace:Subscribe",
             "aws-marketplace:Unsubscribe",
             "aws-marketplace:UpdateAgreementApprovalRequest",
-            "aws-marketplace:UpdateTask",
             "aws-marketplace:ViewSubscriptions",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
     def test_services_with_multiple_pages_greengrass(self):
         """Ensure that greengrass v1 and greengrass v2 actions are both present in the greengrass namespace"""
@@ -177,9 +173,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "greengrass:UpdateThingRuntimeConfiguration",
         ]
         for action in actions:
-            self.assertTrue(action in results)
-            # if action not in results:
-            #     print(action)
+            self.assertIn(action, results)
 
     def test_services_with_multiple_pages_elb(self):
         """Ensure that elb v1 and elb v2 actions are both present in the elasticloadbalancing namespace"""
@@ -207,7 +201,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "elasticloadbalancing:SetLoadBalancerPoliciesOfListener",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
     def test_services_with_multiple_pages_lex(self):
         """Ensure that lex v1 and lex v2 actions are both present in the lex namespace"""
@@ -252,7 +246,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "lex:StartMigration",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
     def test_services_with_multiple_pages_kinesis_analytics(self):
         """Ensure that Kinesis Analytics V1 actions are both present in the ses namespace"""
@@ -263,7 +257,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "kinesisanalytics:ListApplications",  # In both
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
     def test_services_with_multiple_pages_ses(self):
         """Ensure that ses v1 and ses v2 actions are both present in the ses namespace"""
@@ -333,7 +327,7 @@ class IAMDefinitionQA(unittest.TestCase):
             "ses:VerifyEmailIdentity",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
 
 class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
@@ -373,9 +367,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "comprehendmedical:StopICD10CMInferenceJob",
         ]
         for action in actions:
-            # if action not in results:
-            #     print(action)
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # Compute Optimizer
         results = get_actions_for_service("compute-optimizer")
         actions = [
@@ -389,7 +381,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "compute-optimizer:PutRecommendationPreferences",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # DataSync
         results = get_actions_for_service("datasync")
         actions = [
@@ -399,7 +391,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "datasync:UpdateTaskExecution",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
         # Account Management
         results = get_actions_for_service("account")
@@ -409,7 +401,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "account:PutAlternateContact",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
         # AWS IAM Access Analyzer
         results = get_actions_for_service("access-analyzer")
@@ -425,7 +417,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "access-analyzer:ValidatePolicy",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # Elemental Activations
         results = get_actions_for_service("elemental-activations")
         actions = [
@@ -433,21 +425,21 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "elemental-activations:StartFileUpload",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # OpenSearch
         results = get_actions_for_service("es")
         actions = [
             "es:DescribeDomainChangeProgress",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # Location
         results = get_actions_for_service("geo")
         actions = [
             "geo:CalculateRouteMatrix",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
         # Amazon Managed Grafana
         results = get_actions_for_service("grafana")
@@ -456,7 +448,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "grafana:UpdateWorkspaceAuthentication",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
         # EC2 Image Builder
         results = get_actions_for_service("imagebuilder")
@@ -464,7 +456,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "imagebuilder:ImportVmImage",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
         # Timestream
         results = get_actions_for_service("timestream")
         actions = [
@@ -476,7 +468,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "timestream:UpdateScheduledQuery",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
         # AWS Transfer Family
         results = get_actions_for_service("transfer")
@@ -495,7 +487,7 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
             "transfer:UpdateAccess",
         ]
         for action in actions:
-            self.assertTrue(action in results)
+            self.assertIn(action, results)
 
     def test_kafka_action_names_overlap_issue(self):
         """Ensure that kafka actions are not overwritten in the IAM definition"""
@@ -520,4 +512,4 @@ class IAMDefinitionQAForServicesWithChangedHTMLFiles(unittest.TestCase):
         ]
 
         for action in actions:
-            self.assertTrue(action in self.all_actions)
+            self.assertIn(action, self.all_actions)
