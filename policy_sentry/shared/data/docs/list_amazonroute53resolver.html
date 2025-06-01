@@ -1355,21 +1355,21 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonroute53resolver-GetResolverRule" tabindex="-1">
+               <td id="amazonroute53resolver-GetResolverRule" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">
                  GetResolverRule
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the IP address that queries are forwarded to
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazonroute53resolver-resolver-rule">
-                  resolver-rule*
+                 <a href="#amazonroute53resolver-autodefined-rule">
+                  autodefined-rule
                  </a>
                 </p>
                </td>
@@ -1379,21 +1379,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonroute53resolver-GetResolverRuleAssociation" tabindex="-1">
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonroute53resolver-resolver-rule">
+                  resolver-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonroute53resolver-GetResolverRuleAssociation" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">
                  GetResolverRuleAssociation
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get information about an association between a specified Resolver rule and a VPC
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonroute53resolver-autodefined-rule">
+                  autodefined-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonroute53resolver-resolver-rule">
-                  resolver-rule*
+                  resolver-rule
                  </a>
                 </p>
                </td>
@@ -2614,6 +2640,41 @@
                   {
                  </span>
                  Account}:resolver-rule/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonroute53resolver-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonroute53resolver-autodefined-rule" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/access-control-overview.html#access-control-resources">
+                 autodefined-rule
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:route53resolver:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:autodefined-rule/$
                  <span>
                   {
                  </span>

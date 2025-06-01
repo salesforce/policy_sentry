@@ -348,6 +348,33 @@
                </tr>
               </thead>
               <tr>
+               <td id="amazonauroradsql-AddPeerCluster" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html">
+                 AddPeerCluster
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to add a peer cluster to a multi-Region cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 dsql:PutMultiRegionProperties
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonauroradsql-CreateCluster" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html">
                  CreateCluster
@@ -386,46 +413,6 @@
                 <p>
                  <a href="#amazonauroradsql-aws_TagKeys">
                   aws:TagKeys
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="amazonauroradsql-CreateMultiRegionClusters" rowspan="2" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateMultiRegionClusters.html">
-                 CreateMultiRegionClusters
-                </a>
-               </td>
-               <td rowspan="2" tabindex="-1">
-                Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region
-               </td>
-               <td rowspan="2" tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonauroradsql-Cluster">
-                  Cluster*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 dsql:CreateCluster
-                </p>
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazonauroradsql-dsql_WitnessRegion">
-                  dsql:WitnessRegion
                  </a>
                 </p>
                </td>
@@ -505,16 +492,16 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonauroradsql-DeleteMultiRegionClusters" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_DeleteMultiRegionClusters.html">
-                 DeleteMultiRegionClusters
+               <td id="amazonauroradsql-GetBackupJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 GetBackupJob
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region
+                Grants permission to get the status of an Aurora DSQL cluster backup job
                </td>
                <td tabindex="-1">
-                Write
+                Read
                </td>
                <td tabindex="-1">
                 <p>
@@ -526,9 +513,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 dsql:DeleteCluster
-                </p>
                </td>
               </tr>
               <tr>
@@ -556,13 +540,37 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonauroradsql-GetRestoreJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 GetRestoreJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the status of an Aurora DSQL cluster restore job
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonauroradsql-GetVpcEndpointServiceName" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_GetVpcEndpointServiceName.html">
                  GetVpcEndpointServiceName
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve endpoint service name specific to a cluster
+                Grants permission to retrieve the VPC endpoint service name for a cluster
                </td>
                <td tabindex="-1">
                 Read
@@ -609,6 +617,186 @@
                </td>
                <td tabindex="-1">
                 Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-PutMultiRegionProperties" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html">
+                 PutMultiRegionProperties
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update multi-Region properties of a cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-PutWitnessRegion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html">
+                 PutWitnessRegion
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to configure and update the witness Region of a multi-Region cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 dsql:PutMultiRegionProperties
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-RemovePeerCluster" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_UpdateCluster.html">
+                 RemovePeerCluster
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to remove a peer cluster from a multi-Region cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 dsql:PutMultiRegionProperties
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-StartBackupJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 StartBackupJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a backup job for an Aurora DSQL cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-StartRestoreJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 StartRestoreJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a restore job for an Aurora DSQL cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 dsql:CreateCluster
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-StopBackupJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 StopBackupJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to stop a backup job for an Aurora DSQL cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-StopRestoreJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/backup-restore.html">
+                 StopRestoreJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to stop a restore job for an Aurora DSQL Cluster
+               </td>
+               <td tabindex="-1">
+                Write
                </td>
                <td tabindex="-1">
                 <p>
@@ -764,7 +952,7 @@
               </thead>
               <tr>
                <td id="amazonauroradsql-Cluster" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/what-is-core-components.html#Cluster">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/what-is-aurora-dsql.html">
                  Cluster
                 </a>
                </td>
@@ -878,15 +1066,15 @@
               </tr>
               <tr>
                <td id="amazonauroradsql-dsql_WitnessRegion" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/userguide/using-iam-condition-keys.html#witness-region">
+                <a href="https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/using-iam-condition-keys.html#using-iam-condition-keys-create-mr-cluster-witness">
                  dsql:WitnessRegion
                 </a>
                </td>
                <td tabindex="-1">
-                Filters access by the witness region of linked clusters
+                Filters access by the witness region of multi-Region clusters
                </td>
                <td tabindex="-1">
-                ArrayOfString
+                String
                </td>
               </tr>
              </table>
