@@ -316,7 +316,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d502c11c15">
+             <table id="w44aab5b9d506c11c15">
               <thead>
                <tr>
                 <th>
@@ -837,6 +837,9 @@
                  deadline:TagResource
                 </p>
                 <p>
+                 ec2:CreateVpcEndpoint
+                </p>
+                <p>
                  iam:PassRole
                 </p>
                 <p>
@@ -844,6 +847,12 @@
                 </p>
                 <p>
                  logs:CreateLogGroup
+                </p>
+                <p>
+                 vpc-lattice:GetResourceConfiguration
+                </p>
+                <p>
+                 vpc-lattice:GetResourceGateway
                 </p>
                </td>
               </tr>
@@ -977,15 +986,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdeadlinecloud-CreateMonitor" tabindex="-1">
+               <td id="awsdeadlinecloud-CreateMonitor" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateMonitor.html">
                  CreateMonitor
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to create a monitor
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -998,6 +1007,9 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 deadline:TagResource
+                </p>
                 <p>
                  iam:PassRole
                 </p>
@@ -1016,6 +1028,24 @@
                 <p>
                  sso:PutApplicationGrant
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdeadlinecloud-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdeadlinecloud-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -3217,15 +3247,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdeadlinecloud-ListTagsForResource" rowspan="6" tabindex="-1">
+               <td id="awsdeadlinecloud-ListTagsForResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to list all tags on specified Deadline Cloud resources
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -3258,6 +3288,19 @@
                 <p>
                  <a href="#awsdeadlinecloud-license-endpoint">
                   license-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdeadlinecloud-monitor">
+                  monitor
                  </a>
                 </p>
                </td>
@@ -3558,15 +3601,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdeadlinecloud-TagResource" rowspan="6" tabindex="-1">
+               <td id="awsdeadlinecloud-TagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to add or overwrite one or more tags for the specified Deadline Cloud resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -3599,6 +3642,19 @@
                 <p>
                  <a href="#awsdeadlinecloud-license-endpoint">
                   license-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdeadlinecloud-monitor">
+                  monitor
                  </a>
                 </p>
                </td>
@@ -3657,15 +3713,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awsdeadlinecloud-UntagResource" rowspan="6" tabindex="-1">
+               <td id="awsdeadlinecloud-UntagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to disassociate one or more tags from the specified Deadline Cloud resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -3698,6 +3754,19 @@
                 <p>
                  <a href="#awsdeadlinecloud-license-endpoint">
                   license-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdeadlinecloud-monitor">
+                  monitor
                  </a>
                 </p>
                </td>
@@ -3822,10 +3891,19 @@
                </td>
                <td tabindex="-1">
                 <p>
+                 ec2:CreateVpcEndpoint
+                </p>
+                <p>
                  iam:PassRole
                 </p>
                 <p>
                  identitystore:ListGroupMembershipsForMember
+                </p>
+                <p>
+                 vpc-lattice:GetResourceConfiguration
+                </p>
+                <p>
+                 vpc-lattice:GetResourceGateway
                 </p>
                </td>
               </tr>
@@ -4238,7 +4316,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d502c13b5">
+             <table id="w44aab5b9d506c13b5">
               <thead>
                <tr>
                 <th>
@@ -4530,6 +4608,11 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsdeadlinecloud-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -4660,7 +4743,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d502c15b7">
+             <table id="w44aab5b9d506c15b7">
               <thead>
                <tr>
                 <th>
