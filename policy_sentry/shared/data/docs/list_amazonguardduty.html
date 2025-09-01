@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d783c11c15">
+             <table id="w44aab5b9d795c11c17">
               <thead>
                <tr>
                 <th>
@@ -610,6 +617,38 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonguardduty-CreateThreatEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateThreatEntitySet.html">
+                 CreateThreatEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create GuardDuty ThreatEntitySets, where a ThreatEntitySet consists of known malicious IP addresses and/or domains used by GuardDuty to generate findings
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonguardduty-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:GetObject
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonguardduty-CreateThreatIntelSet" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateThreatIntelSet.html">
                  CreateThreatIntelSet
@@ -636,6 +675,43 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-CreateTrustedEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateTrustedEntitySet.html">
+                 CreateTrustedEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a TrustedEntitySet
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonguardduty-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonguardduty-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:GetObject
+                </p>
                </td>
               </tr>
               <tr>
@@ -816,6 +892,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonguardduty-DeleteThreatEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteThreatEntitySet.html">
+                 DeleteThreatEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete GuardDuty ThreatEntitySets
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonguardduty-DeleteThreatIntelSet" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteThreatIntelSet.html">
                  DeleteThreatIntelSet
@@ -831,6 +931,30 @@
                 <p>
                  <a href="#amazonguardduty-threatintelset">
                   threatintelset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-DeleteTrustedEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteTrustedEntitySet.html">
+                 DeleteTrustedEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete GuardDuty TrustedEntitySets
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset*
                  </a>
                 </p>
                </td>
@@ -1307,6 +1431,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonguardduty-GetThreatEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetThreatEntitySet.html">
+                 GetThreatEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve GuardDuty ThreatEntitySets
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonguardduty-GetThreatIntelSet" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetThreatIntelSet.html">
                  GetThreatIntelSet
@@ -1322,6 +1470,30 @@
                 <p>
                  <a href="#amazonguardduty-threatintelset">
                   threatintelset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-GetTrustedEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetTrustedEntitySet.html">
+                 GetTrustedEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve GuardDuty TrustedEntitySets
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset*
                  </a>
                 </p>
                </td>
@@ -1564,15 +1736,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonguardduty-ListTagsForResource" rowspan="5" tabindex="-1">
+               <td id="amazonguardduty-ListTagsForResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to retrieve a list of tags associated with a GuardDuty resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -1629,10 +1801,55 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonguardduty-threatintelset">
                   threatintelset
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-ListThreatEntitySets" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListThreatEntitySets.html">
+                 ListThreatEntitySets
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of GuardDuty ThreatEntitySets
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1647,6 +1864,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to retrieve a list of GuardDuty ThreatIntelSets
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-ListTrustedEntitySets" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListTrustedEntitySets.html">
+                 ListTrustedEntitySets
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of GuardDuty TrustedEntitySets
                </td>
                <td tabindex="-1">
                 List
@@ -1735,15 +1971,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonguardduty-TagResource" rowspan="6" tabindex="-1">
+               <td id="amazonguardduty-TagResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to add tags to a GuardDuty resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1800,8 +2036,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonguardduty-threatintelset">
                   threatintelset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset
                  </a>
                 </p>
                </td>
@@ -1848,15 +2110,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonguardduty-UntagResource" rowspan="6" tabindex="-1">
+               <td id="amazonguardduty-UntagResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to remove tags from a GuardDuty resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1913,8 +2175,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonguardduty-threatintelset">
                   threatintelset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset
                  </a>
                 </p>
                </td>
@@ -2145,6 +2433,33 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonguardduty-UpdateThreatEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateThreatEntitySet.html">
+                 UpdateThreatEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update GuardDuty ThreatEntitySets
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-threatentityset">
+                  threatentityset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:GetObject
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonguardduty-UpdateThreatIntelSet" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateThreatIntelSet.html">
                  UpdateThreatIntelSet
@@ -2174,6 +2489,33 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonguardduty-UpdateTrustedEntitySet" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateTrustedEntitySet.html">
+                 UpdateTrustedEntitySet
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update GuardDuty TrustedEntitySets
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-trustedentityset">
+                  trustedentityset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 s3:GetObject
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -2197,7 +2539,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d783c13b5">
+             <table id="w44aab5b9d795c13b5">
               <thead>
                <tr>
                 <th>
@@ -2364,6 +2706,84 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonguardduty-trustedentityset" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources">
+                 trustedentityset
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:guardduty:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:detector/$
+                 <span>
+                  {
+                 </span>
+                 DetectorId}/trustedentityset/$
+                 <span>
+                  {
+                 </span>
+                 TrustedEntitySetId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonguardduty-threatentityset" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources">
+                 threatentityset
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:guardduty:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:detector/$
+                 <span>
+                  {
+                 </span>
+                 DetectorId}/threatentityset/$
+                 <span>
+                  {
+                 </span>
+                 ThreatEntitySetId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonguardduty-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonguardduty-publishingDestination" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources">
                  publishingDestination
@@ -2458,7 +2878,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d783c15b7">
+             <table id="w44aab5b9d795c15b7">
               <thead>
                <tr>
                 <th>

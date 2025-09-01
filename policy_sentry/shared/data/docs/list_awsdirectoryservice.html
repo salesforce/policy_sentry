@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d538c11c15">
+             <table id="w44aab5b9d550c11c17">
               <thead>
                <tr>
                 <th>
@@ -762,6 +769,86 @@
                </td>
               </tr>
               <tr>
+               <td id="awsdirectoryservice-CreateHybridAD" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateHybridAD.html">
+                 CreateHybridAD
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a Hybrid Managed AD directory
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsdirectoryservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupEgress
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateNetworkInterface
+                </p>
+                <p>
+                 ec2:CreateNetworkInterfacePermission
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:CreateTags
+                </p>
+                <p>
+                 ec2:DescribeNetworkInterfaces
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:GetRole
+                </p>
+                <p>
+                 secretsmanager:DescribeSecret
+                </p>
+                <p>
+                 secretsmanager:GetSecretValue
+                </p>
+                <p>
+                 ssm:GetCommandInvocation
+                </p>
+                <p>
+                 ssm:GetConnectionStatus
+                </p>
+                <p>
+                 ssm:ListCommands
+                </p>
+                <p>
+                 ssm:SendCommand
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awsdirectoryservice-CreateIdentityPoolDirectory" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">
                  CreateIdentityPoolDirectory
@@ -910,6 +997,25 @@
                   directory*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsdirectoryservice-DeleteADAssessment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteADAssessment.html">
+                 DeleteADAssessment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a directory assessment
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1100,6 +1206,49 @@
                </td>
               </tr>
               <tr>
+               <td id="awsdirectoryservice-DescribeADAssessment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeADAssessment.html">
+                 DescribeADAssessment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe a directory assessment
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsdirectoryservice-DescribeCAEnrollmentPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeCAEnrollmentPolicy.html">
+                 DescribeCAEnrollmentPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe the ca enrollment status of a specified directory
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-directory">
+                  directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsdirectoryservice-DescribeCertificate" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeCertificate.html">
                  DescribeCertificate
@@ -1246,6 +1395,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to obtain information about which SNS topics receive status messages from the specified directory
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-directory">
+                  directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsdirectoryservice-DescribeHybridADUpdate" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeHybridADUpdate.html">
+                 DescribeHybridADUpdate
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe the updates of a specified hybrid directory
                </td>
                <td tabindex="-1">
                 Read
@@ -1421,6 +1594,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awsdirectoryservice-DisableCAEnrollmentPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableCAEnrollmentPolicy.html">
+                 DisableCAEnrollmentPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to disable the ca enrollment of a specified directory
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-directory">
+                  directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsdirectoryservice-DisableClientAuthentication" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableClientAuthentication.html">
                  DisableClientAuthentication
@@ -1563,6 +1760,36 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsdirectoryservice-EnableCAEnrollmentPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableCAEnrollmentPolicy.html">
+                 EnableCAEnrollmentPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to enable the ca enrollment of a specified directory
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-directory">
+                  directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 acm-pca:DescribeCertificateAuthority
+                </p>
+                <p>
+                 pca-connector-ad:GetConnector
+                </p>
                </td>
               </tr>
               <tr>
@@ -1775,6 +2002,25 @@
                   directory*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsdirectoryservice-ListADAssessments" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ListADAssessments.html">
+                 ListADAssessments
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list directory assessments
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -2162,6 +2408,67 @@
                </td>
               </tr>
               <tr>
+               <td id="awsdirectoryservice-StartADAssessment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_StartADAssessment.html">
+                 StartADAssessment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a directory assessment
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupEgress
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateNetworkInterface
+                </p>
+                <p>
+                 ec2:CreateNetworkInterfacePermission
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:DeleteNetworkInterface
+                </p>
+                <p>
+                 ec2:DeleteSecurityGroup
+                </p>
+                <p>
+                 ec2:DescribeNetworkInterfaces
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+                <p>
+                 ssm:GetCommandInvocation
+                </p>
+                <p>
+                 ssm:GetConnectionStatus
+                </p>
+                <p>
+                 ssm:ListCommands
+                </p>
+                <p>
+                 ssm:SendCommand
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awsdirectoryservice-StartSchemaExtension" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_StartSchemaExtension.html">
                  StartSchemaExtension
@@ -2333,6 +2640,75 @@
                </td>
               </tr>
               <tr>
+               <td id="awsdirectoryservice-UpdateHybridAD" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateHybridAD.html">
+                 UpdateHybridAD
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update configurations for a specified hybrid directory
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsdirectoryservice-directory">
+                  directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AuthorizeSecurityGroupEgress
+                </p>
+                <p>
+                 ec2:AuthorizeSecurityGroupIngress
+                </p>
+                <p>
+                 ec2:CreateNetworkInterface
+                </p>
+                <p>
+                 ec2:CreateNetworkInterfacePermission
+                </p>
+                <p>
+                 ec2:CreateSecurityGroup
+                </p>
+                <p>
+                 ec2:CreateTags
+                </p>
+                <p>
+                 ec2:DescribeNetworkInterfaces
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 ec2:DescribeVpcs
+                </p>
+                <p>
+                 secretsmanager:DescribeSecret
+                </p>
+                <p>
+                 secretsmanager:GetSecretValue
+                </p>
+                <p>
+                 ssm:GetCommandInvocation
+                </p>
+                <p>
+                 ssm:GetConnectionStatus
+                </p>
+                <p>
+                 ssm:ListCommands
+                </p>
+                <p>
+                 ssm:SendCommand
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awsdirectoryservice-UpdateNumberOfDomainControllers" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateNumberOfDomainControllers.html">
                  UpdateNumberOfDomainControllers
@@ -2475,7 +2851,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d538c13b5">
+             <table id="w44aab5b9d550c13b5">
               <thead>
                <tr>
                 <th>
@@ -2550,7 +2926,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d538c15b7">
+             <table id="w44aab5b9d550c15b7">
               <thead>
                <tr>
                 <th>

@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d247c11c15">
+             <table id="w44aab5b9d259c11c17">
               <thead>
                <tr>
                 <th>
@@ -511,15 +518,40 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-DeleteService" tabindex="-1">
+               <td id="awscloudmap-DeleteResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">
+                 DeleteResourcePolicy
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete the RAM access control policy for a namespace
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudmap-DeleteService" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DeleteService.html">
                  DeleteService
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to delete a specified service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -535,15 +567,28 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-DeleteServiceAttributes" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudmap-DeleteServiceAttributes" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DeleteServiceAttributes.html">
                  DeleteServiceAttributes
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to delete specified attributes from a service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -554,6 +599,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -591,22 +649,53 @@
                   servicediscovery:ServiceArn
                  </a>
                 </p>
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-DiscoverInstances" tabindex="-1">
+               <td id="awscloudmap-DiscoverInstances" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">
                  DiscoverInstances
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to discover registered instances for a specified namespace and service
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -625,17 +714,43 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-DiscoverInstancesRevision" tabindex="-1">
+               <td id="awscloudmap-DiscoverInstancesRevision" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstancesRevision.html">
                  DiscoverInstancesRevision
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to discover the revision of the instances for a specified namespace and service
                </td>
-               <td tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -654,17 +769,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-GetInstance" tabindex="-1">
+               <td id="awscloudmap-GetInstance" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetInstance.html">
                  GetInstance
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get information about a specified instance
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -678,17 +806,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-GetInstancesHealthStatus" tabindex="-1">
+               <td id="awscloudmap-GetInstancesHealthStatus" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetInstancesHealthStatus.html">
                  GetInstancesHealthStatus
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get the current health status (Healthy, Unhealthy, or Unknown) of one or more instances
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -726,18 +867,61 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-GetOperation" tabindex="-1">
+               <td id="awscloudmap-GetOperation" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">
                  GetOperation
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get information about a specific operation
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudmap-GetResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">
+                 GetResourcePolicy
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to read the RAM access control policy for a namespace
                </td>
                <td tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -793,17 +977,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-ListInstances" tabindex="-1">
+               <td id="awscloudmap-ListInstances" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html">
                  ListInstances
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to get summary information about the instances that were registered with a specified service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -893,6 +1090,31 @@
                </td>
               </tr>
               <tr>
+               <td id="awscloudmap-PutResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">
+                 PutResourcePolicy
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to define the RAM access control policy for a namespace
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-namespace">
+                  namespace*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awscloudmap-RegisterInstance" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">
                  RegisterInstance
@@ -923,6 +1145,11 @@
                 <p>
                  <a href="#awscloudmap-servicediscovery_ServiceArn">
                   servicediscovery:ServiceArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
                  </a>
                 </p>
                </td>
@@ -1007,23 +1234,41 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-UpdateInstanceCustomHealthStatus" tabindex="-1">
+               <td id="awscloudmap-UpdateInstanceCustomHealthStatus" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateInstanceCustomHealthStatus.html">
                  UpdateInstanceCustomHealthStatus
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update the current health status for an instance that has a custom health check
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-service">
+                  service*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#awscloudmap-servicediscovery_ServiceArn">
                   servicediscovery:ServiceArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
                  </a>
                 </p>
                </td>
@@ -1079,15 +1324,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-UpdateService" tabindex="-1">
+               <td id="awscloudmap-UpdateService" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateService.html">
                  UpdateService
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update the settings in a specified service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -1103,15 +1348,28 @@
                </td>
               </tr>
               <tr>
-               <td id="awscloudmap-UpdateServiceAttributes" tabindex="-1">
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudmap-UpdateServiceAttributes" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateServiceAttributes.html">
                  UpdateServiceAttributes
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update the attributes in a specified service
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -1122,6 +1380,19 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awscloudmap-servicediscovery_ServiceCreatedByAccount">
+                  servicediscovery:ServiceCreatedByAccount
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1149,7 +1420,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d247c13b5">
+             <table id="w44aab5b9d259c13b5">
               <thead>
                <tr>
                 <th>
@@ -1259,7 +1530,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d247c15b7">
+             <table id="w44aab5b9d259c15b7">
               <thead>
                <tr>
                 <th>
@@ -1349,6 +1620,19 @@
                </td>
                <td tabindex="-1">
                 ARN
+               </td>
+              </tr>
+              <tr>
+               <td id="awscloudmap-servicediscovery_ServiceCreatedByAccount" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/access-control-overview.html#specifying-conditions">
+                 servicediscovery:ServiceCreatedByAccount
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by specifying the account id of the related service creator
+               </td>
+               <td tabindex="-1">
+                String
                </td>
               </tr>
               <tr>

@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d175c11c15">
+             <table id="w44aab5b9d179c11c17">
               <thead>
                <tr>
                 <th>
@@ -448,30 +455,17 @@
                </td>
               </tr>
               <tr>
-               <td id="awsbatch-CreateJobQueue" rowspan="3" tabindex="-1">
+               <td id="awsbatch-CreateJobQueue" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html">
                  CreateJobQueue
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create an AWS Batch job queue in your account
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#awsbatch-compute-environment">
-                  compute-environment*
-                 </a>
-                </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awsbatch-job-queue">
@@ -497,8 +491,34 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#awsbatch-compute-environment">
+                  compute-environment
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#awsbatch-scheduling-policy">
                   scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment
                  </a>
                 </p>
                </td>
@@ -529,6 +549,51 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-CreateServiceEnvironment" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateServiceEnvironment.html">
+                 CreateServiceEnvironment
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create an AWS Batch service environment in your account
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -637,6 +702,30 @@
                 <p>
                  <a href="#awsbatch-scheduling-policy">
                   scheduling-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-DeleteServiceEnvironment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DeleteServiceEnvironment.html">
+                 DeleteServiceEnvironment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an AWS Batch service environment in your account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment*
                  </a>
                 </p>
                </td>
@@ -789,6 +878,44 @@
                </td>
               </tr>
               <tr>
+               <td id="awsbatch-DescribeServiceEnvironments" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeServiceEnvironments.html">
+                 DescribeServiceEnvironments
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe one or more AWS Batch service environments in your account
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-DescribeServiceJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeServiceJob.html">
+                 DescribeServiceJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe a AWS Batch service job in your account
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsbatch-GetJobQueueSnapshot" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_GetJobQueueSnapshot.html">
                  GetJobQueueSnapshot
@@ -894,15 +1021,34 @@
                </td>
               </tr>
               <tr>
-               <td id="awsbatch-ListTagsForResource" rowspan="6" tabindex="-1">
+               <td id="awsbatch-ListServiceJobs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListServiceJobs.html">
+                 ListServiceJobs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list service jobs for a specified AWS Batch job queue in your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-ListTagsForResource" rowspan="8" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to list tags for an AWS Batch resource in your account
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -974,6 +1120,32 @@
                 <p>
                  <a href="#awsbatch-scheduling-policy">
                   scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-job">
+                  service-job
                  </a>
                 </p>
                </td>
@@ -1196,15 +1368,67 @@
                </td>
               </tr>
               <tr>
-               <td id="awsbatch-TagResource" rowspan="7" tabindex="-1">
+               <td id="awsbatch-SubmitServiceJob" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitServiceJob.html">
+                 SubmitServiceJob
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to submit an AWS Batch service job
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-job-queue">
+                  job-queue*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-job">
+                  service-job*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-batch_ShareIdentifier">
+                  batch:ShareIdentifier
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsbatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-TagResource" rowspan="9" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to tag an AWS Batch resource in your account
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1276,6 +1500,32 @@
                 <p>
                  <a href="#awsbatch-scheduling-policy">
                   scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-job">
+                  service-job
                  </a>
                 </p>
                </td>
@@ -1327,15 +1577,39 @@
                </td>
               </tr>
               <tr>
-               <td id="awsbatch-UntagResource" rowspan="7" tabindex="-1">
+               <td id="awsbatch-TerminateServiceJob" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TerminateServiceJob.html">
+                 TerminateServiceJob
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to terminate a service job in an AWS Batch job queue in your account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-job">
+                  service-job*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-UntagResource" rowspan="9" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to untag an AWS Batch resource in your account
                </td>
-               <td rowspan="7" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -1407,6 +1681,32 @@
                 <p>
                  <a href="#awsbatch-scheduling-policy">
                   scheduling-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-job">
+                  service-job
                  </a>
                 </p>
                </td>
@@ -1550,6 +1850,30 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awsbatch-UpdateServiceEnvironment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateServiceEnvironment.html">
+                 UpdateServiceEnvironment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an AWS Batch service environment in your account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-service-environment">
+                  service-environment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1573,7 +1897,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d175c13b5">
+             <table id="w44aab5b9d179c13b5">
               <thead>
                <tr>
                 <th>
@@ -1797,6 +2121,76 @@
                </td>
               </tr>
               <tr>
+               <td id="awsbatch-service-environment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/service-environments.html">
+                 service-environment
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:batch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:service-environment/$
+                 <span>
+                  {
+                 </span>
+                 ServiceEnvironmentName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbatch-service-job" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/batch/latest/userguide/service-jobs.html">
+                 service-job
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:batch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:service-job/$
+                 <span>
+                  {
+                 </span>
+                 JobId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="awsbatch-consumable-resource" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling.html">
                  consumable-resource
@@ -1857,7 +2251,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d175c15b7">
+             <table id="w44aab5b9d179c15b7">
               <thead>
                <tr>
                 <th>

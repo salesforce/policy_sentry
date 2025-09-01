@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d811c11c15">
+             <table id="w44aab5b9d823c11c17">
               <thead>
                <tr>
                 <th>
@@ -1342,25 +1349,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsiamidentitycenter-DeletePermissionsPolicy" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 DeletePermissionsPolicy
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to delete the permission policy associated with a permission set
-               </td>
-               <td tabindex="-1">
-                Permissions management
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsiamidentitycenter-DeleteProfile" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
                  DeleteProfile
@@ -1550,25 +1538,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsiamidentitycenter-DescribeDirectories" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 DescribeDirectories
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to obtain information about the directories for this account
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsiamidentitycenter-DescribeInstance" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeInstance.html">
                  DescribeInstance
@@ -1678,25 +1647,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsiamidentitycenter-DescribePermissionsPolicies" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 DescribePermissionsPolicies
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to retrieve all the permissions policies associated with a permission set
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsiamidentitycenter-DescribeRegisteredRegions" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
                  DescribeRegisteredRegions
@@ -1733,25 +1683,6 @@
                   TrustedTokenIssuer*
                  </a>
                 </p>
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsiamidentitycenter-DescribeTrusts" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 DescribeTrusts
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to obtain information about the trust relationships for this account
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -2041,6 +1972,43 @@
                </td>
               </tr>
               <tr>
+               <td id="awsiamidentitycenter-GetApplicationSessionConfiguration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_GetApplicationSessionConfiguration.html">
+                 GetApplicationSessionConfiguration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get session configuration for an application
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsiamidentitycenter-Application">
+                  Application*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsiamidentitycenter-sso_ApplicationAccount">
+                  sso:ApplicationAccount
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsiamidentitycenter-GetApplicationTemplate" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
                  GetApplicationTemplate
@@ -2188,28 +2156,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td id="awsiamidentitycenter-GetPermissionsPolicy" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 GetPermissionsPolicy
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to retrieve all permission policies associated with a permission set
-               </td>
-               <td tabindex="-1">
-                Read
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 sso:DescribePermissionsPolicies
-                </p>
                </td>
               </tr>
               <tr>
@@ -3300,6 +3246,43 @@
                </td>
               </tr>
               <tr>
+               <td id="awsiamidentitycenter-PutApplicationSessionConfiguration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutApplicationSessionConfiguration.html">
+                 PutApplicationSessionConfiguration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to put session configuration for an application
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsiamidentitycenter-Application">
+                  Application*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsiamidentitycenter-sso_ApplicationAccount">
+                  sso:ApplicationAccount
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsiamidentitycenter-PutInlinePolicyToPermissionSet" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutInlinePolicyToPermissionSet.html">
                  PutInlinePolicyToPermissionSet
@@ -3808,25 +3791,6 @@
                </td>
               </tr>
               <tr>
-               <td id="awsiamidentitycenter-UpdateDirectoryAssociation" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample">
-                 UpdateDirectoryAssociation
-                </a>
-               </td>
-               <td tabindex="-1">
-                Grants permission to update the user attribute mappings for your connected directory
-               </td>
-               <td tabindex="-1">
-                Write
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
                <td id="awsiamidentitycenter-UpdateInstance" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateInstance.html">
                  UpdateInstance
@@ -4034,7 +3998,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d811c13b5">
+             <table id="w44aab5b9d823c13b5">
               <thead>
                <tr>
                 <th>
@@ -4251,7 +4215,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d811c15b7">
+             <table id="w44aab5b9d823c15b7">
               <thead>
                <tr>
                 <th>

@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d147c11c15">
+             <table id="w44aab5b9d151c11c17">
               <thead>
                <tr>
                 <th>
@@ -581,6 +588,49 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-InjectError" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 InjectError
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to inject errors in targeted clusters
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-Cluster">
+                  Cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonauroradsql-dsql_FisActionId">
+                  dsql:FisActionId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonauroradsql-dsql_FisTargetArns">
+                  dsql:FisTargetArns
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -963,7 +1013,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d147c13b5">
+             <table id="w44aab5b9d151c13b5">
               <thead>
                <tr>
                 <th>
@@ -1038,7 +1088,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d147c15b7">
+             <table id="w44aab5b9d151c15b7">
               <thead>
                <tr>
                 <th>
@@ -1089,6 +1139,32 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-dsql_FisActionId" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 dsql:FisActionId
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ID of an AWS FIS action
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonauroradsql-dsql_FisTargetArns" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">
+                 dsql:FisTargetArns
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of an AWS FIS target
+               </td>
+               <td tabindex="-1">
+                ArrayOfARN
                </td>
               </tr>
               <tr>

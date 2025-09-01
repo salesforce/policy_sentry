@@ -299,9 +299,16 @@
             </a>
             .
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c11c15">
+             <table id="w61aab7c11c17">
               <thead>
                <tr>
                 <th>
@@ -1809,6 +1816,11 @@
                   rds:ManageMasterUserPassword
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1912,6 +1924,11 @@
                 <p>
                  <a href="#amazonrds-rds_req-tag___TagKey_">
                   rds:req-tag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
                  </a>
                 </p>
                </td>
@@ -2163,6 +2180,11 @@
                 <p>
                  <a href="#amazonrds-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
                  </a>
                 </p>
                </td>
@@ -6941,6 +6963,11 @@
                   rds:ManageMasterUserPassword
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -7069,6 +7096,11 @@
                   rds:ManageMasterUserPassword
                  </a>
                 </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -7185,6 +7217,11 @@
                 <p>
                  <a href="#amazonrds-rds_ManageMasterUserPassword">
                   rds:ManageMasterUserPassword
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonrds-rds_PubliclyAccessible">
+                  rds:PubliclyAccessible
                  </a>
                 </p>
                </td>
@@ -8792,6 +8829,19 @@
                </td>
                <td tabindex="-1">
                 Numeric
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonrds-rds_PubliclyAccessible" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/security_iam_service-with-iam.html#UsingWithRDS.IAM.Conditions">
+                 rds:PubliclyAccessible
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the value that specifies whether the DB Instance or DB ShardGroup is publicly accessible
+               </td>
+               <td tabindex="-1">
+                Bool
                </td>
               </tr>
               <tr>

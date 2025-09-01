@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d179c11c15">
+             <table id="w44aab5b9d183c11c17">
               <thead>
                <tr>
                 <th>
@@ -531,6 +538,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-CancelAutomatedReasoningPolicyBuildWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CancelAutomatedReasoningPolicyBuildWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to cancel a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-CreateAgent" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgent.html">
                  CreateAgent
@@ -617,6 +648,101 @@
                 <p>
                  <a href="#amazonbedrock-agent">
                   agent*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrock-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateAutomatedReasoningPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAutomatedReasoningPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrock-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateAutomatedReasoningPolicyTestCase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAutomatedReasoningPolicyTestCase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a test case for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CreateAutomatedReasoningPolicyVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 CreateAutomatedReasoningPolicyVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new automated reasoning policy version
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
                  </a>
                 </p>
                </td>
@@ -1029,17 +1155,43 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-CreateGuardrail" rowspan="2" tabindex="-1">
+               <td id="amazonbedrock-CreateGuardrail" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  CreateGuardrail
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to create a new guardrail
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonbedrock-guardrail-profile">
@@ -1827,6 +1979,91 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-DeleteAutomatedReasoningPolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DeleteAutomatedReasoningPolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete an automated reasoning policy or its version
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteAutomatedReasoningPolicyBuildWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DeleteAutomatedReasoningPolicyBuildWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-DeleteAutomatedReasoningPolicyTestCase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 DeleteAutomatedReasoningPolicyTestCase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a test case for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-DeleteBlueprint" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_DeleteBlueprint.html">
                  DeleteBlueprint
@@ -2487,6 +2724,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-ExportAutomatedReasoningPolicyVersion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ExportAutomatedReasoningPolicyVersion
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve an automated reasoning policy version artifact
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-GenerateQuery" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  GenerateQuery
@@ -2702,6 +2976,187 @@
                 <p>
                  <a href="#amazonbedrock-async-invoke">
                   async-invoke*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve an automated reasoning policy or its version
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyAnnotations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyAnnotations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve annotations for a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyBuildWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyBuildWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyBuildWorkflowResultAssets" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyBuildWorkflowResultAssets
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve assets for a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyNextScenario" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyNextScenario
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the next unreviewed generated scenario for a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyTestCase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyTestCase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a test case for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-GetAutomatedReasoningPolicyTestResult" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 GetAutomatedReasoningPolicyTestResult
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve result for a test case for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
                  </a>
                 </p>
                </td>
@@ -3672,6 +4127,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-InvokeAutomatedReasoningPolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 InvokeAutomatedReasoningPolicy
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to invoke an Automated Reasoning policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-InvokeBlueprintRecommendationAsync" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  InvokeBlueprintRecommendationAsync
@@ -4309,6 +4802,102 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListAutomatedReasoningPolicies" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAutomatedReasoningPolicies
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list automated reasoning policies or its versions
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListAutomatedReasoningPolicyBuildWorkflows" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAutomatedReasoningPolicyBuildWorkflows
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list build workflows for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListAutomatedReasoningPolicyTestCases" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAutomatedReasoningPolicyTestCases
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list test cases for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-ListAutomatedReasoningPolicyTestResults" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 ListAutomatedReasoningPolicyTestResults
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list test result for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -5009,15 +5598,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-ListTagsForResource" rowspan="25" tabindex="-1">
+               <td id="amazonbedrock-ListTagsForResource" rowspan="27" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="25" tabindex="-1">
+               <td rowspan="27" tabindex="-1">
                 Grants permission to list tags for a Bedrock resource
                </td>
-               <td rowspan="25" tabindex="-1">
+               <td rowspan="27" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -5063,6 +5652,32 @@
                 <p>
                  <a href="#amazonbedrock-async-invoke">
                   async-invoke*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version*
                  </a>
                 </p>
                </td>
@@ -5660,6 +6275,54 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-StartAutomatedReasoningPolicyBuildWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 StartAutomatedReasoningPolicyBuildWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-StartAutomatedReasoningPolicyTestWorkflow" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 StartAutomatedReasoningPolicyTestWorkflow
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start a test workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-StartFlowExecution" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_StartFlowExecution.html">
                  StartFlowExecution
@@ -5867,15 +6530,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-TagResource" rowspan="26" tabindex="-1">
+               <td id="amazonbedrock-TagResource" rowspan="28" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="26" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Grants permission to Tag a Bedrock resource
                </td>
-               <td rowspan="26" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -5921,6 +6584,32 @@
                 <p>
                  <a href="#amazonbedrock-async-invoke">
                   async-invoke
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version
                  </a>
                 </p>
                </td>
@@ -6221,15 +6910,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-UntagResource" rowspan="26" tabindex="-1">
+               <td id="amazonbedrock-UntagResource" rowspan="28" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="26" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Grants permission to Untag a Bedrock resource
                </td>
-               <td rowspan="26" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -6275,6 +6964,32 @@
                 <p>
                  <a href="#amazonbedrock-async-invoke">
                   async-invoke
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version
                  </a>
                 </p>
                </td>
@@ -6703,6 +7418,78 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-UpdateAutomatedReasoningPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAutomatedReasoningPolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateAutomatedReasoningPolicyAnnotations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAutomatedReasoningPolicyAnnotations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update annotations for a build workflow for an automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-UpdateAutomatedReasoningPolicyTestCase" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 UpdateAutomatedReasoningPolicyTestCase
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a test case for automated reasoning policy
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-UpdateBlueprint" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_UpdateBlueprint.html">
                  UpdateBlueprint
@@ -6836,21 +7623,47 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-UpdateGuardrail" rowspan="2" tabindex="-1">
+               <td id="amazonbedrock-UpdateGuardrail" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  UpdateGuardrail
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to update a guardrail
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
                  <a href="#amazonbedrock-guardrail">
                   guardrail*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy">
+                  automated-reasoning-policy
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-automated-reasoning-policy-version">
+                  automated-reasoning-policy-version
                  </a>
                 </p>
                </td>
@@ -7060,7 +7873,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d179c13b5">
+             <table id="w44aab5b9d183c13b5">
               <thead>
                <tr>
                 <th>
@@ -7645,6 +8458,80 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-automated-reasoning-policy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 automated-reasoning-policy
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:automated-reasoning-policy/$
+                 <span>
+                  {
+                 </span>
+                 AutomatedReasoningPolicyId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-automated-reasoning-policy-version" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
+                 automated-reasoning-policy-version
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:automated-reasoning-policy/$
+                 <span>
+                  {
+                 </span>
+                 AutomatedReasoningPolicyId}:$
+                 <span>
+                  {
+                 </span>
+                 AutomatedReasoningPolicyVersion}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-flow" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowSummary.html">
                  flow
@@ -8192,7 +9079,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9d179c15b7">
+             <table id="w44aab5b9d183c15b7">
               <thead>
                <tr>
                 <th>
