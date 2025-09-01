@@ -281,6 +281,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -316,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1451c11c15">
+             <table id="w44aab5b9e1463c11c17">
               <thead>
                <tr>
                 <th>
@@ -410,6 +417,16 @@
                 <p>
                  <a href="#amazons3express-s3express_x-amz-content-sha256">
                   s3express:x-amz-content-sha256
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -1399,21 +1416,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3express-ListTagsForResource" rowspan="2" tabindex="-1">
+               <td id="amazons3express-ListTagsForResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to lists all of the tags for a specified resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3express-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3express-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -1771,21 +1801,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3express-TagResource" rowspan="2" tabindex="-1">
+               <td id="amazons3express-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to create a new user-defined tag or update an existing tag
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3express-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3express-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -1838,21 +1881,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3express-UntagResource" rowspan="2" tabindex="-1">
+               <td id="amazons3express-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove the specified user-defined tags from an S3 resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3express-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3express-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -1922,7 +1978,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1451c13b5">
+             <table id="w44aab5b9e1463c13b5">
               <thead>
                <tr>
                 <th>
@@ -2004,6 +2060,16 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazons3express-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3express-s3express_AccessPointTag___TagKey_">
+                  s3express:AccessPointTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
              </table>
@@ -2032,7 +2098,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b9e1451c15b7">
+             <table id="w44aab5b9e1463c15b7">
               <thead>
                <tr>
                 <th>
@@ -2093,6 +2159,19 @@
                </td>
                <td tabindex="-1">
                 Filters access by the network origin (Internet or VPC)
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3express-s3express_AccessPointTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-db-tagging.html#example-access-points-db-policy-bucket-tag">
+                 s3express:AccessPointTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by tag key-value pairs attached to the access point
                </td>
                <td tabindex="-1">
                 String

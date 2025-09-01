@@ -299,9 +299,16 @@
             </a>
             .
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c11c15">
+             <table id="w61aab7c11c17">
               <thead>
                <tr>
                 <th>
@@ -325,21 +332,34 @@
                </tr>
               </thead>
               <tr>
-               <td id="amazons3-AbortMultipartUpload" rowspan="2" tabindex="-1">
+               <td id="amazons3-AbortMultipartUpload" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">
                  AbortMultipartUpload
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to abort a multipart upload
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -353,23 +373,8 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -474,21 +479,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-BypassGovernanceRetention" rowspan="2" tabindex="-1">
+               <td id="amazons3-BypassGovernanceRetention" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-bypass">
                  BypassGovernanceRetention
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to allow circumvention of governance-mode object retention settings
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Permissions management
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -501,21 +519,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_RequestObjectTag_key">
                   s3:RequestObjectTag/&lt;key&gt;
@@ -947,6 +950,26 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-content-sha256">
                   s3:x-amz-content-sha256
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -1769,6 +1792,16 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1921,6 +1954,16 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-content-sha256">
                   s3:x-amz-content-sha256
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -2397,21 +2440,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-DeleteObject" rowspan="2" tabindex="-1">
+               <td id="amazons3-DeleteObject" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">
                  DeleteObject
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove the null version of an object and insert a delete marker, which becomes the current version of the object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -2427,21 +2483,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -2479,21 +2520,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-DeleteObjectTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-DeleteObjectTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">
                  DeleteObjectTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to use the tagging subresource to remove the entire tag set from the specified object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -2506,21 +2560,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -2561,21 +2600,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-DeleteObjectVersion" rowspan="2" tabindex="-1">
+               <td id="amazons3-DeleteObjectVersion" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">
                  DeleteObjectVersion
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove a specific version of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -2591,21 +2643,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -2648,21 +2685,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-DeleteObjectVersionTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-DeleteObjectVersionTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">
                  DeleteObjectVersionTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove the entire tag set for a specific version of the object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -2675,21 +2725,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -3573,6 +3608,16 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3804,6 +3849,16 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -3956,6 +4011,16 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-content-sha256">
                   s3:x-amz-content-sha256
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -4151,21 +4216,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetBucketAcl" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetBucketAcl" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAcl.html">
                  GetBucketAcl
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to use the acl subresource to return the access control list (ACL) of an Amazon S3 bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -4213,21 +4291,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetBucketCORS" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetBucketCORS" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html">
                  GetBucketCORS
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the CORS configuration information set for an Amazon S3 bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -4275,21 +4366,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetBucketLocation" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetBucketLocation" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLocation.html">
                  GetBucketLocation
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the Region that an Amazon S3 bucket resides in
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -4461,21 +4565,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetBucketNotification" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetBucketNotification" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotification.html">
                  GetBucketNotification
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to get the notification configuration of an Amazon S3 bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -4647,21 +4764,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetBucketPolicy" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetBucketPolicy" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">
                  GetBucketPolicy
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the policy of the specified bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -5808,21 +5938,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObject" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObject" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">
                  GetObject
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to retrieve objects from Amazon S3
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -5838,21 +5981,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -5905,21 +6033,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectAcl" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectAcl" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">
                  GetObjectAcl
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the access control list (ACL) of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -5935,21 +6076,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -6005,8 +6131,8 @@
                </td>
                <td tabindex="-1">
                 <p>
-                 <a href="#amazons3-accesspoint">
-                  accesspoint*
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
                  </a>
                 </p>
                </td>
@@ -6019,7 +6145,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6032,21 +6158,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -6087,21 +6198,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectLegalHold" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectLegalHold" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">
                  GetObjectLegalHold
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to get an object's current Legal Hold status
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6114,21 +6238,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -6164,21 +6273,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectRetention" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectRetention" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">
                  GetObjectRetention
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to retrieve the retention settings for an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6191,21 +6313,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -6241,21 +6348,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">
                  GetObjectTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the tag set of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6268,21 +6388,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -6385,21 +6490,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectVersion" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectVersion" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">
                  GetObjectVersion
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to retrieve a specific version of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6415,21 +6533,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -6477,21 +6580,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectVersionAcl" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectVersionAcl" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">
                  GetObjectVersionAcl
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the access control list (ACL) of a specific object version
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6507,21 +6623,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -6569,21 +6670,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectVersionAttributes" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectVersionAttributes" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">
                  GetObjectVersionAttributes
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to retrieve attributes related to a specific version of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6596,21 +6710,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -6718,21 +6817,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-GetObjectVersionTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-GetObjectVersionTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/setting-repl-config-perm-overview.html">
                  GetObjectVersionTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to return the tag set for a specific version of the object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -6745,21 +6857,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -7550,21 +7647,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-ListBucket" rowspan="2" tabindex="-1">
+               <td id="amazons3-ListBucket" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">
                  ListBucket
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list some or all of the objects in an Amazon S3 bucket (up to 1000)
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -7580,21 +7690,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -7724,26 +7819,49 @@
                   s3:x-amz-content-sha256
                  </a>
                 </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
               </tr>
               <tr>
-               <td id="amazons3-ListBucketVersions" rowspan="2" tabindex="-1">
+               <td id="amazons3-ListBucketVersions" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html">
                  ListBucketVersions
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list metadata about all the versions of objects in an Amazon S3 bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-bucket">
-                  bucket*
+                  bucket
                  </a>
                 </p>
                </td>
@@ -7759,21 +7877,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -7986,21 +8089,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-ListMultipartUploadParts" rowspan="2" tabindex="-1">
+               <td id="amazons3-ListMultipartUploadParts" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">
                  ListMultipartUploadParts
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list the parts that have been uploaded for a specific multipart upload
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -8016,21 +8132,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -8166,15 +8267,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-ListTagsForResource" rowspan="5" tabindex="-1">
+               <td id="amazons3-ListTagsForResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to list the tags attached to the specified resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -8207,6 +8308,19 @@
                 <p>
                  <a href="#amazons3-accessgrantslocation">
                   accessgrantslocation
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
                  </a>
                 </p>
                </td>
@@ -8636,21 +8750,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -10131,21 +10230,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObject" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObject" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">
                  PutObject
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to add an object to a bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10161,21 +10273,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -10323,21 +10420,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectAcl" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectAcl" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html">
                  PutObjectAcl
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to set the access control list (ACL) permissions for new or existing objects in an S3 bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Permissions management
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10353,21 +10463,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -10445,21 +10540,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectLegalHold" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectLegalHold" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLegalHold.html">
                  PutObjectLegalHold
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to apply a Legal Hold configuration to the specified object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10472,21 +10580,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -10527,21 +10620,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectRetention" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectRetention" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectRetention.html">
                  PutObjectRetention
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to place an Object Retention configuration on an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10554,21 +10660,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -10619,21 +10710,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">
                  PutObjectTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to set the supplied tag-set to an object that already exists in a bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10646,21 +10750,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -10711,21 +10800,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectVersionAcl" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectVersionAcl" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html">
                  PutObjectVersionAcl
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to use the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Permissions management
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10741,21 +10843,6 @@
                 <p>
                  <a href="#amazons3-s3_AccessGrantsInstanceArn">
                   s3:AccessGrantsInstanceArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
                  </a>
                 </p>
                 <p>
@@ -10838,21 +10925,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-PutObjectVersionTagging" rowspan="2" tabindex="-1">
+               <td id="amazons3-PutObjectVersionTagging" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">
                  PutObjectVersionTagging
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to set the supplied tag-set for a specific version of an object
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -10865,21 +10965,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_ExistingObjectTag_key">
                   s3:ExistingObjectTag/&lt;key&gt;
@@ -11337,21 +11422,34 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-RestoreObject" rowspan="2" tabindex="-1">
+               <td id="amazons3-RestoreObject" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">
                  RestoreObject
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to restore an archived copy of an object back into Amazon S3
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazons3-accesspointobject">
+                  accesspointobject
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazons3-object">
-                  object*
+                  object
                  </a>
                 </p>
                </td>
@@ -11364,21 +11462,6 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointAccount">
-                  s3:DataAccessPointAccount
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_DataAccessPointArn">
-                  s3:DataAccessPointArn
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
-                  s3:AccessPointNetworkOrigin
-                 </a>
-                </p>
                 <p>
                  <a href="#amazons3-s3_authType">
                   s3:authType
@@ -11486,15 +11569,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-TagResource" rowspan="5" tabindex="-1">
+               <td id="amazons3-TagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to add tags to the specified resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -11527,6 +11610,19 @@
                 <p>
                  <a href="#amazons3-accessgrantslocation">
                   accessgrantslocation
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
                  </a>
                 </p>
                </td>
@@ -11597,15 +11693,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-UntagResource" rowspan="5" tabindex="-1">
+               <td id="amazons3-UntagResource" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to remove tags from the specified resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -11638,6 +11734,19 @@
                 <p>
                  <a href="#amazons3-accessgrantslocation">
                   accessgrantslocation
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-accesspoint">
+                  accesspoint
                  </a>
                 </p>
                </td>
@@ -12200,6 +12309,90 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
+                  s3:AccessPointNetworkOrigin
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_DataAccessPointAccount">
+                  s3:DataAccessPointAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_DataAccessPointArn">
+                  s3:DataAccessPointArn
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-accesspointobject" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">
+                 accesspointobject
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:s3:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:accesspoint/$
+                 <span>
+                  {
+                 </span>
+                 AccessPointName}/object/$
+                 <span>
+                  {
+                 </span>
+                 ObjectName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointNetworkOrigin">
+                  s3:AccessPointNetworkOrigin
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_AccessPointTag___TagKey_">
+                  s3:AccessPointTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_DataAccessPointAccount">
+                  s3:DataAccessPointAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_DataAccessPointArn">
+                  s3:DataAccessPointArn
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -12683,7 +12876,7 @@
               </tr>
               <tr>
                <td id="amazons3-s3_AccessGrantScope" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/UserGuide/access-grants-grant.html">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-grant.html">
                  s3:AccessGrantScope
                 </a>
                </td>
@@ -12696,7 +12889,7 @@
               </tr>
               <tr>
                <td id="amazons3-s3_AccessGrantsInstanceArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/UserGuide/access-grants-instance.html">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-instance.html">
                  s3:AccessGrantsInstanceArn
                 </a>
                </td>
@@ -12709,7 +12902,7 @@
               </tr>
               <tr>
                <td id="amazons3-s3_AccessGrantsLocationScope" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/UserGuide/access-grants-location.html">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html">
                  s3:AccessGrantsLocationScope
                 </a>
                </td>
@@ -12728,6 +12921,19 @@
                </td>
                <td tabindex="-1">
                 Filters access by the network origin (Internet or VPC)
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_AccessPointTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-point-tagging.html#tagging-and-policies">
+                 s3:AccessPointTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by existing access point tag key and value
                </td>
                <td tabindex="-1">
                 String

@@ -299,9 +299,16 @@
             </a>
             .
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+           </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c11c15">
+             <table id="w61aab7c11c17">
               <thead>
                <tr>
                 <th>
@@ -1213,6 +1220,66 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-AttachClusterNodeVolume" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AttachClusterNodeVolume.html">
+                 AttachClusterNodeVolume
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to attach an Amazon EBS volume to a SageMaker HyperPod cluster node
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:AttachVolume
+                </p>
+                <p>
+                 ec2:DescribeVolumes
+                </p>
+                <p>
+                 eks:DescribeCluster
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-BatchAddClusterNodes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_BatchAddClusterNodes.html">
+                 BatchAddClusterNodes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to add multiple nodes at a time to a SageMaker HyperPod cluster
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 eks:DescribeCluster
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-BatchDeleteClusterNodes" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_BatchDeleteClusterNodes.html">
                  BatchDeleteClusterNodes
@@ -1803,6 +1870,18 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 ec2:DescribeImages
+                </p>
+                <p>
+                 ec2:DescribeSnapshots
+                </p>
+                <p>
+                 ec2:ModifyImageAttribute
+                </p>
+                <p>
+                 ec2:ModifySnapshotAttribute
+                </p>
                 <p>
                  eks:AssociateAccessPolicy
                 </p>
@@ -7894,6 +7973,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-DescribeClusterEvent" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterEvent.html">
+                 DescribeClusterEvent
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return information about an Event within a SageMaker HyperPod cluster
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-DescribeClusterInference" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-inference.html">
                  DescribeClusterInference
@@ -9116,6 +9219,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-DescribeReservedCapacity" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeReservedCapacity.html">
+                 DescribeReservedCapacity
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return information about a specified Reserved Capacity
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-reserved-capacity">
+                  reserved-capacity*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-DescribeSharedModel" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html">
                  DescribeSharedModel
@@ -9402,6 +9529,39 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-DetachClusterNodeVolume" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DetachClusterNodeVolume.html">
+                 DetachClusterNodeVolume
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to detach an Amazon EBS volume from a SageMaker HyperPod cluster node
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-cluster">
+                  cluster*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DescribeVolumes
+                </p>
+                <p>
+                 ec2:DetachVolume
+                </p>
+                <p>
+                 eks:DescribeCluster
+                </p>
                </td>
               </tr>
               <tr>
@@ -10065,6 +10225,30 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonsagemaker-ListClusterEvents" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterEvents.html">
+                 ListClusterEvents
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list events within a SageMaker HyperPod cluster
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-cluster">
+                  cluster*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -12310,6 +12494,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonsagemaker-ListUltraServersByReservedCapacity" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListUltraServersByReservedCapacity.html">
+                 ListUltraServersByReservedCapacity
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all UltraServers in a specified Reserved Capacity
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonsagemaker-reserved-capacity">
+                  reserved-capacity*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonsagemaker-ListUserProfiles" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListUserProfiles.html">
                  ListUserProfiles
@@ -13445,6 +13653,18 @@
                </td>
                <td tabindex="-1">
                 <p>
+                 ec2:DescribeImages
+                </p>
+                <p>
+                 ec2:DescribeSnapshots
+                </p>
+                <p>
+                 ec2:ModifyImageAttribute
+                </p>
+                <p>
+                 ec2:ModifySnapshotAttribute
+                </p>
+                <p>
                  eks:AssociateAccessPolicy
                 </p>
                 <p>
@@ -13461,6 +13681,9 @@
                 </p>
                 <p>
                  iam:PassRole
+                </p>
+                <p>
+                 sagemaker:BatchAddClusterNodes
                 </p>
                 <p>
                  sagemaker:BatchDeleteClusterNodes
@@ -13602,6 +13825,18 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 ec2:DescribeImages
+                </p>
+                <p>
+                 ec2:DescribeSnapshots
+                </p>
+                <p>
+                 ec2:ModifyImageAttribute
+                </p>
+                <p>
+                 ec2:ModifySnapshotAttribute
+                </p>
                 <p>
                  eks:DescribeCluster
                 </p>
