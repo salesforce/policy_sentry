@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -348,7 +348,7 @@
               </thead>
               <tr>
                <td id="awstransform-AssociateConnectorResource" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  AssociateConnectorResource
                 </a>
                 [permission only]
@@ -360,6 +360,11 @@
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -368,7 +373,7 @@
               </tr>
               <tr>
                <td id="awstransform-CreateProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  CreateProfile
                 </a>
                 [permission only]
@@ -392,8 +397,33 @@
                </td>
               </tr>
               <tr>
+               <td id="awstransform-DeleteConnector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
+                 DeleteConnector
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to invoke DeleteConnector on AWS Transform
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awstransform-DeleteProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  DeleteProfile
                 </a>
                 [permission only]
@@ -418,7 +448,7 @@
               </tr>
               <tr>
                <td id="awstransform-GetConnector" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  GetConnector
                 </a>
                 [permission only]
@@ -430,6 +460,31 @@
                 Read
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransform-ListConnectors" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
+                 ListConnectors
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to invoke ListConnectors on AWS Transform
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -438,7 +493,7 @@
               </tr>
               <tr>
                <td id="awstransform-ListProfiles" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  ListProfiles
                 </a>
                 [permission only]
@@ -457,8 +512,33 @@
                </td>
               </tr>
               <tr>
+               <td id="awstransform-ListTagsForResource" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
+                 ListTagsForResource
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to invoke ListTagsForResource on AWS Transform
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awstransform-RejectConnector" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  RejectConnector
                 </a>
                 [permission only]
@@ -470,6 +550,11 @@
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -477,8 +562,89 @@
                </td>
               </tr>
               <tr>
+               <td id="awstransform-TagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
+                 TagResource
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to invoke TagResource on AWS Transform
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransform-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransform-UntagResource" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
+                 UntagResource
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to invoke UntagResource on AWS Transform
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Tagging
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-connector">
+                  connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransform-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awstransform-UpdateProfile" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html/">
                  UpdateProfile
                 </a>
                 [permission only]
@@ -568,6 +734,40 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awstransform-connector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transform/latest/userguide/security_iam_permissions.html">
+                 connector
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:transform:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:connector/$
+                 <span>
+                  {
+                 </span>
+                 WorkspaceId}/$
+                 <span>
+                  {
+                 </span>
+                 ConnectorId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -575,16 +775,68 @@
             Condition keys for        AWS Transform
            </h2>
            <p>
-            Transform has no service-specific context keys that can be used in the
+            AWS Transform defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
              AWS        global condition context keys
             </a>
             .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b9e1703c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awstransform-aws_RequestTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
+                 aws:RequestTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tags that are passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransform-aws_TagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
+                 aws:TagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tag keys that are passed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">

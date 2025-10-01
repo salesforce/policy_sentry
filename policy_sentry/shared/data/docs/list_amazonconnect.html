@@ -266,6 +266,13 @@
             </b>
             column of the Resource types table.
            </p>
+           <p>
+            The
+            <b>
+             Dependent actions
+            </b>
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
+           </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
              <awsui-icon name="status-info" variant="link">
@@ -298,13 +305,6 @@
              Actions table
             </a>
             .
-           </p>
-           <p>
-            The
-            <b>
-             Dependent actions
-            </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
@@ -524,6 +524,79 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-AssociateContactWithUser" rowspan="4" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateContactWithUser.html">
+                 AssociateContactWithUser
+                </a>
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Grants permission to associate a contact with a user using the Amazon Connect API
+               </td>
+               <td rowspan="4" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-contact">
+                  contact*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-instance">
+                  instance*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-user">
+                  user*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-connect_PreferredUserArn">
+                  connect:PreferredUserArn
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                 <p>
                  <a href="#amazonconnect-connect_InstanceId">
                   connect:InstanceId
@@ -8159,6 +8232,48 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonconnect-ListRoutingProfileManualAssignmentQueues" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfileManualAssignmentQueues.html">
+                 ListRoutingProfileManualAssignmentQueues
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list manual assignment queue resources in a routing profile in an Amazon Connect instance
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-routing-profile">
+                  routing-profile*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonconnect-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_InstanceId">
+                  connect:InstanceId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonconnect-ListRoutingProfileQueues" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfileQueues.html">
                  ListRoutingProfileQueues
@@ -9691,6 +9806,16 @@
                 <p>
                  <a href="#amazonconnect-connect_SearchContactsByContactAnalysis">
                   connect:SearchContactsByContactAnalysis
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_Channel">
+                  connect:Channel
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonconnect-connect_PreferredUserArn">
+                  connect:PreferredUserArn
                  </a>
                 </p>
                </td>
@@ -16101,6 +16226,19 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonconnect-connect_PreferredUserArn" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_service-with-iam.html">
+                 connect:PreferredUserArn
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by PreferredUserArn
+               </td>
+               <td tabindex="-1">
+                ARN
                </td>
               </tr>
               <tr>

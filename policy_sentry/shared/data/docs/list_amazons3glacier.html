@@ -194,7 +194,7 @@
              <li class="listitem">
               <p>
                Learn how to secure this service and its resources by
-               <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/auth-and-access-control.html">
+               <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/security-iam.html">
                 using          IAM
                </a>
                permission policies.
@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -395,15 +395,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3glacier-AddTagsToVault" rowspan="2" tabindex="-1">
+               <td id="amazons3glacier-AddTagsToVault" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-AddTagsToVault.html">
                  AddTagsToVault
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Grants permission to add the specified tags to a vault
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -414,24 +414,6 @@
                 </p>
                </td>
                <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-               </td>
-              </tr>
-              <tr>
-               <td tabindex="-1">
-               </td>
-               <td tabindex="-1">
-                <p>
-                 <a href="#amazons3glacier-aws_TagKeys">
-                  aws:TagKeys
-                 </a>
-                </p>
-                <p>
-                 <a href="#amazons3glacier-aws_RequestTag___TagKey_">
-                  aws:RequestTag/${TagKey}
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1265,34 +1247,8 @@
                </tr>
               </thead>
               <tr>
-               <td id="amazons3glacier-aws_RequestTag___TagKey_" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag">
-                 aws:RequestTag/${TagKey}
-                </a>
-               </td>
-               <td tabindex="-1">
-                Filters access by the tags that are passed in the request
-               </td>
-               <td tabindex="-1">
-                String
-               </td>
-              </tr>
-              <tr>
-               <td id="amazons3glacier-aws_TagKeys" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys">
-                 aws:TagKeys
-                </a>
-               </td>
-               <td tabindex="-1">
-                Filters access by the tag keys that are passed in the request
-               </td>
-               <td tabindex="-1">
-                ArrayOfString
-               </td>
-              </tr>
-              <tr>
                <td id="amazons3glacier-glacier_ArchiveAgeInDays" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/access-control-overview.html#specifying-conditions">
+                <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys">
                  glacier:ArchiveAgeInDays
                 </a>
                </td>
@@ -1305,7 +1261,7 @@
               </tr>
               <tr>
                <td id="amazons3glacier-glacier_ResourceTag_" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/access-control-overview.html#specifying-conditions">
+                <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">
                  glacier:ResourceTag/
                 </a>
                </td>

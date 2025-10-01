@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -391,6 +391,51 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonopensearchingestion-CreatePipelineEndpoint" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_CreatePipelineEndpoint.html">
+                 CreatePipelineEndpoint
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create an OpenSearch Ingestion pipeline endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonopensearchingestion-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonopensearchingestion-DeletePipeline" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_DeletePipeline.html">
                  DeletePipeline
@@ -421,6 +466,54 @@
                 <p>
                  logs:ListLogDeliveries
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-DeletePipelineEndpoint" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_DeletePipelineEndpoint.html">
+                 DeletePipelineEndpoint
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an OpenSearch Ingestion pipeline endpoint in the current account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline-endpoint">
+                  pipeline-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-DeleteResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_DeleteResourcePolicy.html">
+                 DeleteResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a resource policy for an OpenSearch Ingestion resource
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -496,6 +589,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonopensearchingestion-GetResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetResourcePolicy.html">
+                 GetResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get a resource policy for an OpenSearch Ingestion resource
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonopensearchingestion-Ingest" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configure-client.html">
                  Ingest
@@ -539,6 +656,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonopensearchingestion-ListPipelineEndpointConnections" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelineEndpointConnections.html">
+                 ListPipelineEndpointConnections
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list OpenSearch Ingestion pipeline endpoint connections to pipelines in the current account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-ListPipelineEndpoints" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelineEndpoints.html">
+                 ListPipelineEndpoints
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list OpenSearch Ingestion pipeline endpoints in the current account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonopensearchingestion-ListPipelines" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelines.html">
                  ListPipelines
@@ -568,6 +723,54 @@
                </td>
                <td tabindex="-1">
                 Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-PutResourcePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_PutResourcePolicy.html">
+                 PutResourcePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to put a resource policy for an OpenSearch Ingestion resource
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-pipeline">
+                  pipeline*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-RevokePipelineEndpointConnections" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_RevokePipelineEndpointConnections.html">
+                 RevokePipelineEndpointConnections
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to revoke an OpenSearch Ingestion pipeline endpoint connection from a pipeline in the current account
+               </td>
+               <td tabindex="-1">
+                Write
                </td>
                <td tabindex="-1">
                 <p>
@@ -831,6 +1034,41 @@
                   {
                  </span>
                  PipelineName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonopensearchingestion-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonopensearchingestion-pipeline-endpoint" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PipelineEndpoint.html">
+                 pipeline-endpoint
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:osis:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:endpoint/$
+                 <span>
+                  {
+                 </span>
+                 EndpointId}
                 </code>
                </td>
                <td tabindex="-1">
