@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -346,6 +346,63 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-CreateCentralizationRuleForOrganization" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_CreateCentralizationRuleForOrganization.html">
+                 CreateCentralizationRuleForOrganization
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a new organization centralization rule with the specified name for the organization
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationSourceRegions">
+                  observabilityadmin:CentralizationSourceRegions
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationDestinationRegion">
+                  observabilityadmin:CentralizationDestinationRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationBackupRegion">
+                  observabilityadmin:CentralizationBackupRegion
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="amazoncloudwatchobservabilityadminservice-CreateTelemetryRule" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_CreateTelemetryRule.html">
@@ -431,6 +488,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-DeleteCentralizationRuleForOrganization" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_DeleteCentralizationRuleForOrganization.html">
+                 DeleteCentralizationRuleForOrganization
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an organization centralization rule with the specified name for the organization
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchobservabilityadminservice-DeleteTelemetryRule" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_DeleteTelemetryRule.html">
                  DeleteTelemetryRule
@@ -472,6 +553,44 @@
                   organization-telemetry-rule*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-GetCentralizationRuleForOrganization" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_GetCentralizationRuleForOrganization.html">
+                 GetCentralizationRuleForOrganization
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the specified organization centralization rule for the organization
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-GetTelemetryEnrichmentStatus" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_GetTelemetryEnrichmentStatus.html">
+                 GetTelemetryEnrichmentStatus
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the status of the Resource tags for telemetry feature for the account
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -555,6 +674,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-ListCentralizationRulesForOrganization" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_ListCentralizationRulesForOrganization.html">
+                 ListCentralizationRulesForOrganization
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list the centralization rules for the organization
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchobservabilityadminservice-ListResourceTelemetry" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_ListResourceTelemetry.html">
                  ListResourceTelemetry
@@ -593,17 +731,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchobservabilityadminservice-ListTagsForResource" rowspan="2" tabindex="-1">
+               <td id="amazoncloudwatchobservabilityadminservice-ListTagsForResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to list the tags for the specified resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 List
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchobservabilityadminservice-organization-telemetry-rule">
@@ -668,6 +819,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-StartTelemetryEnrichment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StartTelemetryEnrichment.html">
+                 StartTelemetryEnrichment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to enable the Resource tags for telemetry feature for the account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchobservabilityadminservice-StartTelemetryEvaluation" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluation.html">
                  StartTelemetryEvaluation
@@ -694,6 +864,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to start the Telemetry Config feature for the organization
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-StopTelemetryEnrichment" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StopTelemetryEnrichment.html">
+                 StopTelemetryEnrichment
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to disable the Resource tags for telemetry feature for the account
                </td>
                <td tabindex="-1">
                 Write
@@ -744,17 +933,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchobservabilityadminservice-TagResource" rowspan="3" tabindex="-1">
+               <td id="amazoncloudwatchobservabilityadminservice-TagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to add or update the specified tags for the specified resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchobservabilityadminservice-organization-telemetry-rule">
@@ -799,17 +1001,30 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatchobservabilityadminservice-UntagResource" rowspan="3" tabindex="-1">
+               <td id="amazoncloudwatchobservabilityadminservice-UntagResource" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Grants permission to remove the specified tags from the specified resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#amazoncloudwatchobservabilityadminservice-organization-telemetry-rule">
@@ -849,6 +1064,53 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-UpdateCentralizationRuleForOrganization" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_UpdateCentralizationRuleForOrganization.html">
+                 UpdateCentralizationRuleForOrganization
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update the specified centralization rule for the organization
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-organization-centralization-rule">
+                  organization-centralization-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationSourceRegions">
+                  observabilityadmin:CentralizationSourceRegions
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationDestinationRegion">
+                  observabilityadmin:CentralizationDestinationRegion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationBackupRegion">
+                  observabilityadmin:CentralizationBackupRegion
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatchobservabilityadminservice-UpdateTelemetryRule" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_UpdateTelemetryRule.html">
                  UpdateTelemetryRule
@@ -879,7 +1141,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve the specified organization telemetry rule for the organization
+                Grants permission to update the specified telemetry rule for the organization
                </td>
                <td tabindex="-1">
                 Write
@@ -1003,6 +1265,41 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-organization-centralization-rule" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_OrganizationCentralizationRule.html">
+                 organization-centralization-rule
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:observabilityadmin:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:organization-centralization-rule:$
+                 <span>
+                  {
+                 </span>
+                 CentralizationRuleName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatchobservabilityadminservice-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -1077,6 +1374,45 @@
                </td>
                <td tabindex="-1">
                 Filters access by the tag keys that are passed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationBackupRegion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/reference_policies_condition-keys.htmlcondition-keys-observabilityadmin.html#condition-keys-centralizationbackupregion">
+                 observabilityadmin:CentralizationBackupRegion
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the backup region that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationDestinationRegion" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/reference_policies_condition-keys.htmlcondition-keys-observabilityadmin.html#condition-keys-centralizationdestinationregion">
+                 observabilityadmin:CentralizationDestinationRegion
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the destination region that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatchobservabilityadminservice-observabilityadmin_CentralizationSourceRegions" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/reference_policies_condition-keys.htmlcondition-keys-observabilityadmin.html#condition-keys-centralizationsourceregions">
+                 observabilityadmin:CentralizationSourceRegions
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the source regions that are passed in the request
                </td>
                <td tabindex="-1">
                 ArrayOfString

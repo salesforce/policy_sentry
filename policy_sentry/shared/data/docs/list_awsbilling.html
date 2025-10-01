@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -347,6 +347,49 @@
                </tr>
               </thead>
               <tr>
+               <td id="awsbilling-AssociateSourceViews" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_AssociateSourceViews.html">
+                 AssociateSourceViews
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to associate source views to a billing view
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-billingview">
+                  billingview*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 billing:UseSourceView
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsbilling-CreateBillingView" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_CreateBillingView.html">
                  CreateBillingView
@@ -368,6 +411,12 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 billing:UseSourceView
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -437,6 +486,43 @@
                </td>
                <td rowspan="2" tabindex="-1">
                 Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-billingview">
+                  billingview*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbilling-DisassociateSourceViews" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_DisassociateSourceViews.html">
+                 DisassociateSourceViews
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to disassociate source views from a billing view
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
                </td>
                <td tabindex="-1">
                 <p>
@@ -1051,6 +1137,26 @@
                </td>
                <td tabindex="-1">
                 Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbilling-UseSourceView" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                 UseSourceView
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to use a billing view as a data source for other billing views
+               </td>
+               <td tabindex="-1">
+                Read
                </td>
                <td tabindex="-1">
                </td>

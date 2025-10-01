@@ -286,7 +286,7 @@
             <b>
              Dependent actions
             </b>
-            column of the Actions table shows additional       permissions required to successfully call an action. These permissions are needed in addition       to the permission for the action itself. When an action specifies dependent actions, those       dependencies may apply to additional resources defined for that action, not only the first       resource listed in the table.
+            column of the Actions table shows additional      permissions that may be required to successfully call an action. These permissions may be      needed in addition to the permission for the action itself. When an action specifies dependent      actions, those dependencies may apply to additional resources defined for that action, not      only the first resource listed in the table.
            </p>
            <div class="awsdocs-note">
             <div class="awsdocs-note-title">
@@ -414,6 +414,11 @@
                   aws:RequestTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -441,6 +446,16 @@
                 <p>
                  <a href="#awstransferfamily-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestConnectorProtocol">
+                  transfer:RequestConnectorProtocol
                  </a>
                 </p>
                </td>
@@ -475,6 +490,11 @@
                   aws:RequestTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -502,6 +522,26 @@
                 <p>
                  <a href="#awstransferfamily-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestServerEndpointType">
+                  transfer:RequestServerEndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestServerDomain">
+                  transfer:RequestServerDomain
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestServerProtocols">
+                  transfer:RequestServerProtocols
                  </a>
                 </p>
                </td>
@@ -552,6 +592,11 @@
                   aws:RequestTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -579,6 +624,11 @@
                 <p>
                  <a href="#awstransferfamily-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -611,6 +661,11 @@
                 <p>
                  <a href="#awstransferfamily-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -1237,6 +1292,11 @@
                   aws:RequestTag/${TagKey}
                  </a>
                 </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1277,6 +1337,11 @@
                 <p>
                  <a href="#awstransferfamily-aws_RequestTag___TagKey_">
                   aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -2351,15 +2416,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awstransferfamily-UpdateServer" tabindex="-1">
+               <td id="awstransferfamily-UpdateServer" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">
                  UpdateServer
                 </a>
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to update the configuration of a server
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -2375,6 +2440,24 @@
                 <p>
                  iam:PassRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestServerEndpointType">
+                  transfer:RequestServerEndpointType
+                 </a>
+                </p>
+                <p>
+                 <a href="#awstransferfamily-transfer_RequestServerProtocols">
+                  transfer:RequestServerProtocols
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -2896,6 +2979,58 @@
                </td>
                <td tabindex="-1">
                 Filters access by the tag keys that are passed in the request
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransferfamily-transfer_RequestConnectorProtocol" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transfer/latest/userguide/setting-up.html#transfer-condition-keys">
+                 transfer:RequestConnectorProtocol
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the connector protocol that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransferfamily-transfer_RequestServerDomain" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transfer/latest/userguide/setting-up.html#transfer-condition-keys">
+                 transfer:RequestServerDomain
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the storage domain that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransferfamily-transfer_RequestServerEndpointType" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transfer/latest/userguide/setting-up.html#transfer-condition-keys">
+                 transfer:RequestServerEndpointType
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the endpoint type that is passed in the request
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="awstransferfamily-transfer_RequestServerProtocols" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/transfer/latest/userguide/setting-up.html#transfer-condition-keys">
+                 transfer:RequestServerProtocols
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the server protocols that are passed in the request
                </td>
                <td tabindex="-1">
                 ArrayOfString
