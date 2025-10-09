@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import click
 import yaml
@@ -38,11 +38,14 @@ from policy_sentry.shared.constants import (
 )
 from policy_sentry.util.access_levels import transform_access_level_text
 
+if TYPE_CHECKING:
+    from collections.abc import Iterable
+
 logger = logging.getLogger(__name__)
 iam_definition_path = DATASTORE_FILE_PATH
 
 
-def print_list(output: list[Any], fmt: str = "json") -> None:
+def print_list(output: Iterable[Any], fmt: str = "json") -> None:
     """Common method on how to print a list, depending on whether the user requests JSON or YAML output"""
     print(yaml.dump(output)) if fmt == "yaml" else [print(item) for item in output]
 
@@ -135,7 +138,7 @@ def query_action_table(
     condition: str,
     resource_type: str,
     fmt: str = "json",
-) -> list[str] | dict[str, list[dict[str, Any]]]:
+) -> Iterable[str]:
     """Query the Action Table from the Policy Sentry database.
     Use this one when leveraging Policy Sentry as a library."""
     if LOCAL_DATASTORE_FILE_PATH.exists():
@@ -164,7 +167,7 @@ def query_action_table(
         else:
             print("All services in the database:\n")
             # it is a set here, which is ok
-            output = all_services  # type:ignore[assignment]
+            output = all_services
             print_list(output=output, fmt=fmt)
     elif name is None and access_level and not resource_type:
         print(f"All IAM actions under the {service} service that have the access level {access_level}:")
