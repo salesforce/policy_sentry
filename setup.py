@@ -78,7 +78,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
@@ -89,7 +88,7 @@ setuptools.setup(
     entry_points={"console_scripts": "policy_sentry=policy_sentry.bin.cli:main"},
     zip_safe=True,
     keywords="aws iam roles policy policies privileges security",
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     cmdclass={
         "build_py": PreBuildCommand,
     },

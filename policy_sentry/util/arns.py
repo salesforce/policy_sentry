@@ -70,8 +70,7 @@ class ARN:
         #     Case 5: resourcetype:resource
         #     Case 6: resourcetype:resource:qualifier
         split_arn = self.arn.split(":")
-        resource_string = ":".join(split_arn[5:])
-        return resource_string
+        return ":".join(split_arn[5:])
 
     def same_resource_type(self, arn_in_database: str) -> bool:
         """Given an arn, see if it has the same resource type"""
@@ -146,14 +145,13 @@ class ARN:
             # If we've made it this far, then it is a special type
             # return True
             # Presence of / would mean it's an object in both so it matches
-            elif "/" in self.resource_string and "/" in elements[5]:  # noqa: SIM114
+            if "/" in self.resource_string and "/" in elements[5]:
                 return True
             # / not being present in either means it's a bucket in both so it matches
-            elif "/" not in self.resource_string and "/" not in elements[5]:  # noqa: SIM103
+            if "/" not in self.resource_string and "/" not in elements[5]:  # noqa: SIM103
                 return True
             # If there is a / in one but not in the other, it does not match
-            else:
-                return False
+            return False
 
         # 5. If we've made it this far, then it should pass
         return True
@@ -225,8 +223,7 @@ def get_resource_string(arn: str) -> str:
         String: The resource string, like `resourcetype/resource`
     """
     split_arn = arn.split(":")
-    resource_string = ":".join(split_arn[5:])
-    return resource_string
+    return ":".join(split_arn[5:])
 
 
 # In the meantime, we have to skip this pylint check (consider this as tech debt)

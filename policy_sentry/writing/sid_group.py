@@ -83,8 +83,8 @@ class SidGroup:
         """Get a single group by the SID identifier"""
         if self.sids[sid]:
             return self.sids[sid]
-        else:
-            raise Exception(f"No SID with the value of {sid}")
+
+        raise Exception(f"No SID with the value of {sid}")
 
     def list_sids(self) -> list[str]:
         """
@@ -272,8 +272,7 @@ class SidGroup:
                         actions = minimize_statement_actions(stmt["Action"], all_actions, minchars=minimize)
                         actions.sort()
                         stmt["Action"] = actions
-        policy = {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
-        return policy
+        return {"Version": POLICY_LANGUAGE_VERSION, "Statement": statements}
 
     # pylint: disable=unused-argument
     def add_by_arn_and_access_level(
@@ -436,8 +435,7 @@ class SidGroup:
         )
         self.remove_actions_duplicated_in_wildcard_arn()
         logger.debug("Getting the rendered policy")
-        rendered_policy = self.get_rendered_policy()
-        return rendered_policy
+        return self.get_rendered_policy()
 
     def process_template(self, cfg: dict[str, Any], minimize: int | None = None) -> dict[str, Any]:
         """
@@ -539,8 +537,7 @@ class SidGroup:
                 if cfg_actions is not None and cfg_actions[0] != "":
                     self.add_by_list_of_actions(cfg_actions)
 
-        rendered_policy = self.get_rendered_policy(minimize)
-        return rendered_policy
+        return self.get_rendered_policy(minimize)
 
     def add_wildcard_only_actions(self, provided_wildcard_actions: list[str]) -> None:
         """

@@ -59,7 +59,7 @@ def create_template(output_file: str | Path, template_type: str, verbose: str) -
         sys.exit()
 
     filename = Path(output_file).resolve()
-    with open(filename, "a", encoding="utf-8") as file_obj:
+    with filename.open("a", encoding="utf-8") as file_obj:
         file_obj.write(template)
 
     print(f"write-policy template file written to: {filename}")

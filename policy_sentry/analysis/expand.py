@@ -32,7 +32,7 @@ def expand(action: str | list[str]) -> list[str]:
 
     if action == "*":
         return list(get_all_actions())
-    elif "*" in action:
+    if "*" in action:
         service_prefix = action.split(":", maxsplit=1)[0]
         service_actions = get_actions_for_service(service_prefix=service_prefix)
         expanded = [

@@ -154,5 +154,4 @@ def write_policy_with_template(cfg: dict[str, Any], minimize: int | None = None)
         Dictionary: The JSON policy
     """
     sid_group = SidGroup()
-    policy = sid_group.process_template(cfg, minimize)
-    return policy
+    return sid_group.process_template(cfg, minimize)

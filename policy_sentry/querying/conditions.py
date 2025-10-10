@@ -27,8 +27,7 @@ def get_condition_keys_for_service(service_prefix: str) -> list[str]:
         List: A list of condition keys
     """
     service_prefix_data = get_service_prefix_data(service_prefix)
-    results = list(service_prefix_data["conditions"])
-    return results
+    return list(service_prefix_data["conditions"])
 
 
 # Per condition key name
@@ -46,12 +45,11 @@ def get_condition_key_details(service_prefix: str, condition_key_name: str) -> d
     service_prefix_data = get_service_prefix_data(service_prefix)
     for condition_name, condition_data in service_prefix_data["conditions"].items():
         if is_condition_key_match(condition_name, condition_key_name):
-            output = {
+            return {
                 "name": condition_name,
                 "description": condition_data["description"],
                 "condition_value_type": condition_data["type"].lower(),
             }
-            return output
 
     return {}
 

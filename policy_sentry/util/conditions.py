@@ -14,18 +14,18 @@ def translate_condition_key_data_types(condition_str: str) -> str:
     condition_lowercase = condition_str.lower()
     if condition_lowercase in ("arn", "arn"):
         return "Arn"
-    elif condition_lowercase in ("bool", "boolean"):
+    if condition_lowercase in ("bool", "boolean"):
         return "Bool"
-    elif condition_lowercase == "date":
+    if condition_lowercase == "date":
         return "Date"
-    elif condition_lowercase in ("long", "numeric"):
+    if condition_lowercase in ("long", "numeric"):
         return "Number"
-    elif condition_lowercase in ("string", "string", "arrayofstring"):
+    if condition_lowercase in ("string", "string", "arrayofstring"):
         return "String"
-    elif condition_lowercase == "ip":
+    if condition_lowercase == "ip":
         return "Ip"
-    else:
-        raise Exception(f"Unknown data format: {condition_lowercase}")
+
+    raise Exception(f"Unknown data format: {condition_lowercase}")
 
 
 def get_service_from_condition_key(condition_key: str) -> str:

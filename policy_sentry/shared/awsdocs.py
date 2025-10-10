@@ -119,7 +119,7 @@ def update_html_docs_directory(html_docs_destination: Path) -> None:
                 logger.warning(a_e)
                 logger.warning(script)
 
-        with open(html_docs_destination / page, "w", encoding="utf-8") as file:
+        with (html_docs_destination / page).open("w", encoding="utf-8") as file:
             # file.write(str(soup.html))
             file.write(str(soup.prettify()))
             file.close()
@@ -153,15 +153,16 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
     """
 
     # Create the docs directory if it doesn't exist
-    Path(os.path.join(destination_directory, "docs")).mkdir(parents=True, exist_ok=True)
+    destination_directory = Path(destination_directory)
+    (destination_directory / "docs").mkdir(parents=True, exist_ok=True)
 
     # This holds the entire IAM definition
     schema: dict[str, Any] = {POLICY_SENTRY_SCHEMA_VERSION_NAME: POLICY_SENTRY_SCHEMA_VERSION_LATEST}
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
-    for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):
-        if os.path.isfile(os.path.join(LOCAL_HTML_DIRECTORY_PATH, filename)) and filename not in file_list:
+    for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):  # noqa: PTH208
+        if (LOCAL_HTML_DIRECTORY_PATH / filename).is_file() and filename not in file_list:
             file_list.append(filename)
 
     file_list.sort()
@@ -169,7 +170,7 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
         if not filename.startswith("list_"):
             continue
 
-        content = (Path(LOCAL_HTML_DIRECTORY_PATH) / filename).read_text()
+        content = (LOCAL_HTML_DIRECTORY_PATH / filename).read_text()
         soup = BeautifulSoup(content, "html.parser")
         main_content = soup.find(id="main-content")
         if not isinstance(main_content, Tag):
@@ -256,9 +257,9 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
                         # Skip the <a id='...'> tags
                         api_documentation_link = None
                         continue
-                    else:
-                        api_documentation_link = link.attrs.get("href")
-                        logger.debug(api_documentation_link)
+
+                    api_documentation_link = link.attrs.get("href")
+                    logger.debug(api_documentation_link)
                     priv = chomp(link.text)
                 if priv == "":
                     priv = chomp(cells[0].text)
@@ -408,7 +409,7 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
         # }
         # schema.update(this_service_schema)
 
-    iam_definition_file = os.path.join(destination_directory, "iam-definition.json")
-    with open(iam_definition_file, "w", encoding="utf-8") as file:
+    iam_definition_file = destination_directory / "iam-definition.json"
+    with iam_definition_file.open("w", encoding="utf-8") as file:
         json.dump(schema, file, indent=2)
     logger.info(f"Wrote IAM definition file to path: {iam_definition_file}")
