@@ -54,7 +54,7 @@ def print_dict(output: list[Any] | dict[Any, Any], fmt: str = "json") -> None:
     """Common method on how to print a dict, depending on whether the user requests JSON, YAML or CSV output"""
     if fmt == "csv":
         if not output:
-            return None
+            return
         print(",".join(output[0].keys()))
         for entry in output:
             print(",".join(entry.values()))

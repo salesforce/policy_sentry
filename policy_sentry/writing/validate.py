@@ -76,12 +76,12 @@ def check_actions_schema(cfg: dict[str, Any]) -> bool:
     result = check(ACTIONS_SCHEMA, cfg)
     if result is True:
         return result
-    else:
-        raise Exception(
-            "The provided template does not match the required schema for ACTIONS mode. "
-            "Please use the create-template command to generate a valid YML template that "
-            "Policy Sentry will accept."
-        )
+
+    raise Exception(
+        "The provided template does not match the required schema for ACTIONS mode. "
+        "Please use the create-template command to generate a valid YML template that "
+        "Policy Sentry will accept."
+    )
 
 
 def check_crud_schema(cfg: dict[str, Any]) -> bool:
@@ -91,12 +91,12 @@ def check_crud_schema(cfg: dict[str, Any]) -> bool:
     result = check(CRUD_SCHEMA, cfg)
     if result is True:
         return result
-    else:
-        raise Exception(
-            "The provided template does not match the required schema for CRUD mode. "
-            "Please use the create-template command to generate a valid YML template that "
-            "Policy Sentry will accept."
-        )
+
+    raise Exception(
+        "The provided template does not match the required schema for CRUD mode. "
+        "Please use the create-template command to generate a valid YML template that "
+        "Policy Sentry will accept."
+    )
 
 
 def validate_condition_block(condition_block: dict[str, Any]) -> bool:

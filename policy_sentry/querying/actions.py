@@ -77,17 +77,17 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
                     results.extend(entries)
             action_data_results[service] = results
             return action_data_results
-        else:
-            this_action_name = service_prefix_data["privileges_lower_name"].get(action_name.lower())
-            if this_action_name:
-                this_action_data = service_prefix_data["privileges"][this_action_name]
-                entries = create_action_data_entries(
-                    service_prefix_data=service_prefix_data,
-                    action_name=this_action_name,
-                    action_data=this_action_data,
-                )
-                action_data_results[service] = entries
-                return action_data_results
+
+        this_action_name = service_prefix_data["privileges_lower_name"].get(action_name.lower())
+        if this_action_name:
+            this_action_data = service_prefix_data["privileges"][this_action_name]
+            entries = create_action_data_entries(
+                service_prefix_data=service_prefix_data,
+                action_name=this_action_name,
+                action_data=this_action_data,
+            )
+            action_data_results[service] = entries
+            return action_data_results
     except TypeError as t_e:
         logger.debug(t_e)
 

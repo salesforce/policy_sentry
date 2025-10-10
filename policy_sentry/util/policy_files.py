@@ -19,19 +19,20 @@ def get_actions_from_statement(statement: dict[str, Any]) -> list[str]:
     # We only want to evaluate policies that have Effect = "Allow"
     if statement.get("Effect") == "Deny":
         return actions_list
+
+    action_clause = statement.get("Action")
+    if not action_clause:
+        logger.debug("No actions contained in statement")
+        return actions_list
+    # Action = "s3:GetObject"
+    if isinstance(action_clause, str):
+        actions_list.append(action_clause)
+    # Action = ["s3:GetObject", "s3:ListBuckets"]
+    elif isinstance(action_clause, list):
+        actions_list.extend(action_clause)
     else:
-        action_clause = statement.get("Action")
-        if not action_clause:
-            logger.debug("No actions contained in statement")
-            return actions_list
-        # Action = "s3:GetObject"
-        if isinstance(action_clause, str):
-            actions_list.append(action_clause)
-        # Action = ["s3:GetObject", "s3:ListBuckets"]
-        elif isinstance(action_clause, list):
-            actions_list.extend(action_clause)
-        else:
-            logger.debug("Unknown error: The 'Action' is neither a list nor a string")
+        logger.debug("Unknown error: The 'Action' is neither a list nor a string")
+
     return actions_list
 
 
@@ -84,13 +85,11 @@ def get_sid_names_from_policy(policy_json: dict[str, Any]) -> list[str]:
     """
     Given a Policy JSON, get a list of the Statement IDs. This is helpful in unit tests.
     """
-    sid_names = [statement["Sid"] for statement in policy_json.get("Statement", []) if "Sid" in statement]
-    return sid_names
+    return [statement["Sid"] for statement in policy_json.get("Statement", []) if "Sid" in statement]
 
 
 def get_statement_from_policy_using_sid(policy_json: dict[str, Any], sid: str) -> dict[str, Any] | None:
     """
     Helper function to get a statement just by providing the policy JSON and the Statement ID
     """
-    res = next((sub for sub in policy_json["Statement"] if sub.get("Sid") == sid), None)
-    return res
+    return next((sub for sub in policy_json["Statement"] if sub.get("Sid") == sid), None)

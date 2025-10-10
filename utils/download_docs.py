@@ -6,7 +6,6 @@ that it has not been altered in any way. The user can reproduce our steps with t
 or update the HTML files on their own.
 """
 
-import os
 import shutil
 import sys
 from pathlib import Path
@@ -24,9 +23,9 @@ from policy_sentry.shared.constants import (
 if __name__ == "__main__":
     print("First, remove the old HTML files from the bundled directory.")
     print("This will ensure that we don't have any stale data.")
-    if os.path.exists(BUNDLED_HTML_DIRECTORY_PATH):
+    if BUNDLED_HTML_DIRECTORY_PATH.exists():
         shutil.rmtree(BUNDLED_HTML_DIRECTORY_PATH)
-    os.makedirs(BUNDLED_HTML_DIRECTORY_PATH)
+    BUNDLED_HTML_DIRECTORY_PATH.mkdir(parents=True)
     print("Downloading the latest AWS documentation from the Actions, Resources, and Condition Keys page")
     update_html_docs_directory(BUNDLED_HTML_DIRECTORY_PATH)
 
@@ -36,16 +35,16 @@ if __name__ == "__main__":
     #     str(Path(os.path.dirname(__file__))), "policy_sentry", "shared", "data", "iam-definition.json"
     # )
     print("Data store file path: " + str(BUNDLED_DATASTORE_FILE_PATH))
-    if os.path.exists(BUNDLED_DATASTORE_FILE_PATH):
+    if BUNDLED_DATASTORE_FILE_PATH.exists():
         print("Datastore exists. Deleting then rebuilding...")
-        os.remove(BUNDLED_DATASTORE_FILE_PATH)
+        BUNDLED_DATASTORE_FILE_PATH.unlink()
     print("Building the IAM database")
     create_database(BUNDLED_DATA_DIRECTORY, BUNDLED_ACCESS_OVERRIDES_FILE)
     # print("Exporting the IAM database to CSV")
     # write_iam_database_to_csv()
 
     print("Checking the size of the IAM database as a sanity check.")
-    file_size = os.path.getsize(BUNDLED_DATASTORE_FILE_PATH)
+    file_size = BUNDLED_DATASTORE_FILE_PATH.stat().st_size
     # 1 Megabyte == 1024*1024 Bytes
     file_size = file_size / (1024 * 1024)
     print(f"IAM Definition file size in MB: {file_size} MB")

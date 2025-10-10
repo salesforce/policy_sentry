@@ -39,9 +39,7 @@ def _get_prefixes_for_action(action: str) -> list[str]:
     :return: [ "iam:", "iam:c", "iam:ca", "iam:cat" ]
     """
     technology, permission = action.split(":")
-    retval = [f"{technology}:{permission[:i]}" for i in range(len(permission) + 1)]
-
-    return retval
+    return [f"{technology}:{permission[:i]}" for i in range(len(permission) + 1)]
 
 
 # Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here:
@@ -51,11 +49,9 @@ def get_denied_prefixes_from_desired(desired_actions: list[str], all_actions: se
     Adapted version of policyuniverse's _get_denied_prefixes_from_desired, here: https://github.com/Netflix-Skunkworks/policyuniverse/blob/master/policyuniverse/expander_minimizer.py#L101
     """
     denied_actions = all_actions.difference(desired_actions)
-    denied_prefixes = {
+    return {
         denied_prefix for denied_action in denied_actions for denied_prefix in _get_prefixes_for_action(denied_action)
     }
-
-    return denied_prefixes
 
 
 # Adapted version of policyuniverse's _check_permission_length. We are commenting out the skipping prefix message
@@ -108,6 +104,4 @@ def minimize_statement_actions(
             logger.debug(f"Could not find suitable prefix. Defaulting to {prefixes[-1]}")
             minimized_actions.add(prefixes[-1])
     # sort the actions
-    minimized_actions_list = sorted(minimized_actions)
-
-    return minimized_actions_list
+    return sorted(minimized_actions)
