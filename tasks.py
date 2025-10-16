@@ -61,36 +61,33 @@ def download_latest_aws_docs(c):
 @task
 def build_package(c):
     """Build the policy_sentry package from the current directory contents for use with PyPi"""
-    c.run("python -m pip install --upgrade setuptools wheel")
-    c.run("python setup.py sdist bdist_wheel")
+    c.run("uv build")
 
 
 @task(pre=[build_package])
 def install_package(c):
     """Install the policy_sentry package built from the current directory contents (not PyPi)"""
-    c.run("pip3 install -q dist/policy_sentry-*.whl")
+    c.run("uv pip install -q dist/policy_sentry-*.whl")
 
 
 @task
 def uninstall_package(c):
     """Uninstall the policy_sentry package"""
-    c.run('echo "y" | pip3 uninstall policy_sentry', pty=True)
+    c.run('echo "y" | uv pip install policy_sentry', pty=True)
 
 
 @task
 def upload_to_pypi_test_server(c):
     """Upload the package to the TestPyPi server (requires credentials)"""
-    c.run("python -m pip install --upgrade twine")
-    c.run("python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*")
-    c.run("python -m pip install --index-url https://test.pypi.org/simple/ --no-deps policy_sentry")
+    c.run("uv publish --publish-ur https://test.pypi.org/legacy/")
+    c.run("uv pip install --index-url https://test.pypi.org/simple/ --no-deps policy_sentry")
 
 
 @task
 def upload_to_pypi_prod_server(c):
     """Upload the package to the PyPi production server (requires credentials)"""
-    c.run("python -m pip install --upgrade twine")
-    c.run("python -m twine upload dist/*")
-    c.run("python -m pip install policy_sentry")
+    c.run("uv publish")
+    c.run("uv pip install policy_sentry")
 
 
 # INTEGRATION TESTS
@@ -313,14 +310,14 @@ def build_docker(c):
 @task(post=[uninstall_package])
 def validate_wheel(c):
     """Validate the wheel can be installed and works properly"""
-    c.run("pip3 install dist/policy_sentry-*.whl")
+    c.run("uv pip install dist/policy_sentry-*.whl")
     c.run("policy_sentry query service-table --fmt csv", pty=True)
 
 
 @task(post=[uninstall_package])
 def validate_sdist(c):
     """Validate the sdist archive can be installed and works properly"""
-    c.run("pip3 install dist/policy_sentry-*.tar.gz")
+    c.run("uv pip install dist/policy_sentry-*.tar.gz")
     c.run("policy_sentry query service-table --fmt csv", pty=True)
 
 
@@ -345,7 +342,6 @@ build.add_task(build_package, "build-package")
 build.add_task(install_package, "install-package")
 build.add_task(uninstall_package, "uninstall-package")
 build.add_task(upload_to_pypi_test_server, "upload-test")
-build.add_task(upload_to_pypi_prod_server, "upload-prod")
 build.add_task(upload_to_pypi_prod_server, "upload-prod")
 
 docker.add_task(build_docker, "build-docker")

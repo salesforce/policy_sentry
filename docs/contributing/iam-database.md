@@ -74,8 +74,7 @@ This will update the HTML files stored in
 `policy_sentry/shared/data/docs/[list]()*.html`:
 
 ```bash
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
+uv sync --frozen
 python3 ./utils/download_docs.py
 ```
 
