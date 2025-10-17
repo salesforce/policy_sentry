@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  MIN_PYTHON_VERSION: "3.10"
+  UV_VERSION: "0.9.x"
 
 jobs:
   update-actions:
@@ -20,15 +20,15 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Setup python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - name: Set up uv ${{ env.UV_VERSION }}
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
-          python-version: ${{ env.MIN_PYTHON_VERSION }}
-      - name: install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install click_log
-      - name: install policy_sentry
+          version: ${{ env.UV_VERSION }}
+          activate-environment: true
+      - run: |
+          uv sync --frozen
+          uv pip install click_log
+      - name: setup policy_sentry CLI
         run: echo "PYTHONPATH=$(pwd)" >> "$GITHUB_ENV"
       - name: Run initialize
         run: |
@@ -58,19 +58,17 @@ jobs:
     needs: update-actions
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Setup Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - name: Set up uv ${{ env.UV_VERSION }}
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
-          python-version: ${{ env.MIN_PYTHON_VERSION }}
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install -r requirements-dev.txt
-      - run: invoke build.install-package
+          version: ${{ env.UV_VERSION }}
+          activate-environment: true
+      - run: uv sync --frozen
+
+      - run: invoke build.build-package
       - run: invoke integration.clean
       - run: invoke integration.version
       - run: invoke integration.initialize
       - run: invoke unit.pytest
       - run: invoke integration.query
       - run: invoke integration.write-policy
-      - run: invoke build.uninstall-package
