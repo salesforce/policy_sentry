@@ -20,9 +20,6 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
-        with:
-          python-version-file: '.python-version'
       - name: Set up uv ${{ env.UV_VERSION }}
         uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
@@ -61,9 +58,6 @@ jobs:
     needs: update-actions
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
-        with:
-          python-version-file: '.python-version'
       - name: Set up uv ${{ env.UV_VERSION }}
         uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
