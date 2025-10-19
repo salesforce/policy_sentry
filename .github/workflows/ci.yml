@@ -13,11 +13,13 @@ permissions:
   contents: read
 
 env:
-  UV_VERSION: "0.9.x"
-  TERRAFORM_VERSION: "1.13"
+  JUST_VERSION: '1'
+  PREK_VERSION: '0.2.10'
+  TERRAFORM_VERSION: '1.13'
+  UV_VERSION: '0.9.x'
 
 jobs:
-  pre-commit:
+  prek:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -29,8 +31,10 @@ jobs:
           terraform_version: ${{ env.TERRAFORM_VERSION }}
       - uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3.0.0
         with:
-          just-version: '1'
-      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
+          just-version: ${{ env.JUST_VERSION }}
+      - uses: j178/prek-action@91fd7d7cf70ae1dee9f4f44e7dfa5d1073fe6623 # v1.0.11
+        with:
+          prek-version: ${{ env.PREK_VERSION }}
 
   sanity:
     runs-on: ubuntu-latest
@@ -48,7 +52,7 @@ jobs:
       - run: just validate-wheel
 
   ci:
-    needs: [pre-commit, sanity]
+    needs: [prek, sanity]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -66,7 +70,7 @@ jobs:
       - run: just integration-tests
 
   python-version:
-    needs: [pre-commit, sanity]
+    needs: [prek, sanity]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 15

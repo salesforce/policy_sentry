@@ -121,7 +121,7 @@ No provider.
 Run this every time before you push to Git.
 
 ```
-pre-commit run -a
+prek run -a
 ```
 
 
