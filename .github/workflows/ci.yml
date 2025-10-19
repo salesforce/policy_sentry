@@ -27,7 +27,10 @@ jobs:
       - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3.1.2
         with:
           terraform_version: ${{ env.TERRAFORM_VERSION }}
-      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd  # v3.0.1
+      - uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3.0.0
+        with:
+          just-version: '1'
+      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
 
   sanity:
     runs-on: ubuntu-latest
@@ -40,9 +43,9 @@ jobs:
           activate-environment: true
       - run: uv sync --frozen
 
-      - run: invoke build.build-package
-      - run: invoke sanity.validate-sdist
-      - run: invoke sanity.validate-wheel
+      - run: just build-package
+      - run: just validate-sdist
+      - run: just validate-wheel
 
   ci:
     needs: [pre-commit, sanity]
@@ -57,14 +60,10 @@ jobs:
           activate-environment: true
       - run: uv sync --frozen
 
-      - run: invoke build.build-package
-      - run: invoke test.type-check
-      - run: invoke integration.clean
-      - run: invoke integration.version
-      - run: invoke integration.initialize
-      - run: invoke unit.pytest
-      - run: invoke integration.query
-      - run: invoke integration.write-policy
+      - run: just build-package
+      - run: just type-check
+      - run: just unit-tests
+      - run: just integration-tests
 
   python-version:
     needs: [pre-commit, sanity]
@@ -85,10 +84,6 @@ jobs:
           activate-environment: true
       - run: uv sync --frozen
 
-      - run: invoke build.build-package
-      - run: invoke integration.clean
-      - run: invoke integration.version
-      - run: invoke integration.initialize
-      - run: invoke unit.pytest
-      - run: invoke integration.query
-      - run: invoke integration.write-policy
+      - run: just build-package
+      - run: just unit-tests
+      - run: just integration-tests

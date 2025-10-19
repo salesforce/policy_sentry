@@ -65,10 +65,6 @@ jobs:
           activate-environment: true
       - run: uv sync --frozen
 
-      - run: invoke build.build-package
-      - run: invoke integration.clean
-      - run: invoke integration.version
-      - run: invoke integration.initialize
-      - run: invoke unit.pytest
-      - run: invoke integration.query
-      - run: invoke integration.write-policy
+      - run: just build-package
+      - run: just unit-tests
+      - run: just integration-tests

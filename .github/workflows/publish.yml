@@ -25,13 +25,10 @@ jobs:
           activate-environment: true
       - run: uv sync --frozen
 
-      - run: invoke build.build-package
-      - run: invoke integration.clean
-      - run: invoke integration.version
-      - run: invoke integration.initialize
-      - run: invoke unit.pytest
-      - run: invoke integration.query
-      - run: invoke integration.write-policy
+      - run: just build-package
+      - run: just type-check
+      - run: just unit-tests
+      - run: just integration-tests
 
   publish-package:
     needs: test
@@ -52,9 +49,9 @@ jobs:
           git fetch --tags
           git pull origin master
 
-      - run: invoke build.build-package
-      - run: invoke sanity.validate-sdist
-      - run: invoke sanity.validate-wheel
+      - run: just build-package
+      - run: just validate-sdist
+      - run: just validate-wheel
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0

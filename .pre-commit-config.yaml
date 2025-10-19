@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.7
+    rev: v1.7.8
     hooks:
       - id: actionlint-docker
   - repo: https://github.com/antonbabenko/pre-commit-terraform
@@ -10,14 +10,22 @@ repos:
 #      - id: terraform_docs
 #        args: ['--sort-by-required', '--no-providers']
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.0
+    rev: v0.14.1
     hooks:
       - id: ruff-check
         args: [--fix]
         files: ^(examples/|policy_sentry/|utils/|setup.py)
       - id: ruff-format
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.4.2
+# doesn't work with `uv` yet https://github.com/Lucas-C/pre-commit-hooks-safety/issues/60
+#  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+#    rev: v1.4.2
+#    hooks:
+#      - id: python-safety-dependencies-check
+#        files: pyproject.toml
+  - repo: local
     hooks:
-      - id: python-safety-dependencies-check
-        files: ^requirements.txt
+      - id: just-fmt
+        name: just fmt
+        language: system
+        pass_filenames: false
+        entry: just --fmt --unstable
