@@ -9,9 +9,6 @@ on:
 permissions:
   contents: read
 
-env:
-  UV_VERSION: "0.9.x"
-
 jobs:
   update-actions:
     runs-on: ubuntu-latest
@@ -20,10 +17,8 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Set up uv ${{ env.UV_VERSION }}
-        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
+      - uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
-          version: ${{ env.UV_VERSION }}
           activate-environment: true
       - run: |
           uv sync --frozen
@@ -58,10 +53,8 @@ jobs:
     needs: update-actions
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - name: Set up uv ${{ env.UV_VERSION }}
-        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
+      - uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0
         with:
-          version: ${{ env.UV_VERSION }}
           activate-environment: true
       - run: uv sync --frozen
 
