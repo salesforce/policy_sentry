@@ -15,13 +15,11 @@ Once you've got all that, the rest is simple:
 git clone git@github.com:salesforce/policy_sentry.git
 
 # Set up the virtual environment
-python3 -m venv ./venv && source venv/bin/activate
-uv sync --frozen
-uv pip install -r docs/requirements.txt
+uv sync --frozen --all-groups
 
 # Create the HTML files
-invoke docs.build-docs
-invoke docs.serve-docs
+just build-docs
+just serve-docs
 
 # The above will open the built documentation in your browser
 ```
