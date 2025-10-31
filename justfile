@@ -6,8 +6,13 @@ build-docs:
     mkdocs build
 
 [group('package')]
-build-package:
+build-package: clean
     uv build
+
+[group('package')]
+clean:
+    rm -rf dist/
+    rm -rf *.egg-info
 
 [group('docker')]
 docker-build:
