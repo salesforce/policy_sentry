@@ -239,6 +239,8 @@ def get_actions_with_arn_type_and_access_level(
                 results.extend(actions)
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
+        # mainly needed for the use case of `catalog` -> `servicecatalog` mapping
+        service_prefix = service_prefix_data["prefix"]
         for action_name, action_data in service_prefix_data["privileges"].items():
             if (
                 action_data["access_level"] == access_level
