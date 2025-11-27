@@ -148,6 +148,12 @@ def query_action_table(
     else:
         # Otherwise, leverage the datastore inside the python package
         logger.debug("Leveraging the bundled IAM Definition.")
+
+    if service == "catalog":
+        # make sure nothing is returned when querying for `catalog`,
+        # which has some special behaviour related to `servicecatalog`
+        service = ""
+
     # Actions on all services
     if service == "all":
         all_services = get_all_service_prefixes()

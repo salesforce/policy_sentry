@@ -346,6 +346,13 @@ class QueryActionsTestCase(unittest.TestCase):
         output = get_actions_with_arn_type_and_access_level("s3", "object", "List")
         self.assertTrue("s3:ListMultipartUploadParts" in output)
 
+    def test_get_actions_with_arn_type_and_access_level_servicecatalog(self):
+        # querying with `catalog` as a service prefix should yield `servicecatalog` as an action prefix
+        # https://github.com/salesforce/policy_sentry/issues/563
+
+        output = get_actions_with_arn_type_and_access_level("catalog", "Portfolio", "List")
+        self.assertIn("servicecatalog:ListPortfolioAccess", output)
+
     def test_get_actions_matching_arn_type_case_1(self):
         """querying.actions.get_actions_matching_arn_type"""
         expected_results = [

@@ -59,9 +59,12 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
     Returns:
         List: A dictionary containing metadata about an IAM Action.
     """
-    action_data_results = {}
+    action_data_results: dict[str, list[dict[str, Any]]] = {}
     try:
         service_prefix_data = get_service_prefix_data(service)
+        if not service_prefix_data:
+            return action_data_results
+
         if action_name.endswith("*"):
             stripped_action_name = action_name.removesuffix("*")
             results = []
@@ -239,6 +242,8 @@ def get_actions_with_arn_type_and_access_level(
                 results.extend(actions)
     else:
         service_prefix_data = get_service_prefix_data(service_prefix)
+        # mainly needed for the use case of `catalog` -> `servicecatalog` mapping
+        service_prefix = service_prefix_data["prefix"]
         for action_name, action_data in service_prefix_data["privileges"].items():
             if (
                 action_data["access_level"] == access_level

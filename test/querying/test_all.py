@@ -50,7 +50,7 @@ class QueryActionsTestCase(unittest.TestCase):
             access_level=None,
             condition=None,
         )
-        self.assertTrue(len(result) > 3000)
+        self.assertGreater(len(result), 3000)
 
     def test_get_service_authorization_url(self):
         result = get_service_authorization_url("a4b")
@@ -59,3 +59,19 @@ class QueryActionsTestCase(unittest.TestCase):
             "https://docs.aws.amazon.com/service-authorization/latest/reference/list_alexaforbusiness.html"
         )
         self.assertTrue(result == expected_result)
+
+    def test_query_catalog_service(self):
+        # given
+        service = "catalog"
+
+        # when
+        result = query_action_table(
+            service=service,
+            resource_type=None,
+            name=None,
+            access_level=None,
+            condition=None,
+        )
+
+        # then
+        self.assertFalse(result)
