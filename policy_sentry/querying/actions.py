@@ -59,9 +59,12 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
     Returns:
         List: A dictionary containing metadata about an IAM Action.
     """
-    action_data_results = {}
+    action_data_results: dict[str, list[dict[str, Any]]] = {}
     try:
         service_prefix_data = get_service_prefix_data(service)
+        if not service_prefix_data:
+            return action_data_results
+
         if action_name.endswith("*"):
             stripped_action_name = action_name.removesuffix("*")
             results = []
