@@ -308,7 +308,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c11c17">
+             <table id="w61aab5c11c17">
               <thead>
                <tr>
                 <th>
@@ -1149,6 +1149,16 @@
                 <p>
                  <a href="#amazons3-s3_x-amz-object-ownership">
                   s3:x-amz-object-ownership
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -4166,6 +4176,68 @@
                </td>
                <td rowspan="2" tabindex="-1">
                 Grants permission to get an analytics configuration from an Amazon S3 bucket, identified by the analytics configuration ID
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-s3_authType">
+                  s3:authType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_ResourceAccount">
+                  s3:ResourceAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureAge">
+                  s3:signatureAge
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureversion">
+                  s3:signatureversion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_TlsVersion">
+                  s3:TlsVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-content-sha256">
+                  s3:x-amz-content-sha256
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-GetBucketAbac" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAbac.html">
+                 GetBucketAbac
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve ABAC configuration for a general purpose bucket
                </td>
                <td rowspan="2" tabindex="-1">
                 Read
@@ -8262,15 +8334,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-ListTagsForResource" rowspan="6" tabindex="-1">
+               <td id="amazons3-ListTagsForResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to list the tags attached to the specified resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -8316,6 +8388,19 @@
                 <p>
                  <a href="#amazons3-accesspoint">
                   accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket
                  </a>
                 </p>
                </td>
@@ -8932,6 +9017,68 @@
                </td>
                <td rowspan="2" tabindex="-1">
                 Grants permission to set an analytics configuration for the bucket, specified by the analytics configuration ID
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-s3_authType">
+                  s3:authType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_ResourceAccount">
+                  s3:ResourceAccount
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureAge">
+                  s3:signatureAge
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_signatureversion">
+                  s3:signatureversion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_TlsVersion">
+                  s3:TlsVersion
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_x-amz-content-sha256">
+                  s3:x-amz-content-sha256
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-PutBucketAbac" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAbac.html">
+                 PutBucketAbac
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to set ABAC configuration for a general purpose bucket
                </td>
                <td rowspan="2" tabindex="-1">
                 Write
@@ -11564,15 +11711,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-TagResource" rowspan="6" tabindex="-1">
+               <td id="amazons3-TagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to add tags to the specified resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -11618,6 +11765,19 @@
                 <p>
                  <a href="#amazons3-accesspoint">
                   accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket
                  </a>
                 </p>
                </td>
@@ -11688,15 +11848,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazons3-UntagResource" rowspan="6" tabindex="-1">
+               <td id="amazons3-UntagResource" rowspan="7" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Grants permission to remove tags from the specified resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="7" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -11742,6 +11902,19 @@
                 <p>
                  <a href="#amazons3-accesspoint">
                   accesspoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-bucket">
+                  bucket
                  </a>
                 </p>
                </td>
@@ -12262,7 +12435,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c13b5">
+             <table id="w61aab5c13b5">
               <thead>
                <tr>
                 <th>
@@ -12379,6 +12552,11 @@
                  </a>
                 </p>
                 <p>
+                 <a href="#amazons3-s3_BucketTag___TagKey_">
+                  s3:BucketTag/${TagKey}
+                 </a>
+                </p>
+                <p>
                  <a href="#amazons3-s3_DataAccessPointAccount">
                   s3:DataAccessPointAccount
                  </a>
@@ -12410,6 +12588,16 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_BucketTag___TagKey_">
+                  s3:BucketTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -12436,6 +12624,16 @@
                 </code>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazons3-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazons3-s3_BucketTag___TagKey_">
+                  s3:BucketTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>
@@ -12816,7 +13014,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w61aab7c15b7">
+             <table id="w61aab5c15b7">
               <thead>
                <tr>
                 <th>
@@ -12923,12 +13121,25 @@
               </tr>
               <tr>
                <td id="amazons3-s3_AccessPointTag___TagKey_" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-point-tagging.html#tagging-and-policies">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AmazonS3/latest/userguide/access-points.html#tagging-and-policies">
                  s3:AccessPointTag/${TagKey}
                 </a>
                </td>
                <td tabindex="-1">
                 Filters access by existing access point tag key and value
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazons3-s3_BucketTag___TagKey_" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AmazonS3/latest/userguide/buckets-tagging.html">
+                 s3:BucketTag/${TagKey}
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the tags associated with the bucket
                </td>
                <td tabindex="-1">
                 String
