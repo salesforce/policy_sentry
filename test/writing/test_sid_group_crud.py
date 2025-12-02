@@ -318,6 +318,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
                     "Effect": "Allow",
                     "Action": [
                         "cloudhsm:DescribeClusters",
+                        "ec2:DescribeVpcEndpointServices",
                         "iam:CreateServiceLinkedRole",
                         "kms:CreateCustomKeyStore",
                     ],
