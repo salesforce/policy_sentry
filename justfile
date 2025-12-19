@@ -70,7 +70,7 @@ serve-docs:
 
 [group('test')]
 type-check:
-    mypy
+    ty check
 
 [group('package')]
 uninstall-package:

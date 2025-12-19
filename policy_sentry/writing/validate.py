@@ -30,7 +30,7 @@ def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
             # workarounds for Schema's logging approach
             print(schema_error.autos[0])
             detailed_error_message = schema_error.autos[2]
-            print(detailed_error_message.split(" in {'")[0])
+            print(detailed_error_message.split(" in {'")[0])  # ty: ignore[possibly-missing-attribute]
             # for error in schema_error.autos:
         except:  # noqa: E722
             logger.critical(schema_error)
@@ -40,7 +40,7 @@ def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
 CRUD_SCHEMA = Schema(
     {
         "mode": "crud",
-        Optional("name"): And(Use(str)),
+        Optional("name"): And(Use(str)),  # ty: ignore[invalid-argument-type]
         Optional("read"): [str],
         Optional("write"): [str],
         Optional("list"): [str],
@@ -56,15 +56,15 @@ CRUD_SCHEMA = Schema(
         },
         Optional("skip-resource-constraints"): [str],
         Optional("exclude-actions"): [str],
-        Optional("sts"): {And(Use(str), Regex(r"^assume-role(-with-)*(saml|web-identity)*$")): [str]},
+        Optional("sts"): {And(Use(str), Regex(r"^assume-role(-with-)*(saml|web-identity)*$")): [str]},  # ty: ignore[invalid-argument-type]
     }
 )
 
 ACTIONS_SCHEMA = Schema(
     {
         "mode": "actions",
-        Optional("name"): And(Use(str)),
-        "actions": And([str]),
+        Optional("name"): And(Use(str)),  # ty: ignore[invalid-argument-type]
+        "actions": And([str]),  # ty: ignore[invalid-argument-type]
     }
 )
 
@@ -112,9 +112,9 @@ def validate_condition_block(condition_block: dict[str, Any]) -> bool:
     # TODO: Validate that the values are legit somehow
     condition_block_schema = Schema(
         {
-            "condition_key_string": And(Use(str)),
-            "condition_type_string": And(Use(str)),
-            "condition_value": And(Use(str)),
+            "condition_key_string": And(Use(str)),  # ty: ignore[invalid-argument-type]
+            "condition_type_string": And(Use(str)),  # ty: ignore[invalid-argument-type]
+            "condition_value": And(Use(str)),  # ty: ignore[invalid-argument-type]
         }
     )
     try:
