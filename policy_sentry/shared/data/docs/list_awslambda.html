@@ -323,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d503c11c17">
+             <table id="w44aab5b7d507c11c17">
               <thead>
                <tr>
                 <th>
@@ -408,11 +408,30 @@
                   lambda:FunctionUrlAuthType
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-CheckpointDurableExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_CheckpointDurableExecution.html">
+                 CheckpointDurableExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to save the progress of an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
                 <p>
-                 <a href="#awslambda-lambda_InvokedViaFunctionUrl">
-                  lambda:InvokedViaFunctionUrl
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -437,6 +456,67 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-CreateCapacityProvider" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_CreateCapacityProvider.html">
+                 CreateCapacityProvider
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create an AWS Lambda capacity provider
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+                <p>
+                 kms:DescribeKey
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-lambda_SecurityGroupIds">
+                  lambda:SecurityGroupIds
+                 </a>
+                </p>
+                <p>
+                 <a href="#awslambda-lambda_SubnetIds">
+                  lambda:SubnetIds
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -528,6 +608,9 @@
                <td tabindex="-1">
                 <p>
                  iam:PassRole
+                </p>
+                <p>
+                 lambda:PassCapacityProvider
                 </p>
                </td>
               </tr>
@@ -632,6 +715,30 @@
                 <p>
                  <a href="#awslambda-function">
                   function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-DeleteCapacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteCapacityProvider.html">
+                 DeleteCapacityProvider
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an AWS Lambda capacity provider
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
                  </a>
                 </p>
                </td>
@@ -994,6 +1101,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awslambda-GetCapacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetCapacityProvider.html">
+                 GetCapacityProvider
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view details about an AWS Lambda capacity provider
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awslambda-GetCodeSigningConfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetCodeSigningConfig.html">
                  GetCodeSigningConfig
@@ -1009,6 +1140,78 @@
                 <p>
                  <a href="#awslambda-codesigningconfig">
                   code signing config*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-GetDurableExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetDurableExecution.html">
+                 GetDurableExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view details of an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-GetDurableExecutionHistory" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetDurableExecutionHistory.html">
+                 GetDurableExecutionHistory
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view execution history of an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-GetDurableExecutionState" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetDurableExecutionState.html">
+                 GetDurableExecutionState
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view current state of an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
                  </a>
                 </p>
                </td>
@@ -1182,6 +1385,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to view the recursion configuration of an AWS Lambda function
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-GetFunctionScalingConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionScalingConfig.html">
+                 GetFunctionScalingConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to view the scaling configuration of an AWS Lambda function running on a capacity provider
                </td>
                <td tabindex="-1">
                 Read
@@ -1512,6 +1739,25 @@
                </td>
               </tr>
               <tr>
+               <td id="awslambda-ListCapacityProviders" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListCapacityProviders.html">
+                 ListCapacityProviders
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of AWS Lambda capacity providers
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awslambda-ListCodeSigningConfigs" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListCodeSigningConfigs.html">
                  ListCodeSigningConfigs
@@ -1524,6 +1770,30 @@
                 List
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-ListDurableExecutionsByFunction" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListDurableExecutionsByFunction.html">
+                 ListDurableExecutionsByFunction
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of AWS Lambda durable executions of an AWS Lambda function
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1606,6 +1876,30 @@
                   lambda:FunctionUrlAuthType
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-ListFunctionVersionsByCapacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctionVersionsByCapacityProvider.html">
+                 ListFunctionVersionsByCapacityProvider
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of AWS Lambda function versions by the capacity provider assigned
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1716,17 +2010,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-ListTags" rowspan="3" tabindex="-1">
+               <td id="awslambda-ListTags" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_ListTags.html">
                  ListTags
                 </a>
                </td>
-               <td rowspan="3" tabindex="-1">
-                Grants permission to retrieve a list of tags for an AWS Lambda function, event source mapping or code signing configuration resource
+               <td rowspan="4" tabindex="-1">
+                Grants permission to retrieve a list of tags for an AWS Lambda function, event source mapping, capacity provider, or code signing configuration resource
                </td>
-               <td rowspan="3" tabindex="-1">
+               <td rowspan="4" tabindex="-1">
                 Read
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awslambda-codesigningconfig">
@@ -1781,6 +2088,31 @@
                 <p>
                  <a href="#awslambda-function">
                   function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-PassCapacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html">
+                 PassCapacityProvider
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to pass an AWS Lambda capacity provider to a service
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
                  </a>
                 </p>
                </td>
@@ -1960,6 +2292,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awslambda-PutFunctionScalingConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_PutFunctionScalingConfig.html">
+                 PutFunctionScalingConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update the scaling configuration of an AWS Lambda function running on a capacity provider
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-function">
+                  function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awslambda-PutProvisionedConcurrencyConfig" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_PutProvisionedConcurrencyConfig.html">
                  PutProvisionedConcurrencyConfig
@@ -2087,17 +2443,126 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-TagResource" rowspan="4" tabindex="-1">
+               <td id="awslambda-SendDurableExecutionCallbackFailure" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_SendDurableExecutionCallbackFailure.html">
+                 SendDurableExecutionCallbackFailure
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to send a failure response for a callback operation in an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-SendDurableExecutionCallbackHeartbeat" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_SendDurableExecutionCallbackHeartbeat.html">
+                 SendDurableExecutionCallbackHeartbeat
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to send a heartbeat for a callback operation in an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-SendDurableExecutionCallbackSuccess" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_SendDurableExecutionCallbackSuccess.html">
+                 SendDurableExecutionCallbackSuccess
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to send a successful response for a callback operation in an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-StopDurableExecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_StopDurableExecution.html">
+                 StopDurableExecution
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to stop an AWS Lambda durable execution
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-durableexecution">
+                  durable execution*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-TagResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TagResources.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
-                Grants permission to add tags to an AWS Lambda function, event source mapping or code signing configuration resource
+               <td rowspan="5" tabindex="-1">
+                Grants permission to add tags to an AWS Lambda function, event source mapping, capacity provider, or code signing configuration resource
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awslambda-codesigningconfig">
@@ -2155,17 +2620,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awslambda-UntagResource" rowspan="4" tabindex="-1">
+               <td id="awslambda-UntagResource" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
-                Grants permission to remove tags from an AWS Lambda function, event source mapping or code signing configuration resource
+               <td rowspan="5" tabindex="-1">
+                Grants permission to remove tags from an AWS Lambda function, event source mapping, capacity provider, or code signing configuration resource
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awslambda-codesigningconfig">
@@ -2233,6 +2711,30 @@
                 <p>
                  <a href="#awslambda-function">
                   function*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-UpdateCapacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_UpdateCapacityProvider.html">
+                 UpdateCapacityProvider
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an AWS Lambda capacity provider
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-capacityProvider">
+                  capacityProvider*
                  </a>
                 </p>
                </td>
@@ -2504,7 +3006,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d503c13b5">
+             <table id="w44aab5b7d507c13b5">
               <thead>
                <tr>
                 <th>
@@ -2518,6 +3020,41 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="awslambda-capacityProvider" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html">
+                 capacityProvider
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lambda:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:capacity-provider:$
+                 <span>
+                  {
+                 </span>
+                 CapacityProviderName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awslambda-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td id="awslambda-codesigningconfig" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html">
@@ -2551,6 +3088,48 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awslambda-durableexecution" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html">
+                 durable execution
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:lambda:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:function:$
+                 <span>
+                  {
+                 </span>
+                 FunctionName}:$
+                 <span>
+                  {
+                 </span>
+                 Version}/durable-execution/$
+                 <span>
+                  {
+                 </span>
+                 ExecutionName}/$
+                 <span>
+                  {
+                 </span>
+                 ExecutionId}
+                </code>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -2791,7 +3370,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d503c15b7">
+             <table id="w44aab5b7d507c15b7">
               <thead>
                <tr>
                 <th>
