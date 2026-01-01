@@ -372,6 +372,44 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-AuthorizeAction" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html">
+                 AuthorizeAction
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to evaluate Cedar policies for authorization requests
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-BatchCreateMemoryRecords" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_BatchCreateMemoryRecords.html">
                  BatchCreateMemoryRecords
@@ -796,6 +834,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-CreateEvaluator" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.html">
+                 CreateEvaluator
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new evaluator
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-CreateEvent" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html">
                  CreateEvent
@@ -918,11 +975,6 @@
                   aws:TagKeys
                  </a>
                 </p>
-                <p>
-                 <a href="#amazonbedrockagentcore-bedrock-agentcore_KmsKeyArn">
-                  bedrock-agentcore:KmsKeyArn
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
                 <p>
@@ -981,6 +1033,71 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-CreateOnlineEvaluationConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.html">
+                 CreateOnlineEvaluationConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new online evaluation configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-CreatePolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePolicy.html">
+                 CreatePolicy
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new policy within a policy engine
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-CreatePolicyEngine" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.html">
+                 CreatePolicyEngine
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new policy engine
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -1187,6 +1304,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-DeleteEvaluator" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteEvaluator.html">
+                 DeleteEvaluator
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an evaluator
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-evaluator">
+                  evaluator*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-DeleteEvent" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_DeleteEvent.html">
                  DeleteEvent
@@ -1362,6 +1503,141 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-DeleteOnlineEvaluationConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteOnlineEvaluationConfig.html">
+                 DeleteOnlineEvaluationConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete an online evaluation configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-online-evaluation-config">
+                  online-evaluation-config*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-DeletePolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeletePolicy.html">
+                 DeletePolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-DeletePolicyEngine" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeletePolicyEngine.html">
+                 DeletePolicyEngine
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a policy engine
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-DeleteResourcePolicy" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteResourcePolicy.html">
+                 DeleteResourcePolicy
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to delete the resource-based policy for a Bedrock resource
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime">
+                  runtime
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime-endpoint">
+                  runtime-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-DeleteWorkloadIdentity" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteWorkloadIdentity.html">
                  DeleteWorkloadIdentity
@@ -1390,6 +1666,30 @@
                 <p>
                  <a href="#amazonbedrockagentcore-workload-identity-directory">
                   workload-identity-directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-Evaluate" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Evaluate.html">
+                 Evaluate
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to run an evaluation using an evaluator
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-evaluator">
+                  evaluator*
                  </a>
                 </p>
                </td>
@@ -1656,6 +1956,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-GetEvaluator" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetEvaluator.html">
+                 GetEvaluator
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get details of an evaluator
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-evaluator">
+                  evaluator*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-GetEvent" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetEvent.html">
                  GetEvent
@@ -1831,6 +2155,128 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-GetOnlineEvaluationConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetOnlineEvaluationConfig.html">
+                 GetOnlineEvaluationConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get details of an online evaluation configuration
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-online-evaluation-config">
+                  online-evaluation-config*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-GetPolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html">
+                 GetPolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve a policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-GetPolicyEngine" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicyEngine.html">
+                 GetPolicyEngine
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a policy engine
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-GetPolicyGeneration" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicyGeneration.html">
+                 GetPolicyGeneration
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to retrieve status and results of a policy generation request
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-generation">
+                  policy-generation*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-GetResourceApiKey" rowspan="4" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetResourceApiKey.html">
                  GetResourceApiKey
@@ -1948,6 +2394,56 @@
                 <p>
                  <a href="#amazonbedrockagentcore-workload-identity-directory">
                   workload-identity-directory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-GetResourcePolicy" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetResourcePolicy.html">
+                 GetResourcePolicy
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to retrieve the resource-based policy for a Bedrock resource
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime">
+                  runtime
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime-endpoint">
+                  runtime-endpoint
                  </a>
                 </p>
                </td>
@@ -2219,6 +2715,80 @@
                </td>
                <td rowspan="2" tabindex="-1">
                 Grants permission to invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime">
+                  runtime*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime-endpoint">
+                  runtime-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-InvokeAgentRuntimeWithWebSocketStream" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntimeWithWebSocketStream.html">
+                 InvokeAgentRuntimeWithWebSocketStream
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to invoke an agent runtime endpoint with WebSocket stream
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime">
+                  runtime*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime-endpoint">
+                  runtime-endpoint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-InvokeAgentRuntimeWithWebSocketStreamForUser" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntimeWithWebSocketStream.html">
+                 InvokeAgentRuntimeWithWebSocketStreamForUser
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to invoke an agent runtime endpoint with WebSocket stream and with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
                </td>
                <td rowspan="2" tabindex="-1">
                 Write
@@ -2523,6 +3093,25 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-ListEvaluators" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListEvaluators.html">
+                 ListEvaluators
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list evaluators
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-ListEvents" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListEvents.html">
                  ListEvents
@@ -2627,6 +3216,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-ListMemoryExtractionJobs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListMemoryExtractionJobs.html">
+                 ListMemoryExtractionJobs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list extraction jobs for this memory
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-memory">
+                  memory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-ListMemoryRecords" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListMemoryRecords.html">
                  ListMemoryRecords
@@ -2697,6 +3310,129 @@
                 <p>
                  <a href="#amazonbedrockagentcore-token-vault">
                   token-vault*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ListOnlineEvaluationConfigs" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListOnlineEvaluationConfigs.html">
+                 ListOnlineEvaluationConfigs
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list online evaluation configurations
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ListPolicies" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">
+                 ListPolicies
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list policies within a policy engine
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ListPolicyEngines" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">
+                 ListPolicyEngines
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list policy engines
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ListPolicyGenerationAssets" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">
+                 ListPolicyGenerationAssets
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to list generated policy assets from a generation request
+               </td>
+               <td rowspan="2" tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-generation">
+                  policy-generation*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ListPolicyGenerations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerations.html">
+                 ListPolicyGenerations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list policy generation requests
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
                  </a>
                 </p>
                </td>
@@ -2934,6 +3670,139 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-ManageAdminPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html">
+                 ManageAdminPolicy
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create or modify wildcard policies that apply to gateway resources
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-ManageResourceScopedPolicy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html">
+                 ManageResourceScopedPolicy
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create or modify policies that apply to specific gateway resources
+               </td>
+               <td tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-PartiallyAuthorizeActions" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html">
+                 PartiallyAuthorizeActions
+                </a>
+                [permission only]
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to perform partial evaluation of Cedar policies to authorize a caller to list tools they are allowed to call
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Permissions management
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-PutResourcePolicy" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_PutResourcePolicy.html">
+                 PutResourcePolicy
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to create or update the resource-based policy for a Bedrock resource
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-gateway">
+                  gateway
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime">
+                  runtime
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-runtime-endpoint">
+                  runtime-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-RetrieveMemoryRecords" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_RetrieveMemoryRecords.html">
                  RetrieveMemoryRecords
@@ -3065,6 +3934,77 @@
                 <p>
                  <a href="#amazonbedrockagentcore-code-interpreter-custom">
                   code-interpreter-custom*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-StartMemoryExtractionJob" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartMemoryExtractionJob.html">
+                 StartMemoryExtractionJob
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to start memory extraction job
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-memory">
+                  memory*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-bedrock-agentcore_strategyId">
+                  bedrock-agentcore:strategyId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrockagentcore-bedrock-agentcore_sessionId">
+                  bedrock-agentcore:sessionId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrockagentcore-bedrock-agentcore_actorId">
+                  bedrock-agentcore:actorId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-StartPolicyGeneration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">
+                 StartPolicyGeneration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to start an AI-powered policy generation request
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
                  </a>
                 </p>
                </td>
@@ -3687,6 +4627,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-UpdateEvaluator" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateEvaluator.html">
+                 UpdateEvaluator
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an evaluator
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-evaluator">
+                  evaluator*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-UpdateGateway" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html">
                  UpdateGateway
@@ -3802,6 +4766,94 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrockagentcore-UpdateOnlineEvaluationConfig" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateOnlineEvaluationConfig.html">
+                 UpdateOnlineEvaluationConfig
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update an online evaluation configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-online-evaluation-config">
+                  online-evaluation-config*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-UpdatePolicy" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdatePolicy.html">
+                 UpdatePolicy
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update an existing policy
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy">
+                  policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-UpdatePolicyEngine" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdatePolicyEngine.html">
+                 UpdatePolicyEngine
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update a policy engine
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrockagentcore-policy-engine">
+                  policy-engine*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrockagentcore-UpdateWorkloadIdentity" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateWorkloadIdentity.html">
                  UpdateWorkloadIdentity
@@ -3875,6 +4927,66 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="amazonbedrockagentcore-evaluator" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/evaluator.html">
+                 evaluator
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock-agentcore:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:evaluator/$
+                 <span>
+                  {
+                 </span>
+                 EvaluatorId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-online-evaluation-config" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/onlineEvaluationConfig.html">
+                 online-evaluation-config
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock-agentcore:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:online-evaluation-config/$
+                 <span>
+                  {
+                 </span>
+                 OnlineEvaluationConfigId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="amazonbedrockagentcore-memory" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/memory.html">
@@ -4328,6 +5440,104 @@
                 </p>
                </td>
               </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-policy-engine" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/policyEngine.html">
+                 policy-engine
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock-agentcore:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:policy-engine/$
+                 <span>
+                  {
+                 </span>
+                 PolicyEngineId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-policy" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/policy.html">
+                 policy
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock-agentcore:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:policy-engine/$
+                 <span>
+                  {
+                 </span>
+                 PolicyEngineId}/policy/$
+                 <span>
+                  {
+                 </span>
+                 PolicyId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrockagentcore-policy-generation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/policyGeneration.html">
+                 policy-generation
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock-agentcore:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:policy-engine/$
+                 <span>
+                  {
+                 </span>
+                 PolicyEngineId}/policy-generation/$
+                 <span>
+                  {
+                 </span>
+                 PolicyGenerationId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -4486,19 +5696,6 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrockagentcore-bedrock-agentcore_KmsKeyArn" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-kmsKeyArn">
-                 bedrock-agentcore:KmsKeyArn
-                </a>
-               </td>
-               <td tabindex="-1">
-                Filters access by KMS Key arn provided
-               </td>
-               <td tabindex="-1">
-                String
-               </td>
-              </tr>
-              <tr>
                <td id="amazonbedrockagentcore-bedrock-agentcore_actorId" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-actorId">
                  bedrock-agentcore:actorId
@@ -4600,8 +5797,8 @@
             <div accesskey="p" class="prev-link" href="./list_amazonbedrock.html" id="previous">
              Amazon Bedrock
             </div>
-            <div accesskey="n" class="next-link" href="./list_awsbilling.html" id="next">
-             AWS Billing
+            <div accesskey="n" class="next-link" href="./list_amazonbedrockpoweredbyawsmantle.html" id="next">
+             Amazon Bedrock Powered by AWS Mantle
             </div>
            </div>
           </div>

@@ -323,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d679c11c17">
+             <table id="w44aab5b7d687c11c17">
               <thead>
                <tr>
                 <th>
@@ -347,19 +347,37 @@
                </tr>
               </thead>
               <tr>
-               <td id="awsprivatelink-AllowMultiRegion" tabindex="-1">
-                <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/vpc/latest/privatelink/security_iam_service-with-iam.html">
+               <td id="awsprivatelink-AllowMultiRegion" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/security_iam_service-with-iam.html">
                  AllowMultiRegion
                 </a>
                 [permission only]
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Grants permission to manage multi-region VPC endpoints and VPC endpoint service configurations
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#awsprivatelink-vpc-endpoint">
+                  vpc-endpoint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsprivatelink-vpc-endpoint-service">
+                  vpc-endpoint-service
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -373,16 +391,99 @@
             Resource types defined by        AWS PrivateLink
            </h2>
            <p>
-            AWS PrivateLink does not support specifying a resource ARN in the
+            The following resource types are defined by this service and can be used in the
             <code class="code">
              Resource
             </code>
-            element of an IAM policy statement. To allow access to      AWS PrivateLink, specify
-            <code class="code">
-             "Resource": "*"
-            </code>
-            in your policy.
+            element of IAM permission policy statements. Each action in the
+            <a href="#awsprivatelink-actions-as-permissions">
+             Actions table
+            </a>
+            identifies the      resource types that can be specified with that action. A resource type can also define which      condition keys you can include in a policy. These keys are displayed in the last column of the      Resource types table. For details about the columns in the following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#resources_table" rel="noopener noreferrer" target="_blank">
+             Resource types table
+            </a>
+            .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b7d687c13b5">
+              <thead>
+               <tr>
+                <th>
+                 Resource types
+                </th>
+                <th>
+                 ARN
+                </th>
+                <th>
+                 Condition keys
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awsprivatelink-vpc-endpoint" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html">
+                 vpc-endpoint
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpc-endpoint/$
+                 <span>
+                  {
+                 </span>
+                 VpcEndpointId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsprivatelink-vpc-endpoint-service" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html">
+                 vpc-endpoint-service
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:vpc-endpoint-service/$
+                 <span>
+                  {
+                 </span>
+                 VpcEndpointServiceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <h2 id="awsprivatelink-policy-keys">
             Condition keys for        AWS PrivateLink
            </h2>

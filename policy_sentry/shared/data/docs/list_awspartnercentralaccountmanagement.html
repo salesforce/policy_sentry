@@ -323,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d651c11c17">
+             <table id="w44aab5b7d659c11c17">
               <thead>
                <tr>
                 <th>
@@ -346,6 +346,56 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="awspartnercentralaccountmanagement-AccessLegacyPartnerCentral" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-apc-account-management.html">
+                 AccessLegacyPartnerCentral
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to Single Sign-On from AWS Partner Central into Legacy Partner Central
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspartnercentralaccountmanagement-partnercentral-account-management_LegacyPartnerCentralRole">
+                  partnercentral-account-management:LegacyPartnerCentralRole
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awspartnercentralaccountmanagement-AccessMarketingCentral" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-apc-account-management.html">
+                 AccessMarketingCentral
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to Single Sign-On from AWS Partner Central into Marketing Central
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awspartnercentralaccountmanagement-partnercentral-account-management_MarketingCentralRole">
+                  partnercentral-account-management:MarketingCentralRole
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="awspartnercentralaccountmanagement-AssociatePartnerAccount" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-apc-account-management.html">
@@ -425,16 +475,68 @@
             Condition keys for        AWS Partner central account management
            </h2>
            <p>
-            Partner central account management has no service-specific context keys that can be used in the
+            AWS Partner central account management defines the following condition keys that can be used in the
             <code class="code">
              Condition
             </code>
-            element of policy statements. For the list of the global context keys      that are available to all services, see
+            element of an IAM policy. You can use these keys to further refine      the conditions under which the policy statement applies. For details about the columns in the      following table, see
+            <a href="reference_policies_actions-resources-contextkeys.html#context_keys_table" rel="noopener noreferrer" target="_blank">
+             Condition keys table
+            </a>
+            .
+           </p>
+           <p>
+            To view the global condition keys that are available to all services, see
             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">
              AWS        global condition context keys
             </a>
             .
            </p>
+           <div class="table-container">
+            <div class="table-contents disable-scroll">
+             <table id="w44aab5b7d659c15b7">
+              <thead>
+               <tr>
+                <th>
+                 Condition keys
+                </th>
+                <th>
+                 Description
+                </th>
+                <th>
+                 Type
+                </th>
+               </tr>
+              </thead>
+              <tr>
+               <td id="awspartnercentralaccountmanagement-partnercentral-account-management_LegacyPartnerCentralRole" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-apc-account-management.html">
+                 partnercentral-account-management:LegacyPartnerCentralRole
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the Legacy Partner Central role
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="awspartnercentralaccountmanagement-partnercentral-account-management_MarketingCentralRole" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-apc-account-management.html">
+                 partnercentral-account-management:MarketingCentralRole
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by Marketing Central role
+               </td>
+               <td tabindex="-1">
+                ArrayOfString
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
            <awsdocs-copyright class="copyright-print">
            </awsdocs-copyright>
            <awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}">
