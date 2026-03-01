@@ -153,7 +153,7 @@
            <awsdocs-language-banner data-service="$ctrl.pageService">
            </awsdocs-language-banner>
            <h1 class="topictitle" id="list_amazondynamodb">
-            Actions, resources, and condition keys for      Amazon DynamoDB
+            Actions, resources, and condition keys for Amazon DynamoDB
            </h1>
            <div class="awsdocs-page-header-container">
             <awsdocs-page-header>
@@ -210,28 +210,28 @@
              <li>
               <p>
                <a href="#amazondynamodb-actions-as-permissions">
-                Actions defined by        Amazon DynamoDB
+                Actions defined by Amazon DynamoDB
                </a>
               </p>
              </li>
              <li>
               <p>
                <a href="#amazondynamodb-resources-for-iam-policies">
-                Resource types defined by        Amazon DynamoDB
+                Resource types defined by Amazon DynamoDB
                </a>
               </p>
              </li>
              <li>
               <p>
                <a href="#amazondynamodb-policy-keys">
-                Condition keys for        Amazon DynamoDB
+                Condition keys for Amazon DynamoDB
                </a>
               </p>
              </li>
             </ul>
            </div>
            <h2 id="amazondynamodb-actions-as-permissions">
-            Actions defined by        Amazon DynamoDB
+            Actions defined by Amazon DynamoDB
            </h2>
            <p>
             You can specify the following actions in the
@@ -346,6 +346,31 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="amazondynamodb-AssociateTableReplica" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_MA_security.html">
+                 AssociateTableReplica
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to create multi account global table replica
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondynamodb-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
               <tr>
                <td id="amazondynamodb-BatchGetItem" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html">
@@ -1493,13 +1518,18 @@
                 Write
                </td>
                <td tabindex="-1">
-                <p>
-                 <a href="#amazondynamodb-table">
-                  table*
-                 </a>
-                </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazondynamodb-dynamodb_FisActionId">
+                  dynamodb:FisActionId
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazondynamodb-dynamodb_FisTargetArns">
+                  dynamodb:FisTargetArns
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2062,6 +2092,56 @@
                   dynamodb:Select
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondynamodb-ReadDataForReplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_MA_security.html">
+                 ReadDataForReplication
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to read data from a multi account global table replica
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondynamodb-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondynamodb-ReplicateSettings" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_MA_security.html">
+                 ReplicateSettings
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to configure settings for a multi account global table replica
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondynamodb-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -2709,11 +2789,36 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="amazondynamodb-WriteDataForReplication" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_MA_security.html">
+                 WriteDataForReplication
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to write data to a multi account global table replica
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazondynamodb-table">
+                  table*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
            <h2 id="amazondynamodb-resources-for-iam-policies">
-            Resource types defined by        Amazon DynamoDB
+            Resource types defined by Amazon DynamoDB
            </h2>
            <p>
             The following resource types are defined by this service and can be used in the
@@ -2986,7 +3091,7 @@
             </div>
            </div>
            <h2 id="amazondynamodb-policy-keys">
-            Condition keys for        Amazon DynamoDB
+            Condition keys for Amazon DynamoDB
            </h2>
            <p>
             Amazon DynamoDB defines the following condition keys that can be used in the
@@ -3120,6 +3225,32 @@
                </td>
                <td tabindex="-1">
                 ArrayOfString
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondynamodb-dynamodb_FisActionId" tabindex="-1">
+                <a href="specifying-conditions.html#FGAC_DDB.ConditionKeys" rel="noopener noreferrer" target="_blank">
+                 dynamodb:FisActionId
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ID of an AWS FIS action
+               </td>
+               <td tabindex="-1">
+                String
+               </td>
+              </tr>
+              <tr>
+               <td id="amazondynamodb-dynamodb_FisTargetArns" tabindex="-1">
+                <a href="specifying-conditions.html#FGAC_DDB.ConditionKeys" rel="noopener noreferrer" target="_blank">
+                 dynamodb:FisTargetArns
+                </a>
+               </td>
+               <td tabindex="-1">
+                Filters access by the ARN of an AWS FIS target
+               </td>
+               <td tabindex="-1">
+                ArrayOfARN
                </td>
               </tr>
               <tr>

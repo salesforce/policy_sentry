@@ -153,7 +153,7 @@
            <awsdocs-language-banner data-service="$ctrl.pageService">
            </awsdocs-language-banner>
            <h1 class="topictitle" id="list_amazonbedrock">
-            Actions, resources, and condition keys for      Amazon Bedrock
+            Actions, resources, and condition keys for Amazon Bedrock
            </h1>
            <div class="awsdocs-page-header-container">
             <awsdocs-page-header>
@@ -210,28 +210,28 @@
              <li>
               <p>
                <a href="#amazonbedrock-actions-as-permissions">
-                Actions defined by        Amazon Bedrock
+                Actions defined by Amazon Bedrock
                </a>
               </p>
              </li>
              <li>
               <p>
                <a href="#amazonbedrock-resources-for-iam-policies">
-                Resource types defined by        Amazon Bedrock
+                Resource types defined by Amazon Bedrock
                </a>
               </p>
              </li>
              <li>
               <p>
                <a href="#amazonbedrock-policy-keys">
-                Condition keys for        Amazon Bedrock
+                Condition keys for Amazon Bedrock
                </a>
               </p>
              </li>
             </ul>
            </div>
            <h2 id="amazonbedrock-actions-as-permissions">
-            Actions defined by        Amazon Bedrock
+            Actions defined by Amazon Bedrock
            </h2>
            <p>
             You can specify the following actions in the
@@ -558,6 +558,30 @@
                 <p>
                  <a href="#amazonbedrock-automated-reasoning-policy">
                   automated-reasoning-policy*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-CopyBlueprintStage" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Data_Automation_for_Amazon_Bedrock.html">
+                 CopyBlueprintStage
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to copy a blueprint from one stage to another
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint">
+                  blueprint*
                  </a>
                 </p>
                </td>
@@ -3264,6 +3288,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-GetBlueprintOptimizationStatus" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Data_Automation_for_Amazon_Bedrock.html">
+                 GetBlueprintOptimizationStatus
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get the status of a blueprint optimization job
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint-optimization-invocation">
+                  blueprint-optimization-invocation*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-GetBlueprintRecommendation" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  GetBlueprintRecommendation
@@ -4260,6 +4308,61 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonbedrock-InvokeBlueprintOptimizationAsync" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Data_Automation_for_Amazon_Bedrock.html">
+                 InvokeBlueprintOptimizationAsync
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to invoke an async job to perform blueprint optimization
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint">
+                  blueprint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-data-automation-profile">
+                  data-automation-profile*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonbedrock-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -5801,15 +5904,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-ListTagsForResource" rowspan="27" tabindex="-1">
+               <td id="amazonbedrock-ListTagsForResource" rowspan="28" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="27" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Grants permission to list tags for a Bedrock resource
                </td>
-               <td rowspan="27" tabindex="-1">
+               <td rowspan="28" tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
@@ -5894,6 +5997,19 @@
                 <p>
                  <a href="#amazonbedrock-blueprint">
                   blueprint*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint-optimization-invocation">
+                  blueprint-optimization-invocation*
                  </a>
                 </p>
                </td>
@@ -6778,15 +6894,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-TagResource" rowspan="28" tabindex="-1">
+               <td id="amazonbedrock-TagResource" rowspan="29" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="28" tabindex="-1">
+               <td rowspan="29" tabindex="-1">
                 Grants permission to Tag a Bedrock resource
                </td>
-               <td rowspan="28" tabindex="-1">
+               <td rowspan="29" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -6871,6 +6987,19 @@
                 <p>
                  <a href="#amazonbedrock-blueprint">
                   blueprint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint-optimization-invocation">
+                  blueprint-optimization-invocation
                  </a>
                 </p>
                </td>
@@ -7158,15 +7287,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonbedrock-UntagResource" rowspan="28" tabindex="-1">
+               <td id="amazonbedrock-UntagResource" rowspan="29" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="28" tabindex="-1">
+               <td rowspan="29" tabindex="-1">
                 Grants permission to Untag a Bedrock resource
                </td>
-               <td rowspan="28" tabindex="-1">
+               <td rowspan="29" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -7251,6 +7380,19 @@
                 <p>
                  <a href="#amazonbedrock-blueprint">
                   blueprint
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-blueprint-optimization-invocation">
+                  blueprint-optimization-invocation
                  </a>
                 </p>
                </td>
@@ -8139,7 +8281,7 @@
             </div>
            </div>
            <h2 id="amazonbedrock-resources-for-iam-policies">
-            Resource types defined by        Amazon Bedrock
+            Resource types defined by Amazon Bedrock
            </h2>
            <p>
             The following resource types are defined by this service and can be used in the
@@ -9235,6 +9377,41 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonbedrock-blueprint-optimization-invocation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Data_Automation_for_Amazon_Bedrock.html">
+                 blueprint-optimization-invocation
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:bedrock:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:blueprint-optimization-invocation/$
+                 <span>
+                  {
+                 </span>
+                 ResourceId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonbedrock-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
                <td id="amazonbedrock-data-automation-invocation-job" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html">
                  data-automation-invocation-job
@@ -9373,7 +9550,7 @@
             </div>
            </div>
            <h2 id="amazonbedrock-policy-keys">
-            Condition keys for        Amazon Bedrock
+            Condition keys for Amazon Bedrock
            </h2>
            <p>
             Amazon Bedrock defines the following condition keys that can be used in the
