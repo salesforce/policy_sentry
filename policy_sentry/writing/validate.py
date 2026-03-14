@@ -30,7 +30,7 @@ def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
             # workarounds for Schema's logging approach
             print(schema_error.autos[0])
             detailed_error_message = schema_error.autos[2]
-            print(detailed_error_message.split(" in {'")[0])  # ty: ignore[possibly-missing-attribute]
+            print(detailed_error_message.split(" in {'")[0])  # ty: ignore[unresolved-attribute]
             # for error in schema_error.autos:
         except:  # noqa: E722
             logger.critical(schema_error)
