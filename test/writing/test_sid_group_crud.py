@@ -591,6 +591,41 @@ class SidGroupCrudTestCase(unittest.TestCase):
             self.assertIn(action, actual_actions["Action"])
         # self.assertDictEqual(result, expected_result)
 
+    def test_dependent_actions_use_specific_arn_when_supported(self):
+        """
+        Regression test for https://github.com/salesforce/policy_sentry/issues/382
+
+        When generating a policy for write actions on a KMS key ARN, dependent
+        actions that support the same resource type (e.g. kms:PutKeyPolicy,
+        kms:TagResource) should be scoped to the specific key ARN rather than
+        getting a wildcard Resource of '*'.
+
+        Only truly wildcard-only dependent actions (e.g. kms:CreateKey,
+        iam:CreateServiceLinkedRole) should remain under '*'.
+        """
+        sid_group = SidGroup()
+        sid_group.add_by_arn_and_access_level(
+            ["arn:aws:kms:us-east-1:123456789012:key/shaq"],
+            "Write",
+        )
+        result = sid_group.get_rendered_policy()
+        # Collect actions per SID for easier assertions
+        actions_by_sid = {
+            stmt["Sid"]: stmt["Action"] for stmt in result["Statement"]
+        }
+        # kms:PutKeyPolicy and kms:TagResource support the 'key' resource type,
+        # so they should be scoped to the specific ARN, not wildcard
+        self.assertIn("kms:PutKeyPolicy", actions_by_sid.get("KmsWriteKey", []))
+        self.assertIn("kms:TagResource", actions_by_sid.get("KmsWriteKey", []))
+        # kms:CreateKey is wildcard-only and iam:CreateServiceLinkedRole is a
+        # different service, so both should remain under '*'
+        wildcard_actions = actions_by_sid.get("MultMultNone", [])
+        self.assertIn("kms:CreateKey", wildcard_actions)
+        self.assertIn("iam:CreateServiceLinkedRole", wildcard_actions)
+        # Verify they are NOT duplicated in the wildcard SID
+        self.assertNotIn("kms:PutKeyPolicy", wildcard_actions)
+        self.assertNotIn("kms:TagResource", wildcard_actions)
+
     def test_write_template_with_sts_actions(self):
         cfg = {
             "mode": "crud",
