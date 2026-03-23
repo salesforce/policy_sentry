@@ -200,12 +200,13 @@ class SidGroup:
         )
         self.add_wildcard_only_actions(provided_wildcard_actions)
 
-    def get_rendered_policy(self, minimize: int | None = None) -> dict[str, Any]:
+    def get_rendered_policy(self, minimize: int | None = None, effect: str = "Allow") -> dict[str, Any]:
         """
         Get the JSON rendered policy
 
         Arguments:
             minimize: Reduce the character count of policies without creating overlap with other action names
+            effect: The IAM policy effect, either "Allow" or "Deny". Defaults to "Allow".
         Returns:
             Dictionary: The IAM Policy JSON
         """
@@ -254,7 +255,7 @@ class SidGroup:
                 statements.append(
                     {
                         "Sid": sid,
-                        "Effect": "Allow",
+                        "Effect": effect,
                         "Action": actions,
                         "Resource": group["arn"],
                     }
@@ -448,6 +449,10 @@ class SidGroup:
         Returns:
             Dictionary: The rendered IAM JSON Policy
         """
+        effect = cfg.get("effect", "Allow")
+        if effect not in ("Allow", "Deny"):
+            raise ValueError(f"Invalid effect: {effect}. Must be 'Allow' or 'Deny'.")
+
         cfg_mode = cfg.get("mode")
         if cfg_mode == "crud":
             logger.debug("CRUD mode selected")
@@ -537,7 +542,7 @@ class SidGroup:
                 if cfg_actions is not None and cfg_actions[0] != "":
                     self.add_by_list_of_actions(cfg_actions)
 
-        return self.get_rendered_policy(minimize)
+        return self.get_rendered_policy(minimize, effect=effect)
 
     def add_wildcard_only_actions(self, provided_wildcard_actions: list[str]) -> None:
         """

@@ -6,6 +6,8 @@ class TemplateTestCase(unittest.TestCase):
     def test_actions_template(self):
         desired_msg = """mode: actions
 name: ''
+# Effect: Allow or Deny. Defaults to Allow.
+# effect: Deny
 actions:
 - ''
 """
@@ -15,6 +17,8 @@ actions:
     def test_crud_template(self):
         desired_msg = """mode: crud
 name: ''
+# Effect: Allow or Deny. Defaults to Allow.
+# effect: Deny
 # Specify resource ARNs
 read:
 - ''
