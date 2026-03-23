@@ -210,6 +210,9 @@ class SidGroup:
         Returns:
             Dictionary: The IAM Policy JSON
         """
+        if effect not in ("Allow", "Deny"):
+            raise ValueError(f"Invalid effect: {effect!r}. Must be 'Allow' or 'Deny'.")
+
         statements: list[dict[str, Any]] = []
         # Only set the actions to lowercase if minimize is provided
         all_actions = get_all_actions(lowercase=True)
