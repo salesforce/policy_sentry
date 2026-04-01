@@ -323,7 +323,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d421c11c17">
+             <table id="w44aab5b7d423c11c17">
               <thead>
                <tr>
                 <th>
@@ -568,6 +568,44 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-CreateConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_CreateConfiguration.html">
+                 CreateConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awshealthomics-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:DescribeSecurityGroups
+                </p>
+                <p>
+                 ec2:DescribeSubnets
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
                </td>
               </tr>
               <tr>
@@ -882,6 +920,30 @@
                 <p>
                  <a href="#awshealthomics-AnnotationStoreVersion">
                   AnnotationStoreVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-DeleteConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_DeleteConfiguration.html">
+                 DeleteConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-configuration">
+                  configuration*
                  </a>
                 </p>
                </td>
@@ -1234,6 +1296,30 @@
                 <p>
                  <a href="#awshealthomics-AnnotationStoreVersion">
                   AnnotationStoreVersion*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-GetConfiguration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_GetConfiguration.html">
+                 GetConfiguration
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve configuration details
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-configuration">
+                  configuration*
                  </a>
                 </p>
                </td>
@@ -1853,6 +1939,25 @@
                </td>
               </tr>
               <tr>
+               <td id="awshealthomics-ListConfigurations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_ListConfigurations.html">
+                 ListConfigurations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve a list of configurations
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awshealthomics-ListMultipartReadSetUploads" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_ListMultipartReadSetUploads.html">
                  ListMultipartReadSetUploads
@@ -2440,15 +2545,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awshealthomics-StartRun" rowspan="5" tabindex="-1">
+               <td id="awshealthomics-StartRun" rowspan="6" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_StartRun.html">
                  StartRun
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Grants permission to start a workflow run
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="6" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -2464,6 +2569,19 @@
                 <p>
                  iam:PassRole
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-configuration">
+                  configuration
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
               <tr>
@@ -2548,15 +2666,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awshealthomics-TagResource" rowspan="13" tabindex="-1">
+               <td id="awshealthomics-TagResource" rowspan="14" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Grants permission to add AWS tags to a resource
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2602,6 +2720,19 @@
                 <p>
                  <a href="#awshealthomics-WorkflowVersion">
                   WorkflowVersion
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-configuration">
+                  configuration
                  </a>
                 </p>
                </td>
@@ -2733,15 +2864,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awshealthomics-UntagResource" rowspan="13" tabindex="-1">
+               <td id="awshealthomics-UntagResource" rowspan="14" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/omics/latest/api/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Grants permission to remove resource AWS tags
                </td>
-               <td rowspan="13" tabindex="-1">
+               <td rowspan="14" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2787,6 +2918,19 @@
                 <p>
                  <a href="#awshealthomics-WorkflowVersion">
                   WorkflowVersion
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-configuration">
+                  configuration
                  </a>
                 </p>
                </td>
@@ -3164,7 +3308,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d421c13b5">
+             <table id="w44aab5b7d423c13b5">
               <thead>
                <tr>
                 <th>
@@ -3242,6 +3386,41 @@
                   {
                  </span>
                  AnnotationStoreVersionName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awshealthomics-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awshealthomics-configuration" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/omics/latest/api/API_ConfigurationListItem.html">
+                 configuration
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:omics:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:configuration/$
+                 <span>
+                  {
+                 </span>
+                 Name}
                 </code>
                </td>
                <td tabindex="-1">
@@ -3670,7 +3849,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w44aab5b7d421c15b7">
+             <table id="w44aab5b7d423c15b7">
               <thead>
                <tr>
                 <th>
