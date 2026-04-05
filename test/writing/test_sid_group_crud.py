@@ -610,9 +610,7 @@ class SidGroupCrudTestCase(unittest.TestCase):
         )
         result = sid_group.get_rendered_policy()
         # Collect actions per SID for easier assertions
-        actions_by_sid = {
-            stmt["Sid"]: stmt["Action"] for stmt in result["Statement"]
-        }
+        actions_by_sid = {stmt["Sid"]: stmt["Action"] for stmt in result["Statement"]}
         # kms:PutKeyPolicy and kms:TagResource support the 'key' resource type,
         # so they should be scoped to the specific ARN, not wildcard
         self.assertIn("kms:PutKeyPolicy", actions_by_sid.get("KmsWriteKey", []))
