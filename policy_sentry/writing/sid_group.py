@@ -12,6 +12,7 @@ from policy_sentry.analysis.expand import determine_actions_to_expand
 from policy_sentry.querying.actions import (
     get_action_data,
     get_actions_at_access_level_that_support_wildcard_arns_only,
+    get_actions_matching_arn_type,
     get_actions_that_support_wildcard_arns_only,
     get_actions_with_arn_type_and_access_level,
     get_dependent_actions,
@@ -317,8 +318,18 @@ class SidGroup:
                         dependent_actions = [
                             action for action in get_dependent_actions(actions) if action not in actions
                         ]
+                        # Check if dependent actions support the same resource type.
+                        # If so, add them to the same SID with the specific ARN
+                        # instead of defaulting to wildcard "*".
+                        actions_matching_resource_type = get_actions_matching_arn_type(
+                            service_prefix, resource_type_name
+                        )
                         for dep_action in dependent_actions:
-                            self.add_action_without_resource_constraint(dep_action)
+                            if dep_action in actions_matching_resource_type:
+                                if dep_action not in actions:
+                                    actions.append(dep_action)
+                            else:
+                                self.add_action_without_resource_constraint(dep_action)
 
                         if sid_namespace in self.sids:
                             # If the ARN already exists there, skip it.
