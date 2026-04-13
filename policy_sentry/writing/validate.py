@@ -41,6 +41,7 @@ CRUD_SCHEMA = Schema(
     {
         "mode": "crud",
         Optional("name"): And(Use(str)),  # ty: ignore[invalid-argument-type]
+        Optional("effect"): And(Use(str), lambda s: s in ("Allow", "Deny")),  # ty: ignore[invalid-argument-type]
         Optional("read"): [str],
         Optional("write"): [str],
         Optional("list"): [str],
@@ -64,6 +65,7 @@ ACTIONS_SCHEMA = Schema(
     {
         "mode": "actions",
         Optional("name"): And(Use(str)),  # ty: ignore[invalid-argument-type]
+        Optional("effect"): And(Use(str), lambda s: s in ("Allow", "Deny")),  # ty: ignore[invalid-argument-type]
         "actions": And([str]),  # ty: ignore[invalid-argument-type]
     }
 )

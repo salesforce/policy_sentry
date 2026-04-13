@@ -8,12 +8,16 @@ from typing import Any
 
 ACTIONS_TEMPLATE = """mode: actions
 name: ''
+# Effect: Allow or Deny. Defaults to Allow.
+# effect: Deny
 actions:
 - ''
 """
 
 CRUD_TEMPLATE = """mode: crud
 name: ''
+# Effect: Allow or Deny. Defaults to Allow.
+# effect: Deny
 # Specify resource ARNs
 read:
 - ''
