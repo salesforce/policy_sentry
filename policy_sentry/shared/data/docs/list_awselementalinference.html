@@ -329,7 +329,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w57aab5b7d345c11c17">
+             <table id="w57aab5b7d349c11c17">
               <thead>
                <tr>
                 <th>
@@ -377,6 +377,35 @@
                </td>
               </tr>
               <tr>
+               <td id="awselementalinference-CreateDictionary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_CreateDictionary.html">
+                 CreateDictionary
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to create a new dictionary
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awselementalinference-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awselementalinference-CreateFeed" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_CreateFeed.html">
                  CreateFeed
@@ -401,6 +430,30 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awselementalinference-DeleteDictionary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DeleteDictionary.html">
+                 DeleteDictionary
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a dictionary
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -454,6 +507,54 @@
                </td>
               </tr>
               <tr>
+               <td id="awselementalinference-ExportDictionaryEntries" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ExportDictionaryEntries.html">
+                 ExportDictionaryEntries
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to export dictionary entries
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awselementalinference-GetDictionary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetDictionary.html">
+                 GetDictionary
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to get dictionary details
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awselementalinference-GetFeed" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetFeed.html">
                  GetFeed
@@ -495,6 +596,25 @@
                   feed*
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awselementalinference-ListDictionaries" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListDictionaries.html">
+                 ListDictionaries
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list dictionaries in the account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -564,17 +684,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awselementalinference-TagResource" rowspan="2" tabindex="-1">
+               <td id="awselementalinference-TagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to add tags to a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awselementalinference-feed">
@@ -606,17 +739,30 @@
                </td>
               </tr>
               <tr>
-               <td id="awselementalinference-UntagResource" rowspan="2" tabindex="-1">
+               <td id="awselementalinference-UntagResource" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to remove tags from a resource
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Tagging
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                 <p>
                  <a href="#awselementalinference-feed">
@@ -638,6 +784,30 @@
                   aws:TagKeys
                  </a>
                 </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awselementalinference-UpdateDictionary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_UpdateDictionary.html">
+                 UpdateDictionary
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to update dictionary configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-dictionary">
+                  dictionary*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
                </td>
                <td tabindex="-1">
                </td>
@@ -689,7 +859,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w57aab5b7d345c13b5">
+             <table id="w57aab5b7d349c13b5">
               <thead>
                <tr>
                 <th>
@@ -703,6 +873,41 @@
                 </th>
                </tr>
               </thead>
+              <tr>
+               <td id="awselementalinference-dictionary" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/elemental-inference/latest/userguide/elemental-inference-configuration.html">
+                 dictionary
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:elemental-inference:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dictionary/$
+                 <span>
+                  {
+                 </span>
+                 Id}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awselementalinference-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
               <tr>
                <td id="awselementalinference-feed" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/elemental-inference/latest/userguide/elemental-inference-configuration.html">
@@ -764,7 +969,7 @@
            </p>
            <div class="table-container">
             <div class="table-contents disable-scroll">
-             <table id="w57aab5b7d345c15b7">
+             <table id="w57aab5b7d349c15b7">
               <thead>
                <tr>
                 <th>
