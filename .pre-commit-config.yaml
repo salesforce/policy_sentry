@@ -1,20 +1,31 @@
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.106.0
+    rev: v1.108.0
     hooks:
       - id: terraform_fmt
         priority: 0
 #      - id: terraform_docs
 #        args: ['--sort-by-required', '--no-providers']
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.17
+    rev: v0.15.18
     hooks:
       - id: ruff-check
         priority: 1
-        args: [--fix]
+        args: ["--fix"]
         files: ^(examples/|policy_sentry/|utils/|setup.py)
       - id: ruff-format
         priority: 0
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.51
+    hooks:
+      - id: ty
+        priority: 1
+        args: ["--frozen"]
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.23
+    hooks:
+      - id: uv-audit
+        priority: 1
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
     hooks:
