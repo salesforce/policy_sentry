@@ -68,10 +68,6 @@ integration-tests: _int-clean _int-version _int-init _int-query-action _int-quer
 serve-docs:
     mkdocs serve --dev-addr "127.0.0.1:8001"
 
-[group('test')]
-type-check:
-    ty check
-
 [group('package')]
 uninstall-package:
     uv pip uninstall policy_sentry
