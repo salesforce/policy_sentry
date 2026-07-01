@@ -656,7 +656,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
                  GetBillingPreferences
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to view billing preferences such as reserved instance, savings plans and credits sharing
@@ -758,7 +757,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
                  GetCreditAllocationHistory
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to view a credit allocation history
@@ -778,7 +776,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
                  GetCredits
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to view credits that have been redeemed
@@ -787,6 +784,31 @@
                 Read
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbilling-GetCumulativeTracking" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                 GetCumulativeTracking
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve cumulative spend and usage tracking data for a contract
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-contract">
+                  contract*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -807,6 +829,31 @@
                 Read
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbilling-GetMonthlyTracking" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
+                 GetMonthlyTracking
+                </a>
+                [permission only]
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve monthly spend and usage tracking data for a contract
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsbilling-contract">
+                  contract*
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1026,7 +1073,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
                  RedeemCredits
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to redeem an AWS credit
@@ -1135,7 +1181,6 @@
                 <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions">
                  UpdateBillingPreferences
                 </a>
-                [permission only]
                </td>
                <td tabindex="-1">
                 Grants permission to update billing preferences such as reserved instance, savings plans and credits sharing
@@ -1293,6 +1338,32 @@
                   aws:ResourceTag/${TagKey}
                  </a>
                 </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awsbilling-contract" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/">
+                 contract
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:billing::$
+                 <span>
+                  {
+                 </span>
+                 Account}:contract/$
+                 <span>
+                  {
+                 </span>
+                 ContractId}
+                </code>
+               </td>
+               <td tabindex="-1">
                </td>
               </tr>
              </table>

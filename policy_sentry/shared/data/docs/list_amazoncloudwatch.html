@@ -490,6 +490,15 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+                <p>
+                 logs:CreateScheduledQuery
+                </p>
+                <p>
+                 logs:DeleteScheduledQuery
+                </p>
+                <p>
+                 logs:GetScheduledQuery
+                </p>
                </td>
               </tr>
               <tr>
@@ -914,6 +923,43 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatch-GetDataset" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetDataset.html">
+                 GetDataset
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to get a dataset
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatch-GetInsightRuleReport" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html">
                  GetInsightRuleReport
@@ -944,14 +990,24 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Grants permission to retrieve batch amounts of CloudWatch metric data and perform metric math on retrieved data
+                Grants permission to retrieve batch amounts of CloudWatch classic metric data and perform metric math on retrieved data; and grants permission to retrieve OTLP metric data using PromQL
                </td>
                <td tabindex="-1">
                 Read
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1299,8 +1355,18 @@
                 List
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1344,15 +1410,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatch-ListTagsForResource" rowspan="10" tabindex="-1">
+               <td id="amazoncloudwatch-ListTagsForResource" rowspan="16" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 Grants permission to list tags for an Amazon CloudWatch resource
                </td>
-               <td rowspan="5" tabindex="-1">
+               <td rowspan="8" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -1363,6 +1429,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1376,6 +1447,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1389,6 +1465,29 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1402,6 +1501,47 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1415,6 +1555,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1494,6 +1639,29 @@
                  <b>
                   SCENARIO:
                  </b>
+                 CloudWatch-Dataset
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
                  CloudWatch-InsightRule
                 </p>
                </td>
@@ -1503,6 +1671,52 @@
                 <p>
                  <a href="#amazoncloudwatch-insight-rule">
                   insight-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-MetricStream
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-Service
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service*
                  </a>
                 </p>
                </td>
@@ -1745,6 +1959,68 @@
                </td>
               </tr>
               <tr>
+               <td id="amazoncloudwatch-PutLogAlarm" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutLogAlarm.html">
+                 PutLogAlarm
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create or update a log-based alarm and associate it with a CloudWatch Logs Insights scheduled query
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-alarm">
+                  alarm*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:PassRole
+                </p>
+                <p>
+                 logs:CreateScheduledQuery
+                </p>
+                <p>
+                 logs:DeleteScheduledQuery
+                </p>
+                <p>
+                 logs:GetScheduledQuery
+                </p>
+                <p>
+                 logs:UpdateScheduledQuery
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatch-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazoncloudwatch-cloudwatch_AlarmActions">
+                  cloudwatch:AlarmActions
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazoncloudwatch-PutManagedInsightRules" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutManagedInsightRules.html">
                  PutManagedInsightRules
@@ -1779,15 +2055,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatch-PutMetricAlarm" rowspan="2" tabindex="-1">
+               <td id="amazoncloudwatch-PutMetricAlarm" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html">
                  PutMetricAlarm
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to create or update an alarm and associates it with the specified Amazon CloudWatch metric
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -1798,6 +2074,24 @@
                 </p>
                </td>
                <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -1826,17 +2120,35 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatch-PutMetricData" tabindex="-1">
+               <td id="amazoncloudwatch-PutMetricData" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html">
                  PutMetricData
                 </a>
                </td>
-               <td tabindex="-1">
-                Grants permission to publish metric data points to Amazon CloudWatch
+               <td rowspan="2" tabindex="-1">
+                Grants permission to publish metric data points to Amazon CloudWatch using CloudWatch and OTLP formats
                </td>
-               <td tabindex="-1">
+               <td rowspan="2" tabindex="-1">
                 Write
                </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -2004,15 +2316,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatch-TagResource" rowspan="11" tabindex="-1">
+               <td id="amazoncloudwatch-TagResource" rowspan="17" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">
                  TagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to add tags to an Amazon CloudWatch resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2023,6 +2335,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2036,6 +2353,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2049,6 +2371,29 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2062,6 +2407,47 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2075,6 +2461,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2172,6 +2563,29 @@
                  <b>
                   SCENARIO:
                  </b>
+                 CloudWatch-Dataset
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
                  CloudWatch-InsightRule
                 </p>
                </td>
@@ -2181,6 +2595,52 @@
                 <p>
                  <a href="#amazoncloudwatch-insight-rule">
                   insight-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-MetricStream
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-Service
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service*
                  </a>
                 </p>
                </td>
@@ -2213,15 +2673,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazoncloudwatch-UntagResource" rowspan="11" tabindex="-1">
+               <td id="amazoncloudwatch-UntagResource" rowspan="17" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">
                  UntagResource
                 </a>
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Grants permission to remove a tag from an Amazon CloudWatch resource
                </td>
-               <td rowspan="6" tabindex="-1">
+               <td rowspan="9" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -2232,6 +2692,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2245,6 +2710,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2258,6 +2728,29 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2271,6 +2764,47 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2284,6 +2818,11 @@
                 </p>
                </td>
                <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
                <td tabindex="-1">
                </td>
@@ -2376,6 +2915,29 @@
                  <b>
                   SCENARIO:
                  </b>
+                 CloudWatch-Dataset
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-dataset">
+                  dataset*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
                  CloudWatch-InsightRule
                 </p>
                </td>
@@ -2385,6 +2947,52 @@
                 <p>
                  <a href="#amazoncloudwatch-insight-rule">
                   insight-rule*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-MetricStream
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-metric-stream">
+                  metric-stream*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <b>
+                  SCENARIO:
+                 </b>
+                 CloudWatch-Service
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-service">
+                  service*
                  </a>
                 </p>
                </td>
@@ -2568,6 +3176,41 @@
                   {
                  </span>
                  DashboardName}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazoncloudwatch-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazoncloudwatch-dataset" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html">
+                 dataset
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:cloudwatch:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:dataset/$
+                 <span>
+                  {
+                 </span>
+                 DatasetId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -2769,7 +3412,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on the allowed set of values for each of the tags
+                Filters access by the presence of tags in the request
                </td>
                <td tabindex="-1">
                 String
@@ -2782,7 +3425,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on tag-value associated with the resource
+                Filters access by tags associated with the resource
                </td>
                <td tabindex="-1">
                 String
@@ -2795,7 +3438,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on the presence of mandatory tags in the request
+                Filters access by the presence of tags in the request
                </td>
                <td tabindex="-1">
                 ArrayOfString
@@ -2808,7 +3451,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on defined alarm actions
+                Filters access by defined alarm actions
                </td>
                <td tabindex="-1">
                 ArrayOfString
@@ -2821,7 +3464,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on the presence of optional namespace values
+                Filters access by the presence of optional namespace values
                </td>
                <td tabindex="-1">
                 String
@@ -2834,7 +3477,7 @@
                 </a>
                </td>
                <td tabindex="-1">
-                Filters actions based on the Log Groups specified in an Insight Rule
+                Filters access by the Log Groups specified in an Insight Rule
                </td>
                <td tabindex="-1">
                 ArrayOfString

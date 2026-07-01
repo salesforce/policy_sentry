@@ -592,6 +592,58 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-AcceptTransitGatewayClientVpnAttachment" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptTransitGatewayClientVpnAttachment.html">
+                 AcceptTransitGatewayClientVpnAttachment
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to accept a transit gateway attachment request for a Client VPN endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-transit-gateway-attachment">
+                  transit-gateway-attachment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_transitGatewayAttachmentId">
+                  ec2:transitGatewayAttachmentId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-AcceptTransitGatewayMulticastDomainAssociations" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptTransitGatewayMulticastDomainAssociations.html">
                  AcceptTransitGatewayMulticastDomainAssociations
@@ -1123,15 +1175,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-AllocateIpamPoolCidr" rowspan="2" tabindex="-1">
+               <td id="amazonec2-AllocateIpamPoolCidr" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">
                  AllocateIpamPoolCidr
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to allocate a CIDR from an Amazon VPC IP Address Manager (IPAM) pool
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -1150,6 +1202,32 @@
                 <p>
                  <a href="#amazonec2-ec2_ResourceTag___TagKey_">
                   ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ipam-pool-allocation">
+                  ipam-pool-allocation
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -1921,7 +1999,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonec2-subnet">
-                  subnet*
+                  subnet
                  </a>
                 </p>
                </td>
@@ -3679,6 +3757,78 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-AttachImageWatermark" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachImageWatermark.html">
+                 AttachImageWatermark
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to attach a watermark to an Amazon Machine Image (AMI)
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-image">
+                  image*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageID">
+                  ec2:ImageID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageType">
+                  ec2:ImageType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Public">
+                  ec2:Public
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RootDeviceType">
+                  ec2:RootDeviceType
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-AttachInternetGateway" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html">
                  AttachInternetGateway
@@ -4678,15 +4828,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-CancelCapacityReservation" rowspan="2" tabindex="-1">
+               <td id="amazonec2-CancelCapacityReservation" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelCapacityReservation.html">
                  CancelCapacityReservation
                 </a>
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Grants permission to cancel a Capacity Reservation and release the reserved capacity
                </td>
-               <td rowspan="2" tabindex="-1">
+               <td rowspan="3" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -4705,6 +4855,29 @@
                 <p>
                  <a href="#amazonec2-ec2_CapacityReservationFleet">
                   ec2:CapacityReservationFleet
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-capacity-reservation-cancellation-quote">
+                  capacity-reservation-cancellation-quote
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -5820,6 +5993,79 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-CreateCapacityReservationCancellationQuote" rowspan="3" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationCancellationQuote.html">
+                 CreateCapacityReservationCancellationQuote
+                </a>
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Grants permission to generate a cancellation quote for a future-dated Capacity Reservation
+               </td>
+               <td rowspan="3" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-capacity-reservation">
+                  capacity-reservation*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 ec2:CreateTags
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-capacity-reservation-cancellation-quote">
+                  capacity-reservation-cancellation-quote*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-CreateCapacityReservationFleet" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationFleet.html">
                  CreateCapacityReservationFleet
@@ -5962,15 +6208,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-CreateClientVpnEndpoint" rowspan="4" tabindex="-1">
+               <td id="amazonec2-CreateClientVpnEndpoint" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateClientVpnEndpoint.html">
                  CreateClientVpnEndpoint
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to create a Client VPN endpoint
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -6050,6 +6296,34 @@
                 <p>
                  <a href="#amazonec2-ec2_SecurityGroupID">
                   ec2:SecurityGroupID
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-transit-gateway">
+                  transit-gateway
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_transitGatewayId">
+                  ec2:transitGatewayId
                  </a>
                 </p>
                </td>
@@ -6165,7 +6439,7 @@
                <td tabindex="-1">
                 <p>
                  <a href="#amazonec2-subnet">
-                  subnet*
+                  subnet
                  </a>
                 </p>
                </td>
@@ -7135,7 +7409,13 @@
                </td>
                <td tabindex="-1">
                 <p>
+                 autoscaling:DescribeTags
+                </p>
+                <p>
                  ec2:CreateTags
+                </p>
+                <p>
+                 ec2:DescribeTags
                 </p>
                 <p>
                  ecs:ListClusters
@@ -7151,6 +7431,9 @@
                 </p>
                 <p>
                  ecs:ListTasks
+                </p>
+                <p>
+                 iam:CreateServiceLinkedRole
                 </p>
                 <p>
                  iam:PassRole
@@ -12635,15 +12918,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-CreateTags" rowspan="103" tabindex="-1">
+               <td id="amazonec2-CreateTags" rowspan="105" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">
                  CreateTags
                 </a>
                </td>
-               <td rowspan="103" tabindex="-1">
+               <td rowspan="105" tabindex="-1">
                 Grants permission to add or overwrite one or more tags for Amazon EC2 resources
                </td>
-               <td rowspan="103" tabindex="-1">
+               <td rowspan="105" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -12733,6 +13016,39 @@
                 <p>
                  <a href="#amazonec2-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-capacity-reservation-cancellation-quote">
+                  capacity-reservation-cancellation-quote
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
                  </a>
                 </p>
                </td>
@@ -13865,6 +14181,39 @@
                 <p>
                  <a href="#amazonec2-ipam-pool">
                   ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ipam-pool-allocation">
+                  ipam-pool-allocation
                  </a>
                 </p>
                </td>
@@ -23266,15 +23615,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-DeleteTags" rowspan="103" tabindex="-1">
+               <td id="amazonec2-DeleteTags" rowspan="105" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTags.html">
                  DeleteTags
                 </a>
                </td>
-               <td rowspan="103" tabindex="-1">
+               <td rowspan="105" tabindex="-1">
                 Grants permission to delete one or more tags from Amazon EC2 resources
                </td>
-               <td rowspan="103" tabindex="-1">
+               <td rowspan="105" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -23347,6 +23696,39 @@
                 <p>
                  <a href="#amazonec2-capacity-reservation">
                   capacity-reservation
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-capacity-reservation-cancellation-quote">
+                  capacity-reservation-cancellation-quote
                  </a>
                 </p>
                </td>
@@ -24271,6 +24653,39 @@
                 <p>
                  <a href="#amazonec2-ipam-pool">
                   ipam-pool
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ipam-pool-allocation">
+                  ipam-pool-allocation
                  </a>
                 </p>
                </td>
@@ -26924,6 +27339,58 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DeleteTransitGatewayClientVpnAttachment" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTransitGatewayClientVpnAttachment.html">
+                 DeleteTransitGatewayClientVpnAttachment
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a transit gateway attachment for a Client VPN endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-transit-gateway-attachment">
+                  transit-gateway-attachment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_transitGatewayAttachmentId">
+                  ec2:transitGatewayAttachmentId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DeleteTransitGatewayConnect" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTransitGatewayConnect.html">
                  DeleteTransitGatewayConnect
@@ -29409,6 +29876,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-DescribeCapacityReservationCancellationQuotes" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservationCancellationQuotes.html">
+                 DescribeCapacityReservationCancellationQuotes
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe one or more Capacity Reservation cancellation quotes
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-DescribeCapacityReservationFleets" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservationFleets.html">
                  DescribeCapacityReservationFleets
@@ -31182,6 +31673,30 @@
                </td>
                <td tabindex="-1">
                 Grants permission to describe Amazon VPC IP Address Manager (IPAM) policies
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DescribeIpamPoolAllocations" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamPoolAllocations.html">
+                 DescribeIpamPoolAllocations
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to describe IPAM pool allocations
                </td>
                <td tabindex="-1">
                 List
@@ -34414,6 +34929,78 @@
                 <p>
                  <a href="#amazonec2-ec2_VpcID">
                   ec2:VpcID
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-DetachImageWatermark" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachImageWatermark.html">
+                 DetachImageWatermark
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to detach a watermark from an Amazon Machine Image (AMI)
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-image">
+                  image*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageID">
+                  ec2:ImageID
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ImageType">
+                  ec2:ImageType
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Owner">
+                  ec2:Owner
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Public">
+                  ec2:Public
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_RootDeviceType">
+                  ec2:RootDeviceType
                  </a>
                 </p>
                </td>
@@ -39907,6 +40494,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-GetCapacityManagerMonitoredTagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCapacityManagerMonitoredTagKeys.html">
+                 GetCapacityManagerMonitoredTagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the tag keys that are currently being monitored by EC2 Capacity Manager
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-GetCapacityReservationUsage" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCapacityReservationUsage.html">
                  GetCapacityReservationUsage
@@ -41794,6 +42405,30 @@
                </td>
               </tr>
               <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-GetManagedResourceVisibility" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetManagedResourceVisibility.html">
+                 GetManagedResourceVisibility
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to retrieve the managed resource visibility configuration for the account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -44449,15 +45084,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-ModifyClientVpnEndpoint" rowspan="4" tabindex="-1">
+               <td id="amazonec2-ModifyClientVpnEndpoint" rowspan="5" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyClientVpnEndpoint.html">
                  ModifyClientVpnEndpoint
                 </a>
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Grants permission to modify a Client VPN endpoint
                </td>
-               <td rowspan="4" tabindex="-1">
+               <td rowspan="5" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -44549,6 +45184,34 @@
                 <p>
                  <a href="#amazonec2-ec2_Vpc">
                   ec2:Vpc
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-transit-gateway">
+                  transit-gateway
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_transitGatewayId">
+                  ec2:transitGatewayId
                  </a>
                 </p>
                </td>
@@ -46988,6 +47651,63 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-ModifyIpamPoolAllocation" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamPoolAllocation.html">
+                 ModifyIpamPoolAllocation
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to modify the description of an IPAM pool allocation
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ipam-pool-allocation">
+                  ipam-pool-allocation*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute">
+                  ec2:Attribute
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-ModifyIpamPrefixListResolver" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamPrefixListResolver.html">
                  ModifyIpamPrefixListResolver
@@ -47553,6 +48273,30 @@
                </td>
               </tr>
               <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ModifyManagedResourceVisibility" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyManagedResourceVisibility.html">
+                 ModifyManagedResourceVisibility
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to modify the managed resource visibility configuration for the account
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
@@ -52971,6 +53715,58 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-RejectTransitGatewayClientVpnAttachment" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RejectTransitGatewayClientVpnAttachment.html">
+                 RejectTransitGatewayClientVpnAttachment
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to reject a transit gateway attachment request for a Client VPN endpoint
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-transit-gateway-attachment">
+                  transit-gateway-attachment*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_transitGatewayAttachmentId">
+                  ec2:transitGatewayAttachmentId
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-RejectTransitGatewayMulticastDomainAssociations" rowspan="3" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RejectTransitGatewayMulticastDomainAssociations.html">
                  RejectTransitGatewayMulticastDomainAssociations
@@ -56005,15 +56801,15 @@
                </td>
               </tr>
               <tr>
-               <td id="amazonec2-RunInstances" rowspan="23" tabindex="-1">
+               <td id="amazonec2-RunInstances" rowspan="25" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">
                  RunInstances
                 </a>
                </td>
-               <td rowspan="17" tabindex="-1">
+               <td rowspan="19" tabindex="-1">
                 Grants permission to launch one or more instances
                </td>
-               <td rowspan="17" tabindex="-1">
+               <td rowspan="19" tabindex="-1">
                 Write
                </td>
                <td tabindex="-1">
@@ -56606,6 +57402,29 @@
               <tr>
                <td tabindex="-1">
                 <p>
+                 <a href="#amazonec2-secondary-interface">
+                  secondary-interface
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
                  <a href="#amazonec2-secondary-subnet">
                   secondary-subnet
                  </a>
@@ -56678,6 +57497,29 @@
                 <p>
                  <a href="#amazonec2-ec2_VolumeSize">
                   ec2:VolumeSize
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-spot-instances-request">
+                  spot-instances-request
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
                  </a>
                 </p>
                </td>
@@ -58702,6 +59544,30 @@
                </td>
               </tr>
               <tr>
+               <td id="amazonec2-UpdateCapacityManagerMonitoredTagKeys" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UpdateCapacityManagerMonitoredTagKeys.html">
+                 UpdateCapacityManagerMonitoredTagKeys
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to activate or deactivate tag keys for monitoring by EC2 Capacity Manager
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="amazonec2-UpdateCapacityManagerOrganizationsAccess" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UpdateCapacityManagerOrganizationsAccess.html">
                  UpdateCapacityManagerOrganizationsAccess
@@ -59197,6 +60063,71 @@
                   {
                  </span>
                  CapacityManagerDataExportId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute">
+                  ec2:Attribute
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-capacity-reservation-cancellation-quote" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format">
+                 capacity-reservation-cancellation-quote
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:capacity-reservation-cancellation-quote/$
+                 <span>
+                  {
+                 </span>
+                 CapacityReservationCancellationQuoteId}
                 </code>
                </td>
                <td tabindex="-1">
@@ -61181,6 +62112,71 @@
                   {
                  </span>
                  IpamPolicyId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#amazonec2-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute">
+                  ec2:Attribute
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Attribute___AttributeName_">
+                  ec2:Attribute/${AttributeName}
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_Region">
+                  ec2:Region
+                 </a>
+                </p>
+                <p>
+                 <a href="#amazonec2-ec2_ResourceTag___TagKey_">
+                  ec2:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="amazonec2-ipam-pool-allocation" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format">
+                 ipam-pool-allocation
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ec2:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:ipam-pool-allocation/$
+                 <span>
+                  {
+                 </span>
+                 IpamPoolAllocationId}
                 </code>
                </td>
                <td tabindex="-1">
