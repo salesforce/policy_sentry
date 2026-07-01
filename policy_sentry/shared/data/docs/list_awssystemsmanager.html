@@ -338,15 +338,15 @@
                </tr>
               </thead>
               <tr>
-               <td id="awssystemsmanager-AddTagsToResource" rowspan="12" tabindex="-1">
+               <td id="awssystemsmanager-AddTagsToResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html">
                  AddTagsToResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to add or overwrite one or more tags for a specified AWS resource
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -366,6 +366,19 @@
                 <p>
                  <a href="#awssystemsmanager-automation-execution">
                   automation-execution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector
                  </a>
                 </p>
                </td>
@@ -770,6 +783,57 @@
                </td>
               </tr>
               <tr>
+               <td id="awssystemsmanager-CreateCloudConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateCloudConnector.html">
+                 CreateCloudConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a cloud connector for managing instances in other cloud environments
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 config:GetConnector
+                </p>
+                <p>
+                 config:PutThirdPartyServiceLinkedConfigurationRecorder
+                </p>
+                <p>
+                 iam:PassRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awssystemsmanager-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssystemsmanager-CreateDocument" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html">
                  CreateDocument
@@ -1052,6 +1116,55 @@
                <td tabindex="-1">
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-DeleteCloudConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteCloudConnector.html">
+                 DeleteCloudConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to delete a specified cloud connector
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 config:DeleteServiceLinkedConfigurationRecorder
+                </p>
+                <p>
+                 config:GetConnector
+                </p>
+                <p>
+                 config:PutThirdPartyServiceLinkedConfigurationRecorder
+                </p>
+                <p>
+                 ssm:ListAssociations
+                </p>
                </td>
               </tr>
               <tr>
@@ -2608,6 +2721,43 @@
                </td>
               </tr>
               <tr>
+               <td id="awssystemsmanager-GetCloudConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetCloudConnector.html">
+                 GetCloudConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to view details about a specified cloud connector
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssystemsmanager-GetCommandInvocation" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetCommandInvocation.html">
                  GetCommandInvocation
@@ -3392,6 +3542,25 @@
                </td>
               </tr>
               <tr>
+               <td id="awssystemsmanager-ListCloudConnectors" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCloudConnectors.html">
+                 ListCloudConnectors
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list cloud connectors in your account
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssystemsmanager-ListCommandInvocations" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCommandInvocations.html">
                  ListCommandInvocations
@@ -3778,15 +3947,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-ListTagsForResource" rowspan="10" tabindex="-1">
+               <td id="awssystemsmanager-ListTagsForResource" rowspan="11" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListTagsForResource.html">
                  ListTagsForResource
                 </a>
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 Grants permission to view a list of resource tags for a specified resource
                </td>
-               <td rowspan="10" tabindex="-1">
+               <td rowspan="11" tabindex="-1">
                 List
                </td>
                <td tabindex="-1">
@@ -3806,6 +3975,19 @@
                 <p>
                  <a href="#awssystemsmanager-automation-execution">
                   automation-execution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector
                  </a>
                 </p>
                </td>
@@ -4307,15 +4489,15 @@
                </td>
               </tr>
               <tr>
-               <td id="awssystemsmanager-RemoveTagsFromResource" rowspan="12" tabindex="-1">
+               <td id="awssystemsmanager-RemoveTagsFromResource" rowspan="13" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RemoveTagsFromResource.html">
                  RemoveTagsFromResource
                 </a>
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Grants permission to remove a specified tag key from a specified resource
                </td>
-               <td rowspan="12" tabindex="-1">
+               <td rowspan="13" tabindex="-1">
                 Tagging
                </td>
                <td tabindex="-1">
@@ -4335,6 +4517,19 @@
                 <p>
                  <a href="#awssystemsmanager-automation-execution">
                   automation-execution
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector
                  </a>
                 </p>
                </td>
@@ -5291,6 +5486,49 @@
                </td>
               </tr>
               <tr>
+               <td id="awssystemsmanager-UpdateCloudConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateCloudConnector.html">
+                 UpdateCloudConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to update a specified cloud connector
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 config:GetConnector
+                </p>
+                <p>
+                 config:PutThirdPartyServiceLinkedConfigurationRecorder
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awssystemsmanager-UpdateDocument" rowspan="2" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateDocument.html">
                  UpdateDocument
@@ -5811,6 +6049,43 @@
                <td tabindex="-1">
                </td>
               </tr>
+              <tr>
+               <td id="awssystemsmanager-ValidateCloudConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ValidateCloudConnector.html">
+                 ValidateCloudConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to verify that a specified cloud connector is functioning properly and to retrieve any validation findings or issues detected
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-cloud-connector">
+                  cloud-connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
              </table>
             </div>
            </div>
@@ -6000,6 +6275,41 @@
                 </code>
                </td>
                <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awssystemsmanager-cloud-connector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/cloud-connectors.html">
+                 cloud-connector
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:ssm:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:cloud-connector/$
+                 <span>
+                  {
+                 </span>
+                 CloudConnectorId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awssystemsmanager-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
                </td>
               </tr>
               <tr>

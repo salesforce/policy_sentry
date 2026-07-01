@@ -540,6 +540,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awsconfig-DeleteConnector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConnector.html">
+                 DeleteConnector
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to delete a connector configuration
+               </td>
+               <td tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-Connector">
+                  Connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsconfig-DeleteDeliveryChannel" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html">
                  DeleteDeliveryChannel
@@ -1625,6 +1649,30 @@
                </td>
               </tr>
               <tr>
+               <td id="awsconfig-GetConnector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetConnector.html">
+                 GetConnector
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to return the details of a specific connector configuration
+               </td>
+               <td tabindex="-1">
+                Read
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-Connector">
+                  Connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsconfig-GetCustomRulePolicy" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetCustomRulePolicy.html">
                  GetCustomRulePolicy
@@ -1852,6 +1900,25 @@
                </td>
                <td tabindex="-1">
                 Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations
+               </td>
+               <td tabindex="-1">
+                List
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-ListConnectors" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ListConnectors.html">
+                 ListConnectors
+                </a>
+               </td>
+               <td tabindex="-1">
+                Grants permission to list all connectors in the AWS account and region
                </td>
                <td tabindex="-1">
                 List
@@ -2268,6 +2335,51 @@
                </td>
               </tr>
               <tr>
+               <td id="awsconfig-PutConnector" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">
+                 PutConnector
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create a connector configuration that contains provider identity information, as well as other optional provider-specific information required for third-party recording
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-Connector">
+                  Connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 iam:CreateServiceLinkedRole
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
                <td id="awsconfig-PutDeliveryChannel" tabindex="-1">
                 <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html">
                  PutDeliveryChannel
@@ -2564,6 +2676,56 @@
                 <p>
                  <a href="#awsconfig-aws_TagKeys">
                   aws:TagKeys
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-PutThirdPartyServiceLinkedConfigurationRecorder" rowspan="2" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.html">
+                 PutThirdPartyServiceLinkedConfigurationRecorder
+                </a>
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Grants permission to create or update a service-linked configuration recorder for a third-party provider linked to a specific AWS partner service
+               </td>
+               <td rowspan="2" tabindex="-1">
+                Write
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-Connector">
+                  Connector*
+                 </a>
+                </p>
+               </td>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 config:GetConnector
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td tabindex="-1">
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_RequestTag___TagKey_">
+                  aws:RequestTag/${TagKey}
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-aws_TagKeys">
+                  aws:TagKeys
+                 </a>
+                </p>
+                <p>
+                 <a href="#awsconfig-config_ConfigurationRecorderServicePrincipal">
+                  config:ConfigurationRecorderServicePrincipal
                  </a>
                 </p>
                </td>
@@ -3369,6 +3531,49 @@
                   {
                  </span>
                  RecorderId}
+                </code>
+               </td>
+               <td tabindex="-1">
+                <p>
+                 <a href="#awsconfig-aws_ResourceTag___TagKey_">
+                  aws:ResourceTag/${TagKey}
+                 </a>
+                </p>
+               </td>
+              </tr>
+              <tr>
+               <td id="awsconfig-Connector" tabindex="-1">
+                <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_Connector.html">
+                 Connector
+                </a>
+               </td>
+               <td tabindex="-1">
+                <code class="code">
+                 arn:$
+                 <span>
+                  {
+                 </span>
+                 Partition}:config:$
+                 <span>
+                  {
+                 </span>
+                 Region}:$
+                 <span>
+                  {
+                 </span>
+                 Account}:connector/$
+                 <span>
+                  {
+                 </span>
+                 Provider}/$
+                 <span>
+                  {
+                 </span>
+                 ProviderId}/$
+                 <span>
+                  {
+                 </span>
+                 ConnectorId}
                 </code>
                </td>
                <td tabindex="-1">
