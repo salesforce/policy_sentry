@@ -58,7 +58,7 @@ wildcard-only:
 If you are doing this manually, and you want to figure out if an AWS service has any IAM actions that do not support resource ARN constraints, we can run the policy sentry query:
 
 ```bash
-policy_sentry query action-table --service s3 --wildcard-only
+policy_sentry query action-table --service s3 --resource-type "*"
 ```
 
 The output will resemble the following:
