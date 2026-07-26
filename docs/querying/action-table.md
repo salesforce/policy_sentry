@@ -33,24 +33,24 @@ Options
 ```text
 Usage: policy_sentry query action-table [OPTIONS]
 
+  Query the Action Table from the Policy Sentry database
+
 Options:
-  --service TEXT                  Filter according to AWS service.  [required]
-  --name TEXT                     The name of IAM Action. For example, if the
+  -s, --service TEXT              Filter according to AWS service.  [required]
+  -n, --name TEXT                 The name of IAM Action. For example, if the
                                   action is "iam:ListUsers", supply
                                   "ListUsers" here.
-  --access-level [read|write|list|tagging|permissions-management]
-                                  If action table is chosen, you can use this
-                                  to filter according to CRUD levels.
-                                  Acceptable values are read, write, list,
-                                  tagging, permissions-management
-  --condition TEXT                If action table is chosen, you can supply a
-                                  condition key to show a list of all IAM
-                                  actions that support the condition key.
-  --resource-type TEXT            Supply a resource type to show a list of all
+  -a, --access-level [read|write|list|tagging|permissions-management]
+                                  Filter according to CRUD levels. Acceptable
+                                  values are read, write, list, tagging,
+                                  permissions-management
+  -c, --condition TEXT            Supply a condition key to show a list of all
+                                  IAM actions that support the condition key.
+  -r, --resource-type TEXT        Supply a resource type to show a list of all
                                   IAM actions that support the resource type.
   --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
-                                  "yaml"
-  --v                             Set the logging level. Choices are CRITICAL, ERROR, WARNING, INFO, or DEBUG. Defaults to INFO
+                                  "json"
+  -v, --verbose [critical|error|warning|info|debug]
   --help                          Show this message and exit.
 ```
 

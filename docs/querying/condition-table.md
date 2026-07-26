@@ -15,16 +15,17 @@ Options
 ```text
 Usage: policy_sentry query condition-table [OPTIONS]
 
-  Query the condition keys table from the Policy Sentry database
+  Query the condition table from the Policy Sentry database
 
 Options:
-  --name TEXT        Get details on a specific condition key. Leave this blank
-                     to get a list of all condition keys available to the
-                     service.
-  --service TEXT     Filter according to AWS service.  [required]
-  --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-    -v, LVL          Either CRITICAL, ERROR, WARNING, INFO or DEBUG
-  --help             Show this message and exit.
+  -n, --name TEXT                 Get details on a specific condition key.
+                                  Leave this blank to get a list of all
+                                  condition keys available to the service.
+  -s, --service TEXT              Filter according to AWS service.  [required]
+  --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
+                                  "json"
+  -v, --verbose [critical|error|warning|info|debug]
+  --help                          Show this message and exit.
 ```
 
 ## Examples

@@ -21,14 +21,15 @@ Usage: policy_sentry query arn-table [OPTIONS]
   Query the ARN Table from the Policy Sentry database
 
 Options:
-  --service TEXT     Filter according to AWS service.  [required]
-  --name TEXT        The short name of the resource ARN type. For example,
-                     `bucket` under service `s3`.
-  --list-arn-types   Show the short names of ARN Types. If empty, this will
-                     show RAW ARNs only.
-  --fmt [yaml|json]  Format output as YAML or JSON. Defaults to "yaml"
-    -v, LVL          Either CRITICAL, ERROR, WARNING, INFO or DEBUG
-  --help             Show this message and exit.
+  -s, --service TEXT              Filter according to AWS service.  [required]
+  -n, --name TEXT                 The short name of the resource ARN type. For
+                                  example, `bucket` under service `s3`.
+  -l, --list-arn-types            Show the short names of ARN Types. If empty,
+                                  this will show RAW ARNs only.
+  --fmt [yaml|json]               Format output as YAML or JSON. Defaults to
+                                  "json"
+  -v, --verbose [critical|error|warning|info|debug]
+  --help                          Show this message and exit.
 ```
 
 
