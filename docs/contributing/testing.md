@@ -8,59 +8,29 @@ Uv
 uv sync --frozen
 ```
 
-Invoke
-------
+Just
+----
 
 To run and develop Policy Sentry without having to install from PyPi,
-you can use Invoke.
+you can use the [just](https://github.com/casey/just) task runner.
 
 ```bash
-# List available tasks
-invoke -l
+# List available recipes
+just --list
 
-# that will show the following options:
-Available tasks:
+# Unit tests: runs pytest with coverage (what CI runs)
+just unit-tests
 
-  build.build-package          Build the policy_sentry package from the current
-                               directory contents for use with PyPi
-  build.install-package        Install the policy_sentry package built from the
-                               current directory contents (not PyPi)
-  build.uninstall-package      Uninstall the policy_sentry package
-  build.upload-prod            Upload the package to the PyPi production server
-                               (requires credentials)
-  build.upload-test            Upload the package to the TestPyPi server
-                               (requires credentials)
-  docs.make-html               Make the HTML docs locally
-  docs.open-html-docs          Open HTML docs in Google Chrome locally on your
-                               computer
-  docs.remove-html-files       Remove the html files
-  integration.analyze-policy   Integration testing: Tests the `analyze`
-                               functionality
-  integration.clean            Runs `rm -rf $HOME/.policy_sentry`
-  integration.initialize       Integration testing: Initialize the
-                               policy_sentry database
-  integration.query            Integration testing: Tests the `query`
-                               functionality (querying the IAM database)
-  integration.query-yaml       Integration testing: Tests the `query`
-                               functionality (querying the IAM database) - but
-                               with yaml
-  integration.version          Print the version
-  integration.write-policy     Integration testing: Tests the `write-policy`
-                               function.
-  test.security                Runs `safety check`
-  unit.pytest                  Unit testing: Runs unit tests using `pytest`
+# Integration tests: initializes the database and exercises the CLI
+# (query action-table/arn-table/condition-table, write-policy)
+just integration-tests
 
+# Build the package
+just build-package
 
-# To run them, specify `invoke` plus the options:
-invoke build.build-package
-
-invoke integration.clean
-invoke integration.initialize
-invoke integration.analyze-policy
-invoke integration.query
-invoke integration.write-policy
-
-invoke test.security
+# Build and serve the docs locally
+just build-docs
+just serve-docs
 ```
 
 Local Unit Testing and Integration Testing:
@@ -76,16 +46,15 @@ See the writeup here: [https://github.com/salesforce/policy_sentry/pull/254#issu
 Just run this from the root of the repository:
 
 We highly suggest that you run all the tests before pushing a
-significant commit. It would be painful to copy/paste all of those lines
-above - so we've compiled a test script in the `utils`
-folder.
+significant commit.
 
 ```bash
-./utils/run_tests.sh
+just unit-tests
+just integration-tests
 ```
 
-It will execute all of the tests that would normally be run during the  build. If you want to see if it will pass GitHub actions, you can
-just run that quick command on your machine.
+These are the same recipes that run during the GitHub Actions build, so
+if they pass on your machine the CI test jobs should pass too.
 
 Running the Test Suite
 ----------------------
@@ -105,10 +74,10 @@ pytest -v --show-capture=no
 pytest -v --log-level=DEBUG
 ```
 
--   Alternatively, you can use `invoke`, as mentioned above:
+-   Alternatively, you can use `just`, as mentioned above:
 
 ```bash
-invoke unit.pytest
+just unit-tests
 ```
 
 Output:
