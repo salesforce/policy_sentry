@@ -112,7 +112,7 @@ def update_html_docs_directory(html_docs_destination: Path) -> None:
                 if "src" in script.attrs and script.get("src").startswith("/"):
                     temp = script.attrs["src"]
                     script.attrs["src"] = script.attrs["src"].replace(temp, f"https://docs.aws.amazon.com{temp}")
-            except TypeError as t_e:  # noqa: PERF203
+            except TypeError as t_e:  # ruff: ignore[try-except-in-loop]
                 logger.warning(t_e)
                 logger.warning(script)
             except AttributeError as a_e:
@@ -161,7 +161,7 @@ def create_database(destination_directory: str | Path, access_level_overrides_fi
 
     # for filename in ['list_amazonathena.partial.html']:
     file_list = []
-    for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):  # noqa: PTH208
+    for filename in os.listdir(LOCAL_HTML_DIRECTORY_PATH):  # ruff: ignore[os-listdir]
         if (LOCAL_HTML_DIRECTORY_PATH / filename).is_file() and filename not in file_list:
             file_list.append(filename)
 

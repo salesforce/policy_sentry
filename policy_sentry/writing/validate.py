@@ -32,7 +32,7 @@ def check(conf_schema: Schema, conf: dict[str, Any]) -> bool:
             detailed_error_message = schema_error.autos[2]
             print(detailed_error_message.split(" in {'")[0])  # ty: ignore[unresolved-attribute]
             # for error in schema_error.autos:
-        except:  # noqa: E722
+        except:  # ruff: ignore[bare-except]
             logger.critical(schema_error)
         return False
 

@@ -1,183 +1,165 @@
+[build-system]
+build-backend = "hatchling.build"
+# `uv_build` backend doesn't support build hooks yet https://github.com/astral-sh/uv/issues/14561
+requires = [ "hatchling" ]
+
 [project]
-name = "policy_sentry"
-dynamic = ["version"]
+name = "policy-sentry"
 description = "Generate locked-down AWS IAM Policies"
-authors = [
-    { name = "Kinnaird McQuade", email = "kinnairdm@gmail.com" }
-]
-license = "MIT"
-license-files = ["LICENSE"]
-keywords = ["aws", "iam", "roles", "policy", "policies", "privileges", "security"]
-classifiers = [
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
-    "Typing :: Typed"
-]
 readme = "README.md"
-
+keywords = [ "aws", "iam", "policies", "policy", "privileges", "roles", "security" ]
+license = "MIT"
+license-files = [ "LICENSE" ]
+authors = [ { name = "Kinnaird McQuade", email = "kinnairdm@gmail.com" } ]
 requires-python = ">=3.10"
-
-dependencies = [
-    "beautifulsoup4>=4.14.0,<5.0.0",
-    "click>=8.1.0,<9.0.0",
-    "requests>=2.33.0,<3.0.0",
-    "schema>=0.7.0,<0.8.0",
-    "PyYAML>=6.0.0,<7.0.0",
-    "orjson>=3.11.0,<4.0.0",
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
 ]
-
-[project.scripts]
-policy_sentry = "policy_sentry.bin.cli:main"
-
-[project.urls]
-Homepage = "https://github.com/salesforce/policy_sentry"
-Repository = "https://github.com/salesforce/policy_sentry"
-Code = "https://github.com/salesforce/policy_sentry/"
-Documentation = "https://policy-sentry.readthedocs.io/"
-"Red Team Report" = "https://opensource.salesforce.com/policy_sentry"
-Twitter = "https://twitter.com/kmcquade3"
+dynamic = [ "version" ]
+dependencies = [
+  "beautifulsoup4>=4.14.0,<5.0.0",
+  "click>=8.1.0,<9.0.0",
+  "orjson>=3.11.0,<4.0.0",
+  "pyyaml>=6.0.0,<7.0.0",
+  "requests>=2.33.0,<3.0.0",
+  "schema>=0.7.0,<0.8.0",
+]
+urls."Red Team Report" = "https://opensource.salesforce.com/policy_sentry"
+urls.Code = "https://github.com/salesforce/policy_sentry/"
+urls.Documentation = "https://policy-sentry.readthedocs.io/"
+urls.Homepage = "https://github.com/salesforce/policy_sentry"
+urls.Repository = "https://github.com/salesforce/policy_sentry"
+urls.Twitter = "https://twitter.com/kmcquade3"
+scripts.policy_sentry = "policy_sentry.bin.cli:main"
 
 [dependency-groups]
 dev = [
-    "coverage>=7.13.0,<8.0.0",
-    "prek>=0.4.4,<0.5.0",
-    "pytest>=9.0.0,<10.0.0",
-    "rust-just>=1.48.0,<2.0.0",
-    "types-beautifulsoup4>=4.12.0,<5.0.0",
-    "types-pyyaml>=6.0.12,<7.0.0",
-    "types-requests>=2.33.0,<3.0.0",
+  "coverage>=7.13.0,<8.0.0",
+  "prek>=0.4.4,<0.5.0",
+  "pytest>=9.0.0,<10.0.0",
+  "rust-just>=1.48.0,<2.0.0",
+  "types-beautifulsoup4>=4.12.0,<5.0.0",
+  "types-pyyaml>=6.0.12,<7.0.0",
+  "types-requests>=2.33.0,<3.0.0",
 ]
-
 docs = [
-    # unique to ReadTheDocs
-    "atomicwrites>=1.4.0,<2.0.0",
-    "distlib>=0.4.0,<0.5.0",
-    "docutils>=0.23.0,<0.24.0",
-    "filelock>=3.25.0,<4.0.0",
-    "mkdocs>=1.6.0,<2.0.0",
-    "mkdocs-material>=9.7.0,<10.0.0",
-    "mkdocs-material-extensions>=1.3.0,<2.0.0",
-    "mkdocstrings>=1.0.0,<2.0.0",
-    "mkdocstrings-python>=2.0.0,<3.0.0",
-    "mkdocstrings-python-legacy>=0.2.0,<0.3.0",
-    "pygments>=2.19.0,<3.0.0",
-    "pymdown-extensions>=11.0.1,<12.0.0",
-    "pytkdocs>=0.16.0,<0.17.0",
-    # Trying to see if RTFD needs these
-    "markdown>=3.10.0,<4.0.0",
-    "markupsafe>=3.0.0,<4.0.0",
-    "jinja2>=3.1.0,<4.0.0",
-    "typed-ast>=1.5.0,<2.0.0",
+  # unique to ReadTheDocs
+  "atomicwrites>=1.4.0,<2.0.0",
+  "distlib>=0.4.0,<0.5.0",
+  "docutils>=0.23.0,<0.24.0",
+  "filelock>=3.25.0,<4.0.0",
+  "jinja2>=3.1.0,<4.0.0",
+  # Trying to see if RTFD needs these
+  "markdown>=3.10.0,<4.0.0",
+  "markupsafe>=3.0.0,<4.0.0",
+  "mkdocs>=1.6.0,<2.0.0",
+  "mkdocs-material>=9.7.0,<10.0.0",
+  "mkdocs-material-extensions>=1.3.0,<2.0.0",
+  "mkdocstrings>=1.0.0,<2.0.0",
+  "mkdocstrings-python>=2.0.0,<3.0.0",
+  "mkdocstrings-python-legacy>=0.2.0,<0.3.0",
+  "pygments>=2.19.0,<3.0.0",
+  "pymdown-extensions>=11.0.1,<12.0.0",
+  "pytkdocs>=0.16.0,<0.17.0",
+  "typed-ast>=1.5.0,<2.0.0",
 ]
 
-[build-system]
-# `uv_build` backend doesn't support build hooks yet https://github.com/astral-sh/uv/issues/14561
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.hooks.custom]
-path = "hooks/minify_iam_data.py"
-
-[tool.hatch.build.targets.sdist]
-include = [
-    "/hooks",
-    "/policy_sentry",
-    "/test",
+[tool.hatch]
+version.path = "policy_sentry/bin/version.py"
+build.hooks.custom.path = "hooks/minify_iam_data.py"
+build.targets.wheel.packages = [ "policy_sentry" ]
+build.targets.sdist.include = [
+  "/hooks",
+  "/policy_sentry",
+  "/test",
 ]
-exclude = [
-    "/policy_sentry/shared/data/docs",
-]
-
-[tool.hatch.build.targets.wheel]
-packages = ["policy_sentry"]
-
-[tool.hatch.version]
-path = "policy_sentry/bin/version.py"
-
-[tool.ruff]
-line-length = 120
-target-version = "py310"
-
-[tool.ruff.lint]
-preview = true
-select = [
-    "A",
-    "ANN",
-    "ARG",
-    "B",
-    "C4",
-    "E",
-    "F",
-    "FURB",
-    "I",
-    "ISC",
-    "LOG",
-    "N",
-    "PERF",
-    "PIE",
-    "PLE",
-    "PLW",
-    "PTH",
-    "PYI",
-    "RET",
-    "RUF",
-    "S",
-    "SIM",
-    "T10",
-    "TC",
-    "UP",
-    "W",
-    "YTT",
-]
-ignore = [
-    "E501", # ruff fromat takes care of it
-    "PLW0717",
-]
-
-fixable = ["I001"]
-
-[tool.pytest]
-strict = true
-testpaths = [
-    "test",
-    "test/analysis",
-    "test/command",
-    "test/querying",
-    "test/util",
-    "test/writing",
-]
-norecursedirs = [
-    "_build",
-    "tmp*",
-    "__pycache__",
-]
-
-[tool.coverage.report]
-omit = [
-    "policy_sentry/shared/awsdocs.py",
-    # omit anything in a .local directory anywhere
-    "*/.local/*",
-    "*/virtualenv/*",
-    "*/venv/*",
-    "*/.venv/*",
-    "*/docs/*",
-    "*/examples/*",
-    "utils/*",
+build.targets.sdist.exclude = [
+  "/policy_sentry/shared/data/docs",
 ]
 
 [tool.uv]
 required-version = ">=0.11.0"
 
-[tool.ty.environment]
-python-version = "3.10"
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+lint.select = [
+  "A",
+  "ANN",
+  "ARG",
+  "B",
+  "C4",
+  "E",
+  "F",
+  "FURB",
+  "I",
+  "ISC",
+  "LOG",
+  "N",
+  "PERF",
+  "PIE",
+  "PLE",
+  "PLW",
+  "PTH",
+  "PYI",
+  "RET",
+  "RUF",
+  "S",
+  "SIM",
+  "T10",
+  "TC",
+  "UP",
+  "W",
+  "YTT",
+]
+lint.ignore = [
+  "E501",    # ruff fromat takes care of it
+  "PLW0717",
+]
+lint.fixable = [ "I001" ]
+lint.preview = true
 
-[tool.ty.src]
-include = ["examples", "policy_sentry", "utils"]
+[tool.pyproject-fmt]
+keep_full_version = true
+max_supported_python = "3.14"
 
-[tool.ty.rules]
-unused-ignore-comment = "error"
+[tool.ty]
+src.include = [ "examples", "policy_sentry", "utils" ]
+environment.python-version = "3.10"
+rules.unused-ignore-comment = "error"
+
+[tool.pytest]
+norecursedirs = [
+  "_build",
+  "tmp*",
+  "__pycache__",
+]
+strict = true
+testpaths = [
+  "test",
+  "test/analysis",
+  "test/command",
+  "test/querying",
+  "test/util",
+  "test/writing",
+]
+
+[tool.coverage]
+report.omit = [
+  # omit anything in a .local directory anywhere
+  "*/.local/*",
+  "*/.venv/*",
+  "*/docs/*",
+  "*/examples/*",
+  "*/venv/*",
+  "*/virtualenv/*",
+  "policy_sentry/shared/awsdocs.py",
+  "utils/*",
+]

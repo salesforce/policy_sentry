@@ -49,18 +49,18 @@ class RegisterMinimizeLengthCommand(click.Command):
 
     def parse_args(self, ctx: Context, args: list[str]) -> list[str]:
         options = [o for o in ctx.command.params if getattr(o, "register_length", None)]
-        prefixes = {p for p in sum((o.opts for o in options), []) if p.startswith("--")}  # noqa: RUF017
+        prefixes = {p for p in sum((o.opts for o in options), []) if p.startswith("--")}  # ruff: ignore[quadratic-list-summation]
         for i, a in enumerate(args):
             a_tuple = a.split("=")
             if a_tuple[0] in prefixes:
                 if len(a_tuple) > 1:
                     args[i] = a_tuple[0]
-                    args.insert(i + 1, a_tuple[0] + "_length=" + a_tuple[1])  # noqa: B909
+                    args.insert(i + 1, a_tuple[0] + "_length=" + a_tuple[1])  # ruff: ignore[loop-iterator-mutation]
                 else:
                     # check if next argument is naked
                     if len(args) > i + 1 and not args[i + 1].startswith("--"):
                         value = args[i + 1]
-                        args[i + 1] = a_tuple[0] + "_length=" + value  # noqa: B909
+                        args[i + 1] = a_tuple[0] + "_length=" + value  # ruff: ignore[loop-iterator-mutation]
         return super().parse_args(ctx, args)
 
 

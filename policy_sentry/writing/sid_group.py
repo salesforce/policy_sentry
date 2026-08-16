@@ -643,10 +643,12 @@ class SidGroup:
         if actions_under_wildcard_resources:
             for group in self.sids.values():
                 if "*" not in group["arn_format"]:
-                    for action in actions_under_wildcard_resources:
-                        if action in group["actions"] and action not in self.skip_resource_constraints:
-                            # add it to a list of actions to nuke when they are under other SIDs
-                            actions_under_wildcard_resources_to_nuke.append(action)  # noqa: PERF401
+                    # add it to a list of actions to nuke when they are under other SIDs
+                    actions_under_wildcard_resources_to_nuke.extend(
+                        action
+                        for action in actions_under_wildcard_resources
+                        if action in group["actions"] and action not in self.skip_resource_constraints
+                    )
 
         # If there are actions that we need to remove from SIDs outside of MultMultNone SID
         if actions_under_wildcard_resources_to_nuke:
@@ -681,9 +683,7 @@ def remove_actions_that_are_not_wildcard_arn_only(actions_list: list[str]) -> li
 
         action_lower = action.lower()
         rows = get_actions_that_support_wildcard_arns_only(service_name)
-        for row in rows:
-            if row.lower() == action_lower:
-                actions_list_placeholder.append(action)  # noqa: PERF401
+        actions_list_placeholder.extend(action for row in rows if row.lower() == action_lower)
     return actions_list_placeholder
 
 

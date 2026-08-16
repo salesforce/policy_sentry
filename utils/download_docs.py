@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent))
-from policy_sentry.shared.awsdocs import create_database, update_html_docs_directory  # noqa: I001
+from policy_sentry.shared.awsdocs import create_database, update_html_docs_directory  # ruff: ignore[unsorted-imports]
 from policy_sentry.shared.constants import (
     BUNDLED_ACCESS_OVERRIDES_FILE,
     BUNDLED_DATA_DIRECTORY,

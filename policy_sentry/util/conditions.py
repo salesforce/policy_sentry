@@ -63,7 +63,7 @@ def is_condition_key_match(document_key: str, some_str: str) -> bool:
         # Some services use a format like s3:ExistingObjectTag/<key>
         if some_str.startswith(document_key.split("<")[0]):
             return True
-    elif "tag-key" in document_key:  # noqa: SIM102
+    elif "tag-key" in document_key:  # ruff: ignore[collapsible-if]
         # Some services use a format like secretsmanager:ResourceTag/tag-key
         if some_str.startswith(document_key.split("tag-key")[0]):
             return True

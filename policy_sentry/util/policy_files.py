@@ -75,7 +75,7 @@ def get_actions_from_json_policy_file(file: str | Path) -> list[str]:
         # in this tool. [MJ]
         data = orjson.loads(Path(file).read_bytes())
         actions_list = get_actions_from_policy(data)
-    except:  # noqa: E722
+    except:  # ruff: ignore[bare-except]
         logger.debug("General Error at get_actions_from_json_policy_file.")
         actions_list = []
     return actions_list

@@ -148,7 +148,7 @@ class ARN:
             if "/" in self.resource_string and "/" in elements[5]:
                 return True
             # / not being present in either means it's a bucket in both so it matches
-            if "/" not in self.resource_string and "/" not in elements[5]:  # noqa: SIM103
+            if "/" not in self.resource_string and "/" not in elements[5]:  # ruff: ignore[needless-bool]
                 return True
             # If there is a / in one but not in the other, it does not match
             return False

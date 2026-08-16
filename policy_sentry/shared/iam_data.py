@@ -61,7 +61,7 @@ def get_service_prefix_data(service_prefix: str) -> dict[str, Any]:
     """
     try:
         return cast("dict[str, Any]", iam_definition[service_prefix])
-    except:  # noqa: E722
+    except:  # ruff: ignore[bare-except]
         if service_prefix == "catalog":
             # the resource types "Portfolio" and "Product" have the service name "catalog" in their ARN
             # https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsservicecatalog.html#awsservicecatalog-resources-for-iam-policies

@@ -1,4 +1,4 @@
-# ruff: noqa: RUF067
+# ruff: file-ignore[non-empty-init-module]
 from __future__ import annotations
 
 import logging
