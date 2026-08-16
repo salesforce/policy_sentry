@@ -249,15 +249,11 @@ class QueryActionsTestCase(unittest.TestCase):
         write_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "Write")
         tagging_output = get_actions_at_access_level_that_support_wildcard_arns_only("secretsmanager", "Tagging")
         permissions_output = get_actions_at_access_level_that_support_wildcard_arns_only("s3", "Permissions management")
-        # print(json.dumps(read_output, indent=4))
-        # print(json.dumps(list_output, indent=4))
-        # print(json.dumps(write_output, indent=4))
-        # print(json.dumps(tagging_output, indent=4))
-        # print(json.dumps(permissions_output, indent=4))
-        self.assertListEqual(read_output, ["secretsmanager:GetRandomPassword"])
+
+        self.assertListEqual(read_output, ["secretsmanager:BatchGetSecretValue", "secretsmanager:GetRandomPassword"])
         self.assertListEqual(
             list_output,
-            ["secretsmanager:BatchGetSecretValue", "secretsmanager:ListSecrets"],
+            ["secretsmanager:ListSecrets"],
         )
         self.assertListEqual(write_output, [])
         self.assertListEqual(tagging_output, [])
@@ -333,10 +329,7 @@ class QueryActionsTestCase(unittest.TestCase):
 
     def test_get_actions_with_arn_type_and_access_level_case_4(self):
         """querying.actions.get_actions_with_arn_type_and_access_level with arn type"""
-        desired_output = [
-            "secretsmanager:BatchGetSecretValue",
-            "secretsmanager:ListSecrets",
-        ]
+        desired_output = ["secretsmanager:ListSecrets"]
         output = get_actions_with_arn_type_and_access_level("secretsmanager", "*", "List")
         self.assertCountEqual(desired_output, output)
 
