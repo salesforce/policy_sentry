@@ -34,7 +34,7 @@ The wildcard-only section is meant to hold IAM actions that do not support resou
 For example, run a query against the IAM database to determine "which S3 actions at the LIST access level do not support resource constraints":
 
 ```bash
-policy_sentry query action-table --service s3 --access-level list --wildcard-only
+policy_sentry query action-table --service s3 --access-level list --resource-type "*"
 ```
 
 The output will be:
@@ -49,7 +49,7 @@ The output will be:
 Similarly, S3 has a few actions that at the "Read" access level that do not support resource constraints. Run this query against the IAM database to discover those actions:
 
 ```bash
-policy_sentry query action-table --service s3 --access-level read --wildcard-only
+policy_sentry query action-table --service s3 --access-level read --resource-type "*"
 ```
 
 The output will be:
