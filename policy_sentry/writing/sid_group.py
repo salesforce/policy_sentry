@@ -268,10 +268,19 @@ class SidGroup:
         if sids_to_be_changed:
             for stmt in statements:
                 if stmt["Sid"] in sids_to_be_changed:
-                    arn_details = parse_arn(stmt["Resource"][0])
-                    resource_path = arn_details.get("resource_path")
-                    resource_sid_segment = strip_special_characters(f"{arn_details['resource']}{resource_path}")
-                    stmt["Sid"] = create_policy_sid_namespace(arn_details["service"], "Mult", resource_sid_segment)
+                    resource = stmt["Resource"][0]
+                    # Wildcard resources (e.g. skip-resource-constraints / MultMultNone)
+                    # are not valid ARNs. Keep the existing Sid instead of calling parse_arn.
+                    # Fixes https://github.com/salesforce/policy_sentry/issues/405
+                    if resource != "*":
+                        arn_details = parse_arn(resource)
+                        resource_path = arn_details.get("resource_path")
+                        resource_sid_segment = strip_special_characters(
+                            f"{arn_details['resource']}{resource_path}"
+                        )
+                        stmt["Sid"] = create_policy_sid_namespace(
+                            arn_details["service"], "Mult", resource_sid_segment
+                        )
                     # If we have combined the statements, minimize it again
                     if minimize is not None and isinstance(minimize, int):
                         actions = minimize_statement_actions(stmt["Action"], all_actions, minchars=minimize)
