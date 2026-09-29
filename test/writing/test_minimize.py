@@ -349,3 +349,35 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             len(actions),
             "There should be no duplicate strings in the actions.",
         )
+
+
+    def test_minimize_with_skip_resource_constraints_GH_405(self):
+        """Regression for #405: skip-resource-constraints + --minimize must not crash on Resource '*'"""
+        cfg = {
+            "mode": "crud",
+            "name": "Example",
+            "wildcard-only": {
+                "service-read": ["s3"],
+                "service-list": ["s3"],
+            },
+            "skip-resource-constraints": ["s3:GetBucketVersioning"],
+        }
+        sid_grp = SidGroup()
+        results = sid_grp.process_template(cfg, minimize=0)
+        self.assertIn("Statement", results)
+        self.assertGreaterEqual(len(results["Statement"]), 1)
+        # All statements with wildcard resources should render without raising
+        for stmt in results["Statement"]:
+            self.assertTrue(stmt["Resource"])
+            self.assertTrue(stmt["Action"])
+            # Resource may be ["*"] for skip/wildcard-only SIDs
+            for resource in stmt["Resource"]:
+                self.assertIsInstance(resource, str)
+        actions = []
+        for stmt in results["Statement"]:
+            actions.extend(stmt["Action"])
+        # skip-resource-constraints action (possibly minimized) must be present
+        self.assertTrue(
+            any(a.lower().startswith("s3:getbucketv") for a in actions),
+            f"Expected s3:GetBucketVersioning (possibly minimized) in {actions}",
+        )
