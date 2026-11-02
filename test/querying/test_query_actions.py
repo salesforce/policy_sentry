@@ -1,7 +1,11 @@
 import unittest
 import os
 import json
+
+from click.testing import CliRunner
 from schema import Optional, Schema, And, Use, SchemaError
+
+from policy_sentry.command.query import query
 from policy_sentry.shared.iam_data import get_service_prefix_data
 from policy_sentry.querying.actions import (
     get_actions_for_service,
@@ -595,3 +599,44 @@ class QueryActionsTestCase(unittest.TestCase):
     #     # access_level = "Permissions management"
     #     results = get_actions_with_access_level(service_prefix, access_level)
     #     print(json.dumps(results, indent=4))
+
+
+class QueryActionsCaseInsensitivityTestCase(unittest.TestCase):
+    """get_actions_for_service / get_action_data accept any case for the service prefix."""
+
+    def test_get_actions_for_service_uppercase_service_prefix(self):
+        self.assertEqual(get_actions_for_service("S3"), get_actions_for_service("s3"))
+        for action in get_actions_for_service("S3"):
+            self.assertTrue(action.startswith("s3:"))
+
+    def test_get_actions_for_service_catalog_alias_keeps_catalog_prefix(self):
+        self.assertEqual(get_actions_for_service("CATALOG"), get_actions_for_service("catalog"))
+        for action in get_actions_for_service("CATALOG"):
+            self.assertTrue(action.startswith("catalog:"))
+
+    def test_get_action_data_uppercase_service_preserves_caller_key(self):
+        baseline = get_action_data("s3", "GetObject")["s3"]
+        result = get_action_data("S3", "gEtObJeCt")
+        self.assertEqual(result, {"S3": baseline})
+        self.assertEqual(result["S3"][0]["action"], "s3:GetObject")
+
+    def test_get_action_data_unknown_service_prefix_returns_empty(self):
+        """An unknown service prefix normalizes but yields no data and raises no error."""
+        self.assertEqual(get_action_data("NOSUCHSERVICE", "GetObject"), {})
+        self.assertEqual(get_action_data("NoSuchService", "Get*"), {})
+
+    def test_get_action_data_uppercase_wildcard_name(self):
+        self.assertEqual(
+            get_action_data("S3", "Get*"),
+            {"S3": get_action_data("s3", "Get*")["s3"]},
+        )
+
+    def test_cli_query_action_table_uppercase_service_matches_lowercase(self):
+        """`query action-table -s S3 -n GetObject` must emit the same action data as `-s s3`."""
+        runner = CliRunner()
+        upper = runner.invoke(query, ["action-table", "--service", "S3", "--name", "GetObject"])
+        lower = runner.invoke(query, ["action-table", "--service", "s3", "--name", "GetObject"])
+        self.assertEqual(upper.exit_code, 0)
+        self.assertEqual(lower.exit_code, 0)
+        self.assertIn('"s3:GetObject"', upper.output)
+        self.assertEqual(json.loads(upper.output)["S3"], json.loads(lower.output)["s3"])
