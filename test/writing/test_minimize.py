@@ -349,3 +349,29 @@ class MinimizeWildcardActionsTestCase(unittest.TestCase):
             len(actions),
             "There should be no duplicate strings in the actions.",
         )
+
+
+class MinimizeSkipResourceConstraintsTestCase(unittest.TestCase):
+    def test_gh_405_skip_resource_constraints_with_minimize(self):
+        """GH-405: combining skip-resource-constraints with minimize must not crash.
+
+        Statements whose Resource is not a parseable ARN (e.g. "*") previously
+        caused parse_arn to raise during the SID rewrite pass.
+        """
+        crud_template = {
+            "mode": "crud",
+            "name": "example",
+            "wildcard-only": {
+                "service-read": ["s3"],
+                "service-list": ["s3"],
+            },
+            "skip-resource-constraints": ["s3:GetBucketVersioning"],
+        }
+        sid_group = SidGroup()
+        policy = sid_group.process_template(crud_template, minimize=0)
+        self.assertEqual(policy["Version"], "2012-10-17")
+        actions = [action for stmt in policy["Statement"] for action in stmt["Action"]]
+        # The skip-resource-constraints action must survive minimization
+        self.assertIn("s3:getbucketv*", actions)
+        for stmt in policy["Statement"]:
+            self.assertEqual(stmt["Resource"], ["*"])
