@@ -1,5 +1,6 @@
 import unittest
-from policy_sentry.analysis.expand import get_expanded_policy
+
+from policy_sentry.analysis.expand import determine_actions_to_expand, expand, get_expanded_policy
 
 
 class PolicyExpansionTestCase(unittest.TestCase):
@@ -67,3 +68,25 @@ class PolicyExpansionTestCase(unittest.TestCase):
         ]
         for action in expected_actions:
             self.assertTrue(action in output["Statement"][0]["Action"])
+
+
+class ActionCaseInsensitivityTestCase(unittest.TestCase):
+    """AWS action/service names are case insensitive; expansion must follow suit."""
+
+    def test_expand_uppercase_service_wildcard_matches_lowercase(self):
+        self.assertEqual(expand("S3:*"), expand("s3:*"))
+        self.assertTrue(expand("S3:*"))
+
+    def test_expand_uppercase_action_wildcard_matches_lowercase(self):
+        self.assertEqual(expand("S3:Get*"), expand("s3:Get*"))
+        self.assertTrue(expand("S3:Get*"))
+
+    def test_expand_mixed_case_action_pattern_matches_lowercase(self):
+        self.assertEqual(expand("S3:gEt*"), expand("s3:Get*"))
+
+    def test_expand_unknown_wildcard_still_passes_through(self):
+        self.assertEqual(expand("nosuchservice:*"), ["nosuchservice:*"])
+
+    def test_expand_non_wildcard_is_unchanged(self):
+        self.assertEqual(expand("S3:GetObject"), ["S3:GetObject"])
+        self.assertEqual(determine_actions_to_expand(["S3:GetObject"]), ["S3:GetObject"])

@@ -35,6 +35,9 @@ def get_actions_for_service(service_prefix: str, lowercase: bool = False) -> lis
     Returns:
         List: A list of actions
     """
+    # AWS service prefixes and action names are case insensitive; normalize so an
+    # uppercase prefix does not silently return an empty list.
+    service_prefix = service_prefix.lower()
     service_prefix_data = get_service_prefix_data(service_prefix)
     results = []
     if service_prefix_data and isinstance(service_prefix_data, dict):
@@ -61,7 +64,9 @@ def get_action_data(service: str, action_name: str) -> dict[str, list[dict[str, 
     """
     action_data_results: dict[str, list[dict[str, Any]]] = {}
     try:
-        service_prefix_data = get_service_prefix_data(service)
+        # The service prefix is case insensitive; the caller's spelling is preserved
+        # as the returned mapping key so existing consumers keep working.
+        service_prefix_data = get_service_prefix_data(service.lower())
         if not service_prefix_data:
             return action_data_results
 
