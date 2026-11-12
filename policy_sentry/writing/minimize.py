@@ -77,11 +77,15 @@ def minimize_statement_actions(
 
     desired_actions = [x.lower() for x in desired_actions]
     desired_services = {f"{action.split(':')[0]}:" for action in desired_actions}
-    filtered_actions = {
-        action for action in all_actions if any(action.startswith(service) for service in desired_services)
-    }
+    filtered_actions = set()
+    for action in all_actions:
+        for service in desired_services:
+            if action.startswith(service):
+                filtered_actions.add(action)
+                break
 
     denied_prefixes = get_denied_prefixes_from_desired(desired_actions, filtered_actions)
+    desired_action_set = set(desired_actions)
     for action in desired_actions:
         if action in denied_prefixes:
             # print("Action is a denied prefix. Action: {}".format(action))
@@ -90,13 +94,14 @@ def minimize_statement_actions(
 
         found_prefix = False
         prefixes = _get_prefixes_for_action(action)
+        permission_start = len(prefixes[0])
         for prefix in prefixes:
-            permission = prefix.split(":")[1]
+            permission = prefix[permission_start:]
             if check_min_permission_length(permission, minchars=minchars):
                 continue
             # If the action name is not empty
             if prefix not in denied_prefixes and permission:
-                minimized_actions.add(prefix if prefix in desired_actions else f"{prefix}*")
+                minimized_actions.add(prefix if prefix in desired_action_set else f"{prefix}*")
                 found_prefix = True
                 break
 
