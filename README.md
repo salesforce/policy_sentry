@@ -472,8 +472,8 @@ The Terraform module is published and maintained [here](https://github.com/sales
 [9]: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
 [10]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/permissions-reference-cwe.html
 [11]: https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys
-[12]: https://policy-sentry.readthedocs.io/en/latest/user-guide/initialize.html
-[13]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#crud-mode-arns-and-access-levels
-[14]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#actions-mode-lists-of-iam-actions
+[12]: https://policy-sentry.readthedocs.io/en/latest/other/initialize/
+[13]: https://policy-sentry.readthedocs.io/en/latest/writing-policies/crud-mode/
+[14]: https://policy-sentry.readthedocs.io/en/latest/writing-policies/actions-mode/
 [15]: https://policy-sentry.readthedocs.io/en/latest/user-guide/write-policy.html#folder-mode-write-multiple-policies-from-crud-mode-files
 

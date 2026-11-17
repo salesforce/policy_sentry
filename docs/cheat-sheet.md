@@ -7,15 +7,15 @@ Cheat sheet
 - `create-template`: Creates the YML file templates for use in the `write-policy` command types.
 
 - `write-policy`: Leverage a YAML file to write policies for you
-    * Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/introduction.html)
-    * Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/introduction.html).
+    * Option 1: Specify CRUD levels (Read, Write, List, Tagging, or Permissions management) and the ARN of the resource. It will write this for you. See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/)
+    * Option 2: Specify a list of actions. It will write the IAM Policy for you, but you will have to fill in the ARNs. See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/).
 
 - `query`: Query the IAM database tables. This can help when filling out the Policy Sentry templates, or just querying the database for quick knowledge.
     * Option 1: Query the Actions Table (`action-table`)
     * Option 2: Query the ARNs Table (`arn-table`)
     * Option 3: Query the Conditions Table (`condition-table`)
 
-- `initialize`: (Optional). Create a JSON file to use as a data source that contains all of the services available through the [Actions, Resources, and Condition Keys documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html). See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/introduction.html).
+- `initialize`: (Optional). Create a JSON file to use as a data source that contains all of the services available through the [Actions, Resources, and Condition Keys documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html). See the [documentation](https://policy-sentry.readthedocs.io/en/latest/introduction/).
 
 ### Policy Writing cheat sheet
 

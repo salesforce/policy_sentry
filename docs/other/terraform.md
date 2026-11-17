@@ -7,7 +7,7 @@ The Terraform module is published
 Prerequisites
 -------------
 
-1.  You must have Policy Sentry (at least version 0.7.0.2) installed beforehand and it must be executable from your `$PATH]`. Installation instructions are [here](https://policy-sentry.readthedocs.io/en/latest/user-guide/installation.html).
+1.  You must have Policy Sentry (at least version 0.7.0.2) installed beforehand and it must be executable from your `$PATH]`. Installation instructions are [here](https://policy-sentry.readthedocs.io/en/latest/installation/).
 2.  You must have at least Terraform 0.12.8 installed.
 
 Note
