@@ -4,7 +4,7 @@ Builds secure IAM Policies with resource constraints. For more information on Po
 
 ## Prerequisites
 
-* You must have Policy Sentry 0.10.0 installed beforehand and it must be executable from your `$PATH`. Follow the installation instructions [here](https://policy-sentry.readthedocs.io/en/latest/user-guide/installation.html)
+* You must have Policy Sentry 0.10.0 installed beforehand and it must be executable from your `$PATH`. Follow the installation instructions [here](https://policy-sentry.readthedocs.io/en/latest/installation/)
   * This module requires Terraform 0.12.8 or higher. It has been tested through 0.13.5.
 
 ## Usage
